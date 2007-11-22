@@ -1,0 +1,4573 @@
+# Turkish translation of gnome-applets.
+# Copyright (C) 2002, 2004, 2005 Free Software Foundation, Inc.
+# Sinan Imamoglu <sinan@myrealbox.com>, 2003.
+# Baris Cicek <baris@teamforce.name.tr>, 2004, 2005.
+# Emre Kadıoğlu <emrek@gawab.com>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-applets\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-09-01 18:55+0300\n"
+"PO-Revision-Date: 2005-09-01 00:00+0200\n"
+"Last-Translator: Baris Cicek <baris@teamforce.name.tr>\n"
+"Language-Team: Turkish <gnome-turk@gnome.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: KBabel 1.9.1\n"
+
+#: ../accessx-status/GNOME_AccessxApplet.xml.h:1
+#: ../battstat/GNOME_BattstatApplet.xml.h:1
+#: ../charpick/GNOME_CharpickerApplet.xml.h:1
+#: ../cpufreq/GNOME_CPUFreqApplet.xml.h:1
+#: ../drivemount/GNOME_DriveMountApplet.xml.h:1
+#: ../geyes/GNOME_GeyesApplet.xml.h:1
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:2 ../gtik/GNOME_GtikApplet.xml.h:1
+#: ../gweather/GNOME_GWeatherApplet.xml.h:1
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.xml.h:1
+#: ../mixer/GNOME_MixerApplet.xml.h:1 ../modemlights/GNOME_ModemLights.xml.h:1
+#: ../multiload/GNOME_MultiloadApplet.xml.h:1
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:1
+#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:1
+msgid "_About"
+msgstr "_Hakkında"
+
+#: ../accessx-status/GNOME_AccessxApplet.xml.h:2
+#: ../battstat/GNOME_BattstatApplet.xml.h:2
+#: ../charpick/GNOME_CharpickerApplet.xml.h:2
+#: ../cpufreq/GNOME_CPUFreqApplet.xml.h:2
+#: ../drivemount/GNOME_DriveMountApplet.xml.h:2
+#: ../geyes/GNOME_GeyesApplet.xml.h:2
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:4 ../gtik/GNOME_GtikApplet.xml.h:2
+#: ../gweather/GNOME_GWeatherApplet.xml.h:3
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.xml.h:2
+#: ../mixer/GNOME_MixerApplet.xml.h:2 ../modemlights/GNOME_ModemLights.xml.h:4
+#: ../multiload/GNOME_MultiloadApplet.xml.h:2
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:3
+#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:3
+msgid "_Help"
+msgstr "_Yardım"
+
+#: ../accessx-status/GNOME_AccessxApplet.xml.h:3
+msgid "_Keyboard Accessibility Preferences"
+msgstr "Klavye _Erişilebilirlik Tercihleri"
+
+#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:1
+msgid "AccessX Status Applet Factory"
+msgstr "AccessX Durum Uygulamacığı Üreticisi"
+
+#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:2
+#: ../accessx-status/applet.c:1322
+msgid "Keyboard Accessibility Status"
+msgstr "Klavye Erişilebilirlik Durumu"
+
+#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:3
+msgid "Keyboard Accessibility Status Applet Factory"
+msgstr "Klavye Erişilebilirlik Durumu Uygulamacığı Üreticisi"
+
+#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:4
+msgid "Shows the status of keyboard accessibility features"
+msgstr "Klavye erişilebilirlik özellikleri durumunu gösterir"
+
+#: ../accessx-status/applet.c:138 ../accessx-status/applet.c:971
+#: ../accessx-status/applet.c:1111 ../accessx-status/applet.c:1325
+msgid "AccessX Status"
+msgstr "AccessX Durumu"
+
+#: ../accessx-status/applet.c:140
+msgid "Shows the state of AccessX features such as latched modifiers"
+msgstr ""
+"AccessX özelliklerinin durumunu sürgülü (latched) düzenleyiciler olarak "
+"gösterir"
+
+#. "documenters",        documenters,
+#: ../accessx-status/applet.c:145 ../battstat/battstat_applet.c:1137
+#: ../charpick/charpick.c:596 ../cpufreq/src/cpufreq-applet.c:224
+#: ../geyes/geyes.c:197 ../gswitchit/gswitchit-applet.c:745 ../gtik/gtik.c:730
+#: ../gweather/gweather-about.c:55 ../mini-commander/src/about.c:55
+#: ../mixer/applet.c:1265 ../modemlights/modem-applet.c:1040
+#: ../multiload/main.c:64 ../stickynotes/stickynotes_applet_callbacks.c:377
+#: ../trashapplet/src/trashapplet.c:720
+msgid "translator-credits"
+msgstr "Emre Kadıoğlu <kadiogluemre@gmail.com>"
+
+#: ../accessx-status/applet.c:171
+#, c-format
+msgid "There was an error launching the help viewer: %s"
+msgstr "Yardım görüntüleyici açılırken bir hata oluştu: %s"
+
+#: ../accessx-status/applet.c:210
+#, c-format
+msgid "There was an error launching the keyboard preferences dialog: %s"
+msgstr "Klavye penceresi açılırken bir hata oluştu: %s"
+
+#. Note to translators: the first letter of the alphabet, not the indefinite article
+#: ../accessx-status/applet.c:459 ../accessx-status/applet.c:497
+msgid "a"
+msgstr "a"
+
+#: ../accessx-status/applet.c:972 ../accessx-status/applet.c:1112
+msgid "Shows keyboard status when accessibility features are used."
+msgstr "Erişilebilirlik özellikleri kullanıldığında klavye durumunu gösterir."
+
+#: ../accessx-status/applet.c:1006
+msgid "XKB Extension is not enabled"
+msgstr "XKB Eklentileri etkin değil"
+
+#: ../accessx-status/applet.c:1011
+msgid "Unknown error"
+msgstr "Bilinmeyen hata"
+
+#: ../accessx-status/applet.c:1019
+#, c-format
+msgid "Error: %s"
+msgstr "Hata: %s"
+
+#: ../accessx-status/applet.c:1327
+msgid "Displays current state of keyboard accessibility features"
+msgstr "Klavye erişilebilirlik özelliklerini mevcut durumunu gösterir"
+
+#: ../battstat/GNOME_BattstatApplet.server.in.in.h:1
+#: ../battstat/battstat_applet.c:1128 ../battstat/battstat_applet.c:1594
+msgid "Battery Charge Monitor"
+msgstr "Batarya Şarj İzleyicisi"
+
+#: ../battstat/GNOME_BattstatApplet.server.in.in.h:2
+msgid "Battstat Factory"
+msgstr "Battstat Üreticisi"
+
+#: ../battstat/GNOME_BattstatApplet.server.in.in.h:3
+#: ../battstat/battstat_applet.c:1595
+msgid "Monitor a laptop's remaining power"
+msgstr "Dizüstü bilgisayarın kalan gücünü izler"
+
+#: ../battstat/GNOME_BattstatApplet.xml.h:3
+#: ../charpick/GNOME_CharpickerApplet.xml.h:3
+#: ../cpufreq/GNOME_CPUFreqApplet.xml.h:3 ../geyes/GNOME_GeyesApplet.xml.h:3
+#: ../gtik/GNOME_GtikApplet.xml.h:3 ../gweather/GNOME_GWeatherApplet.xml.h:4
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.xml.h:3
+#: ../mixer/GNOME_MixerApplet.xml.h:5
+#: ../multiload/GNOME_MultiloadApplet.xml.h:4
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:6
+msgid "_Preferences"
+msgstr "_Tercihler"
+
+#: ../battstat/battstat.schemas.in.h:1
+msgid "0 for no label, 1 for percentage and 2 for time remaining"
+msgstr "Etiket olmaması için 0, yüzde için 1 ve kalan zaman için 2"
+
+#: ../battstat/battstat.schemas.in.h:2
+msgid "Beep for warnings"
+msgstr "Uyarılarda biple"
+
+#: ../battstat/battstat.schemas.in.h:3
+msgid "Beep when displaying a warning"
+msgstr "Bir uyarı görüntülendiğinde biple"
+
+#: ../battstat/battstat.schemas.in.h:4
+msgid "Drain from top"
+msgstr "Yukarıdan boşalt"
+
+#: ../battstat/battstat.schemas.in.h:5
+msgid "Full Battery Notification"
+msgstr "Tam Batarya Uyarısı"
+
+#: ../battstat/battstat.schemas.in.h:6
+msgid "Low Battery Notification"
+msgstr "Düşük Batarya Uyarısı"
+
+#: ../battstat/battstat.schemas.in.h:7
+msgid "Notify user when the battery is full"
+msgstr "Batarya tam olduğunda kullanıcıyı uyar"
+
+#: ../battstat/battstat.schemas.in.h:8
+msgid "Notify user when the battery is low"
+msgstr "Batarya az kaldığında kullanıcıyı uyar"
+
+#: ../battstat/battstat.schemas.in.h:9
+msgid "Red value level"
+msgstr "Kırmızı değer uyarısı"
+
+#: ../battstat/battstat.schemas.in.h:10
+msgid ""
+"Show the battery meter draining from the top of the battery. Only "
+"implemented for traditional battery view."
+msgstr ""
+"Batarya ölçüsünü bataryanın yukarısından boşalır şekilde göster. Sadece "
+"geleneksel batarya görünümü için uygulanmıştır."
+
+#: ../battstat/battstat.schemas.in.h:11
+msgid "Show the horizontal battery"
+msgstr "Yatay batarya göster"
+
+#: ../battstat/battstat.schemas.in.h:12
+msgid "Show the time/percent label"
+msgstr "Zaman/yüzde etiketi göster"
+
+#: ../battstat/battstat.schemas.in.h:13
+msgid "Show the traditional, horizontal battery on the panel"
+msgstr "Panelde geleneksel yatay bataryayı göster"
+
+#: ../battstat/battstat.schemas.in.h:14
+msgid "Show the upright, smaller battery on the panel"
+msgstr "Panelde yukarı doğru olan ufak bataryayı göster"
+
+#: ../battstat/battstat.schemas.in.h:15
+msgid ""
+"The battery level below which the battery is displayed as red. Also the "
+"value at which the low battery warning is displayed."
+msgstr ""
+"Bataryanın kırmızı gösterilmesi için en düşük seviye. Ayrıca batarya "
+"uyarısının gösterileceği seviyedir."
+
+#: ../battstat/battstat.schemas.in.h:16
+msgid "Upright (small) battery"
+msgstr "Yukarıya doğru (küçük) batarya"
+
+#: ../battstat/battstat.schemas.in.h:17
+msgid ""
+"Use the value defined in red_value as a time remaining to show the warning "
+"dialog rather than a percentage"
+msgstr ""
+"red_value içinde tanımlanmış değeri uyarı penceresini çıkarmak için kalan "
+"yüzde yerine kalan süre olarak kullan"
+
+#: ../battstat/battstat.schemas.in.h:18
+msgid "Warn on low time rather than low percentage"
+msgstr "Düşük yüzde yerine düşük zaman için uyar"
+
+#: ../battstat/battstat_applet.c:68
+msgid "System is running on AC power"
+msgstr "Sistem AC güc ile çalışıyor"
+
+#: ../battstat/battstat_applet.c:69
+msgid "System is running on battery power"
+msgstr "Sistem batarya gücü ile çalışıyor"
+
+#: ../battstat/battstat_applet.c:338
+#, c-format
+msgid "Battery charged (%d%%)"
+msgstr "Batarya şarj oldu (%%%d)"
+
+#: ../battstat/battstat_applet.c:340
+#, c-format
+msgid "Unknown time (%d%%) remaining"
+msgstr "Bilinmeyen zaman (%%%d) kaldı"
+
+#: ../battstat/battstat_applet.c:342
+#, c-format
+msgid "Unknown time (%d%%) until charged"
+msgstr "Şarj olana kadar bilinmeyen zaman (%%%d)"
+
+#: ../battstat/battstat_applet.c:347
+#, c-format
+msgid "%d minute (%d%%) remaining"
+msgid_plural "%d minutes (%d%%) remaining"
+msgstr[0] "%d dakika (%%%d) kaldı"
+msgstr[1] "%d dakika (%%%d) kaldı"
+
+#: ../battstat/battstat_applet.c:352
+#, c-format
+msgid "%d minute until charged (%d%%)"
+msgid_plural "%d minutes until charged (%d%%)"
+msgstr[0] "şarj olana kadar %d dakika (%%%d)"
+msgstr[1] "şarj olana kadar %d dakika (%%%d)"
+
+#: ../battstat/battstat_applet.c:358
+#, c-format
+msgid "%d hour (%d%%) remaining"
+msgid_plural "%d hours (%d%%) remaining"
+msgstr[0] "%d saat (%d%%) kaldı"
+msgstr[1] "%d saat (%d%%) kaldı"
+
+#: ../battstat/battstat_applet.c:363
+#, c-format
+msgid "%d hour until charged (%d%%)"
+msgid_plural "%d hours until charged (%d%%)"
+msgstr[0] "şarj (%%%2$d) olana kadar %1$d saat"
+
+#. TRANSLATOR: "%d %s %d %s" are "%d hours %d minutes"
+#. * Swap order with "%2$s %2$d %1$s %1$d if needed
+#: ../battstat/battstat_applet.c:370
+#, c-format
+msgid "%d %s %d %s (%d%%) remaining"
+msgstr "%d %s %d %s (%%%d) kaldı"
+
+#: ../battstat/battstat_applet.c:371 ../battstat/battstat_applet.c:378
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] "saat"
+msgstr[1] "saat"
+
+#: ../battstat/battstat_applet.c:372 ../battstat/battstat_applet.c:379
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "dakika"
+msgstr[1] "dakika"
+
+#. TRANSLATOR: "%d %s %d %s" are "%d hours %d minutes"
+#. * Swap order with "%2$s %2$d %1$s %1$d if needed
+#: ../battstat/battstat_applet.c:377
+#, c-format
+msgid "%d %s %d %s until charged (%d%%)"
+msgstr "şarj olana kadar (%%%5$d) %1$d %2$s %3$d %4$s"
+
+#: ../battstat/battstat_applet.c:392
+msgid "Battery Monitor"
+msgstr "Batarya İzleyicisi"
+
+#: ../battstat/battstat_applet.c:413 ../battstat/battstat_applet.c:466
+msgid "Your battery is now fully recharged"
+msgstr "Bataryanız artık tam olarak şarj oldu"
+
+#: ../battstat/battstat_applet.c:442 ../battstat/battstat_applet.c:554
+msgid "Battery Notice"
+msgstr "Batarya Uyarısı"
+
+#: ../battstat/battstat_applet.c:515
+#, c-format
+msgid ""
+"You have %d minute of battery power remaining (%d%% of the total capacity)."
+msgid_plural ""
+"You have %d minutes of battery power remaining (%d%% of the total capacity)."
+msgstr[0] "%d dakika batarya gücünüz kaldı (toplan kapasi yüzdesi %%%d)"
+
+#: ../battstat/battstat_applet.c:524
+msgid "Your battery is running low"
+msgstr "Bataryanız çok azaldı"
+
+#. TRANSLATORS: this is a list, it is left as a single string
+#. * to allow you to make it appear like a list would in your
+#. * locale.
+#: ../battstat/battstat_applet.c:529
+msgid ""
+"To avoid losing your work:\n"
+" • suspend your laptop to save power,\n"
+" • plug your laptop into external power, or\n"
+" • save open documents and shut your laptop down."
+msgstr ""
+"İş kaybına uğramamak için:\n"
+" • güç saklamak için dizüstü bilgisayarınızı askıya alın,\n"
+" • dizüstü bilgisayarınızı harici bir güç kaynağına takın, ya da\n"
+" • açık belgeleri kaydedin ve dizüstü bilgisayarınızı kapatın."
+
+#: ../battstat/battstat_applet.c:626
+msgid "No battery present"
+msgstr "Batarya mevcut değil"
+
+#: ../battstat/battstat_applet.c:629
+msgid "Battery status unknown"
+msgstr "Batarya durumu bilinmiyor"
+
+#: ../battstat/battstat_applet.c:788
+msgid "N/A"
+msgstr "Yok"
+
+#: ../battstat/battstat_applet.c:1085 ../drivemount/drivemount.c:166
+#: ../geyes/geyes.c:350 ../geyes/themes.c:251
+#: ../gweather/gweather-applet.c:252 ../gweather/gweather-pref.c:1375
+#: ../mini-commander/src/preferences.c:370
+#: ../stickynotes/stickynotes_applet_callbacks.c:341
+#: ../stickynotes/stickynotes_applet_callbacks.c:549
+#: ../trashapplet/src/trashapplet.c:687
+#, c-format
+msgid "There was an error displaying help: %s"
+msgstr "Yardım gösterilirken hata oluştu: %s"
+
+#: ../battstat/battstat_applet.c:1133
+msgid "This utility shows the status of your laptop battery."
+msgstr "Bu araç dizüstü bilgisayarınızın batarya durumunu gösterir."
+
+#: ../battstat/battstat_applet.glade.h:1
+msgid "<b>Appearance</b>"
+msgstr "<b>Görünüm</b>"
+
+#: ../battstat/battstat_applet.glade.h:2
+msgid "<b>Notifications</b>"
+msgstr "<b>Uyarılar</b>"
+
+#: ../battstat/battstat_applet.glade.h:3
+msgid "<small>(shows single image for status and charge)</small>"
+msgstr "<small>(durum ve şarj için ufak resim gösterir)</small>"
+
+#: ../battstat/battstat_applet.glade.h:4
+msgid "<small>(two images: one for status, one for charge)</small>"
+msgstr "<small>(iki resim: biri durum için, biri şarj için)</small>"
+
+#: ../battstat/battstat_applet.glade.h:5
+msgid "Battery Charge Monitor Preferences"
+msgstr "Batarya Doluluğu İzleyici Tercihleri"
+
+#: ../battstat/battstat_applet.glade.h:6
+msgid "Show _percentage remaining"
+msgstr "Kalan _yüzdeyi göster"
+
+#: ../battstat/battstat_applet.glade.h:7
+msgid "Show _time remaining"
+msgstr "Kalan _zamanı göster"
+
+#: ../battstat/battstat_applet.glade.h:8
+msgid "_Compact view"
+msgstr "_Sıkışık görünüm"
+
+#: ../battstat/battstat_applet.glade.h:9
+msgid "_Expanded view"
+msgstr "_Genişletilmiş görünüm"
+
+#: ../battstat/battstat_applet.glade.h:10
+msgid "_Notify when battery is fully recharged"
+msgstr "Batarya _tam olarak dolduğunda uyar"
+
+#: ../battstat/battstat_applet.glade.h:11
+msgid "_Show time/percentage:"
+msgstr "_Kalan zamanı/yüzdeyi göster:"
+
+#. TRANSLATOR: This is the beginning of the sentence 'Warn when battery charge drops to: [XX] percent/minutes remaining'
+#: ../battstat/battstat_applet.glade.h:13
+msgid "_Warn when battery charge drops to:"
+msgstr "Batarya seviyesi düştüğünde _uyar:"
+
+#. TRANSLATOR: this is a selectable item in a drop-down menu to end
+#. * this sentence:
+#. *   "Warn when battery charge drops to: [XX] percent".
+#.
+#: ../battstat/properties.c:318
+msgid "Percent"
+msgstr "Yüzdesinde"
+
+#. TRANSLATOR: this is a selectable item in a drop-down menu to end
+#. * this sentence:
+#. *   "Warn when battery charge drops to: [XX] minutes remaining"
+#.
+#: ../battstat/properties.c:324
+msgid "Minutes Remaining"
+msgstr "Dakika Kaldığında"
+
+#: ../battstat/sounds/battstat_applet.soundlist.in.h:1
+msgid "Battery Status Utility"
+msgstr "Batarya Durumu Aracı"
+
+#: ../battstat/sounds/battstat_applet.soundlist.in.h:2
+msgid "Battery fully re-charged"
+msgstr "Batarya tümüyle şarj edildi"
+
+#: ../battstat/sounds/battstat_applet.soundlist.in.h:3
+msgid "Battery power low"
+msgstr "Batarya gücü zayıf"
+
+#: ../charpick/GNOME_CharpickerApplet.server.in.in.h:1
+#: ../charpick/charpick.c:587 ../charpick/charpick.c:726
+#: ../charpick/properties.c:464
+msgid "Character Palette"
+msgstr "Karakter Paleti"
+
+#: ../charpick/GNOME_CharpickerApplet.server.in.in.h:2
+msgid "Charpicker Applet Factory"
+msgstr "Harf Seçici Uygulamacığı Üreticisi"
+
+#: ../charpick/GNOME_CharpickerApplet.server.in.in.h:3
+#: ../charpick/charpick.c:726
+msgid "Insert characters"
+msgstr "Karakterler ekle"
+
+#: ../charpick/charpick.c:427
+msgid "Available palettes"
+msgstr "Kullanılabilir paletler"
+
+#. TRANSLATOR: This sentance reads something like 'Insert "PILCROW SIGN"'
+#. *             hopefully, the name of the unicode character has already
+#. *             been translated.
+#.
+#: ../charpick/charpick.c:474
+#, c-format
+msgid "Insert \"%s\""
+msgstr "Ekle \"%s\""
+
+#: ../charpick/charpick.c:477
+msgid "Insert special character"
+msgstr "Özel karakterler ekle"
+
+#: ../charpick/charpick.c:481
+#, c-format
+msgid "insert special character %s"
+msgstr "%s özel karakterini ekle"
+
+#: ../charpick/charpick.c:591
+msgid ""
+"Gnome Panel applet for selecting strange characters that are not on my "
+"keyboard. Released under GNU General Public Licence."
+msgstr ""
+"Tuş takımında olmayan garip karakterleri seçmek için bir Gnome Panel "
+"uygulamacığı. GNU Genel Kamu Lisansına göre yayınlanmıştır."
+
+#: ../charpick/charpick.schemas.in.h:1
+msgid "Characters shown on applet startup"
+msgstr "Uygulamacık başlangıcında gösterilecek karakterler"
+
+#: ../charpick/charpick.schemas.in.h:2
+msgid "DEPRECATED - Characters shown on applet startup"
+msgstr "GEÇERSİZ - Uygulamacık başlangıcında gösterilecek karakterler"
+
+#: ../charpick/charpick.schemas.in.h:3 ../charpick/properties.c:391
+msgid "List of available palettes"
+msgstr "Kullanılabilir paletlerin listesi"
+
+#: ../charpick/charpick.schemas.in.h:4
+msgid "List of strings containing the available palettes"
+msgstr "Kullanılabilir paletleri içeren dizgilerin listesi"
+
+#: ../charpick/charpick.schemas.in.h:5
+msgid ""
+"The string that the user had selected when the applet was last used. This "
+"string will be displayed when the user starts the applet."
+msgstr ""
+"Uygulamacık en son kullanıldığında kullanıcının seçtiği dizgi. Bu dizgi "
+"kullanıcı uygulamacığı başlattığı zaman gösterilecek."
+
+#: ../charpick/properties.c:40
+msgid "_Edit"
+msgstr "_Düzenle"
+
+#: ../charpick/properties.c:129
+msgid "_Palette:"
+msgstr "_Palet:"
+
+#: ../charpick/properties.c:137
+msgid "Palette entry"
+msgstr "Palet girişi"
+
+#: ../charpick/properties.c:138
+msgid "Modify a palette by adding or removing characters"
+msgstr "Karakterler ekleyerek ya da çıkartarak paleti düzenleyin"
+
+#: ../charpick/properties.c:252
+msgid "Add Palette"
+msgstr "Palet Ekle"
+
+#: ../charpick/properties.c:289
+msgid "Edit Palette"
+msgstr "Palet Düzenle"
+
+#: ../charpick/properties.c:390
+msgid "Palettes list"
+msgstr "Palet listesi"
+
+#: ../charpick/properties.c:469
+msgid "_Palettes:"
+msgstr "_Paletler:"
+
+#: ../charpick/properties.c:485
+msgid "Add button"
+msgstr "Düğme ekle"
+
+#: ../charpick/properties.c:486
+msgid "Click to add a new palette"
+msgstr "Yeni bir palet eklemek için tıklayın"
+
+#: ../charpick/properties.c:493
+msgid "Edit button"
+msgstr "Düzenleme düğmesi"
+
+#: ../charpick/properties.c:494
+msgid "Click to edit the selected palette"
+msgstr "Seçili paleti düzenlemek için tıklayın"
+
+#: ../charpick/properties.c:501
+msgid "Delete button"
+msgstr "Silme düğmesi"
+
+#: ../charpick/properties.c:502
+msgid "Click to delete the selected palette"
+msgstr "Seçilen paleti silmek için tıklayın"
+
+#: ../charpick/properties.c:554
+msgid "Character Palette Preferences"
+msgstr "Karakter Paleti Tercihleri"
+
+#: ../cpufreq/GNOME_CPUFreqApplet.server.in.in.h:1
+#: ../cpufreq/src/cpufreq-applet.c:216 ../cpufreq/src/cpufreq-applet.c:811
+msgid "CPU Frequency Scaling Monitor"
+msgstr "İşlemci Frekansı Seviyesi İzleyicisi"
+
+#: ../cpufreq/GNOME_CPUFreqApplet.server.in.in.h:2
+msgid "Monitor the CPU Frequency Scaling"
+msgstr "İşlemci Frekans Seviyesi İzleyicisi"
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:1
+msgid ""
+"A 0 value means to show cpu frequency, 1 to show frequency and units, and 2 "
+"to show percentage instead of frequency."
+msgstr ""
+"0 değeri işlemci frekansını göster; 1 değeri frekansı ve birimleri göster 2 "
+"değeri de frekans yerine yüzde olarak göster anlamına gelir."
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:2
+msgid ""
+"A 0 value means to show the applet in graphic mode (pixmap only), 1 to show "
+"the applet in text mode (not to show the pixmap) and 2 to show the applet in "
+"graphic and text mode."
+msgstr ""
+"0 değeri uygulamacığın grafik kipinde (sadece piksel eşlem) gösterileceği, 1 "
+"değeri uygulamacığın metin kipinde gösterileceğini ve 2 değeri uygulamacığın "
+"hem grafik hem metin kipinde gösterileceği anlamına gelir."
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:3
+msgid "CPU to Monitor"
+msgstr "İzlenecek İşlemci"
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:4
+msgid "Mode to show cpu usage"
+msgstr "İşlemci kullanımını gösteren kip"
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:5
+msgid "Mode to show the frequency selector drop down menu"
+msgstr "Sıklık seçici aşağı açılan menü göstermek için kip"
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:6
+msgid ""
+"Set the CPU to monitor. In a single processor system you don't have to "
+"change it."
+msgstr ""
+"İzlenecek işlemciyi belirle. Tek işlemcili bir sistemde değiştirmenize gerek "
+"yoktur."
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:7
+msgid "The type of text to display (if the text is enabled)."
+msgstr "Gösterilecek metnin türü (eğer metin etkin ise)"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:1
+msgid "<b>Display Settings</b>"
+msgstr "<b>Görüntü Ayarları</b>"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:2
+msgid "<b>Frequency Selector</b>"
+msgstr "<b>Sıklık Seçici</b>"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:3
+msgid "<b>Monitor Settings</b>"
+msgstr "<b>Ekran Ayarları</b>"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:4
+msgid "CPU Frequency Monitor Preferences"
+msgstr "İşlemci Frekansı İzleyicisi Tercihleri"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:5
+msgid "Show CPU frequency as _frequency"
+msgstr "İşlemci frekansını _frekans olarak göster"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:6
+msgid "Show CPU frequency as _percentage"
+msgstr "İşlemci frekansını  _yüzde olarak göster"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:7
+msgid "Show frequency _units"
+msgstr "Frekans _birimlerini göster"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:8
+msgid "Show m_enu:"
+msgstr "_Menü göster:"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:9
+msgid "_Monitored CPU:"
+msgstr "İzlenen _aygıt:"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:10
+msgid "_Show in mode:"
+msgstr "_Gösterim kipi:"
+
+#: ../cpufreq/src/cpufreq-applet.c:185 ../cpufreq/src/cpufreq-prefs.c:267
+msgid "Could not open help document"
+msgstr "Yardım dosyası açılamadı"
+
+#: ../cpufreq/src/cpufreq-applet.c:219
+msgid "This utility shows the current CPU Frequency Scaling."
+msgstr "Bu yardımcı şu anki işlemci frekans seviyesini gösterir."
+
+#: ../cpufreq/src/cpufreq-applet.c:812
+msgid "This utility shows the current CPU Frequency"
+msgstr "Bu yardımcı, şu anki işlemci frekansını gösterir"
+
+#: ../cpufreq/src/cpufreq-prefs.c:331
+msgid "Graphic"
+msgstr "Grafik"
+
+#: ../cpufreq/src/cpufreq-prefs.c:336
+msgid "Text"
+msgstr "Metin"
+
+#: ../cpufreq/src/cpufreq-prefs.c:341
+msgid "Graphic and Text"
+msgstr "Grafik ve Metin"
+
+#: ../cpufreq/src/cpufreq-prefs.c:371 ../cpufreq/src/cpufreq-popup.c:304
+msgid "Frequencies"
+msgstr "Sıklıklar"
+
+#: ../cpufreq/src/cpufreq-prefs.c:376 ../cpufreq/src/cpufreq-popup.c:297
+msgid "Governors"
+msgstr "Yöneticiler"
+
+#: ../cpufreq/src/cpufreq-prefs.c:381
+msgid "Frequencies and Governors"
+msgstr "Sıklık ve Yöneticiler"
+
+#: ../cpufreq/src/cpufreq-monitor-cpuinfo.c:184
+msgid "Frequency Scaling Unsupported"
+msgstr "Frekans Ölçümü Desteklenmiyor"
+
+#. If there is no cpufreq support it shows only the cpu frequency,
+#. * I thi nk is better than do nothing. I have to notify it to the user, because
+#. * he could think   that cpufreq is supported but it doesn't work succesfully
+#.
+#: ../cpufreq/src/cpufreq-monitor-factory.c:45
+msgid "CPU frequency scaling unsupported"
+msgstr "İşlemci frekansı ölçümü desteklenmiyor"
+
+#: ../cpufreq/src/cpufreq-monitor-factory.c:46
+msgid ""
+"You will not be able to modify the frequency of your machine.  Your machine "
+"may be misconfigured or not have hardware support for CPU frequency scaling."
+msgstr ""
+"Makinanızın frekansını değiştiremezsiniz.  Makinanız yanlış yapılandırılmış "
+"ya da işlemci frekansı ölçeklenmesi için gerekli donanıma sahip olmayabilir."
+
+#: ../cpufreq/src/cpufreq-monitor-procfs.c:252
+#: ../cpufreq/src/cpufreq-popup.c:232 ../gweather/weather.c:251
+#: ../gweather/weather.c:931 ../gweather/weather.c:980
+#: ../gweather/weather.c:994 ../gweather/weather.c:1006
+#: ../gweather/weather.c:1021 ../gweather/weather.c:1037
+#: ../gweather/weather.c:1074 ../gweather/weather.c:1086
+#: ../gweather/weather.c:1105 ../gweather/weather.c:1133
+#: ../gweather/weather.c:1146 ../gweather/weather.c:1166
+msgid "Unknown"
+msgstr "Bilinmiyor"
+
+#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:1
+#: ../drivemount/drivemount.c:136
+msgid "Disk Mounter"
+msgstr "Disk Bağlayıcı"
+
+#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:2
+msgid "Drive Mount Applet Factory"
+msgstr "Sürücü Bağlama Uygulamacığı Üreticisi"
+
+#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:3
+msgid "Factory for drive mount applet"
+msgstr "Sürücü bağlama uygulamacığı için üretici"
+
+#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:4
+msgid "Mount local disks and devices"
+msgstr "Yerel diskleri ve aygıtları bağla"
+
+#: ../drivemount/drive-button.c:328 ../drivemount/drive-button.c:336
+msgid "(mounted)"
+msgstr "(bağlı)"
+
+#: ../drivemount/drive-button.c:330 ../drivemount/drive-button.c:338
+msgid "(not mounted)"
+msgstr "(bağlanmamış)"
+
+#: ../drivemount/drive-button.c:332
+msgid "(not connected)"
+msgstr "(bağlantı kurulmamış)"
+
+#: ../drivemount/drive-button.c:506
+#, c-format
+msgid "Cannot execute '%s'"
+msgstr "'%s' çalıştırılamıyor"
+
+#: ../drivemount/drive-button.c:529
+msgid "Mount Error"
+msgstr "Bağlama Hatası"
+
+#: ../drivemount/drive-button.c:532
+msgid "Unmount Error"
+msgstr "Ayrılma hatası"
+
+#: ../drivemount/drive-button.c:535
+msgid "Eject Error"
+msgstr "Çıkartma Hatası"
+
+#: ../drivemount/drive-button.c:538
+msgid "Error"
+msgstr "Hata"
+
+#: ../drivemount/drive-button.c:877
+msgid "_Play DVD"
+msgstr "_DVD Oynat"
+
+#: ../drivemount/drive-button.c:882
+msgid "_Play CD"
+msgstr "_CD Oynat"
+
+#: ../drivemount/drive-button.c:887
+#, c-format
+msgid "_Open %s"
+msgstr "%s _Aç"
+
+#: ../drivemount/drive-button.c:898
+#, c-format
+msgid "_Mount %s"
+msgstr "%s _Bağla"
+
+#: ../drivemount/drive-button.c:905
+#, c-format
+msgid "Un_mount %s"
+msgstr "%s _Ayır"
+
+#: ../drivemount/drive-button.c:912
+#, c-format
+msgid "_Eject %s"
+msgstr "%s _Çıkart"
+
+#: ../drivemount/drivemount.c:139
+msgid "Applet for mounting and unmounting block volumes."
+msgstr "Aygıtları bağlamak ve ayırmak için uygulayıcı."
+
+#: ../drivemount/drivemount.c:142
+msgid "translator_credits"
+msgstr "Barış Çiçek <baris@teamforce.name.tr>\nEmre Kadıoğlu <kadiogluemre@gmail.com>"
+
+#: ../drivemount/drivemount.schemas.in.h:1
+msgid "Interval timeout to check mount point status"
+msgstr "Bağlama noktası durumunu kontrol etmek için zaman aşımı aralığı"
+
+#: ../drivemount/drivemount.schemas.in.h:2
+msgid "Time in seconds between status updates"
+msgstr "Durumun güncellenmesi için saniye cinsinden süre"
+
+#: ../geyes/GNOME_GeyesApplet.server.in.in.h:1
+msgid "A set of eyeballs for your panel"
+msgstr "Paneliniz için bir çift göz"
+
+#: ../geyes/GNOME_GeyesApplet.server.in.in.h:2 ../geyes/geyes.c:190
+#: ../geyes/geyes.c:420 ../geyes/geyes.c:422
+msgid "Geyes"
+msgstr "Geyes"
+
+#: ../geyes/GNOME_GeyesApplet.server.in.in.h:3
+msgid "Geyes Applet Factory"
+msgstr "Geyes Uygulamacığı Üreticisi"
+
+#: ../geyes/geyes.c:192
+msgid "A goofy little xeyes clone for the GNOME panel."
+msgstr "GNOME paneli için şirin bir xeyes klonu."
+
+#: ../geyes/geyes.c:423
+msgid "The eyes look in the direction of the mouse pointer"
+msgstr "Gözler fare imlecinin yönüne bakar"
+
+#: ../geyes/geyes.schemas.in.h:1
+msgid "Directory in which the theme is located"
+msgstr "Temanın bulunduğu dizin"
+
+#: ../geyes/themes.c:134
+msgid "Can not launch the eyes applet."
+msgstr "Gözler uygulamacığı başlatılamıyor."
+
+#: ../geyes/themes.c:135
+msgid "There was a fatal error while trying to load the theme."
+msgstr "Tema yüklenmeye çalışılırken önemli bir hata oluştu."
+
+#: ../geyes/themes.c:311
+msgid "Geyes Preferences"
+msgstr "Geyes Tercihleri"
+
+#: ../geyes/themes.c:345
+msgid "Themes"
+msgstr "Temalar"
+
+#: ../geyes/themes.c:366
+msgid "_Select a theme:"
+msgstr "_Bir tema seçin:"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:1 ../gkb-new/xmodmap.sun/base.xml.in.h:1
+msgid "Alt+Control changes layout."
+msgstr "Alt+Control klavye düzenini değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:2 ../gkb-new/xmodmap.sun/base.xml.in.h:2
+msgid "Alt+Shift changes layout."
+msgstr "Alt+Shift klavye düzenini değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:3
+msgid "Arabic keymap"
+msgstr "Arap tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:4
+msgid "Armenian"
+msgstr "Ermenice"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:5
+msgid "Basque"
+msgstr "Baskça"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:6
+msgid "Belgian"
+msgstr "Belgian"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:7 ../gkb-new/xmodmap.sun/base.xml.in.h:6
+msgid "Both Alt keys together change layout."
+msgstr "Aynı anda iki Alt tuşuna basılması klavye düzenini değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:8 ../gkb-new/xmodmap.sun/base.xml.in.h:7
+msgid "Both Ctrl keys together change layout."
+msgstr "Aynı anda iki Ctrl tuşuna basılması klavye düzenini değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:9 ../gkb-new/xmodmap.sun/base.xml.in.h:8
+msgid "Both Shift keys together change layout."
+msgstr "Aynı anda iki Shift tuşuna basılması klavye düzenini değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:10
+msgid "Brazil Portuguese keymap"
+msgstr "Brazilya Portekizce tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:11
+msgid "Bulgarian Cyrillic"
+msgstr "Bulgarca Kiril"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:12
+msgid "Bulgarian keymap"
+msgstr "Bulgarca tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:13 ../gkb-new/xmodmap.sun/base.xml.in.h:16
+msgid "CapsLock key changes layout."
+msgstr "CapsLock tuşu klavye düzenini değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:14 ../gkb-new/xmodmap.sun/base.xml.in.h:17
+msgid "Control+Shift changes layout."
+msgstr "Ctrl+Shift klavye düzenini değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:15
+msgid "Czech keymap"
+msgstr "Çek tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:16
+msgid "Danish keymap"
+msgstr "Danimarkaca tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:17
+msgid "Dutch keymap"
+msgstr "Flamenk tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:18
+msgid "English keymap"
+msgstr "İngilizce tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:19
+msgid "Estonian keymap"
+msgstr "Estonyaca tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:20
+msgid "Finnish keymap"
+msgstr "Fince tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:21
+msgid "French Swiss"
+msgstr "Fransız İsveç"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:22
+msgid "French Swiss keymap"
+msgstr "Fransız İsveç tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:23
+msgid "French keymap"
+msgstr "Fransızca tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:24
+msgid "French-Canadian 105-key"
+msgstr "Fransız-Kanada 105-tuş"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:25
+msgid "GB 102-key"
+msgstr "GB 102-tuş"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:26
+msgid "GB 105-key"
+msgstr "Britanya 105-tuş"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:27 ../gkb-new/xmodmap.sun/base.xml.in.h:27
+msgid "Generic Keyboard"
+msgstr "Genel Klavye Düzeni"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:28
+msgid "Georgian Latin"
+msgstr "Gürcüce Latin"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:29
+msgid "Georgian Russian layout"
+msgstr "Gürcü Rus düzeni"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:30
+msgid "Georgian keymap"
+msgstr "Gürcüce tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:31
+msgid "German"
+msgstr "Almanca"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:32
+msgid "German Swiss with Euro"
+msgstr "Alman İsveç Euro ile"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:33
+msgid "German keymap"
+msgstr "Almanca tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:34
+msgid "Greek keymap"
+msgstr "Yunanca tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:35
+msgid "Hebrew keymap"
+msgstr "İbranice tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:36
+msgid "Hungarian 101-key latin 1"
+msgstr "Macar 101-tuş latin 1"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:37
+msgid "Hungarian 101-key latin 2"
+msgstr "Macar 101-tuş latin 2"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:38
+msgid "Hungarian 105-key latin 1"
+msgstr "Macar 105-tuş latin 1"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:39
+msgid "Hungarian 105-key latin 2"
+msgstr "Macar 105-tuş latin 2"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:40
+msgid "Hungarian PC/AT 101 keyboard"
+msgstr "Macar PC/AT 101 klavyesi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:41
+msgid "Hungarian latin1"
+msgstr "Macar latin1"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:42
+msgid "Icelandic keymap"
+msgstr "İzlandaca tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:43
+msgid "Italian keymap"
+msgstr "İtalyanca tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:44
+msgid "Japanese keymap"
+msgstr "Japonca tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:45
+msgid "Lao keymap"
+msgstr "Lao tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:46 ../gkb-new/xmodmap.sun/base.xml.in.h:41
+msgid "Layout shift behavior"
+msgstr "Klavye düzenindeki shift davranışı"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:47 ../gkb-new/xmodmap.sun/base.xml.in.h:42
+msgid "Left Alt key changes layout."
+msgstr "Sol Alt tuşu klavye düzenini değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:48 ../gkb-new/xmodmap.sun/base.xml.in.h:43
+msgid "Left Ctrl key changes group."
+msgstr "Sol Ctrl tuşu grubu değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:49 ../gkb-new/xmodmap.sun/base.xml.in.h:44
+msgid "Left Shift key changes group."
+msgstr "Sol Shift tuşu grubu değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:50 ../gkb-new/xmodmap.sun/base.xml.in.h:45
+msgid "Left Win-key changes layout."
+msgstr "Sol Win tuşu klavye düzenini değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:51
+msgid "Lithuanian keymap"
+msgstr "Livtanyaca tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:52
+msgid "Macedonian"
+msgstr "Makedonca"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:53 ../gkb-new/xmodmap.sun/base.xml.in.h:48
+msgid "Menu key changes layout."
+msgstr "Menü tuşu klavye düzenini değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:54
+msgid "Mongolian alt keymap"
+msgstr "Mongolca alt tuşeşlem"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:55
+msgid "Mongolian keymap"
+msgstr "Mongolca tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:56
+msgid "Mongolian phonetic keymap"
+msgstr "Mongolca fonetik tuşeşlem"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:57
+msgid "Norwegian"
+msgstr "Norveççe"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:58
+msgid "Plain Russian keymap"
+msgstr "Düz Rusça tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:59
+msgid "Polish"
+msgstr "Lehçe"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:60
+msgid "Polish deadkeys"
+msgstr "Lehçe Ölü Tuşlar"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:61
+msgid "Portugal"
+msgstr "Portekiz"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:62
+msgid "Portugal Deadkeys"
+msgstr "Portekizce Ölü Tuşlar"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:63
+msgid "Portuguese keymap"
+msgstr "Portekizce tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:64 ../gkb-new/xmodmap.sun/base.xml.in.h:53
+msgid "Right Alt key changes layout."
+msgstr "Sağ Alt tuşu klavye düzenini değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:65 ../gkb-new/xmodmap.sun/base.xml.in.h:54
+msgid "Right Ctrl key changes group."
+msgstr "Sağ Ctrl tuşu grubu değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:66 ../gkb-new/xmodmap.sun/base.xml.in.h:55
+msgid "Right Shift key changes group."
+msgstr "Sağ Shift tuşu grubu değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:67 ../gkb-new/xmodmap.sun/base.xml.in.h:56
+msgid "Right Win-key changes layout."
+msgstr "Sağ Win tuşu klavye düzenini değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:68
+msgid "Russian Cyrillic"
+msgstr "Rusça Kiril"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:69
+msgid "Russian keymap"
+msgstr "Rusça tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:70
+msgid "Serbian keymap"
+msgstr "Sırpça tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:71 ../gkb-new/xmodmap.sun/base.xml.in.h:60
+msgid "Shift+CapsLock changes layout."
+msgstr "Shift+CapsLock klavye düzenini değiştirir."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:72
+msgid "Slovak keymap"
+msgstr "Slovakça tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:73
+msgid "Slovenian"
+msgstr "Slovakça"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:74
+msgid "Slovenian keymap"
+msgstr "Slovakça tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:75
+msgid "Spanish keymap"
+msgstr "İspanyolca tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:76
+msgid "Sun (!not PC!) type5 Hungarian latin 2"
+msgstr "Sun (!PC değil!) tip 5 Macar latin 2"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:77
+msgid "Swedish"
+msgstr "İsveççe"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:78
+msgid "Swedish keymap"
+msgstr "İsveççe tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:79
+msgid "Swiss keymap"
+msgstr "İsveç tuşeşlem"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:80
+msgid "Thai"
+msgstr "Tayland Dili"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:81
+msgid "Thai Kedmanee"
+msgstr "Tayland Dili Kedmanee"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:82
+msgid "Thai keymap"
+msgstr "Tayland dili tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:83
+msgid "Turkish \"F\" keyboard"
+msgstr "Türkçe \"F\" klavye"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:84
+msgid "Turkish \"Q\" keyboard"
+msgstr "Türkçe \"Q\" klavye"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:85
+msgid "Turkish keymap"
+msgstr "Türkçe tuşeşlemi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:86
+msgid "UK 105-key"
+msgstr "Britanya 105-tuş"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:87
+msgid "UK PC/AT keyboard"
+msgstr "Britanya PC/AT klavye"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:88
+msgid "US 101-key keyboard"
+msgstr "ABD 101-tuş klavye"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:89
+msgid "US 105-key keyboard (with windows keys)"
+msgstr "ABD 105-tuş klavye (windows tuşları ile)"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:90
+msgid "US 84-key"
+msgstr "ABD 84-tuş"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:91
+msgid "US DEC 450"
+msgstr "ABD DEC 450"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:92
+msgid "US IBM RS/6000"
+msgstr "ABD IBM RS/6000"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:93
+msgid "US International"
+msgstr "ABD Uluslararası"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:94
+msgid "US Macintosh"
+msgstr "ABD Macintosh"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:95
+msgid "US PC/AT 101 keyboard"
+msgstr "ABD PC/AT 101 klavye"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:96
+msgid "US Silicon Graphics 101-key"
+msgstr "ABD Silicon Graphics 101-tuş"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:97
+msgid "US Sun type5"
+msgstr "ABD Sun tip5"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:3
+msgid "Armenian Sun keymap"
+msgstr "Ermenice Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:4
+msgid "Azerbaijani Turkish Sun keymap"
+msgstr "Azerbaycan Türkçesi Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:5
+msgid "Belarusian Sun keymap"
+msgstr "Belarus Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:9
+msgid "Brazil Portuguese Sun USB keymap"
+msgstr "Brezilya Portekizcesi Sun USB tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:10
+msgid "Brazil Portuguese Sun keymap"
+msgstr "Brezilya Portekizcesi Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:11
+msgid "British Sun Type-4 keymap"
+msgstr "Danca Sun Tip-4 klavye tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:12
+msgid "British Sun USB keymap"
+msgstr "Danca Sun USB tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:13
+msgid "British Sun keymap"
+msgstr "Fince Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:14
+msgid "Bulgarian Sun keymap"
+msgstr "Bulgarca Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:15
+msgid "Canadian Sun keymap"
+msgstr "Kanadaca Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:18
+msgid "Czech Sun keymap"
+msgstr "Çekçe Sun tuş eşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:19
+msgid "Danish Sun Type-4 keymap"
+msgstr "Danca Sun Tip-4 klavye tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:20
+msgid "Danish Sun USB keymap"
+msgstr "Danca Sun USB tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:21
+msgid "Danish Sun keymap"
+msgstr "Danca Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:22
+msgid "Dutch Sun keymap"
+msgstr "Flamenkçe Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:23
+msgid "Estonian Sun keymap"
+msgstr "Estonyaca Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:24
+msgid "Finnish Sun keymap"
+msgstr "Fince Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:25
+msgid "French Sun USB keymap"
+msgstr "Fransızca Sun USB tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:26
+msgid "French Sun keymap"
+msgstr "Fransızca Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:28
+msgid "German Sun Type-4 keymap"
+msgstr "Almanca Sun Tip-4 tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:29
+msgid "German Sun USB keymap"
+msgstr "Almanca Sun USB tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:30
+msgid "German Sun keymap"
+msgstr "Almanca Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:31
+msgid "Hebrew Sun keymap"
+msgstr "İbranice Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:32
+msgid "Hungarian latin2 Sun keymap"
+msgstr "Macarca latin2 Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:33
+msgid "Hungarian type5 latin 1 keymap"
+msgstr "Macarca tip5 latin 1 tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:34
+msgid "Icelandic Sun keymap"
+msgstr "İzlandaca Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:35
+msgid "Italian Sun Type-4 keymap"
+msgstr "İtalyanca Sun Tip-4 tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:36
+msgid "Italian Sun USB keymap"
+msgstr "İtalyanca Sun USB tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:37
+msgid "Italian Sun keymap"
+msgstr "İtalyanca Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:38
+msgid "Japanese Sun Type-4 keymap"
+msgstr "Japonca Sun Tip-4 tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:39
+msgid "Japanese Sun keymap"
+msgstr "Japonca Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:40
+msgid "Latvian Sun keymap"
+msgstr "Letonya dili Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:46
+msgid "Lithuanian Sun keymap"
+msgstr "Litvanyaca Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:47
+msgid "Macedonian Sun keymap"
+msgstr "Makedonca Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:49
+msgid "Norwegian Sun keymap"
+msgstr "Norveççe Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:50
+msgid "Polish Sun keymap"
+msgstr "Lehçe Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:51
+msgid "Portuguese Sun Type-4 keymap"
+msgstr "Portekizce Sun Tip-4 tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:52
+msgid "Portuguese Sun keymap"
+msgstr "Portekizce Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:57
+msgid "Romanian Sun keymap"
+msgstr "Romence Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:58
+msgid "Russian Sun keymap"
+msgstr "Rusça Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:59
+msgid "Serbian Sun standard keymap"
+msgstr "Sırpça Sun standart tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:61
+msgid "Slovak Sun keymap"
+msgstr "Slovakça Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:62
+msgid "Slovenian Sun keymap"
+msgstr "Slovence Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:63
+msgid "Spanish Sun Type-4 keymap"
+msgstr "İspanyolca Sun Tip-4 tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:64
+msgid "Spanish Sun USB keymap"
+msgstr "İspanyolca Sun USB tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:65
+msgid "Spanish Sun keymap"
+msgstr "İspanyolca Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:66
+msgid "Swedish Sun Type-4 keymap"
+msgstr "İsveççe Sun Tip-4 tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:67
+msgid "Swedish Sun USB keymap"
+msgstr "İsveççe Sun USB tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:68
+msgid "Swedish Sun keymap"
+msgstr "İsveççe Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:69
+msgid "Swiss German Sun keymap"
+msgstr "İsveç Almancası Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:70
+msgid "Thai Sun keymap"
+msgstr "Tayland dili Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:71
+msgid "Turkish Sun keymap"
+msgstr "Türkçe Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:72
+msgid "US Sun Type-4 keymap"
+msgstr "ABD Sun Tip-4 klavye"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:73
+msgid "US Sun USB keymap"
+msgstr "ABD Sun USB klavye"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:74
+msgid "US Sun type5 keymap"
+msgstr "ABD Sun tip5 klavye"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:75
+msgid "Ukrainian Sun keymap"
+msgstr "Ukraynaca Sun tuşeşlemi"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:76
+msgid "Vietnamese Sun keymap"
+msgstr "Vietnamca Sun tuşeşlemi"
+
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:1
+msgid "Pl_ugins"
+msgstr "_Eklentiler"
+
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:3
+msgid "_Groups"
+msgstr "_Gruplar"
+
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:5
+msgid "_Layout View"
+msgstr "_Düzen Görünümü"
+
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:6
+msgid "_Open Keyboard Preferences"
+msgstr "_Klavye Tercihlerini Aç"
+
+#: ../gswitchit/GNOME_KeyboardApplet.server.in.in.h:1
+msgid "GNOME keyboard applet factory"
+msgstr "GNOME klavye uygulamacık üreticisi"
+
+#: ../gswitchit/GNOME_KeyboardApplet.server.in.in.h:2
+msgid "GNOME keyboard layout indicator"
+msgstr "GNOME klavye düzen belirteci"
+
+#: ../gswitchit/GNOME_KeyboardApplet.server.in.in.h:3
+#: ../gswitchit/gswitchit-applet.c:748
+msgid "Keyboard Indicator"
+msgstr "Klavye Belirteci"
+
+#: ../gswitchit/GNOME_KeyboardApplet.server.in.in.h:4
+msgid "Keyboard applet factory"
+msgstr "Klavye uygulamacı üreticisi"
+
+#: ../gswitchit/gswitchit-applet.c:134
+#, c-format
+msgid "Keyboard Indicator (%s)"
+msgstr "Klavye Belirteci (%s)"
+
+#: ../gswitchit/gswitchit-applet.c:620
+#, c-format
+msgid "Keyboard Layout \"%s\""
+msgstr "Klavye Düzeni \"%s\""
+
+#. Translators: Please replace (C) with the proper copyright character.
+#: ../gswitchit/gswitchit-applet.c:751
+msgid "Copyright (c) Sergey V. Udaltsov 1999-2004"
+msgstr "Telif Hakkı (c) Sergey V. Udaltsov 1999-2004"
+
+#: ../gswitchit/gswitchit-applet.c:752
+msgid "Keyboard layout indicator applet for GNOME"
+msgstr "GNOME için klavye düzen belirteci uygulamacığı"
+
+#: ../gswitchit/gswitchit-applet.c:905
+msgid "XKB initialization error"
+msgstr "XKB başlatma hatası"
+
+#: ../gswitchit/gswitchit-applet.c:914
+msgid "Error loading XKB configuration registry"
+msgstr "XKB yapılandıma girişi yüklenirken hata"
+
+#: ../gswitchit/gswitchit-plugins-add.c:104
+#: ../gswitchit/gswitchit-plugins.c:120
+msgid "No description."
+msgstr "Açıklama yok."
+
+#: ../gswitchit/gswitchit-plugins.c:329
+#, c-format
+msgid "Failed to init GConf: %s\n"
+msgstr "GConf başlatılamadı: %s\n"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:1
+msgid "Activate more plugins"
+msgstr "Daha fazla eklenti etkinleştir"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:2
+msgid "Active _plugins:"
+msgstr "Etkin _eklentiler:"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:3
+msgid "Add Plugin"
+msgstr "Eklenti Ekle"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:4
+msgid "Close the dialog"
+msgstr "Pencereyi kapat"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:5
+msgid "Configure the selected plugin"
+msgstr "Seçilen eklentiyi yapılandır"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:6
+msgid "Deactivate selected plugin"
+msgstr "Seçilen eklentiyi kapat"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:7
+msgid "Decrease the plugin priority"
+msgstr "Eklenti önceliğini azalt"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:8
+msgid "Increase the plugin priority"
+msgstr "Eklenti önceliğini arttır"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:9
+msgid "Keyboard Indicator Plugins"
+msgstr "Klayve Belirteci Eklentileri"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:10
+msgid "The list of active plugins"
+msgstr "Etkin eklentilerin listesi"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:11
+msgid "_Available plugins:"
+msgstr "_Kullanılabilir eklentiler:"
+
+#: ../gswitchit/gswitchit.glade.h:1
+msgid "Keyboard Layout"
+msgstr "Klavye Düzeni"
+
+#: ../gswitchit/gswitchit.schemas.in.h:1
+msgid "Secondary groups"
+msgstr "İkincil gruplar"
+
+#: ../gswitchit/gswitchit.schemas.in.h:2
+msgid "Show flags in the applet"
+msgstr "Uygulamacık içinde bayrakları göster"
+
+#: ../gswitchit/gswitchit.schemas.in.h:3
+msgid "Show flags in the applet to indicate the current layout"
+msgstr "Mevcut düzeni belirtmek için uygulamacık içinde bayrakları göster"
+
+#: ../gswitchit/gswitchit.schemas.in.h:4
+msgid "The list of enabled Keyboard Indicator plugins"
+msgstr "Klayve Belirteci Eklentileri"
+
+#: ../gtik/GNOME_GtikApplet.server.in.in.h:1
+msgid "Get continuously updated stock quotes"
+msgstr "Sürekli güncellenen hisse bilgilerini al"
+
+#: ../gtik/GNOME_GtikApplet.server.in.in.h:2
+msgid "Gtik Applet Factory"
+msgstr "Gtik Uygulamacık Üreticisi"
+
+#: ../gtik/GNOME_GtikApplet.server.in.in.h:3 ../gtik/gtik.c:715
+msgid "Stock Ticker"
+msgstr "Hisse Paneli"
+
+#: ../gtik/GNOME_GtikApplet.xml.h:4 ../gweather/GNOME_GWeatherApplet.xml.h:5
+#: ../gweather/gweather-dialog.c:184
+msgid "_Update"
+msgstr "_Güncelle"
+
+#: ../gtik/gtik.c:252
+msgid "Could not retrieve the stock data."
+msgstr "Hisse verileri alınamadı."
+
+#: ../gtik/gtik.c:272
+msgid "No stock list"
+msgstr "Hisse listesi yok"
+
+#: ../gtik/gtik.c:305 ../gweather/gweather-applet.c:557
+msgid "Updating..."
+msgstr "Güncelleniyor..."
+
+#: ../gtik/gtik.c:719
+msgid ""
+"This program connects to a popular site and downloads current stock quotes.\n"
+"\n"
+"The GNOME Stock Ticker is a free Internet-based application. It comes with "
+"ABSOLUTELY NO WARRANTY.\n"
+"\n"
+"Do not use the GNOME Stock Ticker for making investment decisions; it is for "
+"informational purposes only."
+msgstr ""
+"Bu program yaygın bilinen bir siteye bağlanıp şu anki hisse bilgilerini "
+"alır.  GNOME Hisse Paneli özgür, İnternet-tabanlı bir uygulamadır.  "
+"KESİNLİKLE GARANTİSİ YOKTUR.  GNOME Hisse Paneli'ni alım/satım kararları "
+"vermek için kullanmayın; sadece bilgi verme amaçlıdır."
+
+#: ../gtik/gtik.c:1219
+msgid "Current _stocks:"
+msgstr "Mevcut _hisseler:"
+
+#: ../gtik/gtik.c:1227
+msgid "Add _new symbol:"
+msgstr "_Yeni sembol ekle:"
+
+#: ../gtik/gtik.c:1349
+msgid "Stock Ticker Preferences"
+msgstr "Hisse Paneli Tercihleri"
+
+#: ../gtik/gtik.c:1371
+msgid "Symbols"
+msgstr "Semboller"
+
+#: ../gtik/gtik.c:1378
+msgid "Behavior"
+msgstr "Davranış"
+
+#: ../gtik/gtik.c:1381 ../gweather/gweather-pref.c:1173
+msgid "Update"
+msgstr "Güncelle"
+
+#: ../gtik/gtik.c:1385
+msgid "Stock update fre_quency:"
+msgstr "Hisse fiyatlarını güncelleme _sıklığı:"
+
+#: ../gtik/gtik.c:1397 ../gweather/gweather-pref.c:1197
+msgid "minutes"
+msgstr "dakika"
+
+#: ../gtik/gtik.c:1403
+msgid "Scrolling"
+msgstr "Kaydırma"
+
+#: ../gtik/gtik.c:1407
+msgid "_Scroll speed:"
+msgstr "_Kaydırma hızı:"
+
+#: ../gtik/gtik.c:1411
+msgid "Slow"
+msgstr "Yavaş"
+
+#: ../gtik/gtik.c:1413
+msgid "Medium"
+msgstr "Orta"
+
+#: ../gtik/gtik.c:1415
+msgid "Fast"
+msgstr "Hızlı"
+
+#: ../gtik/gtik.c:1435
+msgid "_Enable scroll buttons"
+msgstr "Kaydırma _düğmelerini etkinleştir"
+
+#: ../gtik/gtik.c:1447
+msgid "Scroll _left to right"
+msgstr "_Soldan sağa kaydır"
+
+#: ../gtik/gtik.c:1461
+msgid "Appearance"
+msgstr "Görünüm"
+
+#: ../gtik/gtik.c:1468 ../gweather/gweather-pref.c:1213
+msgid "Display"
+msgstr "Gösterim"
+
+#: ../gtik/gtik.c:1473
+msgid "Displa_y only symbols and price"
+msgstr "Yalnız sembolleri ve _fiyatı göster"
+
+#: ../gtik/gtik.c:1486 ../mini-commander/src/mini-commander.glade.h:20
+#: ../stickynotes/stickynotes.glade.h:48
+msgid "_Width:"
+msgstr "_Genişlik:"
+
+#: ../gtik/gtik.c:1500 ../mini-commander/src/mini-commander.glade.h:21
+#: ../multiload/properties.c:537
+msgid "pixels"
+msgstr "piksel"
+
+#: ../gtik/gtik.c:1509
+msgid "Font and Colors"
+msgstr "Yazıtipi ve Renkler"
+
+#: ../gtik/gtik.c:1515
+msgid "Use _default theme font and colors"
+msgstr "Öntanımlı _tema yazıtipi ve renklerini kullan"
+
+#: ../gtik/gtik.c:1530
+msgid "_Font:"
+msgstr "_Yazıtipi:"
+
+#: ../gtik/gtik.c:1554
+msgid "Stock _raised:"
+msgstr "Artan _hisse:"
+
+#: ../gtik/gtik.c:1575
+msgid "Stock _lowered:"
+msgstr "A_zalan hisse:"
+
+#: ../gtik/gtik.c:1596
+msgid "Stock _unchanged:"
+msgstr "_Değişmeyen hisse:"
+
+#: ../gtik/gtik.c:1617
+msgid "_Background:"
+msgstr "_Arkaplan:"
+
+#: ../gtik/gtik.c:1762
+msgid "Skip forward"
+msgstr "İleri atla"
+
+#: ../gtik/gtik.c:1763
+msgid "Skip backward"
+msgstr "Geri atla"
+
+#: ../gtik/gtik.c:1771
+msgid ""
+"Stock Ticker\n"
+"Get continuously updated stock quotes"
+msgstr ""
+"Hisse Paneli\n"
+"Sürekli güncellenen Hisse değerlerini al"
+
+#: ../gtik/gtik.c:1962
+#, c-format
+msgid "+%s (%s)"
+msgstr "+%s (%s)"
+
+#: ../gtik/gtik.c:1966
+#, c-format
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
+#: ../gtik/gtik.c:1969
+msgid "(No Change)"
+msgstr "(Değişmemiş)"
+
+#: ../gtik/gtik.schemas.in.h:1
+msgid "Applet scrolls right to left when this key is set to true."
+msgstr "Bu anahtar seçildiğinde uygulamacık sağdan sola doğru kayar."
+
+#: ../gtik/gtik.schemas.in.h:2
+msgid "Background color"
+msgstr "Arkaplan rengi"
+
+#: ../gtik/gtik.schemas.in.h:3
+msgid ""
+"Display only stock symbols along with their value. Do not display changes in "
+"value."
+msgstr ""
+"Sadece hisse senedi sembolünü ve değerini gösterir. Değerdeki değişimleri "
+"göstermez."
+
+#: ../gtik/gtik.schemas.in.h:4
+msgid "Display only symbols and price"
+msgstr "Yalnız sembolleri ve fiyatı göster"
+
+#: ../gtik/gtik.schemas.in.h:5
+msgid "Font"
+msgstr "Yazıtipi"
+
+#: ../gtik/gtik.schemas.in.h:6
+msgid ""
+"List containing the stocks to be displayed. Consists of the stock id "
+"separated by \"+\""
+msgstr ""
+"Gösterilecek hisseleri içeren liste. \"+\" ile ayırılmış hisse "
+"sembollerinden oluşur"
+
+#: ../gtik/gtik.schemas.in.h:7
+msgid "Lowered color"
+msgstr "Düşen rengi"
+
+#: ../gtik/gtik.schemas.in.h:8
+msgid "Raised color"
+msgstr "Yükselen rengi"
+
+#: ../gtik/gtik.schemas.in.h:9
+msgid "Right to left scrolling"
+msgstr "Sağdan sola kayma"
+
+#: ../gtik/gtik.schemas.in.h:10
+msgid "Shorter time means the stocks scroll by faster."
+msgstr "Daha kısa zaman senetlerin daha hızlı kaymasını sağlar."
+
+#: ../gtik/gtik.schemas.in.h:11
+msgid "Show arrow buttons"
+msgstr "Ok tuşlarını göster"
+
+#: ../gtik/gtik.schemas.in.h:12
+msgid ""
+"Show arrow buttons on the side of the display so that the user can scroll "
+"forward or backward."
+msgstr ""
+"Görüntünün iki yanında ok tuşlarını göster ki kullanıcı ileri ve geri "
+"kaydırma yapabilsin."
+
+#: ../gtik/gtik.schemas.in.h:13
+msgid "Stocks to monitor - must be separated by a +"
+msgstr "İzlenecek hisseler - + ile ayırılmış olmalıdır"
+
+#: ../gtik/gtik.schemas.in.h:14
+msgid ""
+"The color of the background of the display. Has no effect when the user "
+"chooses to use the default theme fonts and colors."
+msgstr ""
+"Görüntünün arka alanının rengi. Kullanıcı öntanımlı yazıtiplerini ve "
+"renkleri kullanmayı seçtiğinde hiçbir etkisi yoktur."
+
+#: ../gtik/gtik.schemas.in.h:15
+msgid ""
+"The color used when the stock's values has lowered. Has no effect when the "
+"user chooses to use the default theme fonts and colors."
+msgstr ""
+"Hisselerin değeri azaldığında kullanılacak renk. Kullanıcı öntanımlı "
+"yazıtiplerini ve renkleri kullanmayı seçtiğinde hiçbir etkisi yoktur."
+
+#: ../gtik/gtik.schemas.in.h:16
+msgid ""
+"The color used when the stock's values has not changed. Has no effect when "
+"the user chooses to use the default theme fonts and colors."
+msgstr ""
+"Hisselerin değeri değişmediğinde kullanılacak renk. Kullanıcı öntanımlı "
+"yazıtiplerini ve renkleri kullanmayı seçtiğinde hiçbir etkisi yoktur."
+
+#: ../gtik/gtik.schemas.in.h:17
+msgid ""
+"The color used when the stock's values has raised. Has no effect when the "
+"user chooses to use the default theme fonts and colors."
+msgstr ""
+"Hisselerin değeri arttığında kullanılacak renk. Kullanıcı öntanımlı "
+"yazıtiplerini ve renkleri kullanmayı seçtiğinde hiçbir etkisi yoktur."
+
+#: ../gtik/gtik.schemas.in.h:18
+msgid ""
+"The font used for the display. Has no effect when the user chooses to use "
+"the default theme fonts and colors."
+msgstr ""
+"Kullanılacak yazıtipi. Kullanıcı öntanımlı yazıtiplerini ve renkleri "
+"kullanmayı seçtiğinde hiçbir etkisi yoktur."
+
+#: ../gtik/gtik.schemas.in.h:19
+msgid "The time interval until when the applet updates the stock data."
+msgstr "Uygulamacığın hisse verilerini güncelleyeceğı zaman aralığı."
+
+#: ../gtik/gtik.schemas.in.h:20
+msgid "The width in pixels of the applet."
+msgstr "Uygulamacığın benek cinsinden genişliği."
+
+#: ../gtik/gtik.schemas.in.h:21
+msgid "Time in milliseconds for display update"
+msgstr "Görüntü güncellemek için milisaniye cinsinden zaman"
+
+#: ../gtik/gtik.schemas.in.h:22
+msgid "Unchanged color"
+msgstr "Değişmemiş rengi"
+
+#: ../gtik/gtik.schemas.in.h:23 ../gweather/gweather.schemas.in.h:21
+msgid "Update interval"
+msgstr "Güncelleme aralığı"
+
+#: ../gtik/gtik.schemas.in.h:24
+msgid "Use default theme fonts and colors"
+msgstr "Öntanımlı tema yazıtipi ve renkleri kullan"
+
+#: ../gtik/gtik.schemas.in.h:25
+msgid "Use default theme fonts and colors instead of custom ones"
+msgstr "Özeller yerine öntanımlı tema yazıtipi ve renkleri kullan"
+
+#: ../gtik/gtik.schemas.in.h:26
+#: ../mini-commander/src/mini-commander.schemas.in.h:28
+msgid "Width of the applet"
+msgstr "Uygulamacığın genişliği"
+
+#: ../gtik/gtik.schemas.in.h:27
+msgid "font 2 - No Longer used"
+msgstr "yazitipi 2 - Artık kullanılmıyor"
+
+#: ../gweather/GNOME_GWeatherApplet.xml.h:2
+msgid "_Details"
+msgstr "_Ayrıntılar"
+
+#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:1
+msgid "Factory for creating the weather applet."
+msgstr "Hava durumu uygulamacığı için üretici."
+
+#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:2
+msgid "Gweather Applet Factory"
+msgstr "Gweather Uygulamacık Üreticisi"
+
+#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:3
+msgid "Monitor the current weather conditions, and forecasts"
+msgstr "Şu andaki hava durumunu ve tahminlerini izle"
+
+#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:4
+#: ../gweather/gweather-about.c:48
+msgid "Weather Report"
+msgstr "Hava Raporu"
+
+#: ../gweather/gweather-about.c:50
+msgid "© 1999-2005 by S. Papadimitriou and others"
+msgstr "Telif hakkı (C) 1999 S. Papadimitriou"
+
+#: ../gweather/gweather-about.c:51
+msgid "A panel application for monitoring local weather conditions."
+msgstr ""
+"GNU Genel Kamu Lisansı ile yayınlanmıştır.\n"
+"\n"
+"Yerel hava durumunu izlemeye yarayan bir uygulamacık."
+
+#: ../gweather/gweather-applet.c:381 ../gweather/gweather-applet.c:385
+msgid "GNOME Weather"
+msgstr "GNOME Have Durumu"
+
+#: ../gweather/gweather-applet.c:480
+msgid "Weather Forecast"
+msgstr "Hava Tahmini"
+
+#: ../gweather/gweather-applet.c:518
+#, c-format
+msgid ""
+"City: %s\n"
+"Sky: %s\n"
+"Temperature: %s"
+msgstr ""
+"Şehir: %s\n"
+"Gökyüzü: %s\n"
+"Sıcaklık: %s"
+
+#: ../gweather/gweather-dialog.c:182
+msgid "Details"
+msgstr "Ayrıntılar"
+
+#: ../gweather/gweather-dialog.c:223
+msgid "City:"
+msgstr "Şehir:"
+
+#: ../gweather/gweather-dialog.c:231
+msgid "Last update:"
+msgstr "Son güncelleme:"
+
+#: ../gweather/gweather-dialog.c:239
+msgid "Conditions:"
+msgstr "Koşullar:"
+
+#: ../gweather/gweather-dialog.c:247
+msgid "Sky:"
+msgstr "Gökyüzü:"
+
+#: ../gweather/gweather-dialog.c:255
+msgid "Temperature:"
+msgstr "Sıcaklık:"
+
+#: ../gweather/gweather-dialog.c:263
+msgid "Feels like:"
+msgstr "Hissedilen:"
+
+#: ../gweather/gweather-dialog.c:271
+msgid "Dew point:"
+msgstr "Çiğ noktası:"
+
+#: ../gweather/gweather-dialog.c:279
+msgid "Relative humidity:"
+msgstr "Dolaylı nemlilik:"
+
+#: ../gweather/gweather-dialog.c:287
+msgid "Wind:"
+msgstr "Rüzgar:"
+
+#: ../gweather/gweather-dialog.c:295
+msgid "Pressure:"
+msgstr "Basınç:"
+
+#: ../gweather/gweather-dialog.c:303
+msgid "Visibility:"
+msgstr "Görüş alanı:"
+
+#: ../gweather/gweather-dialog.c:311
+msgid "Sunrise:"
+msgstr "Gün Doğumu:"
+
+#: ../gweather/gweather-dialog.c:319
+msgid "Sunset:"
+msgstr "Gün Batımı:"
+
+#: ../gweather/gweather-dialog.c:454
+msgid "Current Conditions"
+msgstr "Mevcut Koşullar"
+
+#: ../gweather/gweather-dialog.c:471
+msgid "Forecast Report"
+msgstr "Hava Tahmini Raporu"
+
+#: ../gweather/gweather-dialog.c:471
+msgid "See the ForeCast Details"
+msgstr "Hava Tahmini Ayrıntılarını Görün"
+
+#: ../gweather/gweather-dialog.c:481
+msgid "Forecast"
+msgstr "Hava Tahmini"
+
+#: ../gweather/gweather-dialog.c:489
+msgid "Radar Map"
+msgstr "Radar Haritası"
+
+#: ../gweather/gweather-dialog.c:520
+msgid "_Visit Weather.com"
+msgstr "Weatcher.com'a _Gir"
+
+#: ../gweather/gweather-dialog.c:521
+msgid "Visit Weather.com"
+msgstr "Weatcher.com'u ziyaret et"
+
+#: ../gweather/gweather-dialog.c:521
+msgid "Click to Enter Weather.com"
+msgstr "Weather.com'a Girmek için Tıkla"
+
+#: ../gweather/gweather-dialog.c:642
+msgid "Forecast not currently available for this location."
+msgstr "Bu konum için hava tahmini henüz mevcut değil."
+
+#. Accessible Name and Description for the components in Preference Dialog
+#: ../gweather/gweather-pref.c:193
+msgid "Location view"
+msgstr "Konum görünümü"
+
+#: ../gweather/gweather-pref.c:193
+msgid "Select Location from the list"
+msgstr "Listeden Konum seçin"
+
+#: ../gweather/gweather-pref.c:194
+msgid "Update spin button"
+msgstr "Çevirme düğmelerini güncelle"
+
+#: ../gweather/gweather-pref.c:194
+msgid "Spinbutton for updating"
+msgstr "Güncelleme için çevirme düğmesi"
+
+#: ../gweather/gweather-pref.c:195
+msgid "Address Entry"
+msgstr "Adres Girişi"
+
+#: ../gweather/gweather-pref.c:195
+msgid "Enter the URL"
+msgstr "URL'yi girin"
+
+#: ../gweather/gweather-pref.c:363
+msgid ""
+"Failed to load the Locations XML database.  Please report this as a bug."
+msgstr ""
+"Konumlar XML veritabanı yüklenirken hata oluştur. Lütfen bunu hata olarak "
+"bildirin."
+
+#. TRANSLATOR: This is the default unit to use for temperature measurements.
+#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
+#: ../gweather/gweather-pref.c:414 ../gweather/gweather-pref.c:423
+msgid "DEFAULT_TEMP_UNIT"
+msgstr "C"
+
+#. TRANSLATOR: This is the default unit to use for wind speed.
+#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
+#. "mph" (miles per hour) and "knots"
+#: ../gweather/gweather-pref.c:449 ../gweather/gweather-pref.c:459
+msgid "DEFAULT_SPEED_UNIT"
+msgstr "km/h"
+
+#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
+#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
+#. "mb" (millibars), "mmHg" (millimeters of mercury) and
+#. "inHg" (inches of mercury)
+#: ../gweather/gweather-pref.c:487 ../gweather/gweather-pref.c:498
+msgid "DEFAULT_PRESSURE_UNIT"
+msgstr "kPa"
+
+#. TRANSLATOR: This is the default unit to use for visibility distance.
+#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
+#: ../gweather/gweather-pref.c:524 ../gweather/gweather-pref.c:533
+msgid "DEFAULT_DISTANCE_UNIT"
+msgstr "m"
+
+#: ../gweather/gweather-pref.c:965
+msgid "Weather Preferences"
+msgstr "Hava Durumu Tercihleri"
+
+#: ../gweather/gweather-pref.c:998 ../gweather/gweather-pref.c:1177
+msgid "_Automatically update every:"
+msgstr "Bu aralıklarla _otomatik güncelle:"
+
+#. Temperature Unit
+#: ../gweather/gweather-pref.c:1007
+msgid "_Temperature unit:"
+msgstr "_Sıcaklık Birimi:"
+
+#: ../gweather/gweather-pref.c:1016 ../gweather/gweather-pref.c:1036
+#: ../gweather/gweather-pref.c:1062 ../gweather/gweather-pref.c:1088
+msgid "Default"
+msgstr "Öntanımlı"
+
+#: ../gweather/gweather-pref.c:1017
+msgid "Kelvin"
+msgstr "Kelvin"
+
+#. TRANSLATORS: Celsius is sometimes referred Centigrade
+#: ../gweather/gweather-pref.c:1019
+msgid "Celsius"
+msgstr "Santigrat"
+
+#: ../gweather/gweather-pref.c:1020
+msgid "Fahrenheit"
+msgstr "Fahrenhayt"
+
+#. Speed Unit
+#: ../gweather/gweather-pref.c:1027
+msgid "_Wind speed unit:"
+msgstr "_Rüzgar Hızı Birimi:"
+
+#. TRANSLATOR: The wind speed unit "meters per second"
+#: ../gweather/gweather-pref.c:1038
+msgid "m/s"
+msgstr "m/s"
+
+#. TRANSLATOR: The wind speed unit "kilometers per hour"
+#: ../gweather/gweather-pref.c:1040
+msgid "km/h"
+msgstr "km/h"
+
+#. TRANSLATOR: The wind speed unit "miles per hour"
+#: ../gweather/gweather-pref.c:1042
+msgid "mph"
+msgstr "mph"
+
+#. TRANSLATOR: The wind speed unit "knots"
+#: ../gweather/gweather-pref.c:1044
+msgid "knots"
+msgstr "knot"
+
+#: ../gweather/gweather-pref.c:1046
+msgid "Beaufort scale"
+msgstr "Beaufort ölçeği"
+
+#. Pressure Unit
+#: ../gweather/gweather-pref.c:1053
+msgid "_Pressure unit:"
+msgstr "_Basınç birimi:"
+
+#. TRANSLATOR: The pressure unit "kiloPascals"
+#: ../gweather/gweather-pref.c:1064
+msgid "kPa"
+msgstr "kPa"
+
+#. TRANSLATOR: The pressure unit "hectoPascals"
+#: ../gweather/gweather-pref.c:1066
+msgid "hPa"
+msgstr "hPa"
+
+#. TRANSLATOR: The pressure unit "millibars"
+#: ../gweather/gweather-pref.c:1068
+msgid "mb"
+msgstr "mb"
+
+#. TRANSLATOR: The pressure unit "millibars of mercury"
+#: ../gweather/gweather-pref.c:1070
+msgid "mmHg"
+msgstr "mmHg"
+
+#. TRANSLATOR: The pressure unit "inches of mercury"
+#: ../gweather/gweather-pref.c:1072
+msgid "inHg"
+msgstr "inHg"
+
+#. Distance Unit
+#: ../gweather/gweather-pref.c:1079
+msgid "_Visibility unit:"
+msgstr "_Görüş Alanı Birimi:"
+
+#. TRANSLATOR: The distance unit "meters"
+#: ../gweather/gweather-pref.c:1090
+msgid "meters"
+msgstr "metre"
+
+#. TRANSLATOR: The distance unit "kilometers"
+#: ../gweather/gweather-pref.c:1092
+msgid "km"
+msgstr "km"
+
+#. TRANSLATOR: The distance unit "miles"
+#: ../gweather/gweather-pref.c:1094
+msgid "miles"
+msgstr "mil"
+
+#: ../gweather/gweather-pref.c:1128
+msgid "Enable _radar map"
+msgstr "_Radar haritasını etkinleştir"
+
+#: ../gweather/gweather-pref.c:1142
+msgid "Use _custom address for radar map"
+msgstr "Radar haritası için _özel adres kullan"
+
+#: ../gweather/gweather-pref.c:1159
+msgid "A_ddress:"
+msgstr "A_dres:"
+
+#: ../gweather/gweather-pref.c:1228
+#: ../mini-commander/src/mini-commander.glade.h:12
+msgid "General"
+msgstr "Genel"
+
+#: ../gweather/gweather-pref.c:1241
+msgid "_Select a location:"
+msgstr "_Konum seç:"
+
+#: ../gweather/gweather-pref.c:1268
+msgid "_Find:"
+msgstr "_Bul:"
+
+#: ../gweather/gweather-pref.c:1275
+msgid "Find _Next"
+msgstr "_Sonrakini Bul"
+
+#: ../gweather/gweather-pref.c:1296
+msgid "Location"
+msgstr "Konum"
+
+#: ../gweather/weather-iwin.c:242 ../gweather/weather-metar.c:542
+#: ../gweather/weather-metar.c:570
+msgid "WeatherInfo missing location"
+msgstr "WeatherInfo konum bilgisi içermiyor"
+
+#: ../gweather/weather-metar.c:511 ../gweather/weather-metar.c:550
+#: ../gweather/weather-wx.c:52
+msgid "Failed to get METAR data.\n"
+msgstr "METAR verileri alınamadı.\n"
+
+#. TRANSLATOR: Change this to the default location code (2nd parameter) in the
+#. gweather/Locations file
+#. For example for New York (JFK) the entry is loc14=New\\ York-JFK\\ Arpt KJFK NYZ076 nyc
+#. so this should be translated as "KJFK"
+#: ../gweather/gweather.schemas.in.h:1 ../gweather/weather.c:161
+#: ../gweather/weather.c:162
+msgid "DEFAULT_CODE"
+msgstr "LTBA"
+
+#: ../gweather/gweather.schemas.in.h:2
+msgid "DEFAULT_COORDINATES"
+msgstr "LTBA"
+
+#. TRANSLATOR: Change this to the default location name (1st parameter) in the
+#. gweather/Locations file
+#. For example for New York (JFK) the entry is loc14=New\\ York-JFK\\ Arpt KJFK NYZ076 nyc
+#. so this should be translated as "New York-JFK Arpt"
+#: ../gweather/gweather.schemas.in.h:3 ../gweather/weather.c:150
+#: ../gweather/weather.c:151
+msgid "DEFAULT_LOCATION"
+msgstr "Istanbul"
+
+#. Translators: Change this to the default location radar (4th parameter) in the
+#. gweather/Locations file
+#. For example for New York (JFK) the entry is loc14=New\\ York-JFK\\ Arpt KJFK NYZ076 nyc
+#. so this should be translated as "nyc"
+#: ../gweather/gweather.schemas.in.h:4 ../gweather/weather.c:183
+#: ../gweather/weather.c:184
+msgid "DEFAULT_RADAR"
+msgstr "---"
+
+#. TRANSLATOR: Change this to the default location zone (3rd parameter) in the
+#. gweather/Locations file
+#. For example for New York (JFK) the entry is loc14=New\\ York-JFK\\ Arpt KJFK NYZ076 nyc
+#. so this should be translated as "NYZ076"
+#: ../gweather/gweather.schemas.in.h:5 ../gweather/weather.c:172
+#: ../gweather/weather.c:173
+msgid "DEFAULT_ZONE"
+msgstr "------"
+
+#: ../gweather/gweather.schemas.in.h:6
+msgid ""
+"Determines whether the applet automatically updates its weather statistics "
+"or not."
+msgstr ""
+"Uygulamacığın hava durumu istatistiklerini kendiliğinden günceleyip "
+"güncellemeyeceğini belirtir."
+
+#: ../gweather/gweather.schemas.in.h:7
+msgid "Display radar map"
+msgstr "Radar haritasını göster"
+
+#: ../gweather/gweather.schemas.in.h:8
+msgid "Distance unit"
+msgstr "Uzaklık birimi"
+
+#: ../gweather/gweather.schemas.in.h:9
+msgid "Fetch a radar map on each update."
+msgstr "Her güncellemede radar haritası al."
+
+#: ../gweather/gweather.schemas.in.h:10
+msgid ""
+"If true, then retrieve a radar map from a location specified by the \"radar"
+"\" key."
+msgstr ""
+"Eğer seçiliyse, \"radar\" anahtarında belirtilen konumdan radar haritası "
+"alır."
+
+#: ../gweather/gweather.schemas.in.h:11
+#: ../mini-commander/src/mini-commander.schemas.in.h:12
+msgid "Not used anymore"
+msgstr "Artık kullanılmıyor"
+
+#: ../gweather/gweather.schemas.in.h:12
+msgid "Pressure unit"
+msgstr "Basınç birimi"
+
+#: ../gweather/gweather.schemas.in.h:13
+msgid "Speed unit"
+msgstr "Hız birimi"
+
+#: ../gweather/gweather.schemas.in.h:14
+msgid "Temperature unit"
+msgstr "Sıcaklık birimi"
+
+#: ../gweather/gweather.schemas.in.h:15
+msgid "The custom url from where to retrieve a radar map."
+msgstr "Radar haritasının alınacağı özel url."
+
+#: ../gweather/gweather.schemas.in.h:16
+msgid "The interval, in seconds, between automatic updates."
+msgstr "Otomatik güncellemeler için, saniye cinsinden, aralık."
+
+#: ../gweather/gweather.schemas.in.h:17
+msgid "The unit to use for pressure."
+msgstr "Kullanılacak basınç birimi."
+
+#: ../gweather/gweather.schemas.in.h:18
+msgid "The unit to use for temperature."
+msgstr "Kullanılacak sıcaklık birimi."
+
+#: ../gweather/gweather.schemas.in.h:19
+msgid "The unit to use for visibility."
+msgstr "Kullanılacak görüş alanı birimi."
+
+#: ../gweather/gweather.schemas.in.h:20
+msgid "The unit to use for wind speed."
+msgstr "Kullanılacak rüzgar hızı birimi."
+
+#: ../gweather/gweather.schemas.in.h:22
+msgid "Update the data automatically"
+msgstr "Bilgileri otomatik olarak güncelle"
+
+#: ../gweather/gweather.schemas.in.h:23
+msgid "Url for the radar map"
+msgstr "Radar haritası için url"
+
+#: ../gweather/gweather.schemas.in.h:24
+msgid "Use custom url for the radar map"
+msgstr "Radar haritası için özel adres kullan"
+
+#: ../gweather/gweather.schemas.in.h:25
+msgid "Use metric units"
+msgstr "Metrik birimleri kullan"
+
+#: ../gweather/gweather.schemas.in.h:26
+msgid "Use metric units instead of english units."
+msgstr "İngiliz birimleri yerine metrik birimleri kullan."
+
+#: ../gweather/gweather.schemas.in.h:27
+msgid ""
+"latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
+"[EW]"
+msgstr ""
+"bulunduğunuz yer için DD-MM-SS[NS] DD-MM-SS [EW] şeklinde enlem ve boylam"
+
+#: ../gweather/gweather.schemas.in.h:28
+msgid "location coordinates"
+msgstr "konum koordinatları"
+
+#: ../gweather/gweather.schemas.in.h:29
+msgid "weather location information."
+msgstr "hava durumu konum bilgisi."
+
+#: ../gweather/weather.c:241
+msgid "Variable"
+msgstr "Değişken"
+
+#: ../gweather/weather.c:242
+msgid "North"
+msgstr "Kuzey"
+
+#: ../gweather/weather.c:242
+msgid "North - NorthEast"
+msgstr "Kuzey - Kuzeydoğu"
+
+#: ../gweather/weather.c:242
+msgid "Northeast"
+msgstr "Kuzeydoğu"
+
+#: ../gweather/weather.c:242
+msgid "East - NorthEast"
+msgstr "Doğu - Kuzeydoğu"
+
+#: ../gweather/weather.c:243
+msgid "East"
+msgstr "Doğu"
+
+#: ../gweather/weather.c:243
+msgid "East - Southeast"
+msgstr "Doğu - Güneydoğu"
+
+#: ../gweather/weather.c:243
+msgid "Southeast"
+msgstr "Güneydoğu"
+
+#: ../gweather/weather.c:243
+msgid "South - Southeast"
+msgstr "Güney - Güneydoğu"
+
+#: ../gweather/weather.c:244
+msgid "South"
+msgstr "Güney"
+
+#: ../gweather/weather.c:244
+msgid "South - Southwest"
+msgstr "Güney - Güneybatı"
+
+#: ../gweather/weather.c:244
+msgid "Southwest"
+msgstr "Güneybatı"
+
+#: ../gweather/weather.c:244
+msgid "West - Southwest"
+msgstr "Batı - Güneybatı"
+
+#: ../gweather/weather.c:245
+msgid "West"
+msgstr "Batı"
+
+#: ../gweather/weather.c:245
+msgid "West - Northwest"
+msgstr "Batı - Kuzeybatı"
+
+#: ../gweather/weather.c:245
+msgid "Northwest"
+msgstr "Kuzeybatı"
+
+#: ../gweather/weather.c:245
+msgid "North - Northwest"
+msgstr "Kuzey - Kuzeybatı"
+
+#: ../gweather/weather.c:253 ../gweather/weather.c:270
+#: ../gweather/weather.c:341
+msgid "Invalid"
+msgstr "Geçersiz"
+
+#: ../gweather/weather.c:259
+msgid "Clear Sky"
+msgstr "Açık Gökyüzü"
+
+#: ../gweather/weather.c:260
+msgid "Broken clouds"
+msgstr "Parçalı bulutlu"
+
+#: ../gweather/weather.c:261
+msgid "Scattered clouds"
+msgstr "Dağınık bulutlu"
+
+#: ../gweather/weather.c:262
+msgid "Few clouds"
+msgstr "Hafif bulutlu"
+
+#: ../gweather/weather.c:263
+msgid "Overcast"
+msgstr "Aşırı bulutlu"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.html
+#. NONE
+#: ../gweather/weather.c:302 ../gweather/weather.c:304
+msgid "Thunderstorm"
+msgstr "Fırtına"
+
+#. DRIZZLE
+#: ../gweather/weather.c:303
+msgid "Drizzle"
+msgstr "Çise"
+
+#: ../gweather/weather.c:303
+msgid "Light drizzle"
+msgstr "Hafif yağmur"
+
+#: ../gweather/weather.c:303
+msgid "Moderate drizzle"
+msgstr "Vasat çise"
+
+#: ../gweather/weather.c:303
+msgid "Heavy drizzle"
+msgstr "Ağır çise"
+
+#: ../gweather/weather.c:303
+msgid "Freezing drizzle"
+msgstr "Dondurucu çise"
+
+#. RAIN
+#: ../gweather/weather.c:304
+msgid "Rain"
+msgstr "Yağmur"
+
+#: ../gweather/weather.c:304
+msgid "Light rain"
+msgstr "Hafif yağmur"
+
+#: ../gweather/weather.c:304
+msgid "Moderate rain"
+msgstr "Vasat yağmur"
+
+#: ../gweather/weather.c:304
+msgid "Heavy rain"
+msgstr "Ağır yağmur"
+
+#: ../gweather/weather.c:304
+msgid "Rain showers"
+msgstr "Kısa yoğun yağmur"
+
+#: ../gweather/weather.c:304
+msgid "Freezing rain"
+msgstr "Dondurucu yağmur"
+
+#. SNOW
+#: ../gweather/weather.c:305
+msgid "Snow"
+msgstr "Kar"
+
+#: ../gweather/weather.c:305
+msgid "Light snow"
+msgstr "Hafif kar yağışı"
+
+#: ../gweather/weather.c:305
+msgid "Moderate snow"
+msgstr "Vasat kar yadışı"
+
+#: ../gweather/weather.c:305
+msgid "Heavy snow"
+msgstr "Ağır kar yağışı"
+
+#: ../gweather/weather.c:305
+msgid "Snowstorm"
+msgstr "Kar fırtınası"
+
+#: ../gweather/weather.c:305
+msgid "Blowing snowfall"
+msgstr "Rüzgarlı kar fırtınası"
+
+#: ../gweather/weather.c:305
+msgid "Snow showers"
+msgstr "Kısa yoğun kar"
+
+#: ../gweather/weather.c:305
+msgid "Drifting snow"
+msgstr "Kaygan kar"
+
+#. SNOW_GRAINS
+#: ../gweather/weather.c:306
+msgid "Snow grains"
+msgstr "Karla karışık yağmur"
+
+#: ../gweather/weather.c:306
+msgid "Light snow grains"
+msgstr "Hafif kar taneleri var"
+
+#: ../gweather/weather.c:306
+msgid "Moderate snow grains"
+msgstr "Vasat kar taneleri var"
+
+#: ../gweather/weather.c:306
+msgid "Heavy snow grains"
+msgstr "Ağır kar taneleri var"
+
+#. ICE_CRYSTALS
+#: ../gweather/weather.c:307
+msgid "Ice crystals"
+msgstr "Buz kristalleri"
+
+#. ICE_PELLETS
+#: ../gweather/weather.c:308
+msgid "Ice pellets"
+msgstr "Buz tanecikleri"
+
+#: ../gweather/weather.c:308
+msgid "Few ice pellets"
+msgstr "Az buz tanecikleri"
+
+#: ../gweather/weather.c:308
+msgid "Moderate ice pellets"
+msgstr "Vasat buz tanecikleri"
+
+#: ../gweather/weather.c:308
+msgid "Heavy ice pellets"
+msgstr "Ağır buz tanecikleri"
+
+#: ../gweather/weather.c:308
+msgid "Ice pellet storm"
+msgstr "Buz tanecikleri fırtınası"
+
+#: ../gweather/weather.c:308
+msgid "Showers of ice pellets"
+msgstr "Buz tanecikleri yağmuru"
+
+#. HAIL
+#: ../gweather/weather.c:309
+msgid "Hail"
+msgstr "Dolu"
+
+#: ../gweather/weather.c:309
+msgid "Hailstorm"
+msgstr "Dolu fırtınası"
+
+#: ../gweather/weather.c:309
+msgid "Hail showers"
+msgstr "Dolu yağmuru"
+
+#. SMALL_HAIL
+#: ../gweather/weather.c:310
+msgid "Small hail"
+msgstr "Ufak dolu taneleri"
+
+#: ../gweather/weather.c:310
+msgid "Small hailstorm"
+msgstr "Ufak dolu taneleri fırtınası"
+
+#: ../gweather/weather.c:310
+msgid "Showers of small hail"
+msgstr "Ufak dolu taneleri yağmuru"
+
+#. PRECIPITATION
+#: ../gweather/weather.c:311
+msgid "Unknown precipitation"
+msgstr "Bilinmeyen çökelme"
+
+#. MIST
+#: ../gweather/weather.c:312
+msgid "Mist"
+msgstr "Sislik"
+
+#. FOG
+#: ../gweather/weather.c:313
+msgid "Fog"
+msgstr "Sis"
+
+#: ../gweather/weather.c:313
+msgid "Fog in the vicinity"
+msgstr "Çevrede sis var"
+
+#: ../gweather/weather.c:313
+msgid "Shallow fog"
+msgstr "Alçak sis"
+
+#: ../gweather/weather.c:313
+msgid "Patches of fog"
+msgstr "Sis'in izleri var"
+
+#: ../gweather/weather.c:313
+msgid "Partial fog"
+msgstr "Yer yer sis var"
+
+#: ../gweather/weather.c:313
+msgid "Freezing fog"
+msgstr "Dondurucu sis"
+
+#. SMOKE
+#: ../gweather/weather.c:314
+msgid "Smoke"
+msgstr "Duman"
+
+#. VOLCANIC_ASH
+#: ../gweather/weather.c:315
+msgid "Volcanic ash"
+msgstr "Volkan külü"
+
+#. SAND
+#: ../gweather/weather.c:316
+msgid "Sand"
+msgstr "Kum"
+
+#: ../gweather/weather.c:316
+msgid "Blowing sand"
+msgstr "Rüzgarlı kum"
+
+#: ../gweather/weather.c:316
+msgid "Drifting sand"
+msgstr "Kaygan kum"
+
+#. HAZE
+#: ../gweather/weather.c:317
+msgid "Haze"
+msgstr "Hafif pus"
+
+#. SPRAY
+#: ../gweather/weather.c:318
+msgid "Blowing sprays"
+msgstr "Rüzgarlı püskürtmeli yağış"
+
+#. DUST
+#: ../gweather/weather.c:319
+msgid "Dust"
+msgstr "Toz"
+
+#: ../gweather/weather.c:319
+msgid "Blowing dust"
+msgstr "Rüzgarlı toz"
+
+#: ../gweather/weather.c:319
+msgid "Drifting dust"
+msgstr "Kaygan toz"
+
+#. SQUALL
+#: ../gweather/weather.c:320
+msgid "Squall"
+msgstr "Fırtına"
+
+#. SANDSTORM
+#: ../gweather/weather.c:321
+msgid "Sandstorm"
+msgstr "Kum fırtınası"
+
+#: ../gweather/weather.c:321
+msgid "Sandstorm in the vicinity"
+msgstr "Çevrede kum fırtınası var"
+
+#: ../gweather/weather.c:321
+msgid "Heavy sandstorm"
+msgstr "Ağır kum fırtınası"
+
+#. DUSTSTORM
+#: ../gweather/weather.c:322
+msgid "Duststorm"
+msgstr "Toz fırtınası"
+
+#: ../gweather/weather.c:322
+msgid "Duststorm in the vicinity"
+msgstr "Çevrede toz fırtınası var"
+
+#: ../gweather/weather.c:322
+msgid "Heavy duststorm"
+msgstr "Ağır toz fırtınası"
+
+#. FUNNEL_CLOUD
+#: ../gweather/weather.c:323
+msgid "Funnel cloud"
+msgstr "Döneç bulutu"
+
+#. TORNADO
+#: ../gweather/weather.c:324
+msgid "Tornado"
+msgstr "Kasırga"
+
+#. DUST_WHIRLS
+#: ../gweather/weather.c:325
+msgid "Dust whirls"
+msgstr "Toz kasırgaları"
+
+#: ../gweather/weather.c:325
+msgid "Dust whirls in the vicinity"
+msgstr "Çevrede toz kasırgaları var"
+
+#. TRANSLATOR: this is a format string for strftime
+#. *             see `man 3 strftime` for more details
+#.
+#: ../gweather/weather.c:903
+msgid "%a, %b %d / %H:%M"
+msgstr "%a, %b %d / %H:%M"
+
+#: ../gweather/weather.c:918
+msgid "Unknown observation time"
+msgstr "Bilinmeyen gözetleme zamanı"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is the degree symbol)
+#: ../gweather/weather.c:951
+#, c-format
+msgid "%.1f °F"
+msgstr "%.1f °F"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is the degree symbol)
+#: ../gweather/weather.c:954
+#, c-format
+msgid "%d °F"
+msgstr "%d °F"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is the degree symbol)
+#: ../gweather/weather.c:960
+#, c-format
+msgid "%.1f °C"
+msgstr "%.1f °C"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is the degree symbol)
+#: ../gweather/weather.c:963
+#, c-format
+msgid "%d °C"
+msgstr "%d °C"
+
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../gweather/weather.c:969
+#, c-format
+msgid "%.1f K"
+msgstr "%.1f K"
+
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../gweather/weather.c:972
+#, c-format
+msgid "%d K"
+msgstr "%d K"
+
+#. TRANSLATOR: This is the humidity in percent
+#: ../gweather/weather.c:1024
+#, c-format
+msgid "%.f%%"
+msgstr "%%%.f"
+
+#. TRANSLATOR: This is the wind speed in knots
+#: ../gweather/weather.c:1049
+#, c-format
+msgid "%0.1f knots"
+msgstr "%0.1f knot"
+
+#. TRANSLATOR: This is the wind speed in miles per hour
+#: ../gweather/weather.c:1053
+#, c-format
+msgid "%.1f mph"
+msgstr "%.1f mph"
+
+#. TRANSLATOR: This is the wind speed in kilometers per hour
+#: ../gweather/weather.c:1057
+#, c-format
+msgid "%.1f km/h"
+msgstr "%.1f km/h"
+
+#. TRANSLATOR: This is the wind speed in meters per second
+#: ../gweather/weather.c:1061
+#, c-format
+msgid "%.1f m/s"
+msgstr "%.1f m/s"
+
+#. TRANSLATOR: This is the wind speed as a Beaufort force factor
+#. * (commonly used in nautical wind estimation).
+#.
+#: ../gweather/weather.c:1067
+#, c-format
+msgid "Beaufort force %.1f"
+msgstr "%.1f Beaufort gücü"
+
+#: ../gweather/weather.c:1088
+msgid "Calm"
+msgstr "Sakin"
+
+#. TRANSLATOR: This is 'wind direction' / 'wind speed'
+#: ../gweather/weather.c:1092
+#, c-format
+msgid "%s / %s"
+msgstr "%s / %s"
+
+#. TRANSLATOR: This is pressure in inches of mercury
+#: ../gweather/weather.c:1110
+#, c-format
+msgid "%.2f inHg"
+msgstr "%.2f inHg"
+
+#. TRANSLATOR: This is pressure in millimeters of mercury
+#: ../gweather/weather.c:1114
+#, c-format
+msgid "%.1f mmHg"
+msgstr "%.1f mmHg"
+
+#. TRANSLATOR: This is pressure in kiloPascals
+#: ../gweather/weather.c:1118
+#, c-format
+msgid "%.2f kPa"
+msgstr "%.2f kPa"
+
+#. TRANSLATOR: This is pressure in hectoPascals
+#: ../gweather/weather.c:1122
+#, c-format
+msgid "%.2f hPa"
+msgstr "%.2f hPa"
+
+#. TRANSLATOR: This is pressure in millibars
+#: ../gweather/weather.c:1126
+#, c-format
+msgid "%.2f mb"
+msgstr "%.2f mb"
+
+#. TRANSLATOR: This is the visibility in miles
+#: ../gweather/weather.c:1151
+#, c-format
+msgid "%.1f miles"
+msgstr "%.1f mil"
+
+#. TRANSLATOR: This is the visibility in kilometers
+#: ../gweather/weather.c:1155
+#, c-format
+msgid "%.1f km"
+msgstr "%.1f km"
+
+#. TRANSLATOR: This is the visibility in meters
+#: ../gweather/weather.c:1159
+#, c-format
+msgid "%.0fm"
+msgstr "%.0fm"
+
+#: ../gweather/weather.c:1187 ../gweather/weather.c:1207
+msgid "%H:%M"
+msgstr "%H:%M"
+
+#: ../gweather/weather.c:1240
+msgid "Retrieval failed"
+msgstr "Alım başarısız oldu"
+
+#: ../libgswitchit/gswitchit_config.c:1035
+#, c-format
+msgid "There was an error loading an image: %s"
+msgstr "Bir resim yüklenirken hata oluştu: %s"
+
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.server.in.in.h:1
+#: ../mini-commander/src/about.c:47
+msgid "Command Line"
+msgstr "Komut Satırı"
+
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.server.in.in.h:2
+msgid "Mini-Commander"
+msgstr "Küçük Komutan"
+
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.server.in.in.h:3
+msgid "MiniCommander Applet Factory"
+msgstr "Küçük Komutan Ugulamacık Üreticisi"
+
+#: ../mini-commander/src/about.c:50
+msgid ""
+"This GNOME applet adds a command line to the panel. It features command "
+"completion, command history, and changeable macros."
+msgstr ""
+"Bu GNOME uygulamacığı panele bir komut satırı ekler. Komut tamamlama, komut "
+"geçmişi, ve değiştirilebilir makrolar özellikleri vardır."
+
+#: ../mini-commander/src/command_line.c:353
+msgid "No items in history"
+msgstr "Geçmişte hiç öğe yok"
+
+#. build file select dialog
+#: ../mini-commander/src/command_line.c:477
+msgid "Start program"
+msgstr "Uygulamayı başlat"
+
+#: ../mini-commander/src/command_line.c:529
+msgid "Command line"
+msgstr "Komut satırı"
+
+#: ../mini-commander/src/command_line.c:530
+msgid "Type a command here and Gnome will execute it for you"
+msgstr "Gnome'un çalıştırmasını istediğiniz komutu yazın"
+
+#: ../mini-commander/src/mc-install-default-macros.c:78
+#, c-format
+msgid "Cannot get schema for %s: %s"
+msgstr "%s için şema alınamıyor : %s"
+
+#: ../mini-commander/src/mc-install-default-macros.c:106
+#, c-format
+msgid "Cannot set schema for %s: %s"
+msgstr "%s için şema atanamıyor : %s"
+
+#: ../mini-commander/src/mc-install-default-macros.c:112
+#, c-format
+msgid "Set default list value for %s\n"
+msgstr "%s için öntanımlı liste değerini ata\n"
+
+#: ../mini-commander/src/mc-install-default-macros.c:124
+#, c-format
+msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
+msgstr ""
+"GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL değişkeni ayarlı, şemalar "
+"yüklenmeyecek\n"
+
+#: ../mini-commander/src/mc-install-default-macros.c:132
+#, c-format
+msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
+msgstr "GCONF_CONFIG_SOURCE çevre değişkeni atanmalı\n"
+
+#: ../mini-commander/src/mc-install-default-macros.c:149
+#, c-format
+msgid "Failed to access configuration source(s): %s\n"
+msgstr "Yapılandırma kaynaklarına erişilemedi: %s\n"
+
+#: ../mini-commander/src/mc-install-default-macros.c:164
+#, c-format
+msgid "Error syncing config data: %s"
+msgstr "Yapılandırma verilerinin eşitlenmesinde hata: %s"
+
+#: ../mini-commander/src/mini-commander-global.schemas.in.h:1
+msgid "List of GConfValue entries containing strings for the macro commands."
+msgstr ""
+"Makro komutları için dizgileri saklayan GConfValue girdileri için liste."
+
+#: ../mini-commander/src/mini-commander-global.schemas.in.h:2
+msgid "List of GConfValue entries containing strings for the macro patterns."
+msgstr ""
+"Makro desenleri için dizgileri saklayan GConfValue girdileri için liste."
+
+#: ../mini-commander/src/mini-commander-global.schemas.in.h:3
+#: ../mini-commander/src/mini-commander.schemas.in.h:10
+msgid "Macro command list"
+msgstr "Makro komut listesi"
+
+#: ../mini-commander/src/mini-commander-global.schemas.in.h:4
+#: ../mini-commander/src/mini-commander.schemas.in.h:11
+msgid "Macro pattern list"
+msgstr "Makro desen listesi"
+
+#: ../mini-commander/src/mini-commander.glade.h:1
+#: ../stickynotes/stickynotes.glade.h:1
+msgid "    "
+msgstr "    "
+
+#: ../mini-commander/src/mini-commander.glade.h:2
+msgid "*"
+msgstr "*"
+
+#: ../mini-commander/src/mini-commander.glade.h:3
+msgid "<b>Auto Completion</b>"
+msgstr "<b>Kendiliğinden Tamamlama</b>"
+
+#: ../mini-commander/src/mini-commander.glade.h:4
+msgid "<b>Colors</b>"
+msgstr "<b>Renkler</b>"
+
+#: ../mini-commander/src/mini-commander.glade.h:5
+msgid "<b>Size</b>"
+msgstr "<b>Boyut</b>"
+
+#: ../mini-commander/src/mini-commander.glade.h:6
+msgid "Add New Macro"
+msgstr "Yeni Makro Ekle"
+
+#: ../mini-commander/src/mini-commander.glade.h:7
+msgid "Co_mmand:"
+msgstr "_Komut:"
+
+#: ../mini-commander/src/mini-commander.glade.h:8
+msgid "Command Line Preferences"
+msgstr "Komut Satırı Tercihleri"
+
+#: ../mini-commander/src/mini-commander.glade.h:9
+msgid "Command line _background:"
+msgstr "Komut satırı _arkaplanı:"
+
+#: ../mini-commander/src/mini-commander.glade.h:10
+msgid "Command line _foreground:"
+msgstr "Komut satırı ö_nalanı:"
+
+#: ../mini-commander/src/mini-commander.glade.h:11
+msgid "E_nable history-based auto completion"
+msgstr "_Geçmişe dayalı kendiliğinden tamamlamayı etkinleştir"
+
+#: ../mini-commander/src/mini-commander.glade.h:13
+msgid "Macros"
+msgstr "Makrolar"
+
+#: ../mini-commander/src/mini-commander.glade.h:14
+msgid "Pick a color"
+msgstr "Bir renk seç"
+
+#: ../mini-commander/src/mini-commander.glade.h:15
+msgid "_Add Macro..."
+msgstr "_Makro Ekle..."
+
+#: ../mini-commander/src/mini-commander.glade.h:16
+msgid "_Delete Macro"
+msgstr "_Makro Sil"
+
+#: ../mini-commander/src/mini-commander.glade.h:17
+msgid "_Macros:"
+msgstr "_Makrolar:"
+
+#: ../mini-commander/src/mini-commander.glade.h:18
+msgid "_Pattern:"
+msgstr "_Desen:"
+
+#: ../mini-commander/src/mini-commander.glade.h:19
+msgid "_Use default theme colors"
+msgstr "Öntanımlı _tema renklerini kullan"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:1
+msgid "Attempt to autocomplete a command from the history of commands entered."
+msgstr "Girilen komutların geçmişinden komutların kendiliğinden tamamlanması."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:2
+msgid "Background color, blue component"
+msgstr "Arkaplan rengi, mavi bileşeni"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:3
+msgid "Background color, green component"
+msgstr "Arkaplan rengi, yeşil bileşeni"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:4
+msgid "Background color, red component"
+msgstr "Arkaplan rengi, kırmızı bileşeni"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:5
+msgid "Foreground color, blue component"
+msgstr "Önplan rengi, mavi bileşeni"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:6
+msgid "Foreground color, green component"
+msgstr "Önplan rengi, yeşil bileşeni"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:7
+msgid "Foreground color, red component"
+msgstr "Önplan rengi, kırmızı bileşeni"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:8
+msgid "History list"
+msgstr "Geçmiş listesi"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:9
+msgid "List of GConfValue entries containing strings for history entries."
+msgstr ""
+"Geçmiş girişleri için dizgileri saklayan GConfValue girdileri için liste."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:13
+msgid "Perform history autocompletion"
+msgstr "Geçmişe dayalı kendiliğinden tamamlamayı aç"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:14
+msgid "Show a frame surrounding the applet."
+msgstr "Uygulamacığı çevreleyen çerçeve göster."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:15
+msgid "Show a handle so the applet can be detached from the panel."
+msgstr "Uygulamacığın panelden ayrılabilmesini sağlayacak bir ayıraç göster."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:16
+msgid "Show frame"
+msgstr "Çerçeve göster"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:17
+msgid "Show handle"
+msgstr "Ayraç göster"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:18
+msgid "The blue component of the background color."
+msgstr "Arkaplan renginin mavi bileşeni."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:19
+msgid "The blue component of the foreground color."
+msgstr "Önalan renginin mavi bileşeni."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:20
+msgid "The green component of the background color."
+msgstr "Arkaplan renginin yeşil bileşeni."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:21
+msgid "The green component of the foreground color."
+msgstr "Önalan renginin yeşil bileşeni."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:22
+msgid "The red component of the background color."
+msgstr "Arkaplan renginin kırmızı bileşeni."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:23
+msgid "The red component of the foreground color."
+msgstr "Önalan renginin kırmızı bileşeni."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:24
+msgid ""
+"This per-applet key is deprecated in favour of the global key, /schemas/apps/"
+"mini-commander-global/macro_patterns."
+msgstr ""
+"Bu uygulamacığa yönelik tuş, /schemas/apps/mini-commander-global/"
+"macro_patterns genel anahtarı kullanılmak üzere artık kullanılmıyor."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:25
+msgid "Use the default theme colors"
+msgstr "Öntanımlı tema renklerini kullan"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:26
+msgid "Use theme colors instead of custom ones."
+msgstr "Özelleri yerine tema renklerini kullan."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:27
+msgid "Width"
+msgstr "Genişlik"
+
+#: ../mini-commander/src/mini-commander_applet.c:246
+#: ../mini-commander/src/mini-commander_applet.c:250
+msgid "Browser"
+msgstr "Göz at"
+
+#: ../mini-commander/src/mini-commander_applet.c:251
+msgid "Click this button to start the browser"
+msgstr "Tarayıcıyı başlatmak için bu düğmeye tıklayın"
+
+#: ../mini-commander/src/mini-commander_applet.c:264
+#: ../mini-commander/src/mini-commander_applet.c:268
+msgid "History"
+msgstr "Geçmiş"
+
+#: ../mini-commander/src/mini-commander_applet.c:269
+msgid "Click this button for the list of previous commands"
+msgstr "Önceki komutların listesi için bu düğmeye basın"
+
+#: ../mini-commander/src/mini-commander_applet.c:353
+msgid "Command line has been disabled by your system administrator"
+msgstr "Sistem yöneticiniz tarafından komut satırı kapatıldı"
+
+#: ../mini-commander/src/mini-commander_applet.c:420
+msgid "Mini-Commander applet"
+msgstr "Küçük Komutan Uygulamacığı"
+
+#: ../mini-commander/src/mini-commander_applet.c:421
+msgid "This applet adds a command line to the panel"
+msgstr "Bu uygulamacık panelinize bir komut satırı ekler"
+
+#: ../mini-commander/src/preferences.c:405
+msgid "You must specify a pattern"
+msgstr "Bir desen belirtmelisiniz"
+
+#: ../mini-commander/src/preferences.c:409
+msgid "You must specify a pattern and a command"
+msgstr "Bir desen ve komut belitmelisiniz"
+
+#: ../mini-commander/src/preferences.c:410
+msgid "You must specify a command"
+msgstr "Bir komut belitmelisiniz"
+
+#: ../mini-commander/src/preferences.c:413
+msgid "You may not specify duplicate patterns"
+msgstr "Bir deseni birden daha fazla belirtmemelisiniz"
+
+#: ../mini-commander/src/preferences.c:776
+msgid "Pattern"
+msgstr "Desen"
+
+#: ../mini-commander/src/preferences.c:786
+msgid "Command"
+msgstr "Komut"
+
+#: ../mixer/GNOME_MixerApplet.server.in.in.h:1
+msgid "Adjust the sound volume"
+msgstr "Ses seviyesini ayarla"
+
+#: ../mixer/GNOME_MixerApplet.server.in.in.h:2 ../mixer/applet.c:221
+msgid "Volume Control"
+msgstr "Ses Denetimi"
+
+#: ../mixer/GNOME_MixerApplet.xml.h:3
+msgid "_Mute"
+msgstr "_Sessiz"
+
+#: ../mixer/GNOME_MixerApplet.xml.h:4
+msgid "_Open Volume Control"
+msgstr "_Ses Denetimlerini Aç"
+
+#: ../mixer/applet.c:505
+msgid ""
+"The volume control did not find any elements and/or devices to control. This "
+"means either that you don't have the right GStreamer plugins installed, or "
+"that you don't have a sound card configured."
+msgstr ""
+"Ses kontrolü, kontrol etmek için hiçbir öğe ve/veya aygıt bulamadı. Bu ya "
+"doğru bir GStreamer eklentisi yüklemediğiniz ya da ses kartınızı doğru "
+"yapılandırmadığınız anlamına gelir."
+
+#: ../mixer/applet.c:509
+msgid ""
+"You can remove the volume control from the panel by right-clicking the "
+"speaker icon on the panel and selecting \"Remove From Panel\" from the menu."
+msgstr ""
+"Ses kontrolünü panelde hoparlör simgesinin üstüne sağ tıklayarak ve menüden "
+"\"Panelden Kaldır\"ı seçerek kaldırabilirsiniz."
+
+#: ../mixer/applet.c:690
+#, c-format
+msgid "Failed to start Volume Control: %s"
+msgstr "Ses Denetimi başlatılamadı: %s"
+
+#: ../mixer/applet.c:1082
+#, c-format
+msgid "%s: muted"
+msgstr "%s: sessiz"
+
+#. Translator comment: I'm not all too sure if this makes sense
+#. * to mark as a translation, but anyway. The string is a list of
+#. * selected tracks, the number is the volume in percent. You
+#. * most likely want to keep this as-is.
+#: ../mixer/applet.c:1088
+#, c-format
+msgid "%s: %d%%"
+msgstr "%s: %%%d"
+
+#: ../mixer/applet.c:1246
+#, c-format
+msgid "Failed to display help: %s"
+msgstr "Yardım gösterilemedi: %s"
+
+#: ../mixer/applet.c:1259
+msgid "Volume Applet"
+msgstr "Ses Seviyesi Uygulamacığı"
+
+#: ../mixer/applet.c:1262
+msgid "A GNOME/GStreamer-based volume control applet"
+msgstr "Bir GNOME/GStreamer tabanlı ses kontrol uygulmacığı"
+
+#: ../mixer/dock.c:124
+msgid "+"
+msgstr "+"
+
+#: ../mixer/dock.c:152
+msgid "-"
+msgstr "-"
+
+#. FIXME:
+#. * - maybe we want to rename the element to its actual name
+#. *     if we've found that?
+#.
+#. create element
+#: ../mixer/load.c:81 ../mixer/load.c:84 ../mixer/load.c:141
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "Bilinmeyen Ses Kontrolü %d"
+
+#: ../mixer/mixer.schemas.in.h:1
+msgid "Channel controlled by applet. Only for OSS setups"
+msgstr ""
+"Uygulamacık tarafından kontrol edilen kanal. Sadece OSS kurulumları için"
+
+#: ../mixer/mixer.schemas.in.h:2
+msgid "Saved mute state"
+msgstr "Sessiz durumu kaydedildi"
+
+#: ../mixer/mixer.schemas.in.h:3
+msgid "Saved volume to restore on startup"
+msgstr "Başlangıçta geri getirilecek seviye kaydedildi"
+
+#. make window look cute
+#: ../mixer/preferences.c:126
+msgid "Volume Control Preferences"
+msgstr "Ses Denetleyici Tercihleri"
+
+#: ../mixer/preferences.c:139
+msgid "Select the device and track to control."
+msgstr "Kontrol edilecek aygıtı ve kanalı seçin."
+
+#: ../modemlights/GNOME_ModemLights.server.in.in.h:1
+msgid "Activate and monitor a dial-up network connection"
+msgstr "Çevirmeli ağ bağlantısını etkinleştir ve izle"
+
+#: ../modemlights/GNOME_ModemLights.server.in.in.h:2
+#: ../modemlights/modem-applet.c:1034
+msgid "Modem Monitor"
+msgstr "Modem İzleyicisi"
+
+#: ../modemlights/GNOME_ModemLights.xml.h:2
+msgid "_Activate"
+msgstr "_Etkinleştir"
+
+#: ../modemlights/GNOME_ModemLights.xml.h:3
+msgid "_Deactivate"
+msgstr "_Devre Dışı Bırak"
+
+#: ../modemlights/GNOME_ModemLights.xml.h:5
+#: ../stickynotes/stickynotes.glade.h:45
+msgid "_Properties"
+msgstr "Ö_zellikler"
+
+#: ../modemlights/modem-applet.c:725
+msgid "Connection active, but could not get connection time"
+msgstr "Bağlantı etkin, fakat bağlantı zamanını belirleyemiyor"
+
+#: ../modemlights/modem-applet.c:741
+#, c-format
+msgid "Time connected: %.1d:%.2d"
+msgstr "Bağlantı süresi: %.1d:%.2d"
+
+#: ../modemlights/modem-applet.c:745
+msgid "Not connected"
+msgstr "Bağlı değil"
+
+#: ../modemlights/modem-applet.c:767
+msgid ""
+"To connect to your Internet service provider, you need administrator "
+"privileges"
+msgstr ""
+"İnternet servis sağlayacınıza bağlanabilmeniz için yönetici haklarına "
+"ihtiyacınız var"
+
+#: ../modemlights/modem-applet.c:768
+msgid ""
+"To disconnect from your Internet service provider, you need administrator "
+"privileges"
+msgstr ""
+"İnternet servis sağlayacınızla olan bağlantınızı kesmek için yönetici "
+"haklarına ihtiyacınız var"
+
+#: ../modemlights/modem-applet.c:840
+msgid "The entered password is invalid"
+msgstr "Girilen parola geçerli değil"
+
+#: ../modemlights/modem-applet.c:842
+msgid ""
+"Check that you have typed it correctly and that you haven't activated the "
+"\"caps lock\" key"
+msgstr ""
+"Doğru yazıp yazmadığınızı ve \"CapsLock\" tuşunuzu etkinleştirip "
+"etkinleştirmediğinizi kontrol edin"
+
+#: ../modemlights/modem-applet.c:944
+msgid "Do you want to connect?"
+msgstr "Bağlanmak istiyor musunuz?"
+
+#: ../modemlights/modem-applet.c:945
+msgid "Do you want to disconnect?"
+msgstr "Bağlantıyı kesmek istiyor musunuz?"
+
+#: ../modemlights/modem-applet.c:954
+msgid "C_onnect"
+msgstr "_Bağlan"
+
+#: ../modemlights/modem-applet.c:954
+msgid "_Disconnect"
+msgstr "_Bağlantıyı Kes"
+
+#: ../modemlights/modem-applet.c:1010
+msgid "Could not launch network configuration tool"
+msgstr "Ağ yapılandırma aracı başlatılamıyor"
+
+#: ../modemlights/modem-applet.c:1012
+msgid ""
+"Check that it's installed in the correct path and that it has the correct "
+"permissions"
+msgstr ""
+"Doğru yere yüklendiğinden ve sizin yüklenen yer üzerinde gerekli izinlere "
+"sahip olduğunuzdan emin olun"
+
+#: ../modemlights/modem-applet.c:1037
+msgid "Applet for activating and monitoring a dial-up network connection."
+msgstr ""
+"Bir çevirmeli ağ bağlantısını etkinleştirip izlemeye yarayan uygulamacık."
+
+#: ../modemlights/modemlights.glade.h:1
+msgid ""
+"<span weight=\"bold\" size=\"larger\">Connecting with Internet Service "
+"Provider</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"larger\">İnternet Servis Sağlayıcı ile "
+"Bağlanılıyor</span>"
+
+#: ../modemlights/modemlights.glade.h:2
+msgid "<span weight=\"bold\" size=\"larger\">Root password required</span>"
+msgstr ""
+"<span weight=\"bold\" size= \"larger\">Yönetici parolası gerekli</span>"
+
+#: ../modemlights/modemlights.glade.h:3
+msgid "Enter password"
+msgstr "Parola girin"
+
+#: ../modemlights/modemlights.glade.h:4
+msgid "Password:"
+msgstr "Parola:"
+
+#: ../multiload/GNOME_MultiLoadApplet_Factory.server.in.in.h:1
+msgid "A system load indicator"
+msgstr "Sistem yükü belirteci"
+
+#: ../multiload/GNOME_MultiLoadApplet_Factory.server.in.in.h:2
+#: ../multiload/main.c:55
+msgid "System Monitor"
+msgstr "Sistem İzleyici"
+
+#: ../multiload/GNOME_MultiloadApplet.xml.h:3
+msgid "_Open System Monitor"
+msgstr "Sistem İzleyici'yi _Aç"
+
+#: ../multiload/main.c:59
+msgid ""
+"A system load monitor capable of displaying graphs for CPU, ram, and swap "
+"space use, plus network traffic."
+msgstr ""
+"GNU Genel Kamu Lisansına göre yayınlanmıştır.\n"
+"\n"
+"İşlemci, bellek, takas alanı kullanımı ve ağ yoğunluğunun çizelgelerini "
+"gösterebilen bir sistem yükü izleyicisidir."
+
+#: ../multiload/main.c:122
+#, c-format
+msgid "There was an error executing '%s': %s"
+msgstr "'%s' çalıştırılırken hata oluştu: %s"
+
+#: ../multiload/main.c:329 ../multiload/properties.c:607
+msgid "Processor"
+msgstr "İşlemci"
+
+#: ../multiload/main.c:331 ../multiload/properties.c:615
+msgid "Memory"
+msgstr "Bellek"
+
+#: ../multiload/main.c:333 ../multiload/properties.c:623
+msgid "Network"
+msgstr "Ağ"
+
+#: ../multiload/main.c:335 ../multiload/properties.c:631
+msgid "Swap Space"
+msgstr "Takas Alanı"
+
+#: ../multiload/main.c:337 ../multiload/main.c:400
+msgid "Load Average"
+msgstr "Ortalama Yük"
+
+#: ../multiload/main.c:339
+msgid "Disk"
+msgstr "Disk"
+
+#. xgettext: use and cache are > 1 most of the time,
+#. please assume that they always are.
+#.
+#: ../multiload/main.c:360
+#, c-format
+msgid ""
+"%s:\n"
+"%u%% in use of which\n"
+"%u%% is cache"
+msgstr ""
+"%s:\n"
+"%%%u kullanımda, bunun\n"
+"%%%u kadarı önbellek"
+
+#: ../multiload/main.c:369
+#, c-format
+msgid ""
+"%s:\n"
+"%u%% in use"
+msgid_plural ""
+"%s:\n"
+"%u%% in use"
+msgstr[0] ""
+"%s:\n"
+"%%%u kullanımda"
+
+#: ../multiload/main.c:396
+msgid "CPU Load"
+msgstr "Işlemci Yükü"
+
+#: ../multiload/main.c:397
+msgid "Memory Load"
+msgstr "Bellek Yükü"
+
+#: ../multiload/main.c:398
+msgid "Net Load"
+msgstr "Ağ Yükü"
+
+#: ../multiload/main.c:399
+msgid "Swap Load"
+msgstr "Takas Yükü"
+
+#: ../multiload/main.c:401
+msgid "Disk Load"
+msgstr "Disk Yükü"
+
+#: ../multiload/multiload.schemas.in.h:1
+msgid "Applet refresh rate in milliseconds"
+msgstr "Milisaniye cinsinden uygulamacık tazeleme hızı"
+
+#: ../multiload/multiload.schemas.in.h:2
+msgid "Background color for disk load graph"
+msgstr "Disk yükü grafiği için arkaplan rengi"
+
+#: ../multiload/multiload.schemas.in.h:3
+msgid "CPU graph background color"
+msgstr "İşlemci grafiği arkaplan rengi"
+
+#: ../multiload/multiload.schemas.in.h:4
+msgid "Enable CPU load graph"
+msgstr "İşlemci yük grafiğini etkinleştir"
+
+#: ../multiload/multiload.schemas.in.h:5
+msgid "Enable disk load graph"
+msgstr "Disk yük grafiğini etkinleştir"
+
+#: ../multiload/multiload.schemas.in.h:6
+msgid "Enable load average graph"
+msgstr "Yük ortalaması grafiğini etkinleştir"
+
+#: ../multiload/multiload.schemas.in.h:7
+msgid "Enable memory load graph"
+msgstr "Bellek yük grafiğini etkinleştir"
+
+#: ../multiload/multiload.schemas.in.h:8
+msgid "Enable network load graph"
+msgstr "Ağ yük grafiğini etkinleştir"
+
+#: ../multiload/multiload.schemas.in.h:9
+msgid "Enable swap load graph"
+msgstr "Takas yük grafiğini etkinleştir"
+
+#: ../multiload/multiload.schemas.in.h:10
+msgid ""
+"For horizontal panels, the width of the graphs in pixels. For vertical "
+"panels, this is the height of the graphs."
+msgstr ""
+"Yatay paneller için, grafiğin benek cinsinden genişliği. Dikey paneller "
+"için, grafiğin boyu."
+
+#: ../multiload/multiload.schemas.in.h:11
+msgid "Graph color for Ethernet network activity"
+msgstr "Ethernet ağ aktivitesi için grafik rengi"
+
+#: ../multiload/multiload.schemas.in.h:12
+msgid "Graph color for PLIP network activity"
+msgstr "PLIP ağ aktivitesi için grafik rengi"
+
+#: ../multiload/multiload.schemas.in.h:13
+msgid "Graph color for SLIP network activity"
+msgstr "SLIP ağ aktivitesi için grafik rengi"
+
+#: ../multiload/multiload.schemas.in.h:14
+msgid "Graph color for buffer memory"
+msgstr "Tampon bellek için grafik rengi"
+
+#: ../multiload/multiload.schemas.in.h:15
+msgid "Graph color for cached memory"
+msgstr "Önbellek için grafik rengi"
+
+#: ../multiload/multiload.schemas.in.h:16
+msgid "Graph color for disk read"
+msgstr "Disk okuma grafiği rengi"
+
+#: ../multiload/multiload.schemas.in.h:17
+msgid "Graph color for disk write"
+msgstr "Disk yazma grafiği rengi"
+
+#: ../multiload/multiload.schemas.in.h:18
+msgid "Graph color for iowait related CPU activity"
+msgstr "Öncelikle ilgili işlemci aktivitesi için grafik rengi"
+
+#: ../multiload/multiload.schemas.in.h:19
+msgid "Graph color for load average"
+msgstr "Yük ortalaması için grafik rengi"
+
+#: ../multiload/multiload.schemas.in.h:20
+msgid "Graph color for nice-related CPU activity"
+msgstr "Öncelikle ilgili işlemci aktivitesi için grafik rengi"
+
+#: ../multiload/multiload.schemas.in.h:21
+msgid "Graph color for other network usage"
+msgstr "Diger ağ kullanımı için grafik rengi"
+
+#: ../multiload/multiload.schemas.in.h:22
+msgid "Graph color for shared memory"
+msgstr "Paylaşılan bellek için grafik rengi"
+
+#: ../multiload/multiload.schemas.in.h:23
+msgid "Graph color for system-related CPU activity"
+msgstr "Sistemle ilgili işlemci aktivitesi grafik rengi"
+
+#: ../multiload/multiload.schemas.in.h:24
+msgid "Graph color for user-related CPU activity"
+msgstr "Kullanıcıyla ilgili işlemci aktivitesi için grafik rengi"
+
+#: ../multiload/multiload.schemas.in.h:25
+msgid "Graph color for user-related memory usage"
+msgstr "Kullanıcıyla ilgili bellek kullanımı için grafik rengi"
+
+#: ../multiload/multiload.schemas.in.h:26
+msgid "Graph color for user-related swap usage"
+msgstr "Kullanıcıyla ilgili takas kullanımı için grafik rengiKul"
+
+#: ../multiload/multiload.schemas.in.h:27
+msgid "Graph size"
+msgstr "Gafik boyutu"
+
+#: ../multiload/multiload.schemas.in.h:28
+msgid "Load graph background color"
+msgstr "Grafik arkaplan rengini yükle"
+
+#: ../multiload/multiload.schemas.in.h:29
+msgid "Memory graph background color"
+msgstr "Bellek grafiği arkaplan rengi"
+
+#: ../multiload/multiload.schemas.in.h:30
+msgid "Network graph background color"
+msgstr "Ağ grafiği arkaplan rengi"
+
+#: ../multiload/multiload.schemas.in.h:31
+msgid "Swap graph background color"
+msgstr "Takas grafiği arkaplan rengi"
+
+#: ../multiload/properties.c:368
+msgid "Monitored Resources"
+msgstr "İzlenen Özkaynaklar"
+
+#: ../multiload/properties.c:393
+msgid "_Processor"
+msgstr "İş_lemci"
+
+#: ../multiload/properties.c:406
+msgid "_Memory"
+msgstr "_Bellek"
+
+#: ../multiload/properties.c:419
+msgid "_Network"
+msgstr "_Ağ"
+
+#: ../multiload/properties.c:432
+msgid "S_wap Space"
+msgstr "_Takas Alanı"
+
+#: ../multiload/properties.c:445
+msgid "_Load"
+msgstr "_Yük"
+
+#: ../multiload/properties.c:458
+msgid "_Harddisk"
+msgstr "_Sabit Disk"
+
+#: ../multiload/properties.c:474
+msgid "Options"
+msgstr "Seçenekler"
+
+#: ../multiload/properties.c:504
+msgid "System m_onitor width: "
+msgstr "Sistem izleyici _genişliği: "
+
+#: ../multiload/properties.c:506
+msgid "System m_onitor height: "
+msgstr "Sistem izleyici _yüksekliği: "
+
+#: ../multiload/properties.c:545
+msgid "Sys_tem monitor update interval: "
+msgstr "Sistem izleyici güncelleme _sıklığı: "
+
+#: ../multiload/properties.c:571
+msgid "milliseconds"
+msgstr "milisaniye"
+
+#: ../multiload/properties.c:582
+msgid "Colors"
+msgstr "Renkler"
+
+#: ../multiload/properties.c:609 ../multiload/properties.c:617
+msgid "_User"
+msgstr "_Kullanıcı"
+
+#: ../multiload/properties.c:610
+msgid "S_ystem"
+msgstr "_Sistem"
+
+#: ../multiload/properties.c:611
+msgid "N_ice"
+msgstr "Ö_ncelik"
+
+#: ../multiload/properties.c:612
+msgid "I_OWait"
+msgstr "I_OWait"
+
+#: ../multiload/properties.c:613
+msgid "I_dle"
+msgstr "B_eklemede"
+
+#: ../multiload/properties.c:618
+msgid "Sh_ared"
+msgstr "_Paylaşımda"
+
+#: ../multiload/properties.c:619
+msgid "_Buffers"
+msgstr "_Tamponlar"
+
+#: ../multiload/properties.c:620
+msgid "Cach_ed"
+msgstr "Önb_ellekli"
+
+#: ../multiload/properties.c:621
+msgid "F_ree"
+msgstr "B_oş"
+
+#: ../multiload/properties.c:625
+msgid "_SLIP"
+msgstr "S_LIP"
+
+#: ../multiload/properties.c:626
+msgid "PL_IP"
+msgstr "_PLIP"
+
+#: ../multiload/properties.c:627
+msgid "_Ethernet"
+msgstr "_Ethernet"
+
+#: ../multiload/properties.c:628
+msgid "Othe_r"
+msgstr "_Diğer"
+
+#: ../multiload/properties.c:629 ../multiload/properties.c:639
+#: ../multiload/properties.c:645
+msgid "_Background"
+msgstr "A_rkaplan"
+
+#: ../multiload/properties.c:633
+msgid "_Used"
+msgstr "_Kullanılıyor"
+
+#: ../multiload/properties.c:634
+msgid "_Free"
+msgstr "_Boş"
+
+#: ../multiload/properties.c:636
+msgid "Load"
+msgstr "Yük"
+
+#: ../multiload/properties.c:638
+msgid "_Average"
+msgstr "Ortalam_a"
+
+#: ../multiload/properties.c:641
+msgid "Harddisk"
+msgstr "Sabit Disk"
+
+#: ../multiload/properties.c:643
+msgid "_Read"
+msgstr "_Okuma"
+
+#: ../multiload/properties.c:644
+msgid "_Write"
+msgstr "_Yazma"
+
+#: ../multiload/properties.c:670
+msgid "System Monitor Preferences"
+msgstr "Sistem İzleyici Tercihleri"
+
+#: ../null_applet/GNOME_CDPlayerApplet.server.in.h:1
+msgid "CD Player (Deprecated)"
+msgstr "CD Çalıcı (Kullanılmıyor)"
+
+#: ../null_applet/GNOME_CDPlayerApplet.server.in.h:2
+msgid "Panel applet for playing audio CDs"
+msgstr "Ses CD'lerini çalmak için panel uygulamacığı"
+
+#: ../null_applet/GNOME_MailcheckApplet_Factory.server.in.h:1
+msgid "Alert you when new mail arrives"
+msgstr "Yeni e-posta geldiğinde uyar"
+
+#: ../null_applet/GNOME_MailcheckApplet_Factory.server.in.h:2
+msgid "Inbox Monitor (Deprecated)"
+msgstr "Gelen Kutusu (Kullanılmıyor)"
+
+#: ../null_applet/GNOME_NullApplet_Factory.server.in.in.h:1
+msgid "Factory for deprecating applets"
+msgstr "Kullanılmayan uygulamacıklar için üretici"
+
+#: ../null_applet/GNOME_NullApplet_Factory.server.in.in.h:2
+msgid "Null Applet Factory"
+msgstr "Boş Uygulamacık Üreticisi"
+
+#: ../null_applet/GNOME_Panel_WirelessApplet.server.in.h:1
+msgid "Monitor the quality of a wireless network link"
+msgstr "Kablosuz ağ bağlantısının kalitesini izle"
+
+#: ../null_applet/GNOME_Panel_WirelessApplet.server.in.h:2
+msgid "Wireless Link Monitor"
+msgstr "Kablosuz Bağlantı İzleyici"
+
+#: ../null_applet/null_applet.c:154
+msgid "Some panel items are no longer available"
+msgstr "Bazı panel bileşenleri artık kullanılmıyor"
+
+#: ../null_applet/null_applet.c:155
+msgid ""
+"One or more panel items (also referred to as applets) are no longer "
+"available in the GNOME desktop."
+msgstr ""
+"Bir veya daha fazla panel öğesi (uygulamacığı olarak da belirtilir) artık "
+"GNOME masaüstünde bulunmuyor."
+
+#: ../null_applet/null_applet.c:157
+msgid "These items will now be removed from your configuration:"
+msgstr "Bu öğeler yapılandırmanızdan kaldırılacak:"
+
+#: ../null_applet/null_applet.c:160
+msgid "You will not receive this message again."
+msgstr "Bu iletiyi bir daha almayacaksınız."
+
+#: ../stickynotes/GNOME_StickyNotesApplet.server.in.in.h:1
+msgid "Create, view, and manage sticky notes on the desktop"
+msgstr "Masaüstünüzde yapışkan notları oluşturun, görüntüleyin ve yönetin"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.server.in.in.h:2
+#: ../stickynotes/stickynotes_applet.c:411
+#: ../stickynotes/stickynotes_applet_callbacks.c:369
+msgid "Sticky Notes"
+msgstr "Yapışkan Notlar"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.server.in.in.h:3
+msgid "Sticky Notes Applet Factory"
+msgstr "Yapışkan Notlar Uygulamacık Üreticisi"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:2
+msgid "_Delete Notes"
+msgstr "_Notları Sil"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:4
+msgid "_Lock Notes"
+msgstr "N_otları Kilitle"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:5
+#: ../stickynotes/stickynotes.glade.h:44
+msgid "_New Note"
+msgstr "_Yeni Not"
+
+#: ../stickynotes/stickynotes.c:537
+msgid "This note is locked."
+msgstr "Bu not kilitlendi."
+
+#: ../stickynotes/stickynotes.c:541
+msgid "This note is unlocked."
+msgstr "Bu notun kilidi açıldı."
+
+#: ../stickynotes/stickynotes.glade.h:2
+msgid "    Font C_olor:"
+msgstr "Yazıtipi _Rengi:"
+
+#: ../stickynotes/stickynotes.glade.h:3
+msgid "    Font Co_lor:"
+msgstr "Yazıtipi R_engi:"
+
+#: ../stickynotes/stickynotes.glade.h:4
+msgid "    Note C_olor:"
+msgstr "     Not _Rengi:"
+
+#: ../stickynotes/stickynotes.glade.h:5
+msgid "    Note _Color:"
+msgstr "     Not R_engi:"
+
+#: ../stickynotes/stickynotes.glade.h:6
+msgid "    _Font:"
+msgstr "Ya_zıtipi:"
+
+#: ../stickynotes/stickynotes.glade.h:7
+msgid "<b>Behavior</b>"
+msgstr "<b>Davranış</b>"
+
+#: ../stickynotes/stickynotes.glade.h:8
+msgid "<b>Default Note Properties</b>"
+msgstr "<b>Öntanımlı Not Özellikleri</b>"
+
+#: ../stickynotes/stickynotes.glade.h:9
+msgid ""
+"<b>Delete all sticky notes?</b>\n"
+"\n"
+"This cannot be undone."
+msgstr ""
+"<b>Tüm yapışkan notlar silinsin mi?</b>\n"
+"\n"
+"Bu işlem geri alınamaz."
+
+#: ../stickynotes/stickynotes.glade.h:12
+msgid ""
+"<b>Delete this sticky note?</b>\n"
+"\n"
+"This cannot be undone."
+msgstr ""
+"<b>Bu yapışkan notl silinsin mi?</b>\n"
+"\n"
+"Bu işlem geri alınamaz."
+
+#: ../stickynotes/stickynotes.glade.h:15
+msgid "<b>Properties</b>"
+msgstr "<b>Özellikler</b>"
+
+#: ../stickynotes/stickynotes.glade.h:16
+msgid "Choose a base color to use for all sticky notes"
+msgstr "Tüm yapışkan notlar için kullanılacak temel rengi seçin"
+
+#: ../stickynotes/stickynotes.glade.h:17
+msgid "Choose a color for the note"
+msgstr "Not için bir renk seçin"
+
+#: ../stickynotes/stickynotes.glade.h:18
+msgid "Choose a font for the note"
+msgstr "Not için bir yazıtipi seçin"
+
+#: ../stickynotes/stickynotes.glade.h:19
+msgid "Choose a font to use for all sticky notes"
+msgstr "Tüm yapışkan notlarda kullanılacak yazıtipini seçin"
+
+#: ../stickynotes/stickynotes.glade.h:20
+msgid "Choose if notes are visible on all workspaces"
+msgstr "Notların tüm çalışma alanlarında görüntülenip görüntülenmemesini seçin"
+
+#: ../stickynotes/stickynotes.glade.h:21
+msgid "Choose if the default style is forced on all notes"
+msgstr "Tüm notlara öntanımlı biçemin uygulanıp uygulanmamasını seçin"
+
+#: ../stickynotes/stickynotes.glade.h:22
+msgid "Close note"
+msgstr "Notu kapat"
+
+#: ../stickynotes/stickynotes.glade.h:23
+msgid "Force _default color and font on notes"
+msgstr "Notlarda _öntanımlı renk ve yazıtipini kullan"
+
+#: ../stickynotes/stickynotes.glade.h:24
+msgid "H_eight:"
+msgstr "_Yükseklik:"
+
+#: ../stickynotes/stickynotes.glade.h:25
+msgid "Lock/Unlock note"
+msgstr "Notu kilitle/serbest bırak"
+
+#: ../stickynotes/stickynotes.glade.h:26
+msgid "Pick a color for the sticky note"
+msgstr "Yapışkan not için bir renk seçin"
+
+#: ../stickynotes/stickynotes.glade.h:27
+msgid "Pick a default sticky note color"
+msgstr "Öntanımlı yapışkan not rengini seçin"
+
+#: ../stickynotes/stickynotes.glade.h:28
+msgid "Pick a default sticky note font"
+msgstr "Öntanımlı yapışkan not yazıtipini seçin"
+
+#: ../stickynotes/stickynotes.glade.h:29
+msgid "Pick a font for the sticky note"
+msgstr "Yapışkan not için yazıtipini seçin"
+
+#: ../stickynotes/stickynotes.glade.h:30
+msgid "Resize note"
+msgstr "Notu yeniden boyutlandırın"
+
+#: ../stickynotes/stickynotes.glade.h:31
+msgid "Specify a title for the note"
+msgstr "Not için bir başlık belirleyin"
+
+#: ../stickynotes/stickynotes.glade.h:32
+msgid "Specify the default height (in pixels) of new notes"
+msgstr "Yeni notlar için öntanımlı boy (piksel cinsinden) belirleyin"
+
+#: ../stickynotes/stickynotes.glade.h:33
+msgid "Specify the default width (in pixels) of new notes"
+msgstr "Yeni notlar için öntanımlı genişlik (piksel cinsinden) belirleyin"
+
+#: ../stickynotes/stickynotes.glade.h:34
+msgid "Sticky Note"
+msgstr "Yapışkan Not"
+
+#: ../stickynotes/stickynotes.glade.h:35
+msgid "Sticky Note Properties"
+msgstr "Yapışkan Not Özellikleri"
+
+#: ../stickynotes/stickynotes.glade.h:36
+msgid "Sticky Notes Preferences"
+msgstr "Yapışkan Notlar Tercihleri"
+
+#: ../stickynotes/stickynotes.glade.h:37
+msgid "Use co_lor from the system theme"
+msgstr "Sistem temasından _renk kullan"
+
+#: ../stickynotes/stickynotes.glade.h:38
+msgid "Use default co_lor"
+msgstr "Öntanımlı _rengi kullan"
+
+#: ../stickynotes/stickynotes.glade.h:39
+msgid "Use default fo_nt"
+msgstr "Ö_ntanımlı yazıtipini kullan"
+
+#: ../stickynotes/stickynotes.glade.h:40
+msgid "Use fo_nt from the system theme"
+msgstr "Sistem temasından _yazıtipi kullan"
+
+#: ../stickynotes/stickynotes.glade.h:41
+msgid "_Delete All"
+msgstr "_Hepsini Sil"
+
+#: ../stickynotes/stickynotes.glade.h:42
+msgid "_Delete Note..."
+msgstr "_Notu Sil..."
+
+#: ../stickynotes/stickynotes.glade.h:43
+msgid "_Lock Note"
+msgstr "_Notu Kilitle"
+
+#: ../stickynotes/stickynotes.glade.h:46
+msgid "_Put notes on all workspaces"
+msgstr "Notu tüm ç_alışma alanlarına koy"
+
+#: ../stickynotes/stickynotes.glade.h:47
+msgid "_Title:"
+msgstr "_Başlık:"
+
+#: ../stickynotes/stickynotes.schemas.in.h:1
+msgid "Autosave timeout in minutes"
+msgstr "Dakika cinsinden otomatik kaydetme sıklığı"
+
+#: ../stickynotes/stickynotes.schemas.in.h:2
+msgid ""
+"By default, sticky notes are given the current date as the title when they "
+"are created. This format is used; anything that can be parsed by strftime() "
+"is valid."
+msgstr ""
+"Öntanımlı olarak, yapışkan notlara günün tarihi başlık olarak verilir. Bu "
+"biçim kullanıldı, strftime () tarafından ayrıştırılabilen her şey "
+"kullanılabilir."
+
+#: ../stickynotes/stickynotes.schemas.in.h:3
+msgid "Date format of note's title"
+msgstr "Notun başlığının tarih biçimi"
+
+#: ../stickynotes/stickynotes.schemas.in.h:4
+msgid "Default color for font"
+msgstr "Yazıtipi için öntanımlı renk"
+
+#: ../stickynotes/stickynotes.schemas.in.h:5
+msgid "Default color for new notes"
+msgstr "Yeni notlar için öntanımlı renk"
+
+#: ../stickynotes/stickynotes.schemas.in.h:6
+msgid ""
+"Default color for new sticky notes. This should be in html hex "
+"specification, for example \"#30FF50\"."
+msgstr ""
+"Yeni yapışkan notlar için öntanımlı renk. Bu html onaltılı belirtimde "
+"olmalıdır, örneğin \"#30FF50\"."
+
+#: ../stickynotes/stickynotes.schemas.in.h:7
+msgid ""
+"Default font color for new sticky notes. This should be in html hex "
+"specification, for example \"#000000\"."
+msgstr ""
+"Yeni yapışkan notlar için öntanımlı yazıtipi rengi. Bu html onaltılı "
+"belirtimde olmalıdır, örneğin \"#000000\"."
+
+#: ../stickynotes/stickynotes.schemas.in.h:8
+msgid "Default font for new notes"
+msgstr "Yeni notlar için öntanımlı yazıtipi"
+
+#: ../stickynotes/stickynotes.schemas.in.h:9
+msgid ""
+"Default font for new sticky notes. This should be a Pango Font Name, for "
+"example \"Sans Italic 10\""
+msgstr ""
+"Yeni notlar için öntanımlı yazıtipi. Bu Pango Yazıtipi İsmi olmalıdır, "
+"örneğin \"Sans Italic 10\""
+
+#: ../stickynotes/stickynotes.schemas.in.h:10
+msgid "Default height for new notes"
+msgstr "Yeni notlar için öntanımlı yükseklik"
+
+#: ../stickynotes/stickynotes.schemas.in.h:11
+msgid "Default height for new sticky notes in pixels."
+msgstr "Yeni notlar için piksel cinsinden öntanımlı yükseklik."
+
+#: ../stickynotes/stickynotes.schemas.in.h:12
+msgid "Default width for new notes"
+msgstr "Yeni notlar için öntanımlı genişlik"
+
+#: ../stickynotes/stickynotes.schemas.in.h:13
+msgid "Default width for new sticky notes in pixels."
+msgstr "Yeni notlar için piksel cinsinden öntanımlı yükseklik."
+
+#: ../stickynotes/stickynotes.schemas.in.h:14
+msgid "Empty notes are always deleted without confirmation"
+msgstr "Boş notlar her zaman onay sorulmadan silinir"
+
+#: ../stickynotes/stickynotes.schemas.in.h:15
+msgid ""
+"Every time the specified number of minutes pass, the sticky notes are "
+"automatically saved."
+msgstr ""
+"Her zaman belirtilen kadar dakika geçtiğinde, yapışkan notlar kendiliğinden "
+"kaydedilir."
+
+#: ../stickynotes/stickynotes.schemas.in.h:16
+msgid ""
+"If this option is disabled, a custom color can be used as the default color "
+"for all sticky notes."
+msgstr ""
+"Eğer bu seçenek kapalıysa, tüm yapışkan notlar için öntanımlı renk olarak "
+"özel bir renk kullanılabilir."
+
+#: ../stickynotes/stickynotes.schemas.in.h:17
+msgid ""
+"If this option is disabled, a custom font can be used as the default font "
+"for all sticky notes."
+msgstr ""
+"Eğer bu seçenek kapalıysa, tüm yapışkan notlar için öntanımlı yazıtipi "
+"olarak özel bir yazıtipi kullanılabilir."
+
+#: ../stickynotes/stickynotes.schemas.in.h:18
+msgid ""
+"If this option is enabled, the custom colors and fonts that have been "
+"assigned to individual notes will be ignored."
+msgstr ""
+"Eğer bu seçenek etkinse, bazı notlar için atanan özel renk ve yazıtipleri "
+"yok sayılacak."
+
+#: ../stickynotes/stickynotes.schemas.in.h:19
+msgid "Specifies whether the sticky notes are locked (non-editable) or not."
+msgstr "Yapışkan notların kilitli (düzenlenemez) olup olmadığını belirtir."
+
+#: ../stickynotes/stickynotes.schemas.in.h:20
+msgid ""
+"Specifies whether the sticky notes are visible on ALL workspaces on the "
+"desktop, or not."
+msgstr ""
+"Yapışkan notların masaüstü üzerindeki tüm çalışma alanlarında görülebilir "
+"olup olmadığını belirtir."
+
+#: ../stickynotes/stickynotes.schemas.in.h:21
+msgid "Sticky notes' locked state"
+msgstr "Yapışkan notların kilitlilik durumu"
+
+#: ../stickynotes/stickynotes.schemas.in.h:22
+msgid "Sticky notes' workspace stickyness"
+msgstr "Yapışkan notların çalışma alanı yapışkanlığı"
+
+#: ../stickynotes/stickynotes.schemas.in.h:23
+msgid "Whether to ask for confirmation when deleting a note"
+msgstr "Notları silerken onay sorulup sorulmaması"
+
+#: ../stickynotes/stickynotes.schemas.in.h:24
+msgid "Whether to force the default color and font on all notes"
+msgstr "Bütün notlarda öntanımlı renk ve yazıtiplerini kullan"
+
+#: ../stickynotes/stickynotes.schemas.in.h:25
+msgid "Whether to use the default system color"
+msgstr "Öntanımlı sistem renginin kullanılması"
+
+#: ../stickynotes/stickynotes.schemas.in.h:26
+msgid "Whether to use the default system font"
+msgstr "Öntanımlı sistem yazıtipinin kullanılması"
+
+#: ../stickynotes/stickynotes_applet.c:589
+#, c-format
+msgid "%d note"
+msgid_plural "%d notes"
+msgstr[0] "%d not"
+msgstr[1] "%d not"
+
+#: ../stickynotes/stickynotes_applet.c:590
+msgid "Show sticky notes"
+msgstr "Yapışkan notları göster"
+
+#: ../stickynotes/stickynotes_applet_callbacks.c:373
+msgid "Sticky Notes for the GNOME Desktop Environment"
+msgstr "GNOME Masaüstü Ortamı için Yapışkan Notlar"
+
+#: ../trashapplet/GNOME_Panel_TrashApplet.server.in.in.h:1
+msgid "Go to Trash"
+msgstr "Çöp Kutusuna git"
+
+#: ../trashapplet/GNOME_Panel_TrashApplet.server.in.in.h:2
+msgid "Trash"
+msgstr "Çöp kutusu"
+
+#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:2
+#: ../trashapplet/src/trashapplet.c:583
+msgid "_Empty Trash"
+msgstr "Çöpü _Boşalt"
+
+#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:4
+msgid "_Open"
+msgstr "_Aç"
+
+#: ../trashapplet/src/trashapplet.c:163
+#, c-format
+msgid "Unable to find the Trash directory: %s"
+msgstr "Çöp dizini bulunamıyor: %s"
+
+#: ../trashapplet/src/trashapplet.c:396
+msgid "No Items in Trash"
+msgstr "Çöpte hiç öğe yok"
+
+#: ../trashapplet/src/trashapplet.c:400
+#, c-format
+msgid "%d Item in Trash"
+msgid_plural "%d Items in Trash"
+msgstr[0] "%d Öğe Çöpte"
+msgstr[1] "%d Öğe Çöpte"
+
+#: ../trashapplet/src/trashapplet.c:516
+#, c-format
+msgid "Removing item %s of %s"
+msgstr "Öğe %s / %s kaldırılıyor"
+
+#: ../trashapplet/src/trashapplet.c:523
+#, c-format
+msgid "<i>Removing: %s</i>"
+msgstr "<i>%s Kaldırılıyor</i>"
+
+#: ../trashapplet/src/trashapplet.c:560
+msgid "Empty all of the items from the trash?"
+msgstr "Çöpteki bütün öğeleri boşaltmak istediğinize emin misiniz?"
+
+#: ../trashapplet/src/trashapplet.c:563
+msgid ""
+"If you choose to empty the trash, all items in it will be permanently lost. "
+"Please note that you can also delete them separately."
+msgstr ""
+"Eğer Çöpü boşaltmayı seçerseniz, çöpteki bütün öğeler tamamen kaybolacaktır. "
+"Bunları ayrı ayrı da silebilirsiniz."
+
+#: ../trashapplet/src/trashapplet.c:665
+#, c-format
+msgid ""
+"Error while spawning nautilus:\n"
+"%s"
+msgstr ""
+"Nautilus başlatılırken hata:\n"
+"%s"
+
+#: ../trashapplet/src/trashapplet.c:712
+msgid "Trash Applet"
+msgstr "Çöp Uygulamacığı"
+
+#: ../trashapplet/src/trashapplet.c:715
+msgid ""
+"A GNOME trash bin that lives in your panel. You can use it to view the trash "
+"or drag and drop items into the trash."
+msgstr ""
+"GNOME Çöp Kutusu, panelinizde durur. Burdan Çöp kutunuzun durumunu görebilir "
+"ya da sürükle bırak yöntemi ile öğeleri çöpe atabilirsiniz."
+
+#: ../trashapplet/src/trashapplet.c:740
+msgid "Delete Immediately?"
+msgstr "Hemen Silinsin mi?"
+
+#: ../trashapplet/src/trashapplet.c:769
+msgid "Cannot move items to trash, do you want to delete them immediately?"
+msgstr "Öğeler çöpe taşınamıyor, önları direk silmek ister misiniz?"
+
+#: ../trashapplet/src/trashapplet.c:772
+msgid ""
+"Cannot move some items to trash, do you want to delete these immediately?"
+msgstr "Bazı öğeler çöpe taşınamıyor, önları direk silmek ister misiniz?"
+
+#: ../trashapplet/src/trashapplet.c:873 ../trashapplet/src/trashapplet.c:890
+#, c-format
+msgid ""
+"Unable to move to trash:\n"
+"%s"
+msgstr ""
+"Çöp'e taşınamıyor:\n"
+"%s"
+
+#: ../trashapplet/trashapplet.glade.h:1
+msgid "<b>From:</b>"
+msgstr "<b>Gönderen:</b>"
+
+#: ../trashapplet/trashapplet.glade.h:2
+msgid "<big><b>Emptying the Trash</b></big>"
+msgstr "<big><b>Çöp Boşaltılıyor</b></big>"
+
+#: ../trashapplet/trashapplet.glade.h:3
+msgid "Emptying the Trash"
+msgstr "Çöp Boşaltılıyor"
+
+#~ msgid "Copyright (C) 2003 Sun Microsystems"
+#~ msgstr "Telif Hakkı (C) 2003 Sun Microsystems"
+
+#~ msgid "_Suspend Computer..."
+#~ msgstr "Bilgisayarı _Askıya Al..."
+
+#~ msgid "Command to send to suspend the computer"
+#~ msgstr "Bilgisayarı askıya almak için gönderilecek komut"
+
+#~ msgid "Orange value level"
+#~ msgstr "Turuncu değer uyarısı"
+
+#~ msgid "Show battery status"
+#~ msgstr "Batarya durumunu göster"
+
+#~ msgid "Suspend Command"
+#~ msgstr "Askıya Alma Komutu"
+
+#~ msgid "The battery level below which the battery is displayed as red."
+#~ msgstr "Bataryanın kırmızı gösterilmesi için en düşük seviye."
+
+#~ msgid "The battery level below which the battery is displayed as yellow."
+#~ msgstr "Bataryanın sarı gösterilmesi için en düşük seviye."
+
+#~ msgid "Yellow value level"
+#~ msgstr "Sarı değer seviyesi"
+
+#~ msgid ""
+#~ "To avoid losing work please power off, suspend or plug your laptop in."
+#~ msgstr ""
+#~ "İş kaybı yaşamamak için lütfen dizüstü bilgisayarınızı kapayın, askıya "
+#~ "alın ya da fişe takın."
+
+#~ msgid ""
+#~ "An error occured while launching the Suspend command: %s\n"
+#~ "Please try to correct this error"
+#~ msgstr ""
+#~ "Askıya alma komutu başlatılırken bir hata oluştu: %s\n"
+#~ "Lütfen bu hatayı düzeltmeye çalışın"
+
+#~ msgid "The Suspend command '%s' was unsuccessful."
+#~ msgstr "Askıya alma komutu '%s' başarısız oldu."
+
+#~ msgid "The Suspend command was unsuccessful."
+#~ msgstr "Askıya alma komutu başarısız oldu."
+
+#~ msgid ""
+#~ "Suspend command wasn't setup correctly in the preferences.\n"
+#~ "Please change the preferences and try again."
+#~ msgstr ""
+#~ "Askıya alma komutu tercihler içerisinde doğru yapılandırılmamış.\n"
+#~ "Lütfen tercihleri değiştirip yeniden deneyin."
+
+#~ msgid "Jorgen Pehrson <jp@spektr.eu.org>"
+#~ msgstr "Jorgen Pehrson <jp@spektr.eu.org>"
+
+#~ msgid "<b>Suspend</b>"
+#~ msgstr "<b>Askıya Al</b>"
+
+#~ msgid "S_uspend command:"
+#~ msgstr "_Askıya alma komutu:"
+
+#~ msgid "Show _battery status"
+#~ msgstr "_Batarya durumunu göster"
+
+#~ msgid "Show power _connection status"
+#~ msgstr "_Güç bağlantı durumunu göster"
+
+#~ msgid "Alexandre Muniz <munizao@xprt.net>"
+#~ msgstr "Alexandre Muniz <munizao@xprt.net>"
+
+#~ msgid "Utility"
+#~ msgstr "Yardımcı Uygulama"
+
+#~ msgid "Mode to show when show_mode is text or both"
+#~ msgstr "Gösterme _kipi metin ya da her ikisi de iken gösterilecek kip"
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">Cannot execute '%s'</span>\n"
+#~ "%s"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">'%s' çalıştırılamadı</span>\n"
+#~ "%s"
+
+#~ msgid "Copyright (C) 1999 Dave Camp"
+#~ msgstr "Telif Hakkı (C) 1999 Dave Camp"
+
+#~ msgid "Choose the default group (for newly created windows)."
+#~ msgstr "Öntanımlı grubu seç (yeni yaratılan pencereler için)."
+
+#~ msgid "Keep separate group for each application window."
+#~ msgstr "Her uygulama penceresi için ayrı grup kullan."
+
+#~ msgid "Keep the state of indicators separately for each application window."
+#~ msgstr "Her uygulama penceresi için klavye belirteci durumunu ayrı tut."
+
+#~ msgid "Keyboard Indicator Preferences"
+#~ msgstr "Klavye Belirteci Tercihleri"
+
+#~ msgid "Save/restore _indicators with group"
+#~ msgstr "_Belirteçleri grup ile sakla/geri getir"
+
+#~ msgid "Separate _group for each window"
+#~ msgstr "Her pencere için _ayrı grup"
+
+#~ msgid "Show national flags as indicators of corresponding layouts"
+#~ msgstr ""
+#~ "Karşılık gelen düzenler için ulusal bayrakları belirteç olarak göster"
+
+#~ msgid "Use _flags as indicators"
+#~ msgstr "_Belirteç olarak bayrakları kullan"
+
+#~ msgid "_Default group:"
+#~ msgstr "_Öntanımlı grup:"
+
+#~ msgid "Pittsburgh"
+#~ msgstr "Pittsburgh"
+
+#~ msgid "No volume control elements and/or devices found."
+#~ msgstr "Ses denetim bileşenleri ve/veya aygıtları bulunamadı."
+
+#~ msgid "Modem monitor"
+#~ msgstr "Modem izleyicisi"
+
+#~ msgid "Resource"
+#~ msgstr "Özkaynak"
+
+#~ msgid "Specifies whether the sticky notes are visible or not."
+#~ msgstr "Yapışkan notların görünür olup olmadığını belirtir."
+
+#~ msgid "Sticky notes' visibility"
+#~ msgstr "Yapışkan notların görünebilirlik durumu"
+
+#~ msgid "_Show Notes"
+#~ msgstr "Notları _Göster"
