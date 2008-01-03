@@ -52,21 +52,27 @@ test_metar_LDADD = \
 noinst_HEADERS = weather-priv.h
 noinst_PROGRAMS = test_metar
 
-schemasdir   = @GCONF_SCHEMA_FILE_DIR@
-schemas_in_files = gweather.schemas.in
-schemas_DATA = $(schemas_in_files:.schemas.in=.schemas)
+schemadir   = @GCONF_SCHEMA_FILE_DIR@
+schema_in_files = gweather.schemas.in
+schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 
 @INTLTOOL_SCHEMAS_RULE@
 
 if GCONF_SCHEMAS_INSTALL
 install-data-local:
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(schemas_DATA) ;
+	if test -z "$(DESTDIR)" ; then \
+		for p in $(schema_DATA) ; do \
+			GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $$p ; \
+		done \
+	fi
 uninstall-local:
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-uninstall-rule $(schemas_DATA) ;
+	for p in $(schema_DATA) ; do \
+		GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-uninstall-rule $$p ; \
+	done
 endif
 
-EXTRA_DIST = gweather.pc.in $(schemas_in_files)
+EXTRA_DIST = gweather.pc.in $(schema_in_files)
 
 EXTRA_PROGRAMS = test_metar
 
-CLEANFILES = $(schemas_DATA) $(EXTRA_PROGRAMS)
+CLEANFILES = $(schema_DATA) $(EXTRA_PROGRAMS)
