@@ -300,7 +300,7 @@ gweather_prefs_parse_temperature (const char *str, gboolean *is_default)
 	GWeatherPrefs prefs;
 
 	parse_temp_string (str, &prefs);
-	*is_default = prefs.use_temperature_defaults;
+	*is_default = prefs.use_temperature_default;
 	return prefs.temperature_unit;
 }
 
@@ -310,6 +310,6 @@ gweather_prefs_parse_speed (const char *str, gboolean *is_default)
 	GWeatherPrefs prefs;
 
 	parse_speed_string (str, &prefs);
-	*is_default = prefs.use_speed_defaults;
+	*is_default = prefs.use_speed_default;
 	return prefs.speed_unit;
 }
