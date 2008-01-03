@@ -49,5 +49,9 @@ const char *	gweather_prefs_speed_enum_to_string	(SpeedUnit speed);
 const char *	gweather_prefs_pressure_enum_to_string	(PressureUnit pressure);
 const char *	gweather_prefs_distance_enum_to_string	(DistanceUnit distance);
 
+TempUnit        gweather_prefs_parse_temperature        (const char *str, 
+                                                         gboolean   *is_default);
+SpeedUnit       gweather_prefs_parse_speed              (const char *str, 
+                                                         gboolean   *is_default);
 
 #endif /* __GWEATHER_PREFS_H_ */

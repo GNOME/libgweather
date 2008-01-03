@@ -294,3 +294,22 @@ void gweather_prefs_load (GWeatherPrefs *prefs, GWeatherGConf *ctx)
     return;
 }
 
+TempUnit
+gweather_prefs_parse_temperature (const char *str, gboolean *is_default)
+{
+	GWeatherPrefs prefs;
+
+	parse_temp_string (str, &prefs);
+	*is_default = prefs.use_temperature_defaults;
+	return prefs.temperature_unit;
+}
+
+SpeedUnit
+gweather_prefs_parse_speed (const char *str, gboolean *is_default)
+{
+	GWeatherPrefs prefs;
+
+	parse_speed_string (str, &prefs);
+	*is_default = prefs.use_speed_defaults;
+	return prefs.speed_unit;
+}
