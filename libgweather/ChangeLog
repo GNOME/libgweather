@@ -1,3 +1,9 @@
+2008-01-04  Matthias Clasen   <mclasen@redhat.com>
+
+	* gweather-prefs.c: Fix the various parse_foo_string() functions
+	to reliably fall back to locale defaults regardless of the previous
+	contents of the passed in GWeatherPrefs struct.
+
 2008-01-03  Federico Mena Quintero  <federico@novell.com>
 
 	* Makefile.am (install-data-local): Fix the standard rule for this target.

@@ -64,7 +64,8 @@ static void parse_temp_string (const gchar *gconf_str, GWeatherPrefs *prefs)
 #ifdef HAVE__NL_MEASUREMENT_MEASUREMENT
     char *imperial = NULL;
 #endif
-	
+
+    prefs->temperature_unit = TEMP_UNIT_INVALID;	
     prefs->use_temperature_default = TRUE;
 	
     if ( gconf_str && gconf_string_to_enum (temp_unit_enum_map, gconf_str, &value) ) {
@@ -103,6 +104,7 @@ static void parse_speed_string (const gchar *gconf_str, GWeatherPrefs *prefs)
     char *imperial = NULL;
 #endif
 	
+    prefs->speed_unit = SPEED_UNIT_INVALID;
     prefs->use_speed_default = TRUE;
 	
     if ( gconf_str && gconf_string_to_enum (speed_unit_enum_map, gconf_str, &value) ) {
@@ -142,6 +144,7 @@ static void parse_pressure_string (const gchar *gconf_str, GWeatherPrefs *prefs)
     char *imperial = NULL;
 #endif
 	
+    prefs->pressure_unit = PRESSURE_UNIT_INVALID;
     prefs->use_pressure_default = TRUE;
 	
     if ( gconf_str && gconf_string_to_enum (pressure_unit_enum_map, gconf_str, &value) ) {
@@ -182,6 +185,7 @@ static void parse_distance_string (const gchar *gconf_str, GWeatherPrefs *prefs)
     char *imperial = NULL;
 #endif
 	
+    prefs->distance_unit = DISTANCE_UNIT_INVALID;
     prefs->use_distance_default = TRUE;
     if ( gconf_str && gconf_string_to_enum (distance_unit_enum_map, gconf_str, &value) ) {
         prefs->distance_unit = value;
