@@ -1,3 +1,14 @@
+2008-01-07  Federico Mena Quintero  <federico@novell.com>
+
+	* gweather-prefs.c (temp_unit_enum_map, speed_unit_enum_map)
+	(pressure_unit_enum_map, distance_unit_enum_map): Mark the unit
+	names for translation.
+	(gweather_prefs_get_temp_display_name): New public function; gets
+	a translated name for temperature units.
+	(gweather_prefs_get_speed_display_name): Likewise, speed units.
+	(gweather_prefs_get_pressure_display_name): Likewise, pressure units.
+	(gweather_prefs_get_distance_display_name): Likewise, distance units.
+
 2008-01-04  Matthias Clasen   <mclasen@redhat.com>
 
 	* gweather-prefs.c: Fix the various parse_foo_string() functions

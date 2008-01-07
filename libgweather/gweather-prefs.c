@@ -21,39 +21,39 @@
 #include <libgweather/gweather-prefs.h>
 
 static GConfEnumStringPair temp_unit_enum_map [] = {
-    { TEMP_UNIT_DEFAULT,    "Default" },
-    { TEMP_UNIT_KELVIN,     "K"       },
-    { TEMP_UNIT_CENTIGRADE, "C"       },
-    { TEMP_UNIT_FAHRENHEIT, "F"       },
+    { TEMP_UNIT_DEFAULT,    N_("Default") },
+    { TEMP_UNIT_KELVIN,     N_("K")       }, /* translators: Kelvin */
+    { TEMP_UNIT_CENTIGRADE, N_("C")       }, /* translators: Celsius */
+    { TEMP_UNIT_FAHRENHEIT, N_("F")       }, /* translators: Fahrenheit */
     { 0, NULL }
 };	
 
 static GConfEnumStringPair speed_unit_enum_map [] = {
-    { SPEED_UNIT_DEFAULT, "Default" },
-    { SPEED_UNIT_MS,      "m/s"     },
-    { SPEED_UNIT_KPH,     "km/h"    },
-    { SPEED_UNIT_MPH,     "mph"     },
-    { SPEED_UNIT_KNOTS,   "knots"   },
-    { SPEED_UNIT_BFT,     "Beaufort scale" },
+    { SPEED_UNIT_DEFAULT, N_("Default")        },
+    { SPEED_UNIT_MS,      N_("m/s")            }, /* translators: meters per second */
+    { SPEED_UNIT_KPH,     N_("km/h")           }, /* translators: kilometers per hour */
+    { SPEED_UNIT_MPH,     N_("mph")            }, /* translators: miles per hour */
+    { SPEED_UNIT_KNOTS,   N_("knots")          }, /* translators: knots (speed unit) */
+    { SPEED_UNIT_BFT,     N_("Beaufort scale") }, /* translators: wind speed */
     { 0, NULL }
 };
 
 static GConfEnumStringPair pressure_unit_enum_map [] = {
-    { PRESSURE_UNIT_DEFAULT, "Default" },
-    { PRESSURE_UNIT_KPA,     "kPa"     },
-    { PRESSURE_UNIT_HPA,     "hPa"     },
-    { PRESSURE_UNIT_MB,      "mb"      },
-    { PRESSURE_UNIT_MM_HG,   "mmHg"    },
-    { PRESSURE_UNIT_INCH_HG, "inHg"    },
-    { PRESSURE_UNIT_ATM,     "atm"     },
+    { PRESSURE_UNIT_DEFAULT, N_("Default") },
+    { PRESSURE_UNIT_KPA,     N_("kPa")     }, /* translators: kilopascals */
+    { PRESSURE_UNIT_HPA,     N_("hPa")     }, /* translators: hectopascals */
+    { PRESSURE_UNIT_MB,      N_("mb")      }, /* translators: millibars */
+    { PRESSURE_UNIT_MM_HG,   N_("mmHg")    }, /* translators: millimeters of mercury */
+    { PRESSURE_UNIT_INCH_HG, N_("inHg")    }, /* translators: inches of mercury */
+    { PRESSURE_UNIT_ATM,     N_("atm")     }, /* translators: atmosphere */
     { 0, NULL }
 };
 
 static GConfEnumStringPair distance_unit_enum_map [] = {
-    { DISTANCE_UNIT_DEFAULT, "Default" },
-    { DISTANCE_UNIT_METERS,  "m"       },
-    { DISTANCE_UNIT_KM,      "km"      },
-    { DISTANCE_UNIT_MILES,   "mi"      },
+    { DISTANCE_UNIT_DEFAULT, N_("Default") },
+    { DISTANCE_UNIT_METERS,  N_("m")       }, /* translators: meters */
+    { DISTANCE_UNIT_KM,      N_("km")      }, /* translators: kilometers */
+    { DISTANCE_UNIT_MILES,   N_("mi")      }, /* translators: miles */
     { 0, NULL }
 };
 
@@ -316,4 +316,36 @@ gweather_prefs_parse_speed (const char *str, gboolean *is_default)
 	parse_speed_string (str, &prefs);
 	*is_default = prefs.use_speed_default;
 	return prefs.speed_unit;
+}
+
+static const char *
+get_translated_unit (int unit, GConfEnumStringPair *pairs, int min_value, int max_value)
+{
+    g_return_val_if_fail (unit < min_value || unit > max_value, NULL);
+
+    return _(pairs[unit - 1].str); /* minus 1 because enum value 0 is for "invalid" (look at weather.h) */
+}
+
+const char *
+gweather_prefs_get_temp_display_name (TempUnit temp)
+{
+    return get_translated_unit (temp, temp_unit_enum_map, TEMP_UNIT_DEFAULT, TEMP_UNIT_FAHRENHEIT);
+}
+
+const char *
+gweather_prefs_get_speed_display_name (SpeedUnit speed)
+{
+    return get_translated_unit (speed, speed_unit_enum_map, SPEED_UNIT_DEFAULT, SPEED_UNIT_BFT);
+}
+
+const char *
+gweather_prefs_get_pressure_display_name (PressureUnit pressure)
+{
+    return get_translated_unit (pressure, pressure_unit_enum_map, PRESSURE_UNIT_DEFAULT, PRESSURE_UNIT_ATM);
+}
+
+const char *
+gweather_prefs_get_distance_display_name (DistanceUnit distance)
+{
+    return get_translated_unit (distance, distance_unit_enum_map, DISTANCE_UNIT_DEFAULT, DISTANCE_UNIT_MILES);
 }

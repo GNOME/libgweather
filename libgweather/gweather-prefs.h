@@ -54,4 +54,9 @@ TempUnit        gweather_prefs_parse_temperature        (const char *str,
 SpeedUnit       gweather_prefs_parse_speed              (const char *str, 
                                                          gboolean   *is_default);
 
+const char *	gweather_prefs_get_temp_display_name		(TempUnit temp);
+const char *	gweather_prefs_get_speed_display_name		(SpeedUnit speed);
+const char *	gweather_prefs_get_pressure_display_name	(PressureUnit pressure);
+const char *	gweather_prefs_get_distance_display_name	(DistanceUnit distance);
+
 #endif /* __GWEATHER_PREFS_H_ */
