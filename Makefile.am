@@ -1,4 +1,4 @@
-SUBDIRS = po libgweather
+SUBDIRS = po libgweather data
 
 EXTRA_DIST = \
 	MAINTAINERS			\

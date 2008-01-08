@@ -1,3 +1,14 @@
+2008-01-08  Federico Mena Quintero  <federico@novell.com>
+
+	* data/*: Moved Locations.xml and its accompanying files from
+	gnome-applets/gweather.
+
+	* po-locations/*: Moved from gnome-applets/po-locations.
+
+	* Makefile.am (SUBDIRS): Added the "data" directory.
+
+	* configure.in: Add data/Makefile to the files to generate.
+
 2008-01-03  Federico Mena Quintero  <federico@novell.com>
 
 	* configure.in: Check for gconftool-2.
