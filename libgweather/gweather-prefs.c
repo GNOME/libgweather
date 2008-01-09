@@ -22,38 +22,55 @@
 
 static GConfEnumStringPair temp_unit_enum_map [] = {
     { TEMP_UNIT_DEFAULT,    N_("Default") },
-    { TEMP_UNIT_KELVIN,     N_("K")       }, /* translators: Kelvin */
-    { TEMP_UNIT_CENTIGRADE, N_("C")       }, /* translators: Celsius */
-    { TEMP_UNIT_FAHRENHEIT, N_("F")       }, /* translators: Fahrenheit */
+	/* translators: Kelvin */
+    { TEMP_UNIT_KELVIN,     N_("K")       },
+	/* translators: Celsius */
+    { TEMP_UNIT_CENTIGRADE, N_("C")       },
+	/* translators: Fahrenheit */
+    { TEMP_UNIT_FAHRENHEIT, N_("F")       },
     { 0, NULL }
 };	
 
 static GConfEnumStringPair speed_unit_enum_map [] = {
     { SPEED_UNIT_DEFAULT, N_("Default")        },
-    { SPEED_UNIT_MS,      N_("m/s")            }, /* translators: meters per second */
-    { SPEED_UNIT_KPH,     N_("km/h")           }, /* translators: kilometers per hour */
-    { SPEED_UNIT_MPH,     N_("mph")            }, /* translators: miles per hour */
-    { SPEED_UNIT_KNOTS,   N_("knots")          }, /* translators: knots (speed unit) */
-    { SPEED_UNIT_BFT,     N_("Beaufort scale") }, /* translators: wind speed */
+	/* translators: meters per second */
+    { SPEED_UNIT_MS,      N_("m/s")            },
+	/* translators: kilometers per hour */
+    { SPEED_UNIT_KPH,     N_("km/h")           },
+	/* translators: miles per hour */
+    { SPEED_UNIT_MPH,     N_("mph")            },
+	/* translators: knots (speed unit) */
+    { SPEED_UNIT_KNOTS,   N_("knots")          },
+	/* translators: wind speed */
+    { SPEED_UNIT_BFT,     N_("Beaufort scale") },
     { 0, NULL }
 };
 
 static GConfEnumStringPair pressure_unit_enum_map [] = {
     { PRESSURE_UNIT_DEFAULT, N_("Default") },
-    { PRESSURE_UNIT_KPA,     N_("kPa")     }, /* translators: kilopascals */
-    { PRESSURE_UNIT_HPA,     N_("hPa")     }, /* translators: hectopascals */
-    { PRESSURE_UNIT_MB,      N_("mb")      }, /* translators: millibars */
-    { PRESSURE_UNIT_MM_HG,   N_("mmHg")    }, /* translators: millimeters of mercury */
-    { PRESSURE_UNIT_INCH_HG, N_("inHg")    }, /* translators: inches of mercury */
-    { PRESSURE_UNIT_ATM,     N_("atm")     }, /* translators: atmosphere */
+	/* translators: kilopascals */
+    { PRESSURE_UNIT_KPA,     N_("kPa")     },
+	/* translators: hectopascals */
+    { PRESSURE_UNIT_HPA,     N_("hPa")     },
+	/* translators: millibars */
+    { PRESSURE_UNIT_MB,      N_("mb")      },
+	/* translators: millimeters of mercury */
+    { PRESSURE_UNIT_MM_HG,   N_("mmHg")    },
+	/* translators: inches of mercury */
+    { PRESSURE_UNIT_INCH_HG, N_("inHg")    },
+	/* translators: atmosphere */
+    { PRESSURE_UNIT_ATM,     N_("atm")     },
     { 0, NULL }
 };
 
 static GConfEnumStringPair distance_unit_enum_map [] = {
     { DISTANCE_UNIT_DEFAULT, N_("Default") },
-    { DISTANCE_UNIT_METERS,  N_("m")       }, /* translators: meters */
-    { DISTANCE_UNIT_KM,      N_("km")      }, /* translators: kilometers */
-    { DISTANCE_UNIT_MILES,   N_("mi")      }, /* translators: miles */
+	/* translators: meters */
+    { DISTANCE_UNIT_METERS,  N_("m")       },
+	/* translators: kilometers */
+    { DISTANCE_UNIT_KM,      N_("km")      },
+	/* translators: miles */
+    { DISTANCE_UNIT_MILES,   N_("mi")      },
     { 0, NULL }
 };
 
