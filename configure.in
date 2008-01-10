@@ -1,8 +1,8 @@
-AC_INIT(libgweather, 2.21.1)
+AC_INIT([libgweather],[2.21.1])
 AC_PREREQ(2.59)
 
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(1.8)
+AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-bzip2])
 
 GTK_REQUIRED=2.11.0
 GLIB_REQUIRED=2.13.0
@@ -79,12 +79,8 @@ dnl gettext
 GETTEXT_PACKAGE=libgweather
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Gettext Package])
-dnl AC_DEFINE_DIR(GNOMELOCALEDIR, "${datadir}/locale", [locale directory])
 AM_GLIB_GNU_GETTEXT
 
-# this is the directory where the *.{mo,gmo} files are installed
-gnomelocaledir='${prefix}/${DATADIRNAME}/locale'
-AC_SUBST(gnomelocaledir)
 
 dnl ***************************************************************************
 dnl *** Check for presence of tm.tm_gmtoff on the system                    ***
@@ -149,7 +145,4 @@ libgweather-$VERSION configure summary:
 	Prefix:				${prefix}
 	Source code location:		${srcdir}
 	Compiler:			${CC}
-
-	Building:
-	Enabling IPv6:			$have_ipv6
 " >&2
