@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets 2.21.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-03 20:27+0100\n"
-"PO-Revision-Date: 2008-01-03 20:29+0100\n"
+"POT-Creation-Date: 2008-01-11 10:57+0100\n"
+"PO-Revision-Date: 2008-01-11 10:58+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian Bokmal <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -98,16 +98,106 @@ msgstr "DEFAULT_RADAR"
 msgid "DEFAULT_COORDINATES"
 msgstr "DEFAULT_COORDINATES"
 
+#: ../libgweather/gweather-prefs.c:24 ../libgweather/gweather-prefs.c:35
+#: ../libgweather/gweather-prefs.c:50 ../libgweather/gweather-prefs.c:67
+msgid "Default"
+msgstr "Forvalg"
+
+#. translators: Kelvin
+#: ../libgweather/gweather-prefs.c:26
+msgid "K"
+msgstr "K"
+
+#. translators: Celsius
+#: ../libgweather/gweather-prefs.c:28
+msgid "C"
+msgstr "C"
+
+#. translators: Fahrenheit
+#: ../libgweather/gweather-prefs.c:30
+msgid "F"
+msgstr "F"
+
+#. translators: meters per second
+#: ../libgweather/gweather-prefs.c:37
+msgid "m/s"
+msgstr "m/s"
+
+#. translators: kilometers per hour
+#: ../libgweather/gweather-prefs.c:39
+msgid "km/h"
+msgstr "km/t"
+
+#. translators: miles per hour
+#: ../libgweather/gweather-prefs.c:41
+msgid "mph"
+msgstr "mph"
+
+#. translators: knots (speed unit)
+#: ../libgweather/gweather-prefs.c:43
+msgid "knots"
+msgstr "knop"
+
+#. translators: wind speed
+#: ../libgweather/gweather-prefs.c:45
+msgid "Beaufort scale"
+msgstr "Beaufort styrke"
+
+#. translators: kilopascals
+#: ../libgweather/gweather-prefs.c:52
+msgid "kPa"
+msgstr "kPa"
+
+#. translators: hectopascals
+#: ../libgweather/gweather-prefs.c:54
+msgid "hPa"
+msgstr "hPa"
+
+#. translators: millibars
+#: ../libgweather/gweather-prefs.c:56
+msgid "mb"
+msgstr "mb"
+
+#. translators: millimeters of mercury
+#: ../libgweather/gweather-prefs.c:58
+msgid "mmHg"
+msgstr "mmHg"
+
+#. translators: inches of mercury
+#: ../libgweather/gweather-prefs.c:60
+msgid "inHg"
+msgstr "inHg"
+
+#. translators: atmosphere
+#: ../libgweather/gweather-prefs.c:62
+msgid "atm"
+msgstr "atm"
+
+#. translators: meters
+#: ../libgweather/gweather-prefs.c:69
+msgid "m"
+msgstr "m"
+
+#. translators: kilometers
+#: ../libgweather/gweather-prefs.c:71
+msgid "km"
+msgstr "km"
+
+#. translators: miles
+#: ../libgweather/gweather-prefs.c:73
+msgid "mi"
+msgstr "mi"
+
 #. TRANSLATOR: This is the default unit to use for temperature measurements.
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:74 ../libgweather/gweather-prefs.c:83
+#: ../libgweather/gweather-prefs.c:92 ../libgweather/gweather-prefs.c:101
 msgid "DEFAULT_TEMP_UNIT"
 msgstr "C"
 
 #. TRANSLATOR: This is the default unit to use for wind speed.
 #. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
 #. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:111 ../libgweather/gweather-prefs.c:121
+#: ../libgweather/gweather-prefs.c:130 ../libgweather/gweather-prefs.c:140
 msgid "DEFAULT_SPEED_UNIT"
 msgstr "m/s"
 
@@ -115,13 +205,13 @@ msgstr "m/s"
 #. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
 #. "mb" (millibars), "mmHg" (millimeters of mercury),
 #. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:151 ../libgweather/gweather-prefs.c:162
+#: ../libgweather/gweather-prefs.c:171 ../libgweather/gweather-prefs.c:182
 msgid "DEFAULT_PRESSURE_UNIT"
 msgstr "mb"
 
 #. TRANSLATOR: This is the default unit to use for visibility distance.
 #. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:190 ../libgweather/gweather-prefs.c:199
+#: ../libgweather/gweather-prefs.c:211 ../libgweather/gweather-prefs.c:220
 msgid "DEFAULT_DISTANCE_UNIT"
 msgstr "m"
 
@@ -841,4 +931,3 @@ msgstr "%H.%M"
 #: ../libgweather/weather.c:1001
 msgid "Retrieval failed"
 msgstr "Henting feilet"
-
