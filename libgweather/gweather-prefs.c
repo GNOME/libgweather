@@ -338,7 +338,7 @@ gweather_prefs_parse_speed (const char *str, gboolean *is_default)
 static const char *
 get_translated_unit (int unit, GConfEnumStringPair *pairs, int min_value, int max_value)
 {
-    g_return_val_if_fail (unit < min_value || unit > max_value, NULL);
+    g_return_val_if_fail (unit >= min_value && unit <= max_value, NULL);
 
     return _(pairs[unit - 1].str); /* minus 1 because enum value 0 is for "invalid" (look at weather.h) */
 }
