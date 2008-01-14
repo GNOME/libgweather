@@ -7,6 +7,7 @@
 #include <glib.h>
 #include <string.h>
 #include <stdio.h>
+#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "weather-priv.h"
 
 #ifndef BUFLEN

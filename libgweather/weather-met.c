@@ -19,6 +19,7 @@
 #include <string.h>
 #include <strings.h>
 
+#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include <libgweather/weather.h>
 #include "weather-priv.h"
 

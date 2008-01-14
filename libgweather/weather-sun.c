@@ -24,6 +24,7 @@
 #include <time.h>
 #include <glib.h>
 
+#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "weather-priv.h"
 
 #define EPOCH_TO_J2000(t)       (t-946728000)
