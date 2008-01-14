@@ -2,21 +2,21 @@
 # Estonian translation of libgweather.
 #
 # Copyright (C) 1999, 2001, 2002, 2005, 2006 Free Software Foundation, Inc.
-# Copyright (C) 2007 The GNOME Project
+# Copyright (C) 2007, 2008 The GNOME Project
 # This file is distributed under the same license as the gnome-applets package.
 #
 # Lauris Kaplinski <lauris@ariman.ee>, 1999.
 # Ilmar Kerm <ikerm@hot.ee>, 2001, 2002.
 # Tõivo Leedjärv <toivo@linux.ee>, 2002.
 # Priit Laes <amd@store20.com>, 2004-2006.
-# Ivar Smolin <okul@linux.ee>, 2005-2007.
+# Ivar Smolin <okul@linux.ee>, 2005-2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-26 03:40+0000\n"
-"PO-Revision-Date: 2007-11-27 10:16+0200\n"
+"POT-Creation-Date: 2008-01-07 18:02+0000\n"
+"PO-Revision-Date: 2008-01-10 19:51+0200\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -106,16 +106,102 @@ msgstr "DEFAULT_RADAR"
 msgid "DEFAULT_COORDINATES"
 msgstr "59-24N 024-49E"
 
+#: ../libgweather/gweather-prefs.c:24 ../libgweather/gweather-prefs.c:32
+#: ../libgweather/gweather-prefs.c:42 ../libgweather/gweather-prefs.c:53
+msgid "Default"
+msgstr "Vaikimisi"
+
+#: ../libgweather/gweather-prefs.c:25
+msgid "K"
+msgstr "K"
+
+#. translators: Kelvin
+#: ../libgweather/gweather-prefs.c:26
+msgid "C"
+msgstr "C"
+
+#. translators: Celsius
+#: ../libgweather/gweather-prefs.c:27
+msgid "F"
+msgstr "F"
+
+#: ../libgweather/gweather-prefs.c:33
+msgid "m/s"
+msgstr "m/s"
+
+#. translators: meters per second
+#: ../libgweather/gweather-prefs.c:34
+msgid "km/h"
+msgstr "km/t"
+
+#. translators: kilometers per hour
+#: ../libgweather/gweather-prefs.c:35
+msgid "mph"
+msgstr "miili tunnis"
+
+#. translators: miles per hour
+#: ../libgweather/gweather-prefs.c:36
+msgid "knots"
+msgstr "sõlme"
+
+#. translators: knots (speed unit)
+#: ../libgweather/gweather-prefs.c:37
+msgid "Beaufort scale"
+msgstr "palli"
+
+#: ../libgweather/gweather-prefs.c:43
+msgid "kPa"
+msgstr "kPa"
+
+#. translators: kilopascals
+#: ../libgweather/gweather-prefs.c:44
+msgid "hPa"
+msgstr "hPa"
+
+#. translators: hectopascals
+#: ../libgweather/gweather-prefs.c:45
+msgid "mb"
+msgstr "mbar"
+
+#. translators: millibars
+#: ../libgweather/gweather-prefs.c:46
+msgid "mmHg"
+msgstr "mm Hg"
+
+#. translators: millimeters of mercury
+#: ../libgweather/gweather-prefs.c:47
+msgid "inHg"
+msgstr "tolli/Hg"
+
+#. translators: inches of mercury
+#: ../libgweather/gweather-prefs.c:48
+msgid "atm"
+msgstr "atm"
+
+#: ../libgweather/gweather-prefs.c:54
+msgid "m"
+msgstr "m"
+
+#. translators: meters
+#: ../libgweather/gweather-prefs.c:55
+msgid "km"
+msgstr "km"
+
+#. translators: kilometers
+#: ../libgweather/gweather-prefs.c:56
+msgid "mi"
+msgstr "miili"
+
 #. TRANSLATOR: This is the default unit to use for temperature measurements.
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:74 ../libgweather/gweather-prefs.c:83
+#: ../libgweather/gweather-prefs.c:75 ../libgweather/gweather-prefs.c:84
 msgid "DEFAULT_TEMP_UNIT"
 msgstr "C"
 
 #. TRANSLATOR: This is the default unit to use for wind speed.
 #. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
 #. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:111 ../libgweather/gweather-prefs.c:121
+#: ../libgweather/gweather-prefs.c:113 ../libgweather/gweather-prefs.c:123
 msgid "DEFAULT_SPEED_UNIT"
 msgstr "m/s"
 
@@ -123,13 +209,13 @@ msgstr "m/s"
 #. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
 #. "mb" (millibars), "mmHg" (millimeters of mercury),
 #. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:151 ../libgweather/gweather-prefs.c:162
+#: ../libgweather/gweather-prefs.c:154 ../libgweather/gweather-prefs.c:165
 msgid "DEFAULT_PRESSURE_UNIT"
 msgstr "mmHg"
 
 #. TRANSLATOR: This is the default unit to use for visibility distance.
 #. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:190 ../libgweather/gweather-prefs.c:199
+#: ../libgweather/gweather-prefs.c:194 ../libgweather/gweather-prefs.c:203
 msgid "DEFAULT_DISTANCE_UNIT"
 msgstr "km"
 
