@@ -1,0 +1,4443 @@
+# Hungarian translation of gnome-applets.
+# Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-applets package.
+#
+# Szabolcs Ban <shooby@gnome.hu>, 1999, 2000, 2001, 2002, 2003.
+# Emese Kovacs <emese@gnome.hu>, 2000, 2001, 2002.
+# Andras Timar <timar@gnome.hu>, 2001, 2002, 2003.
+# Gabor Sari <saga@gnome.hu>, 2003.
+# Laszlo Dvornik <dvornik@gnome.hu>, 2004.
+# Gabor Kelemen <kelemeng@gnome.hu>, 2004, 2005, 2006, 2007.
+# Mate ORY <orymate at gmail d0t com>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-applets.HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-08-11 03:36+0100\n"
+"PO-Revision-Date: 2007-09-13 16:19+0200\n"
+"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
+"Language-Team: Hungarian <gnome@gnome.hu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../accessx-status/GNOME_AccessxApplet.xml.h:1
+#: ../battstat/GNOME_BattstatApplet.xml.h:1
+#: ../charpick/GNOME_CharpickerApplet.xml.h:1
+#: ../cpufreq/GNOME_CPUFreqApplet.xml.h:1
+#: ../drivemount/GNOME_DriveMountApplet.xml.h:1
+#: ../geyes/GNOME_GeyesApplet.xml.h:1
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:4
+#: ../gweather/GNOME_GWeatherApplet.xml.h:1
+#: ../invest-applet/data/Invest_Applet.xml.h:1
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.xml.h:1
+#: ../mixer/GNOME_MixerApplet.xml.h:2 ../modemlights/GNOME_ModemLights.xml.h:1
+#: ../multiload/GNOME_MultiloadApplet.xml.h:1
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:2
+#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:1
+msgid "_About"
+msgstr "_Névjegy"
+
+#: ../accessx-status/GNOME_AccessxApplet.xml.h:2
+#: ../battstat/GNOME_BattstatApplet.xml.h:2
+#: ../charpick/GNOME_CharpickerApplet.xml.h:2
+#: ../cpufreq/GNOME_CPUFreqApplet.xml.h:2
+#: ../drivemount/GNOME_DriveMountApplet.xml.h:2
+#: ../geyes/GNOME_GeyesApplet.xml.h:2
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:6
+#: ../gweather/GNOME_GWeatherApplet.xml.h:3
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.xml.h:2
+#: ../mixer/GNOME_MixerApplet.xml.h:3 ../modemlights/GNOME_ModemLights.xml.h:4
+#: ../multiload/GNOME_MultiloadApplet.xml.h:2
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:4
+#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:3
+msgid "_Help"
+msgstr "_Súgó"
+
+#: ../accessx-status/GNOME_AccessxApplet.xml.h:3
+msgid "_Keyboard Accessibility Preferences"
+msgstr "_Billentyűzet akadálymentesítésének beállítása"
+
+#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:1
+msgid "AccessX Status Applet Factory"
+msgstr "AccessX állapot kisalkalmazás factory"
+
+#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:2
+#: ../accessx-status/applet.c:1314
+msgid "Keyboard Accessibility Status"
+msgstr "Billentyűzet-akadálymentesítés állapota"
+
+#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:3
+msgid "Keyboard Accessibility Status Applet Factory"
+msgstr "Billentyűzet-akadálymentesítés állapota factory"
+
+#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:4
+msgid "Shows the status of keyboard accessibility features"
+msgstr "A billentyűzet akadálymentesítési szolgáltatásainak állapotát jeleníti meg"
+
+# fixme
+#: ../accessx-status/applet.c:139
+msgid "Shows the state of AccessX features such as latched modifiers"
+msgstr ""
+"Az AccessX szolgáltatások, mint a lezárt módosítóbillentyűk állapotát "
+"jeleníti meg"
+
+#. about.set_artists([])
+#. about.set_documenters([])
+#. translators: These appear in the About dialog, usual format applies.
+#. "documenters",        documenters,
+#: ../accessx-status/applet.c:144 ../battstat/battstat_applet.c:1244
+#: ../charpick/charpick.c:601 ../cpufreq/src/cpufreq-applet.c:653
+#: ../drivemount/drivemount.c:119 ../geyes/geyes.c:195
+#: ../gswitchit/gswitchit-applet.c:454 ../gweather/gweather-about.c:55
+#: ../invest-applet/invest/about.py:41 ../mini-commander/src/about.c:54
+#: ../mixer/applet.c:1321 ../modemlights/modem-applet.c:1048
+#: ../multiload/main.c:63 ../stickynotes/stickynotes_applet_callbacks.c:367
+#: ../trashapplet/src/trashapplet.c:750
+msgid "translator-credits"
+msgstr ""
+"Bán Szabolcs <shooby@gnome.hu>\n"
+"Dvornik László <dvornik@gnome.hu>\n"
+"Kelemen Gábor <kelemeng@gnome.hu>\n"
+"Kovács Emese <emese@gnome.hu>\n"
+"Sári Gábor <saga@gnome.hu>\n"
+"Tímár András <timar@gnome.hu>"
+
+#: ../accessx-status/applet.c:170
+#, c-format
+msgid "There was an error launching the help viewer: %s"
+msgstr "Hiba történt a súgóböngésző indításakor: %s"
+
+#: ../accessx-status/applet.c:207
+#, c-format
+msgid "There was an error launching the keyboard preferences dialog: %s"
+msgstr "Hiba történt a billentyűzet tulajdonságai párbeszédablak indításakor: %s"
+
+#. Note to translators: the first letter of the alphabet, not the indefinite article
+#: ../accessx-status/applet.c:455 ../accessx-status/applet.c:493
+msgid "a"
+msgstr "a"
+
+#: ../accessx-status/applet.c:967 ../accessx-status/applet.c:1040
+#: ../accessx-status/applet.c:1109 ../accessx-status/applet.c:1317
+msgid "AccessX Status"
+msgstr "AccessX állapota"
+
+#: ../accessx-status/applet.c:968 ../accessx-status/applet.c:1110
+msgid "Shows keyboard status when accessibility features are used."
+msgstr ""
+"A billentyűzet állapotát jeleníti meg, ha az akadálymentesítési "
+"szolgáltatások használatban vannak."
+
+#: ../accessx-status/applet.c:1002
+msgid "XKB Extension is not enabled"
+msgstr "Az XKB-kiterjesztés nincs bekapcsolva"
+
+#: ../accessx-status/applet.c:1007
+msgid "Unknown error"
+msgstr "Ismeretlen hiba"
+
+#: ../accessx-status/applet.c:1015
+#, c-format
+msgid "Error: %s"
+msgstr "Hiba: %s"
+
+#: ../accessx-status/applet.c:1319
+msgid "Displays current state of keyboard accessibility features"
+msgstr ""
+"A billentyűzet akadálymentesítési szolgáltatásainak jelenlegi állapotát "
+"jeleníti meg"
+
+#: ../battstat/GNOME_BattstatApplet.server.in.in.h:1
+#: ../battstat/battstat_applet.c:1608 ../battstat/battstat_applet.c:1661
+msgid "Battery Charge Monitor"
+msgstr "Akkumulátortöltöttség-figyelő"
+
+#: ../battstat/GNOME_BattstatApplet.server.in.in.h:2
+msgid "Battstat Factory"
+msgstr "Akkumulátortöltöttség-figyelő factory"
+
+#: ../battstat/GNOME_BattstatApplet.server.in.in.h:3
+#: ../battstat/battstat_applet.c:1662
+msgid "Monitor a laptop's remaining power"
+msgstr "A laptop maradék töltését figyeli"
+
+#: ../battstat/GNOME_BattstatApplet.xml.h:3
+#: ../charpick/GNOME_CharpickerApplet.xml.h:3
+#: ../cpufreq/GNOME_CPUFreqApplet.xml.h:3 ../geyes/GNOME_GeyesApplet.xml.h:3
+#: ../gweather/GNOME_GWeatherApplet.xml.h:4
+#: ../invest-applet/data/Invest_Applet.xml.h:2
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.xml.h:3
+#: ../mixer/GNOME_MixerApplet.xml.h:5
+#: ../multiload/GNOME_MultiloadApplet.xml.h:4
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:7
+msgid "_Preferences"
+msgstr "_Beállítások"
+
+#: ../battstat/battstat.schemas.in.h:1
+msgid "0 for no label, 1 for percentage and 2 for time remaining"
+msgstr "0, ha nincs címke, 1 a százalékos és 2 a hátralévő idő megjelenítéséhez"
+
+#: ../battstat/battstat.schemas.in.h:2
+msgid "Beep for warnings"
+msgstr "Hangjelzés figyelmeztetéskor"
+
+#: ../battstat/battstat.schemas.in.h:3
+msgid "Beep when displaying a warning"
+msgstr "Hangjelzés figyelmeztetés megjelenítésekor"
+
+#: ../battstat/battstat.schemas.in.h:4
+msgid "Drain from top"
+msgstr "Fentről lefelé számoljon"
+
+#: ../battstat/battstat.schemas.in.h:5
+msgid "Full Battery Notification"
+msgstr "Teli akkumulátor értesítés"
+
+#: ../battstat/battstat.schemas.in.h:6
+msgid "Low Battery Notification"
+msgstr "Gyenge akkumulátor értesítés"
+
+#: ../battstat/battstat.schemas.in.h:7
+msgid "Notify user when the battery is full"
+msgstr "Értesítsen, ha az akkumulátor teljesen fel van töltve"
+
+#: ../battstat/battstat.schemas.in.h:8
+msgid "Notify user when the battery is low"
+msgstr "Értesítsen, ha az akkumulátor töltöttsége alacsony"
+
+#: ../battstat/battstat.schemas.in.h:9
+msgid "Red value level"
+msgstr "Piros szín szintje"
+
+# fixme
+#: ../battstat/battstat.schemas.in.h:10
+msgid ""
+"Show the battery meter draining from the top of the battery. Only "
+"implemented for traditional battery view."
+msgstr ""
+"Az akkumulátor-töltöttségének kijelzése az elem tetejétől csökkenjen. Csak a "
+"hagyományos akkumulátornézetnél van megvalósítva."
+
+#: ../battstat/battstat.schemas.in.h:11
+msgid "Show the horizontal battery"
+msgstr "A vízszintes akkumulátor megjelenítése"
+
+# fixme
+#: ../battstat/battstat.schemas.in.h:12
+msgid "Show the time/percent label"
+msgstr "Az idő/százalék címke megjelenítése"
+
+#: ../battstat/battstat.schemas.in.h:13
+msgid "Show the traditional, horizontal battery on the panel"
+msgstr "A hagyományos vízszintes akkumulátor megjelenítése a panelen"
+
+#: ../battstat/battstat.schemas.in.h:14
+msgid "Show the upright, smaller battery on the panel"
+msgstr "A függőleges, kisebb akkumulátor megjelenítése a panelen"
+
+#: ../battstat/battstat.schemas.in.h:15
+msgid ""
+"The battery level below which the battery is displayed as red. Also the "
+"value at which the low battery warning is displayed."
+msgstr ""
+"Az az akkumulátorszint, ami alatt az elem narancssárga színnel lesz "
+"megjelenítve. Egyben az az érték, amelynél a \"Gyenge akkumulátor\" "
+"figyelmeztetés megjelenik."
+
+#: ../battstat/battstat.schemas.in.h:16
+msgid "Upright (small) battery"
+msgstr "Függőleges (kicsi) akkumulátor"
+
+#: ../battstat/battstat.schemas.in.h:17
+msgid ""
+"Use the value defined in red_value as a time remaining to show the warning "
+"dialog rather than a percentage"
+msgstr ""
+"A red_value kulcsban megadott, és nem a százalékos érték használata "
+"hátralévő időként a figyelmeztető ablak megjelenítéséhez"
+
+#: ../battstat/battstat.schemas.in.h:18
+msgid "Warn on low time rather than low percentage"
+msgstr ""
+"Akkor figyelmeztessen, ha kevés idő van hátra, és ne akkor, ha a töltöttség "
+"százalékosan alacsony"
+
+#: ../battstat/battstat_applet.c:73
+msgid "System is running on AC power"
+msgstr "A rendszer hálózati feszültségről üzemel"
+
+#: ../battstat/battstat_applet.c:74
+msgid "System is running on battery power"
+msgstr "A rendszer akkumulátorról üzemel"
+
+#: ../battstat/battstat_applet.c:377
+#, c-format
+msgid "Battery charged (%d%%)"
+msgstr "Az akkumulátor feltöltődött (%d%%)"
+
+#: ../battstat/battstat_applet.c:379
+#, c-format
+msgid "Unknown time (%d%%) remaining"
+msgstr "Ismeretlen idő (%d%%) van hátra"
+
+#: ../battstat/battstat_applet.c:381
+#, c-format
+msgid "Unknown time (%d%%) until charged"
+msgstr "Ismeretlen idő (%d%%) van hátra a feltöltődésig"
+
+#: ../battstat/battstat_applet.c:386
+#, c-format
+msgid "%d minute (%d%%) remaining"
+msgid_plural "%d minutes (%d%%) remaining"
+msgstr[0] "%d perc (%d%%) van hátra"
+msgstr[1] "%d perc (%d%%) van hátra"
+
+#: ../battstat/battstat_applet.c:391
+#, c-format
+msgid "%d minute until charged (%d%%)"
+msgid_plural "%d minutes until charged (%d%%)"
+msgstr[0] "%d perc van hátra a feltöltődésig (%d%%)"
+msgstr[1] "%d perc van hátra a feltöltődésig (%d%%)"
+
+#: ../battstat/battstat_applet.c:397
+#, c-format
+msgid "%d hour (%d%%) remaining"
+msgid_plural "%d hours (%d%%) remaining"
+msgstr[0] "%d óra (%d%%) van hátra"
+msgstr[1] "%d óra (%d%%) van hátra"
+
+#: ../battstat/battstat_applet.c:402
+#, c-format
+msgid "%d hour until charged (%d%%)"
+msgid_plural "%d hours until charged (%d%%)"
+msgstr[0] "%d óra van hátra a feltöltődésig (%d%%)"
+msgstr[1] "%d óra van hátra a feltöltődésig (%d%%)"
+
+#. TRANSLATOR: "%d %s %d %s" are "%d hours %d minutes"
+#. * Swap order with "%2$s %2$d %1$s %1$d if needed
+#: ../battstat/battstat_applet.c:409
+#, c-format
+msgid "%d %s %d %s (%d%%) remaining"
+msgstr "%d %s %d %s (%d%%) van hátra"
+
+#: ../battstat/battstat_applet.c:410 ../battstat/battstat_applet.c:417
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] "óra"
+msgstr[1] "óra"
+
+#: ../battstat/battstat_applet.c:411 ../battstat/battstat_applet.c:418
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "perc"
+msgstr[1] "perc"
+
+#. TRANSLATOR: "%d %s %d %s" are "%d hours %d minutes"
+#. * Swap order with "%2$s %2$d %1$s %1$d if needed
+#: ../battstat/battstat_applet.c:416
+#, c-format
+msgid "%d %s %d %s until charged (%d%%)"
+msgstr "%d %s %d %s van hátra a feltöltődésig (%d%%)"
+
+#: ../battstat/battstat_applet.c:430
+msgid "Battery Monitor"
+msgstr "Akkumulátorfigyelő"
+
+#: ../battstat/battstat_applet.c:440 ../battstat/battstat_applet.c:500
+msgid "Your battery is now fully recharged"
+msgstr "Az akkumulátor teljesen feltöltődött"
+
+#: ../battstat/battstat_applet.c:476 ../battstat/battstat_applet.c:632
+msgid "Battery Notice"
+msgstr "Akkumulátor értesítő"
+
+#. we don't know the remaining time
+#: ../battstat/battstat_applet.c:577
+#, c-format
+msgid "You have %d%% of your total battery capacity remaining."
+msgstr "Az akkumulátor teljes kapacitásának %d százaléka van hátra."
+
+#: ../battstat/battstat_applet.c:583
+#, c-format
+msgid "You have %d minute of battery power remaining (%d%% of the total capacity)."
+msgid_plural "You have %d minutes of battery power remaining (%d%% of the total capacity)."
+msgstr[0] ""
+"%d percre elegendő akkumulátortöltöttség van hátra (a teljes kapacitás %d "
+"százaléka)."
+msgstr[1] ""
+"%d percre elegendő akkumulátortöltöttség van hátra (a teljes kapacitás %d "
+"százaléka)."
+
+#. TRANSLATORS: this is a list, it is left as a single string
+#. * to allow you to make it appear like a list would in your
+#. * locale.  This is if the laptop does not support suspend.
+#: ../battstat/battstat_applet.c:595
+msgid ""
+"To avoid losing your work:\n"
+" • plug your laptop into external power, or\n"
+" • save open documents and shut your laptop down."
+msgstr ""
+"A munkája elvesztésének elkerülése érdekében:\n"
+" • csatlakoztassa laptopját külső áramforrásra vagy\n"
+" • mentse el a megnyitott dokumentumokat és kapcsolja ki a laptopot."
+
+#. TRANSLATORS: this is a list, it is left as a single string
+#. * to allow you to make it appear like a list would in your
+#. * locale.  This is if the laptop supports suspend.
+#: ../battstat/battstat_applet.c:603
+msgid ""
+"To avoid losing your work:\n"
+" • suspend your laptop to save power,\n"
+" • plug your laptop into external power, or\n"
+" • save open documents and shut your laptop down."
+msgstr ""
+"A munkája elvesztésének elkerülése érdekében:\n"
+" • energiatakarékosságból függessze fel laptopját,\n"
+" • csatlakoztassa laptopját külső áramforrásra vagy\n"
+" • mentse el a megnyitott dokumentumokat és kapcsolja ki a laptopot."
+
+#: ../battstat/battstat_applet.c:611
+msgid "Your battery is running low"
+msgstr "Az akkumulátor kezd lemerülni"
+
+#: ../battstat/battstat_applet.c:708
+msgid "No battery present"
+msgstr "Nincs akkumulátor"
+
+#: ../battstat/battstat_applet.c:711
+msgid "Battery status unknown"
+msgstr "Akkumulátor állapota ismeretlen"
+
+#: ../battstat/battstat_applet.c:870
+msgid "N/A"
+msgstr "N/A"
+
+#: ../battstat/battstat_applet.c:1191 ../drivemount/drivemount.c:143
+#: ../geyes/geyes.c:346 ../geyes/themes.c:257 ../gweather/gweather-applet.c:61
+#: ../gweather/gweather-pref.c:720 ../mini-commander/src/preferences.c:370
+#: ../stickynotes/stickynotes_applet_callbacks.c:332
+#: ../stickynotes/stickynotes_applet_callbacks.c:539
+#: ../trashapplet/src/trashapplet.c:718
+#, c-format
+msgid "There was an error displaying help: %s"
+msgstr "Hiba történt a súgó megjelenítésekor: %s"
+
+#: ../battstat/battstat_applet.c:1231
+msgid "This utility shows the status of your laptop battery."
+msgstr "Ez a kisalkalmazás a laptop akkumulátorának töltöttségi állapotát jelzi."
+
+#. true
+#: ../battstat/battstat_applet.c:1233
+msgid "HAL backend enabled."
+msgstr "HAL háttérprogram engedélyezve."
+
+#. false
+#: ../battstat/battstat_applet.c:1234
+msgid "Legacy (non-HAL) backend enabled."
+msgstr "Régi (nem HAL) háttérprogram engedélyezve."
+
+#: ../battstat/battstat_applet.glade.h:1
+msgid "<b>Appearance</b>"
+msgstr "<b>Megjelenés</b>"
+
+#: ../battstat/battstat_applet.glade.h:2
+msgid "<b>Notifications</b>"
+msgstr "<b>Értesítések</b>"
+
+#: ../battstat/battstat_applet.glade.h:3
+msgid "<small>(shows single image for status and charge)</small>"
+msgstr "<small>(egyetlen képet jelenít meg az állapothoz és töltéshez)</small>"
+
+#: ../battstat/battstat_applet.glade.h:4
+msgid "<small>(two images: one for status, one for charge)</small>"
+msgstr "<small>(két kép: egy az állapot, egy a töltés jelzésére)</small>"
+
+#: ../battstat/battstat_applet.glade.h:5
+msgid "Battery Charge Monitor Preferences"
+msgstr "Akkumulátortöltöttség-figyelő beállításai"
+
+#: ../battstat/battstat_applet.glade.h:6
+msgid "Show _percentage remaining"
+msgstr "Hátralévő _százalék megjelenítése"
+
+#: ../battstat/battstat_applet.glade.h:7
+msgid "Show _time remaining"
+msgstr "Hátralévő i_dő megjelenítése"
+
+#: ../battstat/battstat_applet.glade.h:8
+msgid "_Compact view"
+msgstr "_Tömör nézet"
+
+#: ../battstat/battstat_applet.glade.h:9
+msgid "_Expanded view"
+msgstr "Bő_vített nézet"
+
+#: ../battstat/battstat_applet.glade.h:10
+msgid "_Notify when battery is fully recharged"
+msgstr "_Figyelmeztessen, ha az akkumulátor teljesen fel van töltve"
+
+# fixme
+#: ../battstat/battstat_applet.glade.h:11
+msgid "_Show time/percentage:"
+msgstr "Az idő/százalék _megjelenítése:"
+
+#. TRANSLATOR: This is the beginning of the sentence 'Warn when battery charge drops to: [XX] percent/minutes remaining'
+#: ../battstat/battstat_applet.glade.h:13
+msgid "_Warn when battery charge drops to:"
+msgstr "F_igyelmeztessen, ha az akkumulátor töltöttsége "
+
+#. TRANSLATOR: this is a selectable item in a drop-down menu to end
+#. * this sentence:
+#. *   "Warn when battery charge drops to: [XX] percent".
+#.
+#: ../battstat/properties.c:321
+msgid "Percent"
+msgstr "százalék alá esik"
+
+#. TRANSLATOR: this is a selectable item in a drop-down menu to end
+#. * this sentence:
+#. *   "Warn when battery charge drops to: [XX] minutes remaining"
+#.
+#: ../battstat/properties.c:327
+msgid "Minutes Remaining"
+msgstr "perc hátralévő idő alá esik"
+
+#: ../battstat/sounds/battstat_applet.soundlist.in.h:1
+msgid "Battery Status Utility"
+msgstr "Akkumulátortöltöttség-figyelő"
+
+#: ../battstat/sounds/battstat_applet.soundlist.in.h:2
+msgid "Battery fully re-charged"
+msgstr "Az akkumulátor teljesen feltöltődött"
+
+#: ../battstat/sounds/battstat_applet.soundlist.in.h:3
+msgid "Battery power low"
+msgstr "Az akkumulátor töltöttsége alacsony"
+
+#: ../charpick/GNOME_CharpickerApplet.server.in.in.h:1
+#: ../charpick/charpick.c:731 ../charpick/charpick.c:743
+#: ../charpick/properties.c:464
+msgid "Character Palette"
+msgstr "Karakterpaletta"
+
+#: ../charpick/GNOME_CharpickerApplet.server.in.in.h:2
+msgid "Charpicker Applet Factory"
+msgstr "Karakterválasztó kisalkalmazás Factory"
+
+#: ../charpick/GNOME_CharpickerApplet.server.in.in.h:3
+#: ../charpick/charpick.c:731
+msgid "Insert characters"
+msgstr "Karakterek beszúrása"
+
+#: ../charpick/charpick.c:426
+msgid "Available palettes"
+msgstr "Elérhető paletták"
+
+#. TRANSLATOR: This sentance reads something like 'Insert "PILCROW SIGN"'
+#. *             hopefully, the name of the unicode character has already
+#. *             been translated.
+#.
+#: ../charpick/charpick.c:473
+#, c-format
+msgid "Insert \"%s\""
+msgstr "\"%s\" beszúrása"
+
+#: ../charpick/charpick.c:476
+msgid "Insert special character"
+msgstr "Különleges karakter beszúrása"
+
+#: ../charpick/charpick.c:480
+#, c-format
+msgid "insert special character %s"
+msgstr "%s speciális karakter beszúrása"
+
+#: ../charpick/charpick.c:596
+msgid ""
+"Gnome Panel applet for selecting strange characters that are not on my "
+"keyboard. Released under GNU General Public Licence."
+msgstr ""
+"GNOME panel-kisalkalmazás azon karakterek kiválasztására, amelyek nincsenek "
+"a billentyűzetén. GNU GPL alatt terjeszthető."
+
+#: ../charpick/charpick.schemas.in.h:1
+msgid "Characters shown on applet startup"
+msgstr "A kisalkalmazás indításakor megjelenített karakterek"
+
+#: ../charpick/charpick.schemas.in.h:2
+msgid "DEPRECATED - Characters shown on applet startup"
+msgstr "Nem ajánlott - A kisalkalmazás indításakor megjelenítendő karakterek"
+
+#: ../charpick/charpick.schemas.in.h:3 ../charpick/properties.c:391
+msgid "List of available palettes"
+msgstr "Elérhető paletták listája"
+
+#: ../charpick/charpick.schemas.in.h:4
+msgid "List of strings containing the available palettes"
+msgstr "Az elérhető palettákat tartalmazó karakterláncok listája"
+
+#: ../charpick/charpick.schemas.in.h:5
+msgid ""
+"The string that the user had selected when the applet was last used. This "
+"string will be displayed when the user starts the applet."
+msgstr ""
+"A felhasználó által a kisalkalmazás utolsó futtatásakor kiválasztott "
+"karakterlánc. Ez a karakterlánc meg lesz jelenítve, ha a felhasználó "
+"elindítja a kisalkalmazást."
+
+#: ../charpick/properties.c:40
+msgid "_Edit"
+msgstr "S_zerkesztés"
+
+#: ../charpick/properties.c:129
+msgid "_Palette:"
+msgstr "_Paletta:"
+
+#: ../charpick/properties.c:137
+msgid "Palette entry"
+msgstr "Palettabejegyzés"
+
+#: ../charpick/properties.c:138
+msgid "Modify a palette by adding or removing characters"
+msgstr "Paletta módosítása karakterek hozzáadásával vagy eltávolításával"
+
+#: ../charpick/properties.c:252
+msgid "Add Palette"
+msgstr "Paletta hozzáadása"
+
+#: ../charpick/properties.c:289
+msgid "Edit Palette"
+msgstr "Paletta szerkesztése"
+
+#: ../charpick/properties.c:390
+msgid "Palettes list"
+msgstr "Palettalista"
+
+#: ../charpick/properties.c:469
+msgid "_Palettes:"
+msgstr "_Paletták:"
+
+#: ../charpick/properties.c:485
+msgid "Add button"
+msgstr "Gomb hozzáadása"
+
+#: ../charpick/properties.c:486
+msgid "Click to add a new palette"
+msgstr "Kattintson egy új paletta hozzáadásához"
+
+#: ../charpick/properties.c:493
+msgid "Edit button"
+msgstr "Gomb szerkesztése"
+
+#: ../charpick/properties.c:494
+msgid "Click to edit the selected palette"
+msgstr "Kattintson a kijelölt paletta szerkesztéséhez"
+
+#: ../charpick/properties.c:501
+msgid "Delete button"
+msgstr "Gomb törlése"
+
+#: ../charpick/properties.c:502
+msgid "Click to delete the selected palette"
+msgstr "Kattintson a kijelölt paletta törléséhez"
+
+#: ../charpick/properties.c:554
+msgid "Character Palette Preferences"
+msgstr "Karakterpaletta beállításai"
+
+#: ../cpufreq/GNOME_CPUFreqApplet.server.in.in.h:1
+#: ../cpufreq/src/cpufreq-applet.c:972 ../cpufreq/src/cpufreq-applet.c:1030
+msgid "CPU Frequency Scaling Monitor"
+msgstr "CPU frekvenciaváltozás-figyelő"
+
+#: ../cpufreq/GNOME_CPUFreqApplet.server.in.in.h:2
+msgid "Monitor the CPU Frequency Scaling"
+msgstr "A CPU frekvenciájának változásait figyeli"
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:1
+msgid ""
+"A 0 value means to show cpu frequency, 1 to show frequency and units, and 2 "
+"to show percentage instead of frequency."
+msgstr ""
+"A 0 érték a CPU frekvenciájának, az 1 a frekvenciának és az egységeknek, a 2 "
+"pedig a százalékos arány megjelenítését jelenti."
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:2
+msgid ""
+"A 0 value means to show the applet in graphic mode (pixmap only), 1 to show "
+"the applet in text mode (not to show the pixmap) and 2 to show the applet in "
+"graphic and text mode."
+msgstr ""
+"A 0 érték hatására a kisalkalmazás grafikus módban jelenik meg (csak kép), 1 "
+"hatására csak szöveg jelenik meg (a kép nem), 2 hatására pedig mind "
+"szöveges, mind grafikus módban megjelenik."
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:3
+msgid "CPU to Monitor"
+msgstr "Figyelendő CPU"
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:4
+msgid "Mode to show cpu usage"
+msgstr "A CPU használat megjelenítésének módja"
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:5
+msgid ""
+"Set the CPU to monitor. In a single processor system you don't have to "
+"change it."
+msgstr ""
+"Beállítja a megfigyelendő CPU-t. Egyprocesszoros rendszereken nem kell "
+"megváltoztatni."
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:6
+msgid "The type of text to display (if the text is enabled)."
+msgstr "A megjelenítendő szöveg típusa (ha a szöveg engedélyezve van)."
+
+#: ../cpufreq/cpufreq-preferences.glade.h:1
+#: ../mini-commander/src/mini-commander.glade.h:1
+#: ../stickynotes/stickynotes.glade.h:1
+msgid "    "
+msgstr "    "
+
+#: ../cpufreq/cpufreq-preferences.glade.h:2
+msgid "<b>Display Settings</b>"
+msgstr "<b>Megjelenítés beállításai</b>"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:3
+msgid "<b>Monitor Settings</b>"
+msgstr "<b>Megfigyelés beállításai</b>"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:4
+msgid "CPU Frequency Monitor Preferences"
+msgstr "CPU frekvencia megfigyelőjének beállításai"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:5
+msgid "Show CPU frequency as _frequency"
+msgstr "A CPU frekvencia megjelenítése _frekvenciaként"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:6
+msgid "Show CPU frequency as _percentage"
+msgstr "A CPU frekvencia megjelenítése _százalékosan"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:7
+msgid "Show frequency _units"
+msgstr "Frekvencia_egységek megjelenítése"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:8
+msgid "_Appearance:"
+msgstr "_Megjelenés"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:9
+msgid "_Monitored CPU:"
+msgstr "_Megfigyelt CPU:"
+
+#: ../cpufreq/src/cpufreq-applet.c:620 ../cpufreq/src/cpufreq-prefs.c:478
+msgid "Could not open help document"
+msgstr "A súgódokumentum nem nyitható meg"
+
+#: ../cpufreq/src/cpufreq-applet.c:648
+msgid "This utility shows the current CPU Frequency Scaling."
+msgstr "Ez a kisalkalmazás a CPU jelenlegi frekvenciájának változását jelzi."
+
+#: ../cpufreq/src/cpufreq-applet.c:1031
+msgid "This utility shows the current CPU Frequency"
+msgstr "Ez a kisalkalmazás a CPU jelenlegi frekvenciáját jelzi"
+
+#: ../cpufreq/src/cpufreq-prefs.c:613
+msgid "Graphic"
+msgstr "Kép"
+
+#: ../cpufreq/src/cpufreq-prefs.c:618
+msgid "Text"
+msgstr "Szöveg"
+
+#: ../cpufreq/src/cpufreq-prefs.c:623
+msgid "Graphic and Text"
+msgstr "Kép és szöveg"
+
+#: ../cpufreq/src/cpufreq-monitor-cpuinfo.c:117
+msgid "Frequency Scaling Unsupported"
+msgstr "A frekvencia változtatása nem támogatott"
+
+#. If there is no cpufreq support it shows only the cpu frequency,
+#. * I think is better than do nothing. I have to notify it to the user, because
+#. * he could think that cpufreq is supported but it doesn't work succesfully
+#.
+#: ../cpufreq/src/cpufreq-monitor-factory.c:59
+msgid "CPU frequency scaling unsupported"
+msgstr "A CPU frekvenciájának változtatása nem támogatott"
+
+#: ../cpufreq/src/cpufreq-monitor-factory.c:60
+msgid ""
+"You will not be able to modify the frequency of your machine.  Your machine "
+"may be misconfigured or not have hardware support for CPU frequency scaling."
+msgstr ""
+"Nem lesz képes a gépének frekvenciáját módosítani. Lehetséges, hogy a gépe "
+"hibásan van beállítva vagy nem rendelkezik a CPU frekvenciájának "
+"változtatásához szükséges hardvertámogatással."
+
+#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:1
+#: ../drivemount/drivemount.c:170 ../drivemount/drivemount.c:202
+msgid "Disk Mounter"
+msgstr "Meghajtócsatoló"
+
+#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:2
+msgid "Drive Mount Applet Factory"
+msgstr "Meghajtócsatoló kisalkalmazás factory"
+
+#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:3
+msgid "Factory for drive mount applet"
+msgstr "Factory meghajtócsatoló kisalkalmazás készítéséhez"
+
+#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:4
+msgid "Mount local disks and devices"
+msgstr "Helyi lemezek vagy eszközök csatolása"
+
+#: ../drivemount/drive-button.c:333 ../drivemount/drive-button.c:341
+msgid "(mounted)"
+msgstr "(csatolva)"
+
+#: ../drivemount/drive-button.c:335 ../drivemount/drive-button.c:343
+msgid "(not mounted)"
+msgstr "(leválasztva)"
+
+#: ../drivemount/drive-button.c:337
+msgid "(not connected)"
+msgstr "(nincs csatolva)"
+
+#: ../drivemount/drive-button.c:531
+#, c-format
+msgid "Cannot execute '%s'"
+msgstr "A(z) \"%s\" nem hajtható végre"
+
+#: ../drivemount/drive-button.c:554
+msgid "Mount Error"
+msgstr "Csatolási hiba"
+
+#: ../drivemount/drive-button.c:557
+msgid "Unmount Error"
+msgstr "Leválasztási hiba"
+
+#: ../drivemount/drive-button.c:560
+msgid "Eject Error"
+msgstr "Kiadási hiba"
+
+#: ../drivemount/drive-button.c:563
+msgid "Error"
+msgstr "Hiba"
+
+#: ../drivemount/drive-button.c:900
+msgid "_Play DVD"
+msgstr "_DVD lejátszása"
+
+#: ../drivemount/drive-button.c:905
+msgid "_Play CD"
+msgstr "_CD lejátszása"
+
+#: ../drivemount/drive-button.c:910
+#, c-format
+msgid "_Open %s"
+msgstr "%s me_gnyitása"
+
+#: ../drivemount/drive-button.c:921
+#, c-format
+msgid "_Mount %s"
+msgstr "%s _csatolása"
+
+#: ../drivemount/drive-button.c:928
+#, c-format
+msgid "Un_mount %s"
+msgstr "%s le_választása"
+
+#: ../drivemount/drive-button.c:940
+#, c-format
+msgid "_Eject %s"
+msgstr "%s _kiadása"
+
+#: ../drivemount/drivemount.c:116
+msgid "Applet for mounting and unmounting block volumes."
+msgstr "Kötetek csatolására és leválasztására használható kisalkalmazás."
+
+#: ../drivemount/drivemount.schemas.in.h:1
+msgid "Interval timeout to check mount point status"
+msgstr "A csatolási pont ellenőrzésének időköze"
+
+#: ../drivemount/drivemount.schemas.in.h:2
+msgid "Time in seconds between status updates"
+msgstr "Állapot-frissítések közötti idő másodpercekben"
+
+#: ../geyes/GNOME_GeyesApplet.server.in.in.h:1
+msgid "A set of eyeballs for your panel"
+msgstr "Szemgolyók a panelre"
+
+#: ../geyes/GNOME_GeyesApplet.server.in.in.h:2 ../geyes/geyes.c:385
+#: ../geyes/geyes.c:415 ../geyes/geyes.c:417
+msgid "Geyes"
+msgstr "Geyes"
+
+#: ../geyes/GNOME_GeyesApplet.server.in.in.h:3
+msgid "Geyes Applet Factory"
+msgstr "Geyes kisalkalmazás factory"
+
+#: ../geyes/geyes.c:190
+msgid "A goofy little xeyes clone for the GNOME panel."
+msgstr "Kis bolondos, GNOME panelra tehető szempár (xeyes)."
+
+#: ../geyes/geyes.c:418
+msgid "The eyes look in the direction of the mouse pointer"
+msgstr "A szemek az egér irányába néznek"
+
+#: ../geyes/geyes.schemas.in.h:1
+msgid "Directory in which the theme is located"
+msgstr "A téma könyvtára"
+
+#: ../geyes/themes.c:140
+msgid "Can not launch the eyes applet."
+msgstr "A szemek kisalkalmazás nem indítható el."
+
+#: ../geyes/themes.c:141
+msgid "There was a fatal error while trying to load the theme."
+msgstr "Végzetes hiba történt a téma betöltése közben."
+
+#: ../geyes/themes.c:317
+msgid "Geyes Preferences"
+msgstr "Geyes beállításai"
+
+#: ../geyes/themes.c:351
+msgid "Themes"
+msgstr "Témák"
+
+#: ../geyes/themes.c:372
+msgid "_Select a theme:"
+msgstr "_Téma kiválasztása:"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:1 ../gkb-new/xmodmap.sun/base.xml.in.h:1
+msgid "Alt+Control changes layout."
+msgstr "Az Alt+Control megváltoztatja a kiosztást."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:2 ../gkb-new/xmodmap.sun/base.xml.in.h:2
+msgid "Alt+Shift changes layout."
+msgstr "Az Alt+Shift megváltoztatja a kiosztást."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:3
+msgid "Arabic keymap"
+msgstr "Arab billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:4
+msgid "Armenian"
+msgstr "Örmény"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:5
+msgid "Basque"
+msgstr "Baszk"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:6
+msgid "Belgian"
+msgstr "Belga"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:7 ../gkb-new/xmodmap.sun/base.xml.in.h:6
+msgid "Both Alt keys together change layout."
+msgstr "A két Alt billentyű együtt változtatja meg a kiosztást."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:8 ../gkb-new/xmodmap.sun/base.xml.in.h:7
+msgid "Both Ctrl keys together change layout."
+msgstr "A két Ctrl billentyű együtt változtatja meg a kiosztást."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:9 ../gkb-new/xmodmap.sun/base.xml.in.h:8
+msgid "Both Shift keys together change layout."
+msgstr "A két Shift billentyű együtt változtatja meg a kiosztást."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:10
+msgid "Brazil Portuguese keymap"
+msgstr "Brazíliai portugál billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:11
+msgid "Bulgarian Cyrillic"
+msgstr "Bolgár cirill"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:12
+msgid "Bulgarian keymap"
+msgstr "Bolgár billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:13 ../gkb-new/xmodmap.sun/base.xml.in.h:16
+msgid "CapsLock key changes layout."
+msgstr "A Caps Lock billentyű megváltoztatja a kiosztást."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:14 ../gkb-new/xmodmap.sun/base.xml.in.h:17
+msgid "Control+Shift changes layout."
+msgstr "A Control+Shift megváltoztatja a kiosztást."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:15
+msgid "Czech keymap"
+msgstr "Cseh billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:16
+msgid "Danish keymap"
+msgstr "Dán billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:17
+msgid "Dutch keymap"
+msgstr "Holland billentyűzet"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:18
+msgid "English keymap"
+msgstr "Angol billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:19
+msgid "Estonian keymap"
+msgstr "Észt billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:20
+msgid "Finnish keymap"
+msgstr "Finn billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:21
+msgid "French Swiss"
+msgstr "Svájci francia"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:22
+msgid "French Swiss keymap"
+msgstr "Svájci francia billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:23
+msgid "French keymap"
+msgstr "Francia billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:24
+msgid "French-Canadian 105-key"
+msgstr "Kanadai francia 105 gombos"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:25
+msgid "GB 102-key"
+msgstr "GB 102 gombos"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:26
+msgid "GB 105-key"
+msgstr "GB 105 gombos"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:27 ../gkb-new/xmodmap.sun/base.xml.in.h:27
+msgid "Generic Keyboard"
+msgstr "Általános billentyűzet"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:28
+msgid "Georgian Latin"
+msgstr "Grúz, latin"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:29
+msgid "Georgian Russian layout"
+msgstr "Grúz orosz kiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:30
+msgid "Georgian keymap"
+msgstr "Grúz billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:31
+msgid "German"
+msgstr "Német"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:32
+msgid "German Swiss with Euro"
+msgstr "Svájci német Euroval"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:33
+msgid "German keymap"
+msgstr "Német billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:34
+msgid "Greek keymap"
+msgstr "Görög billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:35
+msgid "Hebrew keymap"
+msgstr "Héber billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:36
+msgid "Hungarian 101-key latin 1"
+msgstr "Magyar 101 gombos latin 1"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:37
+msgid "Hungarian 101-key latin 2"
+msgstr "Magyar 101 gombos latin 2"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:38
+msgid "Hungarian 105-key latin 1"
+msgstr "Magyar 105 gombos latin 1"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:39
+msgid "Hungarian 105-key latin 2"
+msgstr "Magyar 105 gombos latin 2"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:40
+msgid "Hungarian PC/AT 101 keyboard"
+msgstr "Magyar PC/AT 101 gombos billentyűzet"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:41
+msgid "Hungarian latin1"
+msgstr "Magyar latin1"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:42
+msgid "Icelandic keymap"
+msgstr "Izlandi billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:43
+msgid "Italian keymap"
+msgstr "Olasz billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:44
+msgid "Japanese keymap"
+msgstr "Japán billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:45
+msgid "Lao keymap"
+msgstr "Lao billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:46 ../gkb-new/xmodmap.sun/base.xml.in.h:41
+msgid "Layout shift behavior"
+msgstr "Kiosztásváltás viselkedése"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:47 ../gkb-new/xmodmap.sun/base.xml.in.h:42
+msgid "Left Alt key changes layout."
+msgstr "A bal Alt billentyű megváltoztatja a kiosztást."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:48 ../gkb-new/xmodmap.sun/base.xml.in.h:43
+msgid "Left Ctrl key changes group."
+msgstr "A bal Ctrl billentyű megváltoztatja a csoportot."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:49 ../gkb-new/xmodmap.sun/base.xml.in.h:44
+msgid "Left Shift key changes group."
+msgstr "A bal Shift billentyű megváltoztatja a csoportot."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:50 ../gkb-new/xmodmap.sun/base.xml.in.h:45
+msgid "Left Win-key changes layout."
+msgstr "A bal Win billentyű megváltoztatja a csoportot."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:51
+msgid "Lithuanian keymap"
+msgstr "Litván billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:52
+msgid "Macedonian"
+msgstr "Macedón"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:53 ../gkb-new/xmodmap.sun/base.xml.in.h:48
+msgid "Menu key changes layout."
+msgstr "A menü billentyű megváltoztatja a kiosztást."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:54
+msgid "Mongolian alt keymap"
+msgstr "Mongol alt-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:55
+msgid "Mongolian keymap"
+msgstr "Mongol billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:56
+msgid "Mongolian phonetic keymap"
+msgstr "Mongol fonetikus billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:57
+msgid "Norwegian"
+msgstr "Norvég"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:58
+msgid "Plain Russian keymap"
+msgstr "Egyszerű orosz billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:59
+msgid "Polish"
+msgstr "Lengyel"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:60
+msgid "Polish deadkeys"
+msgstr "Lengyel holt billentyűk"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:61
+msgid "Portugal"
+msgstr "Portugália"
+
+# FIXME
+#: ../gkb-new/xmodmap/base.xml.in.h:62
+msgid "Portugal Deadkeys"
+msgstr "Portugál holt gombok"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:63
+msgid "Portuguese keymap"
+msgstr "Portugál billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:64 ../gkb-new/xmodmap.sun/base.xml.in.h:53
+msgid "Right Alt key changes layout."
+msgstr "A jobb Alt billentyű megváltoztatja a kiosztást."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:65 ../gkb-new/xmodmap.sun/base.xml.in.h:54
+msgid "Right Ctrl key changes group."
+msgstr "A jobb Ctrl billentyű megváltoztatja a kiosztást."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:66 ../gkb-new/xmodmap.sun/base.xml.in.h:55
+msgid "Right Shift key changes group."
+msgstr "A jobb Shift billentyű megváltoztatja a kiosztást."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:67 ../gkb-new/xmodmap.sun/base.xml.in.h:56
+msgid "Right Win-key changes layout."
+msgstr "A jobb Win billentyű megváltoztatja a kiosztást."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:68
+msgid "Russian Cyrillic"
+msgstr "Orosz cirill"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:69
+msgid "Russian keymap"
+msgstr "Orosz billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:70
+msgid "Serbian keymap"
+msgstr "Szerb billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:71 ../gkb-new/xmodmap.sun/base.xml.in.h:60
+msgid "Shift+CapsLock changes layout."
+msgstr "A Shift+Caps Lock megváltoztatja a kiosztást."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:72
+msgid "Slovak keymap"
+msgstr "Szlovák billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:73
+msgid "Slovenian"
+msgstr "Szlovén"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:74
+msgid "Slovenian keymap"
+msgstr "Szlovén billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:75
+msgid "Spanish keymap"
+msgstr "Spanyol billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:76
+msgid "Sun (!not PC!) type5 Hungarian latin 2"
+msgstr "Sun (!nem PC!) type5 magyar latin 2"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:77
+msgid "Swedish"
+msgstr "Svéd"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:78
+msgid "Swedish keymap"
+msgstr "Svéd billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:79
+msgid "Swiss keymap"
+msgstr "Svájci billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:80
+msgid "Thai"
+msgstr "Thai"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:81
+msgid "Thai Kedmanee"
+msgstr "Thai Kedmanee"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:82
+msgid "Thai keymap"
+msgstr "Thai billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:83
+msgid "Turkish \"F\" keyboard"
+msgstr "Török \"F\" billentyűzet"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:84
+msgid "Turkish \"Q\" keyboard"
+msgstr "Török \"Q\" billentyűzet"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:85
+msgid "Turkish keymap"
+msgstr "Török billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:86
+msgid "UK 105-key"
+msgstr "UK 105 gombos"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:87
+msgid "UK PC/AT keyboard"
+msgstr "UK PC/AT billentyűzet"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:88
+msgid "US 101-key keyboard"
+msgstr "Egyesült Államok 101 gombos billentyűzet"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:89
+msgid "US 105-key keyboard (with windows keys)"
+msgstr "Egyesült Államok 105 gombos (\"ablakok\" gombokkal)"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:90
+msgid "US 84-key"
+msgstr "Egyesült Államok 84 gombos"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:91
+msgid "US DEC 450"
+msgstr "Egyesült Államok DEC 450"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:92
+msgid "US IBM RS/6000"
+msgstr "Egyesült Államok IBM RS/6000"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:93
+msgid "US International"
+msgstr "Egyesült Államok nemzetközi"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:94
+msgid "US Macintosh"
+msgstr "US Macintosh"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:95
+msgid "US PC/AT 101 keyboard"
+msgstr "US PC/AT 101 gombos billentyűzet"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:96
+msgid "US Silicon Graphics 101-key"
+msgstr "US Silicon Graphics 101 gombos"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:97
+msgid "US Sun type5"
+msgstr "Egyesült Államok Sun type5"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:3
+msgid "Armenian Sun keymap"
+msgstr "Örmény Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:4
+msgid "Azerbaijani Turkish Sun keymap"
+msgstr "Azerbajdzsáni török Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:5
+msgid "Belarusian Sun keymap"
+msgstr "Fehérorosz Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:9
+msgid "Brazil Portuguese Sun USB keymap"
+msgstr "Brazíliai portugál Sun USB-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:10
+msgid "Brazil Portuguese Sun keymap"
+msgstr "Brazíliai portugál Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:11
+msgid "British Sun Type-4 keymap"
+msgstr "Angol Sun Type-4 billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:12
+msgid "British Sun USB keymap"
+msgstr "Angol Sun USB-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:13
+msgid "British Sun keymap"
+msgstr "Angol Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:14
+msgid "Bulgarian Sun keymap"
+msgstr "Bolgár Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:15
+msgid "Canadian Sun keymap"
+msgstr "Kanadai Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:18
+msgid "Czech Sun keymap"
+msgstr "Cseh Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:19
+msgid "Danish Sun Type-4 keymap"
+msgstr "Dán Sun Type-4 billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:20
+msgid "Danish Sun USB keymap"
+msgstr "Dán Sun USB-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:21
+msgid "Danish Sun keymap"
+msgstr "Dán Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:22
+msgid "Dutch Sun keymap"
+msgstr "Holland Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:23
+msgid "Estonian Sun keymap"
+msgstr "Észt Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:24
+msgid "Finnish Sun keymap"
+msgstr "Finn Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:25
+msgid "French Sun USB keymap"
+msgstr "Francia Sun USB-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:26
+msgid "French Sun keymap"
+msgstr "Francia Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:28
+msgid "German Sun Type-4 keymap"
+msgstr "Német Sun Type-4 billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:29
+msgid "German Sun USB keymap"
+msgstr "Német Sun USB-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:30
+msgid "German Sun keymap"
+msgstr "Német Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:31
+msgid "Hebrew Sun keymap"
+msgstr "Héber Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:32
+msgid "Hungarian latin2 Sun keymap"
+msgstr "Magyar latin2 Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:33
+msgid "Hungarian type5 latin 1 keymap"
+msgstr "Magyar type5 latin 1 billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:34
+msgid "Icelandic Sun keymap"
+msgstr "Izlandi Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:35
+msgid "Italian Sun Type-4 keymap"
+msgstr "Olasz Sun Type-4 billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:36
+msgid "Italian Sun USB keymap"
+msgstr "Olasz Sun USB-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:37
+msgid "Italian Sun keymap"
+msgstr "Olasz Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:38
+msgid "Japanese Sun Type-4 keymap"
+msgstr "Japán Sun Type-4 billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:39
+msgid "Japanese Sun keymap"
+msgstr "Japán Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:40
+msgid "Latvian Sun keymap"
+msgstr "Lett Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:46
+msgid "Lithuanian Sun keymap"
+msgstr "Litván Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:47
+msgid "Macedonian Sun keymap"
+msgstr "Macedón Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:49
+msgid "Norwegian Sun keymap"
+msgstr "Norvég Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:50
+msgid "Polish Sun keymap"
+msgstr "Lengyel Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:51
+msgid "Portuguese Sun Type-4 keymap"
+msgstr "Portugál Sun Type-4 billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:52
+msgid "Portuguese Sun keymap"
+msgstr "Portugál Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:57
+msgid "Romanian Sun keymap"
+msgstr "Román Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:58
+msgid "Russian Sun keymap"
+msgstr "Orosz Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:59
+msgid "Serbian Sun standard keymap"
+msgstr "Szerb szabványos Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:61
+msgid "Slovak Sun keymap"
+msgstr "Szlovák Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:62
+msgid "Slovenian Sun keymap"
+msgstr "Szlovén Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:63
+msgid "Spanish Sun Type-4 keymap"
+msgstr "Spanyol Sun Type-4 billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:64
+msgid "Spanish Sun USB keymap"
+msgstr "Spanyol Sun USB-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:65
+msgid "Spanish Sun keymap"
+msgstr "Spanyol Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:66
+msgid "Swedish Sun Type-4 keymap"
+msgstr "Svéd Sun Type-4 billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:67
+msgid "Swedish Sun USB keymap"
+msgstr "Svéd Sun USB-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:68
+msgid "Swedish Sun keymap"
+msgstr "Svéd Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:69
+msgid "Swiss German Sun keymap"
+msgstr "Svájci német Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:70
+msgid "Thai Sun keymap"
+msgstr "Thai Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:71
+msgid "Turkish Sun keymap"
+msgstr "Török Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:72
+msgid "US Sun Type-4 keymap"
+msgstr "Egyesült Államok Sun Type-4 billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:73
+msgid "US Sun USB keymap"
+msgstr "Egyesült Államok Sun USB-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:74
+msgid "US Sun type5 keymap"
+msgstr "Egyesült Államok Sun type5 billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:75
+msgid "Ukrainian Sun keymap"
+msgstr "Ukrán Sun-billentyűzetkiosztás"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:76
+msgid "Vietnamese Sun keymap"
+msgstr "Vietnami Sun-billentyűzetkiosztás"
+
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:1
+msgid "Keyboard _Preferences"
+msgstr "_Billentyűzetbeállítások"
+
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:2
+msgid "Pl_ugins"
+msgstr "Bő_vítmények"
+
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:3
+msgid "Show Current _Layout"
+msgstr "_Jelenlegi elrendezés megjelenítése"
+
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:5
+msgid "_Groups"
+msgstr "_Csoportok"
+
+#: ../gswitchit/GNOME_KeyboardApplet.server.in.in.h:1
+#: ../gswitchit/gswitchit-applet.c:579
+msgid "Keyboard Indicator"
+msgstr "Billentyűzetjelző"
+
+#: ../gswitchit/GNOME_KeyboardApplet.server.in.in.h:2
+msgid "Keyboard applet factory"
+msgstr "Billentyűzet kisalkalmazás factory"
+
+#: ../gswitchit/GNOME_KeyboardApplet.server.in.in.h:3
+msgid "Keyboard layout indicator"
+msgstr "Billentyűzetkiosztás-jelző"
+
+#: ../gswitchit/gswitchit-applet.c:302
+#, c-format
+msgid "Keyboard Layout \"%s\""
+msgstr "Billentyűzetkiosztás: \"%s\""
+
+#: ../gswitchit/gswitchit-applet.c:461
+msgid "Copyright (c) Sergey V. Udaltsov 1999-2004"
+msgstr "Copyright © Sergey V. Udaltsov 1999-2004"
+
+#: ../gswitchit/gswitchit-applet.c:464
+msgid "Keyboard layout indicator applet for GNOME"
+msgstr "Billentyűzetkiosztás-jelző kisalkalmazás a GNOME számára"
+
+#: ../gswitchit/gswitchit-applet.c:595
+#, c-format
+msgid "Keyboard Indicator (%s)"
+msgstr "Billentyűzetjelző (%s)"
+
+#: ../gswitchit/gswitchit.glade.h:1
+msgid "Keyboard Layout"
+msgstr "Billentyűzet kiosztás"
+
+#: ../gweather/GNOME_GWeatherApplet.xml.h:2
+msgid "_Details"
+msgstr "_Részletek"
+
+#: ../gweather/GNOME_GWeatherApplet.xml.h:5 ../gweather/gweather-dialog.c:213
+msgid "_Update"
+msgstr "_Frissítés"
+
+#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:1
+msgid "Factory for creating the weather applet."
+msgstr "Factory időjárás kisalkalmazás készítéséhez."
+
+#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:2
+msgid "Gweather Applet Factory"
+msgstr "Időjárás-jelentés kisalkalmazás Factory"
+
+#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:3
+msgid "Monitor the current weather conditions, and forecasts"
+msgstr "A jelenlegi és az előrejelzett időjárást figyeli"
+
+#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:4
+#: ../gweather/gweather-applet.c:313
+msgid "Weather Report"
+msgstr "Időjárás-jelentés"
+
+#: ../gweather/gweather-about.c:50
+msgid "© 1999-2005 by S. Papadimitriou and others"
+msgstr "Copyright © 1999-2005 S. Papadimitriou és mások"
+
+#: ../gweather/gweather-about.c:51
+msgid "A panel application for monitoring local weather conditions."
+msgstr "A helyi időjárási viszonyok jelzésére szolgáló kisalkalmazás."
+
+#: ../gweather/gweather-applet.c:331 ../gweather/gweather-applet.c:335
+msgid "GNOME Weather"
+msgstr "Időjárás"
+
+#: ../gweather/gweather-applet.c:435
+msgid "Weather Forecast"
+msgstr "Időjárás-előrejelzés"
+
+#: ../gweather/gweather-applet.c:446
+#, c-format
+msgid ""
+"City: %s\n"
+"Sky: %s\n"
+"Temperature: %s"
+msgstr ""
+"Város: %s\n"
+"Égbolt: %s\n"
+"Hőmérséklet: %s"
+
+#: ../gweather/gweather-applet.c:498
+msgid "Updating..."
+msgstr "Frissítés..."
+
+#: ../gweather/gweather-dialog.c:211
+msgid "Details"
+msgstr "Részletek"
+
+#: ../gweather/gweather-dialog.c:255
+msgid "City:"
+msgstr "Város:"
+
+#: ../gweather/gweather-dialog.c:263
+msgid "Last update:"
+msgstr "Utolsó frissítés:"
+
+#: ../gweather/gweather-dialog.c:271
+msgid "Conditions:"
+msgstr "Helyzet:"
+
+#: ../gweather/gweather-dialog.c:279
+msgid "Sky:"
+msgstr "Ég:"
+
+#: ../gweather/gweather-dialog.c:287
+msgid "Temperature:"
+msgstr "Hőmérséklet:"
+
+#: ../gweather/gweather-dialog.c:295
+msgid "Feels like:"
+msgstr "Hőérzet:"
+
+#: ../gweather/gweather-dialog.c:303
+msgid "Dew point:"
+msgstr "Harmatpont:"
+
+#: ../gweather/gweather-dialog.c:311
+msgid "Relative humidity:"
+msgstr "Relatív páratartalom:"
+
+#: ../gweather/gweather-dialog.c:319
+msgid "Wind:"
+msgstr "Szél:"
+
+#: ../gweather/gweather-dialog.c:327
+msgid "Pressure:"
+msgstr "Nyomás:"
+
+#: ../gweather/gweather-dialog.c:335
+msgid "Visibility:"
+msgstr "Látási viszonyok:"
+
+#: ../gweather/gweather-dialog.c:343
+msgid "Sunrise:"
+msgstr "Napkelte:"
+
+#: ../gweather/gweather-dialog.c:351
+msgid "Sunset:"
+msgstr "Napnyugta:"
+
+#: ../gweather/gweather-dialog.c:486
+msgid "Current Conditions"
+msgstr "Jelenlegi időjárás"
+
+#: ../gweather/gweather-dialog.c:503
+msgid "Forecast Report"
+msgstr "Előrejelzés"
+
+#: ../gweather/gweather-dialog.c:503
+msgid "See the ForeCast Details"
+msgstr "Részletes előrejelzés"
+
+#: ../gweather/gweather-dialog.c:513
+msgid "Forecast"
+msgstr "Előrejelzés"
+
+#: ../gweather/gweather-dialog.c:521
+msgid "Radar Map"
+msgstr "Műholdas térkép"
+
+#: ../gweather/gweather-dialog.c:552
+msgid "_Visit Weather.com"
+msgstr "A weather.com _meglátogatása"
+
+#: ../gweather/gweather-dialog.c:553
+msgid "Visit Weather.com"
+msgstr "A weather.com meglátogatása"
+
+#: ../gweather/gweather-dialog.c:553
+msgid "Click to Enter Weather.com"
+msgstr "A weather.com felkereséséhez kattintson ide"
+
+#: ../gweather/gweather-dialog.c:638
+msgid "Forecast not currently available for this location."
+msgstr "Ehhez a helyhez jelenleg nem érhető el előrejelzés."
+
+#. Accessible Name and Description for the components in Preference Dialog
+#: ../gweather/gweather-pref.c:174
+msgid "Location view"
+msgstr "Hely nézet"
+
+#: ../gweather/gweather-pref.c:174
+msgid "Select Location from the list"
+msgstr "Válassza ki a helyet a listából"
+
+#: ../gweather/gweather-pref.c:175
+msgid "Update spin button"
+msgstr "Léptetőgomb frissítése"
+
+#: ../gweather/gweather-pref.c:175
+msgid "Spinbutton for updating"
+msgstr "Léptetőgomb a frissítéshez"
+
+#: ../gweather/gweather-pref.c:176
+msgid "Address Entry"
+msgstr "Címbejegyzés"
+
+#: ../gweather/gweather-pref.c:176
+msgid "Enter the URL"
+msgstr "URL megadása"
+
+#: ../gweather/gweather-pref.c:297
+msgid "Failed to load the Locations XML database.  Please report this as a bug."
+msgstr ""
+"Nem sikerült betölteni a helyiségek XML adatbázisát. Kérem jelentse ezt a "
+"hibát."
+
+#: ../gweather/gweather-pref.c:780
+msgid "Weather Preferences"
+msgstr "Időjárás beállításai"
+
+#: ../gweather/gweather-pref.c:812 ../gweather/gweather-pref.c:997
+msgid "_Automatically update every:"
+msgstr "_Automatikus frissítés:"
+
+#.
+#. * Units settings page.
+#.
+#. Temperature Unit
+#: ../gweather/gweather-pref.c:825
+msgid "_Temperature unit:"
+msgstr "_Hőmérséklet egysége:"
+
+#: ../gweather/gweather-pref.c:834 ../gweather/gweather-pref.c:854
+#: ../gweather/gweather-pref.c:880 ../gweather/gweather-pref.c:908
+msgid "Default"
+msgstr "Alapértelmezett"
+
+#: ../gweather/gweather-pref.c:835
+msgid "Kelvin"
+msgstr "Kelvin"
+
+#. TRANSLATORS: Celsius is sometimes referred Centigrade
+#: ../gweather/gweather-pref.c:837
+msgid "Celsius"
+msgstr "Celsius"
+
+#: ../gweather/gweather-pref.c:838
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+#. Speed Unit
+#: ../gweather/gweather-pref.c:845
+msgid "_Wind speed unit:"
+msgstr "Szé_lsebesség egysége:"
+
+#. TRANSLATOR: The wind speed unit "meters per second"
+#: ../gweather/gweather-pref.c:856
+msgid "m/s"
+msgstr "m/s"
+
+#. TRANSLATOR: The wind speed unit "kilometers per hour"
+#: ../gweather/gweather-pref.c:858
+msgid "km/h"
+msgstr "km/h"
+
+#. TRANSLATOR: The wind speed unit "miles per hour"
+#: ../gweather/gweather-pref.c:860
+msgid "mph"
+msgstr "mph"
+
+#. TRANSLATOR: The wind speed unit "knots"
+#: ../gweather/gweather-pref.c:862
+msgid "knots"
+msgstr "csomó"
+
+#: ../gweather/gweather-pref.c:864
+msgid "Beaufort scale"
+msgstr "Beaufort skála"
+
+#. Pressure Unit
+#: ../gweather/gweather-pref.c:871
+msgid "_Pressure unit:"
+msgstr "Ny_omás egysége:"
+
+#. TRANSLATOR: The pressure unit "kiloPascals"
+#: ../gweather/gweather-pref.c:882
+msgid "kPa"
+msgstr "kPa"
+
+#. TRANSLATOR: The pressure unit "hectoPascals"
+#: ../gweather/gweather-pref.c:884
+msgid "hPa"
+msgstr "hPa"
+
+#. TRANSLATOR: The pressure unit "millibars"
+#: ../gweather/gweather-pref.c:886
+msgid "mb"
+msgstr "mb"
+
+#. TRANSLATOR: The pressure unit "millibars of mercury"
+#: ../gweather/gweather-pref.c:888
+msgid "mmHg"
+msgstr "mmHg"
+
+#. TRANSLATOR: The pressure unit "inches of mercury"
+#: ../gweather/gweather-pref.c:890
+msgid "inHg"
+msgstr "inHg"
+
+#. TRANSLATOR: The pressure unit "atmospheres"
+#: ../gweather/gweather-pref.c:892
+msgid "atm"
+msgstr "atm"
+
+#. Distance Unit
+#: ../gweather/gweather-pref.c:899
+msgid "_Visibility unit:"
+msgstr "Látás_i viszonyok egysége:"
+
+#. TRANSLATOR: The distance unit "meters"
+#: ../gweather/gweather-pref.c:910
+msgid "meters"
+msgstr "méter"
+
+#. TRANSLATOR: The distance unit "kilometers"
+#: ../gweather/gweather-pref.c:912
+msgid "km"
+msgstr "km"
+
+#. TRANSLATOR: The distance unit "miles"
+#: ../gweather/gweather-pref.c:914
+msgid "miles"
+msgstr "mérföld"
+
+#: ../gweather/gweather-pref.c:948
+msgid "Enable _radar map"
+msgstr "_Műholdas térképek engedélyezése"
+
+#: ../gweather/gweather-pref.c:962
+msgid "Use _custom address for radar map"
+msgstr "A radartérkép he_lyének beállítása"
+
+#: ../gweather/gweather-pref.c:979
+msgid "A_ddress:"
+msgstr "_Cím:"
+
+#: ../gweather/gweather-pref.c:993
+msgid "Update"
+msgstr "Frissítés"
+
+#: ../gweather/gweather-pref.c:1017
+msgid "minutes"
+msgstr "percenként"
+
+#: ../gweather/gweather-pref.c:1033
+msgid "Display"
+msgstr "Megjelenítés"
+
+#: ../gweather/gweather-pref.c:1048
+#: ../mini-commander/src/mini-commander.glade.h:12
+msgid "General"
+msgstr "Általános"
+
+#: ../gweather/gweather-pref.c:1061
+msgid "_Select a location:"
+msgstr "_Hely kiválasztása:"
+
+#: ../gweather/gweather-pref.c:1088
+msgid "_Find:"
+msgstr "_Keresés:"
+
+#: ../gweather/gweather-pref.c:1095
+msgid "Find _Next"
+msgstr "_Következő találat"
+
+#: ../gweather/gweather-pref.c:1117
+msgid "Location"
+msgstr "Hely"
+
+#: ../invest-applet/data/Invest_Applet.server.in.in.h:1
+#: ../invest-applet/invest/about.py:27
+msgid "Invest"
+msgstr "Invest"
+
+#: ../invest-applet/data/Invest_Applet.server.in.in.h:2
+#: ../invest-applet/invest/about.py:30
+msgid "Track your invested money."
+msgstr "Befektetések követése."
+
+#: ../invest-applet/data/Invest_Applet.xml.h:3
+msgid "_Refresh"
+msgstr "_Frissítés"
+
+#: ../invest-applet/data/financialchart.glade.h:1
+msgid "10"
+msgstr "10"
+
+#: ../invest-applet/data/financialchart.glade.h:2
+msgid "100"
+msgstr "100"
+
+#: ../invest-applet/data/financialchart.glade.h:3
+msgid ""
+"1d\n"
+"5d\n"
+"3m\n"
+"6m\n"
+"1y\n"
+"3y"
+msgstr ""
+"1n\n"
+"5n\n"
+"3h\n"
+"6h\n"
+"1é\n"
+"3é"
+
+#: ../invest-applet/data/financialchart.glade.h:9
+msgid "20"
+msgstr "20"
+
+#: ../invest-applet/data/financialchart.glade.h:10
+msgid "200"
+msgstr "200"
+
+#: ../invest-applet/data/financialchart.glade.h:11
+msgid "5"
+msgstr "5"
+
+#: ../invest-applet/data/financialchart.glade.h:12
+msgid "50"
+msgstr "50"
+
+#: ../invest-applet/data/financialchart.glade.h:13
+msgid "Auto _refresh"
+msgstr "_Automatikus frissítés"
+
+#: ../invest-applet/data/financialchart.glade.h:14
+msgid "Bollinger"
+msgstr "Bollinger"
+
+#: ../invest-applet/data/financialchart.glade.h:15
+msgid "Downloading chart from <b>Yahoo!</b>"
+msgstr "Grafikon letöltése a <b>Yahoo!</b>-tól"
+
+#: ../invest-applet/data/financialchart.glade.h:16
+msgid "Exponential moving average: "
+msgstr "Exponenciális átlagos mozgás: "
+
+# fixme: mi a csuda ez?
+#: ../invest-applet/data/financialchart.glade.h:17
+msgid "Fast stoch"
+msgstr "Fast stoch"
+
+#: ../invest-applet/data/financialchart.glade.h:18
+#: ../invest-applet/invest/chart.py:54
+msgid "Financial Chart"
+msgstr "Pénzügyi grafikon"
+
+#: ../invest-applet/data/financialchart.glade.h:19
+msgid "Indicators: "
+msgstr "Jelzők: "
+
+#: ../invest-applet/data/financialchart.glade.h:20
+msgid "MACD"
+msgstr "MACD"
+
+#: ../invest-applet/data/financialchart.glade.h:21
+msgid "MFI"
+msgstr "MFI"
+
+#: ../invest-applet/data/financialchart.glade.h:22
+msgid "Moving average: "
+msgstr "Átlagos mozgás: "
+
+#: ../invest-applet/data/financialchart.glade.h:23
+msgid "Overlays: "
+msgstr "Elrendezések: "
+
+#: ../invest-applet/data/financialchart.glade.h:24
+msgid "ROC"
+msgstr "ROC"
+
+#: ../invest-applet/data/financialchart.glade.h:25
+msgid "RSI"
+msgstr "RSI"
+
+#: ../invest-applet/data/financialchart.glade.h:26
+msgid "SAR"
+msgstr "SAR"
+
+# fixme: mi a csuda ez?
+#: ../invest-applet/data/financialchart.glade.h:27
+msgid "Slow stoch"
+msgstr "Slow stoch"
+
+#: ../invest-applet/data/financialchart.glade.h:28
+msgid "Splits"
+msgstr "Splits"
+
+#: ../invest-applet/data/financialchart.glade.h:29
+msgid "Vol"
+msgstr "Vol"
+
+#: ../invest-applet/data/financialchart.glade.h:30
+msgid "Vol+MA"
+msgstr "Vol+MA"
+
+#: ../invest-applet/data/financialchart.glade.h:31
+msgid "Volumes"
+msgstr "Volumen"
+
+#: ../invest-applet/data/financialchart.glade.h:33
+#, no-c-format
+msgid "W%R"
+msgstr "W%R"
+
+#: ../invest-applet/data/financialchart.glade.h:34
+msgid "_Graph style: "
+msgstr "_Grafikon stílusa: "
+
+#: ../invest-applet/data/financialchart.glade.h:35
+msgid "_Options"
+msgstr "_Beállítások"
+
+#: ../invest-applet/data/financialchart.glade.h:36
+msgid "_Ticker symbol: "
+msgstr "_Követendő szimbólum: "
+
+#: ../invest-applet/data/financialchart.glade.h:37
+msgid ""
+"l\n"
+"b\n"
+"c"
+msgstr ""
+"l\n"
+"b\n"
+"c"
+
+#: ../invest-applet/data/prefs-dialog.glade.h:1
+msgid "<b>Stocks</b>"
+msgstr "<b>Részvények</b>"
+
+#: ../invest-applet/data/prefs-dialog.glade.h:2
+msgid ""
+"<i><small><b>Note:</b> Quotes are delayed at least 15 minutes.\n"
+"<b>Source: </b> Yahoo!</small></i>"
+msgstr ""
+"<i><small><b>Megjegyzés:</b> Az idézetek legalább 15 perc késésben vannak.\n"
+"<b>Forrás: </b> Yahoo!</small></i>"
+
+#: ../invest-applet/data/prefs-dialog.glade.h:4
+msgid "Invest Preferences"
+msgstr "Invest beállításai"
+
+#: ../invest-applet/invest/about.py:33
+msgid "Invest Website"
+msgstr "Az Invest weboldala"
+
+#: ../invest-applet/invest/chart.py:102
+#, python-format
+msgid "Financial Chart - %s"
+msgstr "Pénzügyi grafikon - %s"
+
+#: ../invest-applet/invest/chart.py:168
+msgid "Opening Chart"
+msgstr "Grafikon megnyitása"
+
+#: ../invest-applet/invest/chart.py:180 ../invest-applet/invest/chart.py:203
+msgid "Downloading Chart"
+msgstr "Grafikon letöltése"
+
+#: ../invest-applet/invest/chart.py:192
+msgid "Reading Chart chunk"
+msgstr "Grafikondarab olvasása"
+
+#: ../invest-applet/invest/invest-applet.py:44
+msgid "Invest Applet"
+msgstr "Invest kisalkalmazás"
+
+#: ../invest-applet/invest/preferences.py:44
+msgid "Symbol"
+msgstr "Szimbólum"
+
+#: ../invest-applet/invest/preferences.py:51
+msgid "Amount"
+msgstr "Mennyiség"
+
+#: ../invest-applet/invest/preferences.py:58
+msgid "Price"
+msgstr "Ár"
+
+# fixe: ez mi a manó?
+#: ../invest-applet/invest/preferences.py:65
+msgid "Commission"
+msgstr "Jutalék"
+
+#. TRANSLATOR: Change this to the default location name,
+#. * used when you first start the Weather Applet. This is
+#. * the common localised name that corresponds to
+#. * the location code (DEFAULT_CODE) you will put on the next message
+#. * For example, for the Greek locale, we set this to "Athens", the
+#. * capital city and we write it in Greek. It's important to translate
+#. * this name.
+#. *
+#. * If you do not require a DEFAULT_LOCATION, set this to
+#. * "DEFAULT_LOCATION".
+#.
+#: ../libgweather/gweather-gconf.c:162 ../libgweather/gweather-gconf.c:163
+#: ../libgweather/gweather.schemas.in.h:5
+msgid "DEFAULT_LOCATION"
+msgstr "Budapest"
+
+#. TRANSLATOR: Change this to the code of your default location that
+#. * corresponds to the DEFAULT_LOCATION name you put above. This is
+#. * normally a four-letter (ICAO) code and can be found in
+#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * NB. The web page is over 1.7MB in size.
+#. * Pick a default location like a capital city so that it would be ok
+#. * for more of your users. For example, for Greek, we use "LGAV" for
+#. * the capital city, Athens.
+#. *
+#. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
+#.
+#: ../libgweather/gweather-gconf.c:182 ../libgweather/gweather-gconf.c:183
+#: ../libgweather/gweather.schemas.in.h:3
+msgid "DEFAULT_CODE"
+msgstr "LHBP"
+
+#. TRANSLATOR: Change this to the zone of your default location that
+#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
+#. * Normally, US and Canada locations have zones while the rest do not.
+#. * Check
+#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * as any zone you put here must also be present in the Locations.xml
+#. * file.
+#. *
+#. * If your default location does not have a zone, set this to
+#. * "DEFAULT_ZONE".
+#.
+#: ../libgweather/gweather-gconf.c:202 ../libgweather/gweather-gconf.c:203
+#: ../libgweather/gweather.schemas.in.h:7
+msgid "DEFAULT_ZONE"
+msgstr "------"
+
+#. TRANSLATOR: Change this to the radar of your default location that
+#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
+#. * Normally, US and Canada locations have radar names while the rest do
+#. * not. Check
+#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * as any radar you put here must also be present in the Locations.xml
+#. * file.
+#. *
+#. * If your default location does not have a radar, set this to " "
+#. * (or space).
+#. * If you do not have a default location, set this to DEFAULT_RADAR.
+#.
+#: ../libgweather/gweather-gconf.c:223 ../libgweather/gweather-gconf.c:224
+#: ../libgweather/gweather.schemas.in.h:6
+msgid "DEFAULT_RADAR"
+msgstr "---"
+
+#. TRANSLATOR: Change this to the coordinates of your default location
+#. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
+#. * above. Check
+#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * as any coordinates you put here must also be present in the
+#. * Locations.xml file.
+#. *
+#. * If your default location does not have known coordinates, set this
+#. * to " " (or space).
+#. * If you do not have a default location, set this to
+#. * DEFAULT_COORDINATES.
+#.
+#: ../libgweather/gweather-gconf.c:244 ../libgweather/gweather-gconf.c:245
+#: ../libgweather/gweather.schemas.in.h:4
+msgid "DEFAULT_COORDINATES"
+msgstr "47-26N 019-16E"
+
+#. TRANSLATOR: This is the default unit to use for temperature measurements.
+#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
+#: ../libgweather/gweather-prefs.c:70 ../libgweather/gweather-prefs.c:79
+msgid "DEFAULT_TEMP_UNIT"
+msgstr "C"
+
+#. TRANSLATOR: This is the default unit to use for wind speed.
+#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
+#. "mph" (miles per hour) and "knots"
+#: ../libgweather/gweather-prefs.c:107 ../libgweather/gweather-prefs.c:117
+msgid "DEFAULT_SPEED_UNIT"
+msgstr "km/h"
+
+#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
+#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
+#. "mb" (millibars), "mmHg" (millimeters of mercury),
+#. "inHg" (inches of mercury) and "atm" (atmosphere)
+#: ../libgweather/gweather-prefs.c:147 ../libgweather/gweather-prefs.c:158
+msgid "DEFAULT_PRESSURE_UNIT"
+msgstr "hPa"
+
+#. TRANSLATOR: This is the default unit to use for visibility distance.
+#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
+#: ../libgweather/gweather-prefs.c:186 ../libgweather/gweather-prefs.c:195
+msgid "DEFAULT_DISTANCE_UNIT"
+msgstr "km"
+
+#: ../libgweather/weather.c:179
+msgid "Variable"
+msgstr "Változó"
+
+#: ../libgweather/weather.c:180
+msgid "North"
+msgstr "Észak"
+
+#: ../libgweather/weather.c:180
+msgid "North - NorthEast"
+msgstr "Észak - északkelet"
+
+#: ../libgweather/weather.c:180
+msgid "Northeast"
+msgstr "Északkelet"
+
+#: ../libgweather/weather.c:180
+msgid "East - NorthEast"
+msgstr "Kelet - északkelet"
+
+#: ../libgweather/weather.c:181
+msgid "East"
+msgstr "Kelet"
+
+#: ../libgweather/weather.c:181
+msgid "East - Southeast"
+msgstr "Kelet - délkelet"
+
+#: ../libgweather/weather.c:181
+msgid "Southeast"
+msgstr "Délkelet"
+
+#: ../libgweather/weather.c:181
+msgid "South - Southeast"
+msgstr "Dél - délkelet"
+
+#: ../libgweather/weather.c:182
+msgid "South"
+msgstr "Dél"
+
+#: ../libgweather/weather.c:182
+msgid "South - Southwest"
+msgstr "Dél - délnyugat"
+
+#: ../libgweather/weather.c:182
+msgid "Southwest"
+msgstr "Délnyugat"
+
+#: ../libgweather/weather.c:182
+msgid "West - Southwest"
+msgstr "Nyugat - délnyugat"
+
+#: ../libgweather/weather.c:183
+msgid "West"
+msgstr "Nyugat"
+
+#: ../libgweather/weather.c:183
+msgid "West - Northwest"
+msgstr "Nyugat - északnyugat"
+
+#: ../libgweather/weather.c:183
+msgid "Northwest"
+msgstr "Északnyugat"
+
+#: ../libgweather/weather.c:183
+msgid "North - Northwest"
+msgstr "Észak - északnyugat"
+
+#: ../libgweather/weather.c:189 ../libgweather/weather.c:687
+#: ../libgweather/weather.c:736 ../libgweather/weather.c:749
+#: ../libgweather/weather.c:761 ../libgweather/weather.c:776
+#: ../libgweather/weather.c:792 ../libgweather/weather.c:829
+#: ../libgweather/weather.c:841 ../libgweather/weather.c:860
+#: ../libgweather/weather.c:892 ../libgweather/weather.c:905
+#: ../libgweather/weather.c:925
+msgid "Unknown"
+msgstr "Ismeretlen"
+
+#: ../libgweather/weather.c:191 ../libgweather/weather.c:208
+#: ../libgweather/weather.c:279
+msgid "Invalid"
+msgstr "Érvénytelen"
+
+#: ../libgweather/weather.c:197
+msgid "Clear Sky"
+msgstr "Tiszta ég"
+
+#: ../libgweather/weather.c:198
+msgid "Broken clouds"
+msgstr "Szakadozott felhőzet"
+
+#: ../libgweather/weather.c:199
+msgid "Scattered clouds"
+msgstr "Elszórtan felhős"
+
+#: ../libgweather/weather.c:200
+msgid "Few clouds"
+msgstr "Kevés felhő"
+
+#: ../libgweather/weather.c:201
+msgid "Overcast"
+msgstr "Borús"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.html
+#. NONE
+#: ../libgweather/weather.c:240 ../libgweather/weather.c:242
+msgid "Thunderstorm"
+msgstr "Mennydörgés, vihar"
+
+#. DRIZZLE
+#: ../libgweather/weather.c:241
+msgid "Drizzle"
+msgstr "Szitáló eső"
+
+#: ../libgweather/weather.c:241
+msgid "Light drizzle"
+msgstr "Enyhe szitálás"
+
+#: ../libgweather/weather.c:241
+msgid "Moderate drizzle"
+msgstr "Közepes szitálás"
+
+#: ../libgweather/weather.c:241
+msgid "Heavy drizzle"
+msgstr "Erős szitálás"
+
+#: ../libgweather/weather.c:241
+msgid "Freezing drizzle"
+msgstr "Jeges szitálás"
+
+#. RAIN
+#: ../libgweather/weather.c:242
+msgid "Rain"
+msgstr "Eső"
+
+#: ../libgweather/weather.c:242
+msgid "Light rain"
+msgstr "Csendes eső"
+
+#: ../libgweather/weather.c:242
+msgid "Moderate rain"
+msgstr "Közepes erősségű eső"
+
+#: ../libgweather/weather.c:242
+msgid "Heavy rain"
+msgstr "Erős esőzés"
+
+#: ../libgweather/weather.c:242
+msgid "Rain showers"
+msgstr "Záporok"
+
+#: ../libgweather/weather.c:242
+msgid "Freezing rain"
+msgstr "Fagyos eső"
+
+#. SNOW
+#: ../libgweather/weather.c:243
+msgid "Snow"
+msgstr "Havazás"
+
+#: ../libgweather/weather.c:243
+msgid "Light snow"
+msgstr "Hószállingózás"
+
+#: ../libgweather/weather.c:243
+msgid "Moderate snow"
+msgstr "Hóesés"
+
+#: ../libgweather/weather.c:243
+msgid "Heavy snow"
+msgstr "Hószakadás"
+
+#: ../libgweather/weather.c:243
+msgid "Snowstorm"
+msgstr "Hóvihar"
+
+#: ../libgweather/weather.c:243
+msgid "Blowing snowfall"
+msgstr "Szeles hóesés"
+
+#: ../libgweather/weather.c:243
+msgid "Snow showers"
+msgstr "Zuhogó hó"
+
+#: ../libgweather/weather.c:243
+msgid "Drifting snow"
+msgstr "Hófúvás"
+
+#. SNOW_GRAINS
+#: ../libgweather/weather.c:244
+msgid "Snow grains"
+msgstr "Havazás"
+
+#: ../libgweather/weather.c:244
+msgid "Light snow grains"
+msgstr "Enyhe havazás"
+
+#: ../libgweather/weather.c:244
+msgid "Moderate snow grains"
+msgstr "Közepes erősségű havazás"
+
+#: ../libgweather/weather.c:244
+msgid "Heavy snow grains"
+msgstr "Sűrű hóesés"
+
+#. ICE_CRYSTALS
+#: ../libgweather/weather.c:245
+msgid "Ice crystals"
+msgstr "Jég"
+
+#. ICE_PELLETS
+#: ../libgweather/weather.c:246
+msgid "Ice pellets"
+msgstr "Jéglabdák"
+
+#: ../libgweather/weather.c:246
+msgid "Few ice pellets"
+msgstr "Kevés jéglabda"
+
+#: ../libgweather/weather.c:246
+msgid "Moderate ice pellets"
+msgstr "Közepes méretű jéglabdák"
+
+#: ../libgweather/weather.c:246
+msgid "Heavy ice pellets"
+msgstr "Nagy jéglabdák"
+
+#: ../libgweather/weather.c:246
+msgid "Ice pellet storm"
+msgstr "Jéggolyó vihar"
+
+#: ../libgweather/weather.c:246
+msgid "Showers of ice pellets"
+msgstr "Jéggolyó zuhany"
+
+#. HAIL
+#: ../libgweather/weather.c:247
+msgid "Hail"
+msgstr "Jégeső"
+
+#: ../libgweather/weather.c:247
+msgid "Hailstorm"
+msgstr "Viharos jégeső"
+
+#: ../libgweather/weather.c:247
+msgid "Hail showers"
+msgstr "Zuhogó jégeső"
+
+#. SMALL_HAIL
+#: ../libgweather/weather.c:248
+msgid "Small hail"
+msgstr "Kis szemű jégeső"
+
+#: ../libgweather/weather.c:248
+msgid "Small hailstorm"
+msgstr "Viharos kis szemű jégeső"
+
+#: ../libgweather/weather.c:248
+msgid "Showers of small hail"
+msgstr "Zuhogó kis szemű jégeső"
+
+#. PRECIPITATION
+#: ../libgweather/weather.c:249
+msgid "Unknown precipitation"
+msgstr "Ismeretlen csapadék"
+
+#. MIST
+#: ../libgweather/weather.c:250
+msgid "Mist"
+msgstr "Pára"
+
+#. FOG
+#: ../libgweather/weather.c:251
+msgid "Fog"
+msgstr "Köd"
+
+#: ../libgweather/weather.c:251
+msgid "Fog in the vicinity"
+msgstr "Köd a környéken"
+
+#: ../libgweather/weather.c:251
+msgid "Shallow fog"
+msgstr "Ködfoltok"
+
+#: ../libgweather/weather.c:251
+msgid "Patches of fog"
+msgstr "Helyenként köd"
+
+#: ../libgweather/weather.c:251
+msgid "Partial fog"
+msgstr "Szórványos ködfoltok"
+
+#: ../libgweather/weather.c:251
+msgid "Freezing fog"
+msgstr "Jeges köd"
+
+#. SMOKE
+#: ../libgweather/weather.c:252
+msgid "Smoke"
+msgstr "Füst"
+
+#. VOLCANIC_ASH
+#: ../libgweather/weather.c:253
+msgid "Volcanic ash"
+msgstr "Vulkanikus hamu"
+
+#. SAND
+#: ../libgweather/weather.c:254
+msgid "Sand"
+msgstr "Homok"
+
+#: ../libgweather/weather.c:254
+msgid "Blowing sand"
+msgstr "Homokfúvás"
+
+#: ../libgweather/weather.c:254
+msgid "Drifting sand"
+msgstr "Erős homokfúvás"
+
+#. HAZE
+#: ../libgweather/weather.c:255
+msgid "Haze"
+msgstr "Pára"
+
+#. SPRAY
+#: ../libgweather/weather.c:256
+msgid "Blowing sprays"
+msgstr "Szélfútta sópermet"
+
+#. DUST
+#: ../libgweather/weather.c:257
+msgid "Dust"
+msgstr "Por"
+
+#: ../libgweather/weather.c:257
+msgid "Blowing dust"
+msgstr "Porfúvás"
+
+#: ../libgweather/weather.c:257
+msgid "Drifting dust"
+msgstr "Erős porfúvás"
+
+#. SQUALL
+#: ../libgweather/weather.c:258
+msgid "Squall"
+msgstr "Széllökés"
+
+#. SANDSTORM
+#: ../libgweather/weather.c:259
+msgid "Sandstorm"
+msgstr "Homokvihar"
+
+#: ../libgweather/weather.c:259
+msgid "Sandstorm in the vicinity"
+msgstr "Homokvihar a környéken"
+
+#: ../libgweather/weather.c:259
+msgid "Heavy sandstorm"
+msgstr "Erőteljes homokvihar"
+
+#. DUSTSTORM
+#: ../libgweather/weather.c:260
+msgid "Duststorm"
+msgstr "Porvihar"
+
+#: ../libgweather/weather.c:260
+msgid "Duststorm in the vicinity"
+msgstr "Porvihar a környéken"
+
+#: ../libgweather/weather.c:260
+msgid "Heavy duststorm"
+msgstr "Erős porvihar"
+
+#. FUNNEL_CLOUD
+#: ../libgweather/weather.c:261
+msgid "Funnel cloud"
+msgstr "Tölcsérfelhő"
+
+#. TORNADO
+#: ../libgweather/weather.c:262
+msgid "Tornado"
+msgstr "Tornádó"
+
+#. DUST_WHIRLS
+#: ../libgweather/weather.c:263
+msgid "Dust whirls"
+msgstr "Portölcsérek"
+
+#: ../libgweather/weather.c:263
+msgid "Dust whirls in the vicinity"
+msgstr "Poros forgószél a közelben"
+
+#. TRANSLATOR: this is a format string for strftime
+#. *             see `man 3 strftime` for more details
+#.
+#: ../libgweather/weather.c:659
+msgid "%a, %b %d / %H:%M"
+msgstr "%b. %e., %a. / %H.%M"
+
+#: ../libgweather/weather.c:674
+msgid "Unknown observation time"
+msgstr "Ismeretlen észlelési idő"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is the degree symbol)
+#: ../libgweather/weather.c:707
+#, c-format
+msgid "%.1f °F"
+msgstr "%.1f °F"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is the degree symbol)
+#: ../libgweather/weather.c:710
+#, c-format
+msgid "%d °F"
+msgstr "%d °F"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is the degree symbol)
+#: ../libgweather/weather.c:716
+#, c-format
+msgid "%.1f °C"
+msgstr "%.1f °C"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is the degree symbol)
+#: ../libgweather/weather.c:719
+#, c-format
+msgid "%d °C"
+msgstr "%d °C"
+
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../libgweather/weather.c:725
+#, c-format
+msgid "%.1f K"
+msgstr "%.1f K"
+
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../libgweather/weather.c:728
+#, c-format
+msgid "%d K"
+msgstr "%d K"
+
+#. TRANSLATOR: This is the humidity in percent
+#: ../libgweather/weather.c:779
+#, c-format
+msgid "%.f%%"
+msgstr "%.f%%"
+
+#. TRANSLATOR: This is the wind speed in knots
+#: ../libgweather/weather.c:804
+#, c-format
+msgid "%0.1f knots"
+msgstr "%0.1f csomó"
+
+#. TRANSLATOR: This is the wind speed in miles per hour
+#: ../libgweather/weather.c:808
+#, c-format
+msgid "%.1f mph"
+msgstr "%.1f mph"
+
+#. TRANSLATOR: This is the wind speed in kilometers per hour
+#: ../libgweather/weather.c:812
+#, c-format
+msgid "%.1f km/h"
+msgstr "%.1f km/h"
+
+#. TRANSLATOR: This is the wind speed in meters per second
+#: ../libgweather/weather.c:816
+#, c-format
+msgid "%.1f m/s"
+msgstr "%.1f m/s"
+
+#. TRANSLATOR: This is the wind speed as a Beaufort force factor
+#. * (commonly used in nautical wind estimation).
+#.
+#: ../libgweather/weather.c:822
+#, c-format
+msgid "Beaufort force %.1f"
+msgstr "Beaufort erősség: %.1f"
+
+#: ../libgweather/weather.c:843
+msgid "Calm"
+msgstr "Szélcsend"
+
+#. TRANSLATOR: This is 'wind direction' / 'wind speed'
+#: ../libgweather/weather.c:847
+#, c-format
+msgid "%s / %s"
+msgstr "%s / %s"
+
+#. TRANSLATOR: This is pressure in inches of mercury
+#: ../libgweather/weather.c:865
+#, c-format
+msgid "%.2f inHg"
+msgstr "%.2f inHg"
+
+#. TRANSLATOR: This is pressure in millimeters of mercury
+#: ../libgweather/weather.c:869
+#, c-format
+msgid "%.1f mmHg"
+msgstr "%.1f mmHg"
+
+#. TRANSLATOR: This is pressure in kiloPascals
+#: ../libgweather/weather.c:873
+#, c-format
+msgid "%.2f kPa"
+msgstr "%.2f kPa"
+
+#. TRANSLATOR: This is pressure in hectoPascals
+#: ../libgweather/weather.c:877
+#, c-format
+msgid "%.2f hPa"
+msgstr "%.2f hPa"
+
+#. TRANSLATOR: This is pressure in millibars
+#: ../libgweather/weather.c:881
+#, c-format
+msgid "%.2f mb"
+msgstr "%.2f mb"
+
+#. TRANSLATOR: This is pressure in atmospheres
+#: ../libgweather/weather.c:885
+#, c-format
+msgid "%.3f atm"
+msgstr "%.3f atm"
+
+#. TRANSLATOR: This is the visibility in miles
+#: ../libgweather/weather.c:910
+#, c-format
+msgid "%.1f miles"
+msgstr "%.1f mérföld"
+
+#. TRANSLATOR: This is the visibility in kilometers
+#: ../libgweather/weather.c:914
+#, c-format
+msgid "%.1f km"
+msgstr "%.1f km"
+
+#. TRANSLATOR: This is the visibility in meters
+#: ../libgweather/weather.c:918
+#, c-format
+msgid "%.0fm"
+msgstr "%.0fm"
+
+#: ../libgweather/weather.c:946 ../libgweather/weather.c:966
+msgid "%H:%M"
+msgstr "%H.%M"
+
+#: ../libgweather/weather.c:999
+msgid "Retrieval failed"
+msgstr "Letöltés sikertelen"
+
+#: ../libgweather/weather-iwin.c:213 ../libgweather/weather-metar.c:553
+#: ../libgweather/weather-metar.c:581
+msgid "WeatherInfo missing location"
+msgstr "Hiányzó időjárási információ a megfigyelési helyen"
+
+#: ../libgweather/weather-metar.c:526 ../libgweather/weather-metar.c:561
+#: ../libgweather/weather-wx.c:62
+msgid "Failed to get METAR data.\n"
+msgstr "Nem sikerült lekérni a METAR adatokat.\n"
+
+#: ../libgweather/gweather.schemas.in.h:1
+msgid ""
+"A three-digit-long code for retrieving radar maps from weather.com, found "
+"from http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/"
+"Locations.xml.in"
+msgstr ""
+"Háromjegyű kód a radartérképek letöltéséhez a weather.com-ról, lásd: http://"
+"cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
+
+#: ../libgweather/gweather.schemas.in.h:2
+msgid ""
+"A unique zone for the city, as found from http://cvs.gnome.org/viewcvs/"
+"*checkout*/gnome-applets/gweather/Locations.xml.in"
+msgstr ""
+"A város egyedi zónája, lásd: http://cvs.gnome.org/viewcvs/*checkout*/gnome-"
+"applets/gweather/Locations.xml.in"
+
+#: ../libgweather/gweather.schemas.in.h:8
+msgid ""
+"Determines whether the applet automatically updates its weather statistics "
+"or not."
+msgstr ""
+"Eldönti, hogy a kisalkalmazás automatikusan frissítse-e az időjárás-"
+"statisztikáit vagy sem."
+
+#: ../libgweather/gweather.schemas.in.h:9
+msgid "Display radar map"
+msgstr "Radarkép megjelenítése"
+
+#: ../libgweather/gweather.schemas.in.h:10
+msgid "Distance unit"
+msgstr "Távolság mértékegysége"
+
+#: ../libgweather/gweather.schemas.in.h:11
+msgid "Fetch a radar map on each update."
+msgstr "Radarkép lehívása minden frissítéskor."
+
+#: ../libgweather/gweather.schemas.in.h:12
+msgid ""
+"If true, then retrieve a radar map from a location specified by the \"radar"
+"\" key."
+msgstr ""
+"Ha be van állítva, a \"radar\" kulcs által megadott helyről lehívja a "
+"radarképet."
+
+#: ../libgweather/gweather.schemas.in.h:13
+msgid ""
+"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
+"[EW]."
+msgstr ""
+"Az Ön helyéhez használandó szélesség és hosszúság FF-PP-MM[ÉD] FF-PP-MM[KNy] "
+"alakban kifejezve. "
+
+#: ../libgweather/gweather.schemas.in.h:14
+msgid "Location coordinates"
+msgstr "Hely koordinátái"
+
+#: ../libgweather/gweather.schemas.in.h:15
+msgid "Nearby city"
+msgstr "Közeli város"
+
+#: ../libgweather/gweather.schemas.in.h:16
+msgid ""
+"Nearby major zone, such as a capital city, as found from http://cvs.gnome."
+"org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
+msgstr ""
+"Közeli nagy zóna, például főváros. Lásd: http://cvs.gnome.org/viewcvs/"
+"*checkout*/gnome-applets/gweather/Locations.xml.in"
+
+#: ../libgweather/gweather.schemas.in.h:17
+#: ../mini-commander/src/mini-commander.schemas.in.h:12
+msgid "Not used anymore"
+msgstr "Már nem használt"
+
+#: ../libgweather/gweather.schemas.in.h:18
+msgid "Pressure unit"
+msgstr "Nyomás mértékegysége"
+
+#: ../libgweather/gweather.schemas.in.h:19
+msgid "Radar location"
+msgstr "Radar helye"
+
+#: ../libgweather/gweather.schemas.in.h:20
+msgid "Speed unit"
+msgstr "Sebesség mértékegysége"
+
+#: ../libgweather/gweather.schemas.in.h:21
+msgid "Temperature unit"
+msgstr "Hőmérséklet mértékegysége"
+
+#: ../libgweather/gweather.schemas.in.h:22
+msgid "The city that gweather displays information for."
+msgstr "A város, amely információit a gweather megjeleníti."
+
+#: ../libgweather/gweather.schemas.in.h:23
+msgid "The custom url from where to retrieve a radar map."
+msgstr "A letöltendő radartérkép helyének beállítása (URL)."
+
+#: ../libgweather/gweather.schemas.in.h:24
+msgid "The interval, in seconds, between automatic updates."
+msgstr "A frissítés intervalluma, másodpercben."
+
+#: ../libgweather/gweather.schemas.in.h:25
+msgid "The unit to use for pressure."
+msgstr "A nyomásnál használandó mértékegység."
+
+#: ../libgweather/gweather.schemas.in.h:26
+msgid "The unit to use for temperature."
+msgstr "A hőmérsékletnél használandó mértékegység."
+
+#: ../libgweather/gweather.schemas.in.h:27
+msgid "The unit to use for visibility."
+msgstr "A látási viszonyokhoz használandó mértékegység."
+
+#: ../libgweather/gweather.schemas.in.h:28
+msgid "The unit to use for wind speed."
+msgstr "A szélsebességhez használandó mértékegység."
+
+#: ../libgweather/gweather.schemas.in.h:29
+msgid "Update interval"
+msgstr "Frissítés gyakorisága"
+
+#: ../libgweather/gweather.schemas.in.h:30
+msgid "Update the data automatically"
+msgstr "Automatikus adatfrissítés"
+
+#: ../libgweather/gweather.schemas.in.h:31
+msgid "Url for the radar map"
+msgstr "Műholdas térképek URL-je"
+
+#: ../libgweather/gweather.schemas.in.h:32
+msgid "Use custom url for the radar map"
+msgstr "Egyéni URL használata a műholdas térképhez"
+
+#: ../libgweather/gweather.schemas.in.h:33
+msgid "Use metric units"
+msgstr "Metrikus mértékegységek használata"
+
+#: ../libgweather/gweather.schemas.in.h:34
+msgid "Use metric units instead of english units."
+msgstr "Metrikus mértékegységek használata az angolszász egységek helyett."
+
+#: ../libgweather/gweather.schemas.in.h:35
+msgid "Weather for a city"
+msgstr "Egy város időjárása"
+
+#: ../libgweather/gweather.schemas.in.h:36
+msgid "Weather location information"
+msgstr "Időjárási helyinformációk"
+
+#: ../libgweather/gweather.schemas.in.h:37
+msgid "Weather location information."
+msgstr "Időjárási helyinformációk."
+
+#: ../libgweather/gweather.schemas.in.h:38
+msgid "Zone location"
+msgstr "Zóna helye"
+
+#: ../mini-commander/GNOME_MiniCommanderApplet.server.in.h:1
+msgid "Deskbar (formerly Mini-Commander)"
+msgstr "Deskbar (korábban: parancssor)"
+
+#: ../mini-commander/GNOME_MiniCommanderApplet.server.in.h:2
+msgid "Deskbar (transparent upgrade from Mini-Commander)"
+msgstr "Deskbar (áttetsző frissítés a parancssor kisalkalmazásról)"
+
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.server.in.in.h:1
+#: ../mini-commander/src/mini-commander_applet.c:363
+msgid "Command Line"
+msgstr "Parancssor"
+
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.server.in.in.h:2
+msgid "Mini-Commander"
+msgstr "Parancssor"
+
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.server.in.in.h:3
+msgid "MiniCommander Applet Factory"
+msgstr "Parancssor kisalkalmazás factory"
+
+#: ../mini-commander/src/about.c:49
+msgid ""
+"This GNOME applet adds a command line to the panel. It features command "
+"completion, command history, and changeable macros."
+msgstr ""
+"Ez a GNOME kisalkalmazás egy parancssort ad a panelhez. Parancskiegészítés, "
+"előzmények és módosítható makrók vannak beleépítve."
+
+#: ../mini-commander/src/command_line.c:353
+msgid "No items in history"
+msgstr "Nincsenek előzmények"
+
+#. build file select dialog
+#: ../mini-commander/src/command_line.c:477
+msgid "Start program"
+msgstr "Program indítása"
+
+#: ../mini-commander/src/command_line.c:529
+msgid "Command line"
+msgstr "Parancssor"
+
+#: ../mini-commander/src/command_line.c:530
+msgid "Type a command here and Gnome will execute it for you"
+msgstr "Írjon be egy parancsot ide, a Gnome elindítja önnek"
+
+#: ../mini-commander/src/mc-install-default-macros.c:80
+#, c-format
+msgid "Cannot get schema for %s: %s"
+msgstr "Nem sikerült betölteni a sémát %s számára: %s"
+
+#: ../mini-commander/src/mc-install-default-macros.c:108
+#, c-format
+msgid "Cannot set schema for %s: %s"
+msgstr "Nem sikerült beállítani a sémát %s számára: %s"
+
+#: ../mini-commander/src/mc-install-default-macros.c:114
+#, c-format
+msgid "Set default list value for %s\n"
+msgstr "Alapértelmezett listaérték beállítása %s számára\n"
+
+#: ../mini-commander/src/mc-install-default-macros.c:126
+#, c-format
+msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
+msgstr ""
+"A GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL nincs beállítva, a sémák nem lesznek "
+"telepítve\n"
+
+#: ../mini-commander/src/mc-install-default-macros.c:134
+#, c-format
+msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
+msgstr "Kötelező beállítani a GCONF_CONFIG_SOURCE környezeti változót\n"
+
+#: ../mini-commander/src/mc-install-default-macros.c:151
+#, c-format
+msgid "Failed to access configuration source(s): %s\n"
+msgstr "Nem sikerült hozzáférni a konfigurációs forráshoz: %s\n"
+
+#: ../mini-commander/src/mc-install-default-macros.c:166
+#, c-format
+msgid "Error syncing config data: %s"
+msgstr "Hiba a konfigurációs adatok egyeztetésénél: %s"
+
+#: ../mini-commander/src/mini-commander-global.schemas.in.h:1
+msgid "List of GConfValue entries containing strings for the macro commands."
+msgstr "Makróparancsokat tartalmazó GConfValue bejegyzések listája."
+
+#: ../mini-commander/src/mini-commander-global.schemas.in.h:2
+msgid "List of GConfValue entries containing strings for the macro patterns."
+msgstr "Makrómintákat tartalmazó GConfValue bejegyzések listája."
+
+#: ../mini-commander/src/mini-commander-global.schemas.in.h:3
+#: ../mini-commander/src/mini-commander.schemas.in.h:10
+msgid "Macro command list"
+msgstr "Makróparancsok listája"
+
+#: ../mini-commander/src/mini-commander-global.schemas.in.h:4
+#: ../mini-commander/src/mini-commander.schemas.in.h:11
+msgid "Macro pattern list"
+msgstr "Makróminták listája"
+
+#: ../mini-commander/src/mini-commander.glade.h:2
+msgid "*"
+msgstr "*"
+
+#: ../mini-commander/src/mini-commander.glade.h:3
+msgid "<b>Auto Completion</b>"
+msgstr "<b>Automatikus kiegészítés</b>"
+
+#: ../mini-commander/src/mini-commander.glade.h:4
+msgid "<b>Colors</b>"
+msgstr "<b>Színek</b>"
+
+#: ../mini-commander/src/mini-commander.glade.h:5
+msgid "<b>Size</b>"
+msgstr "<b>Méret</b>"
+
+#: ../mini-commander/src/mini-commander.glade.h:6
+msgid "Add New Macro"
+msgstr "Új makró hozzáadása"
+
+#: ../mini-commander/src/mini-commander.glade.h:7
+msgid "Co_mmand:"
+msgstr "_Parancs:"
+
+#: ../mini-commander/src/mini-commander.glade.h:8
+msgid "Command Line Preferences"
+msgstr "A Parancssor beállításai"
+
+#: ../mini-commander/src/mini-commander.glade.h:9
+msgid "Command line _background:"
+msgstr "Parancssor há_ttérszíne:"
+
+#: ../mini-commander/src/mini-commander.glade.h:10
+msgid "Command line _foreground:"
+msgstr "_Parancssor előtérszíne:"
+
+#: ../mini-commander/src/mini-commander.glade.h:11
+msgid "E_nable history-based auto completion"
+msgstr "_Előzménylista alapján kiegészítés engedélyezése"
+
+#: ../mini-commander/src/mini-commander.glade.h:13
+msgid "Macros"
+msgstr "Makrók"
+
+#: ../mini-commander/src/mini-commander.glade.h:14
+msgid "Pick a color"
+msgstr "Szín kiválasztása"
+
+#: ../mini-commander/src/mini-commander.glade.h:15
+msgid "_Add Macro..."
+msgstr "Makró hozzá_adása..."
+
+#: ../mini-commander/src/mini-commander.glade.h:16
+msgid "_Delete Macro"
+msgstr "Makró _törlése"
+
+#: ../mini-commander/src/mini-commander.glade.h:17
+msgid "_Macros:"
+msgstr "Ma_krók:"
+
+#: ../mini-commander/src/mini-commander.glade.h:18
+msgid "_Pattern:"
+msgstr "_Minta:"
+
+#: ../mini-commander/src/mini-commander.glade.h:19
+msgid "_Use default theme colors"
+msgstr "_Használja az alapértelmezett téma színeit"
+
+#: ../mini-commander/src/mini-commander.glade.h:20
+#: ../stickynotes/stickynotes.glade.h:48
+msgid "_Width:"
+msgstr "_Szélesség:"
+
+#: ../mini-commander/src/mini-commander.glade.h:21
+#: ../multiload/properties.c:537
+msgid "pixels"
+msgstr "képpont"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:1
+msgid "Attempt to autocomplete a command from the history of commands entered."
+msgstr ""
+"Parancs automatikus kiegészítésének megkísérlése a korábban bevitt parancsok "
+"alapján."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:2
+msgid "Background color, blue component"
+msgstr "Háttérszín, kék összetevő"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:3
+msgid "Background color, green component"
+msgstr "Háttérszín, zöld összetevő"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:4
+msgid "Background color, red component"
+msgstr "Háttérszín, vörös összetevő"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:5
+msgid "Foreground color, blue component"
+msgstr "Előtérszín, kék összetevő"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:6
+msgid "Foreground color, green component"
+msgstr "Előtérszín, zöld összetevő"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:7
+msgid "Foreground color, red component"
+msgstr "Előtérszín, piros összetevő"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:8
+msgid "History list"
+msgstr "Előzmények"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:9
+msgid "List of GConfValue entries containing strings for history entries."
+msgstr "Előzménybejegyzéseket tartalmazó GConfValue bejegyzések listája."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:13
+msgid "Perform history autocompletion"
+msgstr "Előzménylista alapján kiegészítés engedélyezése"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:14
+msgid "Show a frame surrounding the applet."
+msgstr "Keret megjelenítése a kisalkalmazás körül."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:15
+msgid "Show a handle so the applet can be detached from the panel."
+msgstr "Fogantyú megjelenítése, így a kisalkalmazás leválasztható panelról."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:16
+msgid "Show frame"
+msgstr "Keret megjelenítése"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:17
+msgid "Show handle"
+msgstr "Fogantyú megjelenítése"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:18
+msgid "The blue component of the background color."
+msgstr "A háttérszín kék összetevője."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:19
+msgid "The blue component of the foreground color."
+msgstr "Az előtérszín kék összetevője."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:20
+msgid "The green component of the background color."
+msgstr "A háttérszín zöld összetevője."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:21
+msgid "The green component of the foreground color."
+msgstr "Az előtérszín zöld összetevője."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:22
+msgid "The red component of the background color."
+msgstr "A háttérszín vörös összetevője."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:23
+msgid "The red component of the foreground color."
+msgstr "Az előtérszín vörös összetevője."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:24
+msgid ""
+"This per-applet key is deprecated in favour of the global key, /schemas/apps/"
+"mini-commander-global/macro_patterns."
+msgstr ""
+"Ez a kisalkalmazásonkénti kulcs elavult, helyette a globális /schemas/apps/"
+"mini-commander-global/macro_patterns kulcs használandó."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:25
+msgid "Use the default theme colors"
+msgstr "Használja az alapértelmezett téma színeit"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:26
+msgid "Use theme colors instead of custom ones."
+msgstr "A téma színeinek használata az egyéni színek helyett."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:27
+msgid "Width"
+msgstr "Szélesség"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:28
+msgid "Width of the applet"
+msgstr "A kisalkalmazás szélessége"
+
+#: ../mini-commander/src/mini-commander_applet.c:246
+#: ../mini-commander/src/mini-commander_applet.c:250
+msgid "Browser"
+msgstr "Böngésző"
+
+#: ../mini-commander/src/mini-commander_applet.c:251
+msgid "Click this button to start the browser"
+msgstr "Kattintson erre a gombra a böngésző indításához"
+
+#: ../mini-commander/src/mini-commander_applet.c:264
+#: ../mini-commander/src/mini-commander_applet.c:268
+msgid "History"
+msgstr "Előzmények"
+
+#: ../mini-commander/src/mini-commander_applet.c:269
+msgid "Click this button for the list of previous commands"
+msgstr "Ezzel a gombbal az előző parancsokat tudja listázni"
+
+#: ../mini-commander/src/mini-commander_applet.c:348
+msgid "Command line has been disabled by your system administrator"
+msgstr "A parancssort letiltotta a rendszergazda"
+
+#: ../mini-commander/src/mini-commander_applet.c:410
+msgid "Mini-Commander applet"
+msgstr "Parancssor kisalkalmazás"
+
+#: ../mini-commander/src/mini-commander_applet.c:411
+msgid "This applet adds a command line to the panel"
+msgstr "Ez a kisalkalmazás egy parancssort ad a panelhez"
+
+#: ../mini-commander/src/preferences.c:405
+msgid "You must specify a pattern"
+msgstr "Meg kell adnia egy mintát"
+
+#: ../mini-commander/src/preferences.c:409
+msgid "You must specify a pattern and a command"
+msgstr "Meg kell adnia egy mintát és egy parancsot"
+
+#: ../mini-commander/src/preferences.c:410
+msgid "You must specify a command"
+msgstr "Meg kell adnia egy parancsot"
+
+#: ../mini-commander/src/preferences.c:413
+msgid "You may not specify duplicate patterns"
+msgstr "Nem adhat meg kétszer egy mintát"
+
+#: ../mini-commander/src/preferences.c:775
+msgid "Pattern"
+msgstr "Minta"
+
+#: ../mini-commander/src/preferences.c:785
+msgid "Command"
+msgstr "Parancs"
+
+#: ../mixer/GNOME_MixerApplet.server.in.in.h:1
+msgid "Adjust the sound volume"
+msgstr "Hangerő állítása"
+
+#. tooltip over applet
+#: ../mixer/GNOME_MixerApplet.server.in.in.h:2 ../mixer/applet.c:223
+#: ../mixer/applet.c:244
+msgid "Volume Control"
+msgstr "Hangerőszabályzó"
+
+#: ../mixer/GNOME_MixerApplet.xml.h:1
+msgid "Mu_te"
+msgstr "_Némítás"
+
+#: ../mixer/GNOME_MixerApplet.xml.h:4
+msgid "_Open Volume Control"
+msgstr "_Hangerőszabályzó megnyitása"
+
+#: ../mixer/applet.c:207
+msgid "Volume Applet"
+msgstr "Hangerőszabályzó"
+
+#: ../mixer/applet.c:525
+msgid ""
+"The volume control did not find any elements and/or devices to control. This "
+"means either that you don't have the right GStreamer plugins installed, or "
+"that you don't have a sound card configured."
+msgstr ""
+"A hangerőszabályzó nem talált egyetlen szabályozható elemet és/vagy eszközt "
+"sem. Ez vagy azt jelenti, hogy nincsenek telepítve a megfelelő GStreamer "
+"bővítmények, vagy azt, hogy nincs egy beállított hangkártyája sem."
+
+#: ../mixer/applet.c:529
+msgid ""
+"You can remove the volume control from the panel by right-clicking the "
+"speaker icon on the panel and selecting \"Remove From Panel\" from the menu."
+msgstr ""
+"Eltávolíthatja a hangerőszabályzót a panelról a hangszóróikon felugró "
+"menüjének \"Eltávolítás a panelról\" pontját."
+
+#: ../mixer/applet.c:712
+#, c-format
+msgid "Failed to start Volume Control: %s"
+msgstr "Nem sikerült elindítani a Hangerőszabályzót: %s"
+
+#: ../mixer/applet.c:1129
+#, c-format
+msgid "%s: muted"
+msgstr "%s: elnémítva"
+
+#. Translator comment: I'm not all too sure if this makes sense
+#. * to mark as a translation, but anyway. The string is a list of
+#. * selected tracks, the number is the volume in percent. You
+#. * most likely want to keep this as-is.
+#: ../mixer/applet.c:1135
+#, c-format
+msgid "%s: %d%%"
+msgstr "%s: %d%%"
+
+#: ../mixer/applet.c:1295
+#, c-format
+msgid "Failed to display help: %s"
+msgstr "Nem sikerült megjeleníteni a súgót: %s"
+
+#: ../mixer/applet.c:1308
+msgid "Volume control for your GNOME Panel."
+msgstr "Hangerőszabályzó a GNOME panelhez."
+
+#: ../mixer/applet.c:1310
+msgid "Using GStreamer 0.10."
+msgstr "A GStreamer 0.10 használatával."
+
+#: ../mixer/applet.c:1312
+msgid "Using GStreamer 0.8."
+msgstr "A GStreamer 0.8 használatával."
+
+#: ../mixer/dock.c:124
+msgid "+"
+msgstr "+"
+
+#: ../mixer/dock.c:153
+msgid "-"
+msgstr "-"
+
+#. FIXME:
+#. * - maybe we want to rename the element to its actual name
+#. *     if we've found that?
+#.
+#. create element
+#: ../mixer/load.c:91 ../mixer/load.c:184 ../mixer/load.c:187
+#: ../mixer/load.c:279
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "Ismeretlen hangerőszabályzó %d"
+
+#: ../mixer/mixer.schemas.in.h:1
+msgid "Channel controlled by applet. Only for OSS setups"
+msgstr "A kisalkalmazás által vezérelt csatornák. Csak OSS használata esetén"
+
+#: ../mixer/mixer.schemas.in.h:2
+msgid "Saved mute state"
+msgstr "Elmentett némítási állapot"
+
+#: ../mixer/mixer.schemas.in.h:3
+msgid "Saved volume to restore on startup"
+msgstr "Indításkor való betöltéshez elmentett hangerő"
+
+#. make window look cute
+#: ../mixer/preferences.c:130
+msgid "Volume Control Preferences"
+msgstr "Hangerőszabályzó beállításai"
+
+#: ../mixer/preferences.c:143
+msgid "Select the device and track to control."
+msgstr "Válassza ki a szabályozandó eszközt és csatornát."
+
+#: ../modemlights/GNOME_ModemLights.server.in.in.h:1
+msgid "Activate and monitor a dial-up network connection"
+msgstr "Betárcsázós hálózati kapcsolat aktiválása és megfigyelése"
+
+#: ../modemlights/GNOME_ModemLights.server.in.in.h:2
+#: ../modemlights/modem-applet.c:202
+msgid "Modem Monitor"
+msgstr "Modemfigyelő"
+
+#: ../modemlights/GNOME_ModemLights.xml.h:2
+msgid "_Activate"
+msgstr "_Aktiválás"
+
+#: ../modemlights/GNOME_ModemLights.xml.h:3
+msgid "_Deactivate"
+msgstr "_Deaktiválás"
+
+#: ../modemlights/GNOME_ModemLights.xml.h:5
+#: ../stickynotes/stickynotes.glade.h:45
+msgid "_Properties"
+msgstr "_Tulajdonságok"
+
+#: ../modemlights/modem-applet.c:731
+msgid "Connection active, but could not get connection time"
+msgstr "A kapcsolat aktív, de a kapcsolat ideje nem érhető el"
+
+#: ../modemlights/modem-applet.c:747
+#, c-format
+msgid "Time connected: %.1d:%.2d"
+msgstr "Kapcsolat ideje: %.1d:%.2d"
+
+#: ../modemlights/modem-applet.c:751
+msgid "Not connected"
+msgstr "Nincs kapcsolat"
+
+#: ../modemlights/modem-applet.c:773
+msgid ""
+"To connect to your Internet service provider, you need administrator "
+"privileges"
+msgstr ""
+"Rendszergazdai jogosultság szükséges az internetszolgáltatójához való "
+"kapcsolódáshoz"
+
+#: ../modemlights/modem-applet.c:774
+msgid ""
+"To disconnect from your Internet service provider, you need administrator "
+"privileges"
+msgstr ""
+"Rendszergazdai jogosultság szükséges az internetszolgáltatójától való "
+"lekapcsolódáshoz"
+
+#: ../modemlights/modem-applet.c:849
+msgid "The entered password is invalid"
+msgstr "A megadott jelszó érvénytelen"
+
+#: ../modemlights/modem-applet.c:851
+msgid ""
+"Check that you have typed it correctly and that you haven't activated the "
+"\"caps lock\" key"
+msgstr ""
+"Ellenőrizze, hogy helyesen írta-e be és a Caps Lock billentyű nincs "
+"bekapcsolva"
+
+#: ../modemlights/modem-applet.c:953
+msgid "Do you want to connect?"
+msgstr "Kapcsolódni akar?"
+
+#: ../modemlights/modem-applet.c:954
+msgid "Do you want to disconnect?"
+msgstr "Bontja a kapcsolatot?"
+
+#: ../modemlights/modem-applet.c:963
+msgid "C_onnect"
+msgstr "Kapcs_olódás"
+
+#: ../modemlights/modem-applet.c:963
+msgid "_Disconnect"
+msgstr "_Bontás"
+
+#: ../modemlights/modem-applet.c:1019
+msgid "Could not launch network configuration tool"
+msgstr "A hálózatbeállító eszköz nem indítható el"
+
+#: ../modemlights/modem-applet.c:1021
+msgid ""
+"Check that it's installed in the correct path and that it has the correct "
+"permissions"
+msgstr ""
+"Ellenőrizze, hogy a megfelelő helyre van-e telepítve és megfelelőek-e a "
+"jogosultságai"
+
+#: ../modemlights/modem-applet.c:1045
+msgid "Applet for activating and monitoring a dial-up network connection."
+msgstr ""
+"Betárcsázós hálózati kapcsolat aktiválására és figyelésére használható "
+"kisalkalmazás."
+
+#: ../modemlights/modemlights.glade.h:1
+msgid ""
+"<span weight=\"bold\" size=\"larger\">Connecting with Internet Service "
+"Provider</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"larger\">Kapcsolódás az internetszolgáltatóhoz</"
+"span>"
+
+#: ../modemlights/modemlights.glade.h:2
+msgid "<span weight=\"bold\" size=\"larger\">Root password required</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"larger\">A rendszergazda jelszava szükséges</"
+"span>"
+
+#: ../modemlights/modemlights.glade.h:3
+msgid "Enter password"
+msgstr "Adja meg a jelszót"
+
+#: ../modemlights/modemlights.glade.h:4
+msgid "Password:"
+msgstr "Jelszó:"
+
+#: ../multiload/GNOME_MultiLoadApplet_Factory.server.in.in.h:1
+msgid "A system load indicator"
+msgstr "Rendszerfigyelő"
+
+#: ../multiload/GNOME_MultiLoadApplet_Factory.server.in.in.h:2
+#: ../multiload/main.c:473
+msgid "System Monitor"
+msgstr "Rendszerfigyelő"
+
+#: ../multiload/GNOME_MultiloadApplet.xml.h:3
+msgid "_Open System Monitor"
+msgstr "_Rendszerfigyelő megnyitása"
+
+#: ../multiload/main.c:58
+msgid ""
+"A system load monitor capable of displaying graphs for CPU, ram, and swap "
+"space use, plus network traffic."
+msgstr ""
+"Rendszerterhelés-figyelő, amely képes a processzor, a memória és lapozófájl "
+"használatáról, valamint a hálózati forgalomról grafikonokat rajzolni."
+
+#: ../multiload/main.c:121
+#, c-format
+msgid "There was an error executing '%s': %s"
+msgstr "Hiba történt \"%s\" végrehajtásakor: %s"
+
+#: ../multiload/main.c:283 ../multiload/properties.c:607
+msgid "Processor"
+msgstr "Processzor"
+
+#: ../multiload/main.c:285 ../multiload/properties.c:615
+msgid "Memory"
+msgstr "Memória"
+
+#: ../multiload/main.c:287 ../multiload/properties.c:623
+msgid "Network"
+msgstr "Hálózat"
+
+#: ../multiload/main.c:289 ../multiload/properties.c:631
+msgid "Swap Space"
+msgstr "Lapozófájl"
+
+#: ../multiload/main.c:291 ../multiload/main.c:362
+msgid "Load Average"
+msgstr "Átlagos terhelés"
+
+#: ../multiload/main.c:293
+msgid "Disk"
+msgstr "Lemez"
+
+#. xgettext: use and cache are > 1 most of the time,
+#. please assume that they always are.
+#.
+#: ../multiload/main.c:312
+#, c-format
+msgid ""
+"%s:\n"
+"%u%% in use by programs\n"
+"%u%% in use as cache"
+msgstr ""
+"%s:\n"
+"%u%% használatban\n"
+"%u%% gyorsítótár"
+
+#: ../multiload/main.c:320
+#, c-format
+msgid "The system load average is %0.02f"
+msgstr "A rendszer átlagos terhelése: %0.02f"
+
+#: ../multiload/main.c:333
+#, c-format
+msgid ""
+"%s:\n"
+"%u%% in use"
+msgid_plural ""
+"%s:\n"
+"%u%% in use"
+msgstr[0] ""
+"%s:\n"
+"%u%% használt"
+msgstr[1] ""
+"%s:\n"
+"%u%% használt"
+
+#: ../multiload/main.c:358
+msgid "CPU Load"
+msgstr "Processzor terhelés"
+
+#: ../multiload/main.c:359
+msgid "Memory Load"
+msgstr "Memóriahasználat"
+
+#: ../multiload/main.c:360
+msgid "Net Load"
+msgstr "Hálózathasználat"
+
+#: ../multiload/main.c:361
+msgid "Swap Load"
+msgstr "Lapozóterület-használat"
+
+#: ../multiload/main.c:363
+msgid "Disk Load"
+msgstr "Lemezterhelés"
+
+#: ../multiload/multiload.schemas.in.h:1
+msgid "Applet refresh rate in milliseconds"
+msgstr "Kisalkalmazás frissítési gyakorisága ezredmásodpercben"
+
+#: ../multiload/multiload.schemas.in.h:2
+msgid "Background color for disk load graph"
+msgstr "A lemezterhelés grafikonjának háttérszíne"
+
+#: ../multiload/multiload.schemas.in.h:3
+msgid "CPU graph background color"
+msgstr "CPU grafikon háttérszíne"
+
+#: ../multiload/multiload.schemas.in.h:4
+msgid "Enable CPU load graph"
+msgstr "CPU terhelés grafikon engedélyezése"
+
+#: ../multiload/multiload.schemas.in.h:5
+msgid "Enable disk load graph"
+msgstr "Lemezterhelés grafikonjának engedélyezése"
+
+#: ../multiload/multiload.schemas.in.h:6
+msgid "Enable load average graph"
+msgstr "Átlagos terhelés grafikonjának engedélyezése"
+
+#: ../multiload/multiload.schemas.in.h:7
+msgid "Enable memory load graph"
+msgstr "Memóriaterhelés grafikonjának engedélyezése"
+
+#: ../multiload/multiload.schemas.in.h:8
+msgid "Enable network load graph"
+msgstr "Hálózati terhelés grafikonjának engedélyezése"
+
+#: ../multiload/multiload.schemas.in.h:9
+msgid "Enable swap load graph"
+msgstr "Swap terhelés grafikonjának engedélyezése"
+
+#: ../multiload/multiload.schemas.in.h:10
+msgid ""
+"For horizontal panels, the width of the graphs in pixels. For vertical "
+"panels, this is the height of the graphs."
+msgstr ""
+"Vízszintes panelek esetén, a grafikon szélessége képpontokban. Függőleges "
+"paneleknél ez a grafikon magassága."
+
+#: ../multiload/multiload.schemas.in.h:11
+msgid "Graph color for Ethernet network activity"
+msgstr "Ethernet hálózat használata grafikonjának színe"
+
+#: ../multiload/multiload.schemas.in.h:12
+msgid "Graph color for PLIP network activity"
+msgstr "PLIP hálózat használata grafikonjának színe"
+
+#: ../multiload/multiload.schemas.in.h:13
+msgid "Graph color for SLIP network activity"
+msgstr "SLIP hálózat használata grafikonjának színe"
+
+#: ../multiload/multiload.schemas.in.h:14
+msgid "Graph color for buffer memory"
+msgstr "Puffermemória grafikonjának színe"
+
+#: ../multiload/multiload.schemas.in.h:15
+msgid "Graph color for cached memory"
+msgstr "Gyorsítótárazott memória grafikonjának színe"
+
+#: ../multiload/multiload.schemas.in.h:16
+msgid "Graph color for disk read"
+msgstr "Lemezolvasás grafikonjának színe"
+
+#: ../multiload/multiload.schemas.in.h:17
+msgid "Graph color for disk write"
+msgstr "Lemezírás grafikonjának színe"
+
+# FIXME nice
+#: ../multiload/multiload.schemas.in.h:18
+msgid "Graph color for iowait related CPU activity"
+msgstr "IO-várakozással kapcsolatos CPU aktivitás grafikonjának színe"
+
+#: ../multiload/multiload.schemas.in.h:19
+msgid "Graph color for load average"
+msgstr "Átlagos terhelés grafikonjának színe"
+
+# FIXME nice
+#: ../multiload/multiload.schemas.in.h:20
+msgid "Graph color for nice-related CPU activity"
+msgstr "Nice-szal kapcsolatos CPU aktivitás grafikonjának színe"
+
+#: ../multiload/multiload.schemas.in.h:21
+msgid "Graph color for other network usage"
+msgstr "Egyéb hálózat használata grafikonjának színe"
+
+#: ../multiload/multiload.schemas.in.h:22
+msgid "Graph color for shared memory"
+msgstr "Osztott memória grafikonjának színe"
+
+#: ../multiload/multiload.schemas.in.h:23
+msgid "Graph color for system-related CPU activity"
+msgstr "A rendszer működésével kapcsolatos CPU aktivitás grafikonjának színe"
+
+#: ../multiload/multiload.schemas.in.h:24
+msgid "Graph color for user-related CPU activity"
+msgstr "A felhasználói programokkal kapcsolatos CPU aktivitás grafikonjának színe"
+
+#: ../multiload/multiload.schemas.in.h:25
+msgid "Graph color for user-related memory usage"
+msgstr "A felhasználói programokkal kapcsolatos memóriahasználat grafikonjának színe"
+
+#: ../multiload/multiload.schemas.in.h:26
+msgid "Graph color for user-related swap usage"
+msgstr "A felhasználói programokkal kapcsolatos swap használat grafikonjának színe"
+
+#: ../multiload/multiload.schemas.in.h:27
+msgid "Graph size"
+msgstr "Grafikon mérete"
+
+#: ../multiload/multiload.schemas.in.h:28
+msgid "Load graph background color"
+msgstr "Terhelésgrafikon háttérszíne"
+
+#: ../multiload/multiload.schemas.in.h:29
+msgid "Memory graph background color"
+msgstr "Memóriagrafikon háttérszíne"
+
+#: ../multiload/multiload.schemas.in.h:30
+msgid "Network graph background color"
+msgstr "Hálózati grafikon háttérszíne"
+
+#: ../multiload/multiload.schemas.in.h:31
+msgid "Swap graph background color"
+msgstr "Swap grafikon háttérszíne"
+
+#: ../multiload/properties.c:368
+msgid "Monitored Resources"
+msgstr "Monitorozott erőforrások"
+
+#: ../multiload/properties.c:393
+msgid "_Processor"
+msgstr "_Processzor"
+
+#: ../multiload/properties.c:406
+msgid "_Memory"
+msgstr "_Memória"
+
+#: ../multiload/properties.c:419
+msgid "_Network"
+msgstr "_Hálózat"
+
+#: ../multiload/properties.c:432
+msgid "S_wap Space"
+msgstr "_Lapozófájl"
+
+#: ../multiload/properties.c:445
+msgid "_Load"
+msgstr "_Terhelés"
+
+#: ../multiload/properties.c:458
+msgid "_Harddisk"
+msgstr "Mere_vlemez"
+
+#: ../multiload/properties.c:474
+msgid "Options"
+msgstr "Beállítások"
+
+#: ../multiload/properties.c:504
+msgid "System m_onitor width: "
+msgstr "Ren_dszerfigyelő szélessége: "
+
+#: ../multiload/properties.c:506
+msgid "System m_onitor height: "
+msgstr "Rendszerfigyelő m_agassága: "
+
+#: ../multiload/properties.c:545
+msgid "Sys_tem monitor update interval: "
+msgstr "Rendszerfigyelő frissítési idő_köze: "
+
+#: ../multiload/properties.c:571
+msgid "milliseconds"
+msgstr "ezredmásodperc"
+
+#: ../multiload/properties.c:582
+msgid "Colors"
+msgstr "Színek"
+
+#: ../multiload/properties.c:609 ../multiload/properties.c:617
+msgid "_User"
+msgstr "_Felhasználó"
+
+#: ../multiload/properties.c:610
+msgid "S_ystem"
+msgstr "_Rendszer"
+
+#: ../multiload/properties.c:611
+msgid "N_ice"
+msgstr "N_ice"
+
+#: ../multiload/properties.c:612
+msgid "I_OWait"
+msgstr "I_O várakozás"
+
+#: ../multiload/properties.c:613
+msgid "I_dle"
+msgstr "Ür_esjárat"
+
+#: ../multiload/properties.c:618
+msgid "Sh_ared"
+msgstr "Me_gosztott"
+
+#: ../multiload/properties.c:619
+msgid "_Buffers"
+msgstr "_Pufferek"
+
+#: ../multiload/properties.c:620
+msgid "Cach_ed"
+msgstr "Gy_orsítótárban"
+
+#: ../multiload/properties.c:621
+msgid "F_ree"
+msgstr "S_zabad"
+
+#: ../multiload/properties.c:625
+msgid "_SLIP"
+msgstr "_SLIP"
+
+#: ../multiload/properties.c:626
+msgid "PL_IP"
+msgstr "PL_IP"
+
+#: ../multiload/properties.c:627
+msgid "_Ethernet"
+msgstr "Ether_net"
+
+#: ../multiload/properties.c:628
+msgid "Othe_r"
+msgstr "_Egyéb"
+
+#: ../multiload/properties.c:629 ../multiload/properties.c:639
+#: ../multiload/properties.c:645
+msgid "_Background"
+msgstr "Hátté_r"
+
+#: ../multiload/properties.c:633
+msgid "_Used"
+msgstr "_Felhasznált"
+
+#: ../multiload/properties.c:634
+msgid "_Free"
+msgstr "S_zabad"
+
+#: ../multiload/properties.c:636
+msgid "Load"
+msgstr "Terhelés"
+
+#: ../multiload/properties.c:638
+msgid "_Average"
+msgstr "Átla_gos"
+
+#: ../multiload/properties.c:641
+msgid "Harddisk"
+msgstr "Merevlemez"
+
+#: ../multiload/properties.c:643
+msgid "_Read"
+msgstr "_Olvasás"
+
+#: ../multiload/properties.c:644
+msgid "_Write"
+msgstr "Í_rás"
+
+#: ../multiload/properties.c:670
+msgid "System Monitor Preferences"
+msgstr "Rendszerfigyelő beállításai"
+
+#: ../null_applet/GNOME_CDPlayerApplet.server.in.h:1
+msgid "CD Player (Deprecated)"
+msgstr "CD-lejátszó (Elavult)"
+
+#: ../null_applet/GNOME_CDPlayerApplet.server.in.h:2
+msgid "Panel applet for playing audio CDs"
+msgstr "Kisalkalmazás audio CD-k lejátszásához"
+
+#: ../null_applet/GNOME_MailcheckApplet_Factory.server.in.h:1
+msgid "Alert you when new mail arrives"
+msgstr "Figyelmeztetés új levél érkezésekor"
+
+#: ../null_applet/GNOME_MailcheckApplet_Factory.server.in.h:2
+msgid "Inbox Monitor (Deprecated)"
+msgstr "Postaláda-figyelő (Elavult)"
+
+#: ../null_applet/GNOME_NullApplet_Factory.server.in.in.h:1
+msgid "Factory for deprecating applets"
+msgstr "Factory elavult kisalkalmazásokhoz"
+
+#: ../null_applet/GNOME_NullApplet_Factory.server.in.in.h:2
+msgid "Null Applet Factory"
+msgstr "Null kisalkalmazás factory"
+
+#: ../null_applet/GNOME_Panel_WirelessApplet.server.in.h:1
+msgid "Monitor the quality of a wireless network link"
+msgstr "A vezeték nélküli hálózati kapcsolat minőségének megfigyelése"
+
+#: ../null_applet/GNOME_Panel_WirelessApplet.server.in.h:2
+msgid "Wireless Link Monitor"
+msgstr "Vezeték nélküli kapcsolat figyelése"
+
+#: ../null_applet/null_applet.c:149
+msgid "Some panel items are no longer available"
+msgstr "Néhány panelelem többé már nem érhető el"
+
+#: ../null_applet/null_applet.c:150
+msgid ""
+"One or more panel items (also referred to as applets) are no longer "
+"available in the GNOME desktop."
+msgstr ""
+"Egy vagy több panelelem (vagy kisalkalmazás) nem érhető el többé a GNOME "
+"asztali környezetben."
+
+#: ../null_applet/null_applet.c:152
+msgid "These items will now be removed from your configuration:"
+msgstr "Ezek az elemek most el lesznek távolítva a beállításaiból:"
+
+#: ../null_applet/null_applet.c:155
+msgid "You will not receive this message again."
+msgstr "Ezt az üzenetet nem fogja többször megkapni."
+
+#: ../stickynotes/data/GNOME_StickyNotesApplet.server.in.h:1
+msgid "Tomboy (ne Stickynotes)"
+msgstr "Tomboy (korábban: Ragadós cetlik)"
+
+#: ../stickynotes/data/GNOME_StickyNotesApplet.server.in.h:2
+msgid "Tomboy (transparent upgrade from stickynotes)"
+msgstr "Tomboy (áttetsző frissítés a Ragadós cetlikről)"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.server.in.in.h:1
+msgid "Create, view, and manage sticky notes on the desktop"
+msgstr "Ragadós cetlik létrehozása, megtekintése és kezelése"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.server.in.in.h:2
+#: ../stickynotes/stickynotes_applet.c:134
+#: ../stickynotes/stickynotes_applet.c:410
+msgid "Sticky Notes"
+msgstr "Ragadós cetlik"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.server.in.in.h:3
+msgid "Sticky Notes Applet Factory"
+msgstr "Ragadós cetlik kisalkalmazás factory"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:1
+msgid "Hi_de Notes"
+msgstr "Cetlik _elrejtése"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:3
+msgid "_Delete Notes"
+msgstr "Cetlik _törlése"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:5
+msgid "_Lock Notes"
+msgstr "_Cetlik zárolása"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:6
+#: ../stickynotes/stickynotes.glade.h:44
+msgid "_New Note"
+msgstr "Ú_j cetli"
+
+#: ../stickynotes/stickynotes.c:617
+msgid "This note is locked."
+msgstr "Ez a cetli zárolva van."
+
+#: ../stickynotes/stickynotes.c:621
+msgid "This note is unlocked."
+msgstr "Ez a cetli nincs zárolva."
+
+#: ../stickynotes/stickynotes.glade.h:2
+msgid "    Font C_olor:"
+msgstr "    B_etű színe:"
+
+#: ../stickynotes/stickynotes.glade.h:3
+msgid "    Font Co_lor:"
+msgstr "    B_etű színe:"
+
+#: ../stickynotes/stickynotes.glade.h:4
+msgid "    Note C_olor:"
+msgstr "    Cetli s_zíne:"
+
+#: ../stickynotes/stickynotes.glade.h:5
+msgid "    Note _Color:"
+msgstr "    Cetli s_zíne:"
+
+#: ../stickynotes/stickynotes.glade.h:6
+msgid "    _Font:"
+msgstr "     Betű_készlet:"
+
+#: ../stickynotes/stickynotes.glade.h:7
+msgid "<b>Behavior</b>"
+msgstr "<b>Viselkedés</b>"
+
+#: ../stickynotes/stickynotes.glade.h:8
+msgid "<b>Default Note Properties</b>"
+msgstr "<b>Alapértelmezett cetlitulajdonságok</b>"
+
+#: ../stickynotes/stickynotes.glade.h:9
+msgid ""
+"<b>Delete all sticky notes?</b>\n"
+"\n"
+"This cannot be undone."
+msgstr ""
+"<b>Minden ragadós cetlit töröl?</b>\n"
+"\n"
+"Ez nem vonható vissza."
+
+#: ../stickynotes/stickynotes.glade.h:12
+msgid ""
+"<b>Delete this sticky note?</b>\n"
+"\n"
+"This cannot be undone."
+msgstr ""
+"<b>Törli ezt a ragadós cetlit?</b>\n"
+"\n"
+"Ez nem vonható vissza."
+
+#: ../stickynotes/stickynotes.glade.h:15
+msgid "<b>Properties</b>"
+msgstr "<b>Tulajdonságok</b>"
+
+#: ../stickynotes/stickynotes.glade.h:16
+msgid "Choose a base color to use for all sticky notes"
+msgstr "Válasszon alapszínt a ragadós cetlikhez"
+
+#: ../stickynotes/stickynotes.glade.h:17
+msgid "Choose a color for the note"
+msgstr "Válassza ki a cetli színét"
+
+#: ../stickynotes/stickynotes.glade.h:18
+msgid "Choose a font for the note"
+msgstr "Válassza ki a cetli betűkészletét"
+
+#: ../stickynotes/stickynotes.glade.h:19
+msgid "Choose a font to use for all sticky notes"
+msgstr "A cetlik alapértelmezett betűkészletének meghatározása"
+
+#: ../stickynotes/stickynotes.glade.h:20
+msgid "Choose if notes are visible on all workspaces"
+msgstr "Jelölje be, ha a cetliket minden munkaterületen látni akarja"
+
+#: ../stickynotes/stickynotes.glade.h:21
+msgid "Choose if the default style is forced on all notes"
+msgstr "Jelölje be, ha az alapértelmezett stílust akarja használni minden cetlin"
+
+#: ../stickynotes/stickynotes.glade.h:22
+msgid "Close note"
+msgstr "Cetli bezárása"
+
+#: ../stickynotes/stickynotes.glade.h:23
+msgid "Force _default color and font on notes"
+msgstr "_Alapértelmezett színek és betűk a cetliken"
+
+#: ../stickynotes/stickynotes.glade.h:24
+msgid "H_eight:"
+msgstr "_Magasság:"
+
+#: ../stickynotes/stickynotes.glade.h:25
+msgid "Lock/Unlock note"
+msgstr "Cetli zárolása/feloldása"
+
+#: ../stickynotes/stickynotes.glade.h:26
+msgid "Pick a color for the sticky note"
+msgstr "Válassza ki a ragadós cetli színét"
+
+#: ../stickynotes/stickynotes.glade.h:27
+msgid "Pick a default sticky note color"
+msgstr "Válassza ki a ragadós cetlik alapértelmezett színét"
+
+#: ../stickynotes/stickynotes.glade.h:28
+msgid "Pick a default sticky note font"
+msgstr "Válassza ki a ragadós cetlik alapértelmezett betűkészletét"
+
+#: ../stickynotes/stickynotes.glade.h:29
+msgid "Pick a font for the sticky note"
+msgstr "Válassza ki a ragadós cetli színét"
+
+#: ../stickynotes/stickynotes.glade.h:30
+msgid "Resize note"
+msgstr "Cetli átméretezése"
+
+#: ../stickynotes/stickynotes.glade.h:31
+msgid "Specify a title for the note"
+msgstr "A címsor meghatározása"
+
+#: ../stickynotes/stickynotes.glade.h:32
+msgid "Specify the default height (in pixels) of new notes"
+msgstr "Az új cetlik alapértelmezett szélessége képpontban"
+
+#: ../stickynotes/stickynotes.glade.h:33
+msgid "Specify the default width (in pixels) of new notes"
+msgstr "Az új cetlik alapértelmezett magassága képpontban"
+
+#: ../stickynotes/stickynotes.glade.h:34
+msgid "Sticky Note"
+msgstr "Ragadós cetlik"
+
+#: ../stickynotes/stickynotes.glade.h:35
+msgid "Sticky Note Properties"
+msgstr "Ragadós cetlik beállításai"
+
+#: ../stickynotes/stickynotes.glade.h:36
+msgid "Sticky Notes Preferences"
+msgstr "Ragadós cetlik beállításai"
+
+#: ../stickynotes/stickynotes.glade.h:37
+msgid "Use co_lor from the system theme"
+msgstr "A _rendszertéma színeinek használata"
+
+#: ../stickynotes/stickynotes.glade.h:38
+msgid "Use default co_lor"
+msgstr "_Használja az alapértelmezett téma színeit"
+
+#: ../stickynotes/stickynotes.glade.h:39
+msgid "Use default fo_nt"
+msgstr "_Alapértelmezett betűkészlet használata"
+
+#: ../stickynotes/stickynotes.glade.h:40
+msgid "Use fo_nt from the system theme"
+msgstr "A rendszertéma _betűkészleteinek használata"
+
+#: ../stickynotes/stickynotes.glade.h:41
+msgid "_Delete All"
+msgstr "Összes _törlése"
+
+#: ../stickynotes/stickynotes.glade.h:42
+msgid "_Delete Note..."
+msgstr "Cetli _törlése..."
+
+#: ../stickynotes/stickynotes.glade.h:43
+msgid "_Lock Note"
+msgstr "Cetli _zárolása"
+
+#: ../stickynotes/stickynotes.glade.h:46
+msgid "_Put notes on all workspaces"
+msgstr "_Cetlik megjelenítése minden munkaterületen"
+
+#: ../stickynotes/stickynotes.glade.h:47
+msgid "_Title:"
+msgstr "_Cím:"
+
+#: ../stickynotes/stickynotes.schemas.in.h:1
+msgid ""
+"By default, sticky notes are given the current date as the title when they "
+"are created. This format is used; anything that can be parsed by strftime() "
+"is valid."
+msgstr ""
+"Alapértelmezésben a ragadós cetlik létrehozásukkor a jelenlegi dátumot "
+"kapják címként. Ez ennek a formátumnak a használatával áll elő, bármi, amit "
+"az strftime() fel tud dolgozni, érvényes."
+
+#: ../stickynotes/stickynotes.schemas.in.h:2
+msgid "Date format of note's title"
+msgstr "A cetli címének dátumformátuma"
+
+#: ../stickynotes/stickynotes.schemas.in.h:3
+msgid "Default color for font"
+msgstr "Betűkészlet alapértelmezett színe"
+
+#: ../stickynotes/stickynotes.schemas.in.h:4
+msgid "Default color for new notes"
+msgstr "Új cetlik alapértelmezett színe"
+
+#: ../stickynotes/stickynotes.schemas.in.h:5
+msgid ""
+"Default color for new sticky notes. This should be in html hex "
+"specification, for example \"#30FF50\"."
+msgstr ""
+"Új ragadós cetlik alapértelmezett színe. Ezt html hexa kódként kell megadni, "
+"például \"#30FF50\"."
+
+#: ../stickynotes/stickynotes.schemas.in.h:6
+msgid ""
+"Default font color for new sticky notes. This should be in html hex "
+"specification, for example \"#000000\"."
+msgstr ""
+"Új ragadós cetlik alapértelmezett színe. Ezt html hexa kódként kell megadni, "
+"például \"#30FF50\"."
+
+#: ../stickynotes/stickynotes.schemas.in.h:7
+msgid "Default font for new notes"
+msgstr "Új cetlik alapértelmezett betűkészlete"
+
+#: ../stickynotes/stickynotes.schemas.in.h:8
+msgid ""
+"Default font for new sticky notes. This should be a Pango Font Name, for "
+"example \"Sans Italic 10\""
+msgstr ""
+"Új ragadós cetlik alapértelmezett betűkészlete. Ez egy Pango betűkészletnév "
+"kell legyen, például \"Sans Italic 10\""
+
+#: ../stickynotes/stickynotes.schemas.in.h:9
+msgid "Default height for new notes"
+msgstr "Új cetlik alapértelmezett magassága"
+
+#: ../stickynotes/stickynotes.schemas.in.h:10
+msgid "Default height for new sticky notes in pixels."
+msgstr "Az újonnan létrehozott cetlik alapértelmezett magassága képpontban."
+
+#: ../stickynotes/stickynotes.schemas.in.h:11
+msgid "Default width for new notes"
+msgstr "Új cetlik alapértelmezett magassága"
+
+#: ../stickynotes/stickynotes.schemas.in.h:12
+msgid "Default width for new sticky notes in pixels."
+msgstr "Az újonnan létrehozott cetlik alapértelmezett szélessége képpontban."
+
+#: ../stickynotes/stickynotes.schemas.in.h:13
+msgid "Empty notes are always deleted without confirmation"
+msgstr "Az üres cetlik automatikus törlése"
+
+#: ../stickynotes/stickynotes.schemas.in.h:14
+msgid ""
+"If this option is disabled, a custom color can be used as the default color "
+"for all sticky notes."
+msgstr ""
+"Ha ez az opció le van tiltva, egyéni szín használható alapértelmezett "
+"színként az összes ragadós cetlihez."
+
+#: ../stickynotes/stickynotes.schemas.in.h:15
+msgid ""
+"If this option is disabled, a custom font can be used as the default font "
+"for all sticky notes."
+msgstr ""
+"Ha ez az opció le van tiltva, egyéni betűkészlet használható alapértelmezett "
+"betűkészletként az összes ragadós cetlihez."
+
+#: ../stickynotes/stickynotes.schemas.in.h:16
+msgid ""
+"If this option is enabled, the custom colors and fonts that have been "
+"assigned to individual notes will be ignored."
+msgstr ""
+"Ha ez az opció engedélyezve van, az egyes cetlikhez rendelt egyéni színek és "
+"betűkészletek mellőzve lesznek."
+
+#: ../stickynotes/stickynotes.schemas.in.h:17
+msgid "Specifies whether the sticky notes are locked (non-editable) or not."
+msgstr "Megadja, hogy a ragadós cetlik zároltak (nem szerkeszthetők) vagy sem."
+
+#: ../stickynotes/stickynotes.schemas.in.h:18
+msgid ""
+"Specifies whether the sticky notes are visible on ALL workspaces on the "
+"desktop, or not."
+msgstr ""
+"Megadja, hogy a ragadós cetlik láthatóak-e az asztal MINDEN munkaterületén "
+"vagy sem."
+
+#: ../stickynotes/stickynotes.schemas.in.h:19
+msgid "Sticky notes' locked state"
+msgstr "Ragadós cetlik zárolt állapota"
+
+#: ../stickynotes/stickynotes.schemas.in.h:20
+msgid "Sticky notes' workspace stickyness"
+msgstr "Ragadós cetlik munkaterületre ragadóssága"
+
+#: ../stickynotes/stickynotes.schemas.in.h:21
+msgid "Whether to ask for confirmation when deleting a note"
+msgstr "Kérjen-e megerősítést cetli törlésekor"
+
+#: ../stickynotes/stickynotes.schemas.in.h:22
+msgid "Whether to force the default color and font on all notes"
+msgstr "Kényszerítse-e az alapértelmezett színt és betűkészletet az összes cetlire"
+
+#: ../stickynotes/stickynotes.schemas.in.h:23
+msgid "Whether to use the default system color"
+msgstr "Használja-e az alapértelmezett rendszerszíneket"
+
+#: ../stickynotes/stickynotes.schemas.in.h:24
+msgid "Whether to use the default system font"
+msgstr "Használja-e az alapértelmezett rendszerbetűkészletet"
+
+#: ../stickynotes/stickynotes_applet.c:585
+#, c-format
+msgid "%d note"
+msgid_plural "%d notes"
+msgstr[0] "%d cetli"
+msgstr[1] "%d cetli"
+
+#: ../stickynotes/stickynotes_applet.c:586
+msgid "Show sticky notes"
+msgstr "Ragadós cetlik mutatása"
+
+#: ../stickynotes/stickynotes_applet_callbacks.c:363
+msgid "Sticky Notes for the GNOME Desktop Environment"
+msgstr "Ragadós cetlik a GNOME asztali környezethez"
+
+#: ../trashapplet/GNOME_Panel_TrashApplet.server.in.in.h:1
+msgid "Go to Trash"
+msgstr "A Kuka megnyitása"
+
+#: ../trashapplet/GNOME_Panel_TrashApplet.server.in.in.h:2
+msgid "Trash"
+msgstr "Kuka"
+
+#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:2
+#: ../trashapplet/src/trashapplet.c:612
+msgid "_Empty Trash"
+msgstr "_Kuka ürítése"
+
+#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:4
+msgid "_Open"
+msgstr "_Megnyitás"
+
+#: ../trashapplet/src/trashapplet.c:161
+#, c-format
+msgid "Unable to find the Trash directory: %s"
+msgstr "Nem található a Kuka könyvtára: %s"
+
+#: ../trashapplet/src/trashapplet.c:399
+msgid "No Items in Trash"
+msgstr "Nincsenek elemek a Kukában"
+
+#: ../trashapplet/src/trashapplet.c:403
+#, c-format
+msgid "%d Item in Trash"
+msgid_plural "%d Items in Trash"
+msgstr[0] "%d elem a Kukában"
+msgstr[1] "%d elem a Kukában"
+
+#: ../trashapplet/src/trashapplet.c:524
+#, c-format
+msgid "Removing item %d of %d"
+msgstr "%d/%d elem eltávolítása"
+
+#: ../trashapplet/src/trashapplet.c:550
+msgid "Removing:"
+msgstr "Eltávolítás:"
+
+#: ../trashapplet/src/trashapplet.c:589
+msgid "Empty all of the items from the trash?"
+msgstr "Ki akarja üríteni az összes elemet a Kukából?"
+
+#: ../trashapplet/src/trashapplet.c:592
+msgid ""
+"If you choose to empty the trash, all items in it will be permanently lost. "
+"Please note that you can also delete them separately."
+msgstr ""
+"Ha a Kuka kiürítését választja, minden elem véglegesen elvész. Ne feledje, "
+"hogy egyenként is törölheti őket."
+
+#: ../trashapplet/src/trashapplet.c:696
+#, c-format
+msgid ""
+"Error while spawning nautilus:\n"
+"%s"
+msgstr ""
+"Hiba a Nautilus indítása közben:\n"
+"%s"
+
+#: ../trashapplet/src/trashapplet.c:745
+msgid ""
+"A GNOME trash bin that lives in your panel. You can use it to view the trash "
+"or drag and drop items into the trash."
+msgstr ""
+"Egy GNOME kuka, amely a panelen él. A Kuka tartalmának megtekintésére vagy "
+"elemek Kukába dobására használhatja."
+
+#: ../trashapplet/src/trashapplet.c:770
+msgid "Delete Immediately?"
+msgstr "Törlés azonnal?"
+
+#: ../trashapplet/src/trashapplet.c:799
+msgid "Cannot move items to trash, do you want to delete them immediately?"
+msgstr "Az elemeket nem helyezhetők át a Kukába. Akarja most rögtön törölni őket?"
+
+#: ../trashapplet/src/trashapplet.c:802
+msgid "Cannot move some items to trash, do you want to delete these immediately?"
+msgstr "Néhány elem nem helyezhető át a Kukába. Akarja most rögtön törölni őket?"
+
+#: ../trashapplet/src/trashapplet.c:902 ../trashapplet/src/trashapplet.c:919
+#, c-format
+msgid ""
+"Unable to move to trash:\n"
+"%s"
+msgstr ""
+"Nem helyezhető át a Kukába:\n"
+"%s"
+
+#: ../trashapplet/src/trashapplet.c:967
+msgid "Trash Applet"
+msgstr "Kuka kisalkalmazás"
+
+#: ../trashapplet/trashapplet.glade.h:1
+msgid "<b>From:</b>"
+msgstr "<b>Innen:</b>"
+
+#: ../trashapplet/trashapplet.glade.h:2
+msgid "<big><b>Emptying the Trash</b></big>"
+msgstr "<big><b>A Kuka ürítése</b></big>"
+
+#: ../trashapplet/trashapplet.glade.h:3
+msgid "Emptying the Trash"
+msgstr "A Kuka ürítése"
+

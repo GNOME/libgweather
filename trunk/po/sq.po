@@ -1,0 +1,4530 @@
+# Përkthimi i mesazheve të gnome-applets në shqip
+# Copyright (C) 2006 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-applets package.
+# Elian Myftiu <elian@alblinux.net>, 2003, 2004, 2005.
+
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-applets HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-03-09 06:24+0100\n"
+"PO-Revision-Date: 2006-03-09 11:13+0100\n"
+"Last-Translator: Elian Myftiu <elian@alblinux.net>\n"
+"Language-Team: Albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../accessx-status/GNOME_AccessxApplet.xml.h:1
+#: ../battstat/GNOME_BattstatApplet.xml.h:1
+#: ../charpick/GNOME_CharpickerApplet.xml.h:1
+#: ../cpufreq/GNOME_CPUFreqApplet.xml.h:1
+#: ../drivemount/GNOME_DriveMountApplet.xml.h:1
+#: ../geyes/GNOME_GeyesApplet.xml.h:1
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:2 ../gtik/GNOME_GtikApplet.xml.h:1
+#: ../gweather/GNOME_GWeatherApplet.xml.h:1
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.xml.h:1
+#: ../mixer/GNOME_MixerApplet.xml.h:1 ../modemlights/GNOME_ModemLights.xml.h:1
+#: ../multiload/GNOME_MultiloadApplet.xml.h:1
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:2
+#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:1
+msgid "_About"
+msgstr "_Informacione"
+
+#: ../accessx-status/GNOME_AccessxApplet.xml.h:2
+#: ../battstat/GNOME_BattstatApplet.xml.h:2
+#: ../charpick/GNOME_CharpickerApplet.xml.h:2
+#: ../cpufreq/GNOME_CPUFreqApplet.xml.h:2
+#: ../drivemount/GNOME_DriveMountApplet.xml.h:2
+#: ../geyes/GNOME_GeyesApplet.xml.h:2
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:4 ../gtik/GNOME_GtikApplet.xml.h:2
+#: ../gweather/GNOME_GWeatherApplet.xml.h:3
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.xml.h:2
+#: ../mixer/GNOME_MixerApplet.xml.h:2 ../modemlights/GNOME_ModemLights.xml.h:4
+#: ../multiload/GNOME_MultiloadApplet.xml.h:2
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:4
+#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:3
+msgid "_Help"
+msgstr "_Ndihmë"
+
+#: ../accessx-status/GNOME_AccessxApplet.xml.h:3
+msgid "_Keyboard Accessibility Preferences"
+msgstr "_Preferimet e Tastierës së Lehtësuar"
+
+#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:1
+msgid "AccessX Status Applet Factory"
+msgstr "Fabrika për Statusin e Applet AccessX"
+
+#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:2
+#: ../accessx-status/applet.c:1319
+msgid "Keyboard Accessibility Status"
+msgstr "Statusi i Tastierës së Lehtësuar"
+
+#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:3
+msgid "Keyboard Accessibility Status Applet Factory"
+msgstr "Fabrika për Applet e Statusit të Tastierës së Lehtësuar"
+
+#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:4
+msgid "Shows the status of keyboard accessibility features"
+msgstr "Tregon gjendjen e tastierës së thjeshtuar"
+
+#: ../accessx-status/applet.c:138 ../accessx-status/applet.c:968
+#: ../accessx-status/applet.c:1108 ../accessx-status/applet.c:1322
+msgid "AccessX Status"
+msgstr "Statusi i AccessX"
+
+#: ../accessx-status/applet.c:140
+msgid "Shows the state of AccessX features such as latched modifiers"
+msgstr "Shfaq statusin e tipareve të AccessX si ndryshues të kyçura"
+
+#. "documenters",        documenters,
+#: ../accessx-status/applet.c:145 ../battstat/battstat_applet.c:1178
+#: ../charpick/charpick.c:604 ../cpufreq/src/cpufreq-applet.c:224
+#: ../drivemount/drivemount.c:120 ../geyes/geyes.c:196
+#: ../gswitchit/gswitchit-applet.c:756 ../gtik/gtik.c:721
+#: ../gweather/gweather-about.c:56 ../mini-commander/src/about.c:55
+#: ../mixer/applet.c:1300 ../modemlights/modem-applet.c:1049
+#: ../multiload/main.c:64 ../stickynotes/stickynotes_applet_callbacks.c:392
+#: ../trashapplet/src/trashapplet.c:733
+msgid "translator-credits"
+msgstr "Elian Myftiu <elian@alblinux.net>"
+
+#: ../accessx-status/applet.c:171
+#, c-format
+msgid "There was an error launching the help viewer: %s"
+msgstr "Ndodhi një gabim në lëshimin e ndihmuesit: %s"
+
+#: ../accessx-status/applet.c:208
+#, c-format
+msgid "There was an error launching the keyboard preferences dialog: %s"
+msgstr "Ndodhi një gabim në lëshimin e konfiguruesit të tastierës: %s"
+
+#. Note to translators: the first letter of the alphabet, not the indefinite article
+#: ../accessx-status/applet.c:456 ../accessx-status/applet.c:494
+msgid "a"
+msgstr "a"
+
+#: ../accessx-status/applet.c:969 ../accessx-status/applet.c:1109
+msgid "Shows keyboard status when accessibility features are used."
+msgstr "Tregon gjendjen e tastierës kur përdoren karakteristikat e açesibilitetit."
+
+#: ../accessx-status/applet.c:1003
+msgid "XKB Extension is not enabled"
+msgstr "Ekstensioni XKB nuk është aktivuar"
+
+#: ../accessx-status/applet.c:1008
+msgid "Unknown error"
+msgstr "Gabim i panjohur"
+
+#: ../accessx-status/applet.c:1016
+#, c-format
+msgid "Error: %s"
+msgstr "Gabim: %s"
+
+#: ../accessx-status/applet.c:1324
+msgid "Displays current state of keyboard accessibility features"
+msgstr "Shfaq statusin e tanishëm për preferencat e tastierës së thjeshtuar"
+
+#: ../battstat/GNOME_BattstatApplet.server.in.in.h:1
+#: ../battstat/battstat_applet.c:1170 ../battstat/battstat_applet.c:1608
+msgid "Battery Charge Monitor"
+msgstr "Vëzhgues i Ngarkesës së Baterisë"
+
+#: ../battstat/GNOME_BattstatApplet.server.in.in.h:2
+msgid "Battstat Factory"
+msgstr "Factory Battstat"
+
+#: ../battstat/GNOME_BattstatApplet.server.in.in.h:3
+#: ../battstat/battstat_applet.c:1609
+msgid "Monitor a laptop's remaining power"
+msgstr "Kontrollon baterinë e mbetur në një laptop"
+
+#: ../battstat/GNOME_BattstatApplet.xml.h:3
+#: ../charpick/GNOME_CharpickerApplet.xml.h:3
+#: ../cpufreq/GNOME_CPUFreqApplet.xml.h:3 ../geyes/GNOME_GeyesApplet.xml.h:3
+#: ../gtik/GNOME_GtikApplet.xml.h:3 ../gweather/GNOME_GWeatherApplet.xml.h:4
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.xml.h:3
+#: ../mixer/GNOME_MixerApplet.xml.h:5
+#: ../multiload/GNOME_MultiloadApplet.xml.h:4
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:7
+msgid "_Preferences"
+msgstr "_Preferimet"
+
+#: ../battstat/battstat.schemas.in.h:1
+msgid "0 for no label, 1 for percentage and 2 for time remaining"
+msgstr "0 për pa etiketë, 1 për përqindjen dhe 2 për kohën e mbetur"
+
+#: ../battstat/battstat.schemas.in.h:2
+msgid "Beep for warnings"
+msgstr "Paralajmëro me beep"
+
+#: ../battstat/battstat.schemas.in.h:3
+msgid "Beep when displaying a warning"
+msgstr "Beep kur shfaq paralajmërimin"
+
+#: ../battstat/battstat.schemas.in.h:4
+msgid "Drain from top"
+msgstr "Shfaqe nga lart"
+
+#: ../battstat/battstat.schemas.in.h:5
+msgid "Full Battery Notification"
+msgstr "Lajmërim kur Bateria është Plot"
+
+#: ../battstat/battstat.schemas.in.h:6
+msgid "Low Battery Notification"
+msgstr "Lajmërimi kur Bateria është e shkarkuar"
+
+#: ../battstat/battstat.schemas.in.h:7
+msgid "Notify user when the battery is full"
+msgstr "Lajmëro kur bateria është plot"
+
+#: ../battstat/battstat.schemas.in.h:8
+msgid "Notify user when the battery is low"
+msgstr "Lajmëro kur bateria është e shkarkuar"
+
+#: ../battstat/battstat.schemas.in.h:9
+msgid "Red value level"
+msgstr "Niveli i vlerës së kuqe"
+
+#: ../battstat/battstat.schemas.in.h:10
+msgid ""
+"Show the battery meter draining from the top of the battery. Only "
+"implemented for traditional battery view."
+msgstr ""
+"Shfaq shënuesin e baterisë duke zbritur nga kreu i baterisë. Vetëm për "
+"shfaqjen tradicionale të baterisë."
+
+#: ../battstat/battstat.schemas.in.h:11
+msgid "Show the horizontal battery"
+msgstr "Shfaq baterinë horizontale"
+
+#: ../battstat/battstat.schemas.in.h:12
+msgid "Show the time/percent label"
+msgstr "Shfaq etiketën kohë/përqindje"
+
+#: ../battstat/battstat.schemas.in.h:13
+msgid "Show the traditional, horizontal battery on the panel"
+msgstr "Shfaq baterinë horizontale tradicionale në panel"
+
+#: ../battstat/battstat.schemas.in.h:14
+msgid "Show the upright, smaller battery on the panel"
+msgstr "Shfaq baterinë e vogël vertikale në panel"
+
+#: ../battstat/battstat.schemas.in.h:15
+msgid ""
+"The battery level below which the battery is displayed as red. Also the "
+"value at which the low battery warning is displayed."
+msgstr ""
+"Niveli i baterisë poshtë të cilit bateria paraqitet i kuq. Gjithashtu "
+"shfaqet dhe vlera kur paralajmërohet bateria e shkarkuar."
+
+#: ../battstat/battstat.schemas.in.h:16
+msgid "Upright (small) battery"
+msgstr "Bateria vertikale (më e vogël)"
+
+#: ../battstat/battstat.schemas.in.h:17
+msgid ""
+"Use the value defined in red_value as a time remaining to show the warning "
+"dialog rather than a percentage"
+msgstr ""
+"Përdor vlerën e përcaktuar me të kuqe si kohë e mbetur për të shfaqur "
+"dialogun paralajmërues sesa përqindjen"
+
+#: ../battstat/battstat.schemas.in.h:18
+msgid "Warn on low time rather than low percentage"
+msgstr "Paralajmëro për kohë të shkurtra sesa për përqindje të ulëta"
+
+#: ../battstat/battstat_applet.c:70
+msgid "System is running on AC power"
+msgstr "Sistemi po punon me korent"
+
+#: ../battstat/battstat_applet.c:71
+msgid "System is running on battery power"
+msgstr "Sistemi po punon me bateri"
+
+#: ../battstat/battstat_applet.c:340
+#, c-format
+msgid "Battery charged (%d%%)"
+msgstr "Ngarkesa e baterisë (%d%%)"
+
+#: ../battstat/battstat_applet.c:342
+#, c-format
+msgid "Unknown time (%d%%) remaining"
+msgstr "Koha e mbetur nuk njihet (%d%%)"
+
+#: ../battstat/battstat_applet.c:344
+#, c-format
+msgid "Unknown time (%d%%) until charged"
+msgstr "Koha e ngarkesës nuk njihet (%d%%)"
+
+#: ../battstat/battstat_applet.c:349
+#, c-format
+msgid "%d minute (%d%%) remaining"
+msgid_plural "%d minutes (%d%%) remaining"
+msgstr[0] "%d minutë (%d%%) në dispozicion"
+msgstr[1] "%d minuta (%d%%) në dispozicion"
+
+#: ../battstat/battstat_applet.c:354
+#, c-format
+msgid "%d minute until charged (%d%%)"
+msgid_plural "%d minutes until charged (%d%%)"
+msgstr[0] "%d minutë deri sa të ngarkohet (%d%%)"
+msgstr[1] "%d minuta me ngarkesë (%d%%)"
+
+#: ../battstat/battstat_applet.c:360
+#, c-format
+msgid "%d hour (%d%%) remaining"
+msgid_plural "%d hours (%d%%) remaining"
+msgstr[0] "%d orë (%d%%) në dispozicion"
+msgstr[1] "%d orë (%d%%) në dispozicion"
+
+#: ../battstat/battstat_applet.c:365
+#, c-format
+msgid "%d hour until charged (%d%%)"
+msgid_plural "%d hours until charged (%d%%)"
+msgstr[0] "%d orë deri sa të ngarkohet (%d%%)"
+msgstr[1] "%d orë deri sa të ngarkohet (%d%%)"
+
+#. TRANSLATOR: "%d %s %d %s" are "%d hours %d minutes"
+#. * Swap order with "%2$s %2$d %1$s %1$d if needed
+#: ../battstat/battstat_applet.c:372
+#, c-format
+msgid "%d %s %d %s (%d%%) remaining"
+msgstr "%d %s %d %s (%d%%) në dispozicion"
+
+#: ../battstat/battstat_applet.c:373 ../battstat/battstat_applet.c:380
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] "orë"
+msgstr[1] "orë"
+
+#: ../battstat/battstat_applet.c:374 ../battstat/battstat_applet.c:381
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "minutë"
+msgstr[1] "minuta"
+
+#. TRANSLATOR: "%d %s %d %s" are "%d hours %d minutes"
+#. * Swap order with "%2$s %2$d %1$s %1$d if needed
+#: ../battstat/battstat_applet.c:379
+#, c-format
+msgid "%d %s %d %s until charged (%d%%)"
+msgstr "%d %s %d %s deri sa të ngarkohet (%d%%)"
+
+#: ../battstat/battstat_applet.c:393
+msgid "Battery Monitor"
+msgstr "Vëzhgues i Baterisë"
+
+#: ../battstat/battstat_applet.c:403 ../battstat/battstat_applet.c:463
+msgid "Your battery is now fully recharged"
+msgstr "Bateria tani është komplet e ngarkuar"
+
+#: ../battstat/battstat_applet.c:439 ../battstat/battstat_applet.c:586
+msgid "Battery Notice"
+msgstr "Gjendja e Baterisë"
+
+#: ../battstat/battstat_applet.c:538
+#, c-format
+msgid "You have %d minute of battery power remaining (%d%% of the total capacity)."
+msgid_plural "You have %d minutes of battery power remaining (%d%% of the total capacity)."
+msgstr[0] "Ke %d minutë ngarkesë baterie në dispozicion (%d%% e kapacitetit të përgjithshëm)."
+msgstr[1] "Ke %d minuta ngarkesë baterie në dispozicion (%d%% e kapacitetit të përgjithshëm)."
+
+#. TRANSLATORS: this is a list, it is left as a single string
+#. * to allow you to make it appear like a list would in your
+#. * locale.  This is if the laptop does not support suspend.
+#: ../battstat/battstat_applet.c:549
+msgid ""
+"To avoid losing your work:\n"
+" • plug your laptop into external power, or\n"
+" • save open documents and shut your laptop down."
+msgstr ""
+"Për të shmangur humbjen e punës:\n"
+" • lidh kompjuterin me prizën e korrentit, ose\n"
+" • ruaj dokumentët e hapur dhe shuaj kompjuterin."
+
+#. TRANSLATORS: this is a list, it is left as a single string
+#. * to allow you to make it appear like a list would in your
+#. * locale.  This is if the laptop supports suspend.
+#: ../battstat/battstat_applet.c:557
+msgid ""
+"To avoid losing your work:\n"
+" • suspend your laptop to save power,\n"
+" • plug your laptop into external power, or\n"
+" • save open documents and shut your laptop down."
+msgstr ""
+"Për të shmangur humbjen e punës:\n"
+" • pezulloje kompjuterin për të ruajtur fuqinë,\n"
+" • fute në prizë, ose\n"
+" • ruaj dokumentat e hapura dhe shuaj kompjuterin tuaj të prehrit."
+
+#: ../battstat/battstat_applet.c:565
+msgid "Your battery is running low"
+msgstr "Bateria juaj është duke u shkarkuar"
+
+#: ../battstat/battstat_applet.c:662
+msgid "No battery present"
+msgstr "Bateria mungon"
+
+#: ../battstat/battstat_applet.c:665
+msgid "Battery status unknown"
+msgstr "Gjendja e baterisë nuk njihet"
+
+#: ../battstat/battstat_applet.c:824
+msgid "N/A"
+msgstr "Mungon"
+
+#: ../battstat/battstat_applet.c:1124 ../drivemount/drivemount.c:144
+#: ../geyes/geyes.c:349 ../geyes/themes.c:251
+#: ../gweather/gweather-applet.c:209 ../gweather/gweather-pref.c:713
+#: ../mini-commander/src/preferences.c:370
+#: ../stickynotes/stickynotes_applet_callbacks.c:356
+#: ../stickynotes/stickynotes_applet_callbacks.c:564
+#: ../trashapplet/src/trashapplet.c:700
+#, c-format
+msgid "There was an error displaying help: %s"
+msgstr "U verifikua një gabim gjatë shfaqjes së ndihmës: %s"
+
+#: ../battstat/battstat_applet.c:1164
+msgid "This utility shows the status of your laptop battery."
+msgstr "Kjo vegël tregon statusin e baterisë së laptopit tuaj."
+
+#. true
+#: ../battstat/battstat_applet.c:1166
+msgid "HAL backend enabled."
+msgstr "Backend HAL i aktivizuar"
+
+#. false
+#: ../battstat/battstat_applet.c:1167
+msgid "Legacy (non-HAL) backend enabled."
+msgstr "Backend Legacy (jo HAL) e aktivizuar."
+
+#: ../battstat/battstat_applet.glade.h:1
+msgid "<b>Appearance</b>"
+msgstr "<b>Paraqitja</b>"
+
+#: ../battstat/battstat_applet.glade.h:2
+msgid "<b>Notifications</b>"
+msgstr "<b>Njoftime</b>"
+
+#: ../battstat/battstat_applet.glade.h:3
+msgid "<small>(shows single image for status and charge)</small>"
+msgstr "<small>(shfaq pamje të vetme për gjendjen dhe ngarkesën)</small>"
+
+#: ../battstat/battstat_applet.glade.h:4
+msgid "<small>(two images: one for status, one for charge)</small>"
+msgstr "<small>(dy pamje: një për gjendjen, një për ngarkesën)</small>"
+
+#: ../battstat/battstat_applet.glade.h:5
+msgid "Battery Charge Monitor Preferences"
+msgstr "Preferencat e Monitoruesit të Baterisë"
+
+#: ../battstat/battstat_applet.glade.h:6
+msgid "Show _percentage remaining"
+msgstr "Shfaq ngarkesën në _përqindje"
+
+#: ../battstat/battstat_applet.glade.h:7
+msgid "Show _time remaining"
+msgstr "Shfaq _kohën e mbetur"
+
+#: ../battstat/battstat_applet.glade.h:8
+msgid "_Compact view"
+msgstr "Pamje e _përmbledhur"
+
+#: ../battstat/battstat_applet.glade.h:9
+msgid "_Expanded view"
+msgstr "_Pamje e zgjeruar"
+
+#: ../battstat/battstat_applet.glade.h:10
+msgid "_Notify when battery is fully recharged"
+msgstr "_Njofto kur bateria është ringarkuar plotësisht"
+
+#: ../battstat/battstat_applet.glade.h:11
+msgid "_Show time/percentage:"
+msgstr "_Shfaq kohën/përqindjen:"
+
+#. TRANSLATOR: This is the beginning of the sentence 'Warn when battery charge drops to: [XX] percent/minutes remaining'
+#: ../battstat/battstat_applet.glade.h:13
+msgid "_Warn when battery charge drops to:"
+msgstr "_Lajmëro kur ngarkesa e baterisë shkon në:"
+
+#. TRANSLATOR: this is a selectable item in a drop-down menu to end
+#. * this sentence:
+#. *   "Warn when battery charge drops to: [XX] percent".
+#.
+#: ../battstat/properties.c:319
+msgid "Percent"
+msgstr "Përqind"
+
+#. TRANSLATOR: this is a selectable item in a drop-down menu to end
+#. * this sentence:
+#. *   "Warn when battery charge drops to: [XX] minutes remaining"
+#.
+#: ../battstat/properties.c:325
+msgid "Minutes Remaining"
+msgstr "Minutat e Mbetura"
+
+#: ../battstat/sounds/battstat_applet.soundlist.in.h:1
+msgid "Battery Status Utility"
+msgstr "Vegël e Statusit të Baterisë"
+
+#: ../battstat/sounds/battstat_applet.soundlist.in.h:2
+msgid "Battery fully re-charged"
+msgstr "Bateria e ringarkuar plot"
+
+#: ../battstat/sounds/battstat_applet.soundlist.in.h:3
+msgid "Battery power low"
+msgstr "Ngarkesë e ulët e baterisë"
+
+#: ../charpick/GNOME_CharpickerApplet.server.in.in.h:1
+#: ../charpick/charpick.c:595 ../charpick/charpick.c:734
+#: ../charpick/properties.c:464
+msgid "Character Palette"
+msgstr "Zgjedhësi i Simboleve"
+
+#: ../charpick/GNOME_CharpickerApplet.server.in.in.h:2
+msgid "Charpicker Applet Factory"
+msgstr "Fabrika e Applet për Zgjedhësin e Shkronjave"
+
+#: ../charpick/GNOME_CharpickerApplet.server.in.in.h:3
+#: ../charpick/charpick.c:734
+msgid "Insert characters"
+msgstr "Fut shkronja"
+
+#: ../charpick/charpick.c:428
+msgid "Available palettes"
+msgstr "Paleta në dispozicion"
+
+#. TRANSLATOR: This sentance reads something like 'Insert "PILCROW SIGN"'
+#. *             hopefully, the name of the unicode character has already
+#. *             been translated.
+#.
+#: ../charpick/charpick.c:475
+#, c-format
+msgid "Insert \"%s\""
+msgstr "Fut \"%s\""
+
+#: ../charpick/charpick.c:478
+msgid "Insert special character"
+msgstr "Fut gërmë speciale"
+
+#: ../charpick/charpick.c:482
+#, c-format
+msgid "insert special character %s"
+msgstr "fut shkronja të veçanta %s"
+
+#: ../charpick/charpick.c:599
+msgid ""
+"Gnome Panel applet for selecting strange characters that are not on my "
+"keyboard. Released under GNU General Public Licence."
+msgstr ""
+"Applet i Panelit Gnome për zgjedhjen e simboleve të veçantë që nuk gjenden "
+"në tastierë. Rilëshuar nën Liçencën e Përgjithshme Publike GNU."
+
+#: ../charpick/charpick.schemas.in.h:1
+msgid "Characters shown on applet startup"
+msgstr "Shkronjat e shfaqura në lëshimin e applet"
+
+#: ../charpick/charpick.schemas.in.h:2
+msgid "DEPRECATED - Characters shown on applet startup"
+msgstr "NUK PËRDORET MË·-·Shkronjat e shfaqura në lëshimin e applet"
+
+#: ../charpick/charpick.schemas.in.h:3 ../charpick/properties.c:391
+msgid "List of available palettes"
+msgstr "Lista e paletave në dispozicion"
+
+#: ../charpick/charpick.schemas.in.h:4
+msgid "List of strings containing the available palettes"
+msgstr "Lista e stringave që përmbajnë paleta në dispozicion"
+
+#: ../charpick/charpick.schemas.in.h:5
+msgid ""
+"The string that the user had selected when the applet was last used. This "
+"string will be displayed when the user starts the applet."
+msgstr ""
+"Stringa që përdoruesi ka zgjedhur kur applet u përdor për herë të fundit. "
+"Kjo stringë do të përdoret kur applet do riniset."
+
+#: ../charpick/properties.c:40
+msgid "_Edit"
+msgstr "_Ndrysho"
+
+#: ../charpick/properties.c:129
+msgid "_Palette:"
+msgstr "_Paleta:"
+
+#: ../charpick/properties.c:137
+msgid "Palette entry"
+msgstr "Hyrja e paletës"
+
+#: ../charpick/properties.c:138
+msgid "Modify a palette by adding or removing characters"
+msgstr "Ndrysho një paletë duke shtuar ose hequr gërmat"
+
+#: ../charpick/properties.c:252
+msgid "Add Palette"
+msgstr "Shto Paletë"
+
+#: ../charpick/properties.c:289
+msgid "Edit Palette"
+msgstr "Përpuno Paletën"
+
+#: ../charpick/properties.c:390
+msgid "Palettes list"
+msgstr "Lista e paletave"
+
+#: ../charpick/properties.c:469
+msgid "_Palettes:"
+msgstr "_Paleta:"
+
+#: ../charpick/properties.c:485
+msgid "Add button"
+msgstr "Shto buton"
+
+#: ../charpick/properties.c:486
+msgid "Click to add a new palette"
+msgstr "Kliko të shtosh një paletë të re"
+
+#: ../charpick/properties.c:493
+msgid "Edit button"
+msgstr "Përpuno butonin"
+
+#: ../charpick/properties.c:494
+msgid "Click to edit the selected palette"
+msgstr "Kliko të përpunosh paletën e zgjedhur"
+
+#: ../charpick/properties.c:501
+msgid "Delete button"
+msgstr "Fshi butonin"
+
+#: ../charpick/properties.c:502
+msgid "Click to delete the selected palette"
+msgstr "Kliko të fshish paletën e zgjedhur"
+
+#: ../charpick/properties.c:554
+msgid "Character Palette Preferences"
+msgstr "Preferimet e Paletës së Shkronjave"
+
+#: ../cpufreq/GNOME_CPUFreqApplet.server.in.in.h:1
+#: ../cpufreq/src/cpufreq-applet.c:216 ../cpufreq/src/cpufreq-applet.c:810
+msgid "CPU Frequency Scaling Monitor"
+msgstr "Mbikqyrësi i Shkallëzimit të Frekuencës së CPU-së"
+
+#: ../cpufreq/GNOME_CPUFreqApplet.server.in.in.h:2
+msgid "Monitor the CPU Frequency Scaling"
+msgstr "Mbikqyr Shkallëzimin e Frekuencën së CPU-së"
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:1
+msgid ""
+"A 0 value means to show cpu frequency, 1 to show frequency and units, and 2 "
+"to show percentage instead of frequency."
+msgstr ""
+"Një vlerë 0 nënkupton shfaqjen e frekuencës, 1 shfaqjen e frekuencës dhe "
+"njësive kurse 2 shfaqjen e përqindjes në vend të frekuencës."
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:2
+msgid ""
+"A 0 value means to show the applet in graphic mode (pixmap only), 1 to show "
+"the applet in text mode (not to show the pixmap) and 2 to show the applet in "
+"graphic and text mode."
+msgstr ""
+"Një vlerë 0 nënkupton shfaqjen në mëyrë grafike (vetëm pixmap), 1 shfaqjen "
+"në mënyrë tekstuale (pa grafik) dhe 2 shfaqjen në të dyja mëyrat, grafike "
+"dhe tekstuale."
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:3
+msgid "CPU to Monitor"
+msgstr "CPU për tu Mbikqyrur"
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:4
+msgid "Mode to show cpu usage"
+msgstr "Mënyra e shfaqjes së përdorimit të cpu-së"
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:5
+msgid "Mode to show the frequency selector drop down menu"
+msgstr "Mënyrë për të shfaqur menunë zbritëse të zgjedhësit të frekuencës"
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:6
+msgid ""
+"Set the CPU to monitor. In a single processor system you don't have to "
+"change it."
+msgstr ""
+"Cakto CPU për tu mbikqyrur. Në një sistem me proçesor të vetëm nuk ke pse e "
+"ndryshon këtë."
+
+#: ../cpufreq/cpufreq-applet.schemas.in.h:7
+msgid "The type of text to display (if the text is enabled)."
+msgstr "Lloji i tekstit të shfaqur (nëse teksti është i aktivizuar)."
+
+#: ../cpufreq/cpufreq-preferences.glade.h:1
+#: ../mini-commander/src/mini-commander.glade.h:1
+#: ../stickynotes/stickynotes.glade.h:1
+msgid "    "
+msgstr "    "
+
+#: ../cpufreq/cpufreq-preferences.glade.h:2
+msgid "<b>Display Settings</b>"
+msgstr "<b>Rregullimet e Pamjes</b>"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:3
+msgid "<b>Frequency Selector</b>"
+msgstr "<b>Zgjedhësi i Frekuencës</b>"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:4
+msgid "<b>Monitor Settings</b>"
+msgstr "<b>Rregullimet e Mbikqyrësit</b>"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:5
+msgid "CPU Frequency Monitor Preferences"
+msgstr "Preferimet e Mbikqyrësit të Frekuencës së CPU-së"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:6
+msgid "Show CPU frequency as _frequency"
+msgstr "Shfaq frekuencën e CPU-së si _frekuencë"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:7
+msgid "Show CPU frequency as _percentage"
+msgstr "Shfaq frekuencë e CPU-së si _përqindje"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:8
+msgid "Show frequency _units"
+msgstr "Shfaq _njësitë e frekuencës"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:9
+msgid "Show m_enu:"
+msgstr "Shfaq m_enunë:"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:10
+msgid "_Appearance:"
+msgstr "_Paraqitja:"
+
+#: ../cpufreq/cpufreq-preferences.glade.h:11
+msgid "_Monitored CPU:"
+msgstr "CPU e _mbikqyrur:"
+
+#: ../cpufreq/src/cpufreq-applet.c:185 ../cpufreq/src/cpufreq-prefs.c:265
+msgid "Could not open help document"
+msgstr "E pamundur hapja e dokumentit ndihmë"
+
+#: ../cpufreq/src/cpufreq-applet.c:219
+msgid "This utility shows the current CPU Frequency Scaling."
+msgstr "Kjo vegël shfaq shkallëzimin e frekuencës aktuale të CPU-së"
+
+#: ../cpufreq/src/cpufreq-applet.c:811
+msgid "This utility shows the current CPU Frequency"
+msgstr "Kjo vegël shfaq Frekuencën aktuale të CPU-së"
+
+#: ../cpufreq/src/cpufreq-prefs.c:329
+msgid "Graphic"
+msgstr "Grafiku"
+
+#: ../cpufreq/src/cpufreq-prefs.c:334
+msgid "Text"
+msgstr "Teksti"
+
+#: ../cpufreq/src/cpufreq-prefs.c:339
+msgid "Graphic and Text"
+msgstr "Grafik dhe Tekst"
+
+#: ../cpufreq/src/cpufreq-prefs.c:369 ../cpufreq/src/cpufreq-popup.c:304
+msgid "Frequencies"
+msgstr "Frekuencat"
+
+#: ../cpufreq/src/cpufreq-prefs.c:374 ../cpufreq/src/cpufreq-popup.c:297
+msgid "Governors"
+msgstr "Rregullues"
+
+#: ../cpufreq/src/cpufreq-prefs.c:379
+msgid "Frequencies and Governors"
+msgstr "Frekuenca dhe Rregullues"
+
+#: ../cpufreq/src/cpufreq-monitor-cpuinfo.c:184
+msgid "Frequency Scaling Unsupported"
+msgstr "Shkallëzim i Frekuencës i Pambështetur"
+
+#. If there is no cpufreq support it shows only the cpu frequency,
+#. * I thi nk is better than do nothing. I have to notify it to the user, because
+#. * he could think   that cpufreq is supported but it doesn't work succesfully
+#.
+#: ../cpufreq/src/cpufreq-monitor-factory.c:45
+msgid "CPU frequency scaling unsupported"
+msgstr "Shkallëzim i frekuencës së CPU-së i pambështetur"
+
+#: ../cpufreq/src/cpufreq-monitor-factory.c:46
+msgid ""
+"You will not be able to modify the frequency of your machine.  Your machine "
+"may be misconfigured or not have hardware support for CPU frequency scaling."
+msgstr ""
+"Nuk do jesh në gjendje të ndryshosh frekuencën e kompjuterit tënd.  "
+"Kompjuteri yt mund të jetë konfiguruar keq ose mund të mos ketë mbështetjen "
+"e duhur për shkallëzimin e frekuencës së CPU-së."
+
+#: ../cpufreq/src/cpufreq-monitor-procfs.c:252
+#: ../cpufreq/src/cpufreq-popup.c:232 ../libgweather/weather.c:189
+#: ../libgweather/weather.c:687 ../libgweather/weather.c:736
+#: ../libgweather/weather.c:749 ../libgweather/weather.c:761
+#: ../libgweather/weather.c:776 ../libgweather/weather.c:792
+#: ../libgweather/weather.c:829 ../libgweather/weather.c:841
+#: ../libgweather/weather.c:860 ../libgweather/weather.c:892
+#: ../libgweather/weather.c:905 ../libgweather/weather.c:925
+msgid "Unknown"
+msgstr "Nuk njihet"
+
+#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:1
+#: ../drivemount/drivemount.c:114
+msgid "Disk Mounter"
+msgstr "Montues Disku"
+
+#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:2
+msgid "Drive Mount Applet Factory"
+msgstr "Fabrika e Applet për Montimin e Driver-it"
+
+#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:3
+msgid "Factory for drive mount applet"
+msgstr "Fabrika e applet për montimin e driver-it"
+
+#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:4
+msgid "Mount local disks and devices"
+msgstr "Monto disqet dhe periferitë lokale"
+
+#: ../drivemount/drive-button.c:329 ../drivemount/drive-button.c:337
+msgid "(mounted)"
+msgstr "(montuar)"
+
+#: ../drivemount/drive-button.c:331 ../drivemount/drive-button.c:339
+msgid "(not mounted)"
+msgstr "(çmontuar)"
+
+#: ../drivemount/drive-button.c:333
+msgid "(not connected)"
+msgstr "(jo lidhur)"
+
+#: ../drivemount/drive-button.c:528
+#, c-format
+msgid "Cannot execute '%s'"
+msgstr "Nuk mund të xhiroj '%s'"
+
+#: ../drivemount/drive-button.c:551
+msgid "Mount Error"
+msgstr "Gabim Montimi"
+
+#: ../drivemount/drive-button.c:554
+msgid "Unmount Error"
+msgstr "Gabim Çmontimi"
+
+#: ../drivemount/drive-button.c:557
+msgid "Eject Error"
+msgstr "Gabim Nxjerrjeje"
+
+#: ../drivemount/drive-button.c:560
+msgid "Error"
+msgstr "Gabim"
+
+#: ../drivemount/drive-button.c:908
+msgid "_Play DVD"
+msgstr "_Luaj DVD"
+
+#: ../drivemount/drive-button.c:913
+msgid "_Play CD"
+msgstr "_Luaj CD"
+
+#: ../drivemount/drive-button.c:918
+#, c-format
+msgid "_Open %s"
+msgstr "_Hap %s"
+
+#: ../drivemount/drive-button.c:929
+#, c-format
+msgid "_Mount %s"
+msgstr "_Monto %s"
+
+#: ../drivemount/drive-button.c:936
+#, c-format
+msgid "Un_mount %s"
+msgstr "Ç_monto %s"
+
+#: ../drivemount/drive-button.c:948
+#, c-format
+msgid "_Eject %s"
+msgstr "_Nxirre %s"
+
+#: ../drivemount/drivemount.c:117
+msgid "Applet for mounting and unmounting block volumes."
+msgstr "Applet për montimin dhe zmontimin e volumeve."
+
+#: ../drivemount/drivemount.schemas.in.h:1
+msgid "Interval timeout to check mount point status"
+msgstr "Kontrollo statusin e pikës së montimit me intervale të caktuara"
+
+#: ../drivemount/drivemount.schemas.in.h:2
+msgid "Time in seconds between status updates"
+msgstr "Koha në sekonda midis freskimit të statusit"
+
+#: ../geyes/GNOME_GeyesApplet.server.in.in.h:1
+msgid "A set of eyeballs for your panel"
+msgstr "Një komplet sysh për panelin tuaj"
+
+#: ../geyes/GNOME_GeyesApplet.server.in.in.h:2 ../geyes/geyes.c:189
+#: ../geyes/geyes.c:419 ../geyes/geyes.c:421
+msgid "Geyes"
+msgstr "Geyes"
+
+#: ../geyes/GNOME_GeyesApplet.server.in.in.h:3
+msgid "Geyes Applet Factory"
+msgstr "Fabrika e Applet Geyes"
+
+#: ../geyes/geyes.c:191
+msgid "A goofy little xeyes clone for the GNOME panel."
+msgstr "Një klon i vogël xeyes për panelin e GNOME."
+
+#: ../geyes/geyes.c:422
+msgid "The eyes look in the direction of the mouse pointer"
+msgstr "Këto sy vështrojnë në drejtim të shënuesit të mouse-it"
+
+#: ../geyes/geyes.schemas.in.h:1
+msgid "Directory in which the theme is located"
+msgstr "Kartela ku gjendet tema"
+
+#: ../geyes/themes.c:134
+msgid "Can not launch the eyes applet."
+msgstr "I pamundur lëshimi i applet \"eyes\"."
+
+#: ../geyes/themes.c:135
+msgid "There was a fatal error while trying to load the theme."
+msgstr "U verifikua një gabim fatal gjatë përpjekjes për të ngarkuar temën."
+
+#: ../geyes/themes.c:311
+msgid "Geyes Preferences"
+msgstr "Preferencat e Geyes"
+
+#: ../geyes/themes.c:345
+msgid "Themes"
+msgstr "Temat"
+
+#: ../geyes/themes.c:366
+msgid "_Select a theme:"
+msgstr "_Zgjidh një temë:"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:1 ../gkb-new/xmodmap.sun/base.xml.in.h:1
+msgid "Alt+Control changes layout."
+msgstr "Skema e ndryshimeve Alt+Control."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:2 ../gkb-new/xmodmap.sun/base.xml.in.h:2
+msgid "Alt+Shift changes layout."
+msgstr "Skema e ndryshimeve Alt+Shift."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:3
+msgid "Arabic keymap"
+msgstr "Tastiera Arabisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:4
+msgid "Armenian"
+msgstr "Armenisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:5
+msgid "Basque"
+msgstr "Baske"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:6
+msgid "Belgian"
+msgstr "Belg"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:7 ../gkb-new/xmodmap.sun/base.xml.in.h:6
+msgid "Both Alt keys together change layout."
+msgstr "Skema e ndryshimit për të dy tastet Alt."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:8 ../gkb-new/xmodmap.sun/base.xml.in.h:7
+msgid "Both Ctrl keys together change layout."
+msgstr "Skema e ndryshimit për të dy tastet Ctrl."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:9 ../gkb-new/xmodmap.sun/base.xml.in.h:8
+msgid "Both Shift keys together change layout."
+msgstr "Skema e ndryshimit për të dy tastet Shift."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:10
+msgid "Brazil Portuguese keymap"
+msgstr "Tastiera Portugalisht Braziliane"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:11
+msgid "Bulgarian Cyrillic"
+msgstr "Bullgarishtja Cirilike"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:12
+msgid "Bulgarian keymap"
+msgstr "Tastiera Bullgarisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:13 ../gkb-new/xmodmap.sun/base.xml.in.h:16
+msgid "CapsLock key changes layout."
+msgstr "Skema e ndryshimeve për tastin CapsLock."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:14 ../gkb-new/xmodmap.sun/base.xml.in.h:17
+msgid "Control+Shift changes layout."
+msgstr "Skema e ndryshimeve Control+Shift."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:15
+msgid "Czech keymap"
+msgstr "Tastiera Çeke"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:16
+msgid "Danish keymap"
+msgstr "Tastiera Daneze"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:17
+msgid "Dutch keymap"
+msgstr "Tastiera Hollandeze"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:18
+msgid "English keymap"
+msgstr "Tastiera Angleze"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:19
+msgid "Estonian keymap"
+msgstr "Tastiera Estonisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:20
+msgid "Finnish keymap"
+msgstr "Tastiera Finlandeze"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:21
+msgid "French Swiss"
+msgstr "Frengjishtja Zvicerjane"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:22
+msgid "French Swiss keymap"
+msgstr "Tastiera Franko Zvicerjane"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:23
+msgid "French keymap"
+msgstr "Tastiera Franceze"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:24
+msgid "French-Canadian 105-key"
+msgstr "Tastiera 105-key Kanadeze"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:25
+msgid "GB 102-key"
+msgstr "Tastiera GB·102"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:26
+msgid "GB 105-key"
+msgstr "Tastiera GB·105"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:27 ../gkb-new/xmodmap.sun/base.xml.in.h:27
+msgid "Generic Keyboard"
+msgstr "Tastierë e Pëgjithshme"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:28
+msgid "Georgian Latin"
+msgstr "Gjeorgjishtja Latine"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:29
+msgid "Georgian Russian layout"
+msgstr "Gjeorgjishtja Ruse"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:30
+msgid "Georgian keymap"
+msgstr "Tastiera Gjeorgjisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:31
+msgid "German"
+msgstr "Gjermanisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:32
+msgid "German Swiss with Euro"
+msgstr "Gjermanishtja Zvicerjane me Euro"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:33
+msgid "German keymap"
+msgstr "Tastiera Gjermane"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:34
+msgid "Greek keymap"
+msgstr "Tastiera Greke"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:35
+msgid "Hebrew keymap"
+msgstr "Tastiera Hebraisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:36
+msgid "Hungarian 101-key latin 1"
+msgstr "Tastiera 101 latin 1 Hungarisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:37
+msgid "Hungarian 101-key latin 2"
+msgstr "Tastiera 101 latin 2 Hungarisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:38
+msgid "Hungarian 105-key latin 1"
+msgstr "Tastiera 105 latin 1 Hungarisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:39
+msgid "Hungarian 105-key latin 2"
+msgstr "Tastiera 105 latin 2 Hungarisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:40
+msgid "Hungarian PC/AT 101 keyboard"
+msgstr "Tastiera PC/AT·101 Hungarisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:41
+msgid "Hungarian latin1"
+msgstr "Hungarisht latin1"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:42
+msgid "Icelandic keymap"
+msgstr "Tastiera Islandisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:43
+msgid "Italian keymap"
+msgstr "Tastiera Italisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:44
+msgid "Japanese keymap"
+msgstr "Tastiera Japonisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:45
+msgid "Lao keymap"
+msgstr "Tastiera Laos"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:46 ../gkb-new/xmodmap.sun/base.xml.in.h:41
+msgid "Layout shift behavior"
+msgstr "Sjellja e skemës së ndërrimit"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:47 ../gkb-new/xmodmap.sun/base.xml.in.h:42
+msgid "Left Alt key changes layout."
+msgstr "Skema e ndryshimeve të tastit të majtë Alt."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:48 ../gkb-new/xmodmap.sun/base.xml.in.h:43
+msgid "Left Ctrl key changes group."
+msgstr "Grupi i ndryshimeve të tastit të majtë Ctrl."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:49 ../gkb-new/xmodmap.sun/base.xml.in.h:44
+msgid "Left Shift key changes group."
+msgstr "Grupi i ndryshimeve të tastit të majtë Shift."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:50 ../gkb-new/xmodmap.sun/base.xml.in.h:45
+msgid "Left Win-key changes layout."
+msgstr "Skema e ndryshimeve të tastit të majtë Win."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:51
+msgid "Lithuanian keymap"
+msgstr "Tasteria Lituane"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:52
+msgid "Macedonian"
+msgstr "Maqedonisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:53 ../gkb-new/xmodmap.sun/base.xml.in.h:48
+msgid "Menu key changes layout."
+msgstr "Skema e ndryshimeve të tastit Menu."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:54
+msgid "Mongolian alt keymap"
+msgstr "Tastiera alt Mongolisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:55
+msgid "Mongolian keymap"
+msgstr "Tastiera Mongolisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:56
+msgid "Mongolian phonetic keymap"
+msgstr "Tastiera fonetike Mongolisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:57
+msgid "Norwegian"
+msgstr "Norvegjeze"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:58
+msgid "Plain Russian keymap"
+msgstr "Tastiera e Rusishtes së thjeshtë"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:59
+msgid "Polish"
+msgstr "Polonisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:60
+msgid "Polish deadkeys"
+msgstr "Deadkey Polonisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:61
+msgid "Portugal"
+msgstr "Portugalia"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:62
+msgid "Portugal Deadkeys"
+msgstr "Deadkey Portugalisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:63
+msgid "Portuguese keymap"
+msgstr "Tastiera Portugalisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:64 ../gkb-new/xmodmap.sun/base.xml.in.h:53
+msgid "Right Alt key changes layout."
+msgstr "Skema e ndryshimeve të tastit të djathtë Alt."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:65 ../gkb-new/xmodmap.sun/base.xml.in.h:54
+msgid "Right Ctrl key changes group."
+msgstr "Grupi i ndryshimeve të tastit të djathtë Ctrl."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:66 ../gkb-new/xmodmap.sun/base.xml.in.h:55
+msgid "Right Shift key changes group."
+msgstr "Grupi i ndryshimeve të tastit të djathtë Shift."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:67 ../gkb-new/xmodmap.sun/base.xml.in.h:56
+msgid "Right Win-key changes layout."
+msgstr "Skema e ndryshimeve të tastit të djathtë Win."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:68
+msgid "Russian Cyrillic"
+msgstr "Rusishtja Cirilike"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:69
+msgid "Russian keymap"
+msgstr "Tastiera Rusisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:70
+msgid "Serbian keymap"
+msgstr "Tastiera Serbiane"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:71 ../gkb-new/xmodmap.sun/base.xml.in.h:60
+msgid "Shift+CapsLock changes layout."
+msgstr "Skema e ndryshimeve Shift+CapsLock."
+
+#: ../gkb-new/xmodmap/base.xml.in.h:72
+msgid "Slovak keymap"
+msgstr "Tastiera Sllovake"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:73
+msgid "Slovenian"
+msgstr "Sllovene"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:74
+msgid "Slovenian keymap"
+msgstr "Tastiera Sllovene"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:75
+msgid "Spanish keymap"
+msgstr "Tastiera Spanjisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:76
+msgid "Sun (!not PC!) type5 Hungarian latin 2"
+msgstr "Tastiera Sun(!jo PC!) lloji5 latin2 Hungarisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:77
+msgid "Swedish"
+msgstr "Suedisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:78
+msgid "Swedish keymap"
+msgstr "Tastiera Suedisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:79
+msgid "Swiss keymap"
+msgstr "Tastiera Zviceriane"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:80
+msgid "Thai"
+msgstr "Thai"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:81
+msgid "Thai Kedmanee"
+msgstr "Tailanda"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:82
+msgid "Thai keymap"
+msgstr "Tastiera Tailandeze"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:83
+msgid "Turkish \"F\" keyboard"
+msgstr "Tastiera \"F\" Turqisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:84
+msgid "Turkish \"Q\" keyboard"
+msgstr "Tastiera \"Q\" Turqisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:85
+msgid "Turkish keymap"
+msgstr "Tastiera Turqisht"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:86
+msgid "UK 105-key"
+msgstr "Tastiera Angleze 105-taste"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:87
+msgid "UK PC/AT keyboard"
+msgstr "Tastiera UK PC/AT"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:88
+msgid "US 101-key keyboard"
+msgstr "Tastiera Amerikane 101 taste"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:89
+msgid "US 105-key keyboard (with windows keys)"
+msgstr "Tastiera Amerikane 105 taste (me tastet e dritares)"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:90
+msgid "US 84-key"
+msgstr "Tastiera Amerikane 84 taste"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:91
+msgid "US DEC 450"
+msgstr "Tastiera Amerikane DEC 450"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:92
+msgid "US IBM RS/6000"
+msgstr "Tastiera Amerikane IBM RS/6000"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:93
+msgid "US International"
+msgstr "Tastiera Amerikane Internacionale"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:94
+msgid "US Macintosh"
+msgstr "Tastiera Macintosh Amerikane"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:95
+msgid "US PC/AT 101 keyboard"
+msgstr "Tastiera Amerikane PC/AT 101"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:96
+msgid "US Silicon Graphics 101-key"
+msgstr "Tastiera Amerikane Silicon Graphics 101 taste"
+
+#: ../gkb-new/xmodmap/base.xml.in.h:97
+msgid "US Sun type5"
+msgstr "Tastiera Amerikane Sun lloji5"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:3
+msgid "Armenian Sun keymap"
+msgstr "Tastiera Sun Armenisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:4
+msgid "Azerbaijani Turkish Sun keymap"
+msgstr "Tastiera Sun Turqisht e Azerbaixhanit"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:5
+msgid "Belarusian Sun keymap"
+msgstr "Tastiera Sun Bjelloruse"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:9
+msgid "Brazil Portuguese Sun USB keymap"
+msgstr "Tastiera Sun USB Portugalisht Braziliane"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:10
+msgid "Brazil Portuguese Sun keymap"
+msgstr "Tastiera Sun Portugalisht Braziliane"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:11
+msgid "British Sun Type-4 keymap"
+msgstr "Tastiera Sun Type-4 Angleze"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:12
+msgid "British Sun USB keymap"
+msgstr "Tastiera Sun USB Angleze"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:13
+msgid "British Sun keymap"
+msgstr "Tastiera Sun Angleze"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:14
+msgid "Bulgarian Sun keymap"
+msgstr "Tastiera Sun Bullgarisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:15
+msgid "Canadian Sun keymap"
+msgstr "Tastiera Sun Kanadeze"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:18
+msgid "Czech Sun keymap"
+msgstr "Tastiera Sun Çeke"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:19
+msgid "Danish Sun Type-4 keymap"
+msgstr "Tastiera Sun Type-4 Daneze "
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:20
+msgid "Danish Sun USB keymap"
+msgstr "Tastiera Sun USB Daneze"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:21
+msgid "Danish Sun keymap"
+msgstr "Tastiera Sun Daneze"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:22
+msgid "Dutch Sun keymap"
+msgstr "Tastiera Sun Hollandeze"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:23
+msgid "Estonian Sun keymap"
+msgstr "Tastiera Sun Estonisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:24
+msgid "Finnish Sun keymap"
+msgstr "Tastiera Sun Finlandeze"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:25
+msgid "French Sun USB keymap"
+msgstr "Tastiera Sun USB Franceze"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:26
+msgid "French Sun keymap"
+msgstr "Tastiera Sun Franceze"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:28
+msgid "German Sun Type-4 keymap"
+msgstr "Tastiera Sun Type-4 Gjermane"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:29
+msgid "German Sun USB keymap"
+msgstr "Tastiera Sun USB Gjermane"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:30
+msgid "German Sun keymap"
+msgstr "Tastiera Sun Gjermane"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:31
+msgid "Hebrew Sun keymap"
+msgstr "Tastiera Sun Hebraisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:32
+msgid "Hungarian latin2 Sun keymap"
+msgstr "Tastiera Sun latin2 Hungarisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:33
+msgid "Hungarian type5 latin 1 keymap"
+msgstr "Tastiera type5 latin1 Hungarisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:34
+msgid "Icelandic Sun keymap"
+msgstr "Tastiera Sun Islandisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:35
+msgid "Italian Sun Type-4 keymap"
+msgstr "Tastiera Sun Type-4 Italisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:36
+msgid "Italian Sun USB keymap"
+msgstr "Tastiera Sun USB Italisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:37
+msgid "Italian Sun keymap"
+msgstr "Tastiera Sun Italisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:38
+msgid "Japanese Sun Type-4 keymap"
+msgstr "Tastiera Sun Type-4 Japonisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:39
+msgid "Japanese Sun keymap"
+msgstr "Tastiera Sun Japonisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:40
+msgid "Latvian Sun keymap"
+msgstr "Tastiera Sun Letone"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:46
+msgid "Lithuanian Sun keymap"
+msgstr "Tasteria Sun Lituane"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:47
+msgid "Macedonian Sun keymap"
+msgstr "Tastiera Sun Maqedonisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:49
+msgid "Norwegian Sun keymap"
+msgstr "Tastiera Sun Norvegjisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:50
+msgid "Polish Sun keymap"
+msgstr "Tastiera Sun Polonisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:51
+msgid "Portuguese Sun Type-4 keymap"
+msgstr "Tastiera Sun Type-4 Portugalisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:52
+msgid "Portuguese Sun keymap"
+msgstr "Tastiera Sun Portugalisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:57
+msgid "Romanian Sun keymap"
+msgstr "Tastiera Sun Rumanisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:58
+msgid "Russian Sun keymap"
+msgstr "Tastiera Sun Rusisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:59
+msgid "Serbian Sun standard keymap"
+msgstr "Tastiera Sun standarte Serbisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:61
+msgid "Slovak Sun keymap"
+msgstr "Tastiera Sun Sllovake"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:62
+msgid "Slovenian Sun keymap"
+msgstr "Tastiera Sun Sllovene"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:63
+msgid "Spanish Sun Type-4 keymap"
+msgstr "Tastiera Sun Type-4 Spanjisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:64
+msgid "Spanish Sun USB keymap"
+msgstr "Tastiera Sun USB Spanjisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:65
+msgid "Spanish Sun keymap"
+msgstr "Tastiera Sun Spanjisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:66
+msgid "Swedish Sun Type-4 keymap"
+msgstr "Tastiera Sun Type-4 Suedisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:67
+msgid "Swedish Sun USB keymap"
+msgstr "Tastiera Sun USB Suedisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:68
+msgid "Swedish Sun keymap"
+msgstr "Tastiera Sun Suedisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:69
+msgid "Swiss German Sun keymap"
+msgstr "Tastiera Sun Gjermanisht e Zvicrës"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:70
+msgid "Thai Sun keymap"
+msgstr "Tastiera Sun Tailandeze"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:71
+msgid "Turkish Sun keymap"
+msgstr "Tastiera Sun Turqisht"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:72
+msgid "US Sun Type-4 keymap"
+msgstr "Tastiera Sun Type-4 Amerikane"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:73
+msgid "US Sun USB keymap"
+msgstr "Tastiera Sun USB Amerikane"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:74
+msgid "US Sun type5 keymap"
+msgstr "Tastiera Sun type5 Amerikane"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:75
+msgid "Ukrainian Sun keymap"
+msgstr "Tastiera Sun Ukrainase"
+
+#: ../gkb-new/xmodmap.sun/base.xml.in.h:76
+msgid "Vietnamese Sun keymap"
+msgstr "Tastiera Sun Vietnameze"
+
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:1
+msgid "Pl_ugins"
+msgstr "Pl_ugins"
+
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:3
+msgid "_Groups"
+msgstr "_Grupet"
+
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:5
+msgid "_Layout View"
+msgstr "_Pamja e Përgjithshme"
+
+#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:6
+msgid "_Open Keyboard Preferences"
+msgstr "_Hap pronësitë e tastierës"
+
+#: ../gswitchit/GNOME_KeyboardApplet.server.in.in.h:1
+#: ../gswitchit/gswitchit-applet.c:759
+msgid "Keyboard Indicator"
+msgstr "Treguesi i Tastierës"
+
+#: ../gswitchit/GNOME_KeyboardApplet.server.in.in.h:2
+msgid "Keyboard applet factory"
+msgstr "Fabrika e applet-it të tastierës"
+
+#: ../gswitchit/GNOME_KeyboardApplet.server.in.in.h:3
+msgid "Keyboard layout indicator"
+msgstr "Treguesi i llojit të tastierës"
+
+#: ../gswitchit/gswitchit-applet.c:134
+#, c-format
+msgid "Keyboard Indicator (%s)"
+msgstr "Tregues Tastiere (%s)"
+
+#: ../gswitchit/gswitchit-applet.c:632
+#, c-format
+msgid "Keyboard Layout \"%s\""
+msgstr "Lloji i Tastierës \"%s\""
+
+#. Translators: Please replace (C) with the proper copyright character.
+#: ../gswitchit/gswitchit-applet.c:762
+msgid "Copyright (c) Sergey V. Udaltsov 1999-2004"
+msgstr "Copyright (c) Sergey V. Udaltsov 1999-2004"
+
+#: ../gswitchit/gswitchit-applet.c:763
+msgid "Keyboard layout indicator applet for GNOME"
+msgstr "Applet-i treguesit të layout të tastierës për GNOME"
+
+#: ../gswitchit/gswitchit-applet.c:916
+msgid "XKB initialization error"
+msgstr "Gabim gjatë nisjes së XKB"
+
+#: ../gswitchit/gswitchit-applet.c:925
+msgid "Error loading XKB configuration registry"
+msgstr "Gabim gjatë leximit të regjistrit të konfigurimit të XKB"
+
+#: ../gswitchit/gswitchit-plugins-add.c:104
+#: ../gswitchit/gswitchit-plugins.c:120
+msgid "No description."
+msgstr "Asnjë përshkrim."
+
+#: ../gswitchit/gswitchit-plugins.c:329
+#, c-format
+msgid "Failed to init GConf: %s\n"
+msgstr "Gabim gjatë nisjes së GConf: %s\n"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:1
+msgid "Activate more plugins"
+msgstr "Aktivo plugins të tjerë"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:2
+msgid "Active _plugins:"
+msgstr "_Plugins aktivë:"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:3
+msgid "Add Plugin"
+msgstr "Shto Plugin"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:4
+msgid "Close the dialog"
+msgstr "Mbyll dialogun"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:5
+msgid "Configure the selected plugin"
+msgstr "Konfiguro plugin e zgjedhur"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:6
+msgid "Deactivate selected plugin"
+msgstr "Deaktivo plugin e zgjedhur"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:7
+msgid "Decrease the plugin priority"
+msgstr "Zvogëlo prioritetin e plugin"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:8
+msgid "Increase the plugin priority"
+msgstr "Zmadho prioritetin e plugin"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:9
+msgid "Keyboard Indicator Plugins"
+msgstr "Plugins Treguesi i Tastierës"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:10
+msgid "The list of active plugins"
+msgstr "Lista e plugins aktivë"
+
+#: ../gswitchit/gswitchit-plugins.glade.h:11
+msgid "_Available plugins:"
+msgstr "Plugins në _dispozicion:"
+
+#: ../gswitchit/gswitchit.glade.h:1
+msgid "Keyboard Layout"
+msgstr "Lloji i Tastierës"
+
+#: ../gswitchit/gswitchit.schemas.in.h:1
+msgid "Secondary groups"
+msgstr "Grupet sekondarë"
+
+#: ../gswitchit/gswitchit.schemas.in.h:2
+msgid "Show flags in the applet"
+msgstr "Shfaq flamujt në applet"
+
+#: ../gswitchit/gswitchit.schemas.in.h:3
+msgid "Show flags in the applet to indicate the current layout"
+msgstr "Shfaq flamujt në applet për të treguar tastierën aktuale"
+
+#: ../gswitchit/gswitchit.schemas.in.h:4
+msgid "The list of enabled Keyboard Indicator plugins"
+msgstr "Lista e shtesave (plugins) të aktivizuara për Treguesin e Tastierës"
+
+#: ../gtik/GNOME_GtikApplet.server.in.in.h:1
+msgid "Get continuously updated stock quotes"
+msgstr "Tërhiq vazhdimisht kuotat e freskuara të aksioneve"
+
+#: ../gtik/GNOME_GtikApplet.server.in.in.h:2
+msgid "Gtik Applet Factory"
+msgstr "Fabrika e Applet Gtik"
+
+#: ../gtik/GNOME_GtikApplet.server.in.in.h:3 ../gtik/gtik.c:706
+msgid "Stock Ticker"
+msgstr "Applet i Aksioneve"
+
+#: ../gtik/GNOME_GtikApplet.xml.h:4 ../gweather/GNOME_GWeatherApplet.xml.h:5
+#: ../gweather/gweather-dialog.c:182
+msgid "_Update"
+msgstr "_Rifresko"
+
+#: ../gtik/gtik.c:251
+msgid "Could not retrieve the stock data."
+msgstr "Nuk mundi të tërhiqte të dhënat e aksioneve."
+
+#: ../gtik/gtik.c:271
+msgid "No stock list"
+msgstr "Asnjë listë aksionesh"
+
+#: ../gtik/gtik.c:307 ../gweather/gweather-applet.c:499
+msgid "Updating..."
+msgstr "Duke rifreskuar të dhënat..."
+
+#: ../gtik/gtik.c:710
+msgid ""
+"This program connects to a popular site and downloads current stock quotes.\n"
+"\n"
+"The GNOME Stock Ticker is a free Internet-based application. It comes with "
+"ABSOLUTELY NO WARRANTY.\n"
+"\n"
+"Do not use the GNOME Stock Ticker for making investment decisions; it is for "
+"informational purposes only."
+msgstr ""
+"Ky program lidhet me një faqe interneti të njohur dhe tërheq kuotat e "
+"tanishme të aksioneve.\n"
+"\n"
+"Applet i Aksioneve GNOME është një program i lirë dhe i bazuar në Internet.  "
+"Vjen pa ASNJË GARANCI.\n"
+"\n"
+"Mos e përdor Applet e Aksioneve GNOME për të ndërmarrë vendime investuese; "
+"vlen vetëm për qëllime informuese."
+
+#: ../gtik/gtik.c:1182
+msgid "Current _stocks:"
+msgstr "Aksionet e _tanishme:"
+
+#: ../gtik/gtik.c:1190
+msgid "Add _new symbol:"
+msgstr "Shto simbol të _ri:"
+
+#: ../gtik/gtik.c:1311
+msgid "Stock Ticker Preferences"
+msgstr "Preferencat e Applet të Aksioneve"
+
+#: ../gtik/gtik.c:1333
+msgid "Symbols"
+msgstr "Simbolet"
+
+#: ../gtik/gtik.c:1340
+msgid "Behavior"
+msgstr "Sjellja"
+
+#: ../gtik/gtik.c:1343 ../gweather/gweather-pref.c:986
+msgid "Update"
+msgstr "Rifresko"
+
+#: ../gtik/gtik.c:1347
+msgid "Stock update fre_quency:"
+msgstr "Fre_kuenca e freskimit të aksioneve:"
+
+#: ../gtik/gtik.c:1359 ../gweather/gweather-pref.c:1010
+msgid "minutes"
+msgstr "minuta"
+
+#: ../gtik/gtik.c:1365
+msgid "Scrolling"
+msgstr "Rrëshqitje"
+
+#: ../gtik/gtik.c:1369
+msgid "_Scroll speed:"
+msgstr "_Shpejtësia e shfletimit:"
+
+#: ../gtik/gtik.c:1373
+msgid "Slow"
+msgstr "Ngadalë"
+
+#: ../gtik/gtik.c:1375
+msgid "Medium"
+msgstr "Mesatare"
+
+#: ../gtik/gtik.c:1377
+msgid "Fast"
+msgstr "Shpejt"
+
+#: ../gtik/gtik.c:1397
+msgid "_Enable scroll buttons"
+msgstr "_Aktivizo butonat e shfletimit"
+
+#: ../gtik/gtik.c:1409
+msgid "Scroll _left to right"
+msgstr "Shfleto nga e _majta në të djathtë"
+
+#: ../gtik/gtik.c:1423
+msgid "Appearance"
+msgstr "Paraqitja"
+
+#: ../gtik/gtik.c:1430 ../gweather/gweather-pref.c:1026
+msgid "Display"
+msgstr "Monitori"
+
+#: ../gtik/gtik.c:1435
+msgid "Displa_y only symbols and price"
+msgstr "Shfa_q vetëm simbolet dhe çmimin"
+
+#: ../gtik/gtik.c:1448 ../mini-commander/src/mini-commander.glade.h:20
+#: ../stickynotes/stickynotes.glade.h:48
+msgid "_Width:"
+msgstr "_Gjerësia:"
+
+#: ../gtik/gtik.c:1462 ../mini-commander/src/mini-commander.glade.h:21
+#: ../multiload/properties.c:537
+msgid "pixels"
+msgstr "pixels"
+
+#: ../gtik/gtik.c:1471
+msgid "Font and Colors"
+msgstr "Shkronjat dhe Ngjyrat"
+
+#: ../gtik/gtik.c:1477
+msgid "Use _default theme font and colors"
+msgstr "Përdor _temën dhe ngjyrat e parazgjedhura"
+
+#: ../gtik/gtik.c:1492
+msgid "_Font:"
+msgstr "_Gërmat:"
+
+#: ../gtik/gtik.c:1516
+msgid "Stock _raised:"
+msgstr "Aksionet e _ngritura:"
+
+#: ../gtik/gtik.c:1537
+msgid "Stock _lowered:"
+msgstr "Aksionet e _rëna:"
+
+#: ../gtik/gtik.c:1558
+msgid "Stock _unchanged:"
+msgstr "Aksionet e _pandryshuar:"
+
+#: ../gtik/gtik.c:1579
+msgid "_Background:"
+msgstr "_Sfondi:"
+
+#: ../gtik/gtik.c:1726
+msgid "Skip forward"
+msgstr "Kalo përpara"
+
+#: ../gtik/gtik.c:1727
+msgid "Skip backward"
+msgstr "Kalo prapa"
+
+#: ../gtik/gtik.c:1735
+msgid ""
+"Stock Ticker\n"
+"Get continuously updated stock quotes"
+msgstr ""
+"Applet i Aksioneve\n"
+"Tërhiq vazhdimisht kuotat e freskuara të aksioneve"
+
+#: ../gtik/gtik.c:1926
+#, c-format
+msgid "+%s (%s)"
+msgstr "+%s (%s)"
+
+#: ../gtik/gtik.c:1930
+#, c-format
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
+#: ../gtik/gtik.c:1933
+msgid "(No Change)"
+msgstr "(Asnjë Ndryshim)"
+
+#: ../gtik/gtik.schemas.in.h:1
+msgid "Applet scrolls right to left when this key is set to true."
+msgstr "Applet shfleton nga e djathta në të majtë nëse ky buton është i vërtetë."
+
+#: ../gtik/gtik.schemas.in.h:2
+msgid "Background color"
+msgstr "Ngjyra e sfondit"
+
+#: ../gtik/gtik.schemas.in.h:3
+msgid ""
+"Display only stock symbols along with their value. Do not display changes in "
+"value."
+msgstr ""
+"Shfaq vetem simbolet e aksioneve përgjatë vlerave të tyre. Mos trego "
+"ndryshimet në vlera."
+
+#: ../gtik/gtik.schemas.in.h:4
+msgid "Display only symbols and price"
+msgstr "Shfaq vetëm simbolet dhe çmimin"
+
+#: ../gtik/gtik.schemas.in.h:5
+msgid "Font"
+msgstr "Gërmat"
+
+#: ../gtik/gtik.schemas.in.h:6
+msgid ""
+"List containing the stocks to be displayed. Consists of the stock id "
+"separated by \"+\""
+msgstr ""
+"Lista që përmban aksionet për tu shfaqur. Konsiston në ID e aksionit të "
+"ndarë me \"+\""
+
+#: ../gtik/gtik.schemas.in.h:7
+msgid "Lowered color"
+msgstr "Ngjyra më të zbehura"
+
+#: ../gtik/gtik.schemas.in.h:8
+msgid "Raised color"
+msgstr "Ngjyra të theksuara"
+
+#: ../gtik/gtik.schemas.in.h:9
+msgid "Right to left scrolling"
+msgstr "Shfletim nga e djathta në të majtë"
+
+#: ../gtik/gtik.schemas.in.h:10
+msgid "Shorter time means the stocks scroll by faster."
+msgstr "Sa më e shkurtër koha, aq më i shpejtë shfletimi."
+
+#: ../gtik/gtik.schemas.in.h:11
+msgid "Show arrow buttons"
+msgstr "Shfaq butonat me shigjeta"
+
+#: ../gtik/gtik.schemas.in.h:12
+msgid ""
+"Show arrow buttons on the side of the display so that the user can scroll "
+"forward or backward."
+msgstr ""
+"Shfaq butonat me shigjeta në cepat e applet në mënyrë që përdoruesi të "
+"kalojë përpara apo prapa."
+
+#: ../gtik/gtik.schemas.in.h:13
+msgid "Stocks to monitor - must be separated by a +"
+msgstr "Aksionet nën vezhgim - duhen ndarë me një +"
+
+#: ../gtik/gtik.schemas.in.h:14
+msgid ""
+"The color of the background of the display. Has no effect when the user "
+"chooses to use the default theme fonts and colors."
+msgstr ""
+"Ngjyra e sfondit. Nuk ka efekt kur përdoruesi zgjedh temën e parazgjedhur të "
+"shkronjave dhe ngjyrave."
+
+#: ../gtik/gtik.schemas.in.h:15
+msgid ""
+"The color used when the stock's values has lowered. Has no effect when the "
+"user chooses to use the default theme fonts and colors."
+msgstr ""
+"Ngjyrat e pëdorura kur vlerat e aksionit janë ulur. Nuk ka efekt kur "
+"përdoruesi zgjedh temën e parazgjedhur të shkronjave dhe ngjyrave."
+
+#: ../gtik/gtik.schemas.in.h:16
+msgid ""
+"The color used when the stock's values has not changed. Has no effect when "
+"the user chooses to use the default theme fonts and colors."
+msgstr ""
+"Ngjyrat e përdorura kur vlerat e aksionit nuk kanë ndryshuar. Nuk ka efekt "
+"kur përdoruesi zgjedh temën e parazgjedhur të shkronjave dhe ngjyrave."
+
+#: ../gtik/gtik.schemas.in.h:17
+msgid ""
+"The color used when the stock's values has raised. Has no effect when the "
+"user chooses to use the default theme fonts and colors."
+msgstr ""
+"Ngjyrat e përdorura kur vlerat e aksionit jane ngritur. Nuk ka efekt kur "
+"përdoruesi zgjedh temën e parazgjedhur të shkronjave dhe ngjyrave."
+
+#: ../gtik/gtik.schemas.in.h:18
+msgid ""
+"The font used for the display. Has no effect when the user chooses to use "
+"the default theme fonts and colors."
+msgstr ""
+"Shkronjat e përdorur për shfletim. Nuk ka efekt kur përdoruesi zgjedh temën "
+"e parazgjedhur të shkronjave dhe ngjyrave."
+
+#: ../gtik/gtik.schemas.in.h:19
+msgid "The time interval until when the applet updates the stock data."
+msgstr "Intervali kohor deri kur applet freskon të dhënat e aksioneve."
+
+#: ../gtik/gtik.schemas.in.h:20
+msgid "The width in pixels of the applet."
+msgstr "Gjerësia në piksel e applet."
+
+#: ../gtik/gtik.schemas.in.h:21
+msgid "Time in milliseconds for display update"
+msgstr "Koha në milisekonda për freskimin e të dhënave"
+
+#: ../gtik/gtik.schemas.in.h:22
+msgid "Unchanged color"
+msgstr "Ngjyrat e pandryshuara"
+
+#: ../gtik/gtik.schemas.in.h:23 ../libgweather/gweather.schemas.in.h:21
+msgid "Update interval"
+msgstr "Intervali kohor i freskimit"
+
+#: ../gtik/gtik.schemas.in.h:24
+msgid "Use default theme fonts and colors"
+msgstr "Përdor temën e parazgjedhur të shkronjave dhe ngjyrave"
+
+#: ../gtik/gtik.schemas.in.h:25
+msgid "Use default theme fonts and colors instead of custom ones"
+msgstr ""
+"Përdor temën e parazgjedhur të shkronjave dhe ngjyrave në vend të asaj që ti "
+"zgjedh"
+
+#: ../gtik/gtik.schemas.in.h:26
+#: ../mini-commander/src/mini-commander.schemas.in.h:28
+msgid "Width of the applet"
+msgstr "Gjerësia e applet"
+
+#: ../gtik/gtik.schemas.in.h:27
+msgid "font 2 - No Longer used"
+msgstr "font 2 - I Papërdorshëm"
+
+#: ../gweather/GNOME_GWeatherApplet.xml.h:2
+msgid "_Details"
+msgstr "_Detaje"
+
+#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:1
+msgid "Factory for creating the weather applet."
+msgstr "Fabrika për krijimin e applet së motit."
+
+#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:2
+msgid "Gweather Applet Factory"
+msgstr "Fabrika e Applet Gweather"
+
+#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:3
+msgid "Monitor the current weather conditions, and forecasts"
+msgstr "Vëzhgo të dhënat e motit dhe parashikimet"
+
+#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:4
+#: ../gweather/gweather-about.c:49
+msgid "Weather Report"
+msgstr "Njoftimet e Motit"
+
+#: ../gweather/gweather-about.c:51
+msgid "© 1999-2005 by S. Papadimitriou and others"
+msgstr "© 1999-2005 nga S. Papadimitriou dhe të tjerë"
+
+#: ../gweather/gweather-about.c:52
+msgid "A panel application for monitoring local weather conditions."
+msgstr "Një program paneli për vëzhgimin lokal të motit."
+
+#: ../gweather/gweather-applet.c:333 ../gweather/gweather-applet.c:337
+msgid "GNOME Weather"
+msgstr "Moti i GNOME"
+
+#: ../gweather/gweather-applet.c:435
+msgid "Weather Forecast"
+msgstr "Parashikimi i Motit"
+
+#: ../gweather/gweather-applet.c:446
+#, c-format
+msgid ""
+"City: %s\n"
+"Sky: %s\n"
+"Temperature: %s"
+msgstr ""
+"Qyteti: %s\n"
+"Qielli: %s\n"
+"Temperatura: %s"
+
+#: ../gweather/gweather-dialog.c:180
+msgid "Details"
+msgstr "Hollësi"
+
+#: ../gweather/gweather-dialog.c:221
+msgid "City:"
+msgstr "Qyteti:"
+
+#: ../gweather/gweather-dialog.c:229
+msgid "Last update:"
+msgstr "Freskimi i fundit:"
+
+#: ../gweather/gweather-dialog.c:237
+msgid "Conditions:"
+msgstr "Moti:"
+
+#: ../gweather/gweather-dialog.c:245
+msgid "Sky:"
+msgstr "Qielli:"
+
+#: ../gweather/gweather-dialog.c:253
+msgid "Temperature:"
+msgstr "Temperatura:"
+
+#: ../gweather/gweather-dialog.c:261
+msgid "Feels like:"
+msgstr "Ngjan si:"
+
+#: ../gweather/gweather-dialog.c:269
+msgid "Dew point:"
+msgstr "Pika e vesës:"
+
+#: ../gweather/gweather-dialog.c:277
+msgid "Relative humidity:"
+msgstr "Lagështia relative:"
+
+#: ../gweather/gweather-dialog.c:285
+msgid "Wind:"
+msgstr "Era:"
+
+#: ../gweather/gweather-dialog.c:293
+msgid "Pressure:"
+msgstr "Trysnia:"
+
+#: ../gweather/gweather-dialog.c:301
+msgid "Visibility:"
+msgstr "Dukshmëria:"
+
+#: ../gweather/gweather-dialog.c:309
+msgid "Sunrise:"
+msgstr "Lindja e Diellit:"
+
+#: ../gweather/gweather-dialog.c:317
+msgid "Sunset:"
+msgstr "Perëndimi i Diellit:"
+
+#: ../gweather/gweather-dialog.c:452
+msgid "Current Conditions"
+msgstr "Moti i Tanishëm"
+
+#: ../gweather/gweather-dialog.c:469
+msgid "Forecast Report"
+msgstr "Njoftimi i Parashikimit"
+
+#: ../gweather/gweather-dialog.c:469
+msgid "See the ForeCast Details"
+msgstr "Shiko Parashikimin në Hollësi"
+
+#: ../gweather/gweather-dialog.c:479
+msgid "Forecast"
+msgstr "Parashikimi"
+
+#: ../gweather/gweather-dialog.c:487
+msgid "Radar Map"
+msgstr "Harta e Radarit"
+
+#: ../gweather/gweather-dialog.c:518
+msgid "_Visit Weather.com"
+msgstr "_Vizito Weather.com"
+
+#: ../gweather/gweather-dialog.c:519
+msgid "Visit Weather.com"
+msgstr "Vizito Weather.com"
+
+#: ../gweather/gweather-dialog.c:519
+msgid "Click to Enter Weather.com"
+msgstr "Kliko të hysh në Weather.com"
+
+#: ../gweather/gweather-dialog.c:640
+msgid "Forecast not currently available for this location."
+msgstr "Parashikimi nuk është i mundur për këtë vendndodhje."
+
+#. Accessible Name and Description for the components in Preference Dialog
+#: ../gweather/gweather-pref.c:174
+msgid "Location view"
+msgstr "Pamja e vendndodhjes"
+
+#: ../gweather/gweather-pref.c:174
+msgid "Select Location from the list"
+msgstr "Zgjidh Vendndodhjen nga lista"
+
+#: ../gweather/gweather-pref.c:175
+msgid "Update spin button"
+msgstr "Butoni i freskimit"
+
+#: ../gweather/gweather-pref.c:175
+msgid "Spinbutton for updating"
+msgstr "Butoni për freskim"
+
+#: ../gweather/gweather-pref.c:176
+msgid "Address Entry"
+msgstr "Dhënia e adresës"
+
+#: ../gweather/gweather-pref.c:176
+msgid "Enter the URL"
+msgstr "Fut URL"
+
+#: ../gweather/gweather-pref.c:297
+msgid "Failed to load the Locations XML database.  Please report this as a bug."
+msgstr ""
+"Dështoi në ngarkimin e databazës XML Vendndodhjet.  Ju lutem njoftojeni këtë "
+"si një defekt."
+
+#: ../gweather/gweather-pref.c:773
+msgid "Weather Preferences"
+msgstr "Preferencat e Motit"
+
+#: ../gweather/gweather-pref.c:805 ../gweather/gweather-pref.c:990
+msgid "_Automatically update every:"
+msgstr "Freskon _Automatikish çdo:"
+
+#.
+#. * Units settings page.
+#.
+#. Temperature Unit
+#: ../gweather/gweather-pref.c:818
+msgid "_Temperature unit:"
+msgstr "Njësia e _temperaturës:"
+
+#: ../gweather/gweather-pref.c:827 ../gweather/gweather-pref.c:847
+#: ../gweather/gweather-pref.c:873 ../gweather/gweather-pref.c:901
+msgid "Default"
+msgstr "E prezgjedhur"
+
+#: ../gweather/gweather-pref.c:828
+msgid "Kelvin"
+msgstr "Kelvin"
+
+#. TRANSLATORS: Celsius is sometimes referred Centigrade
+#: ../gweather/gweather-pref.c:830
+msgid "Celsius"
+msgstr "Celsius"
+
+#: ../gweather/gweather-pref.c:831
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+#. Speed Unit
+#: ../gweather/gweather-pref.c:838
+msgid "_Wind speed unit:"
+msgstr "Njësia e shpejtësisë së _erës:"
+
+#. TRANSLATOR: The wind speed unit "meters per second"
+#: ../gweather/gweather-pref.c:849
+msgid "m/s"
+msgstr "m/s"
+
+#. TRANSLATOR: The wind speed unit "kilometers per hour"
+#: ../gweather/gweather-pref.c:851
+msgid "km/h"
+msgstr "km/h"
+
+#. TRANSLATOR: The wind speed unit "miles per hour"
+#: ../gweather/gweather-pref.c:853
+msgid "mph"
+msgstr "mph"
+
+#. TRANSLATOR: The wind speed unit "knots"
+#: ../gweather/gweather-pref.c:855
+msgid "knots"
+msgstr "nyje"
+
+#: ../gweather/gweather-pref.c:857
+msgid "Beaufort scale"
+msgstr "Shkalla Beaufort"
+
+#. Pressure Unit
+#: ../gweather/gweather-pref.c:864
+msgid "_Pressure unit:"
+msgstr "Njësia e _trysnisë:"
+
+#. TRANSLATOR: The pressure unit "kiloPascals"
+#: ../gweather/gweather-pref.c:875
+msgid "kPa"
+msgstr "kPa"
+
+#. TRANSLATOR: The pressure unit "hectoPascals"
+#: ../gweather/gweather-pref.c:877
+msgid "hPa"
+msgstr "hPa"
+
+#. TRANSLATOR: The pressure unit "millibars"
+#: ../gweather/gweather-pref.c:879
+msgid "mb"
+msgstr "mb"
+
+#. TRANSLATOR: The pressure unit "millibars of mercury"
+#: ../gweather/gweather-pref.c:881
+msgid "mmHg"
+msgstr "mmHg"
+
+#. TRANSLATOR: The pressure unit "inches of mercury"
+#: ../gweather/gweather-pref.c:883
+msgid "inHg"
+msgstr "in/Hg"
+
+#. TRANSLATOR: The pressure unit "atmospheres"
+#: ../gweather/gweather-pref.c:885
+msgid "atm"
+msgstr "atm"
+
+#. Distance Unit
+#: ../gweather/gweather-pref.c:892
+msgid "_Visibility unit:"
+msgstr "Njësia e _dukshmërisë:"
+
+#. TRANSLATOR: The distance unit "meters"
+#: ../gweather/gweather-pref.c:903
+msgid "meters"
+msgstr "metra"
+
+#. TRANSLATOR: The distance unit "kilometers"
+#: ../gweather/gweather-pref.c:905
+msgid "km"
+msgstr "km"
+
+#. TRANSLATOR: The distance unit "miles"
+#: ../gweather/gweather-pref.c:907
+msgid "miles"
+msgstr "milje"
+
+#: ../gweather/gweather-pref.c:941
+msgid "Enable _radar map"
+msgstr "Aktivizo hartën e _radarit"
+
+#: ../gweather/gweather-pref.c:955
+msgid "Use _custom address for radar map"
+msgstr "Përdor adresën e perso_nalizuar për hartën e radarit"
+
+#: ../gweather/gweather-pref.c:972
+msgid "A_ddress:"
+msgstr "A_dresa:"
+
+#: ../gweather/gweather-pref.c:1041
+#: ../mini-commander/src/mini-commander.glade.h:12
+msgid "General"
+msgstr "Të përgjithshme"
+
+#: ../gweather/gweather-pref.c:1054
+msgid "_Select a location:"
+msgstr "_Zgjidh një vendndodhje:"
+
+#: ../gweather/gweather-pref.c:1081
+msgid "_Find:"
+msgstr "_Gjej:"
+
+#: ../gweather/gweather-pref.c:1088
+msgid "Find _Next"
+msgstr "Gjej _Tjetrin"
+
+#: ../gweather/gweather-pref.c:1109
+msgid "Location"
+msgstr "Vendodhja"
+
+#. TRANSLATOR: Change this to the default location name,
+#. * used when you first start the Weather Applet. This is
+#. * the common localised name that corresponds to
+#. * the location code (DEFAULT_CODE) you will put on the next message
+#. * For example, for the Greek locale, we set this to "Athens", the
+#. * capital city and we write it in Greek. It's important to translate
+#. * this name.
+#. *
+#. * If you do not require a DEFAULT_LOCATION, set this to
+#. * "DEFAULT_LOCATION".
+#.
+#: ../libgweather/gweather-gconf.c:162 ../libgweather/gweather-gconf.c:163
+#: ../libgweather/gweather.schemas.in.h:3
+msgid "DEFAULT_LOCATION"
+msgstr "Tirana"
+
+#. TRANSLATOR: Change this to the code of your default location that
+#. * corresponds to the DEFAULT_LOCATION name you put above. This is
+#. * normally a four-letter (ICAO) code and can be found in
+#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * NB. The web page is over 1.7MB in size.
+#. * Pick a default location like a capital city so that it would be ok
+#. * for more of your users. For example, for Greek, we use "LGAV" for
+#. * the capital city, Athens.
+#. *
+#. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
+#.
+#: ../libgweather/gweather-gconf.c:182 ../libgweather/gweather-gconf.c:183
+#: ../libgweather/gweather.schemas.in.h:1
+msgid "DEFAULT_CODE"
+msgstr "LATI"
+
+#. TRANSLATOR: Change this to the zone of your default location that
+#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
+#. * Normally, US and Canada locations have zones while the rest do not.
+#. * Check
+#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * as any zone you put here must also be present in the Locations.xml
+#. * file.
+#. *
+#. * If your default location does not have a zone, set this to
+#. * "DEFAULT_ZONE".
+#.
+#: ../libgweather/gweather-gconf.c:202 ../libgweather/gweather-gconf.c:203
+#: ../libgweather/gweather.schemas.in.h:5
+msgid "DEFAULT_ZONE"
+msgstr "DEFAULT_ZONE"
+
+#. TRANSLATOR: Change this to the radar of your default location that
+#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
+#. * Normally, US and Canada locations have radar names while the rest do
+#. * not. Check
+#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * as any radar you put here must also be present in the Locations.xml
+#. * file.
+#. *
+#. * If your default location does not have a radar, set this to " "
+#. * (or space).
+#. * If you do not have a default location, set this to DEFAULT_RADAR.
+#.
+#: ../libgweather/gweather-gconf.c:223 ../libgweather/gweather-gconf.c:224
+#: ../libgweather/gweather.schemas.in.h:4
+msgid "DEFAULT_RADAR"
+msgstr "DEFAULT_RADAR"
+
+#. TRANSLATOR: Change this to the coordinates of your default location
+#. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
+#. * above. Check
+#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * as any coordinates you put here must also be present in the
+#. * Locations.xml file.
+#. *
+#. * If your default location does not have known coordinates, set this
+#. * to " " (or space).
+#. * If you do not have a default location, set this to
+#. * DEFAULT_COORDINATES.
+#.
+#: ../libgweather/gweather-gconf.c:244 ../libgweather/gweather-gconf.c:245
+#: ../libgweather/gweather.schemas.in.h:2
+msgid "DEFAULT_COORDINATES"
+msgstr "41-20N 019-47E"
+
+#. TRANSLATOR: This is the default unit to use for temperature measurements.
+#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
+#: ../libgweather/gweather-prefs.c:70 ../libgweather/gweather-prefs.c:79
+msgid "DEFAULT_TEMP_UNIT"
+msgstr "C"
+
+#. TRANSLATOR: This is the default unit to use for wind speed.
+#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
+#. "mph" (miles per hour) and "knots"
+#: ../libgweather/gweather-prefs.c:107 ../libgweather/gweather-prefs.c:117
+msgid "DEFAULT_SPEED_UNIT"
+msgstr "m/s"
+
+#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
+#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
+#. "mb" (millibars), "mmHg" (millimeters of mercury),
+#. "inHg" (inches of mercury) and "atm" (atmosphere)
+#: ../libgweather/gweather-prefs.c:147 ../libgweather/gweather-prefs.c:158
+msgid "DEFAULT_PRESSURE_UNIT"
+msgstr "mb"
+
+#. TRANSLATOR: This is the default unit to use for visibility distance.
+#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
+#: ../libgweather/gweather-prefs.c:186 ../libgweather/gweather-prefs.c:195
+msgid "DEFAULT_DISTANCE_UNIT"
+msgstr "m"
+
+#: ../libgweather/weather.c:179
+msgid "Variable"
+msgstr "E ndryshueshme"
+
+#: ../libgweather/weather.c:180
+msgid "North"
+msgstr "Veri"
+
+#: ../libgweather/weather.c:180
+msgid "North - NorthEast"
+msgstr "Veri - Veri-Lindje"
+
+#: ../libgweather/weather.c:180
+msgid "Northeast"
+msgstr "Veri-Lindje"
+
+#: ../libgweather/weather.c:180
+msgid "East - NorthEast"
+msgstr "Lindje - Veri-Lindje"
+
+#: ../libgweather/weather.c:181
+msgid "East"
+msgstr "Lindje"
+
+#: ../libgweather/weather.c:181
+msgid "East - Southeast"
+msgstr "Lindje - Jug-Lindje"
+
+#: ../libgweather/weather.c:181
+msgid "Southeast"
+msgstr "Jug-Lindje"
+
+#: ../libgweather/weather.c:181
+msgid "South - Southeast"
+msgstr "Jug - Jug-Lindje"
+
+#: ../libgweather/weather.c:182
+msgid "South"
+msgstr "Jug"
+
+#: ../libgweather/weather.c:182
+msgid "South - Southwest"
+msgstr "Jug - Jug-Perëndim"
+
+#: ../libgweather/weather.c:182
+msgid "Southwest"
+msgstr "Jug-Perëndim"
+
+#: ../libgweather/weather.c:182
+msgid "West - Southwest"
+msgstr "Perëndim - Jug-Perëndim"
+
+#: ../libgweather/weather.c:183
+msgid "West"
+msgstr "Perëndim"
+
+#: ../libgweather/weather.c:183
+msgid "West - Northwest"
+msgstr "Perëndim - Veri-Perëndim"
+
+#: ../libgweather/weather.c:183
+msgid "Northwest"
+msgstr "Veri-Perëndim"
+
+#: ../libgweather/weather.c:183
+msgid "North - Northwest"
+msgstr "Veri - Veri-Perëndim"
+
+#: ../libgweather/weather.c:191 ../libgweather/weather.c:208
+#: ../libgweather/weather.c:279
+msgid "Invalid"
+msgstr "E pavlefshme"
+
+#: ../libgweather/weather.c:197
+msgid "Clear Sky"
+msgstr "Qiell i Hapur"
+
+#: ../libgweather/weather.c:198
+msgid "Broken clouds"
+msgstr "Re të thyera"
+
+#: ../libgweather/weather.c:199
+msgid "Scattered clouds"
+msgstr "Re të shpërndara"
+
+#: ../libgweather/weather.c:200
+msgid "Few clouds"
+msgstr "Pak re"
+
+#: ../libgweather/weather.c:201
+msgid "Overcast"
+msgstr "Vrenjtur"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.html
+#. NONE
+#: ../libgweather/weather.c:240 ../libgweather/weather.c:242
+msgid "Thunderstorm"
+msgstr "Stuhi"
+
+#. DRIZZLE
+#: ../libgweather/weather.c:241
+msgid "Drizzle"
+msgstr "Shi i imët"
+
+#: ../libgweather/weather.c:241
+msgid "Light drizzle"
+msgstr "Vesë"
+
+#: ../libgweather/weather.c:241
+msgid "Moderate drizzle"
+msgstr "Shi"
+
+#: ../libgweather/weather.c:241
+msgid "Heavy drizzle"
+msgstr "Shi i rënde"
+
+#: ../libgweather/weather.c:241
+msgid "Freezing drizzle"
+msgstr "Shi i akullt"
+
+#. RAIN
+#: ../libgweather/weather.c:242
+msgid "Rain"
+msgstr "Shi"
+
+#: ../libgweather/weather.c:242
+msgid "Light rain"
+msgstr "Shi i lehtë"
+
+#: ../libgweather/weather.c:242
+msgid "Moderate rain"
+msgstr "Shi i moderuar"
+
+#: ../libgweather/weather.c:242
+msgid "Heavy rain"
+msgstr "Shi i madh"
+
+#: ../libgweather/weather.c:242
+msgid "Rain showers"
+msgstr "Shi i bollshëm"
+
+#: ../libgweather/weather.c:242
+msgid "Freezing rain"
+msgstr "Shi i akullt"
+
+#. SNOW
+#: ../libgweather/weather.c:243
+msgid "Snow"
+msgstr "Borë"
+
+#: ../libgweather/weather.c:243
+msgid "Light snow"
+msgstr "Borë e imët"
+
+#: ../libgweather/weather.c:243
+msgid "Moderate snow"
+msgstr "Borë e moderuar"
+
+#: ../libgweather/weather.c:243
+msgid "Heavy snow"
+msgstr "Borë e madhe"
+
+#: ../libgweather/weather.c:243
+msgid "Snowstorm"
+msgstr "Stuhi bore"
+
+#: ../libgweather/weather.c:243
+msgid "Blowing snowfall"
+msgstr "Borë e fuqishme"
+
+#: ../libgweather/weather.c:243
+msgid "Snow showers"
+msgstr "Borë e bollshme"
+
+#: ../libgweather/weather.c:243
+msgid "Drifting snow"
+msgstr "Borë e levizshme"
+
+#. SNOW_GRAINS
+#: ../libgweather/weather.c:244
+msgid "Snow grains"
+msgstr "Borë"
+
+#: ../libgweather/weather.c:244
+msgid "Light snow grains"
+msgstr "Borë e lehtë"
+
+#: ../libgweather/weather.c:244
+msgid "Moderate snow grains"
+msgstr "Borë e moderuar"
+
+#: ../libgweather/weather.c:244
+msgid "Heavy snow grains"
+msgstr "Borë e madhe"
+
+#. ICE_CRYSTALS
+#: ../libgweather/weather.c:245
+msgid "Ice crystals"
+msgstr "Kristale akulli"
+
+#. ICE_PELLETS
+#: ../libgweather/weather.c:246
+msgid "Ice pellets"
+msgstr "Copa akulli"
+
+#: ../libgweather/weather.c:246
+msgid "Few ice pellets"
+msgstr "Copa të pakta akulli"
+
+#: ../libgweather/weather.c:246
+msgid "Moderate ice pellets"
+msgstr "Copa të pakta akulli"
+
+#: ../libgweather/weather.c:246
+msgid "Heavy ice pellets"
+msgstr "Copa të shumta akulli"
+
+#: ../libgweather/weather.c:246
+msgid "Ice pellet storm"
+msgstr "Stuhi copash akulli"
+
+#: ../libgweather/weather.c:246
+msgid "Showers of ice pellets"
+msgstr "Shi copash akulli"
+
+#. HAIL
+#: ../libgweather/weather.c:247
+msgid "Hail"
+msgstr "Breshër"
+
+#: ../libgweather/weather.c:247
+msgid "Hailstorm"
+msgstr "Stuhi Breshëri"
+
+#: ../libgweather/weather.c:247
+msgid "Hail showers"
+msgstr "Breshër"
+
+#. SMALL_HAIL
+#: ../libgweather/weather.c:248
+msgid "Small hail"
+msgstr "Breshër i imët"
+
+#: ../libgweather/weather.c:248
+msgid "Small hailstorm"
+msgstr "Stuhi e vogël breshëri"
+
+#: ../libgweather/weather.c:248
+msgid "Showers of small hail"
+msgstr "Breshër i vogël"
+
+#. PRECIPITATION
+#: ../libgweather/weather.c:249
+msgid "Unknown precipitation"
+msgstr "Rënie të panjohura"
+
+#. MIST
+#: ../libgweather/weather.c:250
+msgid "Mist"
+msgstr "Grimca"
+
+#. FOG
+#: ../libgweather/weather.c:251
+msgid "Fog"
+msgstr "Mjegull"
+
+#: ../libgweather/weather.c:251
+msgid "Fog in the vicinity"
+msgstr "Mjegull e dendur"
+
+#: ../libgweather/weather.c:251
+msgid "Shallow fog"
+msgstr "Mjegull e cekët"
+
+#: ../libgweather/weather.c:251
+msgid "Patches of fog"
+msgstr "Mjegull e shpërndarë"
+
+#: ../libgweather/weather.c:251
+msgid "Partial fog"
+msgstr "Mjegull e pjesshme"
+
+#: ../libgweather/weather.c:251
+msgid "Freezing fog"
+msgstr "Mjegull e akullt"
+
+#. SMOKE
+#: ../libgweather/weather.c:252
+msgid "Smoke"
+msgstr "Tym"
+
+#. VOLCANIC_ASH
+#: ../libgweather/weather.c:253
+msgid "Volcanic ash"
+msgstr "Hi vullkanik"
+
+#. SAND
+#: ../libgweather/weather.c:254
+msgid "Sand"
+msgstr "Rërë"
+
+#: ../libgweather/weather.c:254
+msgid "Blowing sand"
+msgstr "Stuhi Rëre"
+
+#: ../libgweather/weather.c:254
+msgid "Drifting sand"
+msgstr "Rërë e lëvizshme"
+
+#. HAZE
+#: ../libgweather/weather.c:255
+msgid "Haze"
+msgstr "Mjegull"
+
+#. SPRAY
+#: ../libgweather/weather.c:256
+msgid "Blowing sprays"
+msgstr "Spërkatje shpërthyese"
+
+#. DUST
+#: ../libgweather/weather.c:257
+msgid "Dust"
+msgstr "Pluhur"
+
+#: ../libgweather/weather.c:257
+msgid "Blowing dust"
+msgstr "Pluhur shpërthyes"
+
+#: ../libgweather/weather.c:257
+msgid "Drifting dust"
+msgstr "Pluhur i lëvizshëm"
+
+#. SQUALL
+#: ../libgweather/weather.c:258
+msgid "Squall"
+msgstr "Erë që ulërin"
+
+#. SANDSTORM
+#: ../libgweather/weather.c:259
+msgid "Sandstorm"
+msgstr "Stuhi rëre"
+
+#: ../libgweather/weather.c:259
+msgid "Sandstorm in the vicinity"
+msgstr "Stuhi rëre në afërsi"
+
+#: ../libgweather/weather.c:259
+msgid "Heavy sandstorm"
+msgstr "Stuhi rëre e fuqishme"
+
+#. DUSTSTORM
+#: ../libgweather/weather.c:260
+msgid "Duststorm"
+msgstr "Stuhi pluhuri"
+
+#: ../libgweather/weather.c:260
+msgid "Duststorm in the vicinity"
+msgstr "Stuhi pluhuri në afërsi"
+
+#: ../libgweather/weather.c:260
+msgid "Heavy duststorm"
+msgstr "Stuhi pluhuri e fuqishme"
+
+#. FUNNEL_CLOUD
+#: ../libgweather/weather.c:261
+msgid "Funnel cloud"
+msgstr "Re hinkë"
+
+#. TORNADO
+#: ../libgweather/weather.c:262
+msgid "Tornado"
+msgstr "Tornado"
+
+#. DUST_WHIRLS
+#: ../libgweather/weather.c:263
+msgid "Dust whirls"
+msgstr "Vorbulla pluhuri"
+
+#: ../libgweather/weather.c:263
+msgid "Dust whirls in the vicinity"
+msgstr "Stuhi pluhuri në afërsi"
+
+#. TRANSLATOR: this is a format string for strftime
+#. *             see `man 3 strftime` for more details
+#.
+#: ../libgweather/weather.c:659
+msgid "%a, %b %d / %H:%M"
+msgstr "%a,·%b·%d·/·%H:%M"
+
+#: ../libgweather/weather.c:674
+msgid "Unknown observation time"
+msgstr "Kohë e panjohur e vëzhgimit"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is the degree symbol)
+#: ../libgweather/weather.c:707
+#, c-format
+msgid "%.1f °F"
+msgstr "%.1f °F"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is the degree symbol)
+#: ../libgweather/weather.c:710
+#, c-format
+msgid "%d °F"
+msgstr "%d °F"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is the degree symbol)
+#: ../libgweather/weather.c:716
+#, c-format
+msgid "%.1f °C"
+msgstr "%.1f °C"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is the degree symbol)
+#: ../libgweather/weather.c:719
+#, c-format
+msgid "%d °C"
+msgstr "%d °C"
+
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../libgweather/weather.c:725
+#, c-format
+msgid "%.1f K"
+msgstr "%.1f K"
+
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../libgweather/weather.c:728
+#, c-format
+msgid "%d K"
+msgstr "%d K"
+
+#. TRANSLATOR: This is the humidity in percent
+#: ../libgweather/weather.c:779
+#, c-format
+msgid "%.f%%"
+msgstr "%.f%%"
+
+#. TRANSLATOR: This is the wind speed in knots
+#: ../libgweather/weather.c:804
+#, c-format
+msgid "%0.1f knots"
+msgstr "%0.1f nyje"
+
+#. TRANSLATOR: This is the wind speed in miles per hour
+#: ../libgweather/weather.c:808
+#, c-format
+msgid "%.1f mph"
+msgstr "%.1f mph"
+
+#. TRANSLATOR: This is the wind speed in kilometers per hour
+#: ../libgweather/weather.c:812
+#, c-format
+msgid "%.1f km/h"
+msgstr "%.1f km/h"
+
+#. TRANSLATOR: This is the wind speed in meters per second
+#: ../libgweather/weather.c:816
+#, c-format
+msgid "%.1f m/s"
+msgstr "%.1f m/s"
+
+#. TRANSLATOR: This is the wind speed as a Beaufort force factor
+#. * (commonly used in nautical wind estimation).
+#.
+#: ../libgweather/weather.c:822
+#, c-format
+msgid "Beaufort force %.1f"
+msgstr "Forca Beaufort %.1f"
+
+#: ../libgweather/weather.c:843
+msgid "Calm"
+msgstr "Qetë"
+
+#. TRANSLATOR: This is 'wind direction' / 'wind speed'
+#: ../libgweather/weather.c:847
+#, c-format
+msgid "%s / %s"
+msgstr "%s / %s"
+
+#. TRANSLATOR: This is pressure in inches of mercury
+#: ../libgweather/weather.c:865
+#, c-format
+msgid "%.2f inHg"
+msgstr "%.2f inHg"
+
+#. TRANSLATOR: This is pressure in millimeters of mercury
+#: ../libgweather/weather.c:869
+#, c-format
+msgid "%.1f mmHg"
+msgstr "%.1f mmHg"
+
+#. TRANSLATOR: This is pressure in kiloPascals
+#: ../libgweather/weather.c:873
+#, c-format
+msgid "%.2f kPa"
+msgstr "%.2f kPa"
+
+#. TRANSLATOR: This is pressure in hectoPascals
+#: ../libgweather/weather.c:877
+#, c-format
+msgid "%.2f hPa"
+msgstr "%.2f hPa"
+
+#. TRANSLATOR: This is pressure in millibars
+#: ../libgweather/weather.c:881
+#, c-format
+msgid "%.2f mb"
+msgstr "%.2f mb"
+
+#. TRANSLATOR: This is pressure in atmospheres
+#: ../libgweather/weather.c:885
+#, c-format
+msgid "%.3f atm"
+msgstr "%.3f atm"
+
+#. TRANSLATOR: This is the visibility in miles
+#: ../libgweather/weather.c:910
+#, c-format
+msgid "%.1f miles"
+msgstr "%.1f milje"
+
+#. TRANSLATOR: This is the visibility in kilometers
+#: ../libgweather/weather.c:914
+#, c-format
+msgid "%.1f km"
+msgstr "%.1f km"
+
+#. TRANSLATOR: This is the visibility in meters
+#: ../libgweather/weather.c:918
+#, c-format
+msgid "%.0fm"
+msgstr "%.0fm"
+
+#: ../libgweather/weather.c:946 ../libgweather/weather.c:966
+msgid "%H:%M"
+msgstr "%H:%M"
+
+#: ../libgweather/weather.c:999
+msgid "Retrieval failed"
+msgstr "Tërheqja dështoi"
+
+#: ../libgweather/weather-iwin.c:213 ../libgweather/weather-metar.c:550
+#: ../libgweather/weather-metar.c:578
+msgid "WeatherInfo missing location"
+msgstr "Mungon vendndodhja WeatherInfo"
+
+#: ../libgweather/weather-metar.c:523 ../libgweather/weather-metar.c:558
+#: ../libgweather/weather-wx.c:62
+msgid "Failed to get METAR data.\n"
+msgstr "Dështoi në tërheqjen e të dhënave METAR.\n"
+
+#: ../libgweather/gweather.schemas.in.h:6
+msgid ""
+"Determines whether the applet automatically updates its weather statistics "
+"or not."
+msgstr ""
+"Përcakton nëse applet freskon automatikisht statistikat e tij të motit apo "
+"jo."
+
+#: ../libgweather/gweather.schemas.in.h:7
+msgid "Display radar map"
+msgstr "Shfaq hartën e radarit"
+
+#: ../libgweather/gweather.schemas.in.h:8
+msgid "Distance unit"
+msgstr "Njësia e distancës"
+
+#: ../libgweather/gweather.schemas.in.h:9
+msgid "Fetch a radar map on each update."
+msgstr "Tërhiq një hartë radari në çdo freskim."
+
+#: ../libgweather/gweather.schemas.in.h:10
+msgid ""
+"If true, then retrieve a radar map from a location specified by the \"radar"
+"\" key."
+msgstr ""
+"Nëse e vërtetë, atëhere tërheq një hartë radari të vendndodhjes së "
+"përcaktuar nga çelësi i \"radarit\"."
+
+#: ../libgweather/gweather.schemas.in.h:11
+#: ../mini-commander/src/mini-commander.schemas.in.h:12
+msgid "Not used anymore"
+msgstr "E papërdorshme"
+
+#: ../libgweather/gweather.schemas.in.h:12
+msgid "Pressure unit"
+msgstr "Njësia e trysnisë"
+
+#: ../libgweather/gweather.schemas.in.h:13
+msgid "Speed unit"
+msgstr "Njësia e shpejtësisë"
+
+#: ../libgweather/gweather.schemas.in.h:14
+msgid "Temperature unit"
+msgstr "Njësia e temperaturës"
+
+#: ../libgweather/gweather.schemas.in.h:15
+msgid "The custom url from where to retrieve a radar map."
+msgstr "Url e caktuar prej nga tërhiqet harta e radarit."
+
+#: ../libgweather/gweather.schemas.in.h:16
+msgid "The interval, in seconds, between automatic updates."
+msgstr "Intervali, në sekonda, midis freskimeve automatike."
+
+#: ../libgweather/gweather.schemas.in.h:17
+msgid "The unit to use for pressure."
+msgstr "Njësitë që duhen përdorur për trysninë."
+
+#: ../libgweather/gweather.schemas.in.h:18
+msgid "The unit to use for temperature."
+msgstr "Njësia që duhet përdorur për temperaturën."
+
+#: ../libgweather/gweather.schemas.in.h:19
+msgid "The unit to use for visibility."
+msgstr "Njësitë që duhen përdorur për dukshmërinë."
+
+#: ../libgweather/gweather.schemas.in.h:20
+msgid "The unit to use for wind speed."
+msgstr "Njësitë që duhen përdorur për shpejtësinë e erës."
+
+#: ../libgweather/gweather.schemas.in.h:22
+msgid "Update the data automatically"
+msgstr "Fresko të dhënat automatikisht"
+
+#: ../libgweather/gweather.schemas.in.h:23
+msgid "Url for the radar map"
+msgstr "Url për hartën e radarit"
+
+#: ../libgweather/gweather.schemas.in.h:24
+msgid "Use custom url for the radar map"
+msgstr "Përdor url e caktuar për hartën e radarit"
+
+#: ../libgweather/gweather.schemas.in.h:25
+msgid "Use metric units"
+msgstr "Përdor sistemin metrik"
+
+#: ../libgweather/gweather.schemas.in.h:26
+msgid "Use metric units instead of english units."
+msgstr "Përdor sistemin metrik kundrejt atij anglez."
+
+#: ../libgweather/gweather.schemas.in.h:27
+msgid ""
+"latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
+"[EW]"
+msgstr "gjerësia dhe gjatësia e vendndodhjes e shprehur në DD MM SS[NS] DD MM SS[EW]"
+
+#: ../libgweather/gweather.schemas.in.h:28
+msgid "location coordinates"
+msgstr "koordinatat e vendndodhjes"
+
+#: ../libgweather/gweather.schemas.in.h:29
+msgid "weather location information."
+msgstr "informacioni i motit për vendndodhjen."
+
+#: ../libgswitchit/gswitchit_config.c:1036
+#, c-format
+msgid "There was an error loading an image: %s"
+msgstr "Pati një gabim gjatë ngarkimit të pamjes: %s"
+
+#: ../mini-commander/GNOME_MiniCommanderApplet.server.in.h:1
+msgid "Deskbar (ne Mini-Commander)"
+msgstr "Deskbar (Mini-Komandues)"
+
+#: ../mini-commander/GNOME_MiniCommanderApplet.server.in.h:2
+msgid "Deskbar (transparent upgrade from Mini-Commander)"
+msgstr "Deskbar (freskim transparent nga Mini-Komanduesi)"
+
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.server.in.in.h:1
+#: ../mini-commander/src/about.c:47
+msgid "Command Line"
+msgstr "Rreshti i komandës"
+
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.server.in.in.h:2
+msgid "Mini-Commander"
+msgstr "Mini-Komandues"
+
+#: ../mini-commander/src/GNOME_MiniCommanderApplet.server.in.in.h:3
+msgid "MiniCommander Applet Factory"
+msgstr "Fabrika e Applet MiniKomandues"
+
+#: ../mini-commander/src/about.c:50
+msgid ""
+"This GNOME applet adds a command line to the panel. It features command "
+"completion, command history, and changeable macros."
+msgstr ""
+"Ky applet GNOME shton një linjë komande në panel. Ka veti plotësimi komande, "
+"historik komande, dhe makro të ndryshueshme."
+
+#: ../mini-commander/src/command_line.c:353
+msgid "No items in history"
+msgstr "Asnjë element në kronollogji"
+
+#. build file select dialog
+#: ../mini-commander/src/command_line.c:477
+msgid "Start program"
+msgstr "Nis programin"
+
+#: ../mini-commander/src/command_line.c:529
+msgid "Command line"
+msgstr "Rreshti i komandës"
+
+#: ../mini-commander/src/command_line.c:530
+msgid "Type a command here and Gnome will execute it for you"
+msgstr "Shtyp një komandë këtu dhe Gnome do ta ekzekutojë për ty"
+
+#: ../mini-commander/src/mc-install-default-macros.c:80
+#, c-format
+msgid "Cannot get schema for %s: %s"
+msgstr "E pamundur marrja e skemës për %s: %s"
+
+#: ../mini-commander/src/mc-install-default-macros.c:108
+#, c-format
+msgid "Cannot set schema for %s: %s"
+msgstr "E pamundur caktimi i skemës për %s:·%s"
+
+#: ../mini-commander/src/mc-install-default-macros.c:114
+#, c-format
+msgid "Set default list value for %s\n"
+msgstr "Cakto vlerën e paracktuar të listës për %s\n"
+
+#: ../mini-commander/src/mc-install-default-macros.c:126
+#, c-format
+msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
+msgstr ""
+"GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL rezulton e përcaktuar, skemat nuk do "
+"të instalohen\n"
+
+#: ../mini-commander/src/mc-install-default-macros.c:134
+#, c-format
+msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
+msgstr "E ndryshueshmja e ambientit GCONF_CONFIG_SOURCE duhet të jetë e përcaktuar\n"
+
+#: ../mini-commander/src/mc-install-default-macros.c:151
+#, c-format
+msgid "Failed to access configuration source(s): %s\n"
+msgstr "Gabim gjatë hyrjes tek burimi (o burimet) e konfigurimit: %s\n"
+
+#: ../mini-commander/src/mc-install-default-macros.c:166
+#, c-format
+msgid "Error syncing config data: %s"
+msgstr "Gabim gjatë sinkronizimit të të dhënave të konfigurimit: %s"
+
+#: ../mini-commander/src/mini-commander-global.schemas.in.h:1
+msgid "List of GConfValue entries containing strings for the macro commands."
+msgstr "Lista e hyrjeve GConfValue që përmbajnë stringën për komandat makro."
+
+#: ../mini-commander/src/mini-commander-global.schemas.in.h:2
+msgid "List of GConfValue entries containing strings for the macro patterns."
+msgstr "Lista e hyrjeve GConfValue që përmbajnë stringën për stilet makro.·"
+
+#: ../mini-commander/src/mini-commander-global.schemas.in.h:3
+#: ../mini-commander/src/mini-commander.schemas.in.h:10
+msgid "Macro command list"
+msgstr "Lista e komandave makro"
+
+#: ../mini-commander/src/mini-commander-global.schemas.in.h:4
+#: ../mini-commander/src/mini-commander.schemas.in.h:11
+msgid "Macro pattern list"
+msgstr "Lista e stileve makro"
+
+#: ../mini-commander/src/mini-commander.glade.h:2
+msgid "*"
+msgstr "*"
+
+#: ../mini-commander/src/mini-commander.glade.h:3
+msgid "<b>Auto Completion</b>"
+msgstr "<b>Plotësimi Automatik</b>"
+
+#: ../mini-commander/src/mini-commander.glade.h:4
+msgid "<b>Colors</b>"
+msgstr "<b>Ngjyrat</b>"
+
+#: ../mini-commander/src/mini-commander.glade.h:5
+msgid "<b>Size</b>"
+msgstr "<b>Madhësia</b>"
+
+#: ../mini-commander/src/mini-commander.glade.h:6
+msgid "Add New Macro"
+msgstr "Shto Makro të Re"
+
+#: ../mini-commander/src/mini-commander.glade.h:7
+msgid "Co_mmand:"
+msgstr "Ko_manda:"
+
+#: ../mini-commander/src/mini-commander.glade.h:8
+msgid "Command Line Preferences"
+msgstr "Preferencat eLinjës së Komandës"
+
+#: ../mini-commander/src/mini-commander.glade.h:9
+msgid "Command line _background:"
+msgstr "S_fondi i linjës së komandës"
+
+#: ../mini-commander/src/mini-commander.glade.h:10
+msgid "Command line _foreground:"
+msgstr "N_gjyra ballore e linjës së komandës:"
+
+#: ../mini-commander/src/mini-commander.glade.h:11
+msgid "E_nable history-based auto completion"
+msgstr "A_ktivizo historikun e plotësimit automatik"
+
+#: ../mini-commander/src/mini-commander.glade.h:13
+msgid "Macros"
+msgstr "Automatizime"
+
+#: ../mini-commander/src/mini-commander.glade.h:14
+msgid "Pick a color"
+msgstr "Zgjidh një ngjyrë"
+
+#: ../mini-commander/src/mini-commander.glade.h:15
+msgid "_Add Macro..."
+msgstr "_Shto Makro..."
+
+#: ../mini-commander/src/mini-commander.glade.h:16
+msgid "_Delete Macro"
+msgstr "_Fshi Makro"
+
+#: ../mini-commander/src/mini-commander.glade.h:17
+msgid "_Macros:"
+msgstr "_Makrot:"
+
+#: ../mini-commander/src/mini-commander.glade.h:18
+msgid "_Pattern:"
+msgstr "_Motivi:"
+
+#: ../mini-commander/src/mini-commander.glade.h:19
+msgid "_Use default theme colors"
+msgstr "_Përdor ngjyrat e temës së paracaktuar"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:1
+msgid "Attempt to autocomplete a command from the history of commands entered."
+msgstr ""
+"Përpiqu të plotësosh automatikisht një komandë nga historiku i komandave të "
+"futura."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:2
+msgid "Background color, blue component"
+msgstr "Ngjyra e sfondit, përbërësi blu"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:3
+msgid "Background color, green component"
+msgstr "Ngjyra e sfondit, përbërësi i gjelbër"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:4
+msgid "Background color, red component"
+msgstr "Ngjyra e sfondit, përbërësi i kuq"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:5
+msgid "Foreground color, blue component"
+msgstr "Ngjyra ballore, përbërësi blu"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:6
+msgid "Foreground color, green component"
+msgstr "Ngjyra ballore, përbërësi i gjelbër"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:7
+msgid "Foreground color, red component"
+msgstr "Ngjyra ballore, përbërësi i kuq"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:8
+msgid "History list"
+msgstr "Lista e historikut"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:9
+msgid "List of GConfValue entries containing strings for history entries."
+msgstr "Lista e hyrjeve GConfValue që përmbajnë stringën e historikut."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:13
+msgid "Perform history autocompletion"
+msgstr "Kryej plotësimin automatik të historikut"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:14
+msgid "Show a frame surrounding the applet."
+msgstr "Shfaq një kornizë që rrethon applet-in."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:15
+msgid "Show a handle so the applet can be detached from the panel."
+msgstr "Shfaq një dorezë në mënyrë që applet-i të shkëputet nga paneli."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:16
+msgid "Show frame"
+msgstr "Shfaq kornizën"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:17
+msgid "Show handle"
+msgstr "Shfaq dorezën"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:18
+msgid "The blue component of the background color."
+msgstr "Përbërësi blu i ngjyrës së sfondit."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:19
+msgid "The blue component of the foreground color."
+msgstr "Përbërësi blu i ngjyrës ballore."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:20
+msgid "The green component of the background color."
+msgstr "Përbërësi i gjelbër i ngjyrës së sfondit."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:21
+msgid "The green component of the foreground color."
+msgstr "Përbërësi i gjelbër i ngjyrës ballore."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:22
+msgid "The red component of the background color."
+msgstr "Përbërësi i kuq i ngjyrës së kuqe."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:23
+msgid "The red component of the foreground color."
+msgstr "Përbërësi i kuq i ngjyrës ballore."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:24
+msgid ""
+"This per-applet key is deprecated in favour of the global key, /schemas/apps/"
+"mini-commander-global/macro_patterns."
+msgstr ""
+"Ky çelës per-applet nuk ekziston më në favor të çelësit global, /schemas/"
+"apps/mini-commander-global/macro_patterns."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:25
+msgid "Use the default theme colors"
+msgstr "Përdor ngjyrat e temës së paracaktuar"
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:26
+msgid "Use theme colors instead of custom ones."
+msgstr "Përdor ngjyrat e temës në vend të atyre të zakonshme."
+
+#: ../mini-commander/src/mini-commander.schemas.in.h:27
+msgid "Width"
+msgstr "Gjerësia"
+
+#: ../mini-commander/src/mini-commander_applet.c:246
+#: ../mini-commander/src/mini-commander_applet.c:250
+msgid "Browser"
+msgstr "Shfletuesi"
+
+#: ../mini-commander/src/mini-commander_applet.c:251
+msgid "Click this button to start the browser"
+msgstr "Kliko këtë buton për të nisur shfletuesin"
+
+#: ../mini-commander/src/mini-commander_applet.c:264
+#: ../mini-commander/src/mini-commander_applet.c:268
+msgid "History"
+msgstr "Kronollogjia"
+
+#: ../mini-commander/src/mini-commander_applet.c:269
+msgid "Click this button for the list of previous commands"
+msgstr "Kliko këtë buton për listën e komandave të mëparshme"
+
+#: ../mini-commander/src/mini-commander_applet.c:353
+msgid "Command line has been disabled by your system administrator"
+msgstr "Rreshti i komandës është ç'aktivizuar nga administratori juaj i sistemit"
+
+#: ../mini-commander/src/mini-commander_applet.c:420
+msgid "Mini-Commander applet"
+msgstr "Applet Mini Komandues"
+
+#: ../mini-commander/src/mini-commander_applet.c:421
+msgid "This applet adds a command line to the panel"
+msgstr "Ky applet i shton një linjë komande panelit"
+
+#: ../mini-commander/src/preferences.c:405
+msgid "You must specify a pattern"
+msgstr "Duhet të saktësosh një stil"
+
+#: ../mini-commander/src/preferences.c:409
+msgid "You must specify a pattern and a command"
+msgstr "Duhet të saktësosh një stil dhe një komandë"
+
+#: ../mini-commander/src/preferences.c:410
+msgid "You must specify a command"
+msgstr "Duhet të saktësosh një komandë"
+
+#: ../mini-commander/src/preferences.c:413
+msgid "You may not specify duplicate patterns"
+msgstr "Nuk mund të saktësosh stile të dyfishtë"
+
+#: ../mini-commander/src/preferences.c:775
+msgid "Pattern"
+msgstr "Motivi"
+
+#: ../mini-commander/src/preferences.c:785
+msgid "Command"
+msgstr "Komanda"
+
+#: ../mixer/GNOME_MixerApplet.server.in.in.h:1
+msgid "Adjust the sound volume"
+msgstr "Rregullo volumin e zërit"
+
+#: ../mixer/GNOME_MixerApplet.server.in.in.h:2 ../mixer/applet.c:224
+msgid "Volume Control"
+msgstr "Kontrolli i Volumit"
+
+#: ../mixer/GNOME_MixerApplet.xml.h:3
+msgid "_Mute"
+msgstr "_Pa Zë"
+
+#: ../mixer/GNOME_MixerApplet.xml.h:4
+msgid "_Open Volume Control"
+msgstr "_Hap Kontrollin e Zërit"
+
+#: ../mixer/applet.c:524
+msgid ""
+"The volume control did not find any elements and/or devices to control. This "
+"means either that you don't have the right GStreamer plugins installed, or "
+"that you don't have a sound card configured."
+msgstr ""
+"Kontrolluesi i zërit nuk gjeti ndonjë element dhe/apo dispozitiv për të "
+"kontrolluar. Kjo do të thotë që nuk ke instaluar plugin-ët e duhur "
+"GStreamer, ose që nuk ke një kartë zëri të konfiguruar siç duhet."
+
+#: ../mixer/applet.c:528
+msgid ""
+"You can remove the volume control from the panel by right-clicking the "
+"speaker icon on the panel and selecting \"Remove From Panel\" from the menu."
+msgstr ""
+"Mund të heqësh kontrolluesin e zërit nga paneli duke klikuar me të djathtën "
+"mbi ikonë dhe duke zgjedhur \"Hiq Nga Paneli\" nga menuja."
+
+#: ../mixer/applet.c:711
+#, c-format
+msgid "Failed to start Volume Control: %s"
+msgstr "Gabim gjatë nisjes së Kontrollit të Volumit: %s"
+
+#: ../mixer/applet.c:1106
+#, c-format
+msgid "%s: muted"
+msgstr "%s: pa zë"
+
+#. Translator comment: I'm not all too sure if this makes sense
+#. * to mark as a translation, but anyway. The string is a list of
+#. * selected tracks, the number is the volume in percent. You
+#. * most likely want to keep this as-is.
+#: ../mixer/applet.c:1112
+#, c-format
+msgid "%s: %d%%"
+msgstr "%s: %d%%"
+
+#: ../mixer/applet.c:1273
+#, c-format
+msgid "Failed to display help: %s"
+msgstr "Gabim gjatë nisjes së ndihmës: %s"
+
+#: ../mixer/applet.c:1286
+msgid "Volume control for your GNOME Panel."
+msgstr "Kontroll Volumi për panelin GNOME."
+
+#: ../mixer/applet.c:1288
+msgid "Using GStreamer 0.10."
+msgstr "Duke përdorur GStreamer 0.10."
+
+#: ../mixer/applet.c:1290
+msgid "Using GStreamer 0.8."
+msgstr "Duke përdorur GStreamer 0.8."
+
+#: ../mixer/applet.c:1295
+msgid "Volume Applet"
+msgstr "Applet i Volumit"
+
+#: ../mixer/dock.c:124
+msgid "+"
+msgstr "+"
+
+#: ../mixer/dock.c:152
+msgid "-"
+msgstr "-"
+
+#. FIXME:
+#. * - maybe we want to rename the element to its actual name
+#. *     if we've found that?
+#.
+#. create element
+#: ../mixer/load.c:91 ../mixer/load.c:181 ../mixer/load.c:184
+#: ../mixer/load.c:267
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "Kontroll Volumi i Panjohur %d"
+
+#: ../mixer/mixer.schemas.in.h:1
+msgid "Channel controlled by applet. Only for OSS setups"
+msgstr "Kanali i kontrolluar nga applet. Vetëm për OSS"
+
+#: ../mixer/mixer.schemas.in.h:2
+msgid "Saved mute state"
+msgstr "Gjendja pa zë u ruajt"
+
+#: ../mixer/mixer.schemas.in.h:3
+msgid "Saved volume to restore on startup"
+msgstr "Ruajti rivendosjen e volumit në nisje e sipër"
+
+#. make window look cute
+#: ../mixer/preferences.c:130
+msgid "Volume Control Preferences"
+msgstr "Preferencat e Kontrollit të Volumit"
+
+#: ../mixer/preferences.c:143
+msgid "Select the device and track to control."
+msgstr "Zgjidh dispozitivin dhe kanalin për kontroll."
+
+#: ../modemlights/GNOME_ModemLights.server.in.in.h:1
+msgid "Activate and monitor a dial-up network connection"
+msgstr "Aktivizo dhe kontrollo lidhjen e rrjetit me telefonatë (dial-up)"
+
+#: ../modemlights/GNOME_ModemLights.server.in.in.h:2
+#: ../modemlights/modem-applet.c:1043
+msgid "Modem Monitor"
+msgstr "Monitori i Modem-it"
+
+#: ../modemlights/GNOME_ModemLights.xml.h:2
+msgid "_Activate"
+msgstr "_Çaktivizo"
+
+#: ../modemlights/GNOME_ModemLights.xml.h:3
+msgid "_Deactivate"
+msgstr "_"
+
+#: ../modemlights/GNOME_ModemLights.xml.h:5
+#: ../stickynotes/stickynotes.glade.h:45
+msgid "_Properties"
+msgstr "_Pronësitë"
+
+#: ../modemlights/modem-applet.c:731
+msgid "Connection active, but could not get connection time"
+msgstr "Lidhja është aktive,por nuk arrita të llogaris kohën e lidhjes"
+
+#: ../modemlights/modem-applet.c:747
+#, c-format
+msgid "Time connected: %.1d:%.2d"
+msgstr "Koha i lidhur: %.1d:%.2d"
+
+#: ../modemlights/modem-applet.c:751
+msgid "Not connected"
+msgstr "I shkëputur"
+
+#: ../modemlights/modem-applet.c:773
+msgid ""
+"To connect to your Internet service provider, you need administrator "
+"privileges"
+msgstr ""
+"Për tu lidhur me furnizuesin tënd të shërbimit Internet (ISP), të duhen të "
+"drejta administratimi"
+
+#: ../modemlights/modem-applet.c:774
+msgid ""
+"To disconnect from your Internet service provider, you need administrator "
+"privileges"
+msgstr ""
+"Për tu shkëputur nga furnizuesi yt i shërbimit Internet(ISP), të duhen të "
+"drejta administrimi"
+
+#: ../modemlights/modem-applet.c:849
+msgid "The entered password is invalid"
+msgstr "Fjalëkalimi është i gabuar"
+
+#: ../modemlights/modem-applet.c:851
+msgid ""
+"Check that you have typed it correctly and that you haven't activated the "
+"\"caps lock\" key"
+msgstr ""
+"Kontrollo që e ke shkruar saktë dhe që tasti \"caps lock\" nuk është "
+"aktivizuar"
+
+#: ../modemlights/modem-applet.c:953
+msgid "Do you want to connect?"
+msgstr "Dëshiron të lidhesh?"
+
+#: ../modemlights/modem-applet.c:954
+msgid "Do you want to disconnect?"
+msgstr "Dëshiron të shkëputesh?"
+
+#: ../modemlights/modem-applet.c:963
+msgid "C_onnect"
+msgstr "Li_dhu"
+
+#: ../modemlights/modem-applet.c:963
+msgid "_Disconnect"
+msgstr "_Shkëputu"
+
+#: ../modemlights/modem-applet.c:1019
+msgid "Could not launch network configuration tool"
+msgstr "Nuk munda të ekzekutoj programin e konfigurimit të rrjetit"
+
+#: ../modemlights/modem-applet.c:1021
+msgid ""
+"Check that it's installed in the correct path and that it has the correct "
+"permissions"
+msgstr "Kontrollo që është instaluar në shtegun e saktë dhe që ka lejet e duhura"
+
+#: ../modemlights/modem-applet.c:1046
+msgid "Applet for activating and monitoring a dial-up network connection."
+msgstr ""
+"Applet për të aktivizuar dhe vëzhguar lidhjen e rrjetit me telefonatë (dial-"
+"up)."
+
+#: ../modemlights/modemlights.glade.h:1
+msgid ""
+"<span weight=\"bold\" size=\"larger\">Connecting with Internet Service "
+"Provider</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"larger\">Duke u lidhur me Furnizuesin e "
+"Shërbyesit Internet</span>"
+
+#: ../modemlights/modemlights.glade.h:2
+msgid "<span weight=\"bold\" size=\"larger\">Root password required</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">Kërkohet fjalëkalimi për root</span>"
+
+#: ../modemlights/modemlights.glade.h:3
+msgid "Enter password"
+msgstr "Fut fjalëkalimin"
+
+#: ../modemlights/modemlights.glade.h:4
+msgid "Password:"
+msgstr "Fjalëkalimi:"
+
+#: ../multiload/GNOME_MultiLoadApplet_Factory.server.in.in.h:1
+msgid "A system load indicator"
+msgstr "Tregues i ngarkesës së sistemit"
+
+#: ../multiload/GNOME_MultiLoadApplet_Factory.server.in.in.h:2
+#: ../multiload/main.c:55
+msgid "System Monitor"
+msgstr "Monitori i sistemit"
+
+#: ../multiload/GNOME_MultiloadApplet.xml.h:3
+msgid "_Open System Monitor"
+msgstr "Vëzhgues i _Hapur i Sistemit"
+
+#: ../multiload/main.c:59
+msgid ""
+"A system load monitor capable of displaying graphs for CPU, ram, and swap "
+"space use, plus network traffic."
+msgstr ""
+"Një vëzhgues i ngarkesës së sistemit që paraqet grafikë për CPU-në, "
+"memorjen, dhe hapësirën e përdorur swap, si dhe trafikun e rrjetit."
+
+#: ../multiload/main.c:122
+#, c-format
+msgid "There was an error executing '%s': %s"
+msgstr "Pati një gabim në ekzekutimin e '%s':·%s"
+
+#: ../multiload/main.c:326 ../multiload/properties.c:607
+msgid "Processor"
+msgstr "Proçesori"
+
+#: ../multiload/main.c:328 ../multiload/properties.c:615
+msgid "Memory"
+msgstr "Kujtesa"
+
+#: ../multiload/main.c:330 ../multiload/properties.c:623
+msgid "Network"
+msgstr "Rrjeti"
+
+#: ../multiload/main.c:332 ../multiload/properties.c:631
+msgid "Swap Space"
+msgstr "Hapësira Swap"
+
+#: ../multiload/main.c:334 ../multiload/main.c:400
+msgid "Load Average"
+msgstr "Ngarkesa Mesatare"
+
+#: ../multiload/main.c:336
+msgid "Disk"
+msgstr "Disk"
+
+#. xgettext: use and cache are > 1 most of the time,
+#. please assume that they always are.
+#.
+#: ../multiload/main.c:355
+#, c-format
+msgid ""
+"%s:\n"
+"%u%% in use by programs\n"
+"%u%% in use as cache"
+msgstr ""
+"%s:\n"
+"%u%% në përdorim nga programet\n"
+"%u%% në përdorim si cache"
+
+#: ../multiload/main.c:371
+#, c-format
+msgid ""
+"%s:\n"
+"%u%% in use"
+msgid_plural ""
+"%s:\n"
+"%u%% in use"
+msgstr[0] ""
+"%s:\n"
+"%u%% në përdorim"
+msgstr[1] ""
+"%s:\n"
+"%u%% në përdorim"
+
+#: ../multiload/main.c:396
+msgid "CPU Load"
+msgstr "Ngarkesa e CPU-së"
+
+#: ../multiload/main.c:397
+msgid "Memory Load"
+msgstr "Ngarkesa e Memorjes"
+
+#: ../multiload/main.c:398
+msgid "Net Load"
+msgstr "Ngarkesa e Rrjetit"
+
+#: ../multiload/main.c:399
+msgid "Swap Load"
+msgstr "Ngarkesa e Memorjes Swap"
+
+#: ../multiload/main.c:401
+msgid "Disk Load"
+msgstr "Ngarkesë Disku"
+
+#: ../multiload/multiload.schemas.in.h:1
+msgid "Applet refresh rate in milliseconds"
+msgstr "Raporti i rifreskimit të applet në milisekonda"
+
+#: ../multiload/multiload.schemas.in.h:2
+msgid "Background color for disk load graph"
+msgstr "Ngjyra e sfondit për grafikun e ngarkesës së diskut"
+
+#: ../multiload/multiload.schemas.in.h:3
+msgid "CPU graph background color"
+msgstr "Ngjyra në sfond e grafikut të CPU-së"
+
+#: ../multiload/multiload.schemas.in.h:4
+msgid "Enable CPU load graph"
+msgstr "Aktivizo grafikun e ngarkesës së CPU-së"
+
+#: ../multiload/multiload.schemas.in.h:5
+msgid "Enable disk load graph"
+msgstr "Aktivizo grafikun e ngarkesës së diskut"
+
+#: ../multiload/multiload.schemas.in.h:6
+msgid "Enable load average graph"
+msgstr "Aktivizo grafikun e ngarkesës mesatare"
+
+#: ../multiload/multiload.schemas.in.h:7
+msgid "Enable memory load graph"
+msgstr "Aktivizo grafikun e ngarkesës së memorjes"
+
+#: ../multiload/multiload.schemas.in.h:8
+msgid "Enable network load graph"
+msgstr "Aktivizo grafikun e ngarkesës së rrjetit"
+
+#: ../multiload/multiload.schemas.in.h:9
+msgid "Enable swap load graph"
+msgstr "Aktivizo grafikun e ngarkesës së memorjes swap"
+
+#: ../multiload/multiload.schemas.in.h:10
+msgid ""
+"For horizontal panels, the width of the graphs in pixels. For vertical "
+"panels, this is the height of the graphs."
+msgstr ""
+"Për panelet horizontale, gjerësia egrafikut në piksel. Për panelet vertikale "
+"kjo është gjatësia e grafikëve."
+
+#: ../multiload/multiload.schemas.in.h:11
+msgid "Graph color for Ethernet network activity"
+msgstr "Ngjyra e grafikut për aktivitetin e rrjetit Ethernet"
+
+#: ../multiload/multiload.schemas.in.h:12
+msgid "Graph color for PLIP network activity"
+msgstr "Ngjyra e grafikut për aktivitetin e rrjetit PLIP"
+
+#: ../multiload/multiload.schemas.in.h:13
+msgid "Graph color for SLIP network activity"
+msgstr "Ngjyra e grafikut për aktivitetin e rrjetit SLIP"
+
+#: ../multiload/multiload.schemas.in.h:14
+msgid "Graph color for buffer memory"
+msgstr "Ngjyra e grafikut për memorjen buffer"
+
+#: ../multiload/multiload.schemas.in.h:15
+msgid "Graph color for cached memory"
+msgstr "Ngjyra e grafikut për memorjen cache"
+
+#: ../multiload/multiload.schemas.in.h:16
+msgid "Graph color for disk read"
+msgstr "Ngjyra e grafikut për leximin në disk"
+
+#: ../multiload/multiload.schemas.in.h:17
+msgid "Graph color for disk write"
+msgstr "Ngjyra e grafikut për shkrimin në disk"
+
+#: ../multiload/multiload.schemas.in.h:18
+msgid "Graph color for iowait related CPU activity"
+msgstr "Ngjyra e grafikut për aktivitetin e CPU-së në lidhje me iowait"
+
+#: ../multiload/multiload.schemas.in.h:19
+msgid "Graph color for load average"
+msgstr "Ngjyra e grafikut për ngarkesën mesatare"
+
+#: ../multiload/multiload.schemas.in.h:20
+msgid "Graph color for nice-related CPU activity"
+msgstr "Ngjyra e grafikut për aktivitetin e CPU-së në lidhje me nice"
+
+#: ../multiload/multiload.schemas.in.h:21
+msgid "Graph color for other network usage"
+msgstr "Ngjyra e grafikut për përdorime të tjera të rrjetit"
+
+#: ../multiload/multiload.schemas.in.h:22
+msgid "Graph color for shared memory"
+msgstr "Ngjyra e grafikut për memorjen e ndarë"
+
+#: ../multiload/multiload.schemas.in.h:23
+msgid "Graph color for system-related CPU activity"
+msgstr "Ngjyra e grafikut për aktivitetin e CPU-së në lidhje me sistemin"
+
+#: ../multiload/multiload.schemas.in.h:24
+msgid "Graph color for user-related CPU activity"
+msgstr "Ngjyra e grafikut për aktivitetin e CPU-së në lidhje me përdoruesin"
+
+#: ../multiload/multiload.schemas.in.h:25
+msgid "Graph color for user-related memory usage"
+msgstr "Ngjyra e grafikut për memorjen në lidhje me përdoruesin"
+
+#: ../multiload/multiload.schemas.in.h:26
+msgid "Graph color for user-related swap usage"
+msgstr "Ngjyra e grafikut për memorjen swap në lidhje me përdoruesin"
+
+#: ../multiload/multiload.schemas.in.h:27
+msgid "Graph size"
+msgstr "Madhësia e grafikut"
+
+#: ../multiload/multiload.schemas.in.h:28
+msgid "Load graph background color"
+msgstr "Ngarko ngjyrën e sfondit të grafikut"
+
+#: ../multiload/multiload.schemas.in.h:29
+msgid "Memory graph background color"
+msgstr "Ngjyra e sfondit për grafikun e memorjes"
+
+#: ../multiload/multiload.schemas.in.h:30
+msgid "Network graph background color"
+msgstr "Ngjyra e sfondit për grafikun e rrjetit"
+
+#: ../multiload/multiload.schemas.in.h:31
+msgid "Swap graph background color"
+msgstr "Ngjyra e sfondit për grafikun e memorjes swap"
+
+#: ../multiload/properties.c:368
+msgid "Monitored Resources"
+msgstr "Burimet e Vëzhguara"
+
+#: ../multiload/properties.c:393
+msgid "_Processor"
+msgstr "_Proçesori"
+
+#: ../multiload/properties.c:406
+msgid "_Memory"
+msgstr "_Memorja"
+
+#: ../multiload/properties.c:419
+msgid "_Network"
+msgstr "_Rrjeti"
+
+#: ../multiload/properties.c:432
+msgid "S_wap Space"
+msgstr "Hapësira e Memorjes Swap"
+
+#: ../multiload/properties.c:445
+msgid "_Load"
+msgstr "_Ngarkesa"
+
+#: ../multiload/properties.c:458
+msgid "_Harddisk"
+msgstr "_Harddisk"
+
+#: ../multiload/properties.c:474
+msgid "Options"
+msgstr "Mundësitë"
+
+#: ../multiload/properties.c:504
+msgid "System m_onitor width: "
+msgstr "Gjerësia e vë_zhguesit të sistemit: "
+
+#: ../multiload/properties.c:506
+msgid "System m_onitor height: "
+msgstr "Gjatësia e vë_zhguesit të sistemit: "
+
+#: ../multiload/properties.c:545
+msgid "Sys_tem monitor update interval: "
+msgstr "Intervali i freskimit të vëzhguesit të sis_temit: "
+
+#: ../multiload/properties.c:571
+msgid "milliseconds"
+msgstr "milisekonda"
+
+#: ../multiload/properties.c:582
+msgid "Colors"
+msgstr "Ngjyrat"
+
+#: ../multiload/properties.c:609 ../multiload/properties.c:617
+msgid "_User"
+msgstr "_Përdoruesi"
+
+#: ../multiload/properties.c:610
+msgid "S_ystem"
+msgstr "S_istemi"
+
+#: ../multiload/properties.c:611
+msgid "N_ice"
+msgstr "N_ice"
+
+#: ../multiload/properties.c:612
+msgid "I_OWait"
+msgstr "I_OWait"
+
+#: ../multiload/properties.c:613
+msgid "I_dle"
+msgstr "I Pa_përdorur"
+
+#: ../multiload/properties.c:618
+msgid "Sh_ared"
+msgstr "N_darë"
+
+#: ../multiload/properties.c:619
+msgid "_Buffers"
+msgstr "_Buffer-a"
+
+#: ../multiload/properties.c:620
+msgid "Cach_ed"
+msgstr "Në Cach_e"
+
+#: ../multiload/properties.c:621
+msgid "F_ree"
+msgstr "E Li_rë"
+
+#: ../multiload/properties.c:625
+msgid "_SLIP"
+msgstr "_SLIP"
+
+#: ../multiload/properties.c:626
+msgid "PL_IP"
+msgstr "PL_IP"
+
+#: ../multiload/properties.c:627
+msgid "_Ethernet"
+msgstr "_Ethernet"
+
+#: ../multiload/properties.c:628
+msgid "Othe_r"
+msgstr "Tjetë_r"
+
+#: ../multiload/properties.c:629 ../multiload/properties.c:639
+#: ../multiload/properties.c:645
+msgid "_Background"
+msgstr "_Sfondi"
+
+#: ../multiload/properties.c:633
+msgid "_Used"
+msgstr "_Përdorur"
+
+#: ../multiload/properties.c:634
+msgid "_Free"
+msgstr "_E Lirë"
+
+#: ../multiload/properties.c:636
+msgid "Load"
+msgstr "Ngarko"
+
+#: ../multiload/properties.c:638
+msgid "_Average"
+msgstr "_Mesatare"
+
+#: ../multiload/properties.c:641
+msgid "Harddisk"
+msgstr "Harddisk"
+
+#: ../multiload/properties.c:643
+msgid "_Read"
+msgstr "_Leximi"
+
+#: ../multiload/properties.c:644
+msgid "_Write"
+msgstr "_Shkrimi"
+
+#: ../multiload/properties.c:670
+msgid "System Monitor Preferences"
+msgstr "Preferencat e Vëzhguesit të Sistemit"
+
+#: ../null_applet/GNOME_CDPlayerApplet.server.in.h:1
+msgid "CD Player (Deprecated)"
+msgstr "Lexues CD-je (Zëvendësuar)"
+
+#: ../null_applet/GNOME_CDPlayerApplet.server.in.h:2
+msgid "Panel applet for playing audio CDs"
+msgstr "Applet e panelit për leximin e CD-ve"
+
+#: ../null_applet/GNOME_MailcheckApplet_Factory.server.in.h:1
+msgid "Alert you when new mail arrives"
+msgstr "Sinjalizon kur vjen mesazh i ri"
+
+#: ../null_applet/GNOME_MailcheckApplet_Factory.server.in.h:2
+msgid "Inbox Monitor (Deprecated)"
+msgstr "Vëzhguesit Poste (Zëvendësuar)"
+
+#: ../null_applet/GNOME_NullApplet_Factory.server.in.in.h:1
+msgid "Factory for deprecating applets"
+msgstr "Fabrika për applet e harruara"
+
+#: ../null_applet/GNOME_NullApplet_Factory.server.in.in.h:2
+msgid "Null Applet Factory"
+msgstr "Fabrika për Applet Nul"
+
+#: ../null_applet/GNOME_Panel_WirelessApplet.server.in.h:1
+msgid "Monitor the quality of a wireless network link"
+msgstr "Kontrollon cilësinë e një lidhjeje rrjeti wireless"
+
+#: ../null_applet/GNOME_Panel_WirelessApplet.server.in.h:2
+msgid "Wireless Link Monitor"
+msgstr "Vëzhgues i Lidhjes Wireless"
+
+#: ../null_applet/null_applet.c:149
+msgid "Some panel items are no longer available"
+msgstr "Disa elementë paneli nuk gjenden më"
+
+#: ../null_applet/null_applet.c:150
+msgid ""
+"One or more panel items (also referred to as applets) are no longer "
+"available in the GNOME desktop."
+msgstr ""
+"Një apo më shumë elementë paneli (ndryshe quajtur applet) nuk gjenden më në "
+"hapësirën e punës GNOME."
+
+#: ../null_applet/null_applet.c:152
+msgid "These items will now be removed from your configuration:"
+msgstr "Këto elementë do hiqen tani nga konfigurimi yt:"
+
+#: ../null_applet/null_applet.c:155
+msgid "You will not receive this message again."
+msgstr "Nuk do lajmëroheni më me anë të këtij mesazhi."
+
+#: ../stickynotes/GNOME_StickyNotesApplet.server.in.in.h:1
+msgid "Create, view, and manage sticky notes on the desktop"
+msgstr "Krijo, shiko dhe drejto shënime ngjitëse mbi hapësirën e punës"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.server.in.in.h:2
+#: ../stickynotes/stickynotes_applet.c:411
+#: ../stickynotes/stickynotes_applet_callbacks.c:384
+msgid "Sticky Notes"
+msgstr "Shënime të varura"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.server.in.in.h:3
+msgid "Sticky Notes Applet Factory"
+msgstr "Fabrika e Applet Shënime Ngjitëse"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:1
+msgid "Hi_de Notes"
+msgstr "F_shih Shënimet"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:3
+msgid "_Delete Notes"
+msgstr "_Fshi Shënime"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:5
+msgid "_Lock Notes"
+msgstr "_Blloko Shënimet"
+
+#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:6
+#: ../stickynotes/stickynotes.glade.h:44
+msgid "_New Note"
+msgstr "Shënim i _Ri"
+
+#: ../stickynotes/stickynotes.c:560
+msgid "This note is locked."
+msgstr "Ky shënim është i bllokuar."
+
+#: ../stickynotes/stickynotes.c:564
+msgid "This note is unlocked."
+msgstr "Ky shënim është i zhbllokuar."
+
+#: ../stickynotes/stickynotes.glade.h:2
+msgid "    Font C_olor:"
+msgstr "    Ngjyra e Shkronjës:"
+
+#: ../stickynotes/stickynotes.glade.h:3
+msgid "    Font Co_lor:"
+msgstr "    N_gjyra e Shkronjës:"
+
+#: ../stickynotes/stickynotes.glade.h:4
+msgid "    Note C_olor:"
+msgstr "    Ngjyr_a e Shënimit:"
+
+#: ../stickynotes/stickynotes.glade.h:5
+msgid "    Note _Color:"
+msgstr "    _Ngjyra e Shënimit:"
+
+#: ../stickynotes/stickynotes.glade.h:6
+msgid "    _Font:"
+msgstr "    _Gërma:"
+
+#: ../stickynotes/stickynotes.glade.h:7
+msgid "<b>Behavior</b>"
+msgstr "<b>Sjellja</b>"
+
+#: ../stickynotes/stickynotes.glade.h:8
+msgid "<b>Default Note Properties</b>"
+msgstr "<b>Preferencat e Paracaktuara të Shënimeve</b>"
+
+#: ../stickynotes/stickynotes.glade.h:9
+msgid ""
+"<b>Delete all sticky notes?</b>\n"
+"\n"
+"This cannot be undone."
+msgstr ""
+"<b>Ti fshij të gjitha shënimet?</b>\n"
+"\n"
+"Ky veprim nuk mund të zhbëhet."
+
+#: ../stickynotes/stickynotes.glade.h:12
+msgid ""
+"<b>Delete this sticky note?</b>\n"
+"\n"
+"This cannot be undone."
+msgstr ""
+"<b>Ta fshij këtë shënim?</b>\n"
+"\n"
+"Ky veprim nuk mund të zhbëhet."
+
+#: ../stickynotes/stickynotes.glade.h:15
+msgid "<b>Properties</b>"
+msgstr "<b>Pronësitë</b>"
+
+#: ../stickynotes/stickynotes.glade.h:16
+msgid "Choose a base color to use for all sticky notes"
+msgstr "Zgjidh një ngjyrë bazë për të gjitha shënimet ngjitëse"
+
+#: ../stickynotes/stickynotes.glade.h:17
+msgid "Choose a color for the note"
+msgstr "Zgjidh një ngjyrë për shënimin"
+
+#: ../stickynotes/stickynotes.glade.h:18
+msgid "Choose a font for the note"
+msgstr "Zgjidh një stil shkronjash për shënimin"
+
+#: ../stickynotes/stickynotes.glade.h:19
+msgid "Choose a font to use for all sticky notes"
+msgstr "Zgjidh një stil shkronjash për të gjithë shënimet"
+
+#: ../stickynotes/stickynotes.glade.h:20
+msgid "Choose if notes are visible on all workspaces"
+msgstr "Zgjidh nëse shënimet duhet të shfaqen në të gjitha hapësirat e punës"
+
+#: ../stickynotes/stickynotes.glade.h:21
+msgid "Choose if the default style is forced on all notes"
+msgstr "Zgjidh nëse stili i paracaktuar duhet ti përshtatet të gjitha shënimeve"
+
+#: ../stickynotes/stickynotes.glade.h:22
+msgid "Close note"
+msgstr "Mbyll shënimin"
+
+#: ../stickynotes/stickynotes.glade.h:23
+msgid "Force _default color and font on notes"
+msgstr "Detyro ngjyrën dhe stilin e shkronjave të _paracaktuara për shënimin"
+
+#: ../stickynotes/stickynotes.glade.h:24
+msgid "H_eight:"
+msgstr "L_artësia:"
+
+#: ../stickynotes/stickynotes.glade.h:25
+msgid "Lock/Unlock note"
+msgstr "Blloko/Zhblloko shënimin"
+
+#: ../stickynotes/stickynotes.glade.h:26
+msgid "Pick a color for the sticky note"
+msgstr "Zgjidh një ngjyrë për shënimin"
+
+#: ../stickynotes/stickynotes.glade.h:27
+msgid "Pick a default sticky note color"
+msgstr "Zgjidh një ngjyrë të paracaktuar për shënimin"
+
+#: ../stickynotes/stickynotes.glade.h:28
+msgid "Pick a default sticky note font"
+msgstr "Zgjidh një stil shkronjash të paracaktuar për shënimin"
+
+#: ../stickynotes/stickynotes.glade.h:29
+msgid "Pick a font for the sticky note"
+msgstr "Zgjidh një stil shkronjash për shënimin"
+
+#: ../stickynotes/stickynotes.glade.h:30
+msgid "Resize note"
+msgstr "Ndrysho madhësinë e shënimit"
+
+#: ../stickynotes/stickynotes.glade.h:31
+msgid "Specify a title for the note"
+msgstr "Zgjidh një titull për shënimin"
+
+#: ../stickynotes/stickynotes.glade.h:32
+msgid "Specify the default height (in pixels) of new notes"
+msgstr "Specifiko gjatësinë e paracaktuar (në piksel) të shënimeve të reja"
+
+#: ../stickynotes/stickynotes.glade.h:33
+msgid "Specify the default width (in pixels) of new notes"
+msgstr "Specifiko gjerësinë e paracaktuar (në piksel) të shënimeve të reja"
+
+#: ../stickynotes/stickynotes.glade.h:34
+msgid "Sticky Note"
+msgstr "Shënim i Ngjitur"
+
+#: ../stickynotes/stickynotes.glade.h:35
+msgid "Sticky Note Properties"
+msgstr "Vetitë e Shënimit të Ngjitur"
+
+#: ../stickynotes/stickynotes.glade.h:36
+msgid "Sticky Notes Preferences"
+msgstr "Preferencat e Shënimeve të Ngjitura"
+
+#: ../stickynotes/stickynotes.glade.h:37
+msgid "Use co_lor from the system theme"
+msgstr "Përdor ngj_yrat nga tema e sistemit"
+
+#: ../stickynotes/stickynotes.glade.h:38
+msgid "Use default co_lor"
+msgstr "Përdor ngj_yrat e paracaktuara"
+
+#: ../stickynotes/stickynotes.glade.h:39
+msgid "Use default fo_nt"
+msgstr "Përdor stilin e shkron_jave të paracaktuar"
+
+#: ../stickynotes/stickynotes.glade.h:40
+msgid "Use fo_nt from the system theme"
+msgstr "Përdor stilin e shkron_jave nga tema e sistemit"
+
+#: ../stickynotes/stickynotes.glade.h:41
+msgid "_Delete All"
+msgstr "_Fshi Gjithçka"
+
+#: ../stickynotes/stickynotes.glade.h:42
+msgid "_Delete Note..."
+msgstr "_Fshi Shënimin..."
+
+#: ../stickynotes/stickynotes.glade.h:43
+msgid "_Lock Note"
+msgstr "_Blloko Shënimin"
+
+#: ../stickynotes/stickynotes.glade.h:46
+msgid "_Put notes on all workspaces"
+msgstr "_Vendos shënimin në të gjitha hapësirat e punës"
+
+#: ../stickynotes/stickynotes.glade.h:47
+msgid "_Title:"
+msgstr "_Titulli:"
+
+#: ../stickynotes/stickynotes.schemas.in.h:1
+msgid "Autosave timeout in minutes"
+msgstr "Ruaj automatikisht skadencën në minuta"
+
+#: ../stickynotes/stickynotes.schemas.in.h:2
+msgid ""
+"By default, sticky notes are given the current date as the title when they "
+"are created. This format is used; anything that can be parsed by strftime() "
+"is valid."
+msgstr ""
+"Normalisht, shënimeve të ngjitura i jepen data e sotme si titull kur "
+"krijohen.Përdoret ky format, çdo gjë që mund të kalohet me strftime() është "
+"e vlefshme."
+
+#: ../stickynotes/stickynotes.schemas.in.h:3
+msgid "Date format of note's title"
+msgstr "Formati i datës për titullin e shënimit"
+
+#: ../stickynotes/stickynotes.schemas.in.h:4
+msgid "Default color for font"
+msgstr "Ngjyra e paracaktuar për shkronjat"
+
+#: ../stickynotes/stickynotes.schemas.in.h:5
+msgid "Default color for new notes"
+msgstr "Ngjyra e paracaktuar për shënimet e reja"
+
+#: ../stickynotes/stickynotes.schemas.in.h:6
+msgid ""
+"Default color for new sticky notes. This should be in html hex "
+"specification, for example \"#30FF50\"."
+msgstr ""
+"Ngjyra e paracaktuar për shënimet e reja. Duhet të jetë e formës html "
+"heksadecimal, p.sh. \"#30FF50\"."
+
+#: ../stickynotes/stickynotes.schemas.in.h:7
+msgid ""
+"Default font color for new sticky notes. This should be in html hex "
+"specification, for example \"#000000\"."
+msgstr ""
+"Ngjyra e paracaktuar për shënimet e reja. Duhet të jetë e formës html "
+"heksadecimal, p.sh. \"#000000\"."
+
+#: ../stickynotes/stickynotes.schemas.in.h:8
+msgid "Default font for new notes"
+msgstr "Stili i paracaktuar i shkronjave i për shënimet e reja"
+
+#: ../stickynotes/stickynotes.schemas.in.h:9
+msgid ""
+"Default font for new sticky notes. This should be a Pango Font Name, for "
+"example \"Sans Italic 10\""
+msgstr ""
+"Stili i paracaktuar i shkronjave për shënimet e reja. Duhet të jetë një Emër "
+"Shkronje Pango, p.sh. \"Sans Italic 10\""
+
+#: ../stickynotes/stickynotes.schemas.in.h:10
+msgid "Default height for new notes"
+msgstr "Gjatësia e paracaktuar për shënimet e reja"
+
+#: ../stickynotes/stickynotes.schemas.in.h:11
+msgid "Default height for new sticky notes in pixels."
+msgstr "Gjatësia e paracaktuar (në piksel) për shënimet e reja ngjitëse."
+
+#: ../stickynotes/stickynotes.schemas.in.h:12
+msgid "Default width for new notes"
+msgstr "Gjerësia e paracaktuar për shënimet e reja"
+
+#: ../stickynotes/stickynotes.schemas.in.h:13
+msgid "Default width for new sticky notes in pixels."
+msgstr "Gjerësia e paracaktuar (në piksel) për shënimet e reja ngjitëse."
+
+#: ../stickynotes/stickynotes.schemas.in.h:14
+msgid "Empty notes are always deleted without confirmation"
+msgstr "Shënimet bosh do fshihen gjithmonë pa konfirmim."
+
+#: ../stickynotes/stickynotes.schemas.in.h:15
+msgid ""
+"Every time the specified number of minutes pass, the sticky notes are "
+"automatically saved."
+msgstr "Sa herë që kalon numri i caktuar i minutave, shënimet ruhen automatikisht."
+
+#: ../stickynotes/stickynotes.schemas.in.h:16
+msgid ""
+"If this option is disabled, a custom color can be used as the default color "
+"for all sticky notes."
+msgstr ""
+"Nëse kjo mundësi çaktivizohet, mund të përdoret një ngjyrë tjetër si ngjyra "
+"e paracaktuar për të gjitha shënimet."
+
+#: ../stickynotes/stickynotes.schemas.in.h:17
+msgid ""
+"If this option is disabled, a custom font can be used as the default font "
+"for all sticky notes."
+msgstr ""
+"Nëse kjo mundësi çaktivizohet, mund të përdoret një stil tjetër shkronjash "
+"nga ai i paracaktuar për të gjitha shënimet."
+
+#: ../stickynotes/stickynotes.schemas.in.h:18
+msgid ""
+"If this option is enabled, the custom colors and fonts that have been "
+"assigned to individual notes will be ignored."
+msgstr ""
+"Nëse kjo mundësi aktivizohet, ngjyrat dhe stilet e shkronjave që i janë "
+"caktuar shënimeve do shpërfillen."
+
+#: ../stickynotes/stickynotes.schemas.in.h:19
+msgid "Specifies whether the sticky notes are locked (non-editable) or not."
+msgstr ""
+"Përcakton nëse shënimet e ngjitura janë të bllokuara (të pa-ndryshueshme) "
+"apo jo."
+
+#: ../stickynotes/stickynotes.schemas.in.h:20
+msgid ""
+"Specifies whether the sticky notes are visible on ALL workspaces on the "
+"desktop, or not."
+msgstr ""
+"Përcakton nëse shënimet e ngjitura janë të dukshme në të GJITHA hapësirat e "
+"punës, apo jo."
+
+#: ../stickynotes/stickynotes.schemas.in.h:21
+msgid "Sticky notes' locked state"
+msgstr "Gjendja e bllokuar e shënimeve"
+
+#: ../stickynotes/stickynotes.schemas.in.h:22
+msgid "Sticky notes' workspace stickyness"
+msgstr "Paraqitja në të gjitha hapësirat e punës e shënimeve"
+
+#: ../stickynotes/stickynotes.schemas.in.h:23
+msgid "Whether to ask for confirmation when deleting a note"
+msgstr "Nëse duhet të pyesë për konfirmim kur fshin një shënim"
+
+#: ../stickynotes/stickynotes.schemas.in.h:24
+msgid "Whether to force the default color and font on all notes"
+msgstr ""
+"Nëse të forcojë ngjyrën dhe stilin e shkronjave të paracaktuar për të gjitha "
+"shënimet"
+
+#: ../stickynotes/stickynotes.schemas.in.h:25
+msgid "Whether to use the default system color"
+msgstr "Nëse duhet të përdorë ngjyrën e paracaktuar të sistemit"
+
+#: ../stickynotes/stickynotes.schemas.in.h:26
+msgid "Whether to use the default system font"
+msgstr "Nëse duhet të përdorë stilin e shkronjave të sistemit"
+
+#: ../stickynotes/stickynotes_applet.c:586
+#, c-format
+msgid "%d note"
+msgid_plural "%d notes"
+msgstr[0] "%d shënim"
+msgstr[1] "Shënim i bllokuar"
+
+#: ../stickynotes/stickynotes_applet.c:587
+msgid "Show sticky notes"
+msgstr "Shfaq shënimet e varura"
+
+#: ../stickynotes/stickynotes_applet_callbacks.c:388
+msgid "Sticky Notes for the GNOME Desktop Environment"
+msgstr "Shënimet e Ngjitura për Mjedisin e Punës GNOME"
+
+#: ../trashapplet/GNOME_Panel_TrashApplet.server.in.in.h:1
+msgid "Go to Trash"
+msgstr "Shko në Kosh"
+
+#: ../trashapplet/GNOME_Panel_TrashApplet.server.in.in.h:2
+msgid "Trash"
+msgstr "Koshi"
+
+#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:2
+#: ../trashapplet/src/trashapplet.c:597
+msgid "_Empty Trash"
+msgstr "_Zbraz Koshin"
+
+#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:4
+msgid "_Open"
+msgstr "_Hap"
+
+#: ../trashapplet/src/trashapplet.c:163
+#, c-format
+msgid "Unable to find the Trash directory: %s"
+msgstr "Nuk arrita të gjej dosjen e Koshit: %s"
+
+#: ../trashapplet/src/trashapplet.c:397
+msgid "No Items in Trash"
+msgstr "Asnjë Element në Kosh"
+
+#: ../trashapplet/src/trashapplet.c:401
+#, c-format
+msgid "%d Item in Trash"
+msgid_plural "%d Items in Trash"
+msgstr[0] "%d Element në Kosh"
+msgstr[1] "%d Elementë në Kosh"
+
+#: ../trashapplet/src/trashapplet.c:530
+#, c-format
+msgid "Removing item %s of %s"
+msgstr "Duke hequr artikullin %s nga %s"
+
+#: ../trashapplet/src/trashapplet.c:537
+#, c-format
+msgid "<i>Removing: %s</i>"
+msgstr "<i>Duke hequr: %s</i>"
+
+#: ../trashapplet/src/trashapplet.c:574
+msgid "Empty all of the items from the trash?"
+msgstr "Ta zbraz koshin nga të gjithë elementët?"
+
+#: ../trashapplet/src/trashapplet.c:577
+msgid ""
+"If you choose to empty the trash, all items in it will be permanently lost. "
+"Please note that you can also delete them separately."
+msgstr ""
+"Nëse e zbraz koshin, të gjithë elementët do humbasin përfundimisht. Të lutem "
+"vër re që mundesh gjithashtu ti fshish veças."
+
+#: ../trashapplet/src/trashapplet.c:678
+#, c-format
+msgid ""
+"Error while spawning nautilus:\n"
+"%s"
+msgstr ""
+"Gabim në e qarkullimin e nautilus-it:\n"
+"%s"
+
+#: ../trashapplet/src/trashapplet.c:725
+msgid "Trash Applet"
+msgstr "Applet i Koshit"
+
+#: ../trashapplet/src/trashapplet.c:728
+msgid ""
+"A GNOME trash bin that lives in your panel. You can use it to view the trash "
+"or drag and drop items into the trash."
+msgstr ""
+"Një kosh plehrash që ndodhet në panel. Mund ta përdorësh për të kontrolluar "
+"kartelat e fshira ose të zhvendosësh elementë brenda tij."
+
+#: ../trashapplet/src/trashapplet.c:753
+msgid "Delete Immediately?"
+msgstr "Ta Fshij Menjëherë?"
+
+#: ../trashapplet/src/trashapplet.c:782
+msgid "Cannot move items to trash, do you want to delete them immediately?"
+msgstr "E pamundur zhvendosja e elementëve në kosh, dëshiron ti fshish menjëherë?"
+
+#: ../trashapplet/src/trashapplet.c:785
+msgid "Cannot move some items to trash, do you want to delete these immediately?"
+msgstr ""
+"E pamundur zhvendosja e disa elementëve në kosh, dëshiron ti fshish "
+"menjëherë?"
+
+#: ../trashapplet/src/trashapplet.c:885 ../trashapplet/src/trashapplet.c:902
+#, c-format
+msgid ""
+"Unable to move to trash:\n"
+"%s"
+msgstr ""
+"Nuk mund të zhvendos në kosh:\n"
+"%s"
+
+#: ../trashapplet/trashapplet.glade.h:1
+msgid "<b>From:</b>"
+msgstr "<b>Nga:</b>"
+
+#: ../trashapplet/trashapplet.glade.h:2
+msgid "<big><b>Emptying the Trash</b></big>"
+msgstr "<big><b>Duke zbrazur Koshin</b></big>"
+
+#: ../trashapplet/trashapplet.glade.h:3
+msgid "Emptying the Trash"
+msgstr "Duke zbrazur Koshin"
+

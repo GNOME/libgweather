@@ -1,0 +1,96 @@
+2008-01-14  Matthias Clasen  <mclasen@redhat.com>
+
+	* Guard header files with a GWEATHER_I_KNOW_THIS_IS_UNSTABLE
+	preprocessor symbol.
+
+2008-01-11  Matthias Clasen  <mclasen@redhat.com>
+
+	* libgweather/gweather-prefs.c (get_translated_unit): Fix
+	inverted logic in g_return_if_fail.
+
+2008-01-10  Christian Persch  <chpe@gnome.org>
+
+	* configure.in: Remove obsolete variables. Remove output about IPv6.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Fix zone for Seattle, WA.
+	Patch from Andrew Burton. Reported by Clifford Snow.
+	Closes bug #412823.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Fix zone for Kenai
+	and Soldotna in Alaska. Reported by John Pfeifer.
+	Closes bug #503999.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Add Eritrea/Asmara
+	Reported by Yonas Abraham. Closes bug #502576.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Add Ängelholm, Sweden.
+	Closes bug 451655. Reported by Thomas Novin.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Fix a location name.
+	Reported by Fabio Bonelli. Closes bug #350945.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Fix zone for
+	Santa Rosa, CA. Patch from Mike Ferrara
+	Closes bug #477785.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Add El Cerrito
+	Patch from Ryan Lovett. Closes bug #475039.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Various fixes:
+	- coordinates missing hemisphere
+	- duplicate locations
+	- <name> instead of <_name>
+	Patch from James Andrewartha. Closes bug #447559.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Saint-Hubert is a city in the
+	province of Luxembourg not Liège. Reported by Nicolas Évrard
+	Closes bug #416080.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Merge some fixes I put in gnome-applets
+	here as well.
+
+2008-01-08  Federico Mena Quintero  <federico@novell.com>
+
+	* data/*: Moved Locations.xml and its accompanying files from
+	gnome-applets/gweather.
+
+	* po-locations/*: Moved from gnome-applets/po-locations.
+
+	* Makefile.am (SUBDIRS): Added the "data" directory.
+
+	* configure.in: Add data/Makefile to the files to generate.
+
+2008-01-03  Federico Mena Quintero  <federico@novell.com>
+
+	* configure.in: Check for gconftool-2.
+
+2007-11-22  Bastien Nocera  <hadess@hadess.net>
+
+	* Makefile.am:
+	* autogen.sh:
+	* configure.in: Add, mostly copied from gnome-applets
+
+2007-11-22  Bastien Nocera  <hadess@hadess.net>
+
+	* MAINTAINERS: add
+

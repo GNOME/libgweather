@@ -1,0 +1,938 @@
+# GNOME ilmateate teegi eesti keele tõlge.
+# Estonian translation of libgweather.
+#
+# Copyright (C) 1999, 2001, 2002, 2005, 2006 Free Software Foundation, Inc.
+# Copyright (C) 2007, 2008 The GNOME Project
+# This file is distributed under the same license as the gnome-applets package.
+#
+# Lauris Kaplinski <lauris@ariman.ee>, 1999.
+# Ilmar Kerm <ikerm@hot.ee>, 2001, 2002.
+# Tõivo Leedjärv <toivo@linux.ee>, 2002.
+# Priit Laes <amd@store20.com>, 2004-2006.
+# Ivar Smolin <okul@linux.ee>, 2005-2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgweather HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-01-07 18:02+0000\n"
+"PO-Revision-Date: 2008-01-10 19:51+0200\n"
+"Last-Translator: Ivar Smolin <okul@linux.ee>\n"
+"Language-Team: Estonian <gnome-et@linux.ee>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. TRANSLATOR: Change this to the default location name,
+#. * used when you first start the Weather Applet. This is
+#. * the common localised name that corresponds to
+#. * the location code (DEFAULT_CODE) you will put on the next message
+#. * For example, for the Greek locale, we set this to "Athens", the
+#. * capital city and we write it in Greek. It's important to translate
+#. * this name.
+#. *
+#. * If you do not require a DEFAULT_LOCATION, set this to
+#. * "DEFAULT_LOCATION".
+#.
+#: ../libgweather/gweather-gconf.c:162 ../libgweather/gweather-gconf.c:163
+#: ../libgweather/gweather.schemas.in.h:5
+msgid "DEFAULT_LOCATION"
+msgstr "Tallinna Ülemiste lennujaam"
+
+#. TRANSLATOR: Change this to the code of your default location that
+#. * corresponds to the DEFAULT_LOCATION name you put above. This is
+#. * normally a four-letter (ICAO) code and can be found in
+#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * NB. The web page is over 1.7MB in size.
+#. * Pick a default location like a capital city so that it would be ok
+#. * for more of your users. For example, for Greek, we use "LGAV" for
+#. * the capital city, Athens.
+#. *
+#. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
+#.
+#: ../libgweather/gweather-gconf.c:182 ../libgweather/gweather-gconf.c:183
+#: ../libgweather/gweather.schemas.in.h:3
+msgid "DEFAULT_CODE"
+msgstr "EETN"
+
+#. TRANSLATOR: Change this to the zone of your default location that
+#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
+#. * Normally, US and Canada locations have zones while the rest do not.
+#. * Check
+#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * as any zone you put here must also be present in the Locations.xml
+#. * file.
+#. *
+#. * If your default location does not have a zone, set this to
+#. * "DEFAULT_ZONE".
+#.
+#: ../libgweather/gweather-gconf.c:202 ../libgweather/gweather-gconf.c:203
+#: ../libgweather/gweather.schemas.in.h:7
+msgid "DEFAULT_ZONE"
+msgstr "DEFAULT_ZONE"
+
+#. TRANSLATOR: Change this to the radar of your default location that
+#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
+#. * Normally, US and Canada locations have radar names while the rest do
+#. * not. Check
+#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * as any radar you put here must also be present in the Locations.xml
+#. * file.
+#. *
+#. * If your default location does not have a radar, set this to " "
+#. * (or space).
+#. * If you do not have a default location, set this to DEFAULT_RADAR.
+#.
+#: ../libgweather/gweather-gconf.c:223 ../libgweather/gweather-gconf.c:224
+#: ../libgweather/gweather.schemas.in.h:6
+msgid "DEFAULT_RADAR"
+msgstr "DEFAULT_RADAR"
+
+#. TRANSLATOR: Change this to the coordinates of your default location
+#. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
+#. * above. Check
+#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * as any coordinates you put here must also be present in the
+#. * Locations.xml file.
+#. *
+#. * If your default location does not have known coordinates, set this
+#. * to " " (or space).
+#. * If you do not have a default location, set this to
+#. * DEFAULT_COORDINATES.
+#.
+#: ../libgweather/gweather-gconf.c:244 ../libgweather/gweather-gconf.c:245
+#: ../libgweather/gweather.schemas.in.h:4
+msgid "DEFAULT_COORDINATES"
+msgstr "59-24N 024-49E"
+
+#: ../libgweather/gweather-prefs.c:24 ../libgweather/gweather-prefs.c:32
+#: ../libgweather/gweather-prefs.c:42 ../libgweather/gweather-prefs.c:53
+msgid "Default"
+msgstr "Vaikimisi"
+
+#: ../libgweather/gweather-prefs.c:25
+msgid "K"
+msgstr "K"
+
+#. translators: Kelvin
+#: ../libgweather/gweather-prefs.c:26
+msgid "C"
+msgstr "C"
+
+#. translators: Celsius
+#: ../libgweather/gweather-prefs.c:27
+msgid "F"
+msgstr "F"
+
+#: ../libgweather/gweather-prefs.c:33
+msgid "m/s"
+msgstr "m/s"
+
+#. translators: meters per second
+#: ../libgweather/gweather-prefs.c:34
+msgid "km/h"
+msgstr "km/t"
+
+#. translators: kilometers per hour
+#: ../libgweather/gweather-prefs.c:35
+msgid "mph"
+msgstr "miili tunnis"
+
+#. translators: miles per hour
+#: ../libgweather/gweather-prefs.c:36
+msgid "knots"
+msgstr "sõlme"
+
+#. translators: knots (speed unit)
+#: ../libgweather/gweather-prefs.c:37
+msgid "Beaufort scale"
+msgstr "palli"
+
+#: ../libgweather/gweather-prefs.c:43
+msgid "kPa"
+msgstr "kPa"
+
+#. translators: kilopascals
+#: ../libgweather/gweather-prefs.c:44
+msgid "hPa"
+msgstr "hPa"
+
+#. translators: hectopascals
+#: ../libgweather/gweather-prefs.c:45
+msgid "mb"
+msgstr "mbar"
+
+#. translators: millibars
+#: ../libgweather/gweather-prefs.c:46
+msgid "mmHg"
+msgstr "mm Hg"
+
+#. translators: millimeters of mercury
+#: ../libgweather/gweather-prefs.c:47
+msgid "inHg"
+msgstr "tolli/Hg"
+
+#. translators: inches of mercury
+#: ../libgweather/gweather-prefs.c:48
+msgid "atm"
+msgstr "atm"
+
+#: ../libgweather/gweather-prefs.c:54
+msgid "m"
+msgstr "m"
+
+#. translators: meters
+#: ../libgweather/gweather-prefs.c:55
+msgid "km"
+msgstr "km"
+
+#. translators: kilometers
+#: ../libgweather/gweather-prefs.c:56
+msgid "mi"
+msgstr "miili"
+
+#. TRANSLATOR: This is the default unit to use for temperature measurements.
+#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
+#: ../libgweather/gweather-prefs.c:75 ../libgweather/gweather-prefs.c:84
+msgid "DEFAULT_TEMP_UNIT"
+msgstr "C"
+
+#. TRANSLATOR: This is the default unit to use for wind speed.
+#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
+#. "mph" (miles per hour) and "knots"
+#: ../libgweather/gweather-prefs.c:113 ../libgweather/gweather-prefs.c:123
+msgid "DEFAULT_SPEED_UNIT"
+msgstr "m/s"
+
+#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
+#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
+#. "mb" (millibars), "mmHg" (millimeters of mercury),
+#. "inHg" (inches of mercury) and "atm" (atmosphere)
+#: ../libgweather/gweather-prefs.c:154 ../libgweather/gweather-prefs.c:165
+msgid "DEFAULT_PRESSURE_UNIT"
+msgstr "mmHg"
+
+#. TRANSLATOR: This is the default unit to use for visibility distance.
+#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
+#: ../libgweather/gweather-prefs.c:194 ../libgweather/gweather-prefs.c:203
+msgid "DEFAULT_DISTANCE_UNIT"
+msgstr "km"
+
+#: ../libgweather/gweather.schemas.in.h:1
+msgid ""
+"A three-digit-long code for retrieving radar maps from weather.com, found "
+"from http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/"
+"Locations.xml.in"
+msgstr ""
+"Kolmekohaline number radarikaardi vastuvõtmiseks weather.com saidist. "
+"Numbrid leiab aadressilt http://cvs.gnome.org/viewcvs/*checkout*/gnome-"
+"applets/gweather/Locations.xml.in"
+
+#: ../libgweather/gweather.schemas.in.h:2
+msgid ""
+"A unique zone for the city, as found from http://cvs.gnome.org/viewcvs/"
+"*checkout*/gnome-applets/gweather/Locations.xml.in"
+msgstr ""
+"Unikaalne piirkond linna jaoks, nagu on näidatud URL-il http://cvs.gnome.org/"
+"viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
+
+#: ../libgweather/gweather.schemas.in.h:8
+msgid ""
+"Determines whether the applet automatically updates its weather statistics "
+"or not."
+msgstr ""
+"Selle abil määratakse, kas rakend uuendab ilmastatistikat automaatselt või "
+"mitte."
+
+#: ../libgweather/gweather.schemas.in.h:9
+msgid "Display radar map"
+msgstr "Näita _radarikaarti"
+
+#: ../libgweather/gweather.schemas.in.h:10
+msgid "Distance unit"
+msgstr "Kaugusühik"
+
+#: ../libgweather/gweather.schemas.in.h:11
+msgid "Fetch a radar map on each update."
+msgstr "Radarikaardi hankimine iga uuenduse korral."
+
+#: ../libgweather/gweather.schemas.in.h:12
+msgid ""
+"If true, then retrieve a radar map from a location specified by the \"radar"
+"\" key."
+msgstr ""
+"Kui märgitud, siis võetakse radarikaart \"radar\" võtmega määratud asukohast."
+
+#: ../libgweather/gweather.schemas.in.h:13
+msgid ""
+"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
+"[EW]."
+msgstr ""
+"Sinu asukoha laius- ja pikkuskraad väljendatuna DD-MM-SS[NS] DD-MM-SS[EW] "
+"vormingus"
+
+#: ../libgweather/gweather.schemas.in.h:14
+msgid "Location coordinates"
+msgstr "Asukoha koordinaadid"
+
+#: ../libgweather/gweather.schemas.in.h:15
+msgid "Nearby city"
+msgstr "Lähim linn"
+
+#: ../libgweather/gweather.schemas.in.h:16
+msgid ""
+"Nearby major zone, such as a capital city, as found from http://cvs.gnome."
+"org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
+msgstr ""
+"Lähim tähtsam piirkond (näiteks pealinn), nagu on näidatud URL-il http://cvs."
+"gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
+
+#: ../libgweather/gweather.schemas.in.h:17
+msgid "Not used anymore"
+msgstr "Enam ei kasutata"
+
+#: ../libgweather/gweather.schemas.in.h:18
+msgid "Pressure unit"
+msgstr "Rõhuühik"
+
+#: ../libgweather/gweather.schemas.in.h:19
+msgid "Radar location"
+msgstr "Radari asukoht"
+
+#: ../libgweather/gweather.schemas.in.h:20
+msgid "Speed unit"
+msgstr "Kiirusühik"
+
+#: ../libgweather/gweather.schemas.in.h:21
+msgid "Temperature unit"
+msgstr "Temperatuuriühik"
+
+#: ../libgweather/gweather.schemas.in.h:22
+msgid "The city that gweather displays information for."
+msgstr "Linn, mille kohta gweather andmeid kuvab."
+
+#: ../libgweather/gweather.schemas.in.h:23
+msgid "The custom url from where to retrieve a radar map."
+msgstr "Kohandatud url radarikaardi hankimiseks."
+
+#: ../libgweather/gweather.schemas.in.h:24
+msgid "The interval, in seconds, between automatic updates."
+msgstr "Vahemik sekundites automaatsete uuenduste vahel."
+
+#: ../libgweather/gweather.schemas.in.h:25
+msgid "The unit to use for pressure."
+msgstr "Rõhuühik."
+
+#: ../libgweather/gweather.schemas.in.h:26
+msgid "The unit to use for temperature."
+msgstr "Temperatuuriühik."
+
+#: ../libgweather/gweather.schemas.in.h:27
+msgid "The unit to use for visibility."
+msgstr "Nähavusühik."
+
+#: ../libgweather/gweather.schemas.in.h:28
+msgid "The unit to use for wind speed."
+msgstr "Tuulekiiruse ühik."
+
+#: ../libgweather/gweather.schemas.in.h:29
+msgid "Update interval"
+msgstr "Uuendamise intervall:"
+
+#: ../libgweather/gweather.schemas.in.h:30
+msgid "Update the data automatically"
+msgstr "Andmete automaatne uuendamine"
+
+#: ../libgweather/gweather.schemas.in.h:31
+msgid "Url for the radar map"
+msgstr "Radarikaardi url"
+
+#: ../libgweather/gweather.schemas.in.h:32
+msgid "Use custom url for the radar map"
+msgstr "Kasuta radarikaardi jaoks oma aadressi"
+
+#: ../libgweather/gweather.schemas.in.h:33
+msgid "Use metric units"
+msgstr "Kasuta meetermõõdustikku"
+
+#: ../libgweather/gweather.schemas.in.h:34
+msgid "Use metric units instead of english units."
+msgstr "Kasuta meetermõõdustikku inglise mõõdustiku asemel"
+
+#: ../libgweather/gweather.schemas.in.h:35
+msgid "Weather for a city"
+msgstr "Ilm linna jaoks"
+
+#: ../libgweather/gweather.schemas.in.h:36
+msgid "Weather location information"
+msgstr "Ilmaasukoha andmed"
+
+#: ../libgweather/gweather.schemas.in.h:37
+msgid "Weather location information."
+msgstr "Ilmaasukoha andmed."
+
+#: ../libgweather/gweather.schemas.in.h:38
+msgid "Zone location"
+msgstr "Tsooni asukoht"
+
+#: ../libgweather/weather-iwin.c:134 ../libgweather/weather-metar.c:553
+#: ../libgweather/weather-metar.c:581
+msgid "WeatherInfo missing location"
+msgstr "Ilmaennustuse puuduv asukoht"
+
+#: ../libgweather/weather-metar.c:526 ../libgweather/weather-metar.c:561
+#: ../libgweather/weather-wx.c:62
+msgid "Failed to get METAR data.\n"
+msgstr "Ei saa lugeda METAR andmeid.\n"
+
+#: ../libgweather/weather.c:179
+msgid "Variable"
+msgstr "Muutlik"
+
+#: ../libgweather/weather.c:180
+msgid "North"
+msgstr "Põhjast"
+
+#: ../libgweather/weather.c:180
+msgid "North - NorthEast"
+msgstr "Põhjast - kirdest"
+
+#: ../libgweather/weather.c:180
+msgid "Northeast"
+msgstr "Kirdest"
+
+#: ../libgweather/weather.c:180
+msgid "East - NorthEast"
+msgstr "Idast - kirdest"
+
+#: ../libgweather/weather.c:181
+msgid "East"
+msgstr "Idast"
+
+#: ../libgweather/weather.c:181
+msgid "East - Southeast"
+msgstr "Idast - kagust"
+
+#: ../libgweather/weather.c:181
+msgid "Southeast"
+msgstr "Kagust"
+
+#: ../libgweather/weather.c:181
+msgid "South - Southeast"
+msgstr "Lõunast - kagust"
+
+#: ../libgweather/weather.c:182
+msgid "South"
+msgstr "Lõunast"
+
+#: ../libgweather/weather.c:182
+msgid "South - Southwest"
+msgstr "Lõunast - edelast"
+
+#: ../libgweather/weather.c:182
+msgid "Southwest"
+msgstr "Edelast"
+
+#: ../libgweather/weather.c:182
+msgid "West - Southwest"
+msgstr "Läänest - edelast"
+
+#: ../libgweather/weather.c:183
+msgid "West"
+msgstr "Läänest"
+
+#: ../libgweather/weather.c:183
+msgid "West - Northwest"
+msgstr "Läänest - loodest"
+
+#: ../libgweather/weather.c:183
+msgid "Northwest"
+msgstr "Loodest"
+
+#: ../libgweather/weather.c:183
+msgid "North - Northwest"
+msgstr "Põhjast - loodest"
+
+#: ../libgweather/weather.c:189 ../libgweather/weather.c:689
+#: ../libgweather/weather.c:738 ../libgweather/weather.c:751
+#: ../libgweather/weather.c:763 ../libgweather/weather.c:778
+#: ../libgweather/weather.c:794 ../libgweather/weather.c:831
+#: ../libgweather/weather.c:843 ../libgweather/weather.c:862
+#: ../libgweather/weather.c:894 ../libgweather/weather.c:907
+#: ../libgweather/weather.c:927
+msgid "Unknown"
+msgstr "Teadmata"
+
+#: ../libgweather/weather.c:191 ../libgweather/weather.c:208
+#: ../libgweather/weather.c:279
+msgid "Invalid"
+msgstr "Vigane"
+
+#: ../libgweather/weather.c:197
+msgid "Clear Sky"
+msgstr "Selge taevas"
+
+#: ../libgweather/weather.c:198
+msgid "Broken clouds"
+msgstr "Pilvitus selginemistega"
+
+#: ../libgweather/weather.c:199
+msgid "Scattered clouds"
+msgstr "Vahelduv pilvisus"
+
+#: ../libgweather/weather.c:200
+msgid "Few clouds"
+msgstr "Vähene pilvisus"
+
+#: ../libgweather/weather.c:201
+msgid "Overcast"
+msgstr "Lauspilves"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.html
+#. NONE
+#: ../libgweather/weather.c:240 ../libgweather/weather.c:242
+msgid "Thunderstorm"
+msgstr "Äike"
+
+#. DRIZZLE
+#: ../libgweather/weather.c:241
+msgid "Drizzle"
+msgstr "Uduvihm"
+
+#: ../libgweather/weather.c:241
+msgid "Light drizzle"
+msgstr "Nõrk uduvihm"
+
+#: ../libgweather/weather.c:241
+msgid "Moderate drizzle"
+msgstr "Mõõdukas uduvihm"
+
+#: ../libgweather/weather.c:241
+msgid "Heavy drizzle"
+msgstr "Tugev uduvihm"
+
+#: ../libgweather/weather.c:241
+msgid "Freezing drizzle"
+msgstr "Jäätuv uduvihm"
+
+#. RAIN
+#: ../libgweather/weather.c:242
+msgid "Rain"
+msgstr "Vihm"
+
+#: ../libgweather/weather.c:242
+msgid "Light rain"
+msgstr "Pisut vihma"
+
+#: ../libgweather/weather.c:242
+msgid "Moderate rain"
+msgstr "Mõõdukas vihm"
+
+#: ../libgweather/weather.c:242
+msgid "Heavy rain"
+msgstr "Tugev vihm"
+
+#: ../libgweather/weather.c:242
+msgid "Rain showers"
+msgstr "Vihmavalingud"
+
+#: ../libgweather/weather.c:242
+msgid "Freezing rain"
+msgstr "Jäätuv vihm"
+
+#. SNOW
+#: ../libgweather/weather.c:243
+msgid "Snow"
+msgstr "Lumi"
+
+#: ../libgweather/weather.c:243
+msgid "Light snow"
+msgstr "Nõrk lumesadu"
+
+#: ../libgweather/weather.c:243
+msgid "Moderate snow"
+msgstr "Mõõdukas lumesadu"
+
+#: ../libgweather/weather.c:243
+msgid "Heavy snow"
+msgstr "Tugev lumesadu"
+
+#: ../libgweather/weather.c:243
+msgid "Snowstorm"
+msgstr "Lumetorm"
+
+#: ../libgweather/weather.c:243
+msgid "Blowing snowfall"
+msgstr "Lumesadu tuulega"
+
+#: ../libgweather/weather.c:243
+msgid "Snow showers"
+msgstr "Hootised lumesajud"
+
+#: ../libgweather/weather.c:243
+msgid "Drifting snow"
+msgstr "Liikuv lumesadu"
+
+#. SNOW_GRAINS
+#: ../libgweather/weather.c:244
+msgid "Snow grains"
+msgstr "Lumeterad"
+
+#: ../libgweather/weather.c:244
+msgid "Light snow grains"
+msgstr "Nõrgalt lumeteri"
+
+#: ../libgweather/weather.c:244
+msgid "Moderate snow grains"
+msgstr "Mõõdukalt lumeteri"
+
+#: ../libgweather/weather.c:244
+msgid "Heavy snow grains"
+msgstr "Tihedalt lumeteri"
+
+#. ICE_CRYSTALS
+#: ../libgweather/weather.c:245
+msgid "Ice crystals"
+msgstr "Jääkristallid"
+
+#. ICE_PELLETS
+#: ../libgweather/weather.c:246
+msgid "Ice pellets"
+msgstr "Jääterad"
+
+#: ../libgweather/weather.c:246
+msgid "Few ice pellets"
+msgstr "Vähe jääteri"
+
+#: ../libgweather/weather.c:246
+msgid "Moderate ice pellets"
+msgstr "Mõõdukalt jääteri"
+
+#: ../libgweather/weather.c:246
+msgid "Heavy ice pellets"
+msgstr "Tihedalt jääteri"
+
+#: ../libgweather/weather.c:246
+msgid "Ice pellet storm"
+msgstr "Jääterade torm"
+
+#: ../libgweather/weather.c:246
+msgid "Showers of ice pellets"
+msgstr "Jääterade valingud"
+
+#. HAIL
+#: ../libgweather/weather.c:247
+msgid "Hail"
+msgstr "Rahe"
+
+#: ../libgweather/weather.c:247
+msgid "Hailstorm"
+msgstr "Rahetorm"
+
+#: ../libgweather/weather.c:247
+msgid "Hail showers"
+msgstr "Rahehood"
+
+#. SMALL_HAIL
+#: ../libgweather/weather.c:248
+msgid "Small hail"
+msgstr "Peen rahe"
+
+#: ../libgweather/weather.c:248
+msgid "Small hailstorm"
+msgstr "Peene rahe tuisk"
+
+#: ../libgweather/weather.c:248
+msgid "Showers of small hail"
+msgstr "Peene rahe hood"
+
+#. PRECIPITATION
+#: ../libgweather/weather.c:249
+msgid "Unknown precipitation"
+msgstr "Teadmata sademed"
+
+#. MIST
+#: ../libgweather/weather.c:250
+msgid "Mist"
+msgstr "Hajus udu"
+
+#. FOG
+#: ../libgweather/weather.c:251
+msgid "Fog"
+msgstr "Udu"
+
+#: ../libgweather/weather.c:251
+msgid "Fog in the vicinity"
+msgstr "Udu läheduses"
+
+#: ../libgweather/weather.c:251
+msgid "Shallow fog"
+msgstr "Madal udu"
+
+#: ../libgweather/weather.c:251
+msgid "Patches of fog"
+msgstr "Paiguti udu"
+
+#: ../libgweather/weather.c:251
+msgid "Partial fog"
+msgstr "Hooti udu"
+
+#: ../libgweather/weather.c:251
+msgid "Freezing fog"
+msgstr "Jäätuv udu"
+
+#. SMOKE
+#: ../libgweather/weather.c:252
+msgid "Smoke"
+msgstr "Suits"
+
+#. VOLCANIC_ASH
+#: ../libgweather/weather.c:253
+msgid "Volcanic ash"
+msgstr "Vulkaaniline tuhk"
+
+#. SAND
+#: ../libgweather/weather.c:254
+msgid "Sand"
+msgstr "Liiv"
+
+#: ../libgweather/weather.c:254
+msgid "Blowing sand"
+msgstr "Liiv tuulega"
+
+#: ../libgweather/weather.c:254
+msgid "Drifting sand"
+msgstr "Liikuv liiv"
+
+#. HAZE
+#: ../libgweather/weather.c:255
+msgid "Haze"
+msgstr "Vine"
+
+#. SPRAY
+#: ../libgweather/weather.c:256
+msgid "Blowing sprays"
+msgstr "Veetolm tuulega"
+
+#. DUST
+#: ../libgweather/weather.c:257
+msgid "Dust"
+msgstr "Tolm"
+
+#: ../libgweather/weather.c:257
+msgid "Blowing dust"
+msgstr "Tolm tuulega"
+
+#: ../libgweather/weather.c:257
+msgid "Drifting dust"
+msgstr "Liikuv tolm"
+
+#. SQUALL
+#: ../libgweather/weather.c:258
+msgid "Squall"
+msgstr "Tuuleiilid"
+
+#. SANDSTORM
+#: ../libgweather/weather.c:259
+msgid "Sandstorm"
+msgstr "Liivatorm"
+
+#: ../libgweather/weather.c:259
+msgid "Sandstorm in the vicinity"
+msgstr "Liivatorm läheduses"
+
+#: ../libgweather/weather.c:259
+msgid "Heavy sandstorm"
+msgstr "Tugev liivatorm"
+
+#. DUSTSTORM
+#: ../libgweather/weather.c:260
+msgid "Duststorm"
+msgstr "Tolmutorm"
+
+#: ../libgweather/weather.c:260
+msgid "Duststorm in the vicinity"
+msgstr "Tolmutorm läheduses"
+
+#: ../libgweather/weather.c:260
+msgid "Heavy duststorm"
+msgstr "Tugev tolmutorm"
+
+#. FUNNEL_CLOUD
+#: ../libgweather/weather.c:261
+msgid "Funnel cloud"
+msgstr "Tuulispask"
+
+#. TORNADO
+#: ../libgweather/weather.c:262
+msgid "Tornado"
+msgstr "Tornaado"
+
+#. DUST_WHIRLS
+#: ../libgweather/weather.c:263
+msgid "Dust whirls"
+msgstr "Tolmupöörised"
+
+#: ../libgweather/weather.c:263
+msgid "Dust whirls in the vicinity"
+msgstr "Tolmupöörised läheduses"
+
+#. TRANSLATOR: this is a format string for strftime
+#. *             see `man 3 strftime` for more details
+#.
+#: ../libgweather/weather.c:661
+msgid "%a, %b %d / %H:%M"
+msgstr "%A. %e %B / %H:%M"
+
+#: ../libgweather/weather.c:676
+msgid "Unknown observation time"
+msgstr "Tundmatu vaatlusaeg"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
+#: ../libgweather/weather.c:709
+#, c-format
+msgid "%.1f ℉"
+msgstr "%.1f°F"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
+#: ../libgweather/weather.c:712
+#, c-format
+msgid "%d ℉"
+msgstr "%d°℉"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
+#: ../libgweather/weather.c:718
+#, c-format
+msgid "%.1f ℃"
+msgstr "%.1f°℃"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
+#: ../libgweather/weather.c:721
+#, c-format
+msgid "%d ℃"
+msgstr "%d°℃"
+
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../libgweather/weather.c:727
+#, c-format
+msgid "%.1f K"
+msgstr "%.1f°K"
+
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../libgweather/weather.c:730
+#, c-format
+msgid "%d K"
+msgstr "%d°K"
+
+#. TRANSLATOR: This is the humidity in percent
+#: ../libgweather/weather.c:781
+#, c-format
+msgid "%.f%%"
+msgstr "%.f%%"
+
+#. TRANSLATOR: This is the wind speed in knots
+#: ../libgweather/weather.c:806
+#, c-format
+msgid "%0.1f knots"
+msgstr "%0.1f sõlme"
+
+#. TRANSLATOR: This is the wind speed in miles per hour
+#: ../libgweather/weather.c:810
+#, c-format
+msgid "%.1f mph"
+msgstr "%.1f mph"
+
+#. TRANSLATOR: This is the wind speed in kilometers per hour
+#: ../libgweather/weather.c:814
+#, c-format
+msgid "%.1f km/h"
+msgstr "%.1f km/h"
+
+#. TRANSLATOR: This is the wind speed in meters per second
+#: ../libgweather/weather.c:818
+#, c-format
+msgid "%.1f m/s"
+msgstr "%.1f m/s"
+
+#. TRANSLATOR: This is the wind speed as a Beaufort force factor
+#. * (commonly used in nautical wind estimation).
+#.
+#: ../libgweather/weather.c:824
+#, c-format
+msgid "Beaufort force %.1f"
+msgstr "%.1f palli"
+
+#: ../libgweather/weather.c:845
+msgid "Calm"
+msgstr "Tuulevaikus"
+
+#. TRANSLATOR: This is 'wind direction' / 'wind speed'
+#: ../libgweather/weather.c:849
+#, c-format
+msgid "%s / %s"
+msgstr "%s / %s"
+
+#. TRANSLATOR: This is pressure in inches of mercury
+#: ../libgweather/weather.c:867
+#, c-format
+msgid "%.2f inHg"
+msgstr "%.2f tolli/Hg"
+
+#. TRANSLATOR: This is pressure in millimeters of mercury
+#: ../libgweather/weather.c:871
+#, c-format
+msgid "%.1f mmHg"
+msgstr "%.1f mmHg"
+
+#. TRANSLATOR: This is pressure in kiloPascals
+#: ../libgweather/weather.c:875
+#, c-format
+msgid "%.2f kPa"
+msgstr "%.2f kPa"
+
+#. TRANSLATOR: This is pressure in hectoPascals
+#: ../libgweather/weather.c:879
+#, c-format
+msgid "%.2f hPa"
+msgstr "%.2f hPa"
+
+#. TRANSLATOR: This is pressure in millibars
+#: ../libgweather/weather.c:883
+#, c-format
+msgid "%.2f mb"
+msgstr "%.2f mb"
+
+#. TRANSLATOR: This is pressure in atmospheres
+#: ../libgweather/weather.c:887
+#, c-format
+msgid "%.3f atm"
+msgstr "%.3f atm"
+
+#. TRANSLATOR: This is the visibility in miles
+#: ../libgweather/weather.c:912
+#, c-format
+msgid "%.1f miles"
+msgstr "%.1f miili"
+
+#. TRANSLATOR: This is the visibility in kilometers
+#: ../libgweather/weather.c:916
+#, c-format
+msgid "%.1f km"
+msgstr "%.1f km"
+
+#. TRANSLATOR: This is the visibility in meters
+#: ../libgweather/weather.c:920
+#, c-format
+msgid "%.0fm"
+msgstr "%.0fm"
+
+#: ../libgweather/weather.c:948 ../libgweather/weather.c:968
+msgid "%H:%M"
+msgstr "%H:%M"
+
+#: ../libgweather/weather.c:1001
+msgid "Retrieval failed"
+msgstr "Tõrge uuendamisel"
