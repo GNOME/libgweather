@@ -1,0 +1,17 @@
+libgweather 2.21.1
+==================
+
+This is the first release of libgweather as a standalone
+library. libgweather provides access to weather information from the
+net and is used by programs such as the weather report applet.
+
+The library was previously part of the gnome-applets package and this
+release corresponds with the 2.21.3 release of gnome-applets. Since
+the last release of gnome-applets, the following changes have been
+made to libgweather:
+
+ - Locations.xml has been moved from gweather to libgweather and a
+   pkg-config variable has been added to let applications find it.
+ - Units are now marked for translation.
+ - New functions to parse temperatures and wind speeds.
+ - Locations.xml fixes.
