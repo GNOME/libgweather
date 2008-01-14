@@ -1,0 +1,11 @@
+libgweather is a library to access weather information from online
+services for numerous locations.
+
+libgweather isn't supported in the devel platform, which means OS vendors 
+won't guarantee the API/ABI long-term, but authors of open source apps
+should feel free to use libgweather as users can always recompile against
+a new version.  
+
+To use libgweather in your code, you need to define the 
+GWEATHER_I_KNOW_THIS_IS_UNSTABLE preprecessor symbol, e.g. by adding
+-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE to your CFLAGS.

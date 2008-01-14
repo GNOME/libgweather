@@ -26,6 +26,12 @@
 #ifndef __GWEATHER_GCONF_WRAPPER_H__
 #define __GWEATHER_GCONF_WRAPPER_H__
 
+
+#ifndef GWEATHER_I_KNOW_THIS_IS_UNSTABLE
+#error "libgweather should only be used if you understand that it's subject to change, and is not supported as a fixed API/ABI or as part of the platform"
+#endif
+
+
 #include <glib/gmacros.h>
 #include <glib/gerror.h>
 #include <gconf/gconf-client.h>
