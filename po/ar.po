@@ -1,4 +1,4 @@
-# translation of gnome-applets.HEAD.ar.po to Arabic
+# translation of libgweather.HEAD.ar.po to Arabic
 # translation of gnome-applets.HEAD.ar.po to
 # translation of gnome-applets.po to
 # This file is distributed under the same license as the PACKAGE package.
@@ -9,21 +9,20 @@
 # Arafat Medini <lumina@silverpen.de>, 2003.
 # Abdulaziz Al-Arfaj <alarfaj0@yahoo.com>, 2004.
 # Ayman Hourieh <aymanh@gmail.com>, 2004.
-# Khaled Hosny <khaledhosny@eglug.org>, 2006, 2007.
+# Khaled Hosny <khaledhosny@eglug.org>, 2006, 2007, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-applets.HEAD.ar\n"
+"Project-Id-Version: libgweather.HEAD.ar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-31 07:57+0000\n"
-"PO-Revision-Date: 2007-10-24 20:30+0100\n"
-"Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
+"PO-Revision-Date: 2008-02-01 00:36+0200\n"
+"Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && n<=10 ? 2 : "
-"3\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #. TRANSLATOR: Change this to the default location name,
 #. * used when you first start the Weather Applet. This is
@@ -39,7 +38,7 @@ msgstr ""
 #: ../libgweather/gweather-gconf.c:163 ../libgweather/gweather-gconf.c:164
 #: ../libgweather/gweather.schemas.in.h:5
 msgid "DEFAULT_LOCATION"
-msgstr "مكّة المكرّمة"
+msgstr "DEFAULT_LOCATION"
 
 #. TRANSLATOR: Change this to the code of your default location that
 #. * corresponds to the DEFAULT_LOCATION name you put above. This is
@@ -55,7 +54,7 @@ msgstr "مكّة المكرّمة"
 #: ../libgweather/gweather-gconf.c:183 ../libgweather/gweather-gconf.c:184
 #: ../libgweather/gweather.schemas.in.h:3
 msgid "DEFAULT_CODE"
-msgstr "OEMK"
+msgstr "DEFAULT_CODE"
 
 #. TRANSLATOR: Change this to the zone of your default location that
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
@@ -88,7 +87,7 @@ msgstr "DEFAULT_ZONE"
 #: ../libgweather/gweather-gconf.c:224 ../libgweather/gweather-gconf.c:225
 #: ../libgweather/gweather.schemas.in.h:6
 msgid "DEFAULT_RADAR"
-msgstr " "
+msgstr "DEFAULT_RADAR"
 
 #. TRANSLATOR: Change this to the coordinates of your default location
 #. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
@@ -105,27 +104,27 @@ msgstr " "
 #: ../libgweather/gweather-gconf.c:245 ../libgweather/gweather-gconf.c:246
 #: ../libgweather/gweather.schemas.in.h:4
 msgid "DEFAULT_COORDINATES"
-msgstr "21-26N 039-46E"
+msgstr "DEFAULT_COORDINATES"
 
 #: ../libgweather/gweather-prefs.c:25 ../libgweather/gweather-prefs.c:36
 #: ../libgweather/gweather-prefs.c:51 ../libgweather/gweather-prefs.c:68
 msgid "Default"
-msgstr "الإفتراضي"
+msgstr "المبدئي"
 
 #. translators: Kelvin
 #: ../libgweather/gweather-prefs.c:27
 msgid "K"
-msgstr ""
+msgstr "ك"
 
 #. translators: Celsius
 #: ../libgweather/gweather-prefs.c:29
 msgid "C"
-msgstr ""
+msgstr "م"
 
 #. translators: Fahrenheit
 #: ../libgweather/gweather-prefs.c:31
 msgid "F"
-msgstr ""
+msgstr "ف"
 
 #. translators: meters per second
 #: ../libgweather/gweather-prefs.c:38
@@ -140,7 +139,7 @@ msgstr "كم/ث"
 #. translators: miles per hour
 #: ../libgweather/gweather-prefs.c:42
 msgid "mph"
-msgstr "ميل في السّاعة"
+msgstr "ميل/س"
 
 #. translators: knots (speed unit)
 #: ../libgweather/gweather-prefs.c:44
@@ -175,7 +174,7 @@ msgstr "مم زئبق"
 #. translators: inches of mercury
 #: ../libgweather/gweather-prefs.c:61
 msgid "inHg"
-msgstr "إنش زئبق"
+msgstr "بوصة زئبق"
 
 #. translators: atmosphere
 #: ../libgweather/gweather-prefs.c:63
@@ -184,9 +183,8 @@ msgstr "ض.ج."
 
 #. translators: meters
 #: ../libgweather/gweather-prefs.c:70
-#, fuzzy
 msgid "m"
-msgstr "ميلي بار"
+msgstr "م"
 
 #. translators: kilometers
 #: ../libgweather/gweather-prefs.c:72
@@ -196,7 +194,7 @@ msgstr "كم"
 #. translators: miles
 #: ../libgweather/gweather-prefs.c:74
 msgid "mi"
-msgstr ""
+msgstr "ميل"
 
 #. TRANSLATOR: This is the default unit to use for temperature measurements.
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
@@ -230,17 +228,13 @@ msgid ""
 "A three-digit-long code for retrieving radar maps from weather.com, found "
 "from http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/"
 "Locations.xml.in"
-msgstr ""
-"رمز بثلاثة أحرف لتنزيل خرائط رادار من weather.com، موجودة في http://cvs."
-"gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
+msgstr "رمز بثلاثة أحرف لتنزيل خرائط رادار من weather.com، موجودة في http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
 msgid ""
 "A unique zone for the city, as found from http://cvs.gnome.org/viewcvs/"
 "*checkout*/gnome-applets/gweather/Locations.xml.in"
-msgstr ""
-"منطقة فريدة للمدينة، كما هي موجودة في http://cvs.gnome.org/viewcvs/"
-"*checkout*/gnome-applets/gweather/Locations.xml.in"
+msgstr "منطقة فريدة للمدينة، كما هي موجودة في http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:8
 msgid ""
@@ -264,8 +258,7 @@ msgstr "احصل على خريطة رادار مع كل تحديث."
 msgid ""
 "If true, then retrieve a radar map from a location specified by the \"radar"
 "\" key."
-msgstr ""
-"إذا ضبط لصحيح، ستسحب خارطة رادار من الموقع المحدّد في المفتاح  \"radar\"."
+msgstr "إذا ضبط لصحيح، ستسحب خارطة رادار من الموقع المحدّد في المفتاح  \"radar\"."
 
 #: ../libgweather/gweather.schemas.in.h:13
 msgid ""
@@ -275,7 +268,7 @@ msgstr "خطوط الطول والعرض للموقع في بلدك بشكل: DD
 
 #: ../libgweather/gweather.schemas.in.h:14
 msgid "Location coordinates"
-msgstr "احداثيات الموقع"
+msgstr "إحداثيات الموقع"
 
 #: ../libgweather/gweather.schemas.in.h:15
 msgid "Nearby city"
@@ -285,9 +278,7 @@ msgstr "مدينة قريبة"
 msgid ""
 "Nearby major zone, such as a capital city, as found from http://cvs.gnome."
 "org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
-msgstr ""
-"منطقة مجاورة كبرى مثل العاصمة، كما هو موجود في http://cvs.gnome.org/viewcvs/"
-"*checkout*/gnome-applets/gweather/Locations.xml.in"
+msgstr "منطقة مجاورة كبرى مثل العاصمة، كما هو موجود في http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -323,19 +314,19 @@ msgstr "المدة بالثانية بين التحديثات الآلية."
 
 #: ../libgweather/gweather.schemas.in.h:25
 msgid "The unit to use for pressure."
-msgstr "الوحدة التي سستخدم للضغط."
+msgstr "الوحدة التي ستستخدم للضغط."
 
 #: ../libgweather/gweather.schemas.in.h:26
 msgid "The unit to use for temperature."
-msgstr "الوحدة التي سستخدم للحرارة."
+msgstr "الوحدة التي ستستخدم للحرارة."
 
 #: ../libgweather/gweather.schemas.in.h:27
 msgid "The unit to use for visibility."
-msgstr "الوحدة التي سستخدم للرؤية."
+msgstr "الوحدة التي ستستخدم للرؤية."
 
 #: ../libgweather/gweather.schemas.in.h:28
 msgid "The unit to use for wind speed."
-msgstr "الوحدة التي سستخدم لسرعة الرياح."
+msgstr "الوحدة التي ستستخدم لسرعة الرياح."
 
 #: ../libgweather/gweather.schemas.in.h:29
 msgid "Update interval"
@@ -347,11 +338,11 @@ msgstr "حدّث البيانات آليا"
 
 #: ../libgweather/gweather.schemas.in.h:31
 msgid "Url for the radar map"
-msgstr "عنوان خريطة الرادار"
+msgstr "مسار خريطة الرادار"
 
 #: ../libgweather/gweather.schemas.in.h:32
 msgid "Use custom url for the radar map"
-msgstr "اس_تخدم عنوانا خاصا لخريطة الرادار"
+msgstr "اس_تخدم مسارا خاصا لخريطة الرادار"
 
 #: ../libgweather/gweather.schemas.in.h:33
 msgid "Use metric units"
@@ -359,7 +350,7 @@ msgstr "ا_ستخدم وحدات النظام المتري"
 
 #: ../libgweather/gweather.schemas.in.h:34
 msgid "Use metric units instead of english units."
-msgstr "ا_ستخدم وحدات النظام المتري عوض النظام الانجليزي"
+msgstr "ا_ستخدم وحدات النظام المتري بدل النظام الانجليزي"
 
 #: ../libgweather/gweather.schemas.in.h:35
 msgid "Weather for a city"
@@ -567,7 +558,7 @@ msgstr "عاصفة ثلجية"
 
 #: ../libgweather/weather.c:244
 msgid "Blowing snowfall"
-msgstr "عاصفة ثلجبة"
+msgstr "عاصفة ثلجية"
 
 #: ../libgweather/weather.c:244
 msgid "Snow showers"
@@ -796,31 +787,31 @@ msgstr "وقت الرصد مجهول"
 #: ../libgweather/weather.c:710
 #, c-format
 msgid "%.1f ℉"
-msgstr "%.1f ف"
+msgstr "%I.1f °ف"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
 #: ../libgweather/weather.c:713
 #, c-format
 msgid "%d ℉"
-msgstr "%d ف"
+msgstr "%Id °ف"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
 #: ../libgweather/weather.c:719
 #, c-format
 msgid "%.1f ℃"
-msgstr "%.1f د.م"
+msgstr "%I.1f °م"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
 #: ../libgweather/weather.c:722
 #, c-format
 msgid "%d ℃"
-msgstr "%d د.م"
+msgstr "%Id °م"
 
 #. TRANSLATOR: This is the temperature in kelvin
 #: ../libgweather/weather.c:728
 #, c-format
 msgid "%.1f K"
-msgstr "%.1f ك"
+msgstr "%I.1f ك"
 
 #. TRANSLATOR: This is the temperature in kelvin
 #: ../libgweather/weather.c:731
@@ -832,31 +823,31 @@ msgstr "%Id ك"
 #: ../libgweather/weather.c:782
 #, c-format
 msgid "%.f%%"
-msgstr "%.f%%"
+msgstr "%I.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
 #: ../libgweather/weather.c:807
 #, c-format
 msgid "%0.1f knots"
-msgstr "%0.1f عقدة"
+msgstr "%I0.1f عقدة"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
 #: ../libgweather/weather.c:811
 #, c-format
 msgid "%.1f mph"
-msgstr "%.1f ميل/س"
+msgstr "%I.1f ميل/س"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
 #: ../libgweather/weather.c:815
 #, c-format
 msgid "%.1f km/h"
-msgstr "%.1f كم/س"
+msgstr "%I.1f كم/س"
 
 #. TRANSLATOR: This is the wind speed in meters per second
 #: ../libgweather/weather.c:819
 #, c-format
 msgid "%.1f m/s"
-msgstr "%.1f م/ث"
+msgstr "%I.1f م/ث"
 
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
@@ -864,7 +855,7 @@ msgstr "%.1f م/ث"
 #: ../libgweather/weather.c:825
 #, c-format
 msgid "Beaufort force %.1f"
-msgstr "قوة بيوفور %.1f"
+msgstr "قوة بيوفور %I.1f"
 
 #: ../libgweather/weather.c:846
 msgid "Calm"
@@ -880,2643 +871,61 @@ msgstr "%s / %s"
 #: ../libgweather/weather.c:868
 #, c-format
 msgid "%.2f inHg"
-msgstr "%.2f إنش زئبق"
+msgstr "%I.2f إنش زئبق"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
 #: ../libgweather/weather.c:872
 #, c-format
 msgid "%.1f mmHg"
-msgstr "%.1f مم زئبق"
+msgstr "%I.1f مم زئبق"
 
 #. TRANSLATOR: This is pressure in kiloPascals
 #: ../libgweather/weather.c:876
 #, c-format
 msgid "%.2f kPa"
-msgstr "%.2f كيلو باسكال"
+msgstr "%I.2f كيلو باسكال"
 
 #. TRANSLATOR: This is pressure in hectoPascals
 #: ../libgweather/weather.c:880
 #, c-format
 msgid "%.2f hPa"
-msgstr "%.2f هيكتو باسكال"
+msgstr "%I.2f هيكتو باسكال"
 
 #. TRANSLATOR: This is pressure in millibars
 #: ../libgweather/weather.c:884
 #, c-format
 msgid "%.2f mb"
-msgstr "%.2f ميلي بار"
+msgstr "%I.2f ميلي بار"
 
 #. TRANSLATOR: This is pressure in atmospheres
 #: ../libgweather/weather.c:888
 #, c-format
 msgid "%.3f atm"
-msgstr "%.3f ض.ج."
+msgstr "%I.3f ض.ج."
 
 #. TRANSLATOR: This is the visibility in miles
 #: ../libgweather/weather.c:913
 #, c-format
 msgid "%.1f miles"
-msgstr "%.1f أميال"
+msgstr "%I.1f أميال"
 
 #. TRANSLATOR: This is the visibility in kilometers
 #: ../libgweather/weather.c:917
 #, c-format
 msgid "%.1f km"
-msgstr "%.1f كم"
+msgstr "%I.1f كم"
 
 #. TRANSLATOR: This is the visibility in meters
 #: ../libgweather/weather.c:921
 #, c-format
 msgid "%.0fm"
-msgstr "%.0fم"
+msgstr "%I.0f م"
 
 #: ../libgweather/weather.c:949 ../libgweather/weather.c:969
 msgid "%H:%M"
-msgstr "%H:%M"
+msgstr "%OI:%OM"
 
 #: ../libgweather/weather.c:1002
 msgid "Retrieval failed"
-msgstr "فشل السحب"
+msgstr "فشل الجلب"
 
-#~ msgid "_About"
-#~ msgstr "_حوْل"
-
-#~ msgid "_Help"
-#~ msgstr "_مساعدة"
-
-#~ msgid "_Keyboard Accessibility Preferences"
-#~ msgstr "تفضيلات إعانة _لوحة المفاتيح"
-
-#~ msgid "AccessX Status Applet Factory"
-#~ msgstr "مصنع بريمج حالة AccessX"
-
-#~ msgid "Keyboard Accessibility Status"
-#~ msgstr "حالة الإعانة للوحة المفاتيح"
-
-#~ msgid "Keyboard Accessibility Status Applet Factory"
-#~ msgstr "مصنع بريمج حالة الإعانة للوحة المفاتيح"
-
-#~ msgid "Shows the status of keyboard accessibility features"
-#~ msgstr "يعرض حالة ميزات الإعانة للوحة المفاتيح"
-
-#~ msgid "Shows the state of AccessX features such as latched modifiers"
-#~ msgstr "يعرض حالة ميزات AccessX مثل المغيرات المثبتة"
-
-#~ msgid "translator-credits"
-#~ msgstr ""
-#~ "فريق عربآيز للترجمة http://www.arabeyes.org :\n"
-#~ "يوسف رفه\t<yousef@raffah.com>\n"
-#~ "جهاد عفيفي\t<djihed@gmail.com>\n"
-#~ "خالد حسني\t<khaledhosny@eglug.org>"
-
-#~ msgid "There was an error launching the help viewer: %s"
-#~ msgstr "حصل خطأ اثناء تشغيل المساعدة: %s"
-
-#~ msgid "There was an error launching the keyboard preferences dialog: %s"
-#~ msgstr "حصل خطأ اثناء تشغيل حوار تفضيلات لوح المفاتيح: %s"
-
-#~ msgid "a"
-#~ msgstr "أ"
-
-#~ msgid "AccessX Status"
-#~ msgstr "حالة AccessX"
-
-#~ msgid "Shows keyboard status when accessibility features are used."
-#~ msgstr "يعرض حالة لوحة المفاتيح عند استخدام ميزات الإعانة."
-
-#~ msgid "XKB Extension is not enabled"
-#~ msgstr "امتداد XKB غير مفعّل"
-
-#~ msgid "Unknown error"
-#~ msgstr "خطأ مجهول"
-
-#~ msgid "Error: %s"
-#~ msgstr "خطأ: %s"
-
-#~ msgid "Displays current state of keyboard accessibility features"
-#~ msgstr "يعرض الحالة الحالية لميزات الإعانة للوحة المفاتيح"
-
-#~ msgid "Battery Charge Monitor"
-#~ msgstr "مراقب شحن البطارية"
-
-#~ msgid "Battstat Factory"
-#~ msgstr "مصنع حالة البطارية"
-
-#~ msgid "Monitor a laptop's remaining power"
-#~ msgstr "مراقبة طاقة البطارية المتبقية"
-
-#~ msgid "_Preferences"
-#~ msgstr "_تفضيلات"
-
-#~ msgid "HAL error"
-#~ msgstr "خطأ في هال"
-
-#~ msgid "Could not create libhal_ctx"
-#~ msgstr "لم يمكن إنشاء libhal_ctx"
-
-#~ msgid "No batteries found"
-#~ msgstr "لم يُعثر على أي بطارية"
-
-#~ msgid "Unable to initialise HAL: %s: %s"
-#~ msgstr "لا يمكن بدأ هال: %s: %s"
-
-#~ msgid "0 for no label, 1 for percentage and 2 for time remaining"
-#~ msgstr "0 للا عنوان، 1 للنسبة المئوية و 2 للوقت المتبقي"
-
-#~ msgid "Beep for warnings"
-#~ msgstr "صفّر للتنبيه"
-
-#~ msgid "Beep when displaying a warning"
-#~ msgstr "صفّر عند عرض تنبيه"
-
-#~ msgid "Drain from top"
-#~ msgstr "أفرغ من أعلى"
-
-#~ msgid "Full Battery Notification"
-#~ msgstr "تبليغ الشحن الكامل للبطارية"
-
-#~ msgid "Low Battery Notification"
-#~ msgstr "تبليغ فراغ البطارية"
-
-#~ msgid "Notify user when the battery is full"
-#~ msgstr "نبّه المستخدم عندما تكون البطارية مشحونة"
-
-#~ msgid "Notify user when the battery is low"
-#~ msgstr "نبّه المستخدم عندما تكون البطارية فارغة"
-
-#~ msgid "Red value level"
-#~ msgstr "مستوى القيمة الحمراء"
-
-#~ msgid ""
-#~ "Show the battery meter draining from the top of the battery. Only "
-#~ "implemented for traditional battery view."
-#~ msgstr ""
-#~ "أظهر مسطرة البطارية وهي تفرغ من أعلى البطارية. موجود فقط في عرض البطارية "
-#~ "التقليدي."
-
-#~ msgid "Show the horizontal battery"
-#~ msgstr "اظهر البطارية الأفقية"
-
-#~ msgid "Show the time/percent label"
-#~ msgstr "اظهر الوقت/النسبة"
-
-#~ msgid "Show the traditional, horizontal battery on the panel"
-#~ msgstr "عرض البطارية الأفقيةالتقليدية على الشريط"
-
-#~ msgid "Show the upright, smaller battery on the panel"
-#~ msgstr "اعرض البطارية الواقفة، الأصغر على الشريط"
-
-#~ msgid ""
-#~ "The battery level below which the battery is displayed as red. Also the "
-#~ "value at which the low battery warning is displayed."
-#~ msgstr ""
-#~ "مستوى البطارية الذي تحته تعرض البطارية بلون برتقالي. أيضا القيمة التي يتم "
-#~ "عندها عرض تنبيه."
-
-#~ msgid "Upright (small) battery"
-#~ msgstr "بطارية صغيرة نحو الاعلى"
-
-#~ msgid ""
-#~ "Use the value defined in red_value as a time remaining to show the "
-#~ "warning dialog rather than a percentage"
-#~ msgstr ""
-#~ "استخدم القيمه المحددة في red_value للوقت المتبقي قبل أن تظهر حوار التحذير "
-#~ "بدلا من نسبة مئويه"
-
-#~ msgid "Warn on low time rather than low percentage"
-#~ msgstr "تنبيه عند انخفاض الوقت المتبقي بدلا من انخفاض النسبه المئويه"
-
-#~ msgid "System is running on AC power"
-#~ msgstr "النظام يعمل على التيار الكهربائي المتغير"
-
-#~ msgid "System is running on battery power"
-#~ msgstr "النظام يعمل على طاقة البطارية"
-
-#~ msgid "Battery charged (%d%%)"
-#~ msgstr "شُحِنت البطارية (%Id%%)"
-
-#~ msgid "Unknown time (%d%%) remaining"
-#~ msgstr "بقي وقت غير معروف (%Id%%)"
-
-#~ msgid "Unknown time (%d%%) until charged"
-#~ msgstr "الوقت المقدّر المتبقّي (%Id%%) مجهول"
-
-#~ msgid "%d minute (%d%%) remaining"
-#~ msgid_plural "%d minutes (%d%%) remaining"
-#~ msgstr[0] "بقي دقيقة واحدة (%Id)(%Id%%)"
-#~ msgstr[1] "بقي دقيقتان (%Id)(%Id%%)"
-#~ msgstr[2] "بقي %Id دقائق (%Id%%)"
-#~ msgstr[3] "بقي %Id دقيقة (%Id%%)"
-
-#~ msgid "%d minute until charged (%d%%)"
-#~ msgid_plural "%d minutes until charged (%d%%)"
-#~ msgstr[0] "بقي %Id دقيقة حتّى يتمّ الشّحن (%Id%%)"
-#~ msgstr[1] "بقي دقيقتان (%Id) حتّى يتمّ الشّحن (%Id%%)"
-#~ msgstr[2] "بقي %Id دقائق حتّى يتمّ الشّحن (%Id%%)"
-#~ msgstr[3] "بقي %Id دقيقة حتّى يتمّ الشّحن (%Id%%)"
-
-#~ msgid "%d hour (%d%%) remaining"
-#~ msgid_plural "%d hours (%d%%) remaining"
-#~ msgstr[0] "بقي ساعة واحدة (%Id) (%Id%%)"
-#~ msgstr[1] "بقي ساعتان (%Id%%)"
-#~ msgstr[2] "بقي %Id ساعات (%Id%%)"
-#~ msgstr[3] "بقي %Id ساعة (%Id%%)"
-
-#~ msgid "%d hour until charged (%d%%)"
-#~ msgid_plural "%d hours until charged (%d%%)"
-#~ msgstr[0] "بقي %Id ساعة حتّى يتمّ الشّحن (%Id%%)"
-#~ msgstr[1] "بقي ساعتان %Id حتّى يتمّ الشّحن (%Id%%)"
-#~ msgstr[2] "بقي %Id ساعات حتّى يتمّ الشّحن (%Id%%)"
-#~ msgstr[3] "بقي %Id ساعة حتّى يتمّ الشّحن (%Id%%)"
-
-#~ msgid "%d %s %d %s (%d%%) remaining"
-#~ msgstr "بقي %Id %s %Id %s (%Id%%)"
-
-#~ msgid "hour"
-#~ msgid_plural "hours"
-#~ msgstr[0] "ساعة"
-#~ msgstr[1] "ساعتان"
-#~ msgstr[2] "ساعات"
-#~ msgstr[3] "ساعة"
-
-#~ msgid "minute"
-#~ msgid_plural "minutes"
-#~ msgstr[0] "دقيقة"
-#~ msgstr[1] "دقيقتان"
-#~ msgstr[2] "دقائق"
-#~ msgstr[3] "دقيقة"
-
-#~ msgid "%d %s %d %s until charged (%d%%)"
-#~ msgstr "%Id %s %Id %s حتى الشحن (%Id%%)"
-
-#~ msgid "Battery Monitor"
-#~ msgstr "مراقب البطارية"
-
-#~ msgid "Your battery is now fully recharged"
-#~ msgstr "شُحِنت البطارية تماماً"
-
-#~ msgid "Battery Notice"
-#~ msgstr "ملاحظة البطارية"
-
-#~ msgid "You have %d%% of your total battery capacity remaining."
-#~ msgstr "لديك %Id%% من شحنة البطارية متبقية."
-
-#~ msgid ""
-#~ "You have %d minute of battery power remaining (%d%% of the total "
-#~ "capacity)."
-#~ msgid_plural ""
-#~ "You have %d minutes of battery power remaining (%d%% of the total "
-#~ "capacity)."
-#~ msgstr[0] "تبقي لديك دقيقة من طاقة البطارية (%Id%% من السعة الكلية)"
-#~ msgstr[1] "تبقي لديك دقيقتين من طاقة البطارية (%Id%% من السعة الكلية)"
-#~ msgstr[2] "تبقي لديك %Id دقائق من طاقة البطارية (%Id%% من السعة الكلية)"
-#~ msgstr[3] "تبقي لديك %Id دقيقة من طاقة البطارية (%Id%% من السعة الكلية)"
-
-#~ msgid ""
-#~ "To avoid losing your work:\n"
-#~ " • plug your laptop into external power, or\n"
-#~ " • save open documents and shut your laptop down."
-#~ msgstr ""
-#~ "لتجنب فقدان عملك:\n"
-#~ " • وصّل الحاسوب المحمول بالطاقة، أو \n"
-#~ " • احفظ المستندات المفتوحة ثم اغلق الجهاز المحمول."
-
-#~ msgid ""
-#~ "To avoid losing your work:\n"
-#~ " • suspend your laptop to save power,\n"
-#~ " • plug your laptop into external power, or\n"
-#~ " • save open documents and shut your laptop down."
-#~ msgstr ""
-#~ "لتجنب فقدان عملك:\n"
-#~ " • علّق حاسوبك لحفظ الطاقة،\n"
-#~ " • وصّل الحاسوب المحمول بالطاقة، أو \n"
-#~ " • احفظ المستندات المفتوحة ثم اغلق الجهاز المحمول."
-
-#~ msgid "Your battery is running low"
-#~ msgstr "قاربت بطاريتك على النّفاذ"
-
-#~ msgid "No battery present"
-#~ msgstr "لا توجد بطّارية"
-
-#~ msgid "Battery status unknown"
-#~ msgstr "حالة البطارية مجهولة"
-
-#~ msgid "N/A"
-#~ msgstr "غير متوفر"
-
-#~ msgid "There was an error displaying help: %s"
-#~ msgstr "حصل خطأ عند عرض المساعدة: %s"
-
-#~ msgid "This utility shows the status of your laptop battery."
-#~ msgstr "هذه الأداة تظهر حالة بطارية حاسوبك المحمول."
-
-#~ msgid "HAL backend enabled."
-#~ msgstr "تم تمكين HAL"
-
-#~ msgid "Legacy (non-HAL) backend enabled."
-#~ msgstr "الخلفية القديمة (غير-HAL) مفعّلة."
-
-#~ msgid "<b>Appearance</b>"
-#~ msgstr "<b>المظهر</b>"
-
-#~ msgid "<b>Notifications</b>"
-#~ msgstr "<b>التنبيهات</b>"
-
-#~ msgid "<small>(shows single image for status and charge)</small>"
-#~ msgstr "<small> (تظهر صورة واحدة للحالة والشحن) </small>"
-
-#~ msgid "<small>(two images: one for status, one for charge)</small>"
-#~ msgstr "<small> (صورتين: واحدة للحالة، والأخرى للشحن) </small>"
-
-#~ msgid "Battery Charge Monitor Preferences"
-#~ msgstr "تفضيلات مراقب شحن البطارية"
-
-#~ msgid "Show _percentage remaining"
-#~ msgstr "اظهر _نسبة المتبقّي"
-
-#~ msgid "Show _time remaining"
-#~ msgstr "اظهر ال_وقت المتبقّي"
-
-#~ msgid "_Compact view"
-#~ msgstr "عرض _جزئي"
-
-#~ msgid "_Expanded view"
-#~ msgstr "عرض _كلّي"
-
-#~ msgid "_Notify when battery is fully recharged"
-#~ msgstr "نبّه عند شحن البطارية تماماً"
-
-#~ msgid "_Show time/percentage:"
-#~ msgstr "ا_ظهر الوقت/النسبة"
-
-#~ msgid "_Warn when battery charge drops to:"
-#~ msgstr "_نبّه عندما ينخفض شحن البطّارية لـ:"
-
-#~ msgid "Percent"
-#~ msgstr "نسبة"
-
-#~ msgid "Minutes Remaining"
-#~ msgstr "الدقائق المتبقية"
-
-#~ msgid "Battery Status Utility"
-#~ msgstr "أداة حالة البطارية"
-
-#~ msgid "Battery fully re-charged"
-#~ msgstr "أُعيد شحن البطارية تماما"
-
-#~ msgid "Battery power low"
-#~ msgstr "طاقة البطارية منخفضة"
-
-#~ msgid "Character Palette"
-#~ msgstr "لوحة المحارِف"
-
-#~ msgid "Charpicker Applet Factory"
-#~ msgstr "مصنع بريمج منتقي المحارِف"
-
-#~ msgid "Insert characters"
-#~ msgstr "أدرِج محارِف"
-
-#~ msgid "Available palettes"
-#~ msgstr "اللوحات المتوفرة"
-
-#~ msgid "Insert \"%s\""
-#~ msgstr "ادرج  \"%s\""
-
-#~ msgid "Insert special character"
-#~ msgstr "أدرِج محرف خاص"
-
-#~ msgid "insert special character %s"
-#~ msgstr "أدرِج محرف خاص %s"
-
-#~ msgid ""
-#~ "Gnome Panel applet for selecting strange characters that are not on my "
-#~ "keyboard. Released under GNU General Public Licence."
-#~ msgstr ""
-#~ "بريمج شريط جنوم لاختيار المحارِف الغريبة التي لا توجد على لوحة مفاتيحي. "
-#~ "منشور تحت ترخيص جنو العام."
-
-#~ msgid "Characters shown on applet startup"
-#~ msgstr "المحارف التي ستعرض عند بدأ البريمج"
-
-#~ msgid "DEPRECATED - Characters shown on applet startup"
-#~ msgstr "ملغى - المحارِف المعروضة عند بدأ البريمج"
-
-#~ msgid "List of available palettes"
-#~ msgstr "قائمة للوائح المتوفرة"
-
-#~ msgid "List of strings containing the available palettes"
-#~ msgstr "قائمة عن السلاسل المحتوية على اللوحات المتوفرة"
-
-#~ msgid ""
-#~ "The string that the user had selected when the applet was last used. This "
-#~ "string will be displayed when the user starts the applet."
-#~ msgstr ""
-#~ "السلسلة التي اختارها المستخدم آخر مرة استخدم فيها البريمج.ستعرض هذه "
-#~ "السلسلة عند بدأ المستخدم للبريمج"
-
-#~ msgid "_Edit"
-#~ msgstr "_تحرير"
-
-#~ msgid "_Palette:"
-#~ msgstr "ال_لوحة:"
-
-#~ msgid "Palette entry"
-#~ msgstr "خانة اللوحة"
-
-#~ msgid "Modify a palette by adding or removing characters"
-#~ msgstr "تغيير لوحة بإضافة أو حذف محارِف منها"
-
-#~ msgid "Add Palette"
-#~ msgstr "أضِف لوحة"
-
-#~ msgid "Edit Palette"
-#~ msgstr "تحرير اللوحة"
-
-#~ msgid "Palettes list"
-#~ msgstr "قائمة اللوحات"
-
-#~ msgid "_Palettes:"
-#~ msgstr "ال_لوحات:"
-
-#~ msgid "Add button"
-#~ msgstr "أضِف زر"
-
-#~ msgid "Click to add a new palette"
-#~ msgstr "انقر لإضافة لوحة جديدة"
-
-#~ msgid "Edit button"
-#~ msgstr "زر التحرير"
-
-#~ msgid "Click to edit the selected palette"
-#~ msgstr "انقر لتحرير اللوحة المنتقاة"
-
-#~ msgid "Delete button"
-#~ msgstr "زر الحذف"
-
-#~ msgid "Click to delete the selected palette"
-#~ msgstr "انقر لحذف اللوحة المنتقاة"
-
-#~ msgid "Character Palette Preferences"
-#~ msgstr "تفضيلات لوحة المحارِف"
-
-#~ msgid "CPU Frequency Scaling Monitor"
-#~ msgstr "مراقب تمديد تردد المعالج"
-
-#~ msgid "Monitor the CPU Frequency Scaling"
-#~ msgstr "ارصد زيادة سرعة المعالج"
-
-#~ msgid ""
-#~ "A 0 value means to show cpu frequency, 1 to show frequency and units, and "
-#~ "2 to show percentage instead of frequency."
-#~ msgstr ""
-#~ "القيمة 0 تعني اظهر سرعة المعالج، 1 اظهر السرعة والوحدات، و 2 لتظهر النسبة "
-#~ "المؤية بدلا من السرعة"
-
-#~ msgid ""
-#~ "A 0 value means to show the applet in graphic mode (pixmap only), 1 to "
-#~ "show the applet in text mode (not to show the pixmap) and 2 to show the "
-#~ "applet in graphic and text mode."
-#~ msgstr ""
-#~ "القيمة 0 تعني اظهر البريمج في النمط الرسومي، 1 لإظاره في النمط النصّي (لا "
-#~ "تظهر بكسماب) و 2 لإظهار البريمج في النمط النصي والرسومي."
-
-#~ msgid "CPU to Monitor"
-#~ msgstr "المعالج المُراقب"
-
-#~ msgid "Mode to show cpu usage"
-#~ msgstr "طريقة اظهار استعمال المعالج"
-
-#~ msgid ""
-#~ "Set the CPU to monitor. In a single processor system you don't have to "
-#~ "change it."
-#~ msgstr "حدد المعالج المراقب. في حاسوب احادي المعالج ليست بحاجة الى التغيير."
-
-#~ msgid "The type of text to display (if the text is enabled)."
-#~ msgstr "نوع النص الذي سيعرض (اذا فعّل النص)."
-
-#~ msgid "    "
-#~ msgstr "    "
-
-#~ msgid "<b>Display Settings</b>"
-#~ msgstr "<b>إعدادات العرض</b>"
-
-#~ msgid "<b>Monitor Settings</b>"
-#~ msgstr "<b>إعدادات المراقب</b>"
-
-#~ msgid "CPU Frequency Monitor Preferences"
-#~ msgstr "تفضيلات مراقب تردد المعالج"
-
-#~ msgid "Show CPU frequency as _frequency"
-#~ msgstr "اظهر تردّد المعالج ك_تردّد"
-
-#~ msgid "Show CPU frequency as _percentage"
-#~ msgstr "اظهر تردّد المعالج ك_نسبة مؤية"
-
-#~ msgid "Show frequency _units"
-#~ msgstr "اظهر _وحدات التردّد"
-
-#~ msgid "_Appearance:"
-#~ msgstr "ال_مظهر:"
-
-#~ msgid "_Monitored CPU:"
-#~ msgstr "المعالج الم_راقب:"
-
-#~ msgid "Could not open help document"
-#~ msgstr "لا يمكن فتح مستند المساعدة"
-
-#~ msgid "This utility shows the current CPU Frequency Scaling."
-#~ msgstr "هذه الأداة تظهر لك تردد المعالج الحالي."
-
-#~ msgid "This utility shows the current CPU Frequency"
-#~ msgstr "تظهر هذه الأداة تردد المعالج الحالي."
-
-#~ msgid "Graphic"
-#~ msgstr "رسومي"
-
-#~ msgid "Text"
-#~ msgstr "نص"
-
-#~ msgid "Graphic and Text"
-#~ msgstr "_نص و رسوم"
-
-#~ msgid "Frequency Scaling Unsupported"
-#~ msgstr "تغيير التردد غير مدعوم"
-
-#~ msgid "CPU frequency scaling unsupported"
-#~ msgstr "تغيير تردد المعالج غير مدعوم"
-
-#~ msgid ""
-#~ "You will not be able to modify the frequency of your machine.  Your "
-#~ "machine may be misconfigured or not have hardware support for CPU "
-#~ "frequency scaling."
-#~ msgstr ""
-#~ "لن تكون قادرا على تغيير تردد جهازك. ربما لا يكون جهازك معدا بشكل صحيح أو "
-#~ "لا يدعم معالجك تغيير السرعة."
-
-#~ msgid "Disk Mounter"
-#~ msgstr "مجهِّز الأقراص"
-
-#~ msgid "Drive Mount Applet Factory"
-#~ msgstr "مصنع بريمج ضمّ السواقات "
-
-#~ msgid "Factory for drive mount applet"
-#~ msgstr "مصنع لبريمج لضمّ السواقات"
-
-#~ msgid "Mount local disks and devices"
-#~ msgstr "ضمّ الأقراص و الأجهزة المحلية"
-
-#~ msgid "(mounted)"
-#~ msgstr "(مضموم)"
-
-#~ msgid "(not mounted)"
-#~ msgstr "(غير مضموم)"
-
-#~ msgid "(not connected)"
-#~ msgstr "(غير متّصل)"
-
-#~ msgid "Cannot execute '%s'"
-#~ msgstr "لا يمكن تنفيذ '%s'"
-
-#~ msgid "Mount Error"
-#~ msgstr "خطأ عند الضم"
-
-#~ msgid "Unmount Error"
-#~ msgstr "خطأ عند إلغاء الضم"
-
-#~ msgid "Eject Error"
-#~ msgstr "خطأ عند الطرد"
-
-#~ msgid "Error"
-#~ msgstr "خطأ"
-
-#~ msgid "_Play DVD"
-#~ msgstr "_شغّل DVD"
-
-#~ msgid "_Play CD"
-#~ msgstr "_شغّل CD"
-
-#~ msgid "_Open %s"
-#~ msgstr "ا_فتح %s"
-
-#~ msgid "_Mount %s"
-#~ msgstr "_ضمّ %s"
-
-#~ msgid "Un_mount %s"
-#~ msgstr "ال_غي ضمّ %s"
-
-#~ msgid "_Eject %s"
-#~ msgstr "ا_طرد %s"
-
-#~ msgid "Applet for mounting and unmounting block volumes."
-#~ msgstr "بريمج لضمّ و إلغاء ضمّ الأحجام المقولبة."
-
-#~ msgid "Interval timeout to check mount point status"
-#~ msgstr "فترة الإستراحة للتثبّت من حالة نقطة الضمّ"
-
-#~ msgid "Time in seconds between status updates"
-#~ msgstr "الوقت بالثانية بين تحديثات الحالة"
-
-#~ msgid "A set of eyeballs for your panel"
-#~ msgstr "مجموعة عيون لشريطك"
-
-#~ msgid "Geyes"
-#~ msgstr "عيون جنوم"
-
-#~ msgid "Geyes Applet Factory"
-#~ msgstr "مصنع بريمج عيون جنوم"
-
-#~ msgid "A goofy little xeyes clone for the GNOME panel."
-#~ msgstr "برنامج مثير شبيه بإكس آيز لشريط جنوم."
-
-#~ msgid "The eyes look in the direction of the mouse pointer"
-#~ msgstr "العيون تنظر في اتجاه مؤشر الفأرة"
-
-#~ msgid "Directory in which the theme is located"
-#~ msgstr "الدليل الذي بِه السِمة"
-
-#~ msgid "Can not launch the eyes applet."
-#~ msgstr "لا يمكن تشغيل بريمج العيون."
-
-#~ msgid "There was a fatal error while trying to load the theme."
-#~ msgstr "حصل خطأ فادح عند محاولة تحميل السِمة."
-
-#~ msgid "Geyes Preferences"
-#~ msgstr "تفضيلات عيون جنوم"
-
-#~ msgid "Themes"
-#~ msgstr "السِمات"
-
-#~ msgid "_Select a theme:"
-#~ msgstr "ا_ختر سِمة:"
-
-#~ msgid "Alt+Control changes layout."
-#~ msgstr "Alt+Control تغيّر التخطيط"
-
-#~ msgid "Alt+Shift changes layout."
-#~ msgstr "Alt+Shift تغيّر التخطيط"
-
-#~ msgid "Arabic keymap"
-#~ msgstr "خريطة مفاتيح عربية"
-
-#~ msgid "Armenian"
-#~ msgstr "أرميني"
-
-#~ msgid "Basque"
-#~ msgstr "باسك"
-
-#~ msgid "Belgian"
-#~ msgstr "بلجيكية"
-
-#~ msgid "Both Alt keys together change layout."
-#~ msgstr "كلا مفتاحى Alt معا تغيّر التخطيط."
-
-#~ msgid "Both Ctrl keys together change layout."
-#~ msgstr "كلا مفتاحى Ctrl معا تغيّر التخطيط."
-
-#~ msgid "Both Shift keys together change layout."
-#~ msgstr "كلا مفتاحى Shift معا تغيّر التخطيط."
-
-#~ msgid "Brazil Portuguese keymap"
-#~ msgstr "خريطة مفاتيح برتغالية البرازيل"
-
-#~ msgid "Bulgarian Cyrillic"
-#~ msgstr "سريالية بلغارية"
-
-#~ msgid "Bulgarian keymap"
-#~ msgstr "خريطة مفاتيح بلغارية"
-
-#~ msgid "CapsLock key changes layout."
-#~ msgstr "مفتاح CapsLock يغيّر التخطيط."
-
-#~ msgid "Control+Shift changes layout."
-#~ msgstr "Control+Shift تغيّر التخطيط."
-
-#~ msgid "Czech keymap"
-#~ msgstr "خريطة مفاتيح تشيكية"
-
-#~ msgid "Danish keymap"
-#~ msgstr "خريطة مفاتيح دنماركية"
-
-#~ msgid "Dutch keymap"
-#~ msgstr "خريطة مفاتيح هولندية"
-
-#~ msgid "English keymap"
-#~ msgstr "خريطة مفاتيح إنكليزية"
-
-#~ msgid "Estonian keymap"
-#~ msgstr "خريطة مفاتيح إستونية"
-
-#~ msgid "Finnish keymap"
-#~ msgstr "خريطة مفاتيح فنلندية"
-
-#~ msgid "French Swiss"
-#~ msgstr "فرنسية سويسرية"
-
-#~ msgid "French Swiss keymap"
-#~ msgstr "خريطة مفاتيح فرنسية سويسرية"
-
-#~ msgid "French keymap"
-#~ msgstr "خريطة مفاتيح فرنسية"
-
-#~ msgid "French-Canadian 105-key"
-#~ msgstr "105 مفاتيح فرنسية كندية"
-
-#~ msgid "GB 102-key"
-#~ msgstr "102 مفتاح بريطانية"
-
-#~ msgid "GB 105-key"
-#~ msgstr "105 مفتاح بريطانية"
-
-#~ msgid "Generic Keyboard"
-#~ msgstr "لوحة مفاتيح عامّة"
-
-#~ msgid "Georgian Latin"
-#~ msgstr "لاتينية جورجية"
-
-#~ msgid "Georgian Russian layout"
-#~ msgstr "تخطيط جورجية روسية"
-
-#~ msgid "Georgian keymap"
-#~ msgstr "لوحة مفاتيح جورجية"
-
-#~ msgid "German"
-#~ msgstr "ألمانية"
-
-#~ msgid "German Swiss with Euro"
-#~ msgstr "ألمانية سويسرية مع يورو"
-
-#~ msgid "German keymap"
-#~ msgstr "خريطة مفاتيح ألمانية"
-
-#~ msgid "Greek keymap"
-#~ msgstr "خريطة مفاتيح يونانيّة"
-
-#~ msgid "Hebrew keymap"
-#~ msgstr "خريطة مفاتيح عبرية"
-
-#~ msgid "Hungarian 101-key latin 1"
-#~ msgstr "هنغارية 101-مفتاحا لاتيني 1"
-
-#~ msgid "Hungarian 101-key latin 2"
-#~ msgstr "هنغارية 101-مفتاحا لاتيني 2"
-
-#~ msgid "Hungarian 105-key latin 1"
-#~ msgstr "هنغارية 105-مفتاحا لاتيني 1"
-
-#~ msgid "Hungarian 105-key latin 2"
-#~ msgstr "هنغارية 105-مفتاحا لاتيني 2"
-
-#~ msgid "Hungarian PC/AT 101 keyboard"
-#~ msgstr "لوحة مفاتيح PC/AT 101 مجرية"
-
-#~ msgid "Hungarian latin1"
-#~ msgstr "هنغارية لاتيني 1"
-
-#~ msgid "Icelandic keymap"
-#~ msgstr "خريطة مفاتيح ايسلندية"
-
-#~ msgid "Italian keymap"
-#~ msgstr "خريطة مفاتيح إيطالية"
-
-#~ msgid "Japanese keymap"
-#~ msgstr "خريطة مفاتيح يابانية"
-
-#~ msgid "Lao keymap"
-#~ msgstr "خريطة مفاتيح لاوسية"
-
-#~ msgid "Layout shift behavior"
-#~ msgstr "طريقة تبديل التخطيط"
-
-#~ msgid "Left Alt key changes layout."
-#~ msgstr "مفتاح Alt الأيسر يغيّر التخطيط."
-
-#~ msgid "Left Ctrl key changes group."
-#~ msgstr "مفتاح Ctrl الأيسر يغيّر المجموعة."
-
-#~ msgid "Left Shift key changes group."
-#~ msgstr "مفتاح Shift الأيسر يغيّر المجموعة."
-
-#~ msgid "Left Win-key changes layout."
-#~ msgstr "مفتاح Win الأيسر يغيّر التخطيط."
-
-#~ msgid "Lithuanian keymap"
-#~ msgstr "خريطة مفاتيح لتوانية"
-
-#~ msgid "Macedonian"
-#~ msgstr "مقدونية"
-
-#~ msgid "Menu key changes layout."
-#~ msgstr "مفتاح قائمة الأيسر يغيّر التخطيط."
-
-#~ msgid "Mongolian alt keymap"
-#~ msgstr "خريطة مفاتيح منغوليّة بديلة"
-
-#~ msgid "Mongolian keymap"
-#~ msgstr "خريطة مفاتيح منغوليّة"
-
-#~ msgid "Mongolian phonetic keymap"
-#~ msgstr "خريطة المفاتيح الصوتية للمنغوليّة"
-
-#~ msgid "Norwegian"
-#~ msgstr "نرويجية"
-
-#~ msgid "Plain Russian keymap"
-#~ msgstr "خريطة مفاتيح روسية بسيطة"
-
-#~ msgid "Polish"
-#~ msgstr "بولندية"
-
-#~ msgid "Polish deadkeys"
-#~ msgstr "المفاتيح البولندية الميّتة"
-
-#~ msgid "Portugal"
-#~ msgstr "البرتغال"
-
-#~ msgid "Portugal Deadkeys"
-#~ msgstr "المفاتيح البرتغالية الميتة"
-
-#~ msgid "Portuguese keymap"
-#~ msgstr "خريطة مفاتيح برتغالية"
-
-#~ msgid "Right Alt key changes layout."
-#~ msgstr "مفتاح Alt الأيمن يغيّر التخطيط."
-
-#~ msgid "Right Ctrl key changes group."
-#~ msgstr "مفتاح Ctrl الأيمن يغيّر المجموعة."
-
-#~ msgid "Right Shift key changes group."
-#~ msgstr "مفتاح Shift الأيمن يغيّر المجموعة."
-
-#~ msgid "Right Win-key changes layout."
-#~ msgstr "مفتاح Win الأيمن يغيّر التخطيط."
-
-#~ msgid "Russian Cyrillic"
-#~ msgstr "روسية سريالية"
-
-#~ msgid "Russian keymap"
-#~ msgstr "خريطة مفاتيح روسية"
-
-#~ msgid "Serbian keymap"
-#~ msgstr "خريطة مفاتيح صربية"
-
-#~ msgid "Shift+CapsLock changes layout."
-#~ msgstr "Shift+CapsLock يغيّر التخطيط."
-
-#~ msgid "Slovak keymap"
-#~ msgstr "خريطة مفاتيح سلوفاكية"
-
-#~ msgid "Slovenian"
-#~ msgstr "سلوفينية"
-
-#~ msgid "Slovenian keymap"
-#~ msgstr "خريطة مفاتيح سلوفينية"
-
-#~ msgid "Spanish keymap"
-#~ msgstr "خريطة مفاتيح إسبانية"
-
-#~ msgid "Sun (!not PC!) type5 Hungarian latin 2"
-#~ msgstr "صن (!ليس الـ PC!) هنغارية لا تينية 2"
-
-#~ msgid "Swedish"
-#~ msgstr "سويدية"
-
-#~ msgid "Swedish keymap"
-#~ msgstr "خريطة مفاتيح سويدية"
-
-#~ msgid "Swiss keymap"
-#~ msgstr "خريطة مفاتيح سويسرية"
-
-#~ msgid "Thai"
-#~ msgstr "تايلندية"
-
-#~ msgid "Thai Kedmanee"
-#~ msgstr "تالندية كدمانية"
-
-#~ msgid "Thai keymap"
-#~ msgstr "خريطة مفاتيح تايلنداية "
-
-#~ msgid "Turkish \"F\" keyboard"
-#~ msgstr "لوحة مفاتيح \"F\" تركية"
-
-#~ msgid "Turkish \"Q\" keyboard"
-#~ msgstr "لوحة مفاتيح \"Q\" تركية"
-
-#~ msgid "Turkish keymap"
-#~ msgstr "خريطة مفاتيح تركيّة"
-
-#~ msgid "UK 105-key"
-#~ msgstr "المملكة المتحدة 105-مفاتيح"
-
-#~ msgid "UK PC/AT keyboard"
-#~ msgstr "لوحة مفاتيح PC/AT للمملكة المتحدة"
-
-#~ msgid "US 101-key keyboard"
-#~ msgstr "لوحة مفاتيح بـ 101 مفتاح للولايات المتحدة"
-
-#~ msgid "US 105-key keyboard (with windows keys)"
-#~ msgstr "لوحة مفاتيح بـ 105 مفاتيح للولايات المتحدة(بمفاتيح ويندوز)"
-
-#~ msgid "US 84-key"
-#~ msgstr "الولايات المتحدة 84-مفتاحا"
-
-#~ msgid "US DEC 450"
-#~ msgstr "الولايات المتحدة DEC 450"
-
-#~ msgid "US IBM RS/6000"
-#~ msgstr "الولايات المتحدة IBM RS/6000"
-
-#~ msgid "US International"
-#~ msgstr "الولايات المتحدة عالمي"
-
-#~ msgid "US Macintosh"
-#~ msgstr "الولايات المتحدة ماكنتوش"
-
-#~ msgid "US PC/AT 101 keyboard"
-#~ msgstr "لوحة مفاتيح PC/AT 101 للولايات المتحدة"
-
-#~ msgid "US Silicon Graphics 101-key"
-#~ msgstr "الولايات المتحدة Silicon Graphics 101-مفتاحا"
-
-#~ msgid "US Sun type5"
-#~ msgstr "الولايات المتحدة صن نوع 5"
-
-#~ msgid "Armenian Sun keymap"
-#~ msgstr "لوحة مفاتيح صن للأرمنية"
-
-#~ msgid "Azerbaijani Turkish Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للتركية الأذربيجانية"
-
-#~ msgid "Belarusian Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للبلاروسية"
-
-#~ msgid "Brazil Portuguese Sun USB keymap"
-#~ msgstr "خريطة مفاتيح صن USB للبرتغالية البرازيلية"
-
-#~ msgid "Brazil Portuguese Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للبرتغالية البرازيلية"
-
-#~ msgid "British Sun Type-4 keymap"
-#~ msgstr "خارطة مفاتيح صن Type-4 بريطانية"
-
-#~ msgid "British Sun USB keymap"
-#~ msgstr "خريطة مفاتيح صن USB بريطانية"
-
-#~ msgid "British Sun keymap"
-#~ msgstr "خريطة مفاتيح صن بريطانية"
-
-#~ msgid "Bulgarian Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للبلغارية"
-
-#~ msgid "Canadian Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للكندية"
-
-#~ msgid "Czech Sun keymap"
-#~ msgstr "لوحة صن للتشيكية"
-
-#~ msgid "Danish Sun Type-4 keymap"
-#~ msgstr "خريطة مفاتيح صن نوع 4 للدنماركية"
-
-#~ msgid "Danish Sun USB keymap"
-#~ msgstr "خريطة مفاتيح صن USB للدنماركية"
-
-#~ msgid "Danish Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للدنماركية"
-
-#~ msgid "Dutch Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للهولندية"
-
-#~ msgid "Estonian Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للإستونية"
-
-#~ msgid "Finnish Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للفنلندية"
-
-#~ msgid "French Sun USB keymap"
-#~ msgstr "خريطة مفاتيح صن USB للفرنسية"
-
-#~ msgid "French Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للفرنسية"
-
-#~ msgid "German Sun Type-4 keymap"
-#~ msgstr "خريطة مفاتيح صن نوع 4 للألمانية"
-
-#~ msgid "German Sun USB keymap"
-#~ msgstr "خريطة مفاتيح صن USB للألمانية"
-
-#~ msgid "German Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للألمانية"
-
-#~ msgid "Hebrew Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للعبرية"
-
-#~ msgid "Hungarian latin2 Sun keymap"
-#~ msgstr "خريطة مفاتيح صن لاتيني 2 للمجرية"
-
-#~ msgid "Hungarian type5 latin 1 keymap"
-#~ msgstr "خريطة مفاتيح صن نوع 5 لاتيني 1 للمجرية"
-
-#~ msgid "Icelandic Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للايسلندية"
-
-#~ msgid "Italian Sun Type-4 keymap"
-#~ msgstr "خريطة مفاتيح صن نوع 4 للايطالية"
-
-#~ msgid "Italian Sun USB keymap"
-#~ msgstr "خريطة مفاتيح صن USB للايطالية"
-
-#~ msgid "Italian Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للايطالية"
-
-#~ msgid "Japanese Sun Type-4 keymap"
-#~ msgstr "خريطة مفاتيح صن نوع 4 لليابانبة"
-
-#~ msgid "Japanese Sun keymap"
-#~ msgstr "خريطة مفاتيح صن لليابانية"
-
-#~ msgid "Latvian Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للتفية"
-
-#~ msgid "Lithuanian Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للتوانية"
-
-#~ msgid "Macedonian Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للمقدونية"
-
-#~ msgid "Norwegian Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للنرويجية"
-
-#~ msgid "Polish Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للبولندية"
-
-#~ msgid "Portuguese Sun Type-4 keymap"
-#~ msgstr "خريطة مفاتيحخريطة مفاتيحللبرتغالية"
-
-#~ msgid "Portuguese Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للبرتغالية"
-
-#~ msgid "Romanian Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للرومانية"
-
-#~ msgid "Russian Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للروسية"
-
-#~ msgid "Serbian Sun standard keymap"
-#~ msgstr "خريطة مفاتيح صن القياسية للصربية"
-
-#~ msgid "Slovak Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للسلوفاكية"
-
-#~ msgid "Slovenian Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للسلوفينية"
-
-#~ msgid "Spanish Sun Type-4 keymap"
-#~ msgstr "خريطة مفاتيح صن نوع 4 للإسبانية"
-
-#~ msgid "Spanish Sun USB keymap"
-#~ msgstr "خريطة مفاتيح صن USB للإسبانية"
-
-#~ msgid "Spanish Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للإسبانية"
-
-#~ msgid "Swedish Sun Type-4 keymap"
-#~ msgstr "خريطة مفاتيح صن نوع 4 للسويدية"
-
-#~ msgid "Swedish Sun USB keymap"
-#~ msgstr "خريطة مفاتيح صن USB للسويدية"
-
-#~ msgid "Swedish Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للسويدية"
-
-#~ msgid "Swiss German Sun keymap"
-#~ msgstr "خريطة مفاتيح صن الألمانية السويسرية"
-
-#~ msgid "Thai Sun keymap"
-#~ msgstr "خريطة مفاتيح صن التايلندية"
-
-#~ msgid "Turkish Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للتركية"
-
-#~ msgid "US Sun Type-4 keymap"
-#~ msgstr "خريطة مفاتيح صن Type-4 أمريكية"
-
-#~ msgid "US Sun USB keymap"
-#~ msgstr "خريطة مفاتيح صن USB أمريكية"
-
-#~ msgid "US Sun type5 keymap"
-#~ msgstr "خريطة مفاتيح صن type5 أمريكية"
-
-#~ msgid "Ukrainian Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للأكرانية"
-
-#~ msgid "Vietnamese Sun keymap"
-#~ msgstr "خريطة مفاتيح صن للفيتنامية"
-
-#~ msgid "Keyboard _Preferences"
-#~ msgstr "_تفضيلات لوحة المفاتيح"
-
-#~ msgid "Pl_ugins"
-#~ msgstr "م_لحقات"
-
-#~ msgid "Show Current _Layout"
-#~ msgstr "اعرض ال_تخطيط الحالي"
-
-#~ msgid "_Groups"
-#~ msgstr "ال_مجموعات"
-
-#~ msgid "Keyboard Indicator"
-#~ msgstr "موضّح لوحة المفاتيح"
-
-#~ msgid "Keyboard applet factory"
-#~ msgstr "مصنع بريمج لوحة المفاتيح"
-
-#~ msgid "Keyboard layout indicator"
-#~ msgstr "موضّح تخطيط لوحة المفاتيح"
-
-#~ msgid "Keyboard Layout \"%s\""
-#~ msgstr "تخطيط لوحة المفاتيح \"%s\""
-
-#~ msgid "Copyright (c) Sergey V. Udaltsov 1999-2004"
-#~ msgstr "جميع الحقوق محفوظة (C) سركاي ف.أودلتسف 1999-2004"
-
-#~ msgid "Keyboard layout indicator applet for GNOME"
-#~ msgstr "بريمج يوضّح تخطيط لوحة المفاتيح لجنوم"
-
-#~ msgid "Keyboard Indicator (%s)"
-#~ msgstr "موضّح لوحة المفاتيح (%s)"
-
-#~ msgid "Keyboard Layout"
-#~ msgstr "مخطط لوحة المفاتيح"
-
-#~ msgid "_Details"
-#~ msgstr "_تفاصيل"
-
-#~ msgid "_Update"
-#~ msgstr "_حدّث"
-
-#~ msgid "Factory for creating the weather applet."
-#~ msgstr "مصنع لإنشاء بريمج حالة الطقس."
-
-#~ msgid "Gweather Applet Factory"
-#~ msgstr "مصنع بريمج الطقس"
-
-#~ msgid "Monitor the current weather conditions, and forecasts"
-#~ msgstr "راقب أحوال وتوقعات الطقس الحالي"
-
-#~ msgid "Weather Report"
-#~ msgstr "تقرير حالة الطقس"
-
-#~ msgid "© 1999-2005 by S. Papadimitriou and others"
-#~ msgstr "© 1999-2005 من طرف س.باباديميتريو و آخرون"
-
-#~ msgid "A panel application for monitoring local weather conditions."
-#~ msgstr "تطبيق لوحة لمراقبة حالات الطقس المحلية."
-
-#~ msgid "GNOME Weather"
-#~ msgstr "طقس جنوم"
-
-#~ msgid "Weather Forecast"
-#~ msgstr "تقرير الطقس"
-
-#~ msgid ""
-#~ "City: %s\n"
-#~ "Sky: %s\n"
-#~ "Temperature: %s"
-#~ msgstr ""
-#~ "المدينة: %s\n"
-#~ "السماء: %s\n"
-#~ "درجة الحرارة: %s"
-
-#~ msgid "Updating..."
-#~ msgstr "يُحدِّث..."
-
-#~ msgid "Details"
-#~ msgstr "التّفاصيل"
-
-#~ msgid "City:"
-#~ msgstr "المدينة:"
-
-#~ msgid "Last update:"
-#~ msgstr "التحديث الأخير:"
-
-#~ msgid "Conditions:"
-#~ msgstr "الحالات:"
-
-#~ msgid "Sky:"
-#~ msgstr "السماء:"
-
-#~ msgid "Temperature:"
-#~ msgstr "درجة الحرارة:"
-
-#~ msgid "Feels like:"
-#~ msgstr "تبدو كـ:"
-
-#~ msgid "Dew point:"
-#~ msgstr "نقطة الندى:"
-
-#~ msgid "Relative humidity:"
-#~ msgstr "الرّطوبة النّسبيّة:"
-
-#~ msgid "Wind:"
-#~ msgstr "الرياح:"
-
-#~ msgid "Pressure:"
-#~ msgstr "الضغط:"
-
-#~ msgid "Visibility:"
-#~ msgstr "مدى الرؤية:"
-
-#~ msgid "Sunrise:"
-#~ msgstr "الشروق:"
-
-#~ msgid "Sunset:"
-#~ msgstr "الغروب:"
-
-#~ msgid "Current Conditions"
-#~ msgstr "الحالة الحالية"
-
-#~ msgid "Forecast Report"
-#~ msgstr "تقرير النشرة الجوّية"
-
-#~ msgid "See the ForeCast Details"
-#~ msgstr "راجع تفاصيل النشرة الجوية"
-
-#~ msgid "Forecast"
-#~ msgstr "النشرة الجوية"
-
-#~ msgid "Radar Map"
-#~ msgstr "خريطة الرادار"
-
-#~ msgid "_Visit Weather.com"
-#~ msgstr "_زُرْ Weather.com"
-
-#~ msgid "Visit Weather.com"
-#~ msgstr "زُرْ Weather.com"
-
-#~ msgid "Click to Enter Weather.com"
-#~ msgstr "انقر لدخول Weather.com"
-
-#~ msgid "Forecast not currently available for this location."
-#~ msgstr "النّشرة الجّويّة غير متوفّرة حاليّاً لهذا المكان."
-
-#~ msgid "Location view"
-#~ msgstr "مشهد المكان"
-
-#~ msgid "Select Location from the list"
-#~ msgstr "انتقِ مكانا من القائمة"
-
-#~ msgid "Update spin button"
-#~ msgstr "حدّث الزر اللولبي"
-
-#~ msgid "Spinbutton for updating"
-#~ msgstr "الزر اللولبي للتحديث"
-
-#~ msgid "Address Entry"
-#~ msgstr "خانة العنوان"
-
-#~ msgid "Enter the URL"
-#~ msgstr "أدخل المسار"
-
-#~ msgid ""
-#~ "Failed to load the Locations XML database.  Please report this as a bug."
-#~ msgstr "فشل تحميل قاعدة بيانات XML المواقع. من فضلك أرسل تقريرا بهذه العلّة."
-
-#~ msgid "Weather Preferences"
-#~ msgstr "تفضيلات حالة الطقس"
-
-#~ msgid "_Automatically update every:"
-#~ msgstr "_حدّث آلياً كل:"
-
-#~ msgid "_Temperature unit:"
-#~ msgstr "وحدة ال_حرارة:"
-
-#~ msgid "Kelvin"
-#~ msgstr "كلفن"
-
-#~ msgid "Celsius"
-#~ msgstr "مئوي"
-
-#~ msgid "Fahrenheit"
-#~ msgstr "فهرنهايت"
-
-#~ msgid "_Wind speed unit:"
-#~ msgstr "وحدة سرعة ال_رياح:"
-
-#~ msgid "_Pressure unit:"
-#~ msgstr "وحدة ال_ضغط:"
-
-#~ msgid "_Visibility unit:"
-#~ msgstr "وحدة ال_رؤية:"
-
-#~ msgid "meters"
-#~ msgstr "أمتار"
-
-#~ msgid "miles"
-#~ msgstr "ميل"
-
-#~ msgid "Enable _radar map"
-#~ msgstr "فعّل خريطة ال_رادار"
-
-#~ msgid "Use _custom address for radar map"
-#~ msgstr "استخدم عنوان _خاص لخريطة الرادار"
-
-#~ msgid "A_ddress:"
-#~ msgstr "ال_عنوان:"
-
-#~ msgid "Update"
-#~ msgstr "حدّث"
-
-#~ msgid "minutes"
-#~ msgstr "دقائق"
-
-#~ msgid "Display"
-#~ msgstr "اعرض"
-
-#~ msgid "General"
-#~ msgstr "عام"
-
-#~ msgid "_Select a location:"
-#~ msgstr "_اختر موقعا:"
-
-#~ msgid "_Find:"
-#~ msgstr "ا_عثر:"
-
-#~ msgid "Find _Next"
-#~ msgstr "اعثر على ال_تالي"
-
-#~ msgid "Location"
-#~ msgstr "الموقع"
-
-#~ msgid "Invest"
-#~ msgstr "استثمر"
-
-#~ msgid "Track your invested money."
-#~ msgstr "تتبّع مالَكَ المستثمر."
-
-#~ msgid "_Refresh"
-#~ msgstr "أ_نعش"
-
-#~ msgid "10"
-#~ msgstr "10"
-
-#~ msgid "100"
-#~ msgstr "100"
-
-#~ msgid ""
-#~ "1d\n"
-#~ "5d\n"
-#~ "3m\n"
-#~ "6m\n"
-#~ "1y\n"
-#~ "3y"
-#~ msgstr ""
-#~ "1ي\n"
-#~ "5ي\n"
-#~ "3ش\n"
-#~ "6ش\n"
-#~ "1س\n"
-#~ "3س"
-
-#~ msgid "20"
-#~ msgstr "20"
-
-#~ msgid "200"
-#~ msgstr "200"
-
-#~ msgid "5"
-#~ msgstr "5"
-
-#~ msgid "50"
-#~ msgstr "50"
-
-#~ msgid "Auto _refresh"
-#~ msgstr "تحديث آ_لي"
-
-#~ msgid "Bollinger"
-#~ msgstr "بولنغر"
-
-#~ msgid "Downloading chart from <b>Yahoo!</b>"
-#~ msgstr "تنزيل المخطط من <b>ياهو!</b>"
-
-#~ msgid "Exponential moving average: "
-#~ msgstr "معدل التنقل الأسي:"
-
-#~ msgid "Fast stoch"
-#~ msgstr "Fast stoch"
-
-#~ msgid "Financial Chart"
-#~ msgstr "مخطط مالي"
-
-#~ msgid "Indicators: "
-#~ msgstr "موضّحات:"
-
-#~ msgid "MACD"
-#~ msgstr "MACD"
-
-#~ msgid "MFI"
-#~ msgstr "MFI"
-
-#~ msgid "Moving average: "
-#~ msgstr "متوسط التغير"
-
-#~ msgid "Overlays: "
-#~ msgstr "أغشية:"
-
-#~ msgid "ROC"
-#~ msgstr "ROC"
-
-#~ msgid "RSI"
-#~ msgstr "RSI"
-
-#~ msgid "SAR"
-#~ msgstr "SAR"
-
-#~ msgid "Slow stoch"
-#~ msgstr "Slow stoch"
-
-#~ msgid "Splits"
-#~ msgstr "تقسيمات"
-
-#~ msgid "Vol"
-#~ msgstr "Vol"
-
-#~ msgid "Vol+MA"
-#~ msgstr "Vol+MA"
-
-#~ msgid "Volumes"
-#~ msgstr "الحجوم"
-
-#~ msgid "W%R"
-#~ msgstr "W%R"
-
-#~ msgid "_Graph style: "
-#~ msgstr "أ_سلوب الرسم البياني:"
-
-#~ msgid "_Options"
-#~ msgstr "_خيارات"
-
-#~ msgid "_Ticker symbol: "
-#~ msgstr "_رمز المتتبع:"
-
-#~ msgid ""
-#~ "l\n"
-#~ "b\n"
-#~ "c"
-#~ msgstr ""
-#~ "l\n"
-#~ "b\n"
-#~ "c"
-
-#~ msgid "<b>Stocks</b>"
-#~ msgstr "<b>الأسهم</b>"
-
-#~ msgid ""
-#~ "<i><small><b>Note:</b> Quotes are delayed at least 15 minutes.\n"
-#~ "<b>Source: </b> Yahoo!</small></i>"
-#~ msgstr ""
-#~ "<i><small><b>ملاحظة:</b> البيانات متأخرة بـ 15 دقيقة .\n"
-#~ "<b>المصدر: </b> ياهو!</small></i>"
-
-#~ msgid "Invest Preferences"
-#~ msgstr "خيارات المستثمر"
-
-#~ msgid "Financial Chart - %s"
-#~ msgstr "رسم بياني مالي - %s"
-
-#~ msgid "Opening Chart"
-#~ msgstr "يجري فتح الرسم البياني"
-
-#~ msgid "Downloading Chart"
-#~ msgstr "يجري تنزيل الرسم البياني"
-
-#~ msgid "Reading Chart chunk"
-#~ msgstr "قراءة جزء الرسم البياني"
-
-#~ msgid "Invest Applet"
-#~ msgstr "بريمج المستثمر"
-
-#~ msgid "Symbol"
-#~ msgstr "رمز"
-
-#~ msgid "Amount"
-#~ msgstr "قَدْر"
-
-#~ msgid "Price"
-#~ msgstr "السعر"
-
-#~ msgid "Commission"
-#~ msgstr "عمولة"
-
-#~ msgid "Deskbar (formerly Mini-Commander)"
-#~ msgstr "دسكبار (ميني كوماندر سابقا)"
-
-#~ msgid "Deskbar (transparent upgrade from Mini-Commander)"
-#~ msgstr "دسكبار"
-
-#~ msgid "Command Line"
-#~ msgstr "سطر أوامر"
-
-#~ msgid "Mini-Commander"
-#~ msgstr "آمر صغير"
-
-#~ msgid "MiniCommander Applet Factory"
-#~ msgstr "مصنع بريمج الآمر الصغير"
-
-#~ msgid ""
-#~ "This GNOME applet adds a command line to the panel. It features command "
-#~ "completion, command history, and changeable macros."
-#~ msgstr ""
-#~ "يضيف هذا البريمج سطر أوامر للشريط. من خصائصها تكملة الأوامر و تاريخ "
-#~ "الأوامر."
-
-#~ msgid "No items in history"
-#~ msgstr "لا عناصر في التاريخ"
-
-#~ msgid "Start program"
-#~ msgstr "ابدأ البرنامج"
-
-#~ msgid "Command line"
-#~ msgstr "سطر الأوامر"
-
-#~ msgid "Type a command here and Gnome will execute it for you"
-#~ msgstr "اكتب أمرا هنا وسوف ينفذه جنوم لك"
-
-#~ msgid "Cannot get schema for %s: %s"
-#~ msgstr "لا يمكن تلقي المخطط لـ %s : %s"
-
-#~ msgid "Cannot set schema for %s: %s"
-#~ msgstr "لا يمكن ضبط المخطط لـ %s : %s"
-
-#~ msgid "Set default list value for %s\n"
-#~ msgstr "اضبط قائمة القيم الإفتراضية لـ %s\n"
-
-#~ msgid ""
-#~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
-#~ msgstr "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL ضبط، لن يثبت المخطط\n"
-
-#~ msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
-#~ msgstr "يجب ضبط المتغيًر البيئي GCONF_CONFIG_SOURCE\n"
-
-#~ msgid "Failed to access configuration source(s): %s\n"
-#~ msgstr "فشل النفاذ إلى مصادر الإعداد: %s\n"
-
-#~ msgid "Error syncing config data: %s"
-#~ msgstr "خطأ في مزامنة بيانات الإعدادات: %s"
-
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro commands."
-#~ msgstr "قائمة لخانات GConfValue الحاوية لسلاسل أوامر المركبات."
-
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro patterns."
-#~ msgstr "قائمة لخانات GConfValue الحاوية لسلاسل أنماط المركبات."
-
-#~ msgid "Macro command list"
-#~ msgstr "قائمة أوامر المركبات"
-
-#~ msgid "Macro pattern list"
-#~ msgstr "قائمة أنماط المركبات"
-
-#~ msgid "*"
-#~ msgstr "*"
-
-#~ msgid "<b>Auto Completion</b>"
-#~ msgstr "<b>التكملة الآلية</b>"
-
-#~ msgid "<b>Colors</b>"
-#~ msgstr "</b>الألوان<b>"
-
-#~ msgid "<b>Size</b>"
-#~ msgstr "<b>الحجم</b>"
-
-#~ msgid "Add New Macro"
-#~ msgstr "اضف مركب جديد"
-
-#~ msgid "Co_mmand:"
-#~ msgstr "الأ_مر:"
-
-#~ msgid "Command Line Preferences"
-#~ msgstr "تفضيلات سطر الأوامر"
-
-#~ msgid "Command line _background:"
-#~ msgstr "_خلفية سطر الأوامر"
-
-#~ msgid "Command line _foreground:"
-#~ msgstr "ال_واجهة اﻻمامية لسطر الأوامر"
-
-#~ msgid "E_nable history-based auto completion"
-#~ msgstr "تف_عيل التكملة الآلية باعتبار التاريخ"
-
-#~ msgid "Macros"
-#~ msgstr "مركبات"
-
-#~ msgid "Pick a color"
-#~ msgstr "انتقِ لوناً"
-
-#~ msgid "_Add Macro..."
-#~ msgstr "ا_ضف مركب..."
-
-#~ msgid "_Delete Macro"
-#~ msgstr "ا_حذف المركب"
-
-#~ msgid "_Macros:"
-#~ msgstr "ال_مركبات:"
-
-#~ msgid "_Pattern:"
-#~ msgstr "ال_نمط:"
-
-#~ msgid "_Use default theme colors"
-#~ msgstr "ا_ستخدم ألوان السِمة الإفتراضية"
-
-#~ msgid "_Width:"
-#~ msgstr "ال_عرض:"
-
-#~ msgid "pixels"
-#~ msgstr "بكسل"
-
-#~ msgid ""
-#~ "Attempt to autocomplete a command from the history of commands entered."
-#~ msgstr "محاولة لتكملة آليّة لأمر بإستعمال تاريخ الأوامر المدخلة."
-
-#~ msgid "Background color, blue component"
-#~ msgstr "المكون الأزرق للون الخلفبة"
-
-#~ msgid "Background color, green component"
-#~ msgstr "المكون الأخضر للون الخلفية"
-
-#~ msgid "Background color, red component"
-#~ msgstr "المكون الأحمر للون الخلفية"
-
-#~ msgid "Foreground color, blue component"
-#~ msgstr "المكون الأزرق للون الواجهة الأمامية"
-
-#~ msgid "Foreground color, green component"
-#~ msgstr "المكون الأخضر للون الواجهة الأمامية"
-
-#~ msgid "Foreground color, red component"
-#~ msgstr "المكون الأحمر للون الواجهة الأمامية"
-
-#~ msgid "History list"
-#~ msgstr "قائمة التاريخ"
-
-#~ msgid "List of GConfValue entries containing strings for history entries."
-#~ msgstr "قائمة خانات GConfValue الحاوية لسلاسل لخانات التاريخ."
-
-#~ msgid "Perform history autocompletion"
-#~ msgstr "أدّي التكملة الآليّة باعتبار التاريخ"
-
-#~ msgid "Show a frame surrounding the applet."
-#~ msgstr "اعرض اطار محيط بالبرنامج"
-
-#~ msgid "Show a handle so the applet can be detached from the panel."
-#~ msgstr "اعرض مقبض حتى يمكن فصل البريمج من الشريط."
-
-#~ msgid "Show frame"
-#~ msgstr "اعرض إطار"
-
-#~ msgid "Show handle"
-#~ msgstr "اعرض مقبض"
-
-#~ msgid "The blue component of the background color."
-#~ msgstr "المكون الأزرق للون الخلفية."
-
-#~ msgid "The blue component of the foreground color."
-#~ msgstr "المكون الأزرق للون الواجهة الأمامية."
-
-#~ msgid "The green component of the background color."
-#~ msgstr "المكون الأخضر للون الواجهة الأمامية."
-
-#~ msgid "The green component of the foreground color."
-#~ msgstr "المكون الأخضر للون الواجهة الأمامية."
-
-#~ msgid "The red component of the background color."
-#~ msgstr "المكون الأحمر للون الخلفية."
-
-#~ msgid "The red component of the foreground color."
-#~ msgstr "المكون الأحمر للون الواجهة الأمامية."
-
-#~ msgid ""
-#~ "This per-applet key is deprecated in favour of the global key, /schemas/"
-#~ "apps/mini-commander-global/macro_patterns."
-#~ msgstr ""
-#~ "تم استبدال هذا المفتاح المخصص لكل بريمج بالمفتاح الشمولي /schemas/apps/"
-#~ "mini-commander-global/macro_patterns."
-
-#~ msgid "Use the default theme colors"
-#~ msgstr "استعمل ألوان السِمة الإفتراضية"
-
-#~ msgid "Use theme colors instead of custom ones."
-#~ msgstr "استعمال ألوان السِمة عوض ألوان خاصة."
-
-#~ msgid "Width"
-#~ msgstr "العرض"
-
-#~ msgid "Width of the applet"
-#~ msgstr "عرض البريمج"
-
-#~ msgid "Browser"
-#~ msgstr "المتصفح"
-
-#~ msgid "Click this button to start the browser"
-#~ msgstr "انقر هذا الزر لبدء المتصفح"
-
-#~ msgid "History"
-#~ msgstr "التاريخ"
-
-#~ msgid "Click this button for the list of previous commands"
-#~ msgstr "انقر هذا الزر لعرض قائمة بالأوامر السابقة"
-
-#~ msgid "Command line has been disabled by your system administrator"
-#~ msgstr "عُطِّل سطر الأوامر من طرف مدير نظامك"
-
-#~ msgid "Mini-Commander applet"
-#~ msgstr "بريمج الآمر الصغير"
-
-#~ msgid "This applet adds a command line to the panel"
-#~ msgstr "يضيف هذا البريمج سطر أوامر إلى لوحة المهام"
-
-#~ msgid "You must specify a pattern"
-#~ msgstr "يجب أن تحدد نمطا"
-
-#~ msgid "You must specify a pattern and a command"
-#~ msgstr "يجب أن تحدد نمطا و أمرا"
-
-#~ msgid "You must specify a command"
-#~ msgstr "يجب أن تحدد أمرا"
-
-#~ msgid "You may not specify duplicate patterns"
-#~ msgstr "قد لا تريد تحديد الأنماط المضاعفة"
-
-#~ msgid "Pattern"
-#~ msgstr "النمط"
-
-#~ msgid "Command"
-#~ msgstr "الأمر"
-
-#~ msgid "Adjust the sound volume"
-#~ msgstr "اضبط شدة الصوت"
-
-#~ msgid "Volume Control"
-#~ msgstr "متحكم شدة الصوت"
-
-#~ msgid "Mu_te"
-#~ msgstr "ص_مت"
-
-#~ msgid "_Open Volume Control"
-#~ msgstr "ا_فتح متحكم شدة الصوت"
-
-#~ msgid "Volume Applet"
-#~ msgstr "بريمج شدة الصوت"
-
-#~ msgid ""
-#~ "The volume control did not find any elements and/or devices to control. "
-#~ "This means either that you don't have the right GStreamer plugins "
-#~ "installed, or that you don't have a sound card configured."
-#~ msgstr ""
-#~ "لم يجد متحكم شدة الصوت أي عناصر أو أجهزة للتحكم. يعني هذا أن إضافات "
-#~ "جستريمر اللازمة غير موجودة، أو أن الجهاز ليس لديه بطاقة صوت."
-
-#~ msgid ""
-#~ "You can remove the volume control from the panel by right-clicking the "
-#~ "speaker icon on the panel and selecting \"Remove From Panel\" from the "
-#~ "menu."
-#~ msgstr ""
-#~ "يمكنك حذف متحكم شدة الصوت من الشريط بالنقر بالزر الأيمن على الايقونة "
-#~ "واختر خيار الحذف."
-
-#~ msgid "Failed to start Volume Control: %s"
-#~ msgstr "تعذّر تشغيل متحكم شدة الصوت: %s"
-
-#~ msgid "%s: muted"
-#~ msgstr "%s: صامت"
-
-#~ msgid "%s: %d%%"
-#~ msgstr "%s: %Id%%"
-
-#~ msgid "Failed to display help: %s"
-#~ msgstr "فشل عرض المساعدة: %s"
-
-#~ msgid "Volume control for your GNOME Panel."
-#~ msgstr "تحكم بشدة الصوت من شريط جنوم."
-
-#~ msgid "Using GStreamer 0.10."
-#~ msgstr "إصدار جستريمر  0.10."
-
-#~ msgid "Using GStreamer 0.8."
-#~ msgstr "إصدار جستريمر  0.8."
-
-#~ msgid "+"
-#~ msgstr "+"
-
-#~ msgid "-"
-#~ msgstr "-"
-
-#~ msgid "Unknown Volume Control %d"
-#~ msgstr "متحكم مجهول لشدة الصوت %Id"
-
-#~ msgid "Channel controlled by applet. Only for OSS setups"
-#~ msgstr "القنوات التي يتحطم فيها بريمجك. فقط لتعيينات OSS"
-
-#~ msgid "Saved mute state"
-#~ msgstr "حالة الصمت المحفوظة"
-
-#~ msgid "Saved volume to restore on startup"
-#~ msgstr "شدة الصوت المحفوظة لاسترجاعها عند تشغيل النظام"
-
-#~ msgid "Volume Control Preferences"
-#~ msgstr "تفضيلات متحكم الصوت"
-
-#~ msgid "Select the device and track to control."
-#~ msgstr "اختر الجهاز و المسار للمراقبة."
-
-#~ msgid "Activate and monitor a dial-up network connection"
-#~ msgstr "فعّل ومراقبة اتصال انترنت هاتفي"
-
-#~ msgid "Modem Monitor"
-#~ msgstr "مراقب المودم"
-
-#~ msgid "_Activate"
-#~ msgstr "_تنشيط"
-
-#~ msgid "_Deactivate"
-#~ msgstr "_تعطيل"
-
-#~ msgid "_Properties"
-#~ msgstr "ال_خصائص"
-
-#~ msgid "Connection active, but could not get connection time"
-#~ msgstr "الأتصال نشط، لكن لم يمكن تسجيل مدة الإتصال"
-
-#~ msgid "Time connected: %.1d:%.2d"
-#~ msgstr "مدة الاتصال: %.1d:%.2d"
-
-#~ msgid "Not connected"
-#~ msgstr "غير متّصل"
-
-#~ msgid ""
-#~ "To connect to your Internet service provider, you need administrator "
-#~ "privileges"
-#~ msgstr "للاتصال بمزوّد خدمة الإنترنت، تحتاج صلاحيات الإدارة"
-
-#~ msgid ""
-#~ "To disconnect from your Internet service provider, you need administrator "
-#~ "privileges"
-#~ msgstr "لإلغاء الإتصال من مزوّد خدمة الإنترنت، تحتاج صلاحيات الإدارة"
-
-#~ msgid "The entered password is invalid"
-#~ msgstr "كلمة السر المدخلة غير صحيحة"
-
-#~ msgid ""
-#~ "Check that you have typed it correctly and that you haven't activated the "
-#~ "\"caps lock\" key"
-#~ msgstr "تأكد من أنك كتبتها بشكل صحيح وأنّك لم تفعّل مفتاح \"caps lock\""
-
-#~ msgid "Do you want to connect?"
-#~ msgstr "أتريد الإتصال؟"
-
-#~ msgid "Do you want to disconnect?"
-#~ msgstr "أتريد إلغاء الإتصال؟"
-
-#~ msgid "C_onnect"
-#~ msgstr "إ_تصل"
-
-#~ msgid "_Disconnect"
-#~ msgstr "ا_قطع الاتصال"
-
-#~ msgid "Could not launch network configuration tool"
-#~ msgstr "تعذّر تشغيل أداة إعداد الشبكة"
-
-#~ msgid ""
-#~ "Check that it's installed in the correct path and that it has the correct "
-#~ "permissions"
-#~ msgstr "تأكد انه تم تثبيته في المسار الصحيح و أنه يملك التصاريح اللازمة"
-
-#~ msgid "Applet for activating and monitoring a dial-up network connection."
-#~ msgstr "بريمج لتشغيل و مراقبة اتصال انترنت هاتفي."
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Connecting with Internet Service "
-#~ "Provider</span>"
-#~ msgstr ""
-#~ "<spanWeight=\"bold\" size=\"larger\"> ربط مع مزود خدمة الانترنت </span>"
-
-#~ msgid "<span weight=\"bold\" size=\"larger\">Root password required</span>"
-#~ msgstr "<spanWeight=\"bold\" size=\"larger\">بحاجة لكلمة سر الجذر </span>"
-
-#~ msgid "Enter password"
-#~ msgstr "أدخل كلمة السرّ"
-
-#~ msgid "Password:"
-#~ msgstr "كلمة السرّ:"
-
-#~ msgid "A system load indicator"
-#~ msgstr "موضّح حِمْل النظام"
-
-#~ msgid "System Monitor"
-#~ msgstr "مراقب النظام"
-
-#~ msgid "_Open System Monitor"
-#~ msgstr "ا_فتح مراقب النظام"
-
-#~ msgid ""
-#~ "A system load monitor capable of displaying graphs for CPU, ram, and swap "
-#~ "space use, plus network traffic."
-#~ msgstr ""
-#~ "مراقب لحالة النظام يستطيع عرض رسوم بيانية للمعالج و الذاكرة و مستوى "
-#~ "استخدام ملف التبديل بالإضافة الى حالة الشبكة."
-
-#~ msgid "There was an error executing '%s': %s"
-#~ msgstr "حدث خطأ عند تنفيذ '%s' : %s"
-
-#~ msgid "Processor"
-#~ msgstr "المعالج"
-
-#~ msgid "Memory"
-#~ msgstr "الذاكرة"
-
-#~ msgid "Network"
-#~ msgstr "الشبكة"
-
-#~ msgid "Swap Space"
-#~ msgstr "فضاء التبديل"
-
-#~ msgid "Load Average"
-#~ msgstr "متوسط الحِمْل"
-
-#~ msgid "Disk"
-#~ msgstr "قرص"
-
-#~ msgid ""
-#~ "%s:\n"
-#~ "%u%% in use by programs\n"
-#~ "%u%% in use as cache"
-#~ msgstr ""
-#~ "%s:\n"
-#~ "%u%% مستخدَمة من طرف برامج\n"
-#~ "%u%% مستعملة كذاكرة مؤقّتة"
-
-#~ msgid "The system load average is %0.02f"
-#~ msgstr "متوسّط حِمْل النظام %0.02f"
-
-#~ msgid ""
-#~ "%s:\n"
-#~ "%u%% in use"
-#~ msgid_plural ""
-#~ "%s:\n"
-#~ "%u%% in use"
-#~ msgstr[0] ""
-#~ "%s:\n"
-#~ "%u%% مستعملة"
-#~ msgstr[1] ""
-#~ "%s:\n"
-#~ "%u%% مستعملة"
-#~ msgstr[2] ""
-#~ "%s:\n"
-#~ "%u%% مستعملة"
-#~ msgstr[3] ""
-#~ "%s:\n"
-#~ "%u%% مستعملة"
-
-#~ msgid "CPU Load"
-#~ msgstr "حِمْل المعالج"
-
-#~ msgid "Memory Load"
-#~ msgstr "حمل الذاكرة"
-
-#~ msgid "Net Load"
-#~ msgstr "حمل الشبكة"
-
-#~ msgid "Swap Load"
-#~ msgstr "حِمْل التبديل"
-
-#~ msgid "Disk Load"
-#~ msgstr "حمولة القرص"
-
-#~ msgid "Applet refresh rate in milliseconds"
-#~ msgstr "تردد تحديث البريمج بالمليثانية"
-
-#~ msgid "Background color for disk load graph"
-#~ msgstr "لون الخلفية للرسم البياني لحمولة القرص"
-
-#~ msgid "CPU graph background color"
-#~ msgstr "لون خلفية الرسم البياني للمعالج"
-
-#~ msgid "Enable CPU load graph"
-#~ msgstr "فعّل رسم حِمْل المعالج"
-
-#~ msgid "Enable disk load graph"
-#~ msgstr "فعّل الرسم البياني لحمولة القرص"
-
-#~ msgid "Enable load average graph"
-#~ msgstr "فعّل رسم موسط الحِمْل"
-
-#~ msgid "Enable memory load graph"
-#~ msgstr "فعّل رسم حِمْل الذاكرة"
-
-#~ msgid "Enable network load graph"
-#~ msgstr "فعّل رسم حِمْل الشبكة"
-
-#~ msgid "Enable swap load graph"
-#~ msgstr "فعّل رسم حِمْل ذاكرة التبديل"
-
-#~ msgid ""
-#~ "For horizontal panels, the width of the graphs in pixels. For vertical "
-#~ "panels, this is the height of the graphs."
-#~ msgstr ""
-#~ "هذا عرض الرسوم البيانية بالبكسلات للشرائط الأفقية، للشرائط العمودية يمثل "
-#~ "هذا ارتفاع الرسوم البيانية."
-
-#~ msgid "Graph color for Ethernet network activity"
-#~ msgstr "لون الرسم لنشاط شبكة الايثرنت"
-
-#~ msgid "Graph color for PLIP network activity"
-#~ msgstr "لون رسم لنشاط شبكة PLIP"
-
-#~ msgid "Graph color for SLIP network activity"
-#~ msgstr "لون رسم لنشاط شبكة SLIP"
-
-#~ msgid "Graph color for buffer memory"
-#~ msgstr "لون رسم للذاكرة الوسيطة"
-
-#~ msgid "Graph color for cached memory"
-#~ msgstr "لون رسم لذاكرة التخبئة"
-
-#~ msgid "Graph color for disk read"
-#~ msgstr "لون الرسم البياني لقراءة القرص"
-
-#~ msgid "Graph color for disk write"
-#~ msgstr "لون الرسم البياني لكتابة القرص"
-
-#~ msgid "Graph color for iowait related CPU activity"
-#~ msgstr "لون الرسم البياني لـ iowait المتعلق بنشاط المعالج"
-
-#~ msgid "Graph color for load average"
-#~ msgstr "لون رسم لموسط الحِمْل"
-
-#~ msgid "Graph color for nice-related CPU activity"
-#~ msgstr "لون الرسم لنشاط المعالج المرتبط بقيمة nice"
-
-#~ msgid "Graph color for other network usage"
-#~ msgstr "لون الرسم لاستخدامات الشبكة الأخرى"
-
-#~ msgid "Graph color for shared memory"
-#~ msgstr "لون رسم للذاكرة المشتركة"
-
-#~ msgid "Graph color for system-related CPU activity"
-#~ msgstr "لون الرسم لنشاط المعالج المرتبط بكامل النظام"
-
-#~ msgid "Graph color for user-related CPU activity"
-#~ msgstr "لون الرسم لنشاط المعالج المرتبط بالمستخدم"
-
-#~ msgid "Graph color for user-related memory usage"
-#~ msgstr "لون رسم استخدام الذاكرة المرتبط بالمستخدم"
-
-#~ msgid "Graph color for user-related swap usage"
-#~ msgstr "لون رسم استخدام الذاكرة البديلة المرتبط بالمستخدم"
-
-#~ msgid "Graph size"
-#~ msgstr "مقاس الرسم البياني"
-
-#~ msgid "Load graph background color"
-#~ msgstr " لون خلفية رسم الحِمْل"
-
-#~ msgid "Memory graph background color"
-#~ msgstr "لون خلفية رسم الذاكرة البياني"
-
-#~ msgid "Network graph background color"
-#~ msgstr "لون خلفية رسم الشبكة البياني"
-
-#~ msgid "Swap graph background color"
-#~ msgstr "لون خلفية الذاكرة البديلة"
-
-#~ msgid "Monitored Resources"
-#~ msgstr "الموارد المراقَبة"
-
-#~ msgid "_Processor"
-#~ msgstr "الم_عالج"
-
-#~ msgid "_Memory"
-#~ msgstr "ال_ذاكرة"
-
-#~ msgid "_Network"
-#~ msgstr "_الشبكة"
-
-#~ msgid "S_wap Space"
-#~ msgstr "فضاء الت_بديل"
-
-#~ msgid "_Load"
-#~ msgstr "ال_حمل"
-
-#~ msgid "_Harddisk"
-#~ msgstr "قرص _صلب"
-
-#~ msgid "Options"
-#~ msgstr "الخيارات"
-
-#~ msgid "System m_onitor width: "
-#~ msgstr "عرض مرا_قب النظام: "
-
-#~ msgid "System m_onitor height: "
-#~ msgstr "ارتفاع مرا_قب النظام: "
-
-#~ msgid "Sys_tem monitor update interval: "
-#~ msgstr "مدة التحديث لمراقب ال_نظام: "
-
-#~ msgid "milliseconds"
-#~ msgstr "ملي ثانية"
-
-#~ msgid "Colors"
-#~ msgstr "الألوان"
-
-#~ msgid "_User"
-#~ msgstr "الم_ستخدم"
-
-#~ msgid "S_ystem"
-#~ msgstr "الن_ظام"
-
-#~ msgid "N_ice"
-#~ msgstr "ج_يد"
-
-#~ msgid "I_OWait"
-#~ msgstr "I_OWait"
-
-#~ msgid "I_dle"
-#~ msgstr "ع_اطل"
-
-#~ msgid "Sh_ared"
-#~ msgstr "مش_ترك"
-
-#~ msgid "_Buffers"
-#~ msgstr "_الذاكرات الوسيطة"
-
-#~ msgid "Cach_ed"
-#~ msgstr "م_خبأ"
-
-#~ msgid "F_ree"
-#~ msgstr "_خالي"
-
-#~ msgid "_SLIP"
-#~ msgstr "_SLIP"
-
-#~ msgid "PL_IP"
-#~ msgstr "PL_IP"
-
-#~ msgid "_Ethernet"
-#~ msgstr "إي_ثرنت"
-
-#~ msgid "Othe_r"
-#~ msgstr "أ_خرى"
-
-#~ msgid "_Background"
-#~ msgstr "ال_خلفية"
-
-#~ msgid "_Used"
-#~ msgstr "م_ستخدم"
-
-#~ msgid "_Free"
-#~ msgstr "_خالي"
-
-#~ msgid "Load"
-#~ msgstr "الحمل"
-
-#~ msgid "_Average"
-#~ msgstr "ال_متوسط"
-
-#~ msgid "Harddisk"
-#~ msgstr "قرص صلب"
-
-#~ msgid "_Read"
-#~ msgstr "_قراءة"
-
-#~ msgid "_Write"
-#~ msgstr "_كتابة"
-
-#~ msgid "System Monitor Preferences"
-#~ msgstr "تفضيلات مراقب النظام"
-
-#~ msgid "CD Player (Deprecated)"
-#~ msgstr "قارئ القرص (ملغى)"
-
-#~ msgid "Panel applet for playing audio CDs"
-#~ msgstr "بريمج الشريط لعزف الأقراص المدمجة"
-
-#~ msgid "Alert you when new mail arrives"
-#~ msgstr "ينبهك عند وصول بريد جديد"
-
-#~ msgid "Inbox Monitor (Deprecated)"
-#~ msgstr "مراقب البريد (ملغى)"
-
-#~ msgid "Factory for deprecating applets"
-#~ msgstr "مصنع البريمجات القديمة"
-
-#~ msgid "Null Applet Factory"
-#~ msgstr "مصنع بريمج عدم"
-
-#~ msgid "Monitor the quality of a wireless network link"
-#~ msgstr "راقِب جودة الإتصال اللاسلكي للشبكة"
-
-#~ msgid "Wireless Link Monitor"
-#~ msgstr "مراقب الاتصال اللاسلكي"
-
-#~ msgid "Some panel items are no longer available"
-#~ msgstr "بعض عناصر الشريط لم تعد متوفرة"
-
-#~ msgid ""
-#~ "One or more panel items (also referred to as applets) are no longer "
-#~ "available in the GNOME desktop."
-#~ msgstr ""
-#~ "واحد أو أكثر من عناصر الشريط (تسمّى أيضا بريمجات) غير متوفرة في سطح مكتب "
-#~ "جنوم."
-
-#~ msgid "These items will now be removed from your configuration:"
-#~ msgstr "سيتم حذف هذه العناصر من الخصائص:"
-
-#~ msgid "You will not receive this message again."
-#~ msgstr "لن تستقبل هذه الرسالة مرّة أخرى."
-
-#~ msgid "Tomboy (ne Stickynotes)"
-#~ msgstr "تومبوي (ملاحظات لاصقة سابقا)"
-
-#~ msgid "Tomboy (transparent upgrade from stickynotes)"
-#~ msgstr "تومبوي (ترقية شفّافة من الملاحظات اللاصقة)"
-
-#~ msgid "Create, view, and manage sticky notes on the desktop"
-#~ msgstr "أنشئ و اعرض و أدر ملاحظات لاصقة على سطح مكتبك"
-
-#~ msgid "Sticky Notes"
-#~ msgstr "ملاحظات لاصقة"
-
-#~ msgid "Sticky Notes Applet Factory"
-#~ msgstr "مصنع بريمج الملاحظات اللاصقة"
-
-#~ msgid "Hi_de Notes"
-#~ msgstr "ا_خفي الملاحظات"
-
-#~ msgid "_Delete Notes"
-#~ msgstr "ا_حذف الملاحظات"
-
-#~ msgid "_Lock Notes"
-#~ msgstr "أ_قفل الملاحظات"
-
-#~ msgid "_New Note"
-#~ msgstr "ملاحظة _جديدة"
-
-#~ msgid "This note is locked."
-#~ msgstr "هذه الملاحظة مقفلة."
-
-#~ msgid "This note is unlocked."
-#~ msgstr "هذه الملاحظة غير مقفلة."
-
-#~ msgid "    Font C_olor:"
-#~ msgstr "    _لون الخط:"
-
-#~ msgid "    Font Co_lor:"
-#~ msgstr "    ل_ون الخط:"
-
-#~ msgid "    Note C_olor:"
-#~ msgstr "    _لون الملاحظة:"
-
-#~ msgid "    Note _Color:"
-#~ msgstr "    ل_ون الملاحظة:"
-
-#~ msgid "    _Font:"
-#~ msgstr "    _خط:"
-
-#~ msgid "<b>Behavior</b>"
-#~ msgstr "<b>السلوك</b>"
-
-#~ msgid "<b>Default Note Properties</b>"
-#~ msgstr "<b>خصائص الملاحظة الافتراضية</b>"
-
-#~ msgid ""
-#~ "<b>Delete all sticky notes?</b>\n"
-#~ "\n"
-#~ "This cannot be undone."
-#~ msgstr ""
-#~ "<b>حذف جميع الملاحظات اللاصقة؟</b>\n"
-#~ "\n"
-#~ "لا يمكن ارجاعها بعد هذا."
-
-#~ msgid ""
-#~ "<b>Delete this sticky note?</b>\n"
-#~ "\n"
-#~ "This cannot be undone."
-#~ msgstr ""
-#~ "<b>حذف الملاحظة اللاصقة هذه؟</b>\n"
-#~ "\n"
-#~ "لا يمكن ارجاعها بعد هذا.."
-
-#~ msgid "<b>Properties</b>"
-#~ msgstr "<b>الخصائص</b>"
-
-#~ msgid "Choose a base color to use for all sticky notes"
-#~ msgstr "اختر لونا أساسيا لكل الملاحظات اللاصقة"
-
-#~ msgid "Choose a color for the note"
-#~ msgstr "اختر لونا للملاحظة"
-
-#~ msgid "Choose a font for the note"
-#~ msgstr "اختر خطا للملاحظة"
-
-#~ msgid "Choose a font to use for all sticky notes"
-#~ msgstr "اختر خطا للاستخدام لكل الملاحظات اللاصقة"
-
-#~ msgid "Choose if notes are visible on all workspaces"
-#~ msgstr "اختر ما إذا كانت الملاحظات مرئية على كل مساحات العمل"
-
-#~ msgid "Choose if the default style is forced on all notes"
-#~ msgstr "اختر ما إذا سيُجبر الأسلوب الإفتراضي على جميع الملاحظات"
-
-#~ msgid "Close note"
-#~ msgstr "اغلق الملاحظة"
-
-#~ msgid "Force _default color and font on notes"
-#~ msgstr "اجبر اللون و الخط الا_فتراضيين على الملاحظات"
-
-#~ msgid "H_eight:"
-#~ msgstr "الا_رتفاع:"
-
-#~ msgid "Lock/Unlock note"
-#~ msgstr "اقفل/ازل قفل الملاحظة"
-
-#~ msgid "Pick a color for the sticky note"
-#~ msgstr "انتقِ لونا للملاحظة اللاصقة"
-
-#~ msgid "Pick a default sticky note color"
-#~ msgstr "انتقِ لون الملاحظة اللاصقة الإفتراضي"
-
-#~ msgid "Pick a default sticky note font"
-#~ msgstr "انتقِ خط الملاحظة اللاصقة الافتراضي"
-
-#~ msgid "Pick a font for the sticky note"
-#~ msgstr "انتقِ خطا للملاحظة اللاصقة"
-
-#~ msgid "Resize note"
-#~ msgstr "حجّم الملاحظة"
-
-#~ msgid "Specify a title for the note"
-#~ msgstr "حدّد عنوان للملاحظة"
-
-#~ msgid "Specify the default height (in pixels) of new notes"
-#~ msgstr "حدّد الارتفاع الافتراضي (بالبكسلات) للملاحظات الجديدة"
-
-#~ msgid "Specify the default width (in pixels) of new notes"
-#~ msgstr "حدّد العرض الافتراضي (بالبكسلات) للملاحظات الجديدة"
-
-#~ msgid "Sticky Note"
-#~ msgstr "ملاحظة لاصقة"
-
-#~ msgid "Sticky Note Properties"
-#~ msgstr "خصائص الملاحظات اللاصقة"
-
-#~ msgid "Sticky Notes Preferences"
-#~ msgstr "تفضيلات الملاحظات اللاصقة"
-
-#~ msgid "Use co_lor from the system theme"
-#~ msgstr "استخدم ال_لون من سِمة االنظام"
-
-#~ msgid "Use default co_lor"
-#~ msgstr "استخدم ال_لون الإفتراضي"
-
-#~ msgid "Use default fo_nt"
-#~ msgstr "استخدم الخط الا_فتراضي"
-
-#~ msgid "Use fo_nt from the system theme"
-#~ msgstr "استخدم ال_خط من سِمة النظام"
-
-#~ msgid "_Delete All"
-#~ msgstr "ا_حذف الكل"
-
-#~ msgid "_Delete Note..."
-#~ msgstr "ا_حذف الملاحظة..."
-
-#~ msgid "_Lock Note"
-#~ msgstr "ا_قفل الملاحظة"
-
-#~ msgid "_Put notes on all workspaces"
-#~ msgstr "_ضعْ الملاحظات على جميع مساخات العمل"
-
-#~ msgid "_Title:"
-#~ msgstr "ال_عنوان:"
-
-#~ msgid ""
-#~ "By default, sticky notes are given the current date as the title when "
-#~ "they are created. This format is used; anything that can be parsed by "
-#~ "strftime() is valid."
-#~ msgstr ""
-#~ "يعطى للمذكّرات اللاصقة التاريخ الحالي كالعنوان إفتراضا. هذه التهيئة "
-#~ "مستخدمة؛ أي شيء يمكن تحليله من قبل strftime() مقبول."
-
-#~ msgid "Date format of note's title"
-#~ msgstr "هيئة التاريخ في عنوان الملاحظة"
-
-#~ msgid "Default color for font"
-#~ msgstr "اللون الافتراضي للخط"
-
-#~ msgid "Default color for new notes"
-#~ msgstr "اللون الافتراضي للملاحظات الجديدة"
-
-#~ msgid ""
-#~ "Default color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#30FF50\"."
-#~ msgstr ""
-#~ "اللون الافتراضي للملاحظات اللاصقة. يجب أن يكون بمواصفات html hex، مثلا"
-#~ "\"#30FF50\"."
-
-#~ msgid ""
-#~ "Default font color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#000000\"."
-#~ msgstr ""
-#~ "الخط الافتراضي للملاحظات اللاصقة. يجب أن يكون بمواصفات html hex، مثلا "
-#~ "\"#000000\"."
-
-#~ msgid "Default font for new notes"
-#~ msgstr "الخط الافتراضي للملاحظات الجديدة"
-
-#~ msgid ""
-#~ "Default font for new sticky notes. This should be a Pango Font Name, for "
-#~ "example \"Sans Italic 10\""
-#~ msgstr ""
-#~ "الخط الافتراضي للملاحظات اللاصقة الجديدة. يجب أن يكون اسم خط بانغو، مثلا "
-#~ "\"Sans Italic 10\""
-
-#~ msgid "Default height for new notes"
-#~ msgstr "الارتفاع الافتراضي للملاحظات الجديدة"
-
-#~ msgid "Default height for new sticky notes in pixels."
-#~ msgstr "الارتفاع الافتراضي للملاحظات اللاصقة الجديدة بالبكسل."
-
-#~ msgid "Default width for new notes"
-#~ msgstr "العرض الافتراضي للملاحظات الجديدة"
-
-#~ msgid "Default width for new sticky notes in pixels."
-#~ msgstr "العرض الافتراضي لملاحظة لاصقة جديدة بالبكسل."
-
-#~ msgid "Empty notes are always deleted without confirmation"
-#~ msgstr "الملاحظات الفارغة تمحى دائما دون السؤال عن تأكيد"
-
-#~ msgid ""
-#~ "If this option is disabled, a custom color can be used as the default "
-#~ "color for all sticky notes."
-#~ msgstr ""
-#~ "إذا عطّل هذا الخيار، سيمكن إستخدام لون مخصّص كلون إفتراضي لجميع المذكّرات "
-#~ "اللّاصقة."
-
-#~ msgid ""
-#~ "If this option is disabled, a custom font can be used as the default font "
-#~ "for all sticky notes."
-#~ msgstr ""
-#~ "إذا عطّل هذا الخيار، سيمكن إستخدام خط خاص كخط إفتراضي لجميع المذكّرات "
-#~ "اللّاصقة."
-
-#~ msgid ""
-#~ "If this option is enabled, the custom colors and fonts that have been "
-#~ "assigned to individual notes will be ignored."
-#~ msgstr ""
-#~ "إذا فعّل هذا الخيار، ستُتَجاهل الألوان و الخطوط الخاصّة المرتبطة بالمذكّرات "
-#~ "الشخصيّة."
-
-#~ msgid "Specifies whether the sticky notes are locked (non-editable) or not."
-#~ msgstr "يحدد ما إذا كانت الملاحظات اللاصقة مقفلة أم لا (غير قالبة للتحرير)."
-
-#~ msgid ""
-#~ "Specifies whether the sticky notes are visible on ALL workspaces on the "
-#~ "desktop, or not."
-#~ msgstr ""
-#~ "يحدد ما إذا كانت الملاحظات اللاصقة مرئية على جميع مساحات العمل أم لا."
-
-#~ msgid "Sticky notes' locked state"
-#~ msgstr "حالة القفل للملاحظات اللاصقة"
-
-#~ msgid "Sticky notes' workspace stickyness"
-#~ msgstr "التصاق الملاحظات اللاصقة على مساحات العمل"
-
-#~ msgid "Whether to ask for confirmation when deleting a note"
-#~ msgstr "ما إذا يجب السؤال عن تأكيد عند حذف ملاحظة"
-
-#~ msgid "Whether to force the default color and font on all notes"
-#~ msgstr "ما إذا سيجبر استخدام اللون و الخط الإفتراضيين على كل الملاحظات"
-
-#~ msgid "Whether to use the default system color"
-#~ msgstr "ما إذا كان سيستخدم لون النظام الافتراضي أم لا"
-
-#~ msgid "Whether to use the default system font"
-#~ msgstr "ما إذا كان سيستخدم خط النظام الافتراضي أم لا"
-
-#~ msgid "%d note"
-#~ msgid_plural "%d notes"
-#~ msgstr[0] "ملاحظة واحدة"
-#~ msgstr[1] "ملاحظتين"
-#~ msgstr[2] "%Id ملاحظات"
-#~ msgstr[3] "%Id ملاحظة"
-
-#~ msgid "Show sticky notes"
-#~ msgstr "أظهر الملاحظات اللاصقة"
-
-#~ msgid "Sticky Notes for the GNOME Desktop Environment"
-#~ msgstr "ملاحظات لاصقة لبيئة سطح المكتب جنوم"
-
-#~ msgid "Go to Trash"
-#~ msgstr "اذهب إلى المهملات"
-
-#~ msgid "Trash"
-#~ msgstr "المهملات"
-
-#~ msgid "_Empty Trash"
-#~ msgstr "أ_فرِغ المهملات"
-
-#~ msgid "_Open"
-#~ msgstr "ا_فتح"
-
-#~ msgid "Unable to find the Trash directory: %s"
-#~ msgstr "تعذّر العثور مجلد المهملات:  %s"
-
-#~ msgid "No Items in Trash"
-#~ msgstr "لا عناصر في المهملات"
-
-# c-format
-#~ msgid "%d Item in Trash"
-#~ msgid_plural "%d Items in Trash"
-#~ msgstr[0] "عنصر واحد في المهملات"
-#~ msgstr[1] "عنصرين في المهملات"
-#~ msgstr[2] "%Id عناصر في المهملات"
-#~ msgstr[3] "%Id عنصراَ في المهملات"
-
-#~ msgid "Removing item %d of %d"
-#~ msgstr "حذف العنصر  %Id من %Id"
-
-#~ msgid "Removing:"
-#~ msgstr "يجري حذف:"
-
-#~ msgid "Empty all of the items from the trash?"
-#~ msgstr "حذف كل العناصر من المهملات؟"
-
-#~ msgid ""
-#~ "If you choose to empty the trash, all items in it will be permanently "
-#~ "lost. Please note that you can also delete them separately."
-#~ msgstr ""
-#~ "اذا اخترت تفريغ المهملات، ستفقد كل العناصر الموجودة بها نهائياً. رجاء "
-#~ "ملاحظة امكانية حذفهم بشكل منفصل."
-
-#~ msgid ""
-#~ "Error while spawning nautilus:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "خطأ أثناء بدأ نوتيلس:\n"
-#~ "%s"
-
-#~ msgid ""
-#~ "A GNOME trash bin that lives in your panel. You can use it to view the "
-#~ "trash or drag and drop items into the trash."
-#~ msgstr ""
-#~ "سلّة مهملات لجنوم تقطنُ في الشريط. يمكنك استخدامها لعرض المهملات أو اسحب "
-#~ "والقِ العناصر إلى المهملات."
-
-#~ msgid "Delete Immediately?"
-#~ msgstr "احذف حاليا؟"
-
-#~ msgid "Cannot move items to trash, do you want to delete them immediately?"
-#~ msgstr "لا يمكن نقل العناصر إلى المهملات، هل تريد حذفها فورا؟"
-
-#~ msgid ""
-#~ "Cannot move some items to trash, do you want to delete these immediately?"
-#~ msgstr "لا يمكن نقل بعض العناصر إلى المهملات، هل تريد حذفها فورا؟"
-
-#~ msgid ""
-#~ "Unable to move to trash:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "لم يمكن النقل إلى المهملات:\n"
-#~ "%s"
-
-#~ msgid "Trash Applet"
-#~ msgstr "بريمج المهملات"
-
-#~ msgid "<b>From:</b>"
-#~ msgstr "<b>مِن:</b>"
-
-#~ msgid "<big><b>Emptying the Trash</b></big>"
-#~ msgstr "<big><b>يجري إفراغ المهملات</b></big>"
-
-#~ msgid "Emptying the Trash"
-#~ msgstr "يجري إفراغ المهملات"
-
-#~ msgid "Invest Website"
-#~ msgstr "موقع المستثمر"
-
-#~ msgid "%.1f °F"
-#~ msgstr "%.1f °ف"
-
-#~ msgid "%d °F"
-#~ msgstr "%Id °ف"
-
-#~ msgid "%.1f °C"
-#~ msgstr "%.1f °م"
-
-#~ msgid "%d °C"
-#~ msgstr "%Id °م"
-
-#~ msgid "Display yahoo charts"
-#~ msgstr "اعرض مخططات ياهو"
-
-#~ msgid "Invest Chart"
-#~ msgstr "الرسم البياني للمستثمر"
