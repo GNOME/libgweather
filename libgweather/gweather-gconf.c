@@ -172,7 +172,7 @@ gweather_gconf_get_location(GWeatherGConf *ctx)
         /* TRANSLATOR: Change this to the code of your default location that
 	 * corresponds to the DEFAULT_LOCATION name you put above. This is
 	 * normally a four-letter (ICAO) code and can be found in
-	 * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+	 * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
 	 * NB. The web page is over 1.7MB in size.
 	 * Pick a default location like a capital city so that it would be ok
 	 * for more of your users. For example, for Greek, we use "LGAV" for
@@ -193,7 +193,7 @@ gweather_gconf_get_location(GWeatherGConf *ctx)
 	 * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 	 * Normally, US and Canada locations have zones while the rest do not.
 	 * Check
-         * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+	 * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
 	 * as any zone you put here must also be present in the Locations.xml
 	 * file.
 	 * 
@@ -213,10 +213,10 @@ gweather_gconf_get_location(GWeatherGConf *ctx)
 	 * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 	 * Normally, US and Canada locations have radar names while the rest do
 	 * not. Check
-         * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+	 * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
 	 * as any radar you put here must also be present in the Locations.xml
 	 * file.
-	 * 
+	 *
 	 * If your default location does not have a radar, set this to " "
 	 * (or space).
 	 * If you do not have a default location, set this to DEFAULT_RADAR.
@@ -233,7 +233,7 @@ gweather_gconf_get_location(GWeatherGConf *ctx)
         /* TRANSLATOR: Change this to the coordinates of your default location
 	 * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
 	 * above. Check
-	 * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+	 * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
 	 * as any coordinates you put here must also be present in the
 	 * Locations.xml file.
 	 * 
