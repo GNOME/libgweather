@@ -1,4 +1,4 @@
-# Chinese (Hong Kong) translation of gnome-applets.
+# Chinese (Hong Kong) translation of libgwether.
 # Copyright (C) 1999, 2000, 01, 02, 03, 04, 05, 06, 07 Free Software Foundation, Inc.
 # GNOME 1.x:
 # Yuan-Chung Cheng <platin@linux.org.tw>, 1999.
@@ -11,10 +11,10 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-applets 2.17.1\n"
+"Project-Id-Version: gnome-applets 2.21.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-02-20 05:02+0000\n"
-"PO-Revision-Date: 2007-02-21 20:57+0800\n"
+"POT-Creation-Date: 2008-02-23 11:54+0800\n"
+"PO-Revision-Date: 2008-02-23 11:56+0800\n"
 "Last-Translator: Woodman Tuen <wmtuen@gmail.com>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,2106 +22,54 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../accessx-status/GNOME_AccessxApplet.xml.h:1
-#: ../battstat/GNOME_BattstatApplet.xml.h:1
-#: ../charpick/GNOME_CharpickerApplet.xml.h:1
-#: ../cpufreq/GNOME_CPUFreqApplet.xml.h:1
-#: ../drivemount/GNOME_DriveMountApplet.xml.h:1
-#: ../geyes/GNOME_GeyesApplet.xml.h:1
-#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:3
-#: ../gweather/GNOME_GWeatherApplet.xml.h:1
-#: ../invest-applet/data/Invest_Applet.xml.h:1
-#: ../mini-commander/src/GNOME_MiniCommanderApplet.xml.h:1
-#: ../mixer/GNOME_MixerApplet.xml.h:2 ../modemlights/GNOME_ModemLights.xml.h:1
-#: ../multiload/GNOME_MultiloadApplet.xml.h:1
-#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:2
-#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:1
-msgid "_About"
-msgstr "關於(_A)"
-
-#: ../accessx-status/GNOME_AccessxApplet.xml.h:2
-#: ../battstat/GNOME_BattstatApplet.xml.h:2
-#: ../charpick/GNOME_CharpickerApplet.xml.h:2
-#: ../cpufreq/GNOME_CPUFreqApplet.xml.h:2
-#: ../drivemount/GNOME_DriveMountApplet.xml.h:2
-#: ../geyes/GNOME_GeyesApplet.xml.h:2
-#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:5
-#: ../gweather/GNOME_GWeatherApplet.xml.h:3
-#: ../mini-commander/src/GNOME_MiniCommanderApplet.xml.h:2
-#: ../mixer/GNOME_MixerApplet.xml.h:3 ../modemlights/GNOME_ModemLights.xml.h:4
-#: ../multiload/GNOME_MultiloadApplet.xml.h:2
-#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:4
-#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:3
-msgid "_Help"
-msgstr "求助(_H)"
-
-#: ../accessx-status/GNOME_AccessxApplet.xml.h:3
-msgid "_Keyboard Accessibility Preferences"
-msgstr "無障礙環境鍵盤偏好設定(_K)"
-
-#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:1
-msgid "AccessX Status Applet Factory"
-msgstr "AccessX 狀態面板程式工廠"
-
-#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:2
-#: ../accessx-status/applet.c:1319
-msgid "Keyboard Accessibility Status"
-msgstr "無障礙環境鍵盤狀態"
-
-#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:3
-msgid "Keyboard Accessibility Status Applet Factory"
-msgstr "無障礙環境鍵盤狀態面板程式工廠"
-
-#: ../accessx-status/GNOME_AccessxStatusApplet.server.in.in.h:4
-msgid "Shows the status of keyboard accessibility features"
-msgstr "顯示無障礙環境鍵盤狀態"
-
-#: ../accessx-status/applet.c:138 ../accessx-status/applet.c:968
-#: ../accessx-status/applet.c:1108 ../accessx-status/applet.c:1322
-msgid "AccessX Status"
-msgstr "無障礙環境狀態"
-
-#: ../accessx-status/applet.c:140
-msgid "Shows the state of AccessX features such as latched modifiers"
-msgstr "顯示無障礙環境鍵盤的狀態"
-
-#. about.set_artists([])
-#. about.set_documenters([])
-#. translators: These appear in the About dialog, usual format applies.
-#. "documenters",        documenters,
-#: ../accessx-status/applet.c:145 ../battstat/battstat_applet.c:1249
-#: ../charpick/charpick.c:604 ../cpufreq/src/cpufreq-applet.c:662
-#: ../drivemount/drivemount.c:120 ../geyes/geyes.c:196
-#: ../gswitchit/gswitchit-applet.c:432 ../gweather/gweather-about.c:56
-#: ../invest-applet/invest/about.py:40 ../mini-commander/src/about.c:55
-#: ../mixer/applet.c:1324 ../modemlights/modem-applet.c:1049
-#: ../multiload/main.c:64 ../stickynotes/stickynotes_applet_callbacks.c:371
-#: ../trashapplet/src/trashapplet.c:758
-msgid "translator-credits"
-msgstr ""
-"如對翻譯有任何意見，請送一封電子郵件給\n"
-"以下地址，GNOME 翻譯隊伍會儘快回覆你：\n"
-"community@linuxhall.org\n"
-"\n"
-"Woodman Tuen <wmtuen@gmail.com>, 2005-2006\n"
-"Abel Cheung <abel@oaka.org>, 2001-2004\n"
-"Jing-Jong Shyue <shyue@sonoma.com.tw>, 2000\n"
-"Yuan-Chung Cheng <platin@linux.org.tw>, 1999"
-
-#: ../accessx-status/applet.c:171
-#, c-format
-msgid "There was an error launching the help viewer: %s"
-msgstr "啟動說明文件瀏覽器時出現錯誤：%s"
-
-#: ../accessx-status/applet.c:208
-#, c-format
-msgid "There was an error launching the keyboard preferences dialog: %s"
-msgstr "啟動鍵盤偏好設定對話方塊時出現錯誤：%s"
-
-#. Note to translators: the first letter of the alphabet, not the indefinite article
-#: ../accessx-status/applet.c:456 ../accessx-status/applet.c:494
-msgid "a"
-msgstr "a"
-
-#: ../accessx-status/applet.c:969 ../accessx-status/applet.c:1109
-msgid "Shows keyboard status when accessibility features are used."
-msgstr "啟用無障礙環境功能時顯示鍵盤狀態。"
-
-#: ../accessx-status/applet.c:1003
-msgid "XKB Extension is not enabled"
-msgstr "並未啟用 XKB 延伸功能"
-
-#: ../accessx-status/applet.c:1008
-msgid "Unknown error"
-msgstr "不明的錯誤"
-
-#: ../accessx-status/applet.c:1016
-#, c-format
-msgid "Error: %s"
-msgstr "錯誤：%s"
-
-#: ../accessx-status/applet.c:1324
-msgid "Displays current state of keyboard accessibility features"
-msgstr "顯示目前的無障礙環境鍵盤狀態"
-
-#: ../battstat/GNOME_BattstatApplet.server.in.in.h:1
-#: ../battstat/battstat_applet.c:1241 ../battstat/battstat_applet.c:1674
-msgid "Battery Charge Monitor"
-msgstr "電池電量監察程式"
-
-#: ../battstat/GNOME_BattstatApplet.server.in.in.h:2
-msgid "Battstat Factory"
-msgstr "Battstat 工廠"
-
-#: ../battstat/GNOME_BattstatApplet.server.in.in.h:3
-#: ../battstat/battstat_applet.c:1675
-msgid "Monitor a laptop's remaining power"
-msgstr "監察手提電腦的剩餘電量"
-
-#: ../battstat/GNOME_BattstatApplet.xml.h:3
-#: ../charpick/GNOME_CharpickerApplet.xml.h:3
-#: ../cpufreq/GNOME_CPUFreqApplet.xml.h:3 ../geyes/GNOME_GeyesApplet.xml.h:3
-#: ../gweather/GNOME_GWeatherApplet.xml.h:4
-#: ../invest-applet/data/Invest_Applet.xml.h:2
-#: ../mini-commander/src/GNOME_MiniCommanderApplet.xml.h:3
-#: ../mixer/GNOME_MixerApplet.xml.h:5
-#: ../multiload/GNOME_MultiloadApplet.xml.h:4
-#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:7
-msgid "_Preferences"
-msgstr "偏好設定(_P)"
-
-#: ../battstat/battstat.schemas.in.h:1
-msgid "0 for no label, 1 for percentage and 2 for time remaining"
-msgstr "‘0’則沒有標籤，‘1’則顯示百分比，‘2’則顯示剩餘時間"
-
-#: ../battstat/battstat.schemas.in.h:2
-msgid "Beep for warnings"
-msgstr "顯示訊息時發出聲響"
-
-#: ../battstat/battstat.schemas.in.h:3
-msgid "Beep when displaying a warning"
-msgstr "顯示訊息時同時發出聲響"
-
-#: ../battstat/battstat.schemas.in.h:4
-msgid "Drain from top"
-msgstr "指示棒從頂部開始縮短"
-
-#: ../battstat/battstat.schemas.in.h:5
-msgid "Full Battery Notification"
-msgstr "電量全滿時發出通知"
-
-#: ../battstat/battstat.schemas.in.h:6
-msgid "Low Battery Notification"
-msgstr "電量太低時發出通知"
-
-#: ../battstat/battstat.schemas.in.h:7
-msgid "Notify user when the battery is full"
-msgstr "當充電完成後通知使用者"
-
-#: ../battstat/battstat.schemas.in.h:8
-msgid "Notify user when the battery is low"
-msgstr "當電量太低時通知使用者"
-
-#: ../battstat/battstat.schemas.in.h:9
-msgid "Red value level"
-msgstr "紅色表示電量"
-
-#: ../battstat/battstat.schemas.in.h:10
-msgid ""
-"Show the battery meter draining from the top of the battery. Only "
-"implemented for traditional battery view."
-msgstr "在電池頂部顯示電量棒。只適用於傳統電量顯示模式。"
-
-#: ../battstat/battstat.schemas.in.h:11
-msgid "Show the horizontal battery"
-msgstr "顯示水平電池圖樣"
-
-#: ../battstat/battstat.schemas.in.h:12
-msgid "Show the time/percent label"
-msgstr "顯示時間/百分比標籤"
-
-#: ../battstat/battstat.schemas.in.h:13
-msgid "Show the traditional, horizontal battery on the panel"
-msgstr "在面板上顯示傳統的，水平的電池圖樣"
-
-#: ../battstat/battstat.schemas.in.h:14
-msgid "Show the upright, smaller battery on the panel"
-msgstr "在面板上顯示垂直的，較小的電池圖樣"
-
-#: ../battstat/battstat.schemas.in.h:15
-msgid ""
-"The battery level below which the battery is displayed as red. Also the "
-"value at which the low battery warning is displayed."
-msgstr "電池電量低於這個數值時會顯示為紅色。同樣低於這個數值時會發出警告。"
-
-#: ../battstat/battstat.schemas.in.h:16
-msgid "Upright (small) battery"
-msgstr "垂直（較小）電池圖樣"
-
-#: ../battstat/battstat.schemas.in.h:17
-msgid ""
-"Use the value defined in red_value as a time remaining to show the warning "
-"dialog rather than a percentage"
-msgstr "使用 red_value 定義的數值作為來以剩餘時間顯示警告對話方塊，而非以電量的百份比。"
-
-#: ../battstat/battstat.schemas.in.h:18
-msgid "Warn on low time rather than low percentage"
-msgstr "以低剩餘時間發出警告，而非以電量的低百份比"
-
-#: ../battstat/battstat_applet.c:73
-msgid "System is running on AC power"
-msgstr "系統正在使用交流電"
-
-#: ../battstat/battstat_applet.c:74
-msgid "System is running on battery power"
-msgstr "系統正在使用電池"
-
-#: ../battstat/battstat_applet.c:377
-#, c-format
-msgid "Battery charged (%d%%)"
-msgstr "電池已充電 (%d%%)"
-
-#: ../battstat/battstat_applet.c:379
-#, c-format
-msgid "Unknown time (%d%%) remaining"
-msgstr "無法決定可使用時間，剩餘電量 %d%%"
-
-#: ../battstat/battstat_applet.c:381
-#, c-format
-msgid "Unknown time (%d%%) until charged"
-msgstr "無法決定充電所需時間，剩餘電量 %d%%"
-
-#: ../battstat/battstat_applet.c:386
-#, c-format
-msgid "%d minute (%d%%) remaining"
-msgid_plural "%d minutes (%d%%) remaining"
-msgstr[0] "可使用 %d 分鐘，剩餘電量 %d%%"
-
-#: ../battstat/battstat_applet.c:391
-#, c-format
-msgid "%d minute until charged (%d%%)"
-msgid_plural "%d minutes until charged (%d%%)"
-msgstr[0] "距離完全充電還有 %d 分鐘，剩餘電量 %d%%"
-
-#: ../battstat/battstat_applet.c:397
-#, c-format
-msgid "%d hour (%d%%) remaining"
-msgid_plural "%d hours (%d%%) remaining"
-msgstr[0] "可使用 %d 小時，剩餘電量 %d%%"
-
-#: ../battstat/battstat_applet.c:402
-#, c-format
-msgid "%d hour until charged (%d%%)"
-msgid_plural "%d hours until charged (%d%%)"
-msgstr[0] "距離完全充電還有 %d 小時，剩餘電量 %d%%"
-
-#. TRANSLATOR: "%d %s %d %s" are "%d hours %d minutes"
-#. * Swap order with "%2$s %2$d %1$s %1$d if needed
-#: ../battstat/battstat_applet.c:409
-#, c-format
-msgid "%d %s %d %s (%d%%) remaining"
-msgstr "可使用 %d %s %d %s，剩餘電量 %d%%"
-
-#: ../battstat/battstat_applet.c:410 ../battstat/battstat_applet.c:417
-msgid "hour"
-msgid_plural "hours"
-msgstr[0] "小時"
-
-#: ../battstat/battstat_applet.c:411 ../battstat/battstat_applet.c:418
-msgid "minute"
-msgid_plural "minutes"
-msgstr[0] "分鐘"
-
-#. TRANSLATOR: "%d %s %d %s" are "%d hours %d minutes"
-#. * Swap order with "%2$s %2$d %1$s %1$d if needed
-#: ../battstat/battstat_applet.c:416
-#, c-format
-msgid "%d %s %d %s until charged (%d%%)"
-msgstr "距離完全充電還有 %d %s %d %s，剩餘電量 %d%%"
-
-#: ../battstat/battstat_applet.c:430
-msgid "Battery Monitor"
-msgstr "電池電量監察程式"
-
-#: ../battstat/battstat_applet.c:440 ../battstat/battstat_applet.c:500
-msgid "Your battery is now fully recharged"
-msgstr "電池已完成充電"
-
-#: ../battstat/battstat_applet.c:476 ../battstat/battstat_applet.c:632
-msgid "Battery Notice"
-msgstr "電池狀態通知"
-
-#. we don't know the remaining time
-#: ../battstat/battstat_applet.c:577
-#, c-format
-msgid "You have %d%% of your total battery capacity remaining."
-msgstr "你的電池總電量剩下 %d%%。"
-
-#: ../battstat/battstat_applet.c:583
-#, c-format
-msgid ""
-"You have %d minute of battery power remaining (%d%% of the total capacity)."
-msgid_plural ""
-"You have %d minutes of battery power remaining (%d%% of the total capacity)."
-msgstr[0] "現在電池剩餘 %d 分鐘的電量（總電量為 %d%%）。"
-
-#. TRANSLATORS: this is a list, it is left as a single string
-#. * to allow you to make it appear like a list would in your
-#. * locale.  This is if the laptop does not support suspend.
-#: ../battstat/battstat_applet.c:595
-msgid ""
-"To avoid losing your work:\n"
-" • plug your laptop into external power, or\n"
-" • save open documents and shut your laptop down."
-msgstr ""
-"為了避免你的工作遺失：\n"
-" • 替手提電腦插上外部電源，或\n"
-" • 儲存已開啟的文件及關機。"
-
-#. TRANSLATORS: this is a list, it is left as a single string
-#. * to allow you to make it appear like a list would in your
-#. * locale.  This is if the laptop supports suspend.
-#: ../battstat/battstat_applet.c:603
-msgid ""
-"To avoid losing your work:\n"
-" • suspend your laptop to save power,\n"
-" • plug your laptop into external power, or\n"
-" • save open documents and shut your laptop down."
-msgstr ""
-"為了避免你的工作遺失：\n"
-" • 暫停手提電腦來節省用電，\n"
-" • 替手提電腦插上外部電源，或\n"
-" • 儲存已開啟的文件及關機。"
-
-#: ../battstat/battstat_applet.c:611
-msgid "Your battery is running low"
-msgstr "電池電量甚低"
-
-#: ../battstat/battstat_applet.c:708
-msgid "No battery present"
-msgstr "電池不存在"
-
-#: ../battstat/battstat_applet.c:711
-msgid "Battery status unknown"
-msgstr "電池狀態不詳"
-
-#: ../battstat/battstat_applet.c:870
-msgid "N/A"
-msgstr "不適用"
-
-#: ../battstat/battstat_applet.c:1195 ../drivemount/drivemount.c:144
-#: ../geyes/geyes.c:349 ../geyes/themes.c:257 ../gweather/gweather-applet.c:61
-#: ../gweather/gweather-pref.c:720 ../mini-commander/src/preferences.c:370
-#: ../stickynotes/stickynotes_applet_callbacks.c:335
-#: ../stickynotes/stickynotes_applet_callbacks.c:543
-#: ../trashapplet/src/trashapplet.c:725
-#, c-format
-msgid "There was an error displaying help: %s"
-msgstr "顯示說明文件時出現錯誤：%s"
-
-#: ../battstat/battstat_applet.c:1235
-msgid "This utility shows the status of your laptop battery."
-msgstr "本公用程式可以顯示手提電腦的電池狀態。"
-
-#. true
-#: ../battstat/battstat_applet.c:1237
-msgid "HAL backend enabled."
-msgstr "已啟用 HAL 後端"
-
-#. false
-#: ../battstat/battstat_applet.c:1238
-msgid "Legacy (non-HAL) backend enabled."
-msgstr "已啟用舊的（非 HAL）後端。"
-
-#: ../battstat/battstat_applet.glade.h:1
-msgid "<b>Appearance</b>"
-msgstr "<b>外觀</b>"
-
-#: ../battstat/battstat_applet.glade.h:2
-msgid "<b>Notifications</b>"
-msgstr "<b>通知</b>"
-
-#: ../battstat/battstat_applet.glade.h:3
-msgid "<small>(shows single image for status and charge)</small>"
-msgstr "<small>（只顯示一個圖形來代表狀態及電量）</small>"
-
-#: ../battstat/battstat_applet.glade.h:4
-msgid "<small>(two images: one for status, one for charge)</small>"
-msgstr "<small>（兩個圖形，一個代表狀態，另一個代表電量）</small>"
-
-#: ../battstat/battstat_applet.glade.h:5
-msgid "Battery Charge Monitor Preferences"
-msgstr "電池電量監察程式偏好設定"
-
-#: ../battstat/battstat_applet.glade.h:6
-msgid "Show _percentage remaining"
-msgstr "顯示剩餘的百份比(_P)"
-
-#: ../battstat/battstat_applet.glade.h:7
-msgid "Show _time remaining"
-msgstr "顯示剩餘時間(_T)"
-
-#: ../battstat/battstat_applet.glade.h:8
-msgid "_Compact view"
-msgstr "簡潔顯示(_E)"
-
-#: ../battstat/battstat_applet.glade.h:9
-msgid "_Expanded view"
-msgstr "詳細顯示(_E)"
-
-#: ../battstat/battstat_applet.glade.h:10
-msgid "_Notify when battery is fully recharged"
-msgstr "當完全充電後發出通知(_N)"
-
-#: ../battstat/battstat_applet.glade.h:11
-msgid "_Show time/percentage:"
-msgstr "顯示時間/百分比(_S)："
-
-#. TRANSLATOR: This is the beginning of the sentence 'Warn when battery charge drops to: [XX] percent/minutes remaining'
-#: ../battstat/battstat_applet.glade.h:13
-msgid "_Warn when battery charge drops to:"
-msgstr "當電量下降至剩餘(_W)"
-
-#. TRANSLATOR: this is a selectable item in a drop-down menu to end
-#. * this sentence:
-#. *   "Warn when battery charge drops to: [XX] percent".
-#.
-#: ../battstat/properties.c:321
-msgid "Percent"
-msgstr "% 時發出警告"
-
-#. TRANSLATOR: this is a selectable item in a drop-down menu to end
-#. * this sentence:
-#. *   "Warn when battery charge drops to: [XX] minutes remaining"
-#.
-#: ../battstat/properties.c:327
-msgid "Minutes Remaining"
-msgstr "分鐘時發出警告"
-
-#: ../battstat/sounds/battstat_applet.soundlist.in.h:1
-msgid "Battery Status Utility"
-msgstr "電池狀態公用程式"
-
-#: ../battstat/sounds/battstat_applet.soundlist.in.h:2
-msgid "Battery fully re-charged"
-msgstr "電池電量全滿"
-
-#: ../battstat/sounds/battstat_applet.soundlist.in.h:3
-msgid "Battery power low"
-msgstr "電池電量過低"
-
-#: ../charpick/GNOME_CharpickerApplet.server.in.in.h:1
-#: ../charpick/charpick.c:595 ../charpick/charpick.c:734
-#: ../charpick/properties.c:464
-msgid "Character Palette"
-msgstr "字符選擇盤"
-
-#: ../charpick/GNOME_CharpickerApplet.server.in.in.h:2
-msgid "Charpicker Applet Factory"
-msgstr "字符選擇面板程式工廠"
-
-#: ../charpick/GNOME_CharpickerApplet.server.in.in.h:3
-#: ../charpick/charpick.c:734
-msgid "Insert characters"
-msgstr "加入字符"
-
-#: ../charpick/charpick.c:428
-msgid "Available palettes"
-msgstr "可供選用的字盤"
-
-#. TRANSLATOR: This sentance reads something like 'Insert "PILCROW SIGN"'
-#. *             hopefully, the name of the unicode character has already
-#. *             been translated.
-#.
-#: ../charpick/charpick.c:475
-#, c-format
-msgid "Insert \"%s\""
-msgstr "插入“%s”"
-
-#: ../charpick/charpick.c:478
-msgid "Insert special character"
-msgstr "插入特殊字符"
-
-#: ../charpick/charpick.c:482
-#, c-format
-msgid "insert special character %s"
-msgstr "插入特殊字符 %s"
-
-#: ../charpick/charpick.c:599
-msgid ""
-"Gnome Panel applet for selecting strange characters that are not on my "
-"keyboard. Released under GNU General Public Licence."
-msgstr "本 GNOME 面板程式可用來選取在鍵盤上找不到的特殊字符。遵照 GNU 公共授權條款 (GPL) 發行。"
-
-#: ../charpick/charpick.schemas.in.h:1
-msgid "Characters shown on applet startup"
-msgstr "面板程式啟動時所顯示的字符"
-
-#: ../charpick/charpick.schemas.in.h:2
-msgid "DEPRECATED - Characters shown on applet startup"
-msgstr "面板程式啟動時所顯示的字符"
-
-#: ../charpick/charpick.schemas.in.h:3 ../charpick/properties.c:391
-msgid "List of available palettes"
-msgstr "可供選用的選字盤"
-
-#: ../charpick/charpick.schemas.in.h:4
-msgid "List of strings containing the available palettes"
-msgstr "列出所有可供選用的選字盤"
-
-#: ../charpick/charpick.schemas.in.h:5
-msgid ""
-"The string that the user had selected when the applet was last used. This "
-"string will be displayed when the user starts the applet."
-msgstr "這是使用者在上次啟動面板程式時選擇的字串。使用者下次啟動面板程式時會再顯示這個字串。"
-
-#: ../charpick/properties.c:40
-msgid "_Edit"
-msgstr "編輯(_E)"
-
-#: ../charpick/properties.c:129
-msgid "_Palette:"
-msgstr "選字盤(_P)："
-
-#: ../charpick/properties.c:137
-msgid "Palette entry"
-msgstr "選字盤項目"
-
-#: ../charpick/properties.c:138
-msgid "Modify a palette by adding or removing characters"
-msgstr "在選字盤中加減字符"
-
-#: ../charpick/properties.c:252
-msgid "Add Palette"
-msgstr "加入選字盤"
-
-#: ../charpick/properties.c:289
-msgid "Edit Palette"
-msgstr "修改選字盤"
-
-#: ../charpick/properties.c:390
-msgid "Palettes list"
-msgstr "選字盤清單"
-
-#: ../charpick/properties.c:469
-msgid "_Palettes:"
-msgstr "選字盤(_P)："
-
-#: ../charpick/properties.c:485
-msgid "Add button"
-msgstr "加入按鈕"
-
-#: ../charpick/properties.c:486
-msgid "Click to add a new palette"
-msgstr "按這裏可以加入新的選字盤"
-
-#: ../charpick/properties.c:493
-msgid "Edit button"
-msgstr "修改按鈕"
-
-#: ../charpick/properties.c:494
-msgid "Click to edit the selected palette"
-msgstr "按這裏可以修改指定的選字盤"
-
-#: ../charpick/properties.c:501
-msgid "Delete button"
-msgstr "刪除按鈕"
-
-#: ../charpick/properties.c:502
-msgid "Click to delete the selected palette"
-msgstr "按這裏可以刪除指定的選字盤"
-
-#: ../charpick/properties.c:554
-msgid "Character Palette Preferences"
-msgstr "選字盤偏好設定"
-
-#: ../cpufreq/GNOME_CPUFreqApplet.server.in.in.h:1
-#: ../cpufreq/src/cpufreq-applet.c:654 ../cpufreq/src/cpufreq-applet.c:1039
-msgid "CPU Frequency Scaling Monitor"
-msgstr "CPU 頻率調整監察程式"
-
-#: ../cpufreq/GNOME_CPUFreqApplet.server.in.in.h:2
-msgid "Monitor the CPU Frequency Scaling"
-msgstr "監察 CPU 頻率的調整"
-
-#: ../cpufreq/cpufreq-applet.schemas.in.h:1
-msgid ""
-"A 0 value means to show cpu frequency, 1 to show frequency and units, and 2 "
-"to show percentage instead of frequency."
-msgstr "數值‘0’代表顯示處理器頻率，‘1’代表顯示頻率及單位，‘2’代表顯以百份比取代頻率顯示。"
-
-#: ../cpufreq/cpufreq-applet.schemas.in.h:2
-msgid ""
-"A 0 value means to show the applet in graphic mode (pixmap only), 1 to show "
-"the applet in text mode (not to show the pixmap) and 2 to show the applet in "
-"graphic and text mode."
-msgstr "數值 0 代表面板程式以圖形模式顯示（只顯示 pixmap），1 代表以文字模式顯示（不顯示 pixmap），2 代表以文字及圖形模式顯示。"
-
-#: ../cpufreq/cpufreq-applet.schemas.in.h:3
-msgid "CPU to Monitor"
-msgstr "要監察的 CPU"
-
-#: ../cpufreq/cpufreq-applet.schemas.in.h:4
-msgid "Mode to show cpu usage"
-msgstr "顯示 CPU 用量的模式"
-
-#: ../cpufreq/cpufreq-applet.schemas.in.h:5
-msgid ""
-"Set the CPU to monitor. In a single processor system you don't have to "
-"change it."
-msgstr "設定監察的 CPU。在單一處理器的系統上無需更改它。"
-
-#: ../cpufreq/cpufreq-applet.schemas.in.h:6
-msgid "The type of text to display (if the text is enabled)."
-msgstr "文字的顯示類型（如已啟用文字）。"
-
-#: ../cpufreq/cpufreq-preferences.glade.h:1
-#: ../mini-commander/src/mini-commander.glade.h:1
-#: ../stickynotes/stickynotes.glade.h:1
-msgid "    "
-msgstr "    "
-
-#: ../cpufreq/cpufreq-preferences.glade.h:2
-msgid "<b>Display Settings</b>"
-msgstr "<b>顯示設定</b>"
-
-#: ../cpufreq/cpufreq-preferences.glade.h:3
-msgid "<b>Monitor Settings</b>"
-msgstr "<b>螢幕設定</b>"
-
-#: ../cpufreq/cpufreq-preferences.glade.h:4
-msgid "CPU Frequency Monitor Preferences"
-msgstr "CPU 頻率調整監察程式偏好設定"
-
-#: ../cpufreq/cpufreq-preferences.glade.h:5
-msgid "Show CPU frequency as _frequency"
-msgstr "以頻率數值來顯示 _CPU 頻率"
-
-#: ../cpufreq/cpufreq-preferences.glade.h:6
-msgid "Show CPU frequency as _percentage"
-msgstr "以百分比來顯示 C_PU 頻率"
-
-#: ../cpufreq/cpufreq-preferences.glade.h:7
-msgid "Show frequency _units"
-msgstr "顯示頻率單位(_U)"
-
-#: ../cpufreq/cpufreq-preferences.glade.h:8
-msgid "_Appearance:"
-msgstr "外觀(_A)："
-
-#: ../cpufreq/cpufreq-preferences.glade.h:9
-msgid "_Monitored CPU:"
-msgstr "受監察的 CP_U："
-
-#: ../cpufreq/src/cpufreq-applet.c:628 ../cpufreq/src/cpufreq-prefs.c:478
-msgid "Could not open help document"
-msgstr "無法開啟說明文件"
-
-#: ../cpufreq/src/cpufreq-applet.c:657
-msgid "This utility shows the current CPU Frequency Scaling."
-msgstr "此工具程式能顯示目前 CPU 頻率的調整。"
-
-#: ../cpufreq/src/cpufreq-applet.c:1040
-msgid "This utility shows the current CPU Frequency"
-msgstr "此工具程式能顯示目前 CPU 的頻率"
-
-#: ../cpufreq/src/cpufreq-prefs.c:613
-msgid "Graphic"
-msgstr "圖示"
-
-#: ../cpufreq/src/cpufreq-prefs.c:618
-msgid "Text"
-msgstr "文字"
-
-#: ../cpufreq/src/cpufreq-prefs.c:623
-msgid "Graphic and Text"
-msgstr "圖示及文字"
-
-#: ../cpufreq/src/cpufreq-monitor-cpuinfo.c:117
-msgid "Frequency Scaling Unsupported"
-msgstr "不支援頻率調整"
-
-#. If there is no cpufreq support it shows only the cpu frequency,
-#. * I think is better than do nothing. I have to notify it to the user, because
-#. * he could think that cpufreq is supported but it doesn't work succesfully
-#.
-#: ../cpufreq/src/cpufreq-monitor-factory.c:59
-msgid "CPU frequency scaling unsupported"
-msgstr "不支援 CPU 頻率調整"
-
-#: ../cpufreq/src/cpufreq-monitor-factory.c:60
-msgid ""
-"You will not be able to modify the frequency of your machine.  Your machine "
-"may be misconfigured or not have hardware support for CPU frequency scaling."
-msgstr "你無法修改電腦的運作頻率。可能是設置錯誤或是沒有支援 CPU 頻率調整的硬件。"
-
-#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:1
-#: ../drivemount/drivemount.c:114 ../drivemount/drivemount.c:201
-msgid "Disk Mounter"
-msgstr "檔案系統掛載程式"
-
-#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:2
-msgid "Drive Mount Applet Factory"
-msgstr "檔案系統掛載面板程式工廠"
-
-#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:3
-msgid "Factory for drive mount applet"
-msgstr "可產生檔案系統掛載面板程式的工廠"
-
-#: ../drivemount/GNOME_DriveMountApplet.server.in.in.h:4
-msgid "Mount local disks and devices"
-msgstr "掛載本機磁碟及裝置"
-
-#: ../drivemount/drive-button.c:329 ../drivemount/drive-button.c:337
-msgid "(mounted)"
-msgstr "（已掛載）"
-
-#: ../drivemount/drive-button.c:331 ../drivemount/drive-button.c:339
-msgid "(not mounted)"
-msgstr "（未掛載）"
-
-#: ../drivemount/drive-button.c:333
-msgid "(not connected)"
-msgstr "（沒有連線）"
-
-#: ../drivemount/drive-button.c:528
-#, c-format
-msgid "Cannot execute '%s'"
-msgstr "無法執行‘%s’"
-
-#: ../drivemount/drive-button.c:551
-msgid "Mount Error"
-msgstr "掛載碟片錯誤"
-
-#: ../drivemount/drive-button.c:554
-msgid "Unmount Error"
-msgstr "卸載發生錯誤"
-
-#: ../drivemount/drive-button.c:557
-msgid "Eject Error"
-msgstr "退出碟片錯誤"
-
-#: ../drivemount/drive-button.c:560
-msgid "Error"
-msgstr "錯誤"
-
-#: ../drivemount/drive-button.c:897
-msgid "_Play DVD"
-msgstr "播放 D_VD"
-
-#: ../drivemount/drive-button.c:902
-msgid "_Play CD"
-msgstr "播放 _CD"
-
-#: ../drivemount/drive-button.c:907
-#, c-format
-msgid "_Open %s"
-msgstr "開啟 %s(_O)"
-
-#: ../drivemount/drive-button.c:918
-#, c-format
-msgid "_Mount %s"
-msgstr "掛載 %s(_M)"
-
-#: ../drivemount/drive-button.c:925
-#, c-format
-msgid "Un_mount %s"
-msgstr "卸載 %s(_M)"
-
-#: ../drivemount/drive-button.c:937
-#, c-format
-msgid "_Eject %s"
-msgstr "退出碟片 %s(_E)"
-
-#: ../drivemount/drivemount.c:117
-msgid "Applet for mounting and unmounting block volumes."
-msgstr "掛載及卸載檔案系統的面板程式。"
-
-#: ../drivemount/drivemount.schemas.in.h:1
-msgid "Interval timeout to check mount point status"
-msgstr "每隔指定秒數會更新狀態"
-
-#: ../drivemount/drivemount.schemas.in.h:2
-msgid "Time in seconds between status updates"
-msgstr "每隔指定秒數會更新狀態"
-
-#: ../geyes/GNOME_GeyesApplet.server.in.in.h:1
-msgid "A set of eyeballs for your panel"
-msgstr "在面板上顯示眼睛"
-
-#: ../geyes/GNOME_GeyesApplet.server.in.in.h:2 ../geyes/geyes.c:189
-#: ../geyes/geyes.c:419 ../geyes/geyes.c:421
-msgid "Geyes"
-msgstr "小眼睛"
-
-#: ../geyes/GNOME_GeyesApplet.server.in.in.h:3
-msgid "Geyes Applet Factory"
-msgstr "小眼睛面板程式工廠"
-
-#: ../geyes/geyes.c:191
-msgid "A goofy little xeyes clone for the GNOME panel."
-msgstr "類似 xeyes 的 GNOME 面板程式。"
-
-#: ../geyes/geyes.c:422
-msgid "The eyes look in the direction of the mouse pointer"
-msgstr "眼睛會望向鼠標"
-
-#: ../geyes/geyes.schemas.in.h:1
-msgid "Directory in which the theme is located"
-msgstr "佈景主題所在的目錄"
-
-#: ../geyes/themes.c:140
-msgid "Can not launch the eyes applet."
-msgstr "無法啟動小眼睛面板程式。"
-
-#: ../geyes/themes.c:141
-msgid "There was a fatal error while trying to load the theme."
-msgstr "嘗試載入佈景主題時出現嚴重錯誤。"
-
-#: ../geyes/themes.c:317
-msgid "Geyes Preferences"
-msgstr "小眼睛偏好設定"
-
-#: ../geyes/themes.c:351
-msgid "Themes"
-msgstr "主題"
-
-#: ../geyes/themes.c:372
-msgid "_Select a theme:"
-msgstr "選取主題(_S)："
-
-#: ../gkb-new/xmodmap/base.xml.in.h:1 ../gkb-new/xmodmap.sun/base.xml.in.h:1
-msgid "Alt+Control changes layout."
-msgstr "按 Alt+Ctrl 會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:2 ../gkb-new/xmodmap.sun/base.xml.in.h:2
-msgid "Alt+Shift changes layout."
-msgstr "按 Alt+Shift 會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:3
-msgid "Arabic keymap"
-msgstr "阿拉伯文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:4
-msgid "Armenian"
-msgstr "阿美尼亞文"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:5
-msgid "Basque"
-msgstr "巴斯克語"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:6
-msgid "Belgian"
-msgstr "比利時文"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:7 ../gkb-new/xmodmap.sun/base.xml.in.h:6
-msgid "Both Alt keys together change layout."
-msgstr "同時按兩個 Alt 鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:8 ../gkb-new/xmodmap.sun/base.xml.in.h:7
-msgid "Both Ctrl keys together change layout."
-msgstr "同時按兩個 Ctrl 鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:9 ../gkb-new/xmodmap.sun/base.xml.in.h:8
-msgid "Both Shift keys together change layout."
-msgstr "同時按兩個 Shift 鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:10
-msgid "Brazil Portuguese keymap"
-msgstr "巴西葡文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:11
-msgid "Bulgarian Cyrillic"
-msgstr "保加利亞式斯拉夫文字鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:12
-msgid "Bulgarian keymap"
-msgstr "保加利亞文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:13 ../gkb-new/xmodmap.sun/base.xml.in.h:16
-msgid "CapsLock key changes layout."
-msgstr "按 CapsLock 鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:14 ../gkb-new/xmodmap.sun/base.xml.in.h:17
-msgid "Control+Shift changes layout."
-msgstr "按 Ctrl+Shift 鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:15
-msgid "Czech keymap"
-msgstr "捷克文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:16
-msgid "Danish keymap"
-msgstr "丹麥文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:17
-msgid "Dutch keymap"
-msgstr "荷蘭文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:18
-msgid "English keymap"
-msgstr "英文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:19
-msgid "Estonian keymap"
-msgstr "愛沙尼亞文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:20
-msgid "Finnish keymap"
-msgstr "芬蘭文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:21
-msgid "French Swiss"
-msgstr "瑞士法文"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:22
-msgid "French Swiss keymap"
-msgstr "瑞士法文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:23
-msgid "French keymap"
-msgstr "法文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:24
-msgid "French-Canadian 105-key"
-msgstr "加拿大法文 105 鍵鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:25
-msgid "GB 102-key"
-msgstr "英文 102 鍵鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:26
-msgid "GB 105-key"
-msgstr "英文 105 鍵鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:27 ../gkb-new/xmodmap.sun/base.xml.in.h:27
-msgid "Generic Keyboard"
-msgstr "通用鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:28
-msgid "Georgian Latin"
-msgstr "格魯吉亞拉丁文"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:29
-msgid "Georgian Russian layout"
-msgstr "格魯吉亞俄文鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:30
-msgid "Georgian keymap"
-msgstr "格魯吉亞文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:31
-msgid "German"
-msgstr "德文"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:32
-msgid "German Swiss with Euro"
-msgstr "瑞士德文加歐元符號"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:33
-msgid "German keymap"
-msgstr "德文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:34
-msgid "Greek keymap"
-msgstr "希臘文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:35
-msgid "Hebrew keymap"
-msgstr "希伯來文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:36
-msgid "Hungarian 101-key latin 1"
-msgstr "匈牙利文 101 鍵 latin 1 鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:37
-msgid "Hungarian 101-key latin 2"
-msgstr "匈牙利文 101 鍵 latin 2 鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:38
-msgid "Hungarian 105-key latin 1"
-msgstr "匈牙利文 105 鍵 latin 1 鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:39
-msgid "Hungarian 105-key latin 2"
-msgstr "匈牙利文 105 鍵 latin 2 鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:40
-msgid "Hungarian PC/AT 101 keyboard"
-msgstr "匈牙利文 PC/AT 101 鍵鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:41
-msgid "Hungarian latin1"
-msgstr "匈牙利文 latin1 鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:42
-msgid "Icelandic keymap"
-msgstr "冰島文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:43
-msgid "Italian keymap"
-msgstr "意大利文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:44
-msgid "Japanese keymap"
-msgstr "日文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:45
-msgid "Lao keymap"
-msgstr "寮語鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:46 ../gkb-new/xmodmap.sun/base.xml.in.h:41
-msgid "Layout shift behavior"
-msgstr "配置改變方式"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:47 ../gkb-new/xmodmap.sun/base.xml.in.h:42
-msgid "Left Alt key changes layout."
-msgstr "按左邊 Alt 鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:48 ../gkb-new/xmodmap.sun/base.xml.in.h:43
-msgid "Left Ctrl key changes group."
-msgstr "按左邊 Ctrl 鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:49 ../gkb-new/xmodmap.sun/base.xml.in.h:44
-msgid "Left Shift key changes group."
-msgstr "按左邊 Shift 鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:50 ../gkb-new/xmodmap.sun/base.xml.in.h:45
-msgid "Left Win-key changes layout."
-msgstr "按左邊 Windows 鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:51
-msgid "Lithuanian keymap"
-msgstr "立陶宛文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:52
-msgid "Macedonian"
-msgstr "馬其頓文"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:53 ../gkb-new/xmodmap.sun/base.xml.in.h:48
-msgid "Menu key changes layout."
-msgstr "按鍵盤「選單」鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:54
-msgid "Mongolian alt keymap"
-msgstr "蒙古文 alt 鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:55
-msgid "Mongolian keymap"
-msgstr "蒙古文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:56
-msgid "Mongolian phonetic keymap"
-msgstr "蒙古文拼音鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:57
-msgid "Norwegian"
-msgstr "挪威文"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:58
-msgid "Plain Russian keymap"
-msgstr "普通俄文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:59
-msgid "Polish"
-msgstr "波蘭文"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:60
-msgid "Polish deadkeys"
-msgstr "波蘭文 deadkeys"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:61
-msgid "Portugal"
-msgstr "葡萄牙"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:62
-msgid "Portugal Deadkeys"
-msgstr "葡萄牙 Deadkeys"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:63
-msgid "Portuguese keymap"
-msgstr "葡萄牙文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:64 ../gkb-new/xmodmap.sun/base.xml.in.h:53
-msgid "Right Alt key changes layout."
-msgstr "按右邊 Alt 鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:65 ../gkb-new/xmodmap.sun/base.xml.in.h:54
-msgid "Right Ctrl key changes group."
-msgstr "按右邊 Ctrl 鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:66 ../gkb-new/xmodmap.sun/base.xml.in.h:55
-msgid "Right Shift key changes group."
-msgstr "按右邊 Shift 鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:67 ../gkb-new/xmodmap.sun/base.xml.in.h:56
-msgid "Right Win-key changes layout."
-msgstr "按右邊 Windows 鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:68
-msgid "Russian Cyrillic"
-msgstr "俄文斯拉夫文字"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:69
-msgid "Russian keymap"
-msgstr "俄文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:70
-msgid "Serbian keymap"
-msgstr "塞爾維亞文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:71 ../gkb-new/xmodmap.sun/base.xml.in.h:60
-msgid "Shift+CapsLock changes layout."
-msgstr "按 Shift+CapsLock 鍵會更改鍵盤配置。"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:72
-msgid "Slovak keymap"
-msgstr "斯洛伐克文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:73
-msgid "Slovenian"
-msgstr "斯洛文尼亞文"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:74
-msgid "Slovenian keymap"
-msgstr "斯洛文尼亞文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:75
-msgid "Spanish keymap"
-msgstr "西班牙文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:76
-msgid "Sun (!not PC!) type5 Hungarian latin 2"
-msgstr "Sun (!not PC!) type5 匈牙利文 latin 2"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:77
-msgid "Swedish"
-msgstr "瑞典文"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:78
-msgid "Swedish keymap"
-msgstr "瑞典文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:79
-msgid "Swiss keymap"
-msgstr "瑞士文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:80
-msgid "Thai"
-msgstr "泰文"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:81
-msgid "Thai Kedmanee"
-msgstr "泰文 Kedmanee"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:82
-msgid "Thai keymap"
-msgstr "泰文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:83
-msgid "Turkish \"F\" keyboard"
-msgstr "\"F\" 式土耳其文鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:84
-msgid "Turkish \"Q\" keyboard"
-msgstr "\"Q\" 式土耳其文鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:85
-msgid "Turkish keymap"
-msgstr "土耳其文鍵盤對應表"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:86
-msgid "UK 105-key"
-msgstr "英式 105 鍵鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:87
-msgid "UK PC/AT keyboard"
-msgstr "英式 PC/AT 鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:88
-msgid "US 101-key keyboard"
-msgstr "美式 101 鍵鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:89
-msgid "US 105-key keyboard (with windows keys)"
-msgstr "美式 105 鍵鍵盤（配有 windows 鍵）"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:90
-msgid "US 84-key"
-msgstr "美式 84 鍵鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:91
-msgid "US DEC 450"
-msgstr "美式 DEC 450 鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:92
-msgid "US IBM RS/6000"
-msgstr "美式 IBM PS/6000 鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:93
-msgid "US International"
-msgstr "美式國際鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:94
-msgid "US Macintosh"
-msgstr "美式 Macintosh 鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:95
-msgid "US PC/AT 101 keyboard"
-msgstr "美式 PC/AT 101 鍵鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:96
-msgid "US Silicon Graphics 101-key"
-msgstr "美式 Silicon Graphics 101 鍵鍵盤"
-
-#: ../gkb-new/xmodmap/base.xml.in.h:97
-msgid "US Sun type5"
-msgstr "美式 Sun type5"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:3
-msgid "Armenian Sun keymap"
-msgstr "阿美尼亞文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:4
-msgid "Azerbaijani Turkish Sun keymap"
-msgstr "阿塞拜然土耳其文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:5
-msgid "Belarusian Sun keymap"
-msgstr "白俄羅斯文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:9
-msgid "Brazil Portuguese Sun USB keymap"
-msgstr "巴西葡文 Sun USB 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:10
-msgid "Brazil Portuguese Sun keymap"
-msgstr "巴西葡文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:11
-msgid "British Sun Type-4 keymap"
-msgstr "英式英文 Sun Type-4 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:12
-msgid "British Sun USB keymap"
-msgstr "英式英文 Sun USB 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:13
-msgid "British Sun keymap"
-msgstr "英式英文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:14
-msgid "Bulgarian Sun keymap"
-msgstr "保加利亞文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:15
-msgid "Canadian Sun keymap"
-msgstr "加拿大 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:18
-msgid "Czech Sun keymap"
-msgstr "捷克文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:19
-msgid "Danish Sun Type-4 keymap"
-msgstr "丹麥文 Sun Type-4 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:20
-msgid "Danish Sun USB keymap"
-msgstr "丹麥文 Sun USB 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:21
-msgid "Danish Sun keymap"
-msgstr "丹麥文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:22
-msgid "Dutch Sun keymap"
-msgstr "荷蘭文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:23
-msgid "Estonian Sun keymap"
-msgstr "愛沙尼亞文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:24
-msgid "Finnish Sun keymap"
-msgstr "芬蘭文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:25
-msgid "French Sun USB keymap"
-msgstr "法文 Sun USB 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:26
-msgid "French Sun keymap"
-msgstr "法文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:28
-msgid "German Sun Type-4 keymap"
-msgstr "德文 Sun Type-4 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:29
-msgid "German Sun USB keymap"
-msgstr "德文 Sun USB 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:30
-msgid "German Sun keymap"
-msgstr "德文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:31
-msgid "Hebrew Sun keymap"
-msgstr "希伯來文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:32
-msgid "Hungarian latin2 Sun keymap"
-msgstr "匈牙利文 latin2 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:33
-msgid "Hungarian type5 latin 1 keymap"
-msgstr "匈牙利文 type 5latin 1 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:34
-msgid "Icelandic Sun keymap"
-msgstr "冰島文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:35
-msgid "Italian Sun Type-4 keymap"
-msgstr "意大利文 Sun Type-4 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:36
-msgid "Italian Sun USB keymap"
-msgstr "意大利文 Sun USB 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:37
-msgid "Italian Sun keymap"
-msgstr "意大利文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:38
-msgid "Japanese Sun Type-4 keymap"
-msgstr "日文 Sun Type-4 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:39
-msgid "Japanese Sun keymap"
-msgstr "日文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:40
-msgid "Latvian Sun keymap"
-msgstr "拉脫維亞文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:46
-msgid "Lithuanian Sun keymap"
-msgstr "立陶宛文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:47
-msgid "Macedonian Sun keymap"
-msgstr "馬其頓文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:49
-msgid "Norwegian Sun keymap"
-msgstr "挪威文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:50
-msgid "Polish Sun keymap"
-msgstr "波蘭文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:51
-msgid "Portuguese Sun Type-4 keymap"
-msgstr "葡萄牙文 Sun Type-4 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:52
-msgid "Portuguese Sun keymap"
-msgstr "葡萄牙文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:57
-msgid "Romanian Sun keymap"
-msgstr "羅馬尼亞文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:58
-msgid "Russian Sun keymap"
-msgstr "俄文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:59
-msgid "Serbian Sun standard keymap"
-msgstr "塞爾維亞文 Sun 標準鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:61
-msgid "Slovak Sun keymap"
-msgstr "斯洛伐克文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:62
-msgid "Slovenian Sun keymap"
-msgstr "斯洛文尼亞文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:63
-msgid "Spanish Sun Type-4 keymap"
-msgstr "西班牙文 Sun Type-4 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:64
-msgid "Spanish Sun USB keymap"
-msgstr "西班牙文 Sun USB 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:65
-msgid "Spanish Sun keymap"
-msgstr "西班牙文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:66
-msgid "Swedish Sun Type-4 keymap"
-msgstr "瑞典文 Sun Type-4 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:67
-msgid "Swedish Sun USB keymap"
-msgstr "瑞典文 Sun USB 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:68
-msgid "Swedish Sun keymap"
-msgstr "瑞典文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:69
-msgid "Swiss German Sun keymap"
-msgstr "瑞士德文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:70
-msgid "Thai Sun keymap"
-msgstr "泰文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:71
-msgid "Turkish Sun keymap"
-msgstr "土耳其文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:72
-msgid "US Sun Type-4 keymap"
-msgstr "美式 Sun Type-4 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:73
-msgid "US Sun USB keymap"
-msgstr "美式 Sun USB 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:74
-msgid "US Sun type5 keymap"
-msgstr "美式 Sun type5 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:75
-msgid "Ukrainian Sun keymap"
-msgstr "烏克蘭文 Sun 鍵盤對應表"
-
-#: ../gkb-new/xmodmap.sun/base.xml.in.h:76
-msgid "Vietnamese Sun keymap"
-msgstr "越南文 Sun 鍵盤對應表"
-
-#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:1
-msgid "Keyboard _Preferences"
-msgstr "鍵盤偏好設定(_P)"
-
-#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:2
-msgid "Show Current _Layout"
-msgstr "顯示目前配置(_L)"
-
-#: ../gswitchit/GNOME_GSwitchItApplet.xml.h:4
-msgid "_Groups"
-msgstr "羣組(_G)"
-
-#: ../gswitchit/GNOME_KeyboardApplet.server.in.in.h:1
-#: ../gswitchit/gswitchit-applet.c:435
-msgid "Keyboard Indicator"
-msgstr "鍵盤配置指示器"
-
-#: ../gswitchit/GNOME_KeyboardApplet.server.in.in.h:2
-msgid "Keyboard applet factory"
-msgstr "鍵盤面板程式工廠"
-
-#: ../gswitchit/GNOME_KeyboardApplet.server.in.in.h:3
-msgid "Keyboard layout indicator"
-msgstr "鍵盤配置指示器"
-
-#: ../gswitchit/gswitchit-applet.c:298
-#, c-format
-msgid "Keyboard Layout \"%s\""
-msgstr "鍵盤配置“%s”"
-
-#: ../gswitchit/gswitchit-applet.c:440
-msgid "Copyright (c) Sergey V. Udaltsov 1999-2004"
-msgstr "版權所有 © Sergey V. Udaltsov 1999-2004"
-
-#: ../gswitchit/gswitchit-applet.c:443
-msgid "Keyboard layout indicator applet for GNOME"
-msgstr "適用於 GNOME 的鍵盤配置指示器"
-
-#: ../gswitchit/gswitchit-applet.c:564
-#, c-format
-msgid "Keyboard Indicator (%s)"
-msgstr "鍵盤配置指示器 (%s)"
-
-#: ../gswitchit/gswitchit.glade.h:1
-msgid "Keyboard Layout"
-msgstr "鍵盤配置"
-
-#: ../gswitchit/gswitchit.schemas.in.h:1
-msgid "Secondary groups"
-msgstr "第二羣組"
-
-#: ../gswitchit/gswitchit.schemas.in.h:2
-msgid "Show flags in the applet"
-msgstr "在面板程式中顯示國旗"
-
-#: ../gswitchit/gswitchit.schemas.in.h:3
-msgid "Show flags in the applet to indicate the current layout"
-msgstr "在面板程式以國旗來表示鍵盤的配置"
-
-#: ../gswitchit/gswitchit.schemas.in.h:4
-msgid "The list of enabled Keyboard Indicator plugins"
-msgstr "鍵盤指示器外掛程式的清單"
-
-#: ../gweather/GNOME_GWeatherApplet.xml.h:2
-msgid "_Details"
-msgstr "詳細資訊(_D)"
-
-#: ../gweather/GNOME_GWeatherApplet.xml.h:5 ../gweather/gweather-dialog.c:213
-msgid "_Update"
-msgstr "更新(_U)"
-
-#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:1
-msgid "Factory for creating the weather applet."
-msgstr "用來產生天氣面板程式的工廠。"
-
-#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:2
-msgid "Gweather Applet Factory"
-msgstr "Gweather 面板程式工廠"
-
-#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:3
-msgid "Monitor the current weather conditions, and forecasts"
-msgstr "監察目前的天氣情況及進行天氣預報"
-
-#: ../gweather/GNOME_GWeatherApplet_Factory.server.in.in.h:4
-#: ../gweather/gweather-about.c:49
-msgid "Weather Report"
-msgstr "天氣報告"
-
-#: ../gweather/gweather-about.c:51
-msgid "© 1999-2005 by S. Papadimitriou and others"
-msgstr "版權所有 © 1999-2005 S. Papadimitriou 及其他"
-
-#: ../gweather/gweather-about.c:52
-msgid "A panel application for monitoring local weather conditions."
-msgstr "監察本地天氣情況的面板程式。"
-
-#: ../gweather/gweather-applet.c:337 ../gweather/gweather-applet.c:341
-msgid "GNOME Weather"
-msgstr "GNOME 天氣預報"
-
-#: ../gweather/gweather-applet.c:444
-msgid "Weather Forecast"
-msgstr "天氣預報"
-
-#: ../gweather/gweather-applet.c:455
-#, c-format
-msgid ""
-"City: %s\n"
-"Sky: %s\n"
-"Temperature: %s"
-msgstr ""
-"城市：%s\n"
-"天氣：%s\n"
-"溫度：%s"
-
-#: ../gweather/gweather-applet.c:508
-msgid "Updating..."
-msgstr "更新中..."
-
-#: ../gweather/gweather-dialog.c:211
-msgid "Details"
-msgstr "詳細資訊"
-
-#: ../gweather/gweather-dialog.c:255
-msgid "City:"
-msgstr "城市："
-
-#: ../gweather/gweather-dialog.c:263
-msgid "Last update:"
-msgstr "最後更新："
-
-#: ../gweather/gweather-dialog.c:271
-msgid "Conditions:"
-msgstr "情況："
-
-#: ../gweather/gweather-dialog.c:279
-msgid "Sky:"
-msgstr "天氣："
-
-#: ../gweather/gweather-dialog.c:287
-msgid "Temperature:"
-msgstr "溫度："
-
-#: ../gweather/gweather-dialog.c:295
-msgid "Feels like:"
-msgstr "感覺像："
-
-#: ../gweather/gweather-dialog.c:303
-msgid "Dew point:"
-msgstr "露點："
-
-#: ../gweather/gweather-dialog.c:311
-msgid "Relative humidity:"
-msgstr "相對濕度："
-
-#: ../gweather/gweather-dialog.c:319
-msgid "Wind:"
-msgstr "風向："
-
-#: ../gweather/gweather-dialog.c:327
-msgid "Pressure:"
-msgstr "氣壓："
-
-#: ../gweather/gweather-dialog.c:335
-msgid "Visibility:"
-msgstr "能見度："
-
-#: ../gweather/gweather-dialog.c:343
-msgid "Sunrise:"
-msgstr "日出："
-
-#: ../gweather/gweather-dialog.c:351
-msgid "Sunset:"
-msgstr "日落："
-
-#: ../gweather/gweather-dialog.c:486
-msgid "Current Conditions"
-msgstr "目前的天氣情況"
-
-#: ../gweather/gweather-dialog.c:503
-msgid "Forecast Report"
-msgstr "天氣預報"
-
-#: ../gweather/gweather-dialog.c:503
-msgid "See the ForeCast Details"
-msgstr "收看天氣預報"
-
-#: ../gweather/gweather-dialog.c:513
-msgid "Forecast"
-msgstr "預報"
-
-#: ../gweather/gweather-dialog.c:521
-msgid "Radar Map"
-msgstr "雷達圖"
-
-#: ../gweather/gweather-dialog.c:552
-msgid "_Visit Weather.com"
-msgstr "瀏覽 _Weather.com"
-
-#: ../gweather/gweather-dialog.c:553
-msgid "Visit Weather.com"
-msgstr "瀏覽 Weather.com"
-
-#: ../gweather/gweather-dialog.c:553
-msgid "Click to Enter Weather.com"
-msgstr "請按這裏進入 Weather.com"
-
-#: ../gweather/gweather-dialog.c:638
-msgid "Forecast not currently available for this location."
-msgstr "無法提供這個地點的天氣預報。"
-
-#. Accessible Name and Description for the components in Preference Dialog
-#: ../gweather/gweather-pref.c:174
-msgid "Location view"
-msgstr "位置檢視模式"
-
-#: ../gweather/gweather-pref.c:174
-msgid "Select Location from the list"
-msgstr "從清單中選擇地點"
-
-#: ../gweather/gweather-pref.c:175
-msgid "Update spin button"
-msgstr "數值更新按鈕"
-
-#: ../gweather/gweather-pref.c:175
-msgid "Spinbutton for updating"
-msgstr "更新數值用的按鈕"
-
-#: ../gweather/gweather-pref.c:176
-msgid "Address Entry"
-msgstr "地址輸入欄"
-
-#: ../gweather/gweather-pref.c:176
-msgid "Enter the URL"
-msgstr "請輸入 URL"
-
-#: ../gweather/gweather-pref.c:297
-msgid ""
-"Failed to load the Locations XML database.  Please report this as a bug."
-msgstr "無法載入位置 XML 資料庫。請報告錯誤。"
-
-#: ../gweather/gweather-pref.c:780
-msgid "Weather Preferences"
-msgstr "天氣程式偏好設定"
-
-#: ../gweather/gweather-pref.c:812 ../gweather/gweather-pref.c:997
-msgid "_Automatically update every:"
-msgstr "自動更新相隔時間(_A)："
-
-#.
-#. * Units settings page.
-#.
-#. Temperature Unit
-#: ../gweather/gweather-pref.c:825
-msgid "_Temperature unit:"
-msgstr "溫度單位(_T)："
-
-#: ../gweather/gweather-pref.c:834 ../gweather/gweather-pref.c:854
-#: ../gweather/gweather-pref.c:880 ../gweather/gweather-pref.c:908
-msgid "Default"
-msgstr "預設"
-
-#: ../gweather/gweather-pref.c:835
-msgid "Kelvin"
-msgstr "絕對溫度"
-
-#. TRANSLATORS: Celsius is sometimes referred Centigrade
-#: ../gweather/gweather-pref.c:837
-msgid "Celsius"
-msgstr "攝氏"
-
-#: ../gweather/gweather-pref.c:838
-msgid "Fahrenheit"
-msgstr "華氏"
-
-#. Speed Unit
-#: ../gweather/gweather-pref.c:845
-msgid "_Wind speed unit:"
-msgstr "風速單位(_W)："
-
-# zh_HK: msgstr "米/秒"
-# zh_TW: msgstr "公尺/秒"
-#. TRANSLATOR: The wind speed unit "meters per second"
-#: ../gweather/gweather-pref.c:856
-msgid "m/s"
-msgstr "米/秒"
-
-#. TRANSLATOR: The wind speed unit "kilometers per hour"
-#: ../gweather/gweather-pref.c:858
-msgid "km/h"
-msgstr "公里/小時"
-
-# zh_HK: msgstr "海里/小時"
-# zh_TW: msgstr "浬/小時"
-#. TRANSLATOR: The wind speed unit "miles per hour"
-#: ../gweather/gweather-pref.c:860
-msgid "mph"
-msgstr "海里/小時"
-
-#. TRANSLATOR: The wind speed unit "knots"
-#: ../gweather/gweather-pref.c:862
-msgid "knots"
-msgstr "節"
-
-#: ../gweather/gweather-pref.c:864
-msgid "Beaufort scale"
-msgstr "蒲福氏風級"
-
-#. Pressure Unit
-#: ../gweather/gweather-pref.c:871
-msgid "_Pressure unit:"
-msgstr "氣壓單位(_P)："
-
-# zh_HK: msgstr "千帕斯卡"
-# zh_TW: msgstr "千帕"
-#. TRANSLATOR: The pressure unit "kiloPascals"
-#: ../gweather/gweather-pref.c:882
-msgid "kPa"
-msgstr "千帕斯卡"
-
-# zh_HK: msgstr "百帕斯卡"
-# zh_TW: msgstr "百帕"
-#. TRANSLATOR: The pressure unit "hectoPascals"
-#: ../gweather/gweather-pref.c:884
-msgid "hPa"
-msgstr "百帕斯卡"
-
-#. TRANSLATOR: The pressure unit "millibars"
-#: ../gweather/gweather-pref.c:886
-msgid "mb"
-msgstr "毫巴"
-
-#. TRANSLATOR: The pressure unit "millibars of mercury"
-#: ../gweather/gweather-pref.c:888
-msgid "mmHg"
-msgstr "mmHg"
-
-#. TRANSLATOR: The pressure unit "inches of mercury"
-#: ../gweather/gweather-pref.c:890
-msgid "inHg"
-msgstr "inHg"
-
-#. TRANSLATOR: The pressure unit "atmospheres"
-#: ../gweather/gweather-pref.c:892
-msgid "atm"
-msgstr "atm"
-
-#. Distance Unit
-#: ../gweather/gweather-pref.c:899
-msgid "_Visibility unit:"
-msgstr "能見度單位(_V)："
-
-# zh_HK: msgstr "米"
-# zh_TW: msgstr "公尺"
-#. TRANSLATOR: The distance unit "meters"
-#: ../gweather/gweather-pref.c:910
-msgid "meters"
+#. translators: Kelvin
+#: ../libgweather/gweather-prefs.c:27
+msgid "K"
+msgstr "K"
+
+#. translators: Celsius
+#: ../libgweather/gweather-prefs.c:29
+msgid "C"
+msgstr "C"
+
+#. translators: Fahrenheit
+#: ../libgweather/gweather-prefs.c:31
+msgid "F"
+msgstr "F"
+
+#. translators: miles
+#: ../libgweather/gweather-prefs.c:74
+msgid "mi"
+msgstr "哩"
+
+#. translators: meters
+#: ../libgweather/gweather-prefs.c:70
+msgid "m"
 msgstr "米"
 
-#. TRANSLATOR: The distance unit "kilometers"
-#: ../gweather/gweather-pref.c:912
-msgid "km"
-msgstr "公里"
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
+#: ../libgweather/weather.c:710
+#, c-format
+msgid "%.1f ℉"
+msgstr "%.1f ℉"
 
-#. TRANSLATOR: The distance unit "miles"
-#: ../gweather/gweather-pref.c:914
-msgid "miles"
-msgstr "英里"
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
+#: ../libgweather/weather.c:713
+#, c-format
+msgid "%d ℉"
+msgstr "%d ℉"
 
-#: ../gweather/gweather-pref.c:948
-msgid "Enable _radar map"
-msgstr "啟用雷達圖(_R)"
+#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
+#: ../libgweather/weather.c:719
+#, c-format
+msgid "%.1f ℃"
+msgstr "%.1f ℃"
 
-#: ../gweather/gweather-pref.c:962
-msgid "Use _custom address for radar map"
-msgstr "自行指定雷達圖的地址(_C)"
-
-#: ../gweather/gweather-pref.c:979
-msgid "A_ddress:"
-msgstr "地址(_D)："
-
-#: ../gweather/gweather-pref.c:993
-msgid "Update"
-msgstr "更新"
-
-#: ../gweather/gweather-pref.c:1017
-msgid "minutes"
-msgstr "分"
-
-#: ../gweather/gweather-pref.c:1033
-msgid "Display"
-msgstr "顯示"
-
-#: ../gweather/gweather-pref.c:1048
-#: ../mini-commander/src/mini-commander.glade.h:12
-msgid "General"
-msgstr "一般"
-
-#: ../gweather/gweather-pref.c:1061
-msgid "_Select a location:"
-msgstr "選取位置(_S)："
-
-#: ../gweather/gweather-pref.c:1088
-msgid "_Find:"
-msgstr "尋找(_F)："
-
-#: ../gweather/gweather-pref.c:1095
-msgid "Find _Next"
-msgstr "尋找下一個(_N)"
-
-#: ../gweather/gweather-pref.c:1117
-msgid "Location"
-msgstr "位置"
-
-#: ../invest-applet/data/Invest_Applet.server.in.in.h:1
-#: ../invest-applet/invest/about.py:26
-msgid "Invest"
-msgstr "股票投資"
-
-#: ../invest-applet/data/Invest_Applet.server.in.in.h:2
-#: ../invest-applet/invest/about.py:29
-msgid "Track your invested money."
-msgstr "追蹤你的金錢投資。"
-
-#: ../invest-applet/data/Invest_Applet.xml.h:3
-msgid "_Refresh"
-msgstr "重新整理(_R)"
-
-#: ../invest-applet/data/financialchart.glade.h:1
-msgid "10"
-msgstr "10"
-
-#: ../invest-applet/data/financialchart.glade.h:2
-msgid "100"
-msgstr "100"
-
-#: ../invest-applet/data/financialchart.glade.h:3
-msgid ""
-"1d\n"
-"5d\n"
-"3m\n"
-"6m\n"
-"1y\n"
-"3y"
-msgstr ""
-"1d\n"
-"5d\n"
-"3m\n"
-"6m\n"
-"1y\n"
-"3y"
-
-#: ../invest-applet/data/financialchart.glade.h:9
-msgid "20"
-msgstr "20"
-
-#: ../invest-applet/data/financialchart.glade.h:10
-msgid "200"
-msgstr "200"
-
-#: ../invest-applet/data/financialchart.glade.h:11
-msgid "5"
-msgstr "5"
-
-#: ../invest-applet/data/financialchart.glade.h:12
-msgid "50"
-msgstr "50"
-
-#: ../invest-applet/data/financialchart.glade.h:13
-msgid "Auto _refresh"
-msgstr "自動重整(_R)"
-
-#: ../invest-applet/data/financialchart.glade.h:14
-msgid "Bollinger"
-msgstr "布歷加通道"
-
-#: ../invest-applet/data/financialchart.glade.h:15
-msgid "Downloading chart from <b>Yahoo!</b>"
-msgstr "從 <b>Yahoo!</b> 下載圖表"
-
-#: ../invest-applet/data/financialchart.glade.h:16
-msgid "Exponential moving average: "
-msgstr "預測移動平均線："
-
-#: ../invest-applet/data/financialchart.glade.h:17
-msgid "Fast stoch"
-msgstr "快速隨機指數"
-
-#: ../invest-applet/data/financialchart.glade.h:18
-#: ../invest-applet/invest/chart.py:54
-msgid "Financial Chart"
-msgstr "股價圖表"
-
-#: ../invest-applet/data/financialchart.glade.h:19
-msgid "Indicators: "
-msgstr "技術指標："
-
-#: ../invest-applet/data/financialchart.glade.h:20
-msgid "MACD"
-msgstr "MACD"
-
-#: ../invest-applet/data/financialchart.glade.h:21
-msgid "MFI"
-msgstr "MFI"
-
-#: ../invest-applet/data/financialchart.glade.h:22
-msgid "Moving average: "
-msgstr "移動平均線："
-
-#: ../invest-applet/data/financialchart.glade.h:23
-msgid "Overlays: "
-msgstr "並排圖表："
-
-#: ../invest-applet/data/financialchart.glade.h:24
-msgid "ROC"
-msgstr "ROC"
-
-#: ../invest-applet/data/financialchart.glade.h:25
-msgid "RSI"
-msgstr "RSI"
-
-#: ../invest-applet/data/financialchart.glade.h:26
-msgid "SAR"
-msgstr "SAR"
-
-#: ../invest-applet/data/financialchart.glade.h:27
-msgid "Slow stoch"
-msgstr "慢速隨機指數"
-
-#: ../invest-applet/data/financialchart.glade.h:28
-msgid "Splits"
-msgstr "分拆"
-
-#: ../invest-applet/data/financialchart.glade.h:29
-msgid "Vol"
-msgstr "成交量"
-
-#: ../invest-applet/data/financialchart.glade.h:30
-msgid "Vol+MA"
-msgstr "成交+移動平均"
-
-#: ../invest-applet/data/financialchart.glade.h:31
-msgid "Volumes"
-msgstr "成交量"
-
-#: ../invest-applet/data/financialchart.glade.h:33
-#, no-c-format
-msgid "W%R"
-msgstr "W%R"
-
-#: ../invest-applet/data/financialchart.glade.h:34
-msgid "_Graph style: "
-msgstr "圖表類型(_G)："
-
-#: ../invest-applet/data/financialchart.glade.h:35
-msgid "_Options"
-msgstr "選項(_O)"
-
-#: ../invest-applet/data/financialchart.glade.h:36
-msgid "_Ticker symbol: "
-msgstr "股票代號(_T)："
-
-#: ../invest-applet/data/financialchart.glade.h:37
-msgid ""
-"l\n"
-"b\n"
-"c"
-msgstr ""
-"l\n"
-"b\n"
-"c"
-
-#: ../invest-applet/data/invest-chart.desktop.in.h:1
-msgid "Display yahoo charts"
-msgstr "顯示 yahoo 圖表"
-
-#: ../invest-applet/data/invest-chart.desktop.in.h:2
-msgid "Invest Chart"
-msgstr "股票投資圖表"
-
-#: ../invest-applet/data/prefs-dialog.glade.h:1
-msgid "<b>Stocks</b>"
-msgstr "<b>股票</b>"
-
-#: ../invest-applet/data/prefs-dialog.glade.h:2
-msgid ""
-"<i><small><b>Note:</b> Quotes are delayed at least 15 minutes.\n"
-"<b>Source: </b> Yahoo!</small></i>"
-msgstr ""
-"<i><small><b>注意：</b>報價會延遲 15 分鐘或以上。\n"
-"<b>來源：</b>Yahoo!</small></i>"
-
-#: ../invest-applet/data/prefs-dialog.glade.h:4
-msgid "Invest Preferences"
-msgstr "股票投資偏好設定"
-
-#: ../invest-applet/invest/about.py:32
-msgid "Invest Website"
-msgstr "股票投資的網站"
-
-#: ../invest-applet/invest/chart.py:102
-#, python-format
-msgid "Financial Chart - %s"
-msgstr "股價圖表 - %s"
-
-#: ../invest-applet/invest/chart.py:168
-msgid "Opening Chart"
-msgstr "開啟圖表中"
-
-#: ../invest-applet/invest/chart.py:180 ../invest-applet/invest/chart.py:203
-msgid "Downloading Chart"
-msgstr "下載圖表中"
-
-#: ../invest-applet/invest/chart.py:192
-msgid "Reading Chart chunk"
-msgstr "正在讀取圖表部份"
-
-#: ../invest-applet/invest/invest-applet.py:44
-msgid "Invest Applet"
-msgstr "股票投資面板程式"
-
-#: ../invest-applet/invest/preferences.py:44
-msgid "Symbol"
-msgstr "股票代碼"
-
-#: ../invest-applet/invest/preferences.py:51
-msgid "Amount"
-msgstr "數量"
-
-#: ../invest-applet/invest/preferences.py:58
-msgid "Price"
-msgstr "價格"
-
-#: ../invest-applet/invest/preferences.py:65
-msgid "Commission"
-msgstr "佣金"
+#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
+#: ../libgweather/weather.c:722
+#, c-format
+msgid "%d ℃"
+msgstr "%d ℃"
 
 # zh_HK: msgstr "香港國際機場"
 # zh_TW: msgstr "松山/臺北"
@@ -2136,7 +84,7 @@ msgstr "佣金"
 #. * If you do not require a DEFAULT_LOCATION, set this to
 #. * "DEFAULT_LOCATION".
 #.
-#: ../libgweather/gweather-gconf.c:162 ../libgweather/gweather-gconf.c:163
+#: ../libgweather/gweather-gconf.c:163 ../libgweather/gweather-gconf.c:164
 #: ../libgweather/gweather.schemas.in.h:5
 msgid "DEFAULT_LOCATION"
 msgstr "香港國際機場"
@@ -2146,7 +94,7 @@ msgstr "香港國際機場"
 #. TRANSLATOR: Change this to the code of your default location that
 #. * corresponds to the DEFAULT_LOCATION name you put above. This is
 #. * normally a four-letter (ICAO) code and can be found in
-#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
 #. * NB. The web page is over 1.7MB in size.
 #. * Pick a default location like a capital city so that it would be ok
 #. * for more of your users. For example, for Greek, we use "LGAV" for
@@ -2154,7 +102,7 @@ msgstr "香港國際機場"
 #. *
 #. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
 #.
-#: ../libgweather/gweather-gconf.c:182 ../libgweather/gweather-gconf.c:183
+#: ../libgweather/gweather-gconf.c:183 ../libgweather/gweather-gconf.c:184
 #: ../libgweather/gweather.schemas.in.h:3
 msgid "DEFAULT_CODE"
 msgstr "VHHH"
@@ -2163,14 +111,14 @@ msgstr "VHHH"
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 #. * Normally, US and Canada locations have zones while the rest do not.
 #. * Check
-#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
 #. * as any zone you put here must also be present in the Locations.xml
 #. * file.
 #. *
 #. * If your default location does not have a zone, set this to
 #. * "DEFAULT_ZONE".
 #.
-#: ../libgweather/gweather-gconf.c:202 ../libgweather/gweather-gconf.c:203
+#: ../libgweather/gweather-gconf.c:203 ../libgweather/gweather-gconf.c:204
 #: ../libgweather/gweather.schemas.in.h:7
 msgid "DEFAULT_ZONE"
 msgstr "DEFAULT_ZONE"
@@ -2179,7 +127,7 @@ msgstr "DEFAULT_ZONE"
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 #. * Normally, US and Canada locations have radar names while the rest do
 #. * not. Check
-#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
 #. * as any radar you put here must also be present in the Locations.xml
 #. * file.
 #. *
@@ -2187,7 +135,7 @@ msgstr "DEFAULT_ZONE"
 #. * (or space).
 #. * If you do not have a default location, set this to DEFAULT_RADAR.
 #.
-#: ../libgweather/gweather-gconf.c:223 ../libgweather/gweather-gconf.c:224
+#: ../libgweather/gweather-gconf.c:224 ../libgweather/gweather-gconf.c:225
 #: ../libgweather/gweather.schemas.in.h:6
 msgid "DEFAULT_RADAR"
 msgstr " "
@@ -2197,7 +145,7 @@ msgstr " "
 #. TRANSLATOR: Change this to the coordinates of your default location
 #. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
 #. * above. Check
-#. * http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
+#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
 #. * as any coordinates you put here must also be present in the
 #. * Locations.xml file.
 #. *
@@ -2206,14 +154,87 @@ msgstr " "
 #. * If you do not have a default location, set this to
 #. * DEFAULT_COORDINATES.
 #.
-#: ../libgweather/gweather-gconf.c:244 ../libgweather/gweather-gconf.c:245
+#: ../libgweather/gweather-gconf.c:245 ../libgweather/gweather-gconf.c:246
 #: ../libgweather/gweather.schemas.in.h:4
 msgid "DEFAULT_COORDINATES"
 msgstr "22-20N 114-11E"
 
+#: ../libgweather/gweather-prefs.c:25 ../libgweather/gweather-prefs.c:36
+#: ../libgweather/gweather-prefs.c:51 ../libgweather/gweather-prefs.c:68
+msgid "Default"
+msgstr "預設"
+
+# zh_HK: msgstr "米/秒"
+# zh_TW: msgstr "公尺/秒"
+#. translators: meters per second
+#: ../libgweather/gweather-prefs.c:38
+msgid "m/s"
+msgstr "米/秒"
+
+#. translators: kilometers per hour
+#: ../libgweather/gweather-prefs.c:40
+msgid "km/h"
+msgstr "公里/小時"
+
+# zh_HK: msgstr "海里/小時"
+# zh_TW: msgstr "浬/小時"
+#. translators: miles per hour
+#: ../libgweather/gweather-prefs.c:42
+msgid "mph"
+msgstr "海里/小時"
+
+#. translators: knots (speed unit)
+#: ../libgweather/gweather-prefs.c:44
+msgid "knots"
+msgstr "節"
+
+#. translators: wind speed
+#: ../libgweather/gweather-prefs.c:46
+msgid "Beaufort scale"
+msgstr "蒲福氏風級"
+
+# zh_HK: msgstr "千帕斯卡"
+# zh_TW: msgstr "千帕"
+#. translators: kilopascals
+#: ../libgweather/gweather-prefs.c:53
+msgid "kPa"
+msgstr "千帕斯卡"
+
+# zh_HK: msgstr "百帕斯卡"
+# zh_TW: msgstr "百帕"
+#. translators: hectopascals
+#: ../libgweather/gweather-prefs.c:55
+msgid "hPa"
+msgstr "百帕斯卡"
+
+#. translators: millibars
+#: ../libgweather/gweather-prefs.c:57
+msgid "mb"
+msgstr "毫巴"
+
+#. translators: millimeters of mercury
+#: ../libgweather/gweather-prefs.c:59
+msgid "mmHg"
+msgstr "mmHg"
+
+#. translators: inches of mercury
+#: ../libgweather/gweather-prefs.c:61
+msgid "inHg"
+msgstr "inHg"
+
+#. translators: atmosphere
+#: ../libgweather/gweather-prefs.c:63
+msgid "atm"
+msgstr "atm"
+
+#. translators: kilometers
+#: ../libgweather/gweather-prefs.c:72
+msgid "km"
+msgstr "公里"
+
 #. TRANSLATOR: This is the default unit to use for temperature measurements.
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:70 ../libgweather/gweather-prefs.c:79
+#: ../libgweather/gweather-prefs.c:93 ../libgweather/gweather-prefs.c:102
 msgid "DEFAULT_TEMP_UNIT"
 msgstr "C"
 
@@ -2222,7 +243,7 @@ msgstr "C"
 #. TRANSLATOR: This is the default unit to use for wind speed.
 #. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
 #. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:107 ../libgweather/gweather-prefs.c:117
+#: ../libgweather/gweather-prefs.c:131 ../libgweather/gweather-prefs.c:141
 msgid "DEFAULT_SPEED_UNIT"
 msgstr "mph"
 
@@ -2230,602 +251,15 @@ msgstr "mph"
 #. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
 #. "mb" (millibars), "mmHg" (millimeters of mercury),
 #. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:147 ../libgweather/gweather-prefs.c:158
+#: ../libgweather/gweather-prefs.c:172 ../libgweather/gweather-prefs.c:183
 msgid "DEFAULT_PRESSURE_UNIT"
 msgstr "hPa"
 
 #. TRANSLATOR: This is the default unit to use for visibility distance.
 #. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:186 ../libgweather/gweather-prefs.c:195
+#: ../libgweather/gweather-prefs.c:212 ../libgweather/gweather-prefs.c:221
 msgid "DEFAULT_DISTANCE_UNIT"
 msgstr "km"
-
-#: ../libgweather/weather.c:179
-msgid "Variable"
-msgstr "無定向"
-
-#: ../libgweather/weather.c:180
-msgid "North"
-msgstr "北"
-
-# zh_HK: msgstr "東北偏北"
-# zh_TW: msgstr "北北東"
-#: ../libgweather/weather.c:180
-msgid "North - NorthEast"
-msgstr "東北偏北"
-
-#: ../libgweather/weather.c:180
-msgid "Northeast"
-msgstr "東北"
-
-# zh_HK: msgstr "東北偏東"
-# zh_TW: msgstr "東北東"
-#: ../libgweather/weather.c:180
-msgid "East - NorthEast"
-msgstr "東北偏東"
-
-#: ../libgweather/weather.c:181
-msgid "East"
-msgstr "東"
-
-# zh_HK: msgstr "東南偏東"
-# zh_TW: msgstr "東南東"
-#: ../libgweather/weather.c:181
-msgid "East - Southeast"
-msgstr "東南偏東"
-
-#: ../libgweather/weather.c:181
-msgid "Southeast"
-msgstr "東南"
-
-# zh_HK: msgstr "東南偏南"
-# zh_TW: msgstr "南南東"
-#: ../libgweather/weather.c:181
-msgid "South - Southeast"
-msgstr "東南偏南"
-
-#: ../libgweather/weather.c:182
-msgid "South"
-msgstr "南"
-
-# zh_HK: msgstr "西南偏南"
-# zh_TW: msgstr "南南西"
-#: ../libgweather/weather.c:182
-msgid "South - Southwest"
-msgstr "西南偏南"
-
-#: ../libgweather/weather.c:182
-msgid "Southwest"
-msgstr "西南"
-
-# zh_HK: msgstr "西南偏西"
-# zh_TW: msgstr "西南西"
-#: ../libgweather/weather.c:182
-msgid "West - Southwest"
-msgstr "西南偏西"
-
-#: ../libgweather/weather.c:183
-msgid "West"
-msgstr "西"
-
-# zh_HK: msgstr "西北偏西"
-# zh_TW: msgstr "西北西"
-#: ../libgweather/weather.c:183
-msgid "West - Northwest"
-msgstr "西北偏西"
-
-#: ../libgweather/weather.c:183
-msgid "Northwest"
-msgstr "西北"
-
-# zh_HK: msgstr "西北偏北"
-# zh_TW: msgstr "北北西"
-#: ../libgweather/weather.c:183
-msgid "North - Northwest"
-msgstr "西北偏北"
-
-#: ../libgweather/weather.c:189 ../libgweather/weather.c:687
-#: ../libgweather/weather.c:736 ../libgweather/weather.c:749
-#: ../libgweather/weather.c:761 ../libgweather/weather.c:776
-#: ../libgweather/weather.c:792 ../libgweather/weather.c:829
-#: ../libgweather/weather.c:841 ../libgweather/weather.c:860
-#: ../libgweather/weather.c:892 ../libgweather/weather.c:905
-#: ../libgweather/weather.c:925
-msgid "Unknown"
-msgstr "不明"
-
-#: ../libgweather/weather.c:191 ../libgweather/weather.c:208
-#: ../libgweather/weather.c:279
-msgid "Invalid"
-msgstr "無效"
-
-#: ../libgweather/weather.c:197
-msgid "Clear Sky"
-msgstr "天氣晴朗"
-
-#: ../libgweather/weather.c:198
-msgid "Broken clouds"
-msgstr "密雲"
-
-#: ../libgweather/weather.c:199
-msgid "Scattered clouds"
-msgstr "多雲"
-
-#: ../libgweather/weather.c:200
-msgid "Few clouds"
-msgstr "薄雲"
-
-#: ../libgweather/weather.c:201
-msgid "Overcast"
-msgstr "天陰"
-
-#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
-#. * etc means, you can go to http://www.weather.com/glossary/ and
-#. * http://www.crh.noaa.gov/arx/wx.tbl.html
-#. NONE
-#: ../libgweather/weather.c:240 ../libgweather/weather.c:242
-msgid "Thunderstorm"
-msgstr "雷暴"
-
-#. DRIZZLE
-#: ../libgweather/weather.c:241
-msgid "Drizzle"
-msgstr "毛毛雨"
-
-#: ../libgweather/weather.c:241
-msgid "Light drizzle"
-msgstr "少量毛毛雨"
-
-#: ../libgweather/weather.c:241
-msgid "Moderate drizzle"
-msgstr "毛毛雨"
-
-#: ../libgweather/weather.c:241
-msgid "Heavy drizzle"
-msgstr "大量毛毛雨"
-
-#: ../libgweather/weather.c:241
-msgid "Freezing drizzle"
-msgstr "毛毛雨，低於冰點"
-
-#. RAIN
-#: ../libgweather/weather.c:242
-msgid "Rain"
-msgstr "有雨"
-
-#: ../libgweather/weather.c:242
-msgid "Light rain"
-msgstr "微雨"
-
-#: ../libgweather/weather.c:242
-msgid "Moderate rain"
-msgstr "有雨"
-
-#: ../libgweather/weather.c:242
-msgid "Heavy rain"
-msgstr "豪雨"
-
-#: ../libgweather/weather.c:242
-msgid "Rain showers"
-msgstr "驟雨"
-
-#: ../libgweather/weather.c:242
-msgid "Freezing rain"
-msgstr "降雨，低於冰點"
-
-#. SNOW
-#: ../libgweather/weather.c:243
-msgid "Snow"
-msgstr "降雪"
-
-#: ../libgweather/weather.c:243
-msgid "Light snow"
-msgstr "少量降雪"
-
-#: ../libgweather/weather.c:243
-msgid "Moderate snow"
-msgstr "降雪"
-
-#: ../libgweather/weather.c:243
-msgid "Heavy snow"
-msgstr "大量降雪"
-
-#: ../libgweather/weather.c:243
-msgid "Snowstorm"
-msgstr "暴風雪"
-
-#: ../libgweather/weather.c:243
-msgid "Blowing snowfall"
-msgstr "大風雪"
-
-#: ../libgweather/weather.c:243
-msgid "Snow showers"
-msgstr "驟降雪"
-
-#: ../libgweather/weather.c:243
-msgid "Drifting snow"
-msgstr "風雪"
-
-#. SNOW_GRAINS
-#: ../libgweather/weather.c:244
-msgid "Snow grains"
-msgstr "降雪粒"
-
-#: ../libgweather/weather.c:244
-msgid "Light snow grains"
-msgstr "少量雪粒"
-
-#: ../libgweather/weather.c:244
-msgid "Moderate snow grains"
-msgstr "降雪粒"
-
-#: ../libgweather/weather.c:244
-msgid "Heavy snow grains"
-msgstr "大量雪粒"
-
-#. ICE_CRYSTALS
-#: ../libgweather/weather.c:245
-msgid "Ice crystals"
-msgstr "降冰晶"
-
-#. ICE_PELLETS
-#: ../libgweather/weather.c:246
-msgid "Ice pellets"
-msgstr "降冰粒"
-
-#: ../libgweather/weather.c:246
-msgid "Few ice pellets"
-msgstr "少量冰粒"
-
-#: ../libgweather/weather.c:246
-msgid "Moderate ice pellets"
-msgstr "降冰粒"
-
-#: ../libgweather/weather.c:246
-msgid "Heavy ice pellets"
-msgstr "大量冰粒"
-
-#: ../libgweather/weather.c:246
-msgid "Ice pellet storm"
-msgstr "冰暴"
-
-#: ../libgweather/weather.c:246
-msgid "Showers of ice pellets"
-msgstr "驟降冰粒"
-
-#. HAIL
-#: ../libgweather/weather.c:247
-msgid "Hail"
-msgstr "冰雹"
-
-#: ../libgweather/weather.c:247
-msgid "Hailstorm"
-msgstr "雹暴"
-
-#: ../libgweather/weather.c:247
-msgid "Hail showers"
-msgstr "驟降冰雹"
-
-#. SMALL_HAIL
-#: ../libgweather/weather.c:248
-msgid "Small hail"
-msgstr "小冰雹"
-
-#: ../libgweather/weather.c:248
-msgid "Small hailstorm"
-msgstr "小雹暴"
-
-#: ../libgweather/weather.c:248
-msgid "Showers of small hail"
-msgstr "驟降小冰雹"
-
-#. PRECIPITATION
-#: ../libgweather/weather.c:249
-msgid "Unknown precipitation"
-msgstr "降水，情況不明"
-
-#. MIST
-#: ../libgweather/weather.c:250
-msgid "Mist"
-msgstr "薄霧"
-
-#. FOG
-#: ../libgweather/weather.c:251
-msgid "Fog"
-msgstr "有霧"
-
-#: ../libgweather/weather.c:251
-msgid "Fog in the vicinity"
-msgstr "鄰近地區有霧"
-
-#: ../libgweather/weather.c:251
-msgid "Shallow fog"
-msgstr "霧層"
-
-#: ../libgweather/weather.c:251
-msgid "Patches of fog"
-msgstr "局部地區性有霧"
-
-#: ../libgweather/weather.c:251
-msgid "Partial fog"
-msgstr "部份方向有霧"
-
-#: ../libgweather/weather.c:251
-msgid "Freezing fog"
-msgstr "有霧，低於冰點"
-
-#. SMOKE
-#: ../libgweather/weather.c:252
-msgid "Smoke"
-msgstr "煙塵"
-
-#. VOLCANIC_ASH
-#: ../libgweather/weather.c:253
-msgid "Volcanic ash"
-msgstr "火山灰"
-
-#. SAND
-#: ../libgweather/weather.c:254
-msgid "Sand"
-msgstr "沙塵"
-
-#: ../libgweather/weather.c:254
-msgid "Blowing sand"
-msgstr "大風沙"
-
-#: ../libgweather/weather.c:254
-msgid "Drifting sand"
-msgstr "風沙"
-
-#. HAZE
-#: ../libgweather/weather.c:255
-msgid "Haze"
-msgstr "煙霞"
-
-#. SPRAY
-#: ../libgweather/weather.c:256
-msgid "Blowing sprays"
-msgstr "浪花"
-
-#. DUST
-#: ../libgweather/weather.c:257
-msgid "Dust"
-msgstr "灰塵"
-
-#: ../libgweather/weather.c:257
-msgid "Blowing dust"
-msgstr "灰塵，有風"
-
-#: ../libgweather/weather.c:257
-msgid "Drifting dust"
-msgstr "灰塵，有微風"
-
-#. SQUALL
-#: ../libgweather/weather.c:258
-msgid "Squall"
-msgstr "狂風"
-
-#. SANDSTORM
-#: ../libgweather/weather.c:259
-msgid "Sandstorm"
-msgstr "沙暴"
-
-#: ../libgweather/weather.c:259
-msgid "Sandstorm in the vicinity"
-msgstr "鄰近地區有沙暴"
-
-#: ../libgweather/weather.c:259
-msgid "Heavy sandstorm"
-msgstr "強烈沙暴"
-
-#. DUSTSTORM
-#: ../libgweather/weather.c:260
-msgid "Duststorm"
-msgstr "塵暴"
-
-#: ../libgweather/weather.c:260
-msgid "Duststorm in the vicinity"
-msgstr "鄰近地區有塵暴"
-
-#: ../libgweather/weather.c:260
-msgid "Heavy duststorm"
-msgstr "強烈塵暴"
-
-#. FUNNEL_CLOUD
-#: ../libgweather/weather.c:261
-msgid "Funnel cloud"
-msgstr "漏斗雲"
-
-#. TORNADO
-#: ../libgweather/weather.c:262
-msgid "Tornado"
-msgstr "龍捲風/水龍捲"
-
-#. DUST_WHIRLS
-#: ../libgweather/weather.c:263
-msgid "Dust whirls"
-msgstr "塵旋風"
-
-#: ../libgweather/weather.c:263
-msgid "Dust whirls in the vicinity"
-msgstr "鄰近地區有塵旋風"
-
-#. TRANSLATOR: this is a format string for strftime
-#. *             see `man 3 strftime` for more details
-#.
-#: ../libgweather/weather.c:659
-msgid "%a, %b %d / %H:%M"
-msgstr "%b %d(%a)/ %H:%M"
-
-#: ../libgweather/weather.c:674
-msgid "Unknown observation time"
-msgstr "觀測時間不詳"
-
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is the degree symbol)
-#: ../libgweather/weather.c:707
-#, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
-
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is the degree symbol)
-#: ../libgweather/weather.c:710
-#, c-format
-msgid "%d °F"
-msgstr "%d °F"
-
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is the degree symbol)
-#: ../libgweather/weather.c:716
-#, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
-
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is the degree symbol)
-#: ../libgweather/weather.c:719
-#, c-format
-msgid "%d °C"
-msgstr "%d °C"
-
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:725
-#, c-format
-msgid "%.1f K"
-msgstr "%.1f °K"
-
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:728
-#, c-format
-msgid "%d K"
-msgstr "%d °K"
-
-#. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:779
-#, c-format
-msgid "%.f%%"
-msgstr "%.f%%"
-
-#. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:804
-#, c-format
-msgid "%0.1f knots"
-msgstr "%0.1f 節"
-
-# zh_HK: msgstr "每小時 %.1f 海里"
-# zh_TW: msgstr "每小時 %.1f 浬"
-#. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:808
-#, c-format
-msgid "%.1f mph"
-msgstr "每小時 %.1f 海里"
-
-#. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:812
-#, c-format
-msgid "%.1f km/h"
-msgstr "每小時 %.1f 公里"
-
-# zh_HK: msgstr "每秒 %.1f 米"
-# zh_TW: msgstr "每秒 %.1f 公尺"
-#. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:816
-#, c-format
-msgid "%.1f m/s"
-msgstr "每秒 %.1f 米"
-
-#. TRANSLATOR: This is the wind speed as a Beaufort force factor
-#. * (commonly used in nautical wind estimation).
-#.
-#: ../libgweather/weather.c:822
-#, c-format
-msgid "Beaufort force %.1f"
-msgstr "蒲福氏風級 %.1f"
-
-#: ../libgweather/weather.c:843
-msgid "Calm"
-msgstr "平靜"
-
-#. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:847
-#, c-format
-msgid "%s / %s"
-msgstr "%s / %s"
-
-#. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:865
-#, c-format
-msgid "%.2f inHg"
-msgstr "%.2f inHg"
-
-#. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:869
-#, c-format
-msgid "%.1f mmHg"
-msgstr "%.1f mmHg"
-
-# zh_HK: msgstr "%.2f 千帕斯卡"
-# zh_TW: msgstr "%.2f 千帕"
-#. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:873
-#, c-format
-msgid "%.2f kPa"
-msgstr "%.2f 千帕斯卡"
-
-# zh_HK: msgstr "%.2f 百帕斯卡"
-# zh_TW: msgstr "%.2f 百帕"
-#. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:877
-#, c-format
-msgid "%.2f hPa"
-msgstr "%.2f 百帕斯卡"
-
-#. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:881
-#, c-format
-msgid "%.2f mb"
-msgstr "%.2f 亳巴"
-
-#. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:885
-#, c-format
-msgid "%.3f atm"
-msgstr "%.3f atm"
-
-#. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:910
-#, c-format
-msgid "%.1f miles"
-msgstr "%.1f 英里"
-
-#. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:914
-#, c-format
-msgid "%.1f km"
-msgstr "%.1f 公里"
-
-# zh_HK: msgstr "%.0f 米"
-# zh_TW: msgstr "%.0f 公尺"
-#. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:918
-#, c-format
-msgid "%.0fm"
-msgstr "%.0f 米"
-
-#: ../libgweather/weather.c:946 ../libgweather/weather.c:966
-msgid "%H:%M"
-msgstr "%H:%M"
-
-#: ../libgweather/weather.c:999
-msgid "Retrieval failed"
-msgstr "接收失敗"
-
-#: ../libgweather/weather-iwin.c:213 ../libgweather/weather-metar.c:550
-#: ../libgweather/weather-metar.c:578
-msgid "WeatherInfo missing location"
-msgstr "WeatherInfo 中沒有指定地點"
-
-#: ../libgweather/weather-metar.c:523 ../libgweather/weather-metar.c:558
-#: ../libgweather/weather-wx.c:62
-msgid "Failed to get METAR data.\n"
-msgstr "無法獲取 METAR 資料。\n"
 
 #: ../libgweather/gweather.schemas.in.h:1
 msgid ""
@@ -2885,7 +319,6 @@ msgid ""
 msgstr "附近主要區域，可在 http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in 中找到"
 
 #: ../libgweather/gweather.schemas.in.h:17
-#: ../mini-commander/src/mini-commander.schemas.in.h:12
 msgid "Not used anymore"
 msgstr "這項設定已不再使用"
 
@@ -2973,1417 +406,3099 @@ msgstr "天氣位置資訊。"
 msgid "Zone location"
 msgstr "區域位置"
 
-#: ../mini-commander/GNOME_MiniCommanderApplet.server.in.h:1
-msgid "Deskbar (formerly Mini-Commander)"
-msgstr "Deskbar（前稱為小型命令列）"
-
-#: ../mini-commander/GNOME_MiniCommanderApplet.server.in.h:2
-msgid "Deskbar (transparent upgrade from Mini-Commander)"
-msgstr "Deskbar（小型命令列的升級版本）"
-
-#: ../mini-commander/src/GNOME_MiniCommanderApplet.server.in.in.h:1
-#: ../mini-commander/src/about.c:47
-msgid "Command Line"
-msgstr "命令列"
-
-#: ../mini-commander/src/GNOME_MiniCommanderApplet.server.in.in.h:2
-msgid "Mini-Commander"
-msgstr "小型命令列"
-
-#: ../mini-commander/src/GNOME_MiniCommanderApplet.server.in.in.h:3
-msgid "MiniCommander Applet Factory"
-msgstr "小型命令列面板程式工廠"
-
-#: ../mini-commander/src/about.c:50
-msgid ""
-"This GNOME applet adds a command line to the panel. It features command "
-"completion, command history, and changeable macros."
-msgstr "這 GNOME 面板程式將指令列加入面板中。它的功能才自動完成、指令歷史記錄及可更改的宏。"
-
-#: ../mini-commander/src/command_line.c:353
-msgid "No items in history"
-msgstr "歷史記錄中沒有任何項目"
-
-#. build file select dialog
-#: ../mini-commander/src/command_line.c:477
-msgid "Start program"
-msgstr "啟動程式"
-
-#: ../mini-commander/src/command_line.c:529
-msgid "Command line"
-msgstr "命令列"
-
-#: ../mini-commander/src/command_line.c:530
-msgid "Type a command here and Gnome will execute it for you"
-msgstr "在這裏輸入指令後，GNOME 就會執行該指令"
-
-#: ../mini-commander/src/mc-install-default-macros.c:80
-#, c-format
-msgid "Cannot get schema for %s: %s"
-msgstr "無法讀取 %s 的 schema：%s"
-
-#: ../mini-commander/src/mc-install-default-macros.c:108
-#, c-format
-msgid "Cannot set schema for %s: %s"
-msgstr "無法設定 %s 的 schema：%s"
-
-#: ../mini-commander/src/mc-install-default-macros.c:114
-#, c-format
-msgid "Set default list value for %s\n"
-msgstr "設定 %s 的預設值\n"
-
-#: ../mini-commander/src/mc-install-default-macros.c:126
-#, c-format
-msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
-msgstr "設定了 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL 變數，不會安裝 schemas\n"
-
-#: ../mini-commander/src/mc-install-default-macros.c:134
-#, c-format
-msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
-msgstr "必須設定 GCONF_CONFIG_SOURCE 環境變數\n"
-
-#: ../mini-commander/src/mc-install-default-macros.c:151
-#, c-format
-msgid "Failed to access configuration source(s): %s\n"
-msgstr "無法存取組態的來源：%s\n"
-
-#: ../mini-commander/src/mc-install-default-macros.c:166
-#, c-format
-msgid "Error syncing config data: %s"
-msgstr "將組態資料同步時發生錯誤：%s"
-
-#: ../mini-commander/src/mini-commander-global.schemas.in.h:1
-msgid "List of GConfValue entries containing strings for the macro commands."
-msgstr "一系列巨集指令，以 GConfValue 型式表示。"
-
-#: ../mini-commander/src/mini-commander-global.schemas.in.h:2
-msgid "List of GConfValue entries containing strings for the macro patterns."
-msgstr "一系列巨集名稱樣式，以 GConfValue 型式表示。"
-
-#: ../mini-commander/src/mini-commander-global.schemas.in.h:3
-#: ../mini-commander/src/mini-commander.schemas.in.h:10
-msgid "Macro command list"
-msgstr "指令巨集清單"
-
-#: ../mini-commander/src/mini-commander-global.schemas.in.h:4
-#: ../mini-commander/src/mini-commander.schemas.in.h:11
-msgid "Macro pattern list"
-msgstr "巨集樣式清單"
-
-#: ../mini-commander/src/mini-commander.glade.h:2
-msgid "*"
-msgstr "*"
-
-#: ../mini-commander/src/mini-commander.glade.h:3
-msgid "<b>Auto Completion</b>"
-msgstr "<b>自動補齊</b>"
-
-#: ../mini-commander/src/mini-commander.glade.h:4
-msgid "<b>Colors</b>"
-msgstr "<b>色彩</b>"
-
-#: ../mini-commander/src/mini-commander.glade.h:5
-msgid "<b>Size</b>"
-msgstr "<b>大小</b>"
-
-#: ../mini-commander/src/mini-commander.glade.h:6
-msgid "Add New Macro"
-msgstr "新增巨集"
-
-#: ../mini-commander/src/mini-commander.glade.h:7
-msgid "Co_mmand:"
-msgstr "指令(_M)："
-
-#: ../mini-commander/src/mini-commander.glade.h:8
-msgid "Command Line Preferences"
-msgstr "小型命令列偏好設定"
-
-#: ../mini-commander/src/mini-commander.glade.h:9
-msgid "Command line _background:"
-msgstr "命令列背景顏色(_B)："
-
-#: ../mini-commander/src/mini-commander.glade.h:10
-msgid "Command line _foreground:"
-msgstr "命令列文字顏色(_F)："
-
-#: ../mini-commander/src/mini-commander.glade.h:11
-msgid "E_nable history-based auto completion"
-msgstr "啟用根據指令使用紀錄的自動完成功能(_N)"
-
-#: ../mini-commander/src/mini-commander.glade.h:13
-msgid "Macros"
-msgstr "巨集"
-
-#: ../mini-commander/src/mini-commander.glade.h:14
-msgid "Pick a color"
-msgstr "請選取顏色"
-
-#: ../mini-commander/src/mini-commander.glade.h:15
-msgid "_Add Macro..."
-msgstr "新增巨集(_A)..."
-
-#: ../mini-commander/src/mini-commander.glade.h:16
-msgid "_Delete Macro"
-msgstr "刪除巨集(_D)"
-
-#: ../mini-commander/src/mini-commander.glade.h:17
-msgid "_Macros:"
-msgstr "巨集(_M)："
-
-#: ../mini-commander/src/mini-commander.glade.h:18
-msgid "_Pattern:"
-msgstr "樣式(_P)："
-
-#: ../mini-commander/src/mini-commander.glade.h:19
-msgid "_Use default theme colors"
-msgstr "使用預設佈景主題色彩(_U)"
-
-#: ../mini-commander/src/mini-commander.glade.h:20
-#: ../stickynotes/stickynotes.glade.h:48
-msgid "_Width:"
-msgstr "闊度(_W)："
-
-#: ../mini-commander/src/mini-commander.glade.h:21
-#: ../multiload/properties.c:537
-msgid "pixels"
-msgstr "像素"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:1
-msgid "Attempt to autocomplete a command from the history of commands entered."
-msgstr "根據指令紀錄來自動補齊未完成的指令。"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:2
-msgid "Background color, blue component"
-msgstr "背景顏色藍色部份數值"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:3
-msgid "Background color, green component"
-msgstr "背景顏色綠色部份數值"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:4
-msgid "Background color, red component"
-msgstr "背景顏色紅色部份數值"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:5
-msgid "Foreground color, blue component"
-msgstr "文字顏色藍色部份數值"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:6
-msgid "Foreground color, green component"
-msgstr "文字顏色綠色部份數值"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:7
-msgid "Foreground color, red component"
-msgstr "文字顏色紅色部份數值"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:8
-msgid "History list"
-msgstr "指令紀錄清單"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:9
-msgid "List of GConfValue entries containing strings for history entries."
-msgstr "記錄條目的 GConfValue 條目歸包含的字串的清單。"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:13
-msgid "Perform history autocompletion"
-msgstr "根據指令紀錄自動補齊指令"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:14
-msgid "Show a frame surrounding the applet."
-msgstr "在面板程式周圍顯示邊框。"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:15
-msgid "Show a handle so the applet can be detached from the panel."
-msgstr "顯示控制棒，令面板程式可以脫離面板。"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:16
-msgid "Show frame"
-msgstr "顯示邊框"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:17
-msgid "Show handle"
-msgstr "顯示控制棒元件"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:18
-msgid "The blue component of the background color."
-msgstr "背景顏色的藍色部份數值"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:19
-msgid "The blue component of the foreground color."
-msgstr "文字顏色的藍色部份數值"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:20
-msgid "The green component of the background color."
-msgstr "背景顏色的綠色部份數值"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:21
-msgid "The green component of the foreground color."
-msgstr "文字顏色的綠色部份數值"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:22
-msgid "The red component of the background color."
-msgstr "背景顏色的紅色部份數值"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:23
-msgid "The red component of the foreground color."
-msgstr "文字顏色的紅色部份數值"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:24
-msgid ""
-"This per-applet key is deprecated in favour of the global key, /schemas/apps/"
-"mini-commander-global/macro_patterns."
-msgstr "本 per-applet 設定鍵已不再使用，已被全域設定鍵 /schemas/apps/mini-commander-global/macro_patterns 所取代。"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:25
-msgid "Use the default theme colors"
-msgstr "使用預設佈景主題色彩"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:26
-msgid "Use theme colors instead of custom ones."
-msgstr "使用預設的佈景主題字型及色彩，而不會自行指定"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:27
-msgid "Width"
-msgstr "闊度"
-
-#: ../mini-commander/src/mini-commander.schemas.in.h:28
-msgid "Width of the applet"
-msgstr "面板程式闊度"
-
-#: ../mini-commander/src/mini-commander_applet.c:246
-#: ../mini-commander/src/mini-commander_applet.c:250
-msgid "Browser"
-msgstr "選擇檔案"
-
-#: ../mini-commander/src/mini-commander_applet.c:251
-msgid "Click this button to start the browser"
-msgstr "按下本按鈕可啟動瀏覽器"
-
-#: ../mini-commander/src/mini-commander_applet.c:264
-#: ../mini-commander/src/mini-commander_applet.c:268
-msgid "History"
-msgstr "紀錄"
-
-#: ../mini-commander/src/mini-commander_applet.c:269
-msgid "Click this button for the list of previous commands"
-msgstr "按下此按鈕可顯示之前輸入的指令清單"
-
-#: ../mini-commander/src/mini-commander_applet.c:353
-msgid "Command line has been disabled by your system administrator"
-msgstr "系統管理員禁止任何人使用指令"
-
-#: ../mini-commander/src/mini-commander_applet.c:420
-msgid "Mini-Commander applet"
-msgstr "小型命令列面板程式"
-
-#: ../mini-commander/src/mini-commander_applet.c:421
-msgid "This applet adds a command line to the panel"
-msgstr "此面板程式可在面板中加上命令列"
-
-#: ../mini-commander/src/preferences.c:405
-msgid "You must specify a pattern"
-msgstr "必須輸入樣式"
-
-#: ../mini-commander/src/preferences.c:409
-msgid "You must specify a pattern and a command"
-msgstr "必須輸入樣式及指令"
-
-#: ../mini-commander/src/preferences.c:410
-msgid "You must specify a command"
-msgstr "必須輸入指令"
-
-#: ../mini-commander/src/preferences.c:413
-msgid "You may not specify duplicate patterns"
-msgstr "不可輸入重複的樣式"
-
-#: ../mini-commander/src/preferences.c:775
-msgid "Pattern"
-msgstr "樣式"
-
-#: ../mini-commander/src/preferences.c:785
-msgid "Command"
-msgstr "指令"
-
-#: ../mixer/GNOME_MixerApplet.server.in.in.h:1
-msgid "Adjust the sound volume"
-msgstr "調校音量"
-
-#: ../mixer/GNOME_MixerApplet.server.in.in.h:2 ../mixer/applet.c:224
-#: ../mixer/applet.c:245
-msgid "Volume Control"
-msgstr "音量控制"
-
-#: ../mixer/GNOME_MixerApplet.xml.h:1
-msgid "Mu_te"
-msgstr "靜音(_T)"
-
-#: ../mixer/GNOME_MixerApplet.xml.h:4
-msgid "_Open Volume Control"
-msgstr "啟動音量控制程式(_O)"
-
-#: ../mixer/applet.c:526
-msgid ""
-"The volume control did not find any elements and/or devices to control. This "
-"means either that you don't have the right GStreamer plugins installed, or "
-"that you don't have a sound card configured."
-msgstr "音量控制無法找到任何可控制的元件或裝置。即是代表沒有安裝正確的 GStreamer 外掛程式，或是沒有設置好的音效卡。"
-
-#: ../mixer/applet.c:530
-msgid ""
-"You can remove the volume control from the panel by right-clicking the "
-"speaker icon on the panel and selecting \"Remove From Panel\" from the menu."
-msgstr "從面板中移除音量控制，你可以在面板的揚聲器圖示上按下滑鼠右鍵，選取「從面板中移除」。"
-
-#: ../mixer/applet.c:713
-#, c-format
-msgid "Failed to start Volume Control: %s"
-msgstr "啟動音量控制程式時發生錯誤：%s"
-
-#: ../mixer/applet.c:1130
-#, c-format
-msgid "%s: muted"
-msgstr "%s：靜音"
-
-#. Translator comment: I'm not all too sure if this makes sense
-#. * to mark as a translation, but anyway. The string is a list of
-#. * selected tracks, the number is the volume in percent. You
-#. * most likely want to keep this as-is.
-#: ../mixer/applet.c:1136
-#, c-format
-msgid "%s: %d%%"
-msgstr "%s: %d%%"
-
-#: ../mixer/applet.c:1297
-#, c-format
-msgid "Failed to display help: %s"
-msgstr "無法顯示說明文件：%s"
-
-#: ../mixer/applet.c:1310
-msgid "Volume control for your GNOME Panel."
-msgstr "GNOME 面板的音量控制。"
-
-#: ../mixer/applet.c:1312
-msgid "Using GStreamer 0.10."
-msgstr "使用 GStreamer 0.10。"
-
-#: ../mixer/applet.c:1314
-msgid "Using GStreamer 0.8."
-msgstr "使用 GStreamer 0.8。"
-
-#: ../mixer/applet.c:1319
-msgid "Volume Applet"
-msgstr "音量控制程式"
-
-#: ../mixer/dock.c:124
-msgid "+"
-msgstr "+"
-
-#: ../mixer/dock.c:153
-msgid "-"
-msgstr "-"
-
-#. FIXME:
-#. * - maybe we want to rename the element to its actual name
-#. *     if we've found that?
+#: ../libgweather/weather-iwin.c:135 ../libgweather/weather-metar.c:554
+#: ../libgweather/weather-metar.c:582
+msgid "WeatherInfo missing location"
+msgstr "WeatherInfo 中沒有指定地點"
+
+#: ../libgweather/weather-metar.c:527 ../libgweather/weather-metar.c:562
+#: ../libgweather/weather-wx.c:63
+msgid "Failed to get METAR data.\n"
+msgstr "無法獲取 METAR 資料。\n"
+
+#: ../libgweather/weather.c:180
+msgid "Variable"
+msgstr "無定向"
+
+#: ../libgweather/weather.c:181
+msgid "North"
+msgstr "北"
+
+# zh_HK: msgstr "東北偏北"
+# zh_TW: msgstr "北北東"
+#: ../libgweather/weather.c:181
+msgid "North - NorthEast"
+msgstr "東北偏北"
+
+#: ../libgweather/weather.c:181
+msgid "Northeast"
+msgstr "東北"
+
+# zh_HK: msgstr "東北偏東"
+# zh_TW: msgstr "東北東"
+#: ../libgweather/weather.c:181
+msgid "East - NorthEast"
+msgstr "東北偏東"
+
+#: ../libgweather/weather.c:182
+msgid "East"
+msgstr "東"
+
+# zh_HK: msgstr "東南偏東"
+# zh_TW: msgstr "東南東"
+#: ../libgweather/weather.c:182
+msgid "East - Southeast"
+msgstr "東南偏東"
+
+#: ../libgweather/weather.c:182
+msgid "Southeast"
+msgstr "東南"
+
+# zh_HK: msgstr "東南偏南"
+# zh_TW: msgstr "南南東"
+#: ../libgweather/weather.c:182
+msgid "South - Southeast"
+msgstr "東南偏南"
+
+#: ../libgweather/weather.c:183
+msgid "South"
+msgstr "南"
+
+# zh_HK: msgstr "西南偏南"
+# zh_TW: msgstr "南南西"
+#: ../libgweather/weather.c:183
+msgid "South - Southwest"
+msgstr "西南偏南"
+
+#: ../libgweather/weather.c:183
+msgid "Southwest"
+msgstr "西南"
+
+# zh_HK: msgstr "西南偏西"
+# zh_TW: msgstr "西南西"
+#: ../libgweather/weather.c:183
+msgid "West - Southwest"
+msgstr "西南偏西"
+
+#: ../libgweather/weather.c:184
+msgid "West"
+msgstr "西"
+
+# zh_HK: msgstr "西北偏西"
+# zh_TW: msgstr "西北西"
+#: ../libgweather/weather.c:184
+msgid "West - Northwest"
+msgstr "西北偏西"
+
+#: ../libgweather/weather.c:184
+msgid "Northwest"
+msgstr "西北"
+
+# zh_HK: msgstr "西北偏北"
+# zh_TW: msgstr "北北西"
+#: ../libgweather/weather.c:184
+msgid "North - Northwest"
+msgstr "西北偏北"
+
+#: ../libgweather/weather.c:190 ../libgweather/weather.c:690
+#: ../libgweather/weather.c:739 ../libgweather/weather.c:752
+#: ../libgweather/weather.c:764 ../libgweather/weather.c:779
+#: ../libgweather/weather.c:795 ../libgweather/weather.c:832
+#: ../libgweather/weather.c:844 ../libgweather/weather.c:863
+#: ../libgweather/weather.c:895 ../libgweather/weather.c:908
+#: ../libgweather/weather.c:928
+msgid "Unknown"
+msgstr "不明"
+
+#: ../libgweather/weather.c:192 ../libgweather/weather.c:209
+#: ../libgweather/weather.c:280
+msgid "Invalid"
+msgstr "無效"
+
+#: ../libgweather/weather.c:198
+msgid "Clear Sky"
+msgstr "天氣晴朗"
+
+#: ../libgweather/weather.c:199
+msgid "Broken clouds"
+msgstr "密雲"
+
+#: ../libgweather/weather.c:200
+msgid "Scattered clouds"
+msgstr "多雲"
+
+#: ../libgweather/weather.c:201
+msgid "Few clouds"
+msgstr "薄雲"
+
+#: ../libgweather/weather.c:202
+msgid "Overcast"
+msgstr "天陰"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.html
+#. NONE
+#: ../libgweather/weather.c:241 ../libgweather/weather.c:243
+msgid "Thunderstorm"
+msgstr "雷暴"
+
+#. DRIZZLE
+#: ../libgweather/weather.c:242
+msgid "Drizzle"
+msgstr "毛毛雨"
+
+#: ../libgweather/weather.c:242
+msgid "Light drizzle"
+msgstr "少量毛毛雨"
+
+#: ../libgweather/weather.c:242
+msgid "Moderate drizzle"
+msgstr "毛毛雨"
+
+#: ../libgweather/weather.c:242
+msgid "Heavy drizzle"
+msgstr "大量毛毛雨"
+
+#: ../libgweather/weather.c:242
+msgid "Freezing drizzle"
+msgstr "毛毛雨，低於冰點"
+
+#. RAIN
+#: ../libgweather/weather.c:243
+msgid "Rain"
+msgstr "有雨"
+
+#: ../libgweather/weather.c:243
+msgid "Light rain"
+msgstr "微雨"
+
+#: ../libgweather/weather.c:243
+msgid "Moderate rain"
+msgstr "有雨"
+
+#: ../libgweather/weather.c:243
+msgid "Heavy rain"
+msgstr "豪雨"
+
+#: ../libgweather/weather.c:243
+msgid "Rain showers"
+msgstr "驟雨"
+
+#: ../libgweather/weather.c:243
+msgid "Freezing rain"
+msgstr "降雨，低於冰點"
+
+#. SNOW
+#: ../libgweather/weather.c:244
+msgid "Snow"
+msgstr "降雪"
+
+#: ../libgweather/weather.c:244
+msgid "Light snow"
+msgstr "少量降雪"
+
+#: ../libgweather/weather.c:244
+msgid "Moderate snow"
+msgstr "降雪"
+
+#: ../libgweather/weather.c:244
+msgid "Heavy snow"
+msgstr "大量降雪"
+
+#: ../libgweather/weather.c:244
+msgid "Snowstorm"
+msgstr "暴風雪"
+
+#: ../libgweather/weather.c:244
+msgid "Blowing snowfall"
+msgstr "大風雪"
+
+#: ../libgweather/weather.c:244
+msgid "Snow showers"
+msgstr "驟降雪"
+
+#: ../libgweather/weather.c:244
+msgid "Drifting snow"
+msgstr "風雪"
+
+#. SNOW_GRAINS
+#: ../libgweather/weather.c:245
+msgid "Snow grains"
+msgstr "降雪粒"
+
+#: ../libgweather/weather.c:245
+msgid "Light snow grains"
+msgstr "少量雪粒"
+
+#: ../libgweather/weather.c:245
+msgid "Moderate snow grains"
+msgstr "降雪粒"
+
+#: ../libgweather/weather.c:245
+msgid "Heavy snow grains"
+msgstr "大量雪粒"
+
+#. ICE_CRYSTALS
+#: ../libgweather/weather.c:246
+msgid "Ice crystals"
+msgstr "降冰晶"
+
+#. ICE_PELLETS
+#: ../libgweather/weather.c:247
+msgid "Ice pellets"
+msgstr "降冰粒"
+
+#: ../libgweather/weather.c:247
+msgid "Few ice pellets"
+msgstr "少量冰粒"
+
+#: ../libgweather/weather.c:247
+msgid "Moderate ice pellets"
+msgstr "降冰粒"
+
+#: ../libgweather/weather.c:247
+msgid "Heavy ice pellets"
+msgstr "大量冰粒"
+
+#: ../libgweather/weather.c:247
+msgid "Ice pellet storm"
+msgstr "冰暴"
+
+#: ../libgweather/weather.c:247
+msgid "Showers of ice pellets"
+msgstr "驟降冰粒"
+
+#. HAIL
+#: ../libgweather/weather.c:248
+msgid "Hail"
+msgstr "冰雹"
+
+#: ../libgweather/weather.c:248
+msgid "Hailstorm"
+msgstr "雹暴"
+
+#: ../libgweather/weather.c:248
+msgid "Hail showers"
+msgstr "驟降冰雹"
+
+#. SMALL_HAIL
+#: ../libgweather/weather.c:249
+msgid "Small hail"
+msgstr "小冰雹"
+
+#: ../libgweather/weather.c:249
+msgid "Small hailstorm"
+msgstr "小雹暴"
+
+#: ../libgweather/weather.c:249
+msgid "Showers of small hail"
+msgstr "驟降小冰雹"
+
+#. PRECIPITATION
+#: ../libgweather/weather.c:250
+msgid "Unknown precipitation"
+msgstr "降水，情況不明"
+
+#. MIST
+#: ../libgweather/weather.c:251
+msgid "Mist"
+msgstr "薄霧"
+
+#. FOG
+#: ../libgweather/weather.c:252
+msgid "Fog"
+msgstr "有霧"
+
+#: ../libgweather/weather.c:252
+msgid "Fog in the vicinity"
+msgstr "鄰近地區有霧"
+
+#: ../libgweather/weather.c:252
+msgid "Shallow fog"
+msgstr "霧層"
+
+#: ../libgweather/weather.c:252
+msgid "Patches of fog"
+msgstr "局部地區性有霧"
+
+#: ../libgweather/weather.c:252
+msgid "Partial fog"
+msgstr "部份方向有霧"
+
+#: ../libgweather/weather.c:252
+msgid "Freezing fog"
+msgstr "有霧，低於冰點"
+
+#. SMOKE
+#: ../libgweather/weather.c:253
+msgid "Smoke"
+msgstr "煙塵"
+
+#. VOLCANIC_ASH
+#: ../libgweather/weather.c:254
+msgid "Volcanic ash"
+msgstr "火山灰"
+
+#. SAND
+#: ../libgweather/weather.c:255
+msgid "Sand"
+msgstr "沙塵"
+
+#: ../libgweather/weather.c:255
+msgid "Blowing sand"
+msgstr "大風沙"
+
+#: ../libgweather/weather.c:255
+msgid "Drifting sand"
+msgstr "風沙"
+
+#. HAZE
+#: ../libgweather/weather.c:256
+msgid "Haze"
+msgstr "煙霞"
+
+#. SPRAY
+#: ../libgweather/weather.c:257
+msgid "Blowing sprays"
+msgstr "浪花"
+
+#. DUST
+#: ../libgweather/weather.c:258
+msgid "Dust"
+msgstr "灰塵"
+
+#: ../libgweather/weather.c:258
+msgid "Blowing dust"
+msgstr "灰塵，有風"
+
+#: ../libgweather/weather.c:258
+msgid "Drifting dust"
+msgstr "灰塵，有微風"
+
+#. SQUALL
+#: ../libgweather/weather.c:259
+msgid "Squall"
+msgstr "狂風"
+
+#. SANDSTORM
+#: ../libgweather/weather.c:260
+msgid "Sandstorm"
+msgstr "沙暴"
+
+#: ../libgweather/weather.c:260
+msgid "Sandstorm in the vicinity"
+msgstr "鄰近地區有沙暴"
+
+#: ../libgweather/weather.c:260
+msgid "Heavy sandstorm"
+msgstr "強烈沙暴"
+
+#. DUSTSTORM
+#: ../libgweather/weather.c:261
+msgid "Duststorm"
+msgstr "塵暴"
+
+#: ../libgweather/weather.c:261
+msgid "Duststorm in the vicinity"
+msgstr "鄰近地區有塵暴"
+
+#: ../libgweather/weather.c:261
+msgid "Heavy duststorm"
+msgstr "強烈塵暴"
+
+#. FUNNEL_CLOUD
+#: ../libgweather/weather.c:262
+msgid "Funnel cloud"
+msgstr "漏斗雲"
+
+#. TORNADO
+#: ../libgweather/weather.c:263
+msgid "Tornado"
+msgstr "龍捲風/水龍捲"
+
+#. DUST_WHIRLS
+#: ../libgweather/weather.c:264
+msgid "Dust whirls"
+msgstr "塵旋風"
+
+#: ../libgweather/weather.c:264
+msgid "Dust whirls in the vicinity"
+msgstr "鄰近地區有塵旋風"
+
+#. TRANSLATOR: this is a format string for strftime
+#. *             see `man 3 strftime` for more details
 #.
-#. create element
-#: ../mixer/load.c:91 ../mixer/load.c:184 ../mixer/load.c:187
-#: ../mixer/load.c:279
+#: ../libgweather/weather.c:662
+msgid "%a, %b %d / %H:%M"
+msgstr "%b %d(%a)/ %H:%M"
+
+#: ../libgweather/weather.c:677
+msgid "Unknown observation time"
+msgstr "觀測時間不詳"
+
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../libgweather/weather.c:728
 #, c-format
-msgid "Unknown Volume Control %d"
-msgstr "不明的音量控制 %d"
+msgid "%.1f K"
+msgstr "%.1f °K"
 
-#: ../mixer/mixer.schemas.in.h:1
-msgid "Channel controlled by applet. Only for OSS setups"
-msgstr "面皮程式能夠控制的聲道，只適用於 OSS"
-
-#: ../mixer/mixer.schemas.in.h:2
-msgid "Saved mute state"
-msgstr "儲存靜音狀態"
-
-#: ../mixer/mixer.schemas.in.h:3
-msgid "Saved volume to restore on startup"
-msgstr "儲存各個音量，待下次啟動時再使用"
-
-#. make window look cute
-#: ../mixer/preferences.c:130
-msgid "Volume Control Preferences"
-msgstr "音量控制偏好設定"
-
-#: ../mixer/preferences.c:143
-msgid "Select the device and track to control."
-msgstr "請選取控制裝裝置及聲道。"
-
-#: ../modemlights/GNOME_ModemLights.server.in.in.h:1
-msgid "Activate and monitor a dial-up network connection"
-msgstr "啟用及監察撥號網絡連線"
-
-#: ../modemlights/GNOME_ModemLights.server.in.in.h:2
-#: ../modemlights/modem-applet.c:1043
-msgid "Modem Monitor"
-msgstr "數據機監察程式"
-
-#: ../modemlights/GNOME_ModemLights.xml.h:2
-msgid "_Activate"
-msgstr "連線(_A)"
-
-#: ../modemlights/GNOME_ModemLights.xml.h:3
-msgid "_Deactivate"
-msgstr "斷線(_D)"
-
-#: ../modemlights/GNOME_ModemLights.xml.h:5
-#: ../stickynotes/stickynotes.glade.h:45
-msgid "_Properties"
-msgstr "屬性(_P)"
-
-#: ../modemlights/modem-applet.c:731
-msgid "Connection active, but could not get connection time"
-msgstr "已經連接，但無法取得連線時間"
-
-#: ../modemlights/modem-applet.c:747
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../libgweather/weather.c:731
 #, c-format
-msgid "Time connected: %.1d:%.2d"
-msgstr "已連線時間：%.1d:%.2d"
+msgid "%d K"
+msgstr "%d °K"
 
-#: ../modemlights/modem-applet.c:751
-msgid "Not connected"
-msgstr "沒有連線"
-
-#: ../modemlights/modem-applet.c:773
-msgid ""
-"To connect to your Internet service provider, you need administrator "
-"privileges"
-msgstr "要連接你的網絡服務供應商，你需要系統管理員的權限"
-
-#: ../modemlights/modem-applet.c:774
-msgid ""
-"To disconnect from your Internet service provider, you need administrator "
-"privileges"
-msgstr "要從你的網絡服務供應商斷線，你需要有系統管理員的權限"
-
-#: ../modemlights/modem-applet.c:849
-msgid "The entered password is invalid"
-msgstr "輸入的密碼不正確"
-
-#: ../modemlights/modem-applet.c:851
-msgid ""
-"Check that you have typed it correctly and that you haven't activated the "
-"\"caps lock\" key"
-msgstr "請檢查你所輸入的是否正確及沒有按下了“Caps Lock”鍵"
-
-#: ../modemlights/modem-applet.c:953
-msgid "Do you want to connect?"
-msgstr "你要撥號連線嗎？"
-
-#: ../modemlights/modem-applet.c:954
-msgid "Do you want to disconnect?"
-msgstr "你要斷線嗎？"
-
-#: ../modemlights/modem-applet.c:963
-msgid "C_onnect"
-msgstr "連線(_O)"
-
-#: ../modemlights/modem-applet.c:963
-msgid "_Disconnect"
-msgstr "斷線(_D)"
-
-#: ../modemlights/modem-applet.c:1019
-msgid "Could not launch network configuration tool"
-msgstr "無法執行網絡設置工具"
-
-#: ../modemlights/modem-applet.c:1021
-msgid ""
-"Check that it's installed in the correct path and that it has the correct "
-"permissions"
-msgstr "請檢查安裝的路徑是否正確及它的權限正確"
-
-#: ../modemlights/modem-applet.c:1046
-msgid "Applet for activating and monitoring a dial-up network connection."
-msgstr "連接及監察撥號網絡的面板程式"
-
-#: ../modemlights/modemlights.glade.h:1
-msgid ""
-"<span weight=\"bold\" size=\"larger\">Connecting with Internet Service "
-"Provider</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">與網絡服務供應商連接</span>"
-
-#: ../modemlights/modemlights.glade.h:2
-msgid "<span weight=\"bold\" size=\"larger\">Root password required</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">需要 Root 的密碼</span>"
-
-#: ../modemlights/modemlights.glade.h:3
-msgid "Enter password"
-msgstr "輸入密碼"
-
-#: ../modemlights/modemlights.glade.h:4
-msgid "Password:"
-msgstr "密碼："
-
-#: ../multiload/GNOME_MultiLoadApplet_Factory.server.in.in.h:1
-msgid "A system load indicator"
-msgstr "系統負載指示器"
-
-#: ../multiload/GNOME_MultiLoadApplet_Factory.server.in.in.h:2
-#: ../multiload/main.c:55
-msgid "System Monitor"
-msgstr "系統監察"
-
-#: ../multiload/GNOME_MultiloadApplet.xml.h:3
-msgid "_Open System Monitor"
-msgstr "啟動系統監察程式(_O)"
-
-#: ../multiload/main.c:59
-msgid ""
-"A system load monitor capable of displaying graphs for CPU, ram, and swap "
-"space use, plus network traffic."
-msgstr "系統負載監察程式可以顯示 CPU、記憶體、交換記憶及網絡使用量。"
-
-#: ../multiload/main.c:122
+#. TRANSLATOR: This is the humidity in percent
+#: ../libgweather/weather.c:782
 #, c-format
-msgid "There was an error executing '%s': %s"
-msgstr "執行‘%s’時出現錯誤：%s"
+msgid "%.f%%"
+msgstr "%.f%%"
 
-#: ../multiload/main.c:284 ../multiload/properties.c:607
-msgid "Processor"
-msgstr "處理器"
+#. TRANSLATOR: This is the wind speed in knots
+#: ../libgweather/weather.c:807
+#, c-format
+msgid "%0.1f knots"
+msgstr "%0.1f 節"
 
-#: ../multiload/main.c:286 ../multiload/properties.c:615
-msgid "Memory"
-msgstr "記憶體"
+# zh_HK: msgstr "每小時 %.1f 海里"
+# zh_TW: msgstr "每小時 %.1f 浬"
+#. TRANSLATOR: This is the wind speed in miles per hour
+#: ../libgweather/weather.c:811
+#, c-format
+msgid "%.1f mph"
+msgstr "每小時 %.1f 海里"
 
-#: ../multiload/main.c:288 ../multiload/properties.c:623
-msgid "Network"
-msgstr "網絡"
+#. TRANSLATOR: This is the wind speed in kilometers per hour
+#: ../libgweather/weather.c:815
+#, c-format
+msgid "%.1f km/h"
+msgstr "每小時 %.1f 公里"
 
-#: ../multiload/main.c:290 ../multiload/properties.c:631
-msgid "Swap Space"
-msgstr "交換記憶"
+# zh_HK: msgstr "每秒 %.1f 米"
+# zh_TW: msgstr "每秒 %.1f 公尺"
+#. TRANSLATOR: This is the wind speed in meters per second
+#: ../libgweather/weather.c:819
+#, c-format
+msgid "%.1f m/s"
+msgstr "每秒 %.1f 米"
 
-#: ../multiload/main.c:292 ../multiload/main.c:363
-msgid "Load Average"
-msgstr "平均負載"
-
-#: ../multiload/main.c:294
-msgid "Disk"
-msgstr "磁碟"
-
-#. xgettext: use and cache are > 1 most of the time,
-#. please assume that they always are.
+#. TRANSLATOR: This is the wind speed as a Beaufort force factor
+#. * (commonly used in nautical wind estimation).
 #.
-#: ../multiload/main.c:313
+#: ../libgweather/weather.c:825
 #, c-format
-msgid ""
-"%s:\n"
-"%u%% in use by programs\n"
-"%u%% in use as cache"
-msgstr ""
-"%s:\n"
-"%u%% 由程式使用中\n"
-"%u%% 使用為快取記憶"
+msgid "Beaufort force %.1f"
+msgstr "蒲福氏風級 %.1f"
 
-#: ../multiload/main.c:321
+#: ../libgweather/weather.c:846
+msgid "Calm"
+msgstr "平靜"
+
+#. TRANSLATOR: This is 'wind direction' / 'wind speed'
+#: ../libgweather/weather.c:850
 #, c-format
-msgid "The system load average is %0.02f"
-msgstr "系統平均負載為 %0.02f"
+msgid "%s / %s"
+msgstr "%s / %s"
 
-#: ../multiload/main.c:334
+#. TRANSLATOR: This is pressure in inches of mercury
+#: ../libgweather/weather.c:868
 #, c-format
-msgid ""
-"%s:\n"
-"%u%% in use"
-msgid_plural ""
-"%s:\n"
-"%u%% in use"
-msgstr[0] ""
-"%s:\n"
-"%u%% 使用中"
-
-#: ../multiload/main.c:359
-msgid "CPU Load"
-msgstr "CPU 負載"
-
-#: ../multiload/main.c:360
-msgid "Memory Load"
-msgstr "記憶體負載"
-
-#: ../multiload/main.c:361
-msgid "Net Load"
-msgstr "網絡負載"
-
-#: ../multiload/main.c:362
-msgid "Swap Load"
-msgstr "交換檔負載"
-
-#: ../multiload/main.c:364
-msgid "Disk Load"
-msgstr "磁碟負載"
-
-#: ../multiload/multiload.schemas.in.h:1
-msgid "Applet refresh rate in milliseconds"
-msgstr "面板程式自動更新頻率（毫秒）"
-
-#: ../multiload/multiload.schemas.in.h:2
-msgid "Background color for disk load graph"
-msgstr "磁碟負載圖的背景色彩"
-
-#: ../multiload/multiload.schemas.in.h:3
-msgid "CPU graph background color"
-msgstr "CPU 負載圖的背景顏色"
-
-#: ../multiload/multiload.schemas.in.h:4
-msgid "Enable CPU load graph"
-msgstr "顯示 CPU 負載圖"
-
-#: ../multiload/multiload.schemas.in.h:5
-msgid "Enable disk load graph"
-msgstr "顯示磁碟負載圖"
-
-#: ../multiload/multiload.schemas.in.h:6
-msgid "Enable load average graph"
-msgstr "顯示系統平均負載圖"
-
-#: ../multiload/multiload.schemas.in.h:7
-msgid "Enable memory load graph"
-msgstr "顯示記憶體負載圖"
-
-#: ../multiload/multiload.schemas.in.h:8
-msgid "Enable network load graph"
-msgstr "顯示網絡負載圖"
-
-#: ../multiload/multiload.schemas.in.h:9
-msgid "Enable swap load graph"
-msgstr "顯示交換記憶負載圖"
-
-#: ../multiload/multiload.schemas.in.h:10
-msgid ""
-"For horizontal panels, the width of the graphs in pixels. For vertical "
-"panels, this is the height of the graphs."
-msgstr "在水平方向的面板中，這個數字是每一格的闊度（像素）。而在垂直面板中這個數字就代表每格的高度。"
-
-#: ../multiload/multiload.schemas.in.h:11
-msgid "Graph color for Ethernet network activity"
-msgstr "代表數據經過乙太網絡的顏色"
-
-#: ../multiload/multiload.schemas.in.h:12
-msgid "Graph color for PLIP network activity"
-msgstr "代表數據經過 PLIP 網絡的顏色"
-
-#: ../multiload/multiload.schemas.in.h:13
-msgid "Graph color for SLIP network activity"
-msgstr "代表數據經過 SLIP 網絡的顏色"
-
-#: ../multiload/multiload.schemas.in.h:14
-msgid "Graph color for buffer memory"
-msgstr "代表緩衝記憶用量的顏色"
-
-#: ../multiload/multiload.schemas.in.h:15
-msgid "Graph color for cached memory"
-msgstr "代表快取記憶用量的顏色"
-
-#: ../multiload/multiload.schemas.in.h:16
-msgid "Graph color for disk read"
-msgstr "代表磁碟讀取的顏色"
-
-#: ../multiload/multiload.schemas.in.h:17
-msgid "Graph color for disk write"
-msgstr "代表磁碟寫入的顏色"
-
-#: ../multiload/multiload.schemas.in.h:18
-msgid "Graph color for iowait related CPU activity"
-msgstr "代表 iowait 相關的 CPU 活動的顏色"
-
-#: ../multiload/multiload.schemas.in.h:19
-msgid "Graph color for load average"
-msgstr "代表系統平均負載的顏色"
-
-#: ../multiload/multiload.schemas.in.h:20
-msgid "Graph color for nice-related CPU activity"
-msgstr "代表優先值較低的進程的 CPU 用量的顏色"
-
-#: ../multiload/multiload.schemas.in.h:21
-msgid "Graph color for other network usage"
-msgstr "代表數據經過其它種類的網絡的顏色"
-
-#: ../multiload/multiload.schemas.in.h:22
-msgid "Graph color for shared memory"
-msgstr "代表分享記憶用量的顏色"
-
-#: ../multiload/multiload.schemas.in.h:23
-msgid "Graph color for system-related CPU activity"
-msgstr "代表和系統有關的 CPU 用量的顏色"
-
-#: ../multiload/multiload.schemas.in.h:24
-msgid "Graph color for user-related CPU activity"
-msgstr "代表和用戶有關的 CPU 用量的顏色"
-
-#: ../multiload/multiload.schemas.in.h:25
-msgid "Graph color for user-related memory usage"
-msgstr "代表和用戶有關的記憶體用量的顏色"
-
-#: ../multiload/multiload.schemas.in.h:26
-msgid "Graph color for user-related swap usage"
-msgstr "代表和用戶有關的交換記憶用量的顏色"
-
-#: ../multiload/multiload.schemas.in.h:27
-msgid "Graph size"
-msgstr "方格"
-
-#: ../multiload/multiload.schemas.in.h:28
-msgid "Load graph background color"
-msgstr "系統負載量背景顏色"
-
-#: ../multiload/multiload.schemas.in.h:29
-msgid "Memory graph background color"
-msgstr "記憶體負載量背景顏色"
-
-#: ../multiload/multiload.schemas.in.h:30
-msgid "Network graph background color"
-msgstr "網絡負載量背景顏色"
-
-#: ../multiload/multiload.schemas.in.h:31
-msgid "Swap graph background color"
-msgstr "交換記憶負載量背景顏色"
-
-#: ../multiload/properties.c:368
-msgid "Monitored Resources"
-msgstr "受監察的資源"
-
-#: ../multiload/properties.c:393
-msgid "_Processor"
-msgstr "處理器(_P)"
-
-#: ../multiload/properties.c:406
-msgid "_Memory"
-msgstr "記憶體(_M)"
-
-#: ../multiload/properties.c:419
-msgid "_Network"
-msgstr "網絡(_N)"
-
-#: ../multiload/properties.c:432
-msgid "S_wap Space"
-msgstr "交換記憶(_W)"
-
-#: ../multiload/properties.c:445
-msgid "_Load"
-msgstr "負載(_L)"
-
-#: ../multiload/properties.c:458
-msgid "_Harddisk"
-msgstr "硬碟(_H)"
-
-#: ../multiload/properties.c:474
-msgid "Options"
-msgstr "選項"
-
-#: ../multiload/properties.c:504
-msgid "System m_onitor width: "
-msgstr "系統監察程式闊度(_O)："
-
-#: ../multiload/properties.c:506
-msgid "System m_onitor height: "
-msgstr "系統監察程式高度(_O)："
-
-#: ../multiload/properties.c:545
-msgid "Sys_tem monitor update interval: "
-msgstr "系統監察更新間隔(_T)："
-
-#: ../multiload/properties.c:571
-msgid "milliseconds"
-msgstr "亳秒"
-
-#: ../multiload/properties.c:582
-msgid "Colors"
-msgstr "色彩"
-
-#: ../multiload/properties.c:609 ../multiload/properties.c:617
-msgid "_User"
-msgstr "使用者(_U)"
-
-#: ../multiload/properties.c:610
-msgid "S_ystem"
-msgstr "系統(_Y)"
-
-#: ../multiload/properties.c:611
-msgid "N_ice"
-msgstr "N_ice"
-
-#: ../multiload/properties.c:612
-msgid "I_OWait"
-msgstr "I_OWait"
-
-#: ../multiload/properties.c:613
-msgid "I_dle"
-msgstr "閒置(_D)"
-
-#: ../multiload/properties.c:618
-msgid "Sh_ared"
-msgstr "分享(_A)"
-
-#: ../multiload/properties.c:619
-msgid "_Buffers"
-msgstr "緩衝區(_B)"
-
-#: ../multiload/properties.c:620
-msgid "Cach_ed"
-msgstr "快取記憶(_E)"
-
-#: ../multiload/properties.c:621
-msgid "F_ree"
-msgstr "未用(_R)"
-
-#: ../multiload/properties.c:625
-msgid "_SLIP"
-msgstr "_SLIP"
-
-#: ../multiload/properties.c:626
-msgid "PL_IP"
-msgstr "PL_IP"
-
-#: ../multiload/properties.c:627
-msgid "_Ethernet"
-msgstr "乙太網(_E)"
-
-#: ../multiload/properties.c:628
-msgid "Othe_r"
-msgstr "其它(_R)"
-
-#: ../multiload/properties.c:629 ../multiload/properties.c:639
-#: ../multiload/properties.c:645
-msgid "_Background"
-msgstr "背景顏色(_B)"
-
-#: ../multiload/properties.c:633
-msgid "_Used"
-msgstr "使用中(_U)"
-
-#: ../multiload/properties.c:634
-msgid "_Free"
-msgstr "可用(_F)"
-
-#: ../multiload/properties.c:636
-msgid "Load"
-msgstr "負載"
-
-#: ../multiload/properties.c:638
-msgid "_Average"
-msgstr "平均(_A)"
-
-#: ../multiload/properties.c:641
-msgid "Harddisk"
-msgstr "硬碟"
-
-#: ../multiload/properties.c:643
-msgid "_Read"
-msgstr "讀(_R)"
-
-#: ../multiload/properties.c:644
-msgid "_Write"
-msgstr "寫(_W)"
-
-#: ../multiload/properties.c:670
-msgid "System Monitor Preferences"
-msgstr "系統監察程式偏好設定"
-
-#: ../null_applet/GNOME_CDPlayerApplet.server.in.h:1
-msgid "CD Player (Deprecated)"
-msgstr "CD 播放程式（不建議再使用）"
-
-#: ../null_applet/GNOME_CDPlayerApplet.server.in.h:2
-msgid "Panel applet for playing audio CDs"
-msgstr "播放音樂 CD 的面板程式"
-
-#: ../null_applet/GNOME_MailcheckApplet_Factory.server.in.h:1
-msgid "Alert you when new mail arrives"
-msgstr "通知你收到新郵件"
-
-#: ../null_applet/GNOME_MailcheckApplet_Factory.server.in.h:2
-msgid "Inbox Monitor (Deprecated)"
-msgstr "郵箱檢查（不建議再使用）"
-
-#: ../null_applet/GNOME_NullApplet_Factory.server.in.in.h:1
-msgid "Factory for deprecating applets"
-msgstr "已過時的面板程式的工廠"
-
-#: ../null_applet/GNOME_NullApplet_Factory.server.in.in.h:2
-msgid "Null Applet Factory"
-msgstr "空白的面板程式工廠"
-
-#: ../null_applet/GNOME_Panel_WirelessApplet.server.in.h:1
-msgid "Monitor the quality of a wireless network link"
-msgstr "監察無線網絡連線的訊號品質"
-
-#: ../null_applet/GNOME_Panel_WirelessApplet.server.in.h:2
-msgid "Wireless Link Monitor"
-msgstr "無線網絡連線監察程式"
-
-#: ../null_applet/null_applet.c:149
-msgid "Some panel items are no longer available"
-msgstr "有些面板項目已經不存在"
-
-#: ../null_applet/null_applet.c:150
-msgid ""
-"One or more panel items (also referred to as applets) are no longer "
-"available in the GNOME desktop."
-msgstr "一個或更多的面板項目（通常是面板程式），已經不存在於 GNOME 桌面。"
-
-#: ../null_applet/null_applet.c:152
-msgid "These items will now be removed from your configuration:"
-msgstr "這些項目現在會從你的設置中移除："
-
-#: ../null_applet/null_applet.c:155
-msgid "You will not receive this message again."
-msgstr "你以後不會再收到這訊息。"
-
-#: ../stickynotes/data/GNOME_StickyNotesApplet.server.in.h:1
-msgid "Tomboy (ne Stickynotes)"
-msgstr "Tomboy （前身為 Stickynotes）"
-
-#: ../stickynotes/data/GNOME_StickyNotesApplet.server.in.h:2
-msgid "Tomboy (transparent upgrade from stickynotes)"
-msgstr "Tomboy（Stickynotes 的升級版本）"
-
-#: ../stickynotes/GNOME_StickyNotesApplet.server.in.in.h:1
-msgid "Create, view, and manage sticky notes on the desktop"
-msgstr "在桌面中製作、顯示和管理便條"
-
-#: ../stickynotes/GNOME_StickyNotesApplet.server.in.in.h:2
-#: ../stickynotes/stickynotes_applet.c:410
-#: ../stickynotes/stickynotes_applet_callbacks.c:363
-msgid "Sticky Notes"
-msgstr "便條"
-
-#: ../stickynotes/GNOME_StickyNotesApplet.server.in.in.h:3
-msgid "Sticky Notes Applet Factory"
-msgstr "便條面板程式工廠"
-
-#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:1
-msgid "Hi_de Notes"
-msgstr "隱藏便條(_D)"
-
-#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:3
-msgid "_Delete Notes"
-msgstr "刪除便條(_D)"
-
-#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:5
-msgid "_Lock Notes"
-msgstr "鎖定便條(_L)"
-
-#: ../stickynotes/GNOME_StickyNotesApplet.xml.h:6
-#: ../stickynotes/stickynotes.glade.h:44
-msgid "_New Note"
-msgstr "新增便條(_N)"
-
-#: ../stickynotes/stickynotes.c:617
-msgid "This note is locked."
-msgstr "這便條已鎖定。"
-
-#: ../stickynotes/stickynotes.c:621
-msgid "This note is unlocked."
-msgstr "這便條未上鎖。"
-
-#: ../stickynotes/stickynotes.glade.h:2
-msgid "    Font C_olor:"
-msgstr "    字型顏色(_O)："
-
-#: ../stickynotes/stickynotes.glade.h:3
-msgid "    Font Co_lor:"
-msgstr "    字型顏色(_L)："
-
-#: ../stickynotes/stickynotes.glade.h:4
-msgid "    Note C_olor:"
-msgstr "    便條顏色(_O)："
-
-#: ../stickynotes/stickynotes.glade.h:5
-msgid "    Note _Color:"
-msgstr "    便條顏色(_C)："
-
-#: ../stickynotes/stickynotes.glade.h:6
-msgid "    _Font:"
-msgstr "    字型(_F)："
-
-#: ../stickynotes/stickynotes.glade.h:7
-msgid "<b>Behavior</b>"
-msgstr "<b>運作方式</b>"
-
-#: ../stickynotes/stickynotes.glade.h:8
-msgid "<b>Default Note Properties</b>"
-msgstr "<b>預設的便條屬性</b>"
-
-#: ../stickynotes/stickynotes.glade.h:9
-msgid ""
-"<b>Delete all sticky notes?</b>\n"
-"\n"
-"This cannot be undone."
-msgstr ""
-"<b>是否刪除所有便條？</b>\n"
-"\n"
-"刪除後不能復原。"
-
-#: ../stickynotes/stickynotes.glade.h:12
-msgid ""
-"<b>Delete this sticky note?</b>\n"
-"\n"
-"This cannot be undone."
-msgstr ""
-"<b>是否刪除這條便條？</b>\n"
-"\n"
-"刪除後不能復原。"
-
-#: ../stickynotes/stickynotes.glade.h:15
-msgid "<b>Properties</b>"
-msgstr "<b>屬性</b>"
-
-#: ../stickynotes/stickynotes.glade.h:16
-msgid "Choose a base color to use for all sticky notes"
-msgstr "選取所有便條使用的基本顏色"
-
-#: ../stickynotes/stickynotes.glade.h:17
-msgid "Choose a color for the note"
-msgstr "選取便條顏色"
-
-#: ../stickynotes/stickynotes.glade.h:18
-msgid "Choose a font for the note"
-msgstr "選取便條字型"
-
-#: ../stickynotes/stickynotes.glade.h:19
-msgid "Choose a font to use for all sticky notes"
-msgstr "選取所有便條使用的字型"
-
-#: ../stickynotes/stickynotes.glade.h:20
-msgid "Choose if notes are visible on all workspaces"
-msgstr "選擇便條會否在所有工作區中出現"
-
-#: ../stickynotes/stickynotes.glade.h:21
-msgid "Choose if the default style is forced on all notes"
-msgstr "指定是否強迫所有便條使用預設的樣式"
-
-#: ../stickynotes/stickynotes.glade.h:22
-msgid "Close note"
-msgstr "關閉便條"
-
-#: ../stickynotes/stickynotes.glade.h:23
-msgid "Force _default color and font on notes"
-msgstr "強制便條使用某種預設色彩和字型(_D)"
-
-#: ../stickynotes/stickynotes.glade.h:24
-msgid "H_eight:"
-msgstr "高度(_E)："
-
-#: ../stickynotes/stickynotes.glade.h:25
-msgid "Lock/Unlock note"
-msgstr "鎖定/不鎖定便條內容"
-
-#: ../stickynotes/stickynotes.glade.h:26
-msgid "Pick a color for the sticky note"
-msgstr "選取便條的顏色"
-
-#: ../stickynotes/stickynotes.glade.h:27
-msgid "Pick a default sticky note color"
-msgstr "選取預設的便條顏色"
-
-#: ../stickynotes/stickynotes.glade.h:28
-msgid "Pick a default sticky note font"
-msgstr "選取預設的便條字型"
-
-#: ../stickynotes/stickynotes.glade.h:29
-msgid "Pick a font for the sticky note"
-msgstr "選取便條的字型"
-
-#: ../stickynotes/stickynotes.glade.h:30
-msgid "Resize note"
-msgstr "更改便條大小"
-
-#: ../stickynotes/stickynotes.glade.h:31
-msgid "Specify a title for the note"
-msgstr "指定便條的標題"
-
-#: ../stickynotes/stickynotes.glade.h:32
-msgid "Specify the default height (in pixels) of new notes"
-msgstr "指定新的便條的預設高度（像素）"
-
-#: ../stickynotes/stickynotes.glade.h:33
-msgid "Specify the default width (in pixels) of new notes"
-msgstr "指定新的便條的預設闊度（像素）"
-
-#: ../stickynotes/stickynotes.glade.h:34
-msgid "Sticky Note"
-msgstr "便條"
-
-#: ../stickynotes/stickynotes.glade.h:35
-msgid "Sticky Note Properties"
-msgstr "便條屬性"
-
-#: ../stickynotes/stickynotes.glade.h:36
-msgid "Sticky Notes Preferences"
-msgstr "便條偏好設定"
-
-#: ../stickynotes/stickynotes.glade.h:37
-msgid "Use co_lor from the system theme"
-msgstr "使用系統指定的色彩(_L)"
-
-#: ../stickynotes/stickynotes.glade.h:38
-msgid "Use default co_lor"
-msgstr "使用預設色彩(_L)"
-
-#: ../stickynotes/stickynotes.glade.h:39
-msgid "Use default fo_nt"
-msgstr "使用預設字型(_N)"
-
-#: ../stickynotes/stickynotes.glade.h:40
-msgid "Use fo_nt from the system theme"
-msgstr "使用系統佈景主題所指定的字型(_N)"
-
-#: ../stickynotes/stickynotes.glade.h:41
-msgid "_Delete All"
-msgstr "全部刪除(_D)"
-
-#: ../stickynotes/stickynotes.glade.h:42
-msgid "_Delete Note..."
-msgstr "刪除便條(_D)..."
-
-#: ../stickynotes/stickynotes.glade.h:43
-msgid "_Lock Note"
-msgstr "鎖定便條內容(_L)"
-
-#: ../stickynotes/stickynotes.glade.h:46
-msgid "_Put notes on all workspaces"
-msgstr "在所有工作區中顯示便條(_P)"
-
-#: ../stickynotes/stickynotes.glade.h:47
-msgid "_Title:"
-msgstr "標題(_T)："
-
-#: ../stickynotes/stickynotes.schemas.in.h:1
-msgid ""
-"By default, sticky notes are given the current date as the title when they "
-"are created. This format is used; anything that can be parsed by strftime() "
-"is valid."
-msgstr "當產生便條時，預設是使用該天的日期作為標題的。這裏指定顯示日期的格式，規定為任何 strftime() 能夠接受的格式。"
-
-#: ../stickynotes/stickynotes.schemas.in.h:2
-msgid "Date format of note's title"
-msgstr "便條標題的日期格式"
-
-#: ../stickynotes/stickynotes.schemas.in.h:3
-msgid "Default color for font"
-msgstr "預設的字型顏色"
-
-#: ../stickynotes/stickynotes.schemas.in.h:4
-msgid "Default color for new notes"
-msgstr "新便條預設使用的顏色"
-
-#: ../stickynotes/stickynotes.schemas.in.h:5
-msgid ""
-"Default color for new sticky notes. This should be in html hex "
-"specification, for example \"#30FF50\"."
-msgstr "新便條預設使用的顏色。它應該使用像 HTML 中的 16 進制數字來表示，例如“#30FF50”。"
-
-#: ../stickynotes/stickynotes.schemas.in.h:6
-msgid ""
-"Default font color for new sticky notes. This should be in html hex "
-"specification, for example \"#000000\"."
-msgstr "新便條預設使用的字型顏色。它應該使用像 HTML 中的 16 進制數字來表示，例如“#000000”。"
-
-#: ../stickynotes/stickynotes.schemas.in.h:7
-msgid "Default font for new notes"
-msgstr "新便條預設使用的字型"
-
-#: ../stickynotes/stickynotes.schemas.in.h:8
-msgid ""
-"Default font for new sticky notes. This should be a Pango Font Name, for "
-"example \"Sans Italic 10\""
-msgstr "新便條預設使用的字型。它應該使用 Pango 格式的字型名稱，例如“Sans Italic 10”"
-
-#: ../stickynotes/stickynotes.schemas.in.h:9
-msgid "Default height for new notes"
-msgstr "新的便條的預設高度"
-
-#: ../stickynotes/stickynotes.schemas.in.h:10
-msgid "Default height for new sticky notes in pixels."
-msgstr "新的便條的預設高度，以像素計算。"
-
-#: ../stickynotes/stickynotes.schemas.in.h:11
-msgid "Default width for new notes"
-msgstr "新的便條的預設闊度"
-
-#: ../stickynotes/stickynotes.schemas.in.h:12
-msgid "Default width for new sticky notes in pixels."
-msgstr "新的便條的預設闊度，以像素計算。"
-
-#: ../stickynotes/stickynotes.schemas.in.h:13
-msgid "Empty notes are always deleted without confirmation"
-msgstr "便條如果沒有內容，刪除前不需要確認"
-
-#: ../stickynotes/stickynotes.schemas.in.h:14
-msgid ""
-"If this option is disabled, a custom color can be used as the default color "
-"for all sticky notes."
-msgstr "如停用本選項，你可以自行指定一種顏色作為所有便條的預設顏色。"
-
-#: ../stickynotes/stickynotes.schemas.in.h:15
-msgid ""
-"If this option is disabled, a custom font can be used as the default font "
-"for all sticky notes."
-msgstr "如停用本選項，你可以自行指定一種字型作為所有便條的預設字型。"
-
-#: ../stickynotes/stickynotes.schemas.in.h:16
-msgid ""
-"If this option is enabled, the custom colors and fonts that have been "
-"assigned to individual notes will be ignored."
-msgstr "如選用本選項，任何個別便條使用的字型和顏色設定都會被忽略。"
-
-#: ../stickynotes/stickynotes.schemas.in.h:17
-msgid "Specifies whether the sticky notes are locked (non-editable) or not."
-msgstr "指定便條內容是否鎖定（不允許編輯）。"
-
-#: ../stickynotes/stickynotes.schemas.in.h:18
-msgid ""
-"Specifies whether the sticky notes are visible on ALL workspaces on the "
-"desktop, or not."
-msgstr "指定是否在所有桌面中顯示便條。"
-
-#: ../stickynotes/stickynotes.schemas.in.h:19
-msgid "Sticky notes' locked state"
-msgstr "是否鎖定便條內容"
-
-#: ../stickynotes/stickynotes.schemas.in.h:20
-msgid "Sticky notes' workspace stickyness"
-msgstr "是否在所有工作區顯示便條"
-
-#: ../stickynotes/stickynotes.schemas.in.h:21
-msgid "Whether to ask for confirmation when deleting a note"
-msgstr "刪除便條前是否需要確認"
-
-#: ../stickynotes/stickynotes.schemas.in.h:22
-msgid "Whether to force the default color and font on all notes"
-msgstr "是否強迫所有便條使用預設顏色和字型"
-
-#: ../stickynotes/stickynotes.schemas.in.h:23
-msgid "Whether to use the default system color"
-msgstr "是否使用系統預設的色彩"
-
-#: ../stickynotes/stickynotes.schemas.in.h:24
-msgid "Whether to use the default system font"
-msgstr "是否使用系統預設字型"
-
-#: ../stickynotes/stickynotes_applet.c:585
+msgid "%.2f inHg"
+msgstr "%.2f inHg"
+
+#. TRANSLATOR: This is pressure in millimeters of mercury
+#: ../libgweather/weather.c:872
 #, c-format
-msgid "%d note"
-msgid_plural "%d notes"
-msgstr[0] "%d 張便條"
+msgid "%.1f mmHg"
+msgstr "%.1f mmHg"
 
-#: ../stickynotes/stickynotes_applet.c:586
-msgid "Show sticky notes"
-msgstr "顯示便條"
-
-#: ../stickynotes/stickynotes_applet_callbacks.c:367
-msgid "Sticky Notes for the GNOME Desktop Environment"
-msgstr "適用於 GNOME 桌面環境的便條程式"
-
-#: ../trashapplet/GNOME_Panel_TrashApplet.server.in.in.h:1
-msgid "Go to Trash"
-msgstr "前往回收筒"
-
-#: ../trashapplet/GNOME_Panel_TrashApplet.server.in.in.h:2
-msgid "Trash"
-msgstr "回收筒"
-
-#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:2
-#: ../trashapplet/src/trashapplet.c:619
-msgid "_Empty Trash"
-msgstr "清理回收筒(_E)"
-
-#: ../trashapplet/GNOME_Panel_TrashApplet.xml.h:4
-msgid "_Open"
-msgstr "開啟(_O)"
-
-#: ../trashapplet/src/trashapplet.c:164
+# zh_HK: msgstr "%.2f 千帕斯卡"
+# zh_TW: msgstr "%.2f 千帕"
+#. TRANSLATOR: This is pressure in kiloPascals
+#: ../libgweather/weather.c:876
 #, c-format
-msgid "Unable to find the Trash directory: %s"
-msgstr "無法找到回收筒目錄：%s"
+msgid "%.2f kPa"
+msgstr "%.2f 千帕斯卡"
 
-#: ../trashapplet/src/trashapplet.c:405
-msgid "No Items in Trash"
-msgstr "回收筒中沒有任何項目"
-
-#: ../trashapplet/src/trashapplet.c:409
+# zh_HK: msgstr "%.2f 百帕斯卡"
+# zh_TW: msgstr "%.2f 百帕"
+#. TRANSLATOR: This is pressure in hectoPascals
+#: ../libgweather/weather.c:880
 #, c-format
-msgid "%d Item in Trash"
-msgid_plural "%d Items in Trash"
-msgstr[0] "回收筒中有 %d 個項目"
+msgid "%.2f hPa"
+msgstr "%.2f 百帕斯卡"
 
-#: ../trashapplet/src/trashapplet.c:531
+#. TRANSLATOR: This is pressure in millibars
+#: ../libgweather/weather.c:884
 #, c-format
-msgid "Removing item %d of %d"
-msgstr "正在移除項目 %d 之 %d"
+msgid "%.2f mb"
+msgstr "%.2f 亳巴"
 
-#: ../trashapplet/src/trashapplet.c:557
-msgid "Removing:"
-msgstr "正在移除："
-
-#: ../trashapplet/src/trashapplet.c:596
-msgid "Empty all of the items from the trash?"
-msgstr "要清除回收筒中所有的項目？"
-
-#: ../trashapplet/src/trashapplet.c:599
-msgid ""
-"If you choose to empty the trash, all items in it will be permanently lost. "
-"Please note that you can also delete them separately."
-msgstr "如果要清理回收筒，裏面的項目將會永久地刪除。請記得你是可以將它們逐一刪除的。"
-
-#: ../trashapplet/src/trashapplet.c:703
+#. TRANSLATOR: This is pressure in atmospheres
+#: ../libgweather/weather.c:888
 #, c-format
-msgid ""
-"Error while spawning nautilus:\n"
-"%s"
-msgstr ""
-"當執行 nautilus 時發生錯誤：\n"
-"%s"
+msgid "%.3f atm"
+msgstr "%.3f atm"
 
-#: ../trashapplet/src/trashapplet.c:750
-msgid "Trash Applet"
-msgstr "回收筒面板程式"
-
-#: ../trashapplet/src/trashapplet.c:753
-msgid ""
-"A GNOME trash bin that lives in your panel. You can use it to view the trash "
-"or drag and drop items into the trash."
-msgstr "面板上的回收筒。你可以用它來查看回收筒及將項目拖曳進去。"
-
-#: ../trashapplet/src/trashapplet.c:778
-msgid "Delete Immediately?"
-msgstr "立即刪除？"
-
-#: ../trashapplet/src/trashapplet.c:807
-msgid "Cannot move items to trash, do you want to delete them immediately?"
-msgstr "無法將項目丟到回收筒，要立即刪除它嗎？"
-
-#: ../trashapplet/src/trashapplet.c:810
-msgid ""
-"Cannot move some items to trash, do you want to delete these immediately?"
-msgstr "有些項目無法丟到回收筒，要立即刪除它嗎？"
-
-#: ../trashapplet/src/trashapplet.c:910 ../trashapplet/src/trashapplet.c:927
+#. TRANSLATOR: This is the visibility in miles
+#: ../libgweather/weather.c:913
 #, c-format
-msgid ""
-"Unable to move to trash:\n"
-"%s"
-msgstr ""
-"無法移到回收筒：\n"
-"%s"
+msgid "%.1f miles"
+msgstr "%.1f 英里"
 
-#: ../trashapplet/trashapplet.glade.h:1
-msgid "<b>From:</b>"
-msgstr "<b>從：</b>"
+#. TRANSLATOR: This is the visibility in kilometers
+#: ../libgweather/weather.c:917
+#, c-format
+msgid "%.1f km"
+msgstr "%.1f 公里"
 
-#: ../trashapplet/trashapplet.glade.h:2
-msgid "<big><b>Emptying the Trash</b></big>"
-msgstr "<big><b>正在清理回收筒</b></big>"
+# zh_HK: msgstr "%.0f 米"
+# zh_TW: msgstr "%.0f 公尺"
+#. TRANSLATOR: This is the visibility in meters
+#: ../libgweather/weather.c:921
+#, c-format
+msgid "%.0fm"
+msgstr "%.0f 米"
 
-#: ../trashapplet/trashapplet.glade.h:3
-msgid "Emptying the Trash"
-msgstr "正在清理回收筒"
+#: ../libgweather/weather.c:949 ../libgweather/weather.c:969
+msgid "%H:%M"
+msgstr "%H:%M"
+
+#: ../libgweather/weather.c:1002
+msgid "Retrieval failed"
+msgstr "接收失敗"
+
+#~ msgid "_About"
+#~ msgstr "關於(_A)"
+
+#~ msgid "_Help"
+#~ msgstr "求助(_H)"
+
+#~ msgid "_Keyboard Accessibility Preferences"
+#~ msgstr "無障礙環境鍵盤偏好設定(_K)"
+
+#~ msgid "AccessX Status Applet Factory"
+#~ msgstr "AccessX 狀態面板程式工廠"
+
+#~ msgid "Keyboard Accessibility Status"
+#~ msgstr "無障礙環境鍵盤狀態"
+
+#~ msgid "Keyboard Accessibility Status Applet Factory"
+#~ msgstr "無障礙環境鍵盤狀態面板程式工廠"
+
+#~ msgid "Shows the status of keyboard accessibility features"
+#~ msgstr "顯示無障礙環境鍵盤狀態"
+
+#~ msgid "AccessX Status"
+#~ msgstr "無障礙環境狀態"
+
+#~ msgid "Shows the state of AccessX features such as latched modifiers"
+#~ msgstr "顯示無障礙環境鍵盤的狀態"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "如對翻譯有任何意見，請送一封電子郵件給\n"
+#~ "以下地址，GNOME 翻譯團隊會儘快回覆您：\n"
+#~ "community@linuxhall.org\n"
+#~ "\n"
+#~ "Woodman Tuen <wmtuen@gmail.com>, 2005-2006\n"
+#~ "Abel Cheung <abel@oaka.org>, 2001-2004\n"
+#~ "Jing-Jong Shyue <shyue@sonoma.com.tw>, 2000\n"
+#~ "Yuan-Chung Cheng <platin@linux.org.tw>, 1999"
+
+#~ msgid "There was an error launching the help viewer: %s"
+#~ msgstr "啟動說明文件瀏覽器時出現錯誤：%s"
+
+#~ msgid "There was an error launching the keyboard preferences dialog: %s"
+#~ msgstr "啟動鍵盤偏好設定對話方塊時出現錯誤：%s"
+
+#~ msgid "a"
+#~ msgstr "a"
+
+#~ msgid "Shows keyboard status when accessibility features are used."
+#~ msgstr "啟用無障礙環境功能時顯示鍵盤狀態。"
+
+#~ msgid "XKB Extension is not enabled"
+#~ msgstr "並未啟用 XKB 延伸功能"
+
+#~ msgid "Unknown error"
+#~ msgstr "不明的錯誤"
+
+#~ msgid "Error: %s"
+#~ msgstr "錯誤：%s"
+
+#~ msgid "Displays current state of keyboard accessibility features"
+#~ msgstr "顯示目前的無障礙環境鍵盤狀態"
+
+#~ msgid "Battery Charge Monitor"
+#~ msgstr "電池電量監察程式"
+
+#~ msgid "Battstat Factory"
+#~ msgstr "Battstat 工廠"
+
+#~ msgid "Monitor a laptop's remaining power"
+#~ msgstr "監察筆記型電腦的剩餘電量"
+
+#~ msgid "_Preferences"
+#~ msgstr "偏好設定(_P)"
+
+#~ msgid "0 for no label, 1 for percentage and 2 for time remaining"
+#~ msgstr "‘0’則沒有標籤，‘1’則顯示百分比，‘2’則顯示剩餘時間"
+
+#~ msgid "Beep for warnings"
+#~ msgstr "顯示訊息時發出聲響"
+
+#~ msgid "Beep when displaying a warning"
+#~ msgstr "顯示訊息時同時發出聲響"
+
+#~ msgid "Drain from top"
+#~ msgstr "指示棒從頂部開始縮短"
+
+#~ msgid "Full Battery Notification"
+#~ msgstr "電量全滿時發出通知"
+
+#~ msgid "Low Battery Notification"
+#~ msgstr "電量太低時發出通知"
+
+#~ msgid "Notify user when the battery is full"
+#~ msgstr "當充電完成後通知使用者"
+
+#~ msgid "Notify user when the battery is low"
+#~ msgstr "當電量太低時通知使用者"
+
+#~ msgid "Red value level"
+#~ msgstr "紅色表示電量"
+
+#~ msgid ""
+#~ "Show the battery meter draining from the top of the battery. Only "
+#~ "implemented for traditional battery view."
+#~ msgstr "在電池頂部顯示電量棒。只適用於傳統電量顯示模式。"
+
+#~ msgid "Show the horizontal battery"
+#~ msgstr "顯示水平電池圖樣"
+
+#~ msgid "Show the time/percent label"
+#~ msgstr "顯示時間/百分比標籤"
+
+#~ msgid "Show the traditional, horizontal battery on the panel"
+#~ msgstr "在面板上顯示傳統的，水平的電池圖樣"
+
+#~ msgid "Show the upright, smaller battery on the panel"
+#~ msgstr "在面板上顯示垂直的，較小的電池圖樣"
+
+#~ msgid ""
+#~ "The battery level below which the battery is displayed as red. Also the "
+#~ "value at which the low battery warning is displayed."
+#~ msgstr "電池電量低於這個數值時會顯示為紅色。同樣低於這個數值時會發出警告。"
+
+#~ msgid "Upright (small) battery"
+#~ msgstr "垂直（較小）電池圖樣"
+
+#~ msgid ""
+#~ "Use the value defined in red_value as a time remaining to show the "
+#~ "warning dialog rather than a percentage"
+#~ msgstr ""
+#~ "使用 red_value 定義的數值作為來以剩餘時間顯示警告對話方塊，而非以電量的百"
+#~ "份比。"
+
+#~ msgid "Warn on low time rather than low percentage"
+#~ msgstr "以低剩餘時間發出警告，而非以電量的低百份比"
+
+#~ msgid "System is running on AC power"
+#~ msgstr "系統正在使用交流電"
+
+#~ msgid "System is running on battery power"
+#~ msgstr "系統正在使用電池"
+
+#~ msgid "Battery charged (%d%%)"
+#~ msgstr "電池已充電 (%d%%)"
+
+#~ msgid "Unknown time (%d%%) remaining"
+#~ msgstr "無法決定可使用時間，剩餘電量 %d%%"
+
+#~ msgid "Unknown time (%d%%) until charged"
+#~ msgstr "無法決定充電所需時間，剩餘電量 %d%%"
+
+#~ msgid "%d minute (%d%%) remaining"
+#~ msgid_plural "%d minutes (%d%%) remaining"
+#~ msgstr[0] "可使用 %d 分鐘，剩餘電量 %d%%"
+
+#~ msgid "%d minute until charged (%d%%)"
+#~ msgid_plural "%d minutes until charged (%d%%)"
+#~ msgstr[0] "距離完全充電還有 %d 分鐘，剩餘電量 %d%%"
+
+#~ msgid "%d hour (%d%%) remaining"
+#~ msgid_plural "%d hours (%d%%) remaining"
+#~ msgstr[0] "可使用 %d 小時，剩餘電量 %d%%"
+
+#~ msgid "%d hour until charged (%d%%)"
+#~ msgid_plural "%d hours until charged (%d%%)"
+#~ msgstr[0] "距離完全充電還有 %d 小時，剩餘電量 %d%%"
+
+#~ msgid "%d %s %d %s (%d%%) remaining"
+#~ msgstr "可使用 %d %s %d %s，剩餘電量 %d%%"
+
+#~ msgid "hour"
+#~ msgid_plural "hours"
+#~ msgstr[0] "小時"
+
+#~ msgid "minute"
+#~ msgid_plural "minutes"
+#~ msgstr[0] "分鐘"
+
+#~ msgid "%d %s %d %s until charged (%d%%)"
+#~ msgstr "距離完全充電還有 %d %s %d %s，剩餘電量 %d%%"
+
+#~ msgid "Battery Monitor"
+#~ msgstr "電池電量監察程式"
+
+#~ msgid "Your battery is now fully recharged"
+#~ msgstr "電池已完成充電"
+
+#~ msgid "Battery Notice"
+#~ msgstr "電池狀態通知"
+
+#~ msgid "You have %d%% of your total battery capacity remaining."
+#~ msgstr "您的電池總電量剩下 %d%%。"
+
+#~ msgid ""
+#~ "You have %d minute of battery power remaining (%d%% of the total "
+#~ "capacity)."
+#~ msgid_plural ""
+#~ "You have %d minutes of battery power remaining (%d%% of the total "
+#~ "capacity)."
+#~ msgstr[0] "現在電池剩餘 %d 分鐘的電量（總電量為 %d%%）。"
+
+#~ msgid ""
+#~ "To avoid losing your work:\n"
+#~ " • plug your laptop into external power, or\n"
+#~ " • save open documents and shut your laptop down."
+#~ msgstr ""
+#~ "為了避免您的工作遺失：\n"
+#~ " • 替筆記型電腦插上外部電源，或\n"
+#~ " • 儲存已開啟的文件及關機。"
+
+#~ msgid ""
+#~ "To avoid losing your work:\n"
+#~ " • suspend your laptop to save power,\n"
+#~ " • plug your laptop into external power, or\n"
+#~ " • save open documents and shut your laptop down."
+#~ msgstr ""
+#~ "為了避免您的工作遺失：\n"
+#~ " • 暫停筆記型電腦來節省用電，\n"
+#~ " • 替筆記型電腦插上外部電源，或\n"
+#~ " • 儲存已開啟的文件及關機。"
+
+#~ msgid "Your battery is running low"
+#~ msgstr "電池電量甚低"
+
+#~ msgid "No battery present"
+#~ msgstr "電池不存在"
+
+#~ msgid "Battery status unknown"
+#~ msgstr "電池狀態不詳"
+
+#~ msgid "N/A"
+#~ msgstr "不適用"
+
+#~ msgid "There was an error displaying help: %s"
+#~ msgstr "顯示說明文件時出現錯誤：%s"
+
+#~ msgid "This utility shows the status of your laptop battery."
+#~ msgstr "本公用程式可以顯示筆記型電腦的電池狀態。"
+
+#~ msgid "HAL backend enabled."
+#~ msgstr "已啟用 HAL 後端"
+
+#~ msgid "Legacy (non-HAL) backend enabled."
+#~ msgstr "已啟用舊的（非 HAL）後端。"
+
+#~ msgid "<b>Appearance</b>"
+#~ msgstr "<b>外觀</b>"
+
+#~ msgid "<b>Notifications</b>"
+#~ msgstr "<b>通知</b>"
+
+#~ msgid "<small>(shows single image for status and charge)</small>"
+#~ msgstr "<small>（只顯示一個圖形來代表狀態及電量）</small>"
+
+#~ msgid "<small>(two images: one for status, one for charge)</small>"
+#~ msgstr "<small>（兩個圖形，一個代表狀態，另一個代表電量）</small>"
+
+#~ msgid "Battery Charge Monitor Preferences"
+#~ msgstr "電池電量監察程式偏好設定"
+
+#~ msgid "Show _percentage remaining"
+#~ msgstr "顯示剩餘的百份比(_P)"
+
+#~ msgid "Show _time remaining"
+#~ msgstr "顯示剩餘時間(_T)"
+
+#~ msgid "_Compact view"
+#~ msgstr "簡潔顯示(_E)"
+
+#~ msgid "_Expanded view"
+#~ msgstr "詳細顯示(_E)"
+
+#~ msgid "_Notify when battery is fully recharged"
+#~ msgstr "當完全充電後發出通知(_N)"
+
+#~ msgid "_Show time/percentage:"
+#~ msgstr "顯示時間/百分比(_S)："
+
+#~ msgid "_Warn when battery charge drops to:"
+#~ msgstr "當電量下降至剩餘(_W)"
+
+#~ msgid "Percent"
+#~ msgstr "% 時發出警告"
+
+#~ msgid "Minutes Remaining"
+#~ msgstr "分鐘時發出警告"
+
+#~ msgid "Battery Status Utility"
+#~ msgstr "電池狀態公用程式"
+
+#~ msgid "Battery fully re-charged"
+#~ msgstr "電池電量全滿"
+
+#~ msgid "Battery power low"
+#~ msgstr "電池電量過低"
+
+#~ msgid "Character Palette"
+#~ msgstr "字元選擇盤"
+
+#~ msgid "Charpicker Applet Factory"
+#~ msgstr "字元選擇面板程式工廠"
+
+#~ msgid "Insert characters"
+#~ msgstr "加入字元"
+
+#~ msgid "Available palettes"
+#~ msgstr "可供選用的字盤"
+
+#~ msgid "Insert \"%s\""
+#~ msgstr "插入“%s”"
+
+#~ msgid "Insert special character"
+#~ msgstr "插入特殊字元"
+
+#~ msgid "insert special character %s"
+#~ msgstr "插入特殊字元 %s"
+
+#~ msgid ""
+#~ "Gnome Panel applet for selecting strange characters that are not on my "
+#~ "keyboard. Released under GNU General Public Licence."
+#~ msgstr ""
+#~ "本 GNOME 面板程式可用來選取在鍵盤上找不到的特殊字元。遵照 GNU 公共授權條"
+#~ "款 (GPL) 發行。"
+
+#~ msgid "Characters shown on applet startup"
+#~ msgstr "面板程式啟動時所顯示的字元"
+
+#~ msgid "DEPRECATED - Characters shown on applet startup"
+#~ msgstr "面板程式啟動時所顯示的字元"
+
+#~ msgid "List of available palettes"
+#~ msgstr "可供選用的選字盤"
+
+#~ msgid "List of strings containing the available palettes"
+#~ msgstr "列出所有可供選用的選字盤"
+
+#~ msgid ""
+#~ "The string that the user had selected when the applet was last used. This "
+#~ "string will be displayed when the user starts the applet."
+#~ msgstr ""
+#~ "這是使用者在上次啟動面板程式時選擇的字串。使用者下次啟動面板程式時會再顯示"
+#~ "這個字串。"
+
+#~ msgid "_Edit"
+#~ msgstr "編輯(_E)"
+
+#~ msgid "_Palette:"
+#~ msgstr "選字盤(_P)："
+
+#~ msgid "Palette entry"
+#~ msgstr "選字盤項目"
+
+#~ msgid "Modify a palette by adding or removing characters"
+#~ msgstr "在選字盤中加減字元"
+
+#~ msgid "Add Palette"
+#~ msgstr "加入選字盤"
+
+#~ msgid "Edit Palette"
+#~ msgstr "修改選字盤"
+
+#~ msgid "Palettes list"
+#~ msgstr "選字盤清單"
+
+#~ msgid "_Palettes:"
+#~ msgstr "選字盤(_P)："
+
+#~ msgid "Add button"
+#~ msgstr "加入按鈕"
+
+#~ msgid "Click to add a new palette"
+#~ msgstr "按這裡可以加入新的選字盤"
+
+#~ msgid "Edit button"
+#~ msgstr "修改按鈕"
+
+#~ msgid "Click to edit the selected palette"
+#~ msgstr "按這裡可以修改指定的選字盤"
+
+#~ msgid "Delete button"
+#~ msgstr "刪除按鈕"
+
+#~ msgid "Click to delete the selected palette"
+#~ msgstr "按這裡可以刪除指定的選字盤"
+
+#~ msgid "Character Palette Preferences"
+#~ msgstr "選字盤偏好設定"
+
+#~ msgid "CPU Frequency Scaling Monitor"
+#~ msgstr "CPU 頻率調整監察程式"
+
+#~ msgid "Monitor the CPU Frequency Scaling"
+#~ msgstr "監察 CPU 頻率的調整"
+
+#~ msgid ""
+#~ "A 0 value means to show cpu frequency, 1 to show frequency and units, and "
+#~ "2 to show percentage instead of frequency."
+#~ msgstr ""
+#~ "數值‘0’代表顯示處理器頻率，‘1’代表顯示頻率及單位，‘2’代表顯以百份比取代頻"
+#~ "率顯示。"
+
+#~ msgid ""
+#~ "A 0 value means to show the applet in graphic mode (pixmap only), 1 to "
+#~ "show the applet in text mode (not to show the pixmap) and 2 to show the "
+#~ "applet in graphic and text mode."
+#~ msgstr ""
+#~ "數值 0 代表面板程式以圖形模式顯示（只顯示 pixmap），1 代表以文字模式顯示"
+#~ "（不顯示 pixmap），2 代表以文字及圖形模式顯示。"
+
+#~ msgid "CPU to Monitor"
+#~ msgstr "要監察的 CPU"
+
+#~ msgid "Mode to show cpu usage"
+#~ msgstr "顯示 CPU 用量的模式"
+
+#~ msgid ""
+#~ "Set the CPU to monitor. In a single processor system you don't have to "
+#~ "change it."
+#~ msgstr "設定監察的 CPU。在單一處理器的系統上無需變更它。"
+
+#~ msgid "The type of text to display (if the text is enabled)."
+#~ msgstr "文字的顯示類型（如已啟用文字）。"
+
+#~ msgid "    "
+#~ msgstr "    "
+
+#~ msgid "<b>Display Settings</b>"
+#~ msgstr "<b>顯示設定</b>"
+
+#~ msgid "<b>Monitor Settings</b>"
+#~ msgstr "<b>螢幕設定</b>"
+
+#~ msgid "CPU Frequency Monitor Preferences"
+#~ msgstr "CPU 頻率調整監察程式偏好設定"
+
+#~ msgid "Show CPU frequency as _frequency"
+#~ msgstr "以頻率數值來顯示 _CPU 頻率"
+
+#~ msgid "Show CPU frequency as _percentage"
+#~ msgstr "以百分比來顯示 C_PU 頻率"
+
+#~ msgid "Show frequency _units"
+#~ msgstr "顯示頻率單位(_U)"
+
+#~ msgid "_Appearance:"
+#~ msgstr "外觀(_A)："
+
+#~ msgid "_Monitored CPU:"
+#~ msgstr "受監察的 CP_U："
+
+#~ msgid "Could not open help document"
+#~ msgstr "無法開啟說明文件"
+
+#~ msgid "This utility shows the current CPU Frequency Scaling."
+#~ msgstr "此工具程式能顯示目前 CPU 頻率的調整。"
+
+#~ msgid "This utility shows the current CPU Frequency"
+#~ msgstr "此工具程式能顯示目前 CPU 的頻率"
+
+#~ msgid "Graphic"
+#~ msgstr "圖示"
+
+#~ msgid "Text"
+#~ msgstr "文字"
+
+#~ msgid "Graphic and Text"
+#~ msgstr "圖示及文字"
+
+#~ msgid "Frequency Scaling Unsupported"
+#~ msgstr "不支援頻率調整"
+
+#~ msgid "CPU frequency scaling unsupported"
+#~ msgstr "不支援 CPU 頻率調整"
+
+#~ msgid ""
+#~ "You will not be able to modify the frequency of your machine.  Your "
+#~ "machine may be misconfigured or not have hardware support for CPU "
+#~ "frequency scaling."
+#~ msgstr ""
+#~ "您無法修改電腦的運作頻率。可能是設置錯誤或是沒有支援 CPU 頻率調整的硬體。"
+
+#~ msgid "Disk Mounter"
+#~ msgstr "檔案系統掛載程式"
+
+#~ msgid "Drive Mount Applet Factory"
+#~ msgstr "檔案系統掛載面板程式工廠"
+
+#~ msgid "Factory for drive mount applet"
+#~ msgstr "可產生檔案系統掛載面板程式的工廠"
+
+#~ msgid "Mount local disks and devices"
+#~ msgstr "掛載本機磁碟及裝置"
+
+#~ msgid "(mounted)"
+#~ msgstr "（已掛載）"
+
+#~ msgid "(not mounted)"
+#~ msgstr "（未掛載）"
+
+#~ msgid "(not connected)"
+#~ msgstr "（沒有連線）"
+
+#~ msgid "Cannot execute '%s'"
+#~ msgstr "無法執行‘%s’"
+
+#~ msgid "Mount Error"
+#~ msgstr "掛載碟片錯誤"
+
+#~ msgid "Unmount Error"
+#~ msgstr "卸載發生錯誤"
+
+#~ msgid "Eject Error"
+#~ msgstr "退出碟片錯誤"
+
+#~ msgid "Error"
+#~ msgstr "錯誤"
+
+#~ msgid "_Play DVD"
+#~ msgstr "播放 D_VD"
+
+#~ msgid "_Play CD"
+#~ msgstr "播放 _CD"
+
+#~ msgid "_Open %s"
+#~ msgstr "開啟 %s(_O)"
+
+#~ msgid "_Mount %s"
+#~ msgstr "掛載 %s(_M)"
+
+#~ msgid "Un_mount %s"
+#~ msgstr "卸載 %s(_M)"
+
+#~ msgid "_Eject %s"
+#~ msgstr "退出碟片 %s(_E)"
+
+#~ msgid "Applet for mounting and unmounting block volumes."
+#~ msgstr "掛載及卸載檔案系統的面板程式。"
+
+#~ msgid "Interval timeout to check mount point status"
+#~ msgstr "每隔指定秒數會更新狀態"
+
+#~ msgid "Time in seconds between status updates"
+#~ msgstr "每隔指定秒數會更新狀態"
+
+#~ msgid "A set of eyeballs for your panel"
+#~ msgstr "在面板上顯示眼睛"
+
+#~ msgid "Geyes"
+#~ msgstr "小眼睛"
+
+#~ msgid "Geyes Applet Factory"
+#~ msgstr "小眼睛面板程式工廠"
+
+#~ msgid "A goofy little xeyes clone for the GNOME panel."
+#~ msgstr "類似 xeyes 的 GNOME 面板程式。"
+
+#~ msgid "The eyes look in the direction of the mouse pointer"
+#~ msgstr "眼睛會望向滑鼠指標"
+
+#~ msgid "Directory in which the theme is located"
+#~ msgstr "佈景主題所在的目錄"
+
+#~ msgid "Can not launch the eyes applet."
+#~ msgstr "無法啟動小眼睛面板程式。"
+
+#~ msgid "There was a fatal error while trying to load the theme."
+#~ msgstr "嘗試載入佈景主題時出現嚴重錯誤。"
+
+#~ msgid "Geyes Preferences"
+#~ msgstr "小眼睛偏好設定"
+
+#~ msgid "Themes"
+#~ msgstr "主題"
+
+#~ msgid "_Select a theme:"
+#~ msgstr "選取主題(_S)："
+
+#~ msgid "Alt+Control changes layout."
+#~ msgstr "按 Alt+Ctrl 會變更鍵盤配置。"
+
+#~ msgid "Alt+Shift changes layout."
+#~ msgstr "按 Alt+Shift 會變更鍵盤配置。"
+
+#~ msgid "Arabic keymap"
+#~ msgstr "阿拉伯文鍵盤對應表"
+
+#~ msgid "Armenian"
+#~ msgstr "阿美尼亞文"
+
+#~ msgid "Basque"
+#~ msgstr "巴斯克語"
+
+#~ msgid "Belgian"
+#~ msgstr "比利時文"
+
+#~ msgid "Both Alt keys together change layout."
+#~ msgstr "同時按兩個 Alt 鍵會變更鍵盤配置。"
+
+#~ msgid "Both Ctrl keys together change layout."
+#~ msgstr "同時按兩個 Ctrl 鍵會變更鍵盤配置。"
+
+#~ msgid "Both Shift keys together change layout."
+#~ msgstr "同時按兩個 Shift 鍵會變更鍵盤配置。"
+
+#~ msgid "Brazil Portuguese keymap"
+#~ msgstr "巴西葡文鍵盤對應表"
+
+#~ msgid "Bulgarian Cyrillic"
+#~ msgstr "保加利亞式斯拉夫文字鍵盤"
+
+#~ msgid "Bulgarian keymap"
+#~ msgstr "保加利亞文鍵盤對應表"
+
+#~ msgid "CapsLock key changes layout."
+#~ msgstr "按 CapsLock 鍵會變更鍵盤配置。"
+
+#~ msgid "Control+Shift changes layout."
+#~ msgstr "按 Ctrl+Shift 鍵會變更鍵盤配置。"
+
+#~ msgid "Czech keymap"
+#~ msgstr "捷克文鍵盤對應表"
+
+#~ msgid "Danish keymap"
+#~ msgstr "丹麥文鍵盤對應表"
+
+#~ msgid "Dutch keymap"
+#~ msgstr "荷蘭文鍵盤對應表"
+
+#~ msgid "English keymap"
+#~ msgstr "英文鍵盤對應表"
+
+#~ msgid "Estonian keymap"
+#~ msgstr "愛沙尼亞文鍵盤對應表"
+
+#~ msgid "Finnish keymap"
+#~ msgstr "芬蘭文鍵盤對應表"
+
+#~ msgid "French Swiss"
+#~ msgstr "瑞士法文"
+
+#~ msgid "French Swiss keymap"
+#~ msgstr "瑞士法文鍵盤對應表"
+
+#~ msgid "French keymap"
+#~ msgstr "法文鍵盤對應表"
+
+#~ msgid "French-Canadian 105-key"
+#~ msgstr "加拿大法文 105 鍵鍵盤"
+
+#~ msgid "GB 102-key"
+#~ msgstr "英文 102 鍵鍵盤"
+
+#~ msgid "GB 105-key"
+#~ msgstr "英文 105 鍵鍵盤"
+
+#~ msgid "Generic Keyboard"
+#~ msgstr "通用鍵盤"
+
+#~ msgid "Georgian Latin"
+#~ msgstr "喬治亞拉丁文"
+
+#~ msgid "Georgian Russian layout"
+#~ msgstr "喬治亞俄文鍵盤"
+
+#~ msgid "Georgian keymap"
+#~ msgstr "喬治亞文鍵盤對應表"
+
+#~ msgid "German"
+#~ msgstr "德文"
+
+#~ msgid "German Swiss with Euro"
+#~ msgstr "瑞士德文加歐元符號"
+
+#~ msgid "German keymap"
+#~ msgstr "德文鍵盤對應表"
+
+#~ msgid "Greek keymap"
+#~ msgstr "希臘文鍵盤對應表"
+
+#~ msgid "Hebrew keymap"
+#~ msgstr "希伯來文鍵盤對應表"
+
+#~ msgid "Hungarian 101-key latin 1"
+#~ msgstr "匈牙利文 101 鍵 latin 1 鍵盤"
+
+#~ msgid "Hungarian 101-key latin 2"
+#~ msgstr "匈牙利文 101 鍵 latin 2 鍵盤"
+
+#~ msgid "Hungarian 105-key latin 1"
+#~ msgstr "匈牙利文 105 鍵 latin 1 鍵盤"
+
+#~ msgid "Hungarian 105-key latin 2"
+#~ msgstr "匈牙利文 105 鍵 latin 2 鍵盤"
+
+#~ msgid "Hungarian PC/AT 101 keyboard"
+#~ msgstr "匈牙利文 PC/AT 101 鍵鍵盤"
+
+#~ msgid "Hungarian latin1"
+#~ msgstr "匈牙利文 latin1 鍵盤"
+
+#~ msgid "Icelandic keymap"
+#~ msgstr "冰島文鍵盤對應表"
+
+#~ msgid "Italian keymap"
+#~ msgstr "義大利文鍵盤對應表"
+
+#~ msgid "Japanese keymap"
+#~ msgstr "日文鍵盤對應表"
+
+#~ msgid "Lao keymap"
+#~ msgstr "寮語鍵盤對應表"
+
+#~ msgid "Layout shift behavior"
+#~ msgstr "配置改變方式"
+
+#~ msgid "Left Alt key changes layout."
+#~ msgstr "按左邊 Alt 鍵會變更鍵盤配置。"
+
+#~ msgid "Left Ctrl key changes group."
+#~ msgstr "按左邊 Ctrl 鍵會變更鍵盤配置。"
+
+#~ msgid "Left Shift key changes group."
+#~ msgstr "按左邊 Shift 鍵會變更鍵盤配置。"
+
+#~ msgid "Left Win-key changes layout."
+#~ msgstr "按左邊 Windows 鍵會變更鍵盤配置。"
+
+#~ msgid "Lithuanian keymap"
+#~ msgstr "立陶宛文鍵盤對應表"
+
+#~ msgid "Macedonian"
+#~ msgstr "馬其頓文"
+
+#~ msgid "Menu key changes layout."
+#~ msgstr "按鍵盤「選單」鍵會變更鍵盤配置。"
+
+#~ msgid "Mongolian alt keymap"
+#~ msgstr "蒙古文 alt 鍵盤對應表"
+
+#~ msgid "Mongolian keymap"
+#~ msgstr "蒙古文鍵盤對應表"
+
+#~ msgid "Mongolian phonetic keymap"
+#~ msgstr "蒙古文拼音鍵盤對應表"
+
+#~ msgid "Norwegian"
+#~ msgstr "挪威文"
+
+#~ msgid "Plain Russian keymap"
+#~ msgstr "普通俄文鍵盤對應表"
+
+#~ msgid "Polish"
+#~ msgstr "波蘭文"
+
+#~ msgid "Polish deadkeys"
+#~ msgstr "波蘭文 deadkeys"
+
+#~ msgid "Portugal"
+#~ msgstr "葡萄牙"
+
+#~ msgid "Portugal Deadkeys"
+#~ msgstr "葡萄牙 Deadkeys"
+
+#~ msgid "Portuguese keymap"
+#~ msgstr "葡萄牙文鍵盤對應表"
+
+#~ msgid "Right Alt key changes layout."
+#~ msgstr "按右邊 Alt 鍵會變更鍵盤配置。"
+
+#~ msgid "Right Ctrl key changes group."
+#~ msgstr "按右邊 Ctrl 鍵會變更鍵盤配置。"
+
+#~ msgid "Right Shift key changes group."
+#~ msgstr "按右邊 Shift 鍵會變更鍵盤配置。"
+
+#~ msgid "Right Win-key changes layout."
+#~ msgstr "按右邊 Windows 鍵會變更鍵盤配置。"
+
+#~ msgid "Russian Cyrillic"
+#~ msgstr "俄文斯拉夫文字"
+
+#~ msgid "Russian keymap"
+#~ msgstr "俄文鍵盤對應表"
+
+#~ msgid "Serbian keymap"
+#~ msgstr "塞爾維亞文鍵盤對應表"
+
+#~ msgid "Shift+CapsLock changes layout."
+#~ msgstr "按 Shift+CapsLock 鍵會變更鍵盤配置。"
+
+#~ msgid "Slovak keymap"
+#~ msgstr "斯洛伐克文鍵盤對應表"
+
+#~ msgid "Slovenian"
+#~ msgstr "斯洛維尼亞文"
+
+#~ msgid "Slovenian keymap"
+#~ msgstr "斯洛維尼亞文鍵盤對應表"
+
+#~ msgid "Spanish keymap"
+#~ msgstr "西班牙文鍵盤對應表"
+
+#~ msgid "Sun (!not PC!) type5 Hungarian latin 2"
+#~ msgstr "Sun (!not PC!) type5 匈牙利文 latin 2"
+
+#~ msgid "Swedish"
+#~ msgstr "瑞典文"
+
+#~ msgid "Swedish keymap"
+#~ msgstr "瑞典文鍵盤對應表"
+
+#~ msgid "Swiss keymap"
+#~ msgstr "瑞士文鍵盤對應表"
+
+#~ msgid "Thai"
+#~ msgstr "泰文"
+
+#~ msgid "Thai Kedmanee"
+#~ msgstr "泰文 Kedmanee"
+
+#~ msgid "Thai keymap"
+#~ msgstr "泰文鍵盤對應表"
+
+#~ msgid "Turkish \"F\" keyboard"
+#~ msgstr "\"F\" 式土耳其文鍵盤"
+
+#~ msgid "Turkish \"Q\" keyboard"
+#~ msgstr "\"Q\" 式土耳其文鍵盤"
+
+#~ msgid "Turkish keymap"
+#~ msgstr "土耳其文鍵盤對應表"
+
+#~ msgid "UK 105-key"
+#~ msgstr "英式 105 鍵鍵盤"
+
+#~ msgid "UK PC/AT keyboard"
+#~ msgstr "英式 PC/AT 鍵盤"
+
+#~ msgid "US 101-key keyboard"
+#~ msgstr "美式 101 鍵鍵盤"
+
+#~ msgid "US 105-key keyboard (with windows keys)"
+#~ msgstr "美式 105 鍵鍵盤（配有 windows 鍵）"
+
+#~ msgid "US 84-key"
+#~ msgstr "美式 84 鍵鍵盤"
+
+#~ msgid "US DEC 450"
+#~ msgstr "美式 DEC 450 鍵盤"
+
+#~ msgid "US IBM RS/6000"
+#~ msgstr "美式 IBM PS/6000 鍵盤"
+
+#~ msgid "US International"
+#~ msgstr "美式國際鍵盤"
+
+#~ msgid "US Macintosh"
+#~ msgstr "美式 Macintosh 鍵盤"
+
+#~ msgid "US PC/AT 101 keyboard"
+#~ msgstr "美式 PC/AT 101 鍵鍵盤"
+
+#~ msgid "US Silicon Graphics 101-key"
+#~ msgstr "美式 Silicon Graphics 101 鍵鍵盤"
+
+#~ msgid "US Sun type5"
+#~ msgstr "美式 Sun type5"
+
+#~ msgid "Armenian Sun keymap"
+#~ msgstr "阿美尼亞文 Sun 鍵盤對應表"
+
+#~ msgid "Azerbaijani Turkish Sun keymap"
+#~ msgstr "阿塞拜然土耳其文 Sun 鍵盤對應表"
+
+#~ msgid "Belarusian Sun keymap"
+#~ msgstr "白俄羅斯文 Sun 鍵盤對應表"
+
+#~ msgid "Brazil Portuguese Sun USB keymap"
+#~ msgstr "巴西葡文 Sun USB 鍵盤對應表"
+
+#~ msgid "Brazil Portuguese Sun keymap"
+#~ msgstr "巴西葡文 Sun 鍵盤對應表"
+
+#~ msgid "British Sun Type-4 keymap"
+#~ msgstr "英式英文 Sun Type-4 鍵盤對應表"
+
+#~ msgid "British Sun USB keymap"
+#~ msgstr "英式英文 Sun USB 鍵盤對應表"
+
+#~ msgid "British Sun keymap"
+#~ msgstr "英式英文 Sun 鍵盤對應表"
+
+#~ msgid "Bulgarian Sun keymap"
+#~ msgstr "保加利亞文 Sun 鍵盤對應表"
+
+#~ msgid "Canadian Sun keymap"
+#~ msgstr "加拿大 Sun 鍵盤對應表"
+
+#~ msgid "Czech Sun keymap"
+#~ msgstr "捷克文 Sun 鍵盤對應表"
+
+#~ msgid "Danish Sun Type-4 keymap"
+#~ msgstr "丹麥文 Sun Type-4 鍵盤對應表"
+
+#~ msgid "Danish Sun USB keymap"
+#~ msgstr "丹麥文 Sun USB 鍵盤對應表"
+
+#~ msgid "Danish Sun keymap"
+#~ msgstr "丹麥文 Sun 鍵盤對應表"
+
+#~ msgid "Dutch Sun keymap"
+#~ msgstr "荷蘭文 Sun 鍵盤對應表"
+
+#~ msgid "Estonian Sun keymap"
+#~ msgstr "愛沙尼亞文 Sun 鍵盤對應表"
+
+#~ msgid "Finnish Sun keymap"
+#~ msgstr "芬蘭文 Sun 鍵盤對應表"
+
+#~ msgid "French Sun USB keymap"
+#~ msgstr "法文 Sun USB 鍵盤對應表"
+
+#~ msgid "French Sun keymap"
+#~ msgstr "法文 Sun 鍵盤對應表"
+
+#~ msgid "German Sun Type-4 keymap"
+#~ msgstr "德文 Sun Type-4 鍵盤對應表"
+
+#~ msgid "German Sun USB keymap"
+#~ msgstr "德文 Sun USB 鍵盤對應表"
+
+#~ msgid "German Sun keymap"
+#~ msgstr "德文 Sun 鍵盤對應表"
+
+#~ msgid "Hebrew Sun keymap"
+#~ msgstr "希伯來文 Sun 鍵盤對應表"
+
+#~ msgid "Hungarian latin2 Sun keymap"
+#~ msgstr "匈牙利文 latin2 Sun 鍵盤對應表"
+
+#~ msgid "Hungarian type5 latin 1 keymap"
+#~ msgstr "匈牙利文 type 5latin 1 鍵盤對應表"
+
+#~ msgid "Icelandic Sun keymap"
+#~ msgstr "冰島文 Sun 鍵盤對應表"
+
+#~ msgid "Italian Sun Type-4 keymap"
+#~ msgstr "義大利文 Sun Type-4 鍵盤對應表"
+
+#~ msgid "Italian Sun USB keymap"
+#~ msgstr "義大利文 Sun USB 鍵盤對應表"
+
+#~ msgid "Italian Sun keymap"
+#~ msgstr "義大利文 Sun 鍵盤對應表"
+
+#~ msgid "Japanese Sun Type-4 keymap"
+#~ msgstr "日文 Sun Type-4 鍵盤對應表"
+
+#~ msgid "Japanese Sun keymap"
+#~ msgstr "日文 Sun 鍵盤對應表"
+
+#~ msgid "Latvian Sun keymap"
+#~ msgstr "拉脫維亞文 Sun 鍵盤對應表"
+
+#~ msgid "Lithuanian Sun keymap"
+#~ msgstr "立陶宛文 Sun 鍵盤對應表"
+
+#~ msgid "Macedonian Sun keymap"
+#~ msgstr "馬其頓文 Sun 鍵盤對應表"
+
+#~ msgid "Norwegian Sun keymap"
+#~ msgstr "挪威文 Sun 鍵盤對應表"
+
+#~ msgid "Polish Sun keymap"
+#~ msgstr "波蘭文 Sun 鍵盤對應表"
+
+#~ msgid "Portuguese Sun Type-4 keymap"
+#~ msgstr "葡萄牙文 Sun Type-4 鍵盤對應表"
+
+#~ msgid "Portuguese Sun keymap"
+#~ msgstr "葡萄牙文 Sun 鍵盤對應表"
+
+#~ msgid "Romanian Sun keymap"
+#~ msgstr "羅馬尼亞文 Sun 鍵盤對應表"
+
+#~ msgid "Russian Sun keymap"
+#~ msgstr "俄文 Sun 鍵盤對應表"
+
+#~ msgid "Serbian Sun standard keymap"
+#~ msgstr "塞爾維亞文 Sun 標準鍵盤對應表"
+
+#~ msgid "Slovak Sun keymap"
+#~ msgstr "斯洛伐克文 Sun 鍵盤對應表"
+
+#~ msgid "Slovenian Sun keymap"
+#~ msgstr "斯洛維尼亞文 Sun 鍵盤對應表"
+
+#~ msgid "Spanish Sun Type-4 keymap"
+#~ msgstr "西班牙文 Sun Type-4 鍵盤對應表"
+
+#~ msgid "Spanish Sun USB keymap"
+#~ msgstr "西班牙文 Sun USB 鍵盤對應表"
+
+#~ msgid "Spanish Sun keymap"
+#~ msgstr "西班牙文 Sun 鍵盤對應表"
+
+#~ msgid "Swedish Sun Type-4 keymap"
+#~ msgstr "瑞典文 Sun Type-4 鍵盤對應表"
+
+#~ msgid "Swedish Sun USB keymap"
+#~ msgstr "瑞典文 Sun USB 鍵盤對應表"
+
+#~ msgid "Swedish Sun keymap"
+#~ msgstr "瑞典文 Sun 鍵盤對應表"
+
+#~ msgid "Swiss German Sun keymap"
+#~ msgstr "瑞士德文 Sun 鍵盤對應表"
+
+#~ msgid "Thai Sun keymap"
+#~ msgstr "泰文 Sun 鍵盤對應表"
+
+#~ msgid "Turkish Sun keymap"
+#~ msgstr "土耳其文 Sun 鍵盤對應表"
+
+#~ msgid "US Sun Type-4 keymap"
+#~ msgstr "美式 Sun Type-4 鍵盤對應表"
+
+#~ msgid "US Sun USB keymap"
+#~ msgstr "美式 Sun USB 鍵盤對應表"
+
+#~ msgid "US Sun type5 keymap"
+#~ msgstr "美式 Sun type5 鍵盤對應表"
+
+#~ msgid "Ukrainian Sun keymap"
+#~ msgstr "烏克蘭文 Sun 鍵盤對應表"
+
+#~ msgid "Vietnamese Sun keymap"
+#~ msgstr "越南文 Sun 鍵盤對應表"
+
+#~ msgid "Keyboard _Preferences"
+#~ msgstr "鍵盤偏好設定(_P)"
+
+#~ msgid "Show Current _Layout"
+#~ msgstr "顯示目前配置(_L)"
+
+#~ msgid "_Groups"
+#~ msgstr "群組(_G)"
+
+#~ msgid "Keyboard Indicator"
+#~ msgstr "鍵盤配置指示器"
+
+#~ msgid "Keyboard applet factory"
+#~ msgstr "鍵盤面板程式工廠"
+
+#~ msgid "Keyboard layout indicator"
+#~ msgstr "鍵盤配置指示器"
+
+#~ msgid "Keyboard Layout \"%s\""
+#~ msgstr "鍵盤配置“%s”"
+
+#~ msgid "Copyright (c) Sergey V. Udaltsov 1999-2004"
+#~ msgstr "版權所有 © Sergey V. Udaltsov 1999-2004"
+
+#~ msgid "Keyboard layout indicator applet for GNOME"
+#~ msgstr "適用於 GNOME 的鍵盤配置指示器"
+
+#~ msgid "Keyboard Indicator (%s)"
+#~ msgstr "鍵盤配置指示器 (%s)"
+
+#~ msgid "Keyboard Layout"
+#~ msgstr "鍵盤配置"
+
+#~ msgid "Secondary groups"
+#~ msgstr "第二群組"
+
+#~ msgid "Show flags in the applet"
+#~ msgstr "在面板程式中顯示國旗"
+
+#~ msgid "Show flags in the applet to indicate the current layout"
+#~ msgstr "在面板程式以國旗來表示鍵盤的配置"
+
+#~ msgid "The list of enabled Keyboard Indicator plugins"
+#~ msgstr "鍵盤指示器外掛程式的清單"
+
+#~ msgid "_Details"
+#~ msgstr "詳細資訊(_D)"
+
+#~ msgid "_Update"
+#~ msgstr "更新(_U)"
+
+#~ msgid "Factory for creating the weather applet."
+#~ msgstr "用來產生天氣面板程式的工廠。"
+
+#~ msgid "Gweather Applet Factory"
+#~ msgstr "Gweather 面板程式工廠"
+
+#~ msgid "Monitor the current weather conditions, and forecasts"
+#~ msgstr "監察目前的天氣情況及進行天氣預報"
+
+#~ msgid "Weather Report"
+#~ msgstr "天氣報告"
+
+#~ msgid "© 1999-2005 by S. Papadimitriou and others"
+#~ msgstr "版權所有 © 1999-2005 S. Papadimitriou 及其他"
+
+#~ msgid "A panel application for monitoring local weather conditions."
+#~ msgstr "監察本地天氣情況的面板程式。"
+
+#~ msgid "GNOME Weather"
+#~ msgstr "GNOME 天氣預報"
+
+#~ msgid "Weather Forecast"
+#~ msgstr "天氣預報"
+
+#~ msgid ""
+#~ "City: %s\n"
+#~ "Sky: %s\n"
+#~ "Temperature: %s"
+#~ msgstr ""
+#~ "城市：%s\n"
+#~ "天氣：%s\n"
+#~ "溫度：%s"
+
+#~ msgid "Updating..."
+#~ msgstr "更新中..."
+
+#~ msgid "Details"
+#~ msgstr "詳細資訊"
+
+#~ msgid "City:"
+#~ msgstr "城市："
+
+#~ msgid "Last update:"
+#~ msgstr "最後更新："
+
+#~ msgid "Conditions:"
+#~ msgstr "情況："
+
+#~ msgid "Sky:"
+#~ msgstr "天氣："
+
+#~ msgid "Temperature:"
+#~ msgstr "溫度："
+
+#~ msgid "Feels like:"
+#~ msgstr "感覺像："
+
+#~ msgid "Dew point:"
+#~ msgstr "露點："
+
+#~ msgid "Relative humidity:"
+#~ msgstr "相對溼度："
+
+#~ msgid "Wind:"
+#~ msgstr "風向："
+
+#~ msgid "Pressure:"
+#~ msgstr "氣壓："
+
+#~ msgid "Visibility:"
+#~ msgstr "能見度："
+
+#~ msgid "Sunrise:"
+#~ msgstr "日出："
+
+#~ msgid "Sunset:"
+#~ msgstr "日落："
+
+#~ msgid "Current Conditions"
+#~ msgstr "目前的天氣情況"
+
+#~ msgid "Forecast Report"
+#~ msgstr "天氣預報"
+
+#~ msgid "See the ForeCast Details"
+#~ msgstr "收看天氣預報"
+
+#~ msgid "Forecast"
+#~ msgstr "預報"
+
+#~ msgid "Radar Map"
+#~ msgstr "雷達圖"
+
+#~ msgid "_Visit Weather.com"
+#~ msgstr "瀏覽 _Weather.com"
+
+#~ msgid "Visit Weather.com"
+#~ msgstr "瀏覽 Weather.com"
+
+#~ msgid "Click to Enter Weather.com"
+#~ msgstr "請按這裡進入 Weather.com"
+
+#~ msgid "Forecast not currently available for this location."
+#~ msgstr "無法提供這個地點的天氣預報。"
+
+#~ msgid "Location view"
+#~ msgstr "位置檢視模式"
+
+#~ msgid "Select Location from the list"
+#~ msgstr "從清單中選擇地點"
+
+#~ msgid "Update spin button"
+#~ msgstr "數值更新按鈕"
+
+#~ msgid "Spinbutton for updating"
+#~ msgstr "更新數值用的按鈕"
+
+#~ msgid "Address Entry"
+#~ msgstr "地址輸入欄"
+
+#~ msgid "Enter the URL"
+#~ msgstr "請輸入 URL"
+
+#~ msgid ""
+#~ "Failed to load the Locations XML database.  Please report this as a bug."
+#~ msgstr "無法載入位置 XML 資料庫。請報告錯誤。"
+
+#~ msgid "Weather Preferences"
+#~ msgstr "天氣程式偏好設定"
+
+#~ msgid "_Automatically update every:"
+#~ msgstr "自動更新相隔時間(_A)："
+
+#~ msgid "_Temperature unit:"
+#~ msgstr "溫度單位(_T)："
+
+#~ msgid "Kelvin"
+#~ msgstr "絕對溫度"
+
+#~ msgid "Celsius"
+#~ msgstr "攝氏"
+
+#~ msgid "Fahrenheit"
+#~ msgstr "華氏"
+
+#~ msgid "_Wind speed unit:"
+#~ msgstr "風速單位(_W)："
+
+#~ msgid "_Pressure unit:"
+#~ msgstr "氣壓單位(_P)："
+
+#~ msgid "_Visibility unit:"
+#~ msgstr "能見度單位(_V)："
+
+# zh_HK: msgstr "米"
+# zh_TW: msgstr "公尺"
+#~ msgid "meters"
+#~ msgstr "公尺"
+
+#~ msgid "miles"
+#~ msgstr "英里"
+
+#~ msgid "Enable _radar map"
+#~ msgstr "啟用雷達圖(_R)"
+
+#~ msgid "Use _custom address for radar map"
+#~ msgstr "自行指定雷達圖的地址(_C)"
+
+#~ msgid "A_ddress:"
+#~ msgstr "地址(_D)："
+
+#~ msgid "Update"
+#~ msgstr "更新"
+
+#~ msgid "minutes"
+#~ msgstr "分"
+
+#~ msgid "Display"
+#~ msgstr "顯示"
+
+#~ msgid "General"
+#~ msgstr "一般"
+
+#~ msgid "_Select a location:"
+#~ msgstr "選取位置(_S)："
+
+#~ msgid "_Find:"
+#~ msgstr "尋找(_F)："
+
+#~ msgid "Find _Next"
+#~ msgstr "尋找下一個(_N)"
+
+#~ msgid "Location"
+#~ msgstr "位置"
+
+#~ msgid "Invest"
+#~ msgstr "股票投資"
+
+#~ msgid "Track your invested money."
+#~ msgstr "追蹤您的金錢投資。"
+
+#~ msgid "_Refresh"
+#~ msgstr "重新整理(_R)"
+
+#~ msgid "10"
+#~ msgstr "10"
+
+#~ msgid "100"
+#~ msgstr "100"
+
+#~ msgid ""
+#~ "1d\n"
+#~ "5d\n"
+#~ "3m\n"
+#~ "6m\n"
+#~ "1y\n"
+#~ "3y"
+#~ msgstr ""
+#~ "1d\n"
+#~ "5d\n"
+#~ "3m\n"
+#~ "6m\n"
+#~ "1y\n"
+#~ "3y"
+
+#~ msgid "20"
+#~ msgstr "20"
+
+#~ msgid "200"
+#~ msgstr "200"
+
+#~ msgid "5"
+#~ msgstr "5"
+
+#~ msgid "50"
+#~ msgstr "50"
+
+#~ msgid "Auto _refresh"
+#~ msgstr "自動重整(_R)"
+
+#~ msgid "Bollinger"
+#~ msgstr "布歷加通道"
+
+#~ msgid "Downloading chart from <b>Yahoo!</b>"
+#~ msgstr "從 <b>Yahoo!</b> 下載圖表"
+
+#~ msgid "Exponential moving average: "
+#~ msgstr "預測移動平均線："
+
+#~ msgid "Fast stoch"
+#~ msgstr "快速隨機指數"
+
+#~ msgid "Financial Chart"
+#~ msgstr "股價圖表"
+
+#~ msgid "Indicators: "
+#~ msgstr "技術指標："
+
+#~ msgid "MACD"
+#~ msgstr "MACD"
+
+#~ msgid "MFI"
+#~ msgstr "MFI"
+
+#~ msgid "Moving average: "
+#~ msgstr "移動平均線："
+
+#~ msgid "Overlays: "
+#~ msgstr "並排圖表："
+
+#~ msgid "ROC"
+#~ msgstr "ROC"
+
+#~ msgid "RSI"
+#~ msgstr "RSI"
+
+#~ msgid "SAR"
+#~ msgstr "SAR"
+
+#~ msgid "Slow stoch"
+#~ msgstr "慢速隨機指數"
+
+#~ msgid "Splits"
+#~ msgstr "分拆"
+
+#~ msgid "Vol"
+#~ msgstr "成交量"
+
+#~ msgid "Vol+MA"
+#~ msgstr "成交+移動平均"
+
+#~ msgid "Volumes"
+#~ msgstr "成交量"
+
+#~ msgid "W%R"
+#~ msgstr "W%R"
+
+#~ msgid "_Graph style: "
+#~ msgstr "圖表類型(_G)："
+
+#~ msgid "_Options"
+#~ msgstr "選項(_O)"
+
+#~ msgid "_Ticker symbol: "
+#~ msgstr "股票代號(_T)："
+
+#~ msgid ""
+#~ "l\n"
+#~ "b\n"
+#~ "c"
+#~ msgstr ""
+#~ "l\n"
+#~ "b\n"
+#~ "c"
+
+#~ msgid "Display yahoo charts"
+#~ msgstr "顯示 yahoo 圖表"
+
+#~ msgid "Invest Chart"
+#~ msgstr "股票投資圖表"
+
+#~ msgid "<b>Stocks</b>"
+#~ msgstr "<b>股票</b>"
+
+#~ msgid ""
+#~ "<i><small><b>Note:</b> Quotes are delayed at least 15 minutes.\n"
+#~ "<b>Source: </b> Yahoo!</small></i>"
+#~ msgstr ""
+#~ "<i><small><b>注意：</b>報價會延遲 15 分鐘或以上。\n"
+#~ "<b>來源：</b>Yahoo!</small></i>"
+
+#~ msgid "Invest Preferences"
+#~ msgstr "股票投資偏好設定"
+
+#~ msgid "Invest Website"
+#~ msgstr "股票投資的網站"
+
+#~ msgid "Financial Chart - %s"
+#~ msgstr "股價圖表 - %s"
+
+#~ msgid "Opening Chart"
+#~ msgstr "開啟圖表中"
+
+#~ msgid "Downloading Chart"
+#~ msgstr "下載圖表中"
+
+#~ msgid "Reading Chart chunk"
+#~ msgstr "正在讀取圖表部份"
+
+#~ msgid "Invest Applet"
+#~ msgstr "股票投資面板程式"
+
+#~ msgid "Symbol"
+#~ msgstr "股票代碼"
+
+#~ msgid "Amount"
+#~ msgstr "數量"
+
+#~ msgid "Price"
+#~ msgstr "價格"
+
+#~ msgid "Commission"
+#~ msgstr "佣金"
+
+#~ msgid "%.1f °F"
+#~ msgstr "%.1f °F"
+
+#~ msgid "%d °F"
+#~ msgstr "%d °F"
+
+#~ msgid "%.1f °C"
+#~ msgstr "%.1f °C"
+
+#~ msgid "%d °C"
+#~ msgstr "%d °C"
+
+#~ msgid "Deskbar (formerly Mini-Commander)"
+#~ msgstr "Deskbar（前稱為小型命令列）"
+
+#~ msgid "Deskbar (transparent upgrade from Mini-Commander)"
+#~ msgstr "Deskbar（小型命令列的升級版本）"
+
+#~ msgid "Command Line"
+#~ msgstr "命令列"
+
+#~ msgid "Mini-Commander"
+#~ msgstr "小型命令列"
+
+#~ msgid "MiniCommander Applet Factory"
+#~ msgstr "小型命令列面板程式工廠"
+
+#~ msgid ""
+#~ "This GNOME applet adds a command line to the panel. It features command "
+#~ "completion, command history, and changeable macros."
+#~ msgstr ""
+#~ "這 GNOME 面板程式將指令列加入面板中。它的功能才自動完成、指令歷史記錄及可"
+#~ "變更的宏。"
+
+#~ msgid "No items in history"
+#~ msgstr "歷史記錄中沒有任何項目"
+
+#~ msgid "Start program"
+#~ msgstr "啟動程式"
+
+#~ msgid "Command line"
+#~ msgstr "命令列"
+
+#~ msgid "Type a command here and Gnome will execute it for you"
+#~ msgstr "在這裡輸入指令後，GNOME 就會執行該指令"
+
+#~ msgid "Cannot get schema for %s: %s"
+#~ msgstr "無法讀取 %s 的 schema：%s"
+
+#~ msgid "Cannot set schema for %s: %s"
+#~ msgstr "無法設定 %s 的 schema：%s"
+
+#~ msgid "Set default list value for %s\n"
+#~ msgstr "設定 %s 的預設值\n"
+
+#~ msgid ""
+#~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
+#~ msgstr ""
+#~ "設定了 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL 變數，不會安裝 schemas\n"
+
+#~ msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
+#~ msgstr "必須設定 GCONF_CONFIG_SOURCE 環境變數\n"
+
+#~ msgid "Failed to access configuration source(s): %s\n"
+#~ msgstr "無法存取組態的來源：%s\n"
+
+#~ msgid "Error syncing config data: %s"
+#~ msgstr "將組態資料同步時發生錯誤：%s"
+
+#~ msgid ""
+#~ "List of GConfValue entries containing strings for the macro commands."
+#~ msgstr "一系列巨集指令，以 GConfValue 型式表示。"
+
+#~ msgid ""
+#~ "List of GConfValue entries containing strings for the macro patterns."
+#~ msgstr "一系列巨集名稱樣式，以 GConfValue 型式表示。"
+
+#~ msgid "Macro command list"
+#~ msgstr "指令巨集清單"
+
+#~ msgid "Macro pattern list"
+#~ msgstr "巨集樣式清單"
+
+#~ msgid "*"
+#~ msgstr "*"
+
+#~ msgid "<b>Auto Completion</b>"
+#~ msgstr "<b>自動補齊</b>"
+
+#~ msgid "<b>Colors</b>"
+#~ msgstr "<b>色彩</b>"
+
+#~ msgid "<b>Size</b>"
+#~ msgstr "<b>大小</b>"
+
+#~ msgid "Add New Macro"
+#~ msgstr "新增巨集"
+
+#~ msgid "Co_mmand:"
+#~ msgstr "指令(_M)："
+
+#~ msgid "Command Line Preferences"
+#~ msgstr "小型命令列偏好設定"
+
+#~ msgid "Command line _background:"
+#~ msgstr "命令列背景顏色(_B)："
+
+#~ msgid "Command line _foreground:"
+#~ msgstr "命令列文字顏色(_F)："
+
+#~ msgid "E_nable history-based auto completion"
+#~ msgstr "啟用根據指令使用紀錄的自動完成功能(_N)"
+
+#~ msgid "Macros"
+#~ msgstr "巨集"
+
+#~ msgid "Pick a color"
+#~ msgstr "請選取顏色"
+
+#~ msgid "_Add Macro..."
+#~ msgstr "新增巨集(_A)..."
+
+#~ msgid "_Delete Macro"
+#~ msgstr "刪除巨集(_D)"
+
+#~ msgid "_Macros:"
+#~ msgstr "巨集(_M)："
+
+#~ msgid "_Pattern:"
+#~ msgstr "樣式(_P)："
+
+#~ msgid "_Use default theme colors"
+#~ msgstr "使用預設佈景主題色彩(_U)"
+
+#~ msgid "_Width:"
+#~ msgstr "寬度(_W)："
+
+#~ msgid "pixels"
+#~ msgstr "像素"
+
+#~ msgid ""
+#~ "Attempt to autocomplete a command from the history of commands entered."
+#~ msgstr "根據指令紀錄來自動補齊未完成的指令。"
+
+#~ msgid "Background color, blue component"
+#~ msgstr "背景顏色藍色部份數值"
+
+#~ msgid "Background color, green component"
+#~ msgstr "背景顏色綠色部份數值"
+
+#~ msgid "Background color, red component"
+#~ msgstr "背景顏色紅色部份數值"
+
+#~ msgid "Foreground color, blue component"
+#~ msgstr "文字顏色藍色部份數值"
+
+#~ msgid "Foreground color, green component"
+#~ msgstr "文字顏色綠色部份數值"
+
+#~ msgid "Foreground color, red component"
+#~ msgstr "文字顏色紅色部份數值"
+
+#~ msgid "History list"
+#~ msgstr "指令紀錄清單"
+
+#~ msgid "List of GConfValue entries containing strings for history entries."
+#~ msgstr "記錄條目的 GConfValue 條目歸包含的字串的清單。"
+
+#~ msgid "Perform history autocompletion"
+#~ msgstr "根據指令紀錄自動補齊指令"
+
+#~ msgid "Show a frame surrounding the applet."
+#~ msgstr "在面板程式周圍顯示邊框。"
+
+#~ msgid "Show a handle so the applet can be detached from the panel."
+#~ msgstr "顯示控制棒，令面板程式可以脫離面板。"
+
+#~ msgid "Show frame"
+#~ msgstr "顯示邊框"
+
+#~ msgid "Show handle"
+#~ msgstr "顯示控制棒元件"
+
+#~ msgid "The blue component of the background color."
+#~ msgstr "背景顏色的藍色部份數值"
+
+#~ msgid "The blue component of the foreground color."
+#~ msgstr "文字顏色的藍色部份數值"
+
+#~ msgid "The green component of the background color."
+#~ msgstr "背景顏色的綠色部份數值"
+
+#~ msgid "The green component of the foreground color."
+#~ msgstr "文字顏色的綠色部份數值"
+
+#~ msgid "The red component of the background color."
+#~ msgstr "背景顏色的紅色部份數值"
+
+#~ msgid "The red component of the foreground color."
+#~ msgstr "文字顏色的紅色部份數值"
+
+#~ msgid ""
+#~ "This per-applet key is deprecated in favour of the global key, /schemas/"
+#~ "apps/mini-commander-global/macro_patterns."
+#~ msgstr ""
+#~ "本 per-applet 設定鍵已不再使用，已被全域設定鍵 /schemas/apps/mini-"
+#~ "commander-global/macro_patterns 所取代。"
+
+#~ msgid "Use the default theme colors"
+#~ msgstr "使用預設佈景主題色彩"
+
+#~ msgid "Use theme colors instead of custom ones."
+#~ msgstr "使用預設的佈景主題字型及色彩，而不會自行指定"
+
+#~ msgid "Width"
+#~ msgstr "寬度"
+
+#~ msgid "Width of the applet"
+#~ msgstr "面板程式寬度"
+
+#~ msgid "Browser"
+#~ msgstr "選擇檔案"
+
+#~ msgid "Click this button to start the browser"
+#~ msgstr "按下本按鈕可啟動瀏覽器"
+
+#~ msgid "History"
+#~ msgstr "紀錄"
+
+#~ msgid "Click this button for the list of previous commands"
+#~ msgstr "按下此按鈕可顯示之前輸入的指令清單"
+
+#~ msgid "Command line has been disabled by your system administrator"
+#~ msgstr "系統管理員禁止任何人使用指令"
+
+#~ msgid "Mini-Commander applet"
+#~ msgstr "小型命令列面板程式"
+
+#~ msgid "This applet adds a command line to the panel"
+#~ msgstr "此面板程式可在面板中加上命令列"
+
+#~ msgid "You must specify a pattern"
+#~ msgstr "必須輸入樣式"
+
+#~ msgid "You must specify a pattern and a command"
+#~ msgstr "必須輸入樣式及指令"
+
+#~ msgid "You must specify a command"
+#~ msgstr "必須輸入指令"
+
+#~ msgid "You may not specify duplicate patterns"
+#~ msgstr "不可輸入重複的樣式"
+
+#~ msgid "Pattern"
+#~ msgstr "樣式"
+
+#~ msgid "Command"
+#~ msgstr "指令"
+
+#~ msgid "Adjust the sound volume"
+#~ msgstr "調校音量"
+
+#~ msgid "Volume Control"
+#~ msgstr "音量控制"
+
+#~ msgid "Mu_te"
+#~ msgstr "靜音(_T)"
+
+#~ msgid "_Open Volume Control"
+#~ msgstr "啟動音量控制程式(_O)"
+
+#~ msgid ""
+#~ "The volume control did not find any elements and/or devices to control. "
+#~ "This means either that you don't have the right GStreamer plugins "
+#~ "installed, or that you don't have a sound card configured."
+#~ msgstr ""
+#~ "音量控制無法找到任何可控制的元件或裝置。即是代表沒有安裝正確的 GStreamer "
+#~ "外掛程式，或是沒有設置好的音效卡。"
+
+#~ msgid ""
+#~ "You can remove the volume control from the panel by right-clicking the "
+#~ "speaker icon on the panel and selecting \"Remove From Panel\" from the "
+#~ "menu."
+#~ msgstr ""
+#~ "從面板中移除音量控制，您可以在面板的揚聲器圖示上按下滑鼠右鍵，選取「從面板"
+#~ "中移除」。"
+
+#~ msgid "Failed to start Volume Control: %s"
+#~ msgstr "啟動音量控制程式時發生錯誤：%s"
+
+#~ msgid "%s: muted"
+#~ msgstr "%s：靜音"
+
+#~ msgid "%s: %d%%"
+#~ msgstr "%s: %d%%"
+
+#~ msgid "Failed to display help: %s"
+#~ msgstr "無法顯示說明文件：%s"
+
+#~ msgid "Volume control for your GNOME Panel."
+#~ msgstr "GNOME 面板的音量控制。"
+
+#~ msgid "Using GStreamer 0.10."
+#~ msgstr "使用 GStreamer 0.10。"
+
+#~ msgid "Using GStreamer 0.8."
+#~ msgstr "使用 GStreamer 0.8。"
+
+#~ msgid "Volume Applet"
+#~ msgstr "音量控制程式"
+
+#~ msgid "+"
+#~ msgstr "+"
+
+#~ msgid "-"
+#~ msgstr "-"
+
+#~ msgid "Unknown Volume Control %d"
+#~ msgstr "不明的音量控制 %d"
+
+#~ msgid "Channel controlled by applet. Only for OSS setups"
+#~ msgstr "面皮程式能夠控制的聲道，只適用於 OSS"
+
+#~ msgid "Saved mute state"
+#~ msgstr "儲存靜音狀態"
+
+#~ msgid "Saved volume to restore on startup"
+#~ msgstr "儲存各個音量，待下次啟動時再使用"
+
+#~ msgid "Volume Control Preferences"
+#~ msgstr "音量控制偏好設定"
+
+#~ msgid "Select the device and track to control."
+#~ msgstr "請選取控制裝裝置及聲道。"
+
+#~ msgid "Activate and monitor a dial-up network connection"
+#~ msgstr "啟用及監察撥接網路連線"
+
+#~ msgid "Modem Monitor"
+#~ msgstr "數據機監察程式"
+
+#~ msgid "_Activate"
+#~ msgstr "連線(_A)"
+
+#~ msgid "_Deactivate"
+#~ msgstr "斷線(_D)"
+
+#~ msgid "_Properties"
+#~ msgstr "屬性(_P)"
+
+#~ msgid "Connection active, but could not get connection time"
+#~ msgstr "已經連接，但無法取得連線時間"
+
+#~ msgid "Time connected: %.1d:%.2d"
+#~ msgstr "已連線時間：%.1d:%.2d"
+
+#~ msgid "Not connected"
+#~ msgstr "沒有連線"
+
+#~ msgid ""
+#~ "To connect to your Internet service provider, you need administrator "
+#~ "privileges"
+#~ msgstr "要連接您的網路服務供應商，您需要系統管理員的權限"
+
+#~ msgid ""
+#~ "To disconnect from your Internet service provider, you need administrator "
+#~ "privileges"
+#~ msgstr "要從您的網路服務供應商斷線，您需要有系統管理員的權限"
+
+#~ msgid "The entered password is invalid"
+#~ msgstr "輸入的密碼不正確"
+
+#~ msgid ""
+#~ "Check that you have typed it correctly and that you haven't activated the "
+#~ "\"caps lock\" key"
+#~ msgstr "請檢查您所輸入的是否正確及沒有按下了“Caps Lock”鍵"
+
+#~ msgid "Do you want to connect?"
+#~ msgstr "您要撥接連線嗎？"
+
+#~ msgid "Do you want to disconnect?"
+#~ msgstr "您要斷線嗎？"
+
+#~ msgid "C_onnect"
+#~ msgstr "連線(_O)"
+
+#~ msgid "_Disconnect"
+#~ msgstr "斷線(_D)"
+
+#~ msgid "Could not launch network configuration tool"
+#~ msgstr "無法執行網路設置工具"
+
+#~ msgid ""
+#~ "Check that it's installed in the correct path and that it has the correct "
+#~ "permissions"
+#~ msgstr "請檢查安裝的路徑是否正確及它的權限正確"
+
+#~ msgid "Applet for activating and monitoring a dial-up network connection."
+#~ msgstr "連接及監察撥接網路的面板程式"
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">Connecting with Internet Service "
+#~ "Provider</span>"
+#~ msgstr "<span weight=\"bold\" size=\"larger\">與網路服務供應商連接</span>"
+
+#~ msgid "<span weight=\"bold\" size=\"larger\">Root password required</span>"
+#~ msgstr "<span weight=\"bold\" size=\"larger\">需要 Root 的密碼</span>"
+
+#~ msgid "Enter password"
+#~ msgstr "輸入密碼"
+
+#~ msgid "Password:"
+#~ msgstr "密碼："
+
+#~ msgid "A system load indicator"
+#~ msgstr "系統負載指示器"
+
+#~ msgid "System Monitor"
+#~ msgstr "系統監察"
+
+#~ msgid "_Open System Monitor"
+#~ msgstr "啟動系統監察程式(_O)"
+
+#~ msgid ""
+#~ "A system load monitor capable of displaying graphs for CPU, ram, and swap "
+#~ "space use, plus network traffic."
+#~ msgstr "系統負載監察程式可以顯示 CPU、記憶體、交換記憶及網路使用量。"
+
+#~ msgid "There was an error executing '%s': %s"
+#~ msgstr "執行‘%s’時出現錯誤：%s"
+
+#~ msgid "Processor"
+#~ msgstr "處理器"
+
+#~ msgid "Memory"
+#~ msgstr "記憶體"
+
+#~ msgid "Network"
+#~ msgstr "網路"
+
+#~ msgid "Swap Space"
+#~ msgstr "交換記憶"
+
+#~ msgid "Load Average"
+#~ msgstr "平均負載"
+
+#~ msgid "Disk"
+#~ msgstr "磁碟"
+
+#~ msgid ""
+#~ "%s:\n"
+#~ "%u%% in use by programs\n"
+#~ "%u%% in use as cache"
+#~ msgstr ""
+#~ "%s:\n"
+#~ "%u%% 由程式使用中\n"
+#~ "%u%% 使用為快取記憶"
+
+#~ msgid "The system load average is %0.02f"
+#~ msgstr "系統平均負載為 %0.02f"
+
+#~ msgid ""
+#~ "%s:\n"
+#~ "%u%% in use"
+#~ msgid_plural ""
+#~ "%s:\n"
+#~ "%u%% in use"
+#~ msgstr[0] ""
+#~ "%s:\n"
+#~ "%u%% 使用中"
+
+#~ msgid "CPU Load"
+#~ msgstr "CPU 負載"
+
+#~ msgid "Memory Load"
+#~ msgstr "記憶體負載"
+
+#~ msgid "Net Load"
+#~ msgstr "網路負載"
+
+#~ msgid "Swap Load"
+#~ msgstr "交換檔負載"
+
+#~ msgid "Disk Load"
+#~ msgstr "磁碟負載"
+
+#~ msgid "Applet refresh rate in milliseconds"
+#~ msgstr "面板程式自動更新頻率（毫秒）"
+
+#~ msgid "Background color for disk load graph"
+#~ msgstr "磁碟負載圖的背景色彩"
+
+#~ msgid "CPU graph background color"
+#~ msgstr "CPU 負載圖的背景顏色"
+
+#~ msgid "Enable CPU load graph"
+#~ msgstr "顯示 CPU 負載圖"
+
+#~ msgid "Enable disk load graph"
+#~ msgstr "顯示磁碟負載圖"
+
+#~ msgid "Enable load average graph"
+#~ msgstr "顯示系統平均負載圖"
+
+#~ msgid "Enable memory load graph"
+#~ msgstr "顯示記憶體負載圖"
+
+#~ msgid "Enable network load graph"
+#~ msgstr "顯示網路負載圖"
+
+#~ msgid "Enable swap load graph"
+#~ msgstr "顯示交換記憶負載圖"
+
+#~ msgid ""
+#~ "For horizontal panels, the width of the graphs in pixels. For vertical "
+#~ "panels, this is the height of the graphs."
+#~ msgstr ""
+#~ "在水平方向的面板中，這個數字是每一格的寬度（像素）。而在垂直面板中這個數字"
+#~ "就代表每格的高度。"
+
+#~ msgid "Graph color for Ethernet network activity"
+#~ msgstr "代表數據經過乙太網路的顏色"
+
+#~ msgid "Graph color for PLIP network activity"
+#~ msgstr "代表數據經過 PLIP 網路的顏色"
+
+#~ msgid "Graph color for SLIP network activity"
+#~ msgstr "代表數據經過 SLIP 網路的顏色"
+
+#~ msgid "Graph color for buffer memory"
+#~ msgstr "代表緩衝記憶用量的顏色"
+
+#~ msgid "Graph color for cached memory"
+#~ msgstr "代表快取記憶用量的顏色"
+
+#~ msgid "Graph color for disk read"
+#~ msgstr "代表磁碟讀取的顏色"
+
+#~ msgid "Graph color for disk write"
+#~ msgstr "代表磁碟寫入的顏色"
+
+#~ msgid "Graph color for iowait related CPU activity"
+#~ msgstr "代表 iowait 相關的 CPU 活動的顏色"
+
+#~ msgid "Graph color for load average"
+#~ msgstr "代表系統平均負載的顏色"
+
+#~ msgid "Graph color for nice-related CPU activity"
+#~ msgstr "代表優先值較低的進程的 CPU 用量的顏色"
+
+#~ msgid "Graph color for other network usage"
+#~ msgstr "代表數據經過其它種類的網路的顏色"
+
+#~ msgid "Graph color for shared memory"
+#~ msgstr "代表分享記憶用量的顏色"
+
+#~ msgid "Graph color for system-related CPU activity"
+#~ msgstr "代表和系統有關的 CPU 用量的顏色"
+
+#~ msgid "Graph color for user-related CPU activity"
+#~ msgstr "代表和用戶有關的 CPU 用量的顏色"
+
+#~ msgid "Graph color for user-related memory usage"
+#~ msgstr "代表和用戶有關的記憶體用量的顏色"
+
+#~ msgid "Graph color for user-related swap usage"
+#~ msgstr "代表和用戶有關的交換記憶用量的顏色"
+
+#~ msgid "Graph size"
+#~ msgstr "方格"
+
+#~ msgid "Load graph background color"
+#~ msgstr "系統負載量背景顏色"
+
+#~ msgid "Memory graph background color"
+#~ msgstr "記憶體負載量背景顏色"
+
+#~ msgid "Network graph background color"
+#~ msgstr "網路負載量背景顏色"
+
+#~ msgid "Swap graph background color"
+#~ msgstr "交換記憶負載量背景顏色"
+
+#~ msgid "Monitored Resources"
+#~ msgstr "受監察的資源"
+
+#~ msgid "_Processor"
+#~ msgstr "處理器(_P)"
+
+#~ msgid "_Memory"
+#~ msgstr "記憶體(_M)"
+
+#~ msgid "_Network"
+#~ msgstr "網路(_N)"
+
+#~ msgid "S_wap Space"
+#~ msgstr "交換記憶(_W)"
+
+#~ msgid "_Load"
+#~ msgstr "負載(_L)"
+
+#~ msgid "_Harddisk"
+#~ msgstr "硬碟(_H)"
+
+#~ msgid "Options"
+#~ msgstr "選項"
+
+#~ msgid "System m_onitor width: "
+#~ msgstr "系統監察程式寬度(_O)："
+
+#~ msgid "System m_onitor height: "
+#~ msgstr "系統監察程式高度(_O)："
+
+#~ msgid "Sys_tem monitor update interval: "
+#~ msgstr "系統監察更新間隔(_T)："
+
+#~ msgid "milliseconds"
+#~ msgstr "亳秒"
+
+#~ msgid "Colors"
+#~ msgstr "色彩"
+
+#~ msgid "_User"
+#~ msgstr "使用者(_U)"
+
+#~ msgid "S_ystem"
+#~ msgstr "系統(_Y)"
+
+#~ msgid "N_ice"
+#~ msgstr "N_ice"
+
+#~ msgid "I_OWait"
+#~ msgstr "I_OWait"
+
+#~ msgid "I_dle"
+#~ msgstr "閒置(_D)"
+
+#~ msgid "Sh_ared"
+#~ msgstr "分享(_A)"
+
+#~ msgid "_Buffers"
+#~ msgstr "緩衝區(_B)"
+
+#~ msgid "Cach_ed"
+#~ msgstr "快取記憶(_E)"
+
+#~ msgid "F_ree"
+#~ msgstr "未用(_R)"
+
+#~ msgid "_SLIP"
+#~ msgstr "_SLIP"
+
+#~ msgid "PL_IP"
+#~ msgstr "PL_IP"
+
+#~ msgid "_Ethernet"
+#~ msgstr "乙太網(_E)"
+
+#~ msgid "Othe_r"
+#~ msgstr "其它(_R)"
+
+#~ msgid "_Background"
+#~ msgstr "背景顏色(_B)"
+
+#~ msgid "_Used"
+#~ msgstr "使用中(_U)"
+
+#~ msgid "_Free"
+#~ msgstr "可用(_F)"
+
+#~ msgid "Load"
+#~ msgstr "負載"
+
+#~ msgid "_Average"
+#~ msgstr "平均(_A)"
+
+#~ msgid "Harddisk"
+#~ msgstr "硬碟"
+
+#~ msgid "_Read"
+#~ msgstr "讀(_R)"
+
+#~ msgid "_Write"
+#~ msgstr "寫(_W)"
+
+#~ msgid "System Monitor Preferences"
+#~ msgstr "系統監察程式偏好設定"
+
+#~ msgid "CD Player (Deprecated)"
+#~ msgstr "CD 播放程式（不建議再使用）"
+
+#~ msgid "Panel applet for playing audio CDs"
+#~ msgstr "播放音樂 CD 的面板程式"
+
+#~ msgid "Alert you when new mail arrives"
+#~ msgstr "通知您收到新郵件"
+
+#~ msgid "Inbox Monitor (Deprecated)"
+#~ msgstr "郵箱檢查（不建議再使用）"
+
+#~ msgid "Factory for deprecating applets"
+#~ msgstr "已過時的面板程式的工廠"
+
+#~ msgid "Null Applet Factory"
+#~ msgstr "空白的面板程式工廠"
+
+#~ msgid "Monitor the quality of a wireless network link"
+#~ msgstr "監察無線網路連線的訊號品質"
+
+#~ msgid "Wireless Link Monitor"
+#~ msgstr "無線網路連線監察程式"
+
+#~ msgid "Some panel items are no longer available"
+#~ msgstr "有些面板項目已經不存在"
+
+#~ msgid ""
+#~ "One or more panel items (also referred to as applets) are no longer "
+#~ "available in the GNOME desktop."
+#~ msgstr "一個或更多的面板項目（通常是面板程式），已經不存在於 GNOME 桌面。"
+
+#~ msgid "These items will now be removed from your configuration:"
+#~ msgstr "這些項目現在會從您的設置中移除："
+
+#~ msgid "You will not receive this message again."
+#~ msgstr "您以後不會再收到這訊息。"
+
+#~ msgid "Tomboy (ne Stickynotes)"
+#~ msgstr "Tomboy （前身為 Stickynotes）"
+
+#~ msgid "Tomboy (transparent upgrade from stickynotes)"
+#~ msgstr "Tomboy（Stickynotes 的升級版本）"
+
+#~ msgid "Create, view, and manage sticky notes on the desktop"
+#~ msgstr "在桌面中製作、顯示和管理便條"
+
+#~ msgid "Sticky Notes"
+#~ msgstr "便條"
+
+#~ msgid "Sticky Notes Applet Factory"
+#~ msgstr "便條面板程式工廠"
+
+#~ msgid "Hi_de Notes"
+#~ msgstr "隱藏便條(_D)"
+
+#~ msgid "_Delete Notes"
+#~ msgstr "刪除便條(_D)"
+
+#~ msgid "_Lock Notes"
+#~ msgstr "鎖定便條(_L)"
+
+#~ msgid "_New Note"
+#~ msgstr "新增便條(_N)"
+
+#~ msgid "This note is locked."
+#~ msgstr "這便條已鎖定。"
+
+#~ msgid "This note is unlocked."
+#~ msgstr "這便條未上鎖。"
+
+#~ msgid "    Font C_olor:"
+#~ msgstr "    字型顏色(_O)："
+
+#~ msgid "    Font Co_lor:"
+#~ msgstr "    字型顏色(_L)："
+
+#~ msgid "    Note C_olor:"
+#~ msgstr "    便條顏色(_O)："
+
+#~ msgid "    Note _Color:"
+#~ msgstr "    便條顏色(_C)："
+
+#~ msgid "    _Font:"
+#~ msgstr "    字型(_F)："
+
+#~ msgid "<b>Behavior</b>"
+#~ msgstr "<b>運作方式</b>"
+
+#~ msgid "<b>Default Note Properties</b>"
+#~ msgstr "<b>預設的便條屬性</b>"
+
+#~ msgid ""
+#~ "<b>Delete all sticky notes?</b>\n"
+#~ "\n"
+#~ "This cannot be undone."
+#~ msgstr ""
+#~ "<b>是否刪除所有便條？</b>\n"
+#~ "\n"
+#~ "刪除後不能復原。"
+
+#~ msgid ""
+#~ "<b>Delete this sticky note?</b>\n"
+#~ "\n"
+#~ "This cannot be undone."
+#~ msgstr ""
+#~ "<b>是否刪除這條便條？</b>\n"
+#~ "\n"
+#~ "刪除後不能復原。"
+
+#~ msgid "<b>Properties</b>"
+#~ msgstr "<b>屬性</b>"
+
+#~ msgid "Choose a base color to use for all sticky notes"
+#~ msgstr "選取所有便條使用的基本顏色"
+
+#~ msgid "Choose a color for the note"
+#~ msgstr "選取便條顏色"
+
+#~ msgid "Choose a font for the note"
+#~ msgstr "選取便條字型"
+
+#~ msgid "Choose a font to use for all sticky notes"
+#~ msgstr "選取所有便條使用的字型"
+
+#~ msgid "Choose if notes are visible on all workspaces"
+#~ msgstr "選擇便條會否在所有工作區中出現"
+
+#~ msgid "Choose if the default style is forced on all notes"
+#~ msgstr "指定是否強迫所有便條使用預設的樣式"
+
+#~ msgid "Close note"
+#~ msgstr "關閉便條"
+
+#~ msgid "Force _default color and font on notes"
+#~ msgstr "強制便條使用某種預設色彩和字型(_D)"
+
+#~ msgid "H_eight:"
+#~ msgstr "高度(_E)："
+
+#~ msgid "Lock/Unlock note"
+#~ msgstr "鎖定/不鎖定便條內容"
+
+#~ msgid "Pick a color for the sticky note"
+#~ msgstr "選取便條的顏色"
+
+#~ msgid "Pick a default sticky note color"
+#~ msgstr "選取預設的便條顏色"
+
+#~ msgid "Pick a default sticky note font"
+#~ msgstr "選取預設的便條字型"
+
+#~ msgid "Pick a font for the sticky note"
+#~ msgstr "選取便條的字型"
+
+#~ msgid "Resize note"
+#~ msgstr "變更便條大小"
+
+#~ msgid "Specify a title for the note"
+#~ msgstr "指定便條的標題"
+
+#~ msgid "Specify the default height (in pixels) of new notes"
+#~ msgstr "指定新的便條的預設高度（像素）"
+
+#~ msgid "Specify the default width (in pixels) of new notes"
+#~ msgstr "指定新的便條的預設寬度（像素）"
+
+#~ msgid "Sticky Note"
+#~ msgstr "便條"
+
+#~ msgid "Sticky Note Properties"
+#~ msgstr "便條屬性"
+
+#~ msgid "Sticky Notes Preferences"
+#~ msgstr "便條偏好設定"
+
+#~ msgid "Use co_lor from the system theme"
+#~ msgstr "使用系統指定的色彩(_L)"
+
+#~ msgid "Use default co_lor"
+#~ msgstr "使用預設色彩(_L)"
+
+#~ msgid "Use default fo_nt"
+#~ msgstr "使用預設字型(_N)"
+
+#~ msgid "Use fo_nt from the system theme"
+#~ msgstr "使用系統佈景主題所指定的字型(_N)"
+
+#~ msgid "_Delete All"
+#~ msgstr "全部刪除(_D)"
+
+#~ msgid "_Delete Note..."
+#~ msgstr "刪除便條(_D)..."
+
+#~ msgid "_Lock Note"
+#~ msgstr "鎖定便條內容(_L)"
+
+#~ msgid "_Put notes on all workspaces"
+#~ msgstr "在所有工作區中顯示便條(_P)"
+
+#~ msgid "_Title:"
+#~ msgstr "標題(_T)："
+
+#~ msgid ""
+#~ "By default, sticky notes are given the current date as the title when "
+#~ "they are created. This format is used; anything that can be parsed by "
+#~ "strftime() is valid."
+#~ msgstr ""
+#~ "當產生便條時，預設是使用該天的日期作為標題的。這裡指定顯示日期的格式，規定"
+#~ "為任何 strftime() 能夠接受的格式。"
+
+#~ msgid "Date format of note's title"
+#~ msgstr "便條標題的日期格式"
+
+#~ msgid "Default color for font"
+#~ msgstr "預設的字型顏色"
+
+#~ msgid "Default color for new notes"
+#~ msgstr "新便條預設使用的顏色"
+
+#~ msgid ""
+#~ "Default color for new sticky notes. This should be in html hex "
+#~ "specification, for example \"#30FF50\"."
+#~ msgstr ""
+#~ "新便條預設使用的顏色。它應該使用像 HTML 中的 16 進制數字來表示，例"
+#~ "如“#30FF50”。"
+
+#~ msgid ""
+#~ "Default font color for new sticky notes. This should be in html hex "
+#~ "specification, for example \"#000000\"."
+#~ msgstr ""
+#~ "新便條預設使用的字型顏色。它應該使用像 HTML 中的 16 進制數字來表示，例"
+#~ "如“#000000”。"
+
+#~ msgid "Default font for new notes"
+#~ msgstr "新便條預設使用的字型"
+
+#~ msgid ""
+#~ "Default font for new sticky notes. This should be a Pango Font Name, for "
+#~ "example \"Sans Italic 10\""
+#~ msgstr ""
+#~ "新便條預設使用的字型。它應該使用 Pango 格式的字型名稱，例如“Sans Italic "
+#~ "10”"
+
+#~ msgid "Default height for new notes"
+#~ msgstr "新的便條的預設高度"
+
+#~ msgid "Default height for new sticky notes in pixels."
+#~ msgstr "新的便條的預設高度，以像素計算。"
+
+#~ msgid "Default width for new notes"
+#~ msgstr "新的便條的預設寬度"
+
+#~ msgid "Default width for new sticky notes in pixels."
+#~ msgstr "新的便條的預設寬度，以像素計算。"
+
+#~ msgid "Empty notes are always deleted without confirmation"
+#~ msgstr "便條如果沒有內容，刪除前不需要確認"
+
+#~ msgid ""
+#~ "If this option is disabled, a custom color can be used as the default "
+#~ "color for all sticky notes."
+#~ msgstr "如停用本選項，您可以自行指定一種顏色作為所有便條的預設顏色。"
+
+#~ msgid ""
+#~ "If this option is disabled, a custom font can be used as the default font "
+#~ "for all sticky notes."
+#~ msgstr "如停用本選項，您可以自行指定一種字型作為所有便條的預設字型。"
+
+#~ msgid ""
+#~ "If this option is enabled, the custom colors and fonts that have been "
+#~ "assigned to individual notes will be ignored."
+#~ msgstr "如選用本選項，任何個別便條使用的字型和顏色設定都會被忽略。"
+
+#~ msgid "Specifies whether the sticky notes are locked (non-editable) or not."
+#~ msgstr "指定便條內容是否鎖定（不允許編輯）。"
+
+#~ msgid ""
+#~ "Specifies whether the sticky notes are visible on ALL workspaces on the "
+#~ "desktop, or not."
+#~ msgstr "指定是否在所有桌面中顯示便條。"
+
+#~ msgid "Sticky notes' locked state"
+#~ msgstr "是否鎖定便條內容"
+
+#~ msgid "Sticky notes' workspace stickyness"
+#~ msgstr "是否在所有工作區顯示便條"
+
+#~ msgid "Whether to ask for confirmation when deleting a note"
+#~ msgstr "刪除便條前是否需要確認"
+
+#~ msgid "Whether to force the default color and font on all notes"
+#~ msgstr "是否強迫所有便條使用預設顏色和字型"
+
+#~ msgid "Whether to use the default system color"
+#~ msgstr "是否使用系統預設的色彩"
+
+#~ msgid "Whether to use the default system font"
+#~ msgstr "是否使用系統預設字型"
+
+#~ msgid "%d note"
+#~ msgid_plural "%d notes"
+#~ msgstr[0] "%d 張便條"
+
+#~ msgid "Show sticky notes"
+#~ msgstr "顯示便條"
+
+#~ msgid "Sticky Notes for the GNOME Desktop Environment"
+#~ msgstr "適用於 GNOME 桌面環境的便條程式"
+
+#~ msgid "Go to Trash"
+#~ msgstr "前往回收筒"
+
+#~ msgid "Trash"
+#~ msgstr "回收筒"
+
+#~ msgid "_Empty Trash"
+#~ msgstr "清理回收筒(_E)"
+
+#~ msgid "_Open"
+#~ msgstr "開啟(_O)"
+
+#~ msgid "Unable to find the Trash directory: %s"
+#~ msgstr "無法找到回收筒目錄：%s"
+
+#~ msgid "No Items in Trash"
+#~ msgstr "回收筒中沒有任何項目"
+
+#~ msgid "%d Item in Trash"
+#~ msgid_plural "%d Items in Trash"
+#~ msgstr[0] "回收筒中有 %d 個項目"
+
+#~ msgid "Removing item %d of %d"
+#~ msgstr "正在移除項目 %d 之 %d"
+
+#~ msgid "Removing:"
+#~ msgstr "正在移除："
+
+#~ msgid "Empty all of the items from the trash?"
+#~ msgstr "要清除回收筒中所有的項目？"
+
+#~ msgid ""
+#~ "If you choose to empty the trash, all items in it will be permanently "
+#~ "lost. Please note that you can also delete them separately."
+#~ msgstr ""
+#~ "如果要清理回收筒，裡面的項目將會永久地刪除。請記得您是可以將它們逐一刪除"
+#~ "的。"
+
+#~ msgid ""
+#~ "Error while spawning nautilus:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "當執行 nautilus 時發生錯誤：\n"
+#~ "%s"
+
+#~ msgid "Trash Applet"
+#~ msgstr "回收筒面板程式"
+
+#~ msgid ""
+#~ "A GNOME trash bin that lives in your panel. You can use it to view the "
+#~ "trash or drag and drop items into the trash."
+#~ msgstr "面板上的回收筒。您可以用它來查看回收筒及將項目拖曳進去。"
+
+#~ msgid "Delete Immediately?"
+#~ msgstr "立即刪除？"
+
+#~ msgid "Cannot move items to trash, do you want to delete them immediately?"
+#~ msgstr "無法將項目丟到回收筒，要立即刪除它嗎？"
+
+#~ msgid ""
+#~ "Cannot move some items to trash, do you want to delete these immediately?"
+#~ msgstr "有些項目無法丟到回收筒，要立即刪除它嗎？"
+
+#~ msgid ""
+#~ "Unable to move to trash:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "無法移到回收筒：\n"
+#~ "%s"
+
+#~ msgid "<b>From:</b>"
+#~ msgstr "<b>從：</b>"
+
+#~ msgid "<big><b>Emptying the Trash</b></big>"
+#~ msgstr "<big><b>正在清理回收筒</b></big>"
+
+#~ msgid "Emptying the Trash"
+#~ msgstr "正在清理回收筒"
 
 #~ msgid "Mode to show the frequency selector drop down menu"
 #~ msgstr "頻率選擇器下拉式選單顯示的模式"
