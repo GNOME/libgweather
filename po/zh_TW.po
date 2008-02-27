@@ -7,13 +7,13 @@
 # GNOME 2.x:
 # Abel Cheung <abel@oaka.org>, 2002-2004.
 # Woodman Tuen <wmtuen@gmail.com>, 2005-07
-# 
-# 
+#
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets 2.21.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-23 11:54+0800\n"
+"POT-Creation-Date: 2008-02-26 21:39-0500\n"
 "PO-Revision-Date: 2008-02-01 18:07+0800\n"
 "Last-Translator: Woodman Tuen <wmtuen@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <community@linuxhall.org>\n"
@@ -21,55 +21,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-#. translators: Kelvin
-#: ../libgweather/gweather-prefs.c:27
-msgid "K"
-msgstr "K"
-
-#. translators: Celsius
-#: ../libgweather/gweather-prefs.c:29
-msgid "C"
-msgstr "C"
-
-#. translators: Fahrenheit
-#: ../libgweather/gweather-prefs.c:31
-msgid "F"
-msgstr "F"
-
-#. translators: miles
-#: ../libgweather/gweather-prefs.c:74
-msgid "mi"
-msgstr "哩"
-
-#. translators: meters
-#: ../libgweather/gweather-prefs.c:70
-msgid "m"
-msgstr "米"
-
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:710
-#, c-format
-msgid "%.1f ℉"
-msgstr "%.1f ℉"
-
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:713
-#, c-format
-msgid "%d ℉"
-msgstr "%d ℉"
-
-#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:719
-#, c-format
-msgid "%.1f ℃"
-msgstr "%.1f ℃"
-
-#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:722
-#, c-format
-msgid "%d ℃"
-msgstr "%d ℃"
 
 # zh_HK: msgstr "香港國際機場"
 # zh_TW: msgstr "松山/臺北"
@@ -164,6 +115,21 @@ msgstr "25-04N 121-33E"
 msgid "Default"
 msgstr "預設"
 
+#. translators: Kelvin
+#: ../libgweather/gweather-prefs.c:27
+msgid "K"
+msgstr "K"
+
+#. translators: Celsius
+#: ../libgweather/gweather-prefs.c:29
+msgid "C"
+msgstr "C"
+
+#. translators: Fahrenheit
+#: ../libgweather/gweather-prefs.c:31
+msgid "F"
+msgstr "F"
+
 # zh_HK: msgstr "米/秒"
 # zh_TW: msgstr "公尺/秒"
 #. translators: meters per second
@@ -227,10 +193,20 @@ msgstr "inHg"
 msgid "atm"
 msgstr "atm"
 
+#. translators: meters
+#: ../libgweather/gweather-prefs.c:70
+msgid "m"
+msgstr "米"
+
 #. translators: kilometers
 #: ../libgweather/gweather-prefs.c:72
 msgid "km"
 msgstr "公里"
+
+#. translators: miles
+#: ../libgweather/gweather-prefs.c:74
+msgid "mi"
+msgstr "哩"
 
 #. TRANSLATOR: This is the default unit to use for temperature measurements.
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
@@ -842,6 +818,30 @@ msgstr "%b %d(%a)/ %H:%M"
 #: ../libgweather/weather.c:677
 msgid "Unknown observation time"
 msgstr "觀測時間不詳"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
+#: ../libgweather/weather.c:710
+#, c-format
+msgid "%.1f ℉"
+msgstr "%.1f ℉"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
+#: ../libgweather/weather.c:713
+#, c-format
+msgid "%d ℉"
+msgstr "%d ℉"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
+#: ../libgweather/weather.c:719
+#, c-format
+msgid "%.1f ℃"
+msgstr "%.1f ℃"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
+#: ../libgweather/weather.c:722
+#, c-format
+msgid "%d ℃"
+msgstr "%d ℃"
 
 #. TRANSLATOR: This is the temperature in kelvin
 #: ../libgweather/weather.c:728

@@ -4,12 +4,12 @@
 # T.M.Thanh <tmthanh@yahoo.com>, 2002-2003.
 # Nguyễn Thái Ngọc Duy <pclouds@vnlinux.org>, 2002-2004.
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2008.
-# 
+#
 msgid ""
-""
-msgstr "Project-Id-Version: libgweather GNOME TRUNK\n"
+msgstr ""
+"Project-Id-Version: libgweather GNOME TRUNK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-26 03:40+0000\n"
+"POT-Creation-Date: 2008-02-26 21:39-0500\n"
 "PO-Revision-Date: 2008-01-05 21:06+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
@@ -19,121 +19,203 @@ msgstr "Project-Id-Version: libgweather GNOME TRUNK\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: LocFactoryEditor 1.7b1\n"
 
-#.TRANSLATOR: Change this to the default location name,
-#.* used when you first start the Weather Applet. This is
-#.* the common localised name that corresponds to
-#.* the location code (DEFAULT_CODE) you will put on the next message
-#.* For example, for the Greek locale, we set this to "Athens", the
-#.* capital city and we write it in Greek. It's important to translate
-#.* this name.
-#.*
-#.* If you do not require a DEFAULT_LOCATION, set this to
-#.* "DEFAULT_LOCATION".
+#. TRANSLATOR: Change this to the default location name,
+#. * used when you first start the Weather Applet. This is
+#. * the common localised name that corresponds to
+#. * the location code (DEFAULT_CODE) you will put on the next message
+#. * For example, for the Greek locale, we set this to "Athens", the
+#. * capital city and we write it in Greek. It's important to translate
+#. * this name.
+#. *
+#. * If you do not require a DEFAULT_LOCATION, set this to
+#. * "DEFAULT_LOCATION".
 #.
-#: ../libgweather/gweather-gconf.c:162
-#: ../libgweather/gweather-gconf.c:163
+#: ../libgweather/gweather-gconf.c:163 ../libgweather/gweather-gconf.c:164
 #: ../libgweather/gweather.schemas.in.h:5
 msgid "DEFAULT_LOCATION"
 msgstr "T.P. Hồ Chí Minh"
 
-#.TRANSLATOR: Change this to the code of your default location that
-#.* corresponds to the DEFAULT_LOCATION name you put above. This is
-#.* normally a four-letter (ICAO) code and can be found in
-#.* http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
-#.* NB. The web page is over 1.7MB in size.
-#.* Pick a default location like a capital city so that it would be ok
-#.* for more of your users. For example, for Greek, we use "LGAV" for
-#.* the capital city, Athens.
-#.*
-#.* If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
+#. TRANSLATOR: Change this to the code of your default location that
+#. * corresponds to the DEFAULT_LOCATION name you put above. This is
+#. * normally a four-letter (ICAO) code and can be found in
+#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * NB. The web page is over 1.7MB in size.
+#. * Pick a default location like a capital city so that it would be ok
+#. * for more of your users. For example, for Greek, we use "LGAV" for
+#. * the capital city, Athens.
+#. *
+#. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
 #.
-#: ../libgweather/gweather-gconf.c:182
-#: ../libgweather/gweather-gconf.c:183
+#: ../libgweather/gweather-gconf.c:183 ../libgweather/gweather-gconf.c:184
 #: ../libgweather/gweather.schemas.in.h:3
 msgid "DEFAULT_CODE"
 msgstr "VVTS"
 
-#.TRANSLATOR: Change this to the zone of your default location that
-#.* corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#.* Normally, US and Canada locations have zones while the rest do not.
-#.* Check
-#.* http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
-#.* as any zone you put here must also be present in the Locations.xml
-#.* file.
-#.*
-#.* If your default location does not have a zone, set this to
-#.* "DEFAULT_ZONE".
+#. TRANSLATOR: Change this to the zone of your default location that
+#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
+#. * Normally, US and Canada locations have zones while the rest do not.
+#. * Check
+#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * as any zone you put here must also be present in the Locations.xml
+#. * file.
+#. *
+#. * If your default location does not have a zone, set this to
+#. * "DEFAULT_ZONE".
 #.
-#: ../libgweather/gweather-gconf.c:202
-#: ../libgweather/gweather-gconf.c:203
+#: ../libgweather/gweather-gconf.c:203 ../libgweather/gweather-gconf.c:204
 #: ../libgweather/gweather.schemas.in.h:7
 msgid "DEFAULT_ZONE"
 msgstr "DEFAULT_ZONE"
 
-#.TRANSLATOR: Change this to the radar of your default location that
-#.* corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#.* Normally, US and Canada locations have radar names while the rest do
-#.* not. Check
-#.* http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
-#.* as any radar you put here must also be present in the Locations.xml
-#.* file.
-#.*
-#.* If your default location does not have a radar, set this to " "
-#.* (or space).
-#.* If you do not have a default location, set this to DEFAULT_RADAR.
+#. TRANSLATOR: Change this to the radar of your default location that
+#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
+#. * Normally, US and Canada locations have radar names while the rest do
+#. * not. Check
+#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * as any radar you put here must also be present in the Locations.xml
+#. * file.
+#. *
+#. * If your default location does not have a radar, set this to " "
+#. * (or space).
+#. * If you do not have a default location, set this to DEFAULT_RADAR.
 #.
-#: ../libgweather/gweather-gconf.c:223
-#: ../libgweather/gweather-gconf.c:224
+#: ../libgweather/gweather-gconf.c:224 ../libgweather/gweather-gconf.c:225
 #: ../libgweather/gweather.schemas.in.h:6
 msgid "DEFAULT_RADAR"
 msgstr "DEFAULT_RADAR"
 
-#.TRANSLATOR: Change this to the coordinates of your default location
-#.* that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
-#.* above. Check
-#.* http://cvs.gnome.org/viewcvs/gnome-applets/gweather/Locations.xml.in
-#.* as any coordinates you put here must also be present in the
-#.* Locations.xml file.
-#.*
-#.* If your default location does not have known coordinates, set this
-#.* to " " (or space).
-#.* If you do not have a default location, set this to
-#.* DEFAULT_COORDINATES.
+#. TRANSLATOR: Change this to the coordinates of your default location
+#. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
+#. * above. Check
+#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * as any coordinates you put here must also be present in the
+#. * Locations.xml file.
+#. *
+#. * If your default location does not have known coordinates, set this
+#. * to " " (or space).
+#. * If you do not have a default location, set this to
+#. * DEFAULT_COORDINATES.
 #.
-#: ../libgweather/gweather-gconf.c:244
-#: ../libgweather/gweather-gconf.c:245
+#: ../libgweather/gweather-gconf.c:245 ../libgweather/gweather-gconf.c:246
 #: ../libgweather/gweather.schemas.in.h:4
 msgid "DEFAULT_COORDINATES"
 msgstr "10-49N 106-40E"
 
-#.TRANSLATOR: This is the default unit to use for temperature measurements.
-#.Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
+#: ../libgweather/gweather-prefs.c:25 ../libgweather/gweather-prefs.c:36
+#: ../libgweather/gweather-prefs.c:51 ../libgweather/gweather-prefs.c:68
+msgid "Default"
+msgstr "Mặc định"
+
+#. translators: Kelvin
+#: ../libgweather/gweather-prefs.c:27
+msgid "K"
+msgstr ""
+
+#. translators: Celsius
+#: ../libgweather/gweather-prefs.c:29
+msgid "C"
+msgstr ""
+
+#. translators: Fahrenheit
+#: ../libgweather/gweather-prefs.c:31
+msgid "F"
+msgstr ""
+
+#. translators: meters per second
+#: ../libgweather/gweather-prefs.c:38
+msgid "m/s"
+msgstr "mét/giây"
+
+#. translators: kilometers per hour
+#: ../libgweather/gweather-prefs.c:40
+msgid "km/h"
+msgstr "cây số/giờ"
+
+#. translators: miles per hour
+#: ../libgweather/gweather-prefs.c:42
+msgid "mph"
+msgstr "lý/giờ"
+
+#. translators: knots (speed unit)
+#: ../libgweather/gweather-prefs.c:44
+msgid "knots"
+msgstr "hải lý"
+
+#. translators: wind speed
+#: ../libgweather/gweather-prefs.c:46
+msgid "Beaufort scale"
+msgstr "Tỷ lệ Beaufort"
+
+#. translators: kilopascals
+#: ../libgweather/gweather-prefs.c:53
+msgid "kPa"
+msgstr "kPa"
+
+#. translators: hectopascals
+#: ../libgweather/gweather-prefs.c:55
+msgid "hPa"
+msgstr "hPa"
+
+#. translators: millibars
+#: ../libgweather/gweather-prefs.c:57
+msgid "mb"
+msgstr "mb"
+
+#. translators: millimeters of mercury
+#: ../libgweather/gweather-prefs.c:59
+msgid "mmHg"
+msgstr "mmHg"
+
+#. translators: inches of mercury
+#: ../libgweather/gweather-prefs.c:61
+msgid "inHg"
+msgstr "inHg"
+
+#. translators: atmosphere
+#: ../libgweather/gweather-prefs.c:63
+msgid "atm"
+msgstr "atm"
+
+#. translators: meters
+#: ../libgweather/gweather-prefs.c:70
+#, fuzzy
+msgid "m"
+msgstr "mb"
+
+#. translators: kilometers
+#: ../libgweather/gweather-prefs.c:72
+msgid "km"
+msgstr "cây số"
+
+#. translators: miles
 #: ../libgweather/gweather-prefs.c:74
-#: ../libgweather/gweather-prefs.c:83
+msgid "mi"
+msgstr ""
+
+#. TRANSLATOR: This is the default unit to use for temperature measurements.
+#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
+#: ../libgweather/gweather-prefs.c:93 ../libgweather/gweather-prefs.c:102
 msgid "DEFAULT_TEMP_UNIT"
 msgstr "C"
 
-#.TRANSLATOR: This is the default unit to use for wind speed.
-#.Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
-#.mph" (miles per hour) and "knots
-#: ../libgweather/gweather-prefs.c:111
-#: ../libgweather/gweather-prefs.c:121
+#. TRANSLATOR: This is the default unit to use for wind speed.
+#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
+#. "mph" (miles per hour) and "knots"
+#: ../libgweather/gweather-prefs.c:131 ../libgweather/gweather-prefs.c:141
 msgid "DEFAULT_SPEED_UNIT"
 msgstr "kh/h"
 
-#.TRANSLATOR: This is the default unit to use for atmospheric pressure.
-#.Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
-#."mb" (millibars), "mmHg" (millimeters of mercury),
-#."inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:151
-#: ../libgweather/gweather-prefs.c:162
+#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
+#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
+#. "mb" (millibars), "mmHg" (millimeters of mercury),
+#. "inHg" (inches of mercury) and "atm" (atmosphere)
+#: ../libgweather/gweather-prefs.c:172 ../libgweather/gweather-prefs.c:183
 msgid "DEFAULT_PRESSURE_UNIT"
 msgstr "mb"
 
-#.TRANSLATOR: This is the default unit to use for visibility distance.
-#.Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:190
-#: ../libgweather/gweather-prefs.c:199
+#. TRANSLATOR: This is the default unit to use for visibility distance.
+#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
+#: ../libgweather/gweather-prefs.c:212 ../libgweather/gweather-prefs.c:221
 msgid "DEFAULT_DISTANCE_UNIT"
 msgstr "km"
 
@@ -172,7 +254,8 @@ msgstr "Gọi bản đồ ra đa mỗi lần cập nhật."
 msgid ""
 "If true, then retrieve a radar map from a location specified by the \"radar"
 "\" key."
-msgstr "Nếu thật (true), thì gọi bản đồ ra đa từ địa điểm xác định bởi khóa \"radar"
+msgstr ""
+"Nếu thật (true), thì gọi bản đồ ra đa từ địa điểm xác định bởi khóa \"radar"
 "\"."
 
 #: ../libgweather/gweather.schemas.in.h:13
@@ -283,576 +366,565 @@ msgstr "Thông tin địa điểm thời tiết."
 msgid "Zone location"
 msgstr "Thông tin vùng"
 
-#: ../libgweather/weather-iwin.c:134
-#: ../libgweather/weather-metar.c:553
-#: ../libgweather/weather-metar.c:581
+#: ../libgweather/weather-iwin.c:135 ../libgweather/weather-metar.c:554
+#: ../libgweather/weather-metar.c:582
 msgid "WeatherInfo missing location"
 msgstr "WeatherInfo (thông tin thời tiết) thiếu địa điểm"
 
-#: ../libgweather/weather-metar.c:526
-#: ../libgweather/weather-metar.c:561
-#: ../libgweather/weather-wx.c:62
+#: ../libgweather/weather-metar.c:527 ../libgweather/weather-metar.c:562
+#: ../libgweather/weather-wx.c:63
 msgid "Failed to get METAR data.\n"
 msgstr "Không gọi dữ liệu METAR được.\n"
 
-#: ../libgweather/weather.c:179
+#: ../libgweather/weather.c:180
 msgid "Variable"
 msgstr "Biến"
 
-#: ../libgweather/weather.c:180
+#: ../libgweather/weather.c:181
 msgid "North"
 msgstr "Bắc"
 
-#: ../libgweather/weather.c:180
+#: ../libgweather/weather.c:181
 msgid "North - NorthEast"
 msgstr "Bắc - Đông Bắc"
 
-#: ../libgweather/weather.c:180
+#: ../libgweather/weather.c:181
 msgid "Northeast"
 msgstr "Đông Bắc"
 
-#: ../libgweather/weather.c:180
+#: ../libgweather/weather.c:181
 msgid "East - NorthEast"
 msgstr "Đông - Bắc Đông"
 
-#: ../libgweather/weather.c:181
+#: ../libgweather/weather.c:182
 msgid "East"
 msgstr "Đông"
 
-#: ../libgweather/weather.c:181
+#: ../libgweather/weather.c:182
 msgid "East - Southeast"
 msgstr "Đông - Nam Đông"
 
-#: ../libgweather/weather.c:181
+#: ../libgweather/weather.c:182
 msgid "Southeast"
 msgstr "Nam Đông"
 
-#: ../libgweather/weather.c:181
+#: ../libgweather/weather.c:182
 msgid "South - Southeast"
 msgstr "Nam - Nam Đông"
 
-#: ../libgweather/weather.c:182
+#: ../libgweather/weather.c:183
 msgid "South"
 msgstr "Nam"
 
-#: ../libgweather/weather.c:182
+#: ../libgweather/weather.c:183
 msgid "South - Southwest"
 msgstr "Nam - Nam Tây"
 
-#: ../libgweather/weather.c:182
+#: ../libgweather/weather.c:183
 msgid "Southwest"
 msgstr "Nam Tây"
 
-#: ../libgweather/weather.c:182
+#: ../libgweather/weather.c:183
 msgid "West - Southwest"
 msgstr "Tây - Nam Tây"
 
-#: ../libgweather/weather.c:183
+#: ../libgweather/weather.c:184
 msgid "West"
 msgstr "Tây"
 
-#: ../libgweather/weather.c:183
+#: ../libgweather/weather.c:184
 msgid "West - Northwest"
 msgstr "Tây - Bắc Tây"
 
-#: ../libgweather/weather.c:183
+#: ../libgweather/weather.c:184
 msgid "Northwest"
 msgstr "Bắc Tây"
 
-#: ../libgweather/weather.c:183
+#: ../libgweather/weather.c:184
 msgid "North - Northwest"
 msgstr "Bắc - Bắc Tây"
 
-#: ../libgweather/weather.c:189
-#: ../libgweather/weather.c:689
-#: ../libgweather/weather.c:738
-#: ../libgweather/weather.c:751
-#: ../libgweather/weather.c:763
-#: ../libgweather/weather.c:778
-#: ../libgweather/weather.c:794
-#: ../libgweather/weather.c:831
-#: ../libgweather/weather.c:843
-#: ../libgweather/weather.c:862
-#: ../libgweather/weather.c:894
-#: ../libgweather/weather.c:907
-#: ../libgweather/weather.c:927
+#: ../libgweather/weather.c:190 ../libgweather/weather.c:690
+#: ../libgweather/weather.c:739 ../libgweather/weather.c:752
+#: ../libgweather/weather.c:764 ../libgweather/weather.c:779
+#: ../libgweather/weather.c:795 ../libgweather/weather.c:832
+#: ../libgweather/weather.c:844 ../libgweather/weather.c:863
+#: ../libgweather/weather.c:895 ../libgweather/weather.c:908
+#: ../libgweather/weather.c:928
 msgid "Unknown"
 msgstr "Chưa biết"
 
-#: ../libgweather/weather.c:191
-#: ../libgweather/weather.c:208
-#: ../libgweather/weather.c:279
+#: ../libgweather/weather.c:192 ../libgweather/weather.c:209
+#: ../libgweather/weather.c:280
 msgid "Invalid"
 msgstr "Không hợp lệ"
 
-#: ../libgweather/weather.c:197
+#: ../libgweather/weather.c:198
 msgid "Clear Sky"
 msgstr "Trời trong"
 
-#: ../libgweather/weather.c:198
+#: ../libgweather/weather.c:199
 msgid "Broken clouds"
 msgstr "Mây thất thường"
 
-#: ../libgweather/weather.c:199
+#: ../libgweather/weather.c:200
 msgid "Scattered clouds"
 msgstr "Nhiều mây rải rác"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:201
 msgid "Few clouds"
 msgstr "Ít mây"
 
-#: ../libgweather/weather.c:201
+#: ../libgweather/weather.c:202
 msgid "Overcast"
 msgstr "U ám"
 
-#.TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
-#.* etc means, you can go to http://www.weather.com/glossary/ and
-#.* http://www.crh.noaa.gov/arx/wx.tbl.html
-#.NONE
-#: ../libgweather/weather.c:240
-#: ../libgweather/weather.c:242
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.html
+#. NONE
+#: ../libgweather/weather.c:241 ../libgweather/weather.c:243
 msgid "Thunderstorm"
 msgstr "Bão kèm sấm"
 
-#.DRIZZLE
-#: ../libgweather/weather.c:241
+#. DRIZZLE
+#: ../libgweather/weather.c:242
 msgid "Drizzle"
 msgstr "Mưa phùn"
 
-#: ../libgweather/weather.c:241
+#: ../libgweather/weather.c:242
 msgid "Light drizzle"
 msgstr "Mưa phùn nhẹ"
 
-#: ../libgweather/weather.c:241
+#: ../libgweather/weather.c:242
 msgid "Moderate drizzle"
 msgstr "Mưa phùn vừa"
 
-#: ../libgweather/weather.c:241
+#: ../libgweather/weather.c:242
 msgid "Heavy drizzle"
 msgstr "Mưa phùn nhiều"
 
-#: ../libgweather/weather.c:241
+#: ../libgweather/weather.c:242
 msgid "Freezing drizzle"
 msgstr "Mưa phùn kèm gió buốt"
 
-#.RAIN
-#: ../libgweather/weather.c:242
+#. RAIN
+#: ../libgweather/weather.c:243
 msgid "Rain"
 msgstr "Mưa"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:243
 msgid "Light rain"
 msgstr "Mưa nhẹ"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:243
 msgid "Moderate rain"
 msgstr "Mưa vừa"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:243
 msgid "Heavy rain"
 msgstr "Mưa to"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:243
 msgid "Rain showers"
 msgstr "Mưa rào"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:243
 msgid "Freezing rain"
 msgstr "Mưa kèm gió buốt"
 
-#.SNOW
-#: ../libgweather/weather.c:243
+#. SNOW
+#: ../libgweather/weather.c:244
 msgid "Snow"
 msgstr "Tuyết"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:244
 msgid "Light snow"
 msgstr "Tuyết nhẹ"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:244
 msgid "Moderate snow"
 msgstr "Tuyết vừa"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:244
 msgid "Heavy snow"
 msgstr "Tuyết nhiều"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:244
 msgid "Snowstorm"
 msgstr "Bão tuyết"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:244
 msgid "Blowing snowfall"
 msgstr "Bão tuyết kèm gió mạnh"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:244
 msgid "Snow showers"
 msgstr "Mưa tuyết"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:244
 msgid "Drifting snow"
 msgstr "Tuyết kèm gió xoáy"
 
-#.SNOW_GRAINS
-#: ../libgweather/weather.c:244
+#. SNOW_GRAINS
+#: ../libgweather/weather.c:245
 msgid "Snow grains"
 msgstr "Hoa tuyết"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:245
 msgid "Light snow grains"
 msgstr "Hoa tuyết nhẹ"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:245
 msgid "Moderate snow grains"
 msgstr "Hoa tuyết vừa"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:245
 msgid "Heavy snow grains"
 msgstr "Hoa tuyết nhiều"
 
-#.ICE_CRYSTALS
-#: ../libgweather/weather.c:245
+#. ICE_CRYSTALS
+#: ../libgweather/weather.c:246
 msgid "Ice crystals"
 msgstr "Hạt băng"
 
-#.ICE_PELLETS
-#: ../libgweather/weather.c:246
+#. ICE_PELLETS
+#: ../libgweather/weather.c:247
 msgid "Ice pellets"
 msgstr "Mảnh băng"
 
-#: ../libgweather/weather.c:246
+#: ../libgweather/weather.c:247
 msgid "Few ice pellets"
 msgstr "Ít mảnh băng"
 
-#: ../libgweather/weather.c:246
+#: ../libgweather/weather.c:247
 msgid "Moderate ice pellets"
 msgstr "Mảnh băng vừa"
 
-#: ../libgweather/weather.c:246
+#: ../libgweather/weather.c:247
 msgid "Heavy ice pellets"
 msgstr "Nhiều mảnh băng"
 
-#: ../libgweather/weather.c:246
+#: ../libgweather/weather.c:247
 msgid "Ice pellet storm"
 msgstr "Mảnh băng kèm giông"
 
-#: ../libgweather/weather.c:246
+#: ../libgweather/weather.c:247
 msgid "Showers of ice pellets"
 msgstr "Mảnh băng kèm mưa"
 
-#.HAIL
-#: ../libgweather/weather.c:247
+#. HAIL
+#: ../libgweather/weather.c:248
 msgid "Hail"
 msgstr "Mưa đá"
 
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:248
 msgid "Hailstorm"
 msgstr "Mưa đá kèm giông"
 
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:248
 msgid "Hail showers"
 msgstr "Mưa đá thất thường"
 
-#.SMALL_HAIL
-#: ../libgweather/weather.c:248
+#. SMALL_HAIL
+#: ../libgweather/weather.c:249
 msgid "Small hail"
 msgstr "Mưa đá-nhỏ"
 
-#: ../libgweather/weather.c:248
+#: ../libgweather/weather.c:249
 msgid "Small hailstorm"
 msgstr "Mưa đá-nhỏ kèm giông"
 
-#: ../libgweather/weather.c:248
+#: ../libgweather/weather.c:249
 msgid "Showers of small hail"
 msgstr "Mưa đá-nhỏ thất thường"
 
-#.PRECIPITATION
-#: ../libgweather/weather.c:249
+#. PRECIPITATION
+#: ../libgweather/weather.c:250
 msgid "Unknown precipitation"
 msgstr "Mưa rào không xác định"
 
-#.MIST
-#: ../libgweather/weather.c:250
+#. MIST
+#: ../libgweather/weather.c:251
 msgid "Mist"
 msgstr "Mù"
 
-#.FOG
-#: ../libgweather/weather.c:251
+#. FOG
+#: ../libgweather/weather.c:252
 msgid "Fog"
 msgstr "Sương mù"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:252
 msgid "Fog in the vicinity"
 msgstr "Sương mù trong vùng phụ cận"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:252
 msgid "Shallow fog"
 msgstr "Sương mù loáng thoáng"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:252
 msgid "Patches of fog"
 msgstr "Sương mù trên vá víu"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:252
 msgid "Partial fog"
 msgstr "Sương mù rải rác"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:252
 msgid "Freezing fog"
 msgstr "Sương mù kèm gió buốt"
 
-#.SMOKE
-#: ../libgweather/weather.c:252
+#. SMOKE
+#: ../libgweather/weather.c:253
 msgid "Smoke"
 msgstr "Sương"
 
-#.VOLCANIC_ASH
-#: ../libgweather/weather.c:253
+#. VOLCANIC_ASH
+#: ../libgweather/weather.c:254
 msgid "Volcanic ash"
 msgstr "Tro núi lửa"
 
-#.SAND
-#: ../libgweather/weather.c:254
+#. SAND
+#: ../libgweather/weather.c:255
 msgid "Sand"
 msgstr "Cát bay"
 
-#: ../libgweather/weather.c:254
+#: ../libgweather/weather.c:255
 msgid "Blowing sand"
 msgstr "Cát bay kèm gió"
 
-#: ../libgweather/weather.c:254
+#: ../libgweather/weather.c:255
 msgid "Drifting sand"
 msgstr "Cát bay kèm gió xoáy"
 
-#.HAZE
-#: ../libgweather/weather.c:255
+#. HAZE
+#: ../libgweather/weather.c:256
 msgid "Haze"
 msgstr "Khói mù"
 
-#.SPRAY
-#: ../libgweather/weather.c:256
+#. SPRAY
+#: ../libgweather/weather.c:257
 msgid "Blowing sprays"
 msgstr "Bụi nước kèm gió"
 
-#.DUST
-#: ../libgweather/weather.c:257
+#. DUST
+#: ../libgweather/weather.c:258
 msgid "Dust"
 msgstr "Bụi"
 
-#: ../libgweather/weather.c:257
+#: ../libgweather/weather.c:258
 msgid "Blowing dust"
 msgstr "Bụi kèm gió"
 
-#: ../libgweather/weather.c:257
+#: ../libgweather/weather.c:258
 msgid "Drifting dust"
 msgstr "Bụi kèm gió xoáy"
 
-#.SQUALL
-#: ../libgweather/weather.c:258
+#. SQUALL
+#: ../libgweather/weather.c:259
 msgid "Squall"
 msgstr "Cơn"
 
-#.SANDSTORM
-#: ../libgweather/weather.c:259
+#. SANDSTORM
+#: ../libgweather/weather.c:260
 msgid "Sandstorm"
 msgstr "Bão cát"
 
-#: ../libgweather/weather.c:259
+#: ../libgweather/weather.c:260
 msgid "Sandstorm in the vicinity"
 msgstr "Bão cát trong vùng phụ cận"
 
-#: ../libgweather/weather.c:259
+#: ../libgweather/weather.c:260
 msgid "Heavy sandstorm"
 msgstr "Bão cát dữ dội"
 
-#.DUSTSTORM
-#: ../libgweather/weather.c:260
+#. DUSTSTORM
+#: ../libgweather/weather.c:261
 msgid "Duststorm"
 msgstr "Bão bụi"
 
-#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:261
 msgid "Duststorm in the vicinity"
 msgstr "Bão bụi trong vùng phụ cận"
 
-#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:261
 msgid "Heavy duststorm"
 msgstr "Bão bụi nặng"
 
-#.FUNNEL_CLOUD
-#: ../libgweather/weather.c:261
+#. FUNNEL_CLOUD
+#: ../libgweather/weather.c:262
 msgid "Funnel cloud"
 msgstr "Mây ống"
 
-#.TORNADO
-#: ../libgweather/weather.c:262
+#. TORNADO
+#: ../libgweather/weather.c:263
 msgid "Tornado"
 msgstr "Bão táp"
 
-#.DUST_WHIRLS
-#: ../libgweather/weather.c:263
+#. DUST_WHIRLS
+#: ../libgweather/weather.c:264
 msgid "Dust whirls"
 msgstr "Làn bụi cuốn"
 
-#: ../libgweather/weather.c:263
+#: ../libgweather/weather.c:264
 msgid "Dust whirls in the vicinity"
 msgstr "Làn bụi cuốn trong vùng phụ cận"
 
-#.TRANSLATOR: this is a format string for strftime
-#.*             see `man 3 strftime` for more details
+#. TRANSLATOR: this is a format string for strftime
+#. *             see `man 3 strftime` for more details
 #.
-#: ../libgweather/weather.c:661
+#: ../libgweather/weather.c:662
 msgid "%a, %b %d / %H:%M"
 msgstr "%a, %d %b / %H:%M"
 
-#: ../libgweather/weather.c:676
+#: ../libgweather/weather.c:677
 msgid "Unknown observation time"
 msgstr "Thời điểm quan sát không xác định"
 
-#.TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:709
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
+#: ../libgweather/weather.c:710
 #, c-format
 msgid "%.1f ℉"
 msgstr "%.1f ℉"
 
-#.TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:712
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
+#: ../libgweather/weather.c:713
 #, c-format
 msgid "%d ℉"
 msgstr "%d ℉"
 
-#.TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:718
+#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
+#: ../libgweather/weather.c:719
 #, c-format
 msgid "%.1f ℃"
 msgstr "%.1f ℃"
 
-#.TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:721
+#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
+#: ../libgweather/weather.c:722
 #, c-format
 msgid "%d ℃"
 msgstr "%d ℃"
 
-#.TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:727
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../libgweather/weather.c:728
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
-#.TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:730
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../libgweather/weather.c:731
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#.TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:781
+#. TRANSLATOR: This is the humidity in percent
+#: ../libgweather/weather.c:782
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
-#.TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:806
+#. TRANSLATOR: This is the wind speed in knots
+#: ../libgweather/weather.c:807
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f hải lý"
 
-#.TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:810
+#. TRANSLATOR: This is the wind speed in miles per hour
+#: ../libgweather/weather.c:811
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f lý/giờ"
 
-#.TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:814
+#. TRANSLATOR: This is the wind speed in kilometers per hour
+#: ../libgweather/weather.c:815
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f cây số/giờ"
 
-#.TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:818
+#. TRANSLATOR: This is the wind speed in meters per second
+#: ../libgweather/weather.c:819
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f mét/giây"
 
-#.TRANSLATOR: This is the wind speed as a Beaufort force factor
-#.* (commonly used in nautical wind estimation).
+#. TRANSLATOR: This is the wind speed as a Beaufort force factor
+#. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:824
+#: ../libgweather/weather.c:825
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Beaufort force %.1f"
 
-#: ../libgweather/weather.c:845
+#: ../libgweather/weather.c:846
 msgid "Calm"
 msgstr "Ôn hòa"
 
 # Variable: do not translate/ biến: đừng dịch
-#.TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:849
+#. TRANSLATOR: This is 'wind direction' / 'wind speed'
+#: ../libgweather/weather.c:850
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#.TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:867
+#. TRANSLATOR: This is pressure in inches of mercury
+#: ../libgweather/weather.c:868
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f insơHg"
 
-#.TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:871
+#. TRANSLATOR: This is pressure in millimeters of mercury
+#: ../libgweather/weather.c:872
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
-#.TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:875
+#. TRANSLATOR: This is pressure in kiloPascals
+#: ../libgweather/weather.c:876
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
-#.TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:879
+#. TRANSLATOR: This is pressure in hectoPascals
+#: ../libgweather/weather.c:880
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
-#.TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:883
+#. TRANSLATOR: This is pressure in millibars
+#: ../libgweather/weather.c:884
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
-#.TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:887
+#. TRANSLATOR: This is pressure in atmospheres
+#: ../libgweather/weather.c:888
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#.TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:912
+#. TRANSLATOR: This is the visibility in miles
+#: ../libgweather/weather.c:913
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f lý"
 
-#.TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:916
+#. TRANSLATOR: This is the visibility in kilometers
+#: ../libgweather/weather.c:917
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f cây số"
 
-#.TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:920
+#. TRANSLATOR: This is the visibility in meters
+#: ../libgweather/weather.c:921
 #, c-format
 msgid "%.0fm"
 msgstr "%.0f mét"
 
-#: ../libgweather/weather.c:948
-#: ../libgweather/weather.c:968
+#: ../libgweather/weather.c:949 ../libgweather/weather.c:969
 msgid "%H:%M"
 msgstr "%H:%M"
 
-#: ../libgweather/weather.c:1001
+#: ../libgweather/weather.c:1002
 msgid "Retrieval failed"
 msgstr "Không gọi được"
 
@@ -908,7 +980,8 @@ msgstr "Không gọi được"
 #~ msgstr "Lỗi: %s"
 
 #~ msgid "Displays current state of keyboard accessibility features"
-#~ msgstr "Hiển thị trạng thái hiện thời của các tính năng khả năng truy cập bàn "
+#~ msgstr ""
+#~ "Hiển thị trạng thái hiện thời của các tính năng khả năng truy cập bàn "
 #~ "phím."
 
 #~ msgid "Battery Charge Monitor"
@@ -924,7 +997,8 @@ msgstr "Không gọi được"
 #~ msgstr "Tù_y thích"
 
 #~ msgid "0 for no label, 1 for percentage and 2 for time remaining"
-#~ msgstr "0 — không có nhãn\n"
+#~ msgstr ""
+#~ "0 — không có nhãn\n"
 #~ "1 — phần trăm\n"
 #~ "2 — thời gian còn lại"
 
@@ -955,7 +1029,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "Show the battery meter draining from the top of the battery. Only "
 #~ "implemented for traditional battery view."
-#~ msgstr "Hiện đồng hồ đo pin rút từ đỉnh pin. Thực hiện chỉ trong ô xem pin truyền "
+#~ msgstr ""
+#~ "Hiện đồng hồ đo pin rút từ đỉnh pin. Thực hiện chỉ trong ô xem pin truyền "
 #~ "thống."
 
 #~ msgid "Show the horizontal battery"
@@ -973,7 +1048,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "The battery level below which the battery is displayed as red. Also the "
 #~ "value at which the low battery warning is displayed."
-#~ msgstr "Cấp pin dưới đó pin hiển thị màu đỏ. Cũng là giá trị tại đó hiển thị cảnh "
+#~ msgstr ""
+#~ "Cấp pin dưới đó pin hiển thị màu đỏ. Cũng là giá trị tại đó hiển thị cảnh "
 #~ "báo pin thấp."
 
 #~ msgid "Upright (small) battery"
@@ -982,7 +1058,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "Use the value defined in red_value as a time remaining to show the "
 #~ "warning dialog rather than a percentage"
-#~ msgstr "Dùng giá trị được định nghĩa trong « red_value » (giá trị màu đỏ) là thời "
+#~ msgstr ""
+#~ "Dùng giá trị được định nghĩa trong « red_value » (giá trị màu đỏ) là thời "
 #~ "gian còn lại, để hiện hộp thoại cảnh báo hơn là hiện phần trăm."
 
 #~ msgid "Warn on low time rather than low percentage"
@@ -1048,7 +1125,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "You have %d minute of battery power remaining (%d%% of the total "
 #~ "capacity)."
-#~ msgid_plural "You have %d minutes of battery power remaining (%d%% of the total "
+#~ msgid_plural ""
+#~ "You have %d minutes of battery power remaining (%d%% of the total "
 #~ "capacity)."
 #~ msgstr[0] "Bạn có %d phút năng lượng pin còn lại (%d%% của nạp tổng)."
 
@@ -1056,7 +1134,8 @@ msgstr "Không gọi được"
 #~ "To avoid losing your work:\n"
 #~ " • plug your laptop into external power, or\n"
 #~ " • save open documents and shut your laptop down."
-#~ msgstr "Để tránh mất dữ liệu, bạn hãy:\n"
+#~ msgstr ""
+#~ "Để tránh mất dữ liệu, bạn hãy:\n"
 #~ " • cầm phít máy tính xách tay vào năng lượng bên ngoài, hoặc\n"
 #~ " • lưu các tài liệu đang mở, rồi tắt máy."
 
@@ -1065,7 +1144,8 @@ msgstr "Không gọi được"
 #~ " • suspend your laptop to save power,\n"
 #~ " • plug your laptop into external power, or\n"
 #~ " • save open documents and shut your laptop down."
-#~ msgstr "Để tránh mất dữ liệu, bạn hãy:\n"
+#~ msgstr ""
+#~ "Để tránh mất dữ liệu, bạn hãy:\n"
 #~ " • ngưng máy tính xách tay, để tiết kiệm năng lượng,\n"
 #~ " • cầm phít máy tính xách tay vào năng lượng bên ngoài, hay\n"
 #~ " • lưu các tài liệu đang mở, rồi tắt máy."
@@ -1101,7 +1181,8 @@ msgstr "Không gọi được"
 #~ msgstr "<b>Thông báo</b>"
 
 #~ msgid "<small>(shows single image for status and charge)</small>"
-#~ msgstr "<small>(hiển thị cùng một ảnh cho cả trạng thái lần nạp đều)</small>"
+#~ msgstr ""
+#~ "<small>(hiển thị cùng một ảnh cho cả trạng thái lần nạp đều)</small>"
 
 #~ msgid "<small>(two images: one for status, one for charge)</small>"
 #~ msgstr "<small>(hai ảnh: một điều cho trạng thái, một điều cho nạp)</small>"
@@ -1169,7 +1250,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "Gnome Panel applet for selecting strange characters that are not on my "
 #~ "keyboard. Released under GNU General Public Licence."
-#~ msgstr "Tiểu dụng Bảng điều khiển GNOME dùng để chọn ký tự lạ không có trên bàn "
+#~ msgstr ""
+#~ "Tiểu dụng Bảng điều khiển GNOME dùng để chọn ký tự lạ không có trên bàn "
 #~ "phím thường của bạn. Được phát hành dưới Bản quyền Công Chung GNU (GPL)."
 
 #~ msgid "Characters shown on applet startup"
@@ -1187,7 +1269,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "The string that the user had selected when the applet was last used. This "
 #~ "string will be displayed when the user starts the applet."
-#~ msgstr "Chuỗi người dùng đã chọn khi tiểu dụng được dùng lần cuối. Chuỗi này sẽ "
+#~ msgstr ""
+#~ "Chuỗi người dùng đã chọn khi tiểu dụng được dùng lần cuối. Chuỗi này sẽ "
 #~ "được hiển thị khi người dùng khởi động tiểu dụng ấy."
 
 #~ msgid "_Edit"
@@ -1244,7 +1327,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "A 0 value means to show cpu frequency, 1 to show frequency and units, and "
 #~ "2 to show percentage instead of frequency."
-#~ msgstr "Giá trị:\n"
+#~ msgstr ""
+#~ "Giá trị:\n"
 #~ " • 0 — hiển thị tần số CPU\n"
 #~ " • 1 — hiển thị tần số và đơn vi đều\n"
 #~ " • 2 — hiển thị phần trăm thay thế tần số."
@@ -1253,7 +1337,8 @@ msgstr "Không gọi được"
 #~ "A 0 value means to show the applet in graphic mode (pixmap only), 1 to "
 #~ "show the applet in text mode (not to show the pixmap) and 2 to show the "
 #~ "applet in graphic and text mode."
-#~ msgstr "Giá trị:\n"
+#~ msgstr ""
+#~ "Giá trị:\n"
 #~ " • 0 — hiển thi tiểu dụng trong chế độ đồ họa (chỉ ảnh bằng điểm)\n"
 #~ " • 1 — hiển thị tiểu dung trong chế độ chữ (không hiển thị ảnh bằng "
 #~ "điểm)\n"
@@ -1268,7 +1353,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "Set the CPU to monitor. In a single processor system you don't have to "
 #~ "change it."
-#~ msgstr "Lập CPU cần theo dõi. Trong hệ thống chỉ có một bộ xử lý thì không cần "
+#~ msgstr ""
+#~ "Lập CPU cần theo dõi. Trong hệ thống chỉ có một bộ xử lý thì không cần "
 #~ "thay đổi điều này."
 
 #~ msgid "The type of text to display (if the text is enabled)."
@@ -1329,7 +1415,8 @@ msgstr "Không gọi được"
 #~ "You will not be able to modify the frequency of your machine.  Your "
 #~ "machine may be misconfigured or not have hardware support for CPU "
 #~ "frequency scaling."
-#~ msgstr "Bạn sẽ không thể sửa đổi tần số của máy bạn. Có lẽ máy bạn có cấu hình "
+#~ msgstr ""
+#~ "Bạn sẽ không thể sửa đổi tần số của máy bạn. Có lẽ máy bạn có cấu hình "
 #~ "sai hoặc chưa có phần cứng hỗ trợ tiến trình quản lý tỷ lệ tần số CPU."
 
 #~ msgid "Disk Mounter"
@@ -1945,7 +2032,8 @@ msgstr "Không gọi được"
 #~ msgstr "Báo cáo thời tiết"
 
 #~ msgid "© 1999-2005 by S. Papadimitriou and others"
-#~ msgstr "Bản quyền © 1999-2005 của S. Papadimitriou (Σ. Πάπαδιμίτριου) và người "
+#~ msgstr ""
+#~ "Bản quyền © 1999-2005 của S. Papadimitriou (Σ. Πάπαδιμίτριου) và người "
 #~ "khác"
 
 #~ msgid "A panel application for monitoring local weather conditions."
@@ -1961,7 +2049,8 @@ msgstr "Không gọi được"
 #~ "City: %s\n"
 #~ "Sky: %s\n"
 #~ "Temperature: %s"
-#~ msgstr "Thành phố: %s\n"
+#~ msgstr ""
+#~ "Thành phố: %s\n"
 #~ "Bầu trời: %s\n"
 #~ "Nhiệt độ: %s"
 
@@ -2068,9 +2157,6 @@ msgstr "Không gọi được"
 #~ msgid "_Temperature unit:"
 #~ msgstr "Đơn vị nhiệ_t độ :"
 
-#~ msgid "Default"
-#~ msgstr "Mặc định"
-
 #~ msgid "Kelvin"
 #~ msgstr "Thang nhiệt kenvin"
 
@@ -2083,50 +2169,14 @@ msgstr "Không gọi được"
 #~ msgid "_Wind speed unit:"
 #~ msgstr "Đơn vị tốc độ _gió :"
 
-#~ msgid "m/s"
-#~ msgstr "mét/giây"
-
-#~ msgid "km/h"
-#~ msgstr "cây số/giờ"
-
-#~ msgid "mph"
-#~ msgstr "lý/giờ"
-
-#~ msgid "knots"
-#~ msgstr "hải lý"
-
-#~ msgid "Beaufort scale"
-#~ msgstr "Tỷ lệ Beaufort"
-
 #~ msgid "_Pressure unit:"
 #~ msgstr "Đơn vị á_p suất:"
-
-#~ msgid "kPa"
-#~ msgstr "kPa"
-
-#~ msgid "hPa"
-#~ msgstr "hPa"
-
-#~ msgid "mb"
-#~ msgstr "mb"
-
-#~ msgid "mmHg"
-#~ msgstr "mmHg"
-
-#~ msgid "inHg"
-#~ msgstr "inHg"
-
-#~ msgid "atm"
-#~ msgstr "atm"
 
 #~ msgid "_Visibility unit:"
 #~ msgstr "Đơn _vị tầm nhìn:"
 
 #~ msgid "meters"
 #~ msgstr "mét"
-
-#~ msgid "km"
-#~ msgstr "cây số"
 
 #~ msgid "miles"
 #~ msgstr "lý"
@@ -2186,7 +2236,8 @@ msgstr "Không gọi được"
 #~ "6m\n"
 #~ "1y\n"
 #~ "3y"
-#~ msgstr "1ng\n"
+#~ msgstr ""
+#~ "1ng\n"
 #~ "5ng\n"
 #~ "3th\n"
 #~ "6th\n"
@@ -2278,7 +2329,8 @@ msgstr "Không gọi được"
 #~ "l\n"
 #~ "b\n"
 #~ "c"
-#~ msgstr "l\n"
+#~ msgstr ""
+#~ "l\n"
 #~ "b\n"
 #~ "c"
 
@@ -2288,7 +2340,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "<i><small><b>Note:</b> Quotes are delayed at least 15 minutes.\n"
 #~ "<b>Source: </b> Yahoo!</small></i>"
-#~ msgstr "<i><small><b>Ghi chú :</b> bảng giá bị hoãn ít nhất 15 phút.\n"
+#~ msgstr ""
+#~ "<i><small><b>Ghi chú :</b> bảng giá bị hoãn ít nhất 15 phút.\n"
 #~ "<b>Nguồn: </b> Yahoo!</small></i>"
 
 #~ msgid "Invest Preferences"
@@ -2354,7 +2407,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "This GNOME applet adds a command line to the panel. It features command "
 #~ "completion, command history, and changeable macros."
-#~ msgstr "Tiểu dung GNOME này thêm dòng lệnh vào bảng điều khiển. Tính năng nó bao "
+#~ msgstr ""
+#~ "Tiểu dung GNOME này thêm dòng lệnh vào bảng điều khiển. Tính năng nó bao "
 #~ "gồm gõ xong lệnh, nhật ký lệnh và bộ lệnh có thể sửa đổi."
 
 #~ msgid "No items in history"
@@ -2380,11 +2434,13 @@ msgstr "Không gọi được"
 
 #~ msgid ""
 #~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
-#~ msgstr "Chưa đặt biến môi trường GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL (Gconf: vô "
+#~ msgstr ""
+#~ "Chưa đặt biến môi trường GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL (Gconf: vô "
 #~ "hiệu hóa tập tin tạo giản đồ cài) nên sẽ không cài đặt những giản đồ.\n"
 
 #~ msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
-#~ msgstr "Phải đặt biến môi trường GCONF_CONFIG_SOURCE (nguồn cấu hình GConf).\n"
+#~ msgstr ""
+#~ "Phải đặt biến môi trường GCONF_CONFIG_SOURCE (nguồn cấu hình GConf).\n"
 
 #~ msgid "Failed to access configuration source(s): %s\n"
 #~ msgstr "Không truy cập được nguồn cấu hình: %s\n"
@@ -2394,11 +2450,13 @@ msgstr "Không gọi được"
 
 #~ msgid ""
 #~ "List of GConfValue entries containing strings for the macro commands."
-#~ msgstr "Danh sách mục nhập GConfValue (giá trị cấu hình G) chứa chuỗi cho bộ lệnh."
+#~ msgstr ""
+#~ "Danh sách mục nhập GConfValue (giá trị cấu hình G) chứa chuỗi cho bộ lệnh."
 
 #~ msgid ""
 #~ "List of GConfValue entries containing strings for the macro patterns."
-#~ msgstr "Danh sách mục nhập GConfValue (giá trị cấu hình G) chứa chuỗi cho mẫu bộ "
+#~ msgstr ""
+#~ "Danh sách mục nhập GConfValue (giá trị cấu hình G) chứa chuỗi cho mẫu bộ "
 #~ "lệnh."
 
 #~ msgid "Macro command list"
@@ -2490,7 +2548,8 @@ msgstr "Không gọi được"
 #~ msgstr "Danh sách nhật ký lệnh"
 
 #~ msgid "List of GConfValue entries containing strings for history entries."
-#~ msgstr "Danh sách mục nhập GConfValue (giá trị cấu hình G) chứa chuỗi cho mục "
+#~ msgstr ""
+#~ "Danh sách mục nhập GConfValue (giá trị cấu hình G) chứa chuỗi cho mục "
 #~ "nhật ký."
 
 #~ msgid "Perform history autocompletion"
@@ -2529,7 +2588,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "This per-applet key is deprecated in favour of the global key, /schemas/"
 #~ "apps/mini-commander-global/macro_patterns."
-#~ msgstr "Phản đối phím dành cho tiểu dung, hãy sử dụng phím toàn cục thay vào đó:\n"
+#~ msgstr ""
+#~ "Phản đối phím dành cho tiểu dung, hãy sử dụng phím toàn cục thay vào đó:\n"
 #~ "/schemas/apps/mini-commander-global/macro_patterns."
 
 #~ msgid "Use the default theme colors"
@@ -2602,7 +2662,8 @@ msgstr "Không gọi được"
 #~ "The volume control did not find any elements and/or devices to control. "
 #~ "This means either that you don't have the right GStreamer plugins "
 #~ "installed, or that you don't have a sound card configured."
-#~ msgstr "Điều khiển âm lượng chưa tìm phần tử và/hay thiết bị cần điều khiển. Có "
+#~ msgstr ""
+#~ "Điều khiển âm lượng chưa tìm phần tử và/hay thiết bị cần điều khiển. Có "
 #~ "nghĩa là hoặc bạn chưa cài đặt những bổ sung GStreamer cần thiết, hoặc "
 #~ "bạn chưa cấu hình một thẻ âm thanh."
 
@@ -2610,7 +2671,8 @@ msgstr "Không gọi được"
 #~ "You can remove the volume control from the panel by right-clicking the "
 #~ "speaker icon on the panel and selecting \"Remove From Panel\" from the "
 #~ "menu."
-#~ msgstr "Bạn có thể loại bỏ điều khiển âm lượng ra bảng điều khiển, bằng cách nhắp-"
+#~ msgstr ""
+#~ "Bạn có thể loại bỏ điều khiển âm lượng ra bảng điều khiển, bằng cách nhắp-"
 #~ "phải vào biểu tượng loa trên bảng rồi chọn « Gỡ bỏ ra bảng điều khiển » "
 #~ "trong trình đơn."
 
@@ -2645,7 +2707,8 @@ msgstr "Không gọi được"
 #~ msgstr "Không biết điều khiển âm lượng %d"
 
 #~ msgid "Channel controlled by applet. Only for OSS setups"
-#~ msgstr "Kênh điều khiển bởi tiểu dụng. Chỉ cho thiết lập OSS (phần mềm nguồn mở)."
+#~ msgstr ""
+#~ "Kênh điều khiển bởi tiểu dụng. Chỉ cho thiết lập OSS (phần mềm nguồn mở)."
 
 #~ msgid "Saved mute state"
 #~ msgstr "Trạng thái câm được lưu"
@@ -2686,13 +2749,15 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "To connect to your Internet service provider, you need administrator "
 #~ "privileges"
-#~ msgstr "Để kết nối đến nhà cung cấp dịch vụ Mạng (ISP) thì bạn cần phải có quyền "
+#~ msgstr ""
+#~ "Để kết nối đến nhà cung cấp dịch vụ Mạng (ISP) thì bạn cần phải có quyền "
 #~ "truy cập quản trị."
 
 #~ msgid ""
 #~ "To disconnect from your Internet service provider, you need administrator "
 #~ "privileges"
-#~ msgstr "Để ngắt kết nối ra nhà cung cấp dịch vụ Mạng (ISP) thì bạn cần phải có "
+#~ msgstr ""
+#~ "Để ngắt kết nối ra nhà cung cấp dịch vụ Mạng (ISP) thì bạn cần phải có "
 #~ "quyền truy cập quản trị."
 
 #~ msgid "The entered password is invalid"
@@ -2701,7 +2766,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "Check that you have typed it correctly and that you haven't activated the "
 #~ "\"caps lock\" key"
-#~ msgstr "Hãy kiểm tra đã gõ mật khẩu đúng và xem phím CapsLock (chữ hoa luôn) "
+#~ msgstr ""
+#~ "Hãy kiểm tra đã gõ mật khẩu đúng và xem phím CapsLock (chữ hoa luôn) "
 #~ "không bật."
 
 #~ msgid "Do you want to connect?"
@@ -2722,7 +2788,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "Check that it's installed in the correct path and that it has the correct "
 #~ "permissions"
-#~ msgstr "Hãy kiểm tra đã cài đặt nó vào đường dẫn đúng, với quyền truy cập đúng."
+#~ msgstr ""
+#~ "Hãy kiểm tra đã cài đặt nó vào đường dẫn đúng, với quyền truy cập đúng."
 
 #~ msgid "Applet for activating and monitoring a dial-up network connection."
 #~ msgstr "Tiểu dụng hoạt hóa và theo dõi kết nối mạng quay số."
@@ -2730,11 +2797,13 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "<span weight=\"bold\" size=\"larger\">Connecting with Internet Service "
 #~ "Provider</span>"
-#~ msgstr "<span weight=\"bold\" size=\"larger\">Kết nối đến nhà cung cấp dịch vụ "
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">Kết nối đến nhà cung cấp dịch vụ "
 #~ "Mạng (ISP)</span>"
 
 #~ msgid "<span weight=\"bold\" size=\"larger\">Root password required</span>"
-#~ msgstr "<span weight=\"bold\" size=\"larger\">Cần phải gỡ mật khẩu chủ (root)</"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">Cần phải gỡ mật khẩu chủ (root)</"
 #~ "span>"
 
 #~ msgid "Enter password"
@@ -2755,7 +2824,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "A system load monitor capable of displaying graphs for CPU, ram, and swap "
 #~ "space use, plus network traffic."
-#~ msgstr "Bộ theo dõi trọng tải hệ thống, có khả năng hiển thị đồ thị của cách sử "
+#~ msgstr ""
+#~ "Bộ theo dõi trọng tải hệ thống, có khả năng hiển thị đồ thị của cách sử "
 #~ "dụng CPU (đơn vị xử lý trung tâm), RAM (bộ nhớ truy cập ngẫu nhiên) và bộ "
 #~ "nhớ trao đổi, và cũng lưu tải cho mạng."
 
@@ -2784,7 +2854,8 @@ msgstr "Không gọi được"
 #~ "%s:\n"
 #~ "%u%% in use by programs\n"
 #~ "%u%% in use as cache"
-#~ msgstr "%s:\n"
+#~ msgstr ""
+#~ "%s:\n"
 #~ "%u%% đang dùng bởi chương trình\n"
 #~ "%u%% là bộ nhớ tạm đang dùng"
 
@@ -2794,9 +2865,11 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "%s:\n"
 #~ "%u%% in use"
-#~ msgid_plural "%s:\n"
+#~ msgid_plural ""
+#~ "%s:\n"
 #~ "%u%% in use"
-#~ msgstr[0] "%s:\n"
+#~ msgstr[0] ""
+#~ "%s:\n"
 #~ "%u%% đang dùng"
 
 #~ msgid "CPU Load"
@@ -2844,7 +2917,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "For horizontal panels, the width of the graphs in pixels. For vertical "
 #~ "panels, this is the height of the graphs."
-#~ msgstr "Với bảng ngang thì có độ rộng của đồ thị theo điểm ảnh. Còn với bảng dọc "
+#~ msgstr ""
+#~ "Với bảng ngang thì có độ rộng của đồ thị theo điểm ảnh. Còn với bảng dọc "
 #~ "thì có chiều cao đồ thị."
 
 #~ msgid "Graph color for Ethernet network activity"
@@ -2869,14 +2943,16 @@ msgstr "Không gọi được"
 #~ msgstr "Màu đồ thị cho hoạt động ghi vào đĩa"
 
 #~ msgid "Graph color for iowait related CPU activity"
-#~ msgstr "Màu đồ thị cho hoạt động CPU liên quan đến thời gian đời khi dữ liệu gõ/"
+#~ msgstr ""
+#~ "Màu đồ thị cho hoạt động CPU liên quan đến thời gian đời khi dữ liệu gõ/"
 #~ "xuất (iowait) "
 
 #~ msgid "Graph color for load average"
 #~ msgstr "Màu đồ thị cho trung bình trọng tải"
 
 #~ msgid "Graph color for nice-related CPU activity"
-#~ msgstr "Màu đồ thị cho hoạt động CPU liên quan đến \"nice\" (ưu tiên CPU cho ứng "
+#~ msgstr ""
+#~ "Màu đồ thị cho hoạt động CPU liên quan đến \"nice\" (ưu tiên CPU cho ứng "
 #~ "dụng) "
 
 #~ msgid "Graph color for other network usage"
@@ -2895,7 +2971,8 @@ msgstr "Không gọi được"
 #~ msgstr "Màu đồ thị cho việc sử dụng bộ nhớ liên quan đến người dùng"
 
 #~ msgid "Graph color for user-related swap usage"
-#~ msgstr "Màu đồ thị cho việc sử dụng bộ nhớ trao đổi liên quan đến người dùng"
+#~ msgstr ""
+#~ "Màu đồ thị cho việc sử dụng bộ nhớ trao đổi liên quan đến người dùng"
 
 #~ msgid "Graph size"
 #~ msgstr "Cỡ đồ thị"
@@ -3047,7 +3124,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "One or more panel items (also referred to as applets) are no longer "
 #~ "available in the GNOME desktop."
-#~ msgstr "Một hay nhiều mục bảng điều khiển (cũng được gọi như là tiểu dụng) không "
+#~ msgstr ""
+#~ "Một hay nhiều mục bảng điều khiển (cũng được gọi như là tiểu dụng) không "
 #~ "còn công bố lại trong hê thống GNOME."
 
 #~ msgid "These items will now be removed from your configuration:"
@@ -3114,7 +3192,8 @@ msgstr "Không gọi được"
 #~ "<b>Delete all sticky notes?</b>\n"
 #~ "\n"
 #~ "This cannot be undone."
-#~ msgstr "<b>Xóa bỏ mọi ghi chép dính chứ?</b>\n"
+#~ msgstr ""
+#~ "<b>Xóa bỏ mọi ghi chép dính chứ?</b>\n"
 #~ "\n"
 #~ "Không thể hoàn tác hành động này."
 
@@ -3122,7 +3201,8 @@ msgstr "Không gọi được"
 #~ "<b>Delete this sticky note?</b>\n"
 #~ "\n"
 #~ "This cannot be undone."
-#~ msgstr "<b>Xóa bỏ ghi chép dính này chứ?</b>\n"
+#~ msgstr ""
+#~ "<b>Xóa bỏ ghi chép dính này chứ?</b>\n"
 #~ "\n"
 #~ "Không thể hoàn tác hành động này."
 
@@ -3223,7 +3303,8 @@ msgstr "Không gọi được"
 #~ "By default, sticky notes are given the current date as the title when "
 #~ "they are created. This format is used; anything that can be parsed by "
 #~ "strftime() is valid."
-#~ msgstr "Theo mặc định thì ghi chép dính được gán tên là ngày tạo nó. Dạng thức "
+#~ msgstr ""
+#~ "Theo mặc định thì ghi chép dính được gán tên là ngày tạo nó. Dạng thức "
 #~ "này được dùng; bất cứ cái gì có thể được phân tích bằng strftime() (thử "
 #~ "lệnh 'man strftime') đều hợp lệ."
 
@@ -3239,13 +3320,15 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "Default color for new sticky notes. This should be in html hex "
 #~ "specification, for example \"#30FF50\"."
-#~ msgstr "Màu mặc định cho mọi ghi chép dính mới. Nên dùng đặc tả thập lục phân, ví "
+#~ msgstr ""
+#~ "Màu mặc định cho mọi ghi chép dính mới. Nên dùng đặc tả thập lục phân, ví "
 #~ "dụ \"#30FF50\"."
 
 #~ msgid ""
 #~ "Default font color for new sticky notes. This should be in html hex "
 #~ "specification, for example \"#000000\"."
-#~ msgstr "Màu mặc định phông chữ cho mọi ghi chép dính mới. Nên dùng đặc tả thập "
+#~ msgstr ""
+#~ "Màu mặc định phông chữ cho mọi ghi chép dính mới. Nên dùng đặc tả thập "
 #~ "lục phân, ví dụ \"#000000\"."
 
 #~ msgid "Default font for new notes"
@@ -3254,7 +3337,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "Default font for new sticky notes. This should be a Pango Font Name, for "
 #~ "example \"Sans Italic 10\""
-#~ msgstr "Phông chữ mặc định cho ghi chép dính. Nên là Tên Phông dạng Pango, ví dụ "
+#~ msgstr ""
+#~ "Phông chữ mặc định cho ghi chép dính. Nên là Tên Phông dạng Pango, ví dụ "
 #~ "\"Sans Italic 10\""
 
 #~ msgid "Default height for new notes"
@@ -3275,19 +3359,22 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "If this option is disabled, a custom color can be used as the default "
 #~ "color for all sticky notes."
-#~ msgstr "Nếu tắt tùy chọn này, màu tự chọn có thể được dùng làm màu mặc định cho "
+#~ msgstr ""
+#~ "Nếu tắt tùy chọn này, màu tự chọn có thể được dùng làm màu mặc định cho "
 #~ "mọi ghi chép dính."
 
 #~ msgid ""
 #~ "If this option is disabled, a custom font can be used as the default font "
 #~ "for all sticky notes."
-#~ msgstr "Nếu tắt tùy chọn này, phông tự chọn có thể được dùng làm phông mặc định "
+#~ msgstr ""
+#~ "Nếu tắt tùy chọn này, phông tự chọn có thể được dùng làm phông mặc định "
 #~ "cho mọi ghi chép dính."
 
 #~ msgid ""
 #~ "If this option is enabled, the custom colors and fonts that have been "
 #~ "assigned to individual notes will be ignored."
-#~ msgstr "Nếu bật tùy chọn này, màu và phông tự chọn được gán cho ghi chép cá nhân "
+#~ msgstr ""
+#~ "Nếu bật tùy chọn này, màu và phông tự chọn được gán cho ghi chép cá nhân "
 #~ "sẽ bị bỏ qua."
 
 #~ msgid "Specifies whether the sticky notes are locked (non-editable) or not."
@@ -3296,7 +3383,8 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "Specifies whether the sticky notes are visible on ALL workspaces on the "
 #~ "desktop, or not."
-#~ msgstr "Xác định ghi chép dính có hiển thị trên MỌI vùng làm việc trên màn hình "
+#~ msgstr ""
+#~ "Xác định ghi chép dính có hiển thị trên MỌI vùng làm việc trên màn hình "
 #~ "nền hay không."
 
 #~ msgid "Sticky notes' locked state"
@@ -3361,37 +3449,43 @@ msgstr "Không gọi được"
 #~ msgid ""
 #~ "If you choose to empty the trash, all items in it will be permanently "
 #~ "lost. Please note that you can also delete them separately."
-#~ msgstr "Nếu bạn chọn đổ Sọt Rác thì mọi mục trong nó sẽ bị mất hoàn toàn. Ghi chú "
+#~ msgstr ""
+#~ "Nếu bạn chọn đổ Sọt Rác thì mọi mục trong nó sẽ bị mất hoàn toàn. Ghi chú "
 #~ "là cũng có thể xóa bỏ mỗi mục riêng."
 
 #~ msgid ""
 #~ "Error while spawning nautilus:\n"
 #~ "%s"
-#~ msgstr "Gặp lỗi khi tạo tiến trình con nautilus:\n"
+#~ msgstr ""
+#~ "Gặp lỗi khi tạo tiến trình con nautilus:\n"
 #~ "%s"
 
 #~ msgid ""
 #~ "A GNOME trash bin that lives in your panel. You can use it to view the "
 #~ "trash or drag and drop items into the trash."
-#~ msgstr "Sọt Rác GNOME ở bảng điều khiển của bạn. Có thể sử dụng nó để xem nội "
+#~ msgstr ""
+#~ "Sọt Rác GNOME ở bảng điều khiển của bạn. Có thể sử dụng nó để xem nội "
 #~ "dung Sọt Rác hoặc kéo và thả mục vào Sọt Rác."
 
 #~ msgid "Delete Immediately?"
 #~ msgstr "Xóa bỏ ngay bây giờ chứ?"
 
 #~ msgid "Cannot move items to trash, do you want to delete them immediately?"
-#~ msgstr "Không thể di chuyển các mục này vào Sọt Rác: bạn có muốn xóa bỏ chúng "
+#~ msgstr ""
+#~ "Không thể di chuyển các mục này vào Sọt Rác: bạn có muốn xóa bỏ chúng "
 #~ "ngay bây giờ không?"
 
 #~ msgid ""
 #~ "Cannot move some items to trash, do you want to delete these immediately?"
-#~ msgstr "Không thể di chuyển một số mục vào Sọt Rác: bạn có muốn xóa bỏ chúng ngay "
+#~ msgstr ""
+#~ "Không thể di chuyển một số mục vào Sọt Rác: bạn có muốn xóa bỏ chúng ngay "
 #~ "bây giờ không?"
 
 #~ msgid ""
 #~ "Unable to move to trash:\n"
 #~ "%s"
-#~ msgstr "Không thể di chuyển các mục này vào Sọt Rác\n"
+#~ msgstr ""
+#~ "Không thể di chuyển các mục này vào Sọt Rác\n"
 #~ "%s"
 
 #~ msgid "Trash Applet"
