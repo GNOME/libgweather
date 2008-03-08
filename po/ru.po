@@ -14,15 +14,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-26 21:39-0500\n"
-"PO-Revision-Date: 2007-09-16 18:01+0200\n"
-"Last-Translator: Nickolay V. Shmyrev <nshmyrev@yandex.ru>\n"
+"POT-Creation-Date: 2008-03-09 02:20+0300\n"
+"PO-Revision-Date: 2008-03-08 00:06+0300\n"
+"Last-Translator: Vasiliy Faronov <qvvx@yandex.ru>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-Bookmarks: 127,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
 #. TRANSLATOR: Change this to the default location name,
 #. * used when you first start the Weather Applet. This is
@@ -114,17 +115,17 @@ msgstr "По умолчанию"
 #. translators: Kelvin
 #: ../libgweather/gweather-prefs.c:27
 msgid "K"
-msgstr ""
+msgstr "K"
 
 #. translators: Celsius
 #: ../libgweather/gweather-prefs.c:29
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #. translators: Fahrenheit
 #: ../libgweather/gweather-prefs.c:31
 msgid "F"
-msgstr ""
+msgstr "F"
 
 #. translators: meters per second
 #: ../libgweather/gweather-prefs.c:38
@@ -149,32 +150,32 @@ msgstr "узел"
 #. translators: wind speed
 #: ../libgweather/gweather-prefs.c:46
 msgid "Beaufort scale"
-msgstr "Шкала Бофорта"
+msgstr "шкала Бофорта"
 
 #. translators: kilopascals
 #: ../libgweather/gweather-prefs.c:53
 msgid "kPa"
-msgstr "килоПаскаль"
+msgstr "килопаскаль"
 
 #. translators: hectopascals
 #: ../libgweather/gweather-prefs.c:55
 msgid "hPa"
-msgstr "гектоПаскаль"
+msgstr "гектопаскаль"
 
 #. translators: millibars
 #: ../libgweather/gweather-prefs.c:57
 msgid "mb"
-msgstr "милибар"
+msgstr "миллибар"
 
 #. translators: millimeters of mercury
 #: ../libgweather/gweather-prefs.c:59
 msgid "mmHg"
-msgstr "мм рт.ст."
+msgstr "мм рт. ст."
 
 #. translators: inches of mercury
 #: ../libgweather/gweather-prefs.c:61
 msgid "inHg"
-msgstr "дюйм рт.ст."
+msgstr "дюйм рт. ст."
 
 #. translators: atmosphere
 #: ../libgweather/gweather-prefs.c:63
@@ -183,9 +184,8 @@ msgstr "атм"
 
 #. translators: meters
 #: ../libgweather/gweather-prefs.c:70
-#, fuzzy
 msgid "m"
-msgstr "милибар"
+msgstr "м"
 
 #. translators: kilometers
 #: ../libgweather/gweather-prefs.c:72
@@ -195,7 +195,7 @@ msgstr "километры"
 #. translators: miles
 #: ../libgweather/gweather-prefs.c:74
 msgid "mi"
-msgstr ""
+msgstr "миля"
 
 #. TRANSLATOR: This is the default unit to use for temperature measurements.
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
@@ -230,23 +230,23 @@ msgid ""
 "from http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/"
 "Locations.xml.in"
 msgstr ""
-"Трехзначный код для получения радарных карт от weather.com, найденный в "
-"http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml."
-"in"
+"Трёхзначный код для получения радарных карт от weather.com — его можно найти "
+"в http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations."
+"xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
 msgid ""
 "A unique zone for the city, as found from http://cvs.gnome.org/viewcvs/"
 "*checkout*/gnome-applets/gweather/Locations.xml.in"
 msgstr ""
-"Уникальная зона для города, найденная в http://cvs.gnome.org/viewcvs/"
+"Уникальная зона для города — её можно найти в http://cvs.gnome.org/viewcvs/"
 "*checkout*/gnome-applets/gweather/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:8
 msgid ""
 "Determines whether the applet automatically updates its weather statistics "
 "or not."
-msgstr "Определяет автоматическое обновление данных о погоде."
+msgstr "Определяет, нужно ли автоматически обновлять данные о погоде."
 
 #: ../libgweather/gweather.schemas.in.h:9
 msgid "Display radar map"
@@ -254,7 +254,7 @@ msgstr "Показывать радарную карту"
 
 #: ../libgweather/gweather.schemas.in.h:10
 msgid "Distance unit"
-msgstr "Единицы расстояния"
+msgstr "Единица расстояния"
 
 #: ../libgweather/gweather.schemas.in.h:11
 msgid "Fetch a radar map on each update."
@@ -265,8 +265,8 @@ msgid ""
 "If true, then retrieve a radar map from a location specified by the \"radar"
 "\" key."
 msgstr ""
-"Если включено, то получать радарную карту из адреса, определенного ключом "
-"\"radar\"."
+"Если этот ключ установлен, то получать радарную карту из адреса, заданного "
+"ключом «radar»."
 
 #: ../libgweather/gweather.schemas.in.h:13
 msgid ""
@@ -276,7 +276,7 @@ msgstr "Ваши широта и долгота в формате DD-MM-SS[NS] D
 
 #: ../libgweather/gweather.schemas.in.h:14
 msgid "Location coordinates"
-msgstr "Локальные координаты"
+msgstr "Координаты местоположения"
 
 #: ../libgweather/gweather.schemas.in.h:15
 msgid "Nearby city"
@@ -287,8 +287,8 @@ msgid ""
 "Nearby major zone, such as a capital city, as found from http://cvs.gnome."
 "org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
 msgstr ""
-"Ближайший крупный город, найденный в http://cvs.gnome.org/viewcvs/*checkout*/"
-"gnome-applets/gweather/Locations.xml.in"
+"Ближайший крупный город — его можно найти в http://cvs.gnome.org/viewcvs/"
+"*checkout*/gnome-applets/gweather/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -296,7 +296,7 @@ msgstr "Больше не используется"
 
 #: ../libgweather/gweather.schemas.in.h:18
 msgid "Pressure unit"
-msgstr "Единицы давления"
+msgstr "Единица давления"
 
 #: ../libgweather/gweather.schemas.in.h:19
 msgid "Radar location"
@@ -304,11 +304,11 @@ msgstr "Радарный адрес"
 
 #: ../libgweather/gweather.schemas.in.h:20
 msgid "Speed unit"
-msgstr "Единицы скорости"
+msgstr "Единица скорости"
 
 #: ../libgweather/gweather.schemas.in.h:21
 msgid "Temperature unit"
-msgstr "Единицы температуры"
+msgstr "Единица температуры"
 
 #: ../libgweather/gweather.schemas.in.h:22
 msgid "The city that gweather displays information for."
@@ -316,31 +316,31 @@ msgstr "Город, погоду в котором показывает gweather
 
 #: ../libgweather/gweather.schemas.in.h:23
 msgid "The custom url from where to retrieve a radar map."
-msgstr "Ссылка пользователя для получения радарной карты."
+msgstr "Пользовательский адрес для получения радарной карты."
 
 #: ../libgweather/gweather.schemas.in.h:24
 msgid "The interval, in seconds, between automatic updates."
-msgstr "Интервал (в секундах) между автоматическими обновлениями."
+msgstr "Промежуток времени (в секундах) между автоматическими обновлениями."
 
 #: ../libgweather/gweather.schemas.in.h:25
 msgid "The unit to use for pressure."
-msgstr "Единицы давления для использования."
+msgstr "Используемая единица измерения давления."
 
 #: ../libgweather/gweather.schemas.in.h:26
 msgid "The unit to use for temperature."
-msgstr "Единица измерения температуры."
+msgstr "Используемая единица измерения температуры."
 
 #: ../libgweather/gweather.schemas.in.h:27
 msgid "The unit to use for visibility."
-msgstr "Единицы видимости."
+msgstr "Используемая единица измерения видимости."
 
 #: ../libgweather/gweather.schemas.in.h:28
 msgid "The unit to use for wind speed."
-msgstr "Единицы скорости ветра."
+msgstr "Используемая единица измерения скорости ветра."
 
 #: ../libgweather/gweather.schemas.in.h:29
 msgid "Update interval"
-msgstr "Период обновления"
+msgstr "Промежуток между обновлениями"
 
 #: ../libgweather/gweather.schemas.in.h:30
 msgid "Update the data automatically"
@@ -348,11 +348,11 @@ msgstr "Обновлять данные автоматически"
 
 #: ../libgweather/gweather.schemas.in.h:31
 msgid "Url for the radar map"
-msgstr "Ссылка для радарной карты"
+msgstr "Адрес для радарной карты"
 
 #: ../libgweather/gweather.schemas.in.h:32
 msgid "Use custom url for the radar map"
-msgstr "Использовать свой адрес для радарной карты"
+msgstr "Использовать собственный адрес для радарной карты"
 
 #: ../libgweather/gweather.schemas.in.h:33
 msgid "Use metric units"
@@ -360,7 +360,7 @@ msgstr "Использовать метрическую систему"
 
 #: ../libgweather/gweather.schemas.in.h:34
 msgid "Use metric units instead of english units."
-msgstr "Использовать метрическую систему вместо английской системы."
+msgstr "Использовать метрическую систему мер вместо английской системы."
 
 #: ../libgweather/gweather.schemas.in.h:35
 msgid "Weather for a city"
@@ -368,11 +368,11 @@ msgstr "Погода для города"
 
 #: ../libgweather/gweather.schemas.in.h:36
 msgid "Weather location information"
-msgstr "Информация о погоде в местоположении"
+msgstr "Сведения о погоде в местоположении"
 
 #: ../libgweather/gweather.schemas.in.h:37
 msgid "Weather location information."
-msgstr "Информация о погоде в местоположении."
+msgstr "Сведения о погоде в местоположении."
 
 #: ../libgweather/gweather.schemas.in.h:38
 msgid "Zone location"
@@ -398,15 +398,15 @@ msgstr "Северный"
 
 #: ../libgweather/weather.c:181
 msgid "North - NorthEast"
-msgstr "Северо-Северо-Восточный"
+msgstr "Северо-северо-восточный"
 
 #: ../libgweather/weather.c:181
 msgid "Northeast"
-msgstr "Северо-Восточный"
+msgstr "Северо-восточный"
 
 #: ../libgweather/weather.c:181
 msgid "East - NorthEast"
-msgstr "Восточно-Северо-Восточный"
+msgstr "Восточно-северо-восточный"
 
 #: ../libgweather/weather.c:182
 msgid "East"
@@ -414,15 +414,15 @@ msgstr "Восточный"
 
 #: ../libgweather/weather.c:182
 msgid "East - Southeast"
-msgstr "Восточно-Юго-Восточный"
+msgstr "Восточно-юго-восточный"
 
 #: ../libgweather/weather.c:182
 msgid "Southeast"
-msgstr "Юго-Восточный"
+msgstr "Юго-восточный"
 
 #: ../libgweather/weather.c:182
 msgid "South - Southeast"
-msgstr "Юго-Юго-Восточный"
+msgstr "Юго-юго-восточный"
 
 #: ../libgweather/weather.c:183
 msgid "South"
@@ -430,15 +430,15 @@ msgstr "Южный"
 
 #: ../libgweather/weather.c:183
 msgid "South - Southwest"
-msgstr "Юго-Юго-Западный"
+msgstr "Юго-юго-западный"
 
 #: ../libgweather/weather.c:183
 msgid "Southwest"
-msgstr "Юго-Западный"
+msgstr "Юго-западный"
 
 #: ../libgweather/weather.c:183
 msgid "West - Southwest"
-msgstr "Западно-Юго-Западный"
+msgstr "Западно-юго-западный"
 
 #: ../libgweather/weather.c:184
 msgid "West"
@@ -446,15 +446,15 @@ msgstr "Западный"
 
 #: ../libgweather/weather.c:184
 msgid "West - Northwest"
-msgstr "Западно-Северо-Западный"
+msgstr "Западно-северо-западный"
 
 #: ../libgweather/weather.c:184
 msgid "Northwest"
-msgstr "Северо-Западный"
+msgstr "Северо-западный"
 
 #: ../libgweather/weather.c:184
 msgid "North - Northwest"
-msgstr "Северо-Северо-Западный"
+msgstr "Северо-северо-западный"
 
 #: ../libgweather/weather.c:190 ../libgweather/weather.c:690
 #: ../libgweather/weather.c:739 ../libgweather/weather.c:752
@@ -795,27 +795,27 @@ msgstr "Неизвестное время наблюдения"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
 #: ../libgweather/weather.c:710
-#, fuzzy, c-format
+#, c-format
 msgid "%.1f ℉"
-msgstr "%.1f K"
+msgstr "%.1f ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
 #: ../libgweather/weather.c:713
-#, fuzzy, c-format
+#, c-format
 msgid "%d ℉"
-msgstr "%d K"
+msgstr "%d ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
 #: ../libgweather/weather.c:719
-#, fuzzy, c-format
+#, c-format
 msgid "%.1f ℃"
-msgstr "%.1f K"
+msgstr "%.1f ℃"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
 #: ../libgweather/weather.c:722
-#, fuzzy, c-format
+#, c-format
 msgid "%d ℃"
-msgstr "%d K"
+msgstr "%d ℃"
 
 #. TRANSLATOR: This is the temperature in kelvin
 #: ../libgweather/weather.c:728
@@ -881,13 +881,13 @@ msgstr "%s/%s"
 #: ../libgweather/weather.c:868
 #, c-format
 msgid "%.2f inHg"
-msgstr "%.2f дюймов рт.ст."
+msgstr "%.2f дюймов рт. ст."
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
 #: ../libgweather/weather.c:872
 #, c-format
 msgid "%.1f mmHg"
-msgstr "%.2f мм рт.ст."
+msgstr "%.2f мм рт. ст."
 
 #. TRANSLATOR: This is pressure in kiloPascals
 #: ../libgweather/weather.c:876
@@ -1372,2180 +1372,3 @@ msgstr "Произошёл сбой при получении"
 #~ "0 - показывать апплет в графическом режиме (только изображение), 1 - "
 #~ "текстовый режим (не показывать изображение), 2 - показывать и текст, и "
 #~ "изображение."
-
-#
-#~ msgid "CPU to Monitor"
-#~ msgstr "Отслеживаемый процессор"
-
-#~ msgid "Mode to show cpu usage"
-#~ msgstr "Режим показа использования ЦП"
-
-#~ msgid ""
-#~ "Set the CPU to monitor. In a single processor system you don't have to "
-#~ "change it."
-#~ msgstr ""
-#~ "Устанавливает отслеживаемый процессор. На однопроцессорной системе "
-#~ "изменять не надо."
-
-#~ msgid "The type of text to display (if the text is enabled)."
-#~ msgstr "Тип отображаемого текста (если текст разрешен)."
-
-#~ msgid "    "
-#~ msgstr "    "
-
-#~ msgid "<b>Display Settings</b>"
-#~ msgstr "<b>Параметры отображения</b>"
-
-#~ msgid "<b>Monitor Settings</b>"
-#~ msgstr "<b>Параметры монитора</b>"
-
-#~ msgid "CPU Frequency Monitor Preferences"
-#~ msgstr "Параметры монитора частоты ЦП"
-
-#~ msgid "Show CPU frequency as _frequency"
-#~ msgstr "Показывать частоту ЦП как _частоту"
-
-#~ msgid "Show CPU frequency as _percentage"
-#~ msgstr "Показывать частоту ЦП в _процентах"
-
-#~ msgid "Show frequency _units"
-#~ msgstr "Показывать _единицы частоты"
-
-#~ msgid "_Appearance:"
-#~ msgstr "В_нешний вид:"
-
-#~ msgid "_Monitored CPU:"
-#~ msgstr "_Отслеживаемый процессор:"
-
-#~ msgid "Could not open help document"
-#~ msgstr "Не удается открыть документ справки"
-
-#~ msgid "This utility shows the current CPU Frequency Scaling."
-#~ msgstr "Эта утилита показывает текущую частоту процессора."
-
-#~ msgid "This utility shows the current CPU Frequency"
-#~ msgstr "Эта утилита показывает текущую частоту ЦП"
-
-#~ msgid "Graphic"
-#~ msgstr "График"
-
-#~ msgid "Text"
-#~ msgstr "Текст"
-
-#~ msgid "Graphic and Text"
-#~ msgstr "График и текст"
-
-#~ msgid "Frequency Scaling Unsupported"
-#~ msgstr "Изменение частоты не поддерживается"
-
-#~ msgid "CPU frequency scaling unsupported"
-#~ msgstr "Изменение частоты процессора не поддерживается"
-
-#~ msgid ""
-#~ "You will not be able to modify the frequency of your machine.  Your "
-#~ "machine may be misconfigured or not have hardware support for CPU "
-#~ "frequency scaling."
-#~ msgstr ""
-#~ "Вы не сможете изменить частоту процессора на вашей машине.  Ваша машина "
-#~ "может быть неправильно настроена, или не иметь аппаратной поддержки "
-#~ "изменения частоты ЦП."
-
-#~ msgid "Disk Mounter"
-#~ msgstr "Подключение диска"
-
-#~ msgid "Drive Mount Applet Factory"
-#~ msgstr "Фабрика апплета подключения диска"
-
-#~ msgid "Factory for drive mount applet"
-#~ msgstr "Фабрика для апплета подключения диска"
-
-#~ msgid "Mount local disks and devices"
-#~ msgstr "Подключает локальные диски и устройства"
-
-#~ msgid "(mounted)"
-#~ msgstr "(подключен)"
-
-#~ msgid "(not mounted)"
-#~ msgstr "(не подключен)"
-
-#~ msgid "(not connected)"
-#~ msgstr "(не подключен)"
-
-#~ msgid "Cannot execute '%s'"
-#~ msgstr "Не удается выполнить '%s'"
-
-#
-#~ msgid "Mount Error"
-#~ msgstr "Ошибка подключения"
-
-#~ msgid "Unmount Error"
-#~ msgstr "Ошибка отключения"
-
-#~ msgid "Eject Error"
-#~ msgstr "Ошибка извлечения"
-
-#~ msgid "Error"
-#~ msgstr "Ошибка"
-
-#~ msgid "_Play DVD"
-#~ msgstr "_Воспроизводить DVD"
-
-#~ msgid "_Play CD"
-#~ msgstr "_Воспроизводить CD"
-
-#~ msgid "_Open %s"
-#~ msgstr "_Открыть %s"
-
-#~ msgid "_Mount %s"
-#~ msgstr "_Подключить %s"
-
-#~ msgid "Un_mount %s"
-#~ msgstr "О_тключить %s"
-
-#~ msgid "_Eject %s"
-#~ msgstr "_Извлечь %s"
-
-#~ msgid "Applet for mounting and unmounting block volumes."
-#~ msgstr "Апплет для подключения и отключения блочных томов."
-
-#~ msgid "Interval timeout to check mount point status"
-#~ msgstr "Время таймера на проверку состояния точки подключения"
-
-#~ msgid "Time in seconds between status updates"
-#~ msgstr "Время в секундах между обновлениями состояния"
-
-#~ msgid "A set of eyeballs for your panel"
-#~ msgstr "Апплет устанавливает \"Глазки\" на панель"
-
-#~ msgid "Geyes"
-#~ msgstr "Глазки"
-
-#~ msgid "Geyes Applet Factory"
-#~ msgstr "Фабрика апплета \"Глазки\""
-
-#~ msgid "A goofy little xeyes clone for the GNOME panel."
-#~ msgstr "Дурацкий маленький клон программы xeyes для панели среды Гном."
-
-#~ msgid "The eyes look in the direction of the mouse pointer"
-#~ msgstr "Глазки смотрят в направлении указателя мыши"
-
-#~ msgid "Directory in which the theme is located"
-#~ msgstr "Каталог, где расположены темы"
-
-#~ msgid "Can not launch the eyes applet."
-#~ msgstr "Невозможно запустить апплет глазок."
-
-#~ msgid "There was a fatal error while trying to load the theme."
-#~ msgstr "Произошла ошибка при попытке загрузки темы."
-
-#~ msgid "Geyes Preferences"
-#~ msgstr "Параметры апплета \"Глазки\""
-
-#~ msgid "Themes"
-#~ msgstr "Темы"
-
-#~ msgid "_Select a theme:"
-#~ msgstr "_Выберите тему:"
-
-#~ msgid "Alt+Control changes layout."
-#~ msgstr "Alt+Control переключает раскладку."
-
-#~ msgid "Alt+Shift changes layout."
-#~ msgstr "Alt+Shift переключает раскладку."
-
-#~ msgid "Arabic keymap"
-#~ msgstr "Раскладка клавиатуры для арабского"
-
-#~ msgid "Armenian"
-#~ msgstr "Армянский"
-
-#~ msgid "Basque"
-#~ msgstr "Баскский"
-
-#~ msgid "Belgian"
-#~ msgstr "Бельгийский"
-
-#~ msgid "Both Alt keys together change layout."
-#~ msgstr "Две клавиши Alt переключают раскладку."
-
-#~ msgid "Both Ctrl keys together change layout."
-#~ msgstr "Две клавиши Ctrl переключают раскладку."
-
-#~ msgid "Both Shift keys together change layout."
-#~ msgstr "Две клавиши Shift переключают раскладку."
-
-#~ msgid "Brazil Portuguese keymap"
-#~ msgstr "Раскладка клавиатуры для бразильского португальского"
-
-#~ msgid "Bulgarian Cyrillic"
-#~ msgstr "Болгарская кириллица"
-
-#~ msgid "Bulgarian keymap"
-#~ msgstr "Раскладка клавиатуры для болгарского"
-
-#~ msgid "CapsLock key changes layout."
-#~ msgstr "CapsLock переключает раскладку."
-
-#~ msgid "Control+Shift changes layout."
-#~ msgstr "Control+Shift переключает раскладку."
-
-#~ msgid "Czech keymap"
-#~ msgstr "Чешская раскладка клавиатуры"
-
-#~ msgid "Danish keymap"
-#~ msgstr "Датская раскладка клавиатуры"
-
-#~ msgid "Dutch keymap"
-#~ msgstr "Голландская раскладка"
-
-#~ msgid "English keymap"
-#~ msgstr "Английская раскладка клавиатуры"
-
-#~ msgid "Estonian keymap"
-#~ msgstr "Эстонская раскладка клавиатуры"
-
-#~ msgid "Finnish keymap"
-#~ msgstr "Финская раскладка клавиатуры"
-
-#~ msgid "French Swiss"
-#~ msgstr "Швейцарский французский"
-
-#~ msgid "French Swiss keymap"
-#~ msgstr "Французская раскладка клавиатуры (Швейцария)"
-
-#~ msgid "French keymap"
-#~ msgstr "Французская раскладка клавиатуры"
-
-#~ msgid "French-Canadian 105-key"
-#~ msgstr "Французская клавиатура (Канада 105кл.)"
-
-#~ msgid "GB 102-key"
-#~ msgstr "Английская клавиатура (Великобритания, 102кл.)"
-
-#~ msgid "GB 105-key"
-#~ msgstr "Английская клавиатура (Великобритания, 105кл.)"
-
-#~ msgid "Generic Keyboard"
-#~ msgstr "Стандартная клавиатура"
-
-#~ msgid "Georgian Latin"
-#~ msgstr "Грузинская латынь"
-
-#~ msgid "Georgian Russian layout"
-#~ msgstr "Грузинский русский"
-
-#~ msgid "Georgian keymap"
-#~ msgstr "Грузинская раскладка"
-
-#~ msgid "German"
-#~ msgstr "Немецкий"
-
-#~ msgid "German Swiss with Euro"
-#~ msgstr "Швейцарский немецкий с поддержкой символа евро"
-
-#~ msgid "German keymap"
-#~ msgstr "Немецкая раскладка"
-
-#~ msgid "Greek keymap"
-#~ msgstr "Греческая раскладка"
-
-#~ msgid "Hebrew keymap"
-#~ msgstr "Иврит"
-
-#~ msgid "Hungarian 101-key latin 1"
-#~ msgstr "Венгерская раскладка (101кл. latin1)"
-
-#~ msgid "Hungarian 101-key latin 2"
-#~ msgstr "Венгерская раскладка (101кл. latin2)"
-
-#~ msgid "Hungarian 105-key latin 1"
-#~ msgstr "Венгерская раскладка (105кл. latin1)"
-
-#~ msgid "Hungarian 105-key latin 2"
-#~ msgstr "Венгерская раскладка (105кл. latin2)"
-
-#~ msgid "Hungarian PC/AT 101 keyboard"
-#~ msgstr "Венгерская клавиатура PC/AT 101"
-
-#~ msgid "Hungarian latin1"
-#~ msgstr "Венгерский latin1"
-
-#~ msgid "Icelandic keymap"
-#~ msgstr "Исландская раскладка"
-
-#~ msgid "Italian keymap"
-#~ msgstr "Итальянская раскладка"
-
-#~ msgid "Japanese keymap"
-#~ msgstr "Японская раскладка"
-
-#~ msgid "Lao keymap"
-#~ msgstr "Лаосская раскладка"
-
-#~ msgid "Layout shift behavior"
-#~ msgstr "Поведение переключателя раскладок"
-
-#~ msgid "Left Alt key changes layout."
-#~ msgstr "Левый Alt переключает раскладку."
-
-#~ msgid "Left Ctrl key changes group."
-#~ msgstr "Левый Ctrl переключает раскладку."
-
-#~ msgid "Left Shift key changes group."
-#~ msgstr "Левый Shift переключает раскладку."
-
-#~ msgid "Left Win-key changes layout."
-#~ msgstr "Левая клавиша Win переключает раскладку."
-
-#~ msgid "Lithuanian keymap"
-#~ msgstr "Раскладка клавиатуры для литовского"
-
-#~ msgid "Macedonian"
-#~ msgstr "Македонский"
-
-#~ msgid "Menu key changes layout."
-#~ msgstr "Клавиша Menu переключает раскладку."
-
-#~ msgid "Mongolian alt keymap"
-#~ msgstr "Монгольская (альернативная) раскладка"
-
-#~ msgid "Mongolian keymap"
-#~ msgstr "Монгольская раскладка"
-
-#~ msgid "Mongolian phonetic keymap"
-#~ msgstr "Монгольская фонетическая раскладка"
-
-#~ msgid "Norwegian"
-#~ msgstr "Норвежский"
-
-#~ msgid "Plain Russian keymap"
-#~ msgstr "Русская раскладка"
-
-#~ msgid "Polish"
-#~ msgstr "Польский"
-
-#~ msgid "Polish deadkeys"
-#~ msgstr "Польские устаревшие символы"
-
-#~ msgid "Portugal"
-#~ msgstr "Португалия"
-
-#~ msgid "Portugal Deadkeys"
-#~ msgstr "Португальские устаревшие символы"
-
-#~ msgid "Portuguese keymap"
-#~ msgstr "Раскладка клавиатуры для португальского"
-
-#~ msgid "Right Alt key changes layout."
-#~ msgstr "Правый Alt переключает раскладку."
-
-#~ msgid "Right Ctrl key changes group."
-#~ msgstr "Правый Ctrl переключает раскладку."
-
-#~ msgid "Right Shift key changes group."
-#~ msgstr "Правый Shift переключает группу."
-
-#~ msgid "Right Win-key changes layout."
-#~ msgstr "Правая клавиша Win переключает группу."
-
-#~ msgid "Russian Cyrillic"
-#~ msgstr "Русская кириллица"
-
-#~ msgid "Russian keymap"
-#~ msgstr "Раскладка раскладка"
-
-#~ msgid "Serbian keymap"
-#~ msgstr "Сербская раскладка"
-
-#~ msgid "Shift+CapsLock changes layout."
-#~ msgstr "Shift+CapsLock переключает раскладку."
-
-#~ msgid "Slovak keymap"
-#~ msgstr "Словацкая раскладка"
-
-#~ msgid "Slovenian"
-#~ msgstr "Словенский"
-
-#~ msgid "Slovenian keymap"
-#~ msgstr "Словенская раскладка"
-
-#~ msgid "Spanish keymap"
-#~ msgstr "Испанская раскладка"
-
-#~ msgid "Sun (!not PC!) type5 Hungarian latin 2"
-#~ msgstr "Венгерская раскладка Sun (!не для PC!) latin 2"
-
-#~ msgid "Swedish"
-#~ msgstr "Шведский"
-
-#~ msgid "Swedish keymap"
-#~ msgstr "Шведская раскладка"
-
-#~ msgid "Swiss keymap"
-#~ msgstr "Швейцарская раскладка"
-
-#~ msgid "Thai"
-#~ msgstr "Тайский"
-
-#~ msgid "Thai Kedmanee"
-#~ msgstr "Тайский кидманийский"
-
-#~ msgid "Thai keymap"
-#~ msgstr "Тайская раскладка"
-
-#~ msgid "Turkish \"F\" keyboard"
-#~ msgstr "Турецка клавиатура \"F\""
-
-#~ msgid "Turkish \"Q\" keyboard"
-#~ msgstr "Турецкая клавиатура \"Q\""
-
-#~ msgid "Turkish keymap"
-#~ msgstr "Турецкая раскладка"
-
-#~ msgid "UK 105-key"
-#~ msgstr "Великобритания (105кл.)"
-
-#~ msgid "UK PC/AT keyboard"
-#~ msgstr "Великобритания (раскладка PC/AT)"
-
-#~ msgid "US 101-key keyboard"
-#~ msgstr "США 101кл. раскладка"
-
-#~ msgid "US 105-key keyboard (with windows keys)"
-#~ msgstr "США 105кл. (с клавишами windows)"
-
-#~ msgid "US 84-key"
-#~ msgstr "США 84кл."
-
-#~ msgid "US DEC 450"
-#~ msgstr "США DEC 450"
-
-#~ msgid "US IBM RS/6000"
-#~ msgstr "США IBM RS/6000"
-
-#~ msgid "US International"
-#~ msgstr "США международная"
-
-#~ msgid "US Macintosh"
-#~ msgstr "США Macintosh"
-
-#~ msgid "US PC/AT 101 keyboard"
-#~ msgstr "США PC/AT 101-кнопочная"
-
-#~ msgid "US Silicon Graphics 101-key"
-#~ msgstr "США Silicon Graphics 101кл."
-
-#~ msgid "US Sun type5"
-#~ msgstr "США Sun type5"
-
-#~ msgid "Armenian Sun keymap"
-#~ msgstr "Армянская клавиатура Sun"
-
-#~ msgid "Azerbaijani Turkish Sun keymap"
-#~ msgstr "Азербайджанская (турецкий) раскладка Sun"
-
-#~ msgid "Belarusian Sun keymap"
-#~ msgstr "Белорусская клавиатура Sun"
-
-#~ msgid "Brazil Portuguese Sun USB keymap"
-#~ msgstr "Португальская (Бразилия) раскладка Sun USB"
-
-#~ msgid "Brazil Portuguese Sun keymap"
-#~ msgstr "Португальская (Бразилия) раскладка"
-
-#~ msgid "British Sun Type-4 keymap"
-#~ msgstr "Британская раскладка Sun Type-4"
-
-#~ msgid "British Sun USB keymap"
-#~ msgstr "Британская раскладка Sun USB"
-
-#~ msgid "British Sun keymap"
-#~ msgstr "Британская раскладка Sun"
-
-#~ msgid "Bulgarian Sun keymap"
-#~ msgstr "Болгарская раскладка Sun"
-
-#~ msgid "Canadian Sun keymap"
-#~ msgstr "Канадская раскладка Sun"
-
-#~ msgid "Czech Sun keymap"
-#~ msgstr "Чешская раскладка Sun"
-
-#~ msgid "Danish Sun Type-4 keymap"
-#~ msgstr "Датская раскладка Sun Type-4"
-
-#~ msgid "Danish Sun USB keymap"
-#~ msgstr "Датская раскладка Sun USB"
-
-#~ msgid "Danish Sun keymap"
-#~ msgstr "Датская клавиатура Sun"
-
-#~ msgid "Dutch Sun keymap"
-#~ msgstr "Голландская клавиатура Sun"
-
-#~ msgid "Estonian Sun keymap"
-#~ msgstr "Эстонская раскладка Sun"
-
-#~ msgid "Finnish Sun keymap"
-#~ msgstr "Финская раскладка Sun"
-
-#~ msgid "French Sun USB keymap"
-#~ msgstr "Французская раскладка Sun USB"
-
-#~ msgid "French Sun keymap"
-#~ msgstr "Французская раскладка Sun"
-
-#~ msgid "German Sun Type-4 keymap"
-#~ msgstr "Немецкая раскладка Sun Type-4"
-
-#~ msgid "German Sun USB keymap"
-#~ msgstr "Немецкая раскладка Sun USB"
-
-#~ msgid "German Sun keymap"
-#~ msgstr "Немецкая раскладка Sun"
-
-#~ msgid "Hebrew Sun keymap"
-#~ msgstr "Раскладка Sun для иврита"
-
-#~ msgid "Hungarian latin2 Sun keymap"
-#~ msgstr "Венгерская раскладка Sun latin2"
-
-#~ msgid "Hungarian type5 latin 1 keymap"
-#~ msgstr "Венгерская раскладка type5 latin1"
-
-#~ msgid "Icelandic Sun keymap"
-#~ msgstr "Исландская раскладка Sun"
-
-#~ msgid "Italian Sun Type-4 keymap"
-#~ msgstr "Итальянская раскладка Sun Type-4"
-
-#~ msgid "Italian Sun USB keymap"
-#~ msgstr "Итальянская раскладка Sun USB"
-
-#~ msgid "Italian Sun keymap"
-#~ msgstr "Итальянская раскладка Sun"
-
-#~ msgid "Japanese Sun Type-4 keymap"
-#~ msgstr "Японская раскладка Sun Type-4"
-
-#~ msgid "Japanese Sun keymap"
-#~ msgstr "Японская раскладка Sun"
-
-#~ msgid "Latvian Sun keymap"
-#~ msgstr "Латышская раскладка Sun"
-
-#~ msgid "Lithuanian Sun keymap"
-#~ msgstr "Литовская раскладка Sun"
-
-#~ msgid "Macedonian Sun keymap"
-#~ msgstr "Македонская раскладка Sun"
-
-#~ msgid "Norwegian Sun keymap"
-#~ msgstr "Норвежская раскладка Sun"
-
-#~ msgid "Polish Sun keymap"
-#~ msgstr "Польская раскладка Sun"
-
-#~ msgid "Portuguese Sun Type-4 keymap"
-#~ msgstr "Португальская раскладка Sun Type-4"
-
-#~ msgid "Portuguese Sun keymap"
-#~ msgstr "Португальская раскладка Sun"
-
-#~ msgid "Romanian Sun keymap"
-#~ msgstr "Румынская раскладка Sun"
-
-#~ msgid "Russian Sun keymap"
-#~ msgstr "Русская раскладка Sun"
-
-#~ msgid "Serbian Sun standard keymap"
-#~ msgstr "Сербская раскладка Sun"
-
-#~ msgid "Slovak Sun keymap"
-#~ msgstr "Словацкая раскладка Sun"
-
-#~ msgid "Slovenian Sun keymap"
-#~ msgstr "Словенская раскладка Sun"
-
-#~ msgid "Spanish Sun Type-4 keymap"
-#~ msgstr "Испанская раскладка Sun Type-4"
-
-#~ msgid "Spanish Sun USB keymap"
-#~ msgstr "Испанская раскладка Sun USB"
-
-#~ msgid "Spanish Sun keymap"
-#~ msgstr "Испанская раскладка Sun"
-
-#~ msgid "Swedish Sun Type-4 keymap"
-#~ msgstr "Шведская раскладка Sun Type-4"
-
-#~ msgid "Swedish Sun USB keymap"
-#~ msgstr "Шведская раскладка Sun USB"
-
-#~ msgid "Swedish Sun keymap"
-#~ msgstr "Шведская раскладка Sun"
-
-#~ msgid "Swiss German Sun keymap"
-#~ msgstr "Шведская (немецкий) раскладка Sun"
-
-#~ msgid "Thai Sun keymap"
-#~ msgstr "Тайская раскладка Sun"
-
-#~ msgid "Turkish Sun keymap"
-#~ msgstr "Турецкая раскладка Sun"
-
-#~ msgid "US Sun Type-4 keymap"
-#~ msgstr "Раскладка Sun Type-4 для США"
-
-#~ msgid "US Sun USB keymap"
-#~ msgstr "Раскладка Sun USB для США"
-
-#~ msgid "US Sun type5 keymap"
-#~ msgstr "Раскладка Sun type5 для США"
-
-#~ msgid "Ukrainian Sun keymap"
-#~ msgstr "Раскладка Sun для украинского"
-
-#~ msgid "Vietnamese Sun keymap"
-#~ msgstr "Раскладка Sun для вьетнамского"
-
-#~ msgid "Keyboard _Preferences"
-#~ msgstr "_Параметры клавиатуры"
-
-#~ msgid "Pl_ugins"
-#~ msgstr "_Модули"
-
-#~ msgid "Show Current _Layout"
-#~ msgstr "Отобразить текущую _раскладку"
-
-#~ msgid "_Groups"
-#~ msgstr "_Группы"
-
-#~ msgid "Keyboard Indicator"
-#~ msgstr "Индикатор раскладок клавиатуры"
-
-#~ msgid "Keyboard applet factory"
-#~ msgstr "Фабрика апплета клавиатуры"
-
-#~ msgid "Keyboard layout indicator"
-#~ msgstr "Индикатор раскладок клавиатуры"
-
-#~ msgid "Keyboard Layout \"%s\""
-#~ msgstr "Раскладка клавиатуры \"%s\""
-
-#~ msgid "Copyright (c) Sergey V. Udaltsov 1999-2004"
-#~ msgstr "Copyright (c) Сергей В. Удальцов 1999-2004"
-
-#~ msgid "Keyboard layout indicator applet for GNOME"
-#~ msgstr "Апплет индикатора раскладок клавиатуры для среды Гном"
-
-#~ msgid "Keyboard Indicator (%s)"
-#~ msgstr "Индикатор раскладок клавиатуры (%s)"
-
-#~ msgid "Keyboard Layout"
-#~ msgstr "Раскладка клавиатуры"
-
-#~ msgid "_Details"
-#~ msgstr "По_дробнее"
-
-#~ msgid "_Update"
-#~ msgstr "Об_новить"
-
-#~ msgid "Factory for creating the weather applet."
-#~ msgstr "Фабрика для создания апплета \"Сводка погоды\"."
-
-#~ msgid "Gweather Applet Factory"
-#~ msgstr "Фабрика апплета \"сводка погоды\""
-
-#~ msgid "Monitor the current weather conditions, and forecasts"
-#~ msgstr "Апплет отображает текущую сводку погоды и прогнозы"
-
-#~ msgid "Weather Report"
-#~ msgstr "Сводка погоды"
-
-#~ msgid "© 1999-2005 by S. Papadimitriou and others"
-#~ msgstr "© 1999 S. Papadimitriou и другие"
-
-#~ msgid "A panel application for monitoring local weather conditions."
-#~ msgstr "Апплет для отображения местных погодных условий."
-
-#~ msgid "GNOME Weather"
-#~ msgstr "Апплет \"Сводка погоды\" для среды Гном"
-
-#~ msgid "Weather Forecast"
-#~ msgstr "Прогноз погоды"
-
-#~ msgid ""
-#~ "City: %s\n"
-#~ "Sky: %s\n"
-#~ "Temperature: %s"
-#~ msgstr ""
-#~ "Город: %s\n"
-#~ "Небо: %s\n"
-#~ "Температура: %s"
-
-#~ msgid "Updating..."
-#~ msgstr "Обновляется..."
-
-#~ msgid "Details"
-#~ msgstr "Подробности"
-
-#~ msgid "City:"
-#~ msgstr "Город:"
-
-#~ msgid "Last update:"
-#~ msgstr "Последнее обновление:"
-
-#~ msgid "Conditions:"
-#~ msgstr "Условия:"
-
-#~ msgid "Sky:"
-#~ msgstr "Небо:"
-
-#~ msgid "Temperature:"
-#~ msgstr "Температура:"
-
-#~ msgid "Feels like:"
-#~ msgstr "Комфортность:"
-
-#~ msgid "Dew point:"
-#~ msgstr "Точка росы:"
-
-#~ msgid "Relative humidity:"
-#~ msgstr "Относительная влажность:"
-
-#~ msgid "Wind:"
-#~ msgstr "Ветер:"
-
-#~ msgid "Pressure:"
-#~ msgstr "Давление:"
-
-#~ msgid "Visibility:"
-#~ msgstr "Видимость:"
-
-#~ msgid "Sunrise:"
-#~ msgstr "Восход солнца:"
-
-#~ msgid "Sunset:"
-#~ msgstr "Заход солнца:"
-
-#~ msgid "Current Conditions"
-#~ msgstr "Текущие условия"
-
-#~ msgid "Forecast Report"
-#~ msgstr "Прогноз погоды"
-
-#~ msgid "See the ForeCast Details"
-#~ msgstr "Посмотреть подробный прогноз"
-
-#~ msgid "Forecast"
-#~ msgstr "Прогноз"
-
-#~ msgid "Radar Map"
-#~ msgstr "Радарная карта"
-
-#~ msgid "_Visit Weather.com"
-#~ msgstr "Посе_тите сайт Weather.com"
-
-#~ msgid "Visit Weather.com"
-#~ msgstr "Посетите сайт Weather.com"
-
-#~ msgid "Click to Enter Weather.com"
-#~ msgstr "Щёлкните для посещения сайта Weather.com"
-
-#~ msgid "Forecast not currently available for this location."
-#~ msgstr "Прогноз для этого местоположения в настоящий момент не доступен."
-
-#~ msgid "Location view"
-#~ msgstr "Просмотр местоположения"
-
-#~ msgid "Select Location from the list"
-#~ msgstr "Выберите местоположение из списка"
-
-#~ msgid "Update spin button"
-#~ msgstr "Кнопка обновления"
-
-#~ msgid "Spinbutton for updating"
-#~ msgstr "Кнопка для обновления"
-
-#~ msgid "Address Entry"
-#~ msgstr "Строка адреса"
-
-#~ msgid "Enter the URL"
-#~ msgstr "Введите ссылку (URL)"
-
-#~ msgid ""
-#~ "Failed to load the Locations XML database.  Please report this as a bug."
-#~ msgstr ""
-#~ "Не удается загрузить базу данных адресов в формате XML.  Пожалуйста, "
-#~ "сообщите об этой ошибке."
-
-#~ msgid "Weather Preferences"
-#~ msgstr "Параметры апплета \"Сводка Погоды\""
-
-#~ msgid "_Automatically update every:"
-#~ msgstr "_Автоматически обновлять каждые:"
-
-#~ msgid "_Temperature unit:"
-#~ msgstr "Единица _температуры:"
-
-#~ msgid "Kelvin"
-#~ msgstr "по Кельвину"
-
-#~ msgid "Celsius"
-#~ msgstr "по Цельсию"
-
-#~ msgid "Fahrenheit"
-#~ msgstr "по Фаренгейту"
-
-#~ msgid "_Wind speed unit:"
-#~ msgstr "Единица скорости _ветра:"
-
-#~ msgid "_Pressure unit:"
-#~ msgstr "Единица _давления:"
-
-#~ msgid "_Visibility unit:"
-#~ msgstr "Единица _видимости:"
-
-#~ msgid "meters"
-#~ msgstr "метры"
-
-#~ msgid "miles"
-#~ msgstr "мили"
-
-#~ msgid "Enable _radar map"
-#~ msgstr "Включить _радарную карту"
-
-#~ msgid "Use _custom address for radar map"
-#~ msgstr "Использовать _свои адреса для радарной карты"
-
-#~ msgid "A_ddress:"
-#~ msgstr "А_дрес:"
-
-#~ msgid "Update"
-#~ msgstr "Обновление"
-
-#~ msgid "minutes"
-#~ msgstr "минут"
-
-#~ msgid "Display"
-#~ msgstr "Отображение"
-
-#~ msgid "General"
-#~ msgstr "Общие"
-
-#~ msgid "_Select a location:"
-#~ msgstr "_Выберите адрес:"
-
-#~ msgid "_Find:"
-#~ msgstr "_Найти:"
-
-#~ msgid "Find _Next"
-#~ msgstr "Найти _далее"
-
-#~ msgid "Location"
-#~ msgstr "Местоположение"
-
-#~ msgid "Invest"
-#~ msgstr "Invest"
-
-#~ msgid "Track your invested money."
-#~ msgstr "Отслеживает ваши инвестиции"
-
-#~ msgid "_Refresh"
-#~ msgstr "_Обновить"
-
-#~ msgid "10"
-#~ msgstr "10"
-
-#~ msgid "100"
-#~ msgstr "100"
-
-#~ msgid ""
-#~ "1d\n"
-#~ "5d\n"
-#~ "3m\n"
-#~ "6m\n"
-#~ "1y\n"
-#~ "3y"
-#~ msgstr ""
-#~ "1д\n"
-#~ "5д\n"
-#~ "3м\n"
-#~ "6м\n"
-#~ "1г\n"
-#~ "3г"
-
-#~ msgid "20"
-#~ msgstr "20"
-
-#~ msgid "200"
-#~ msgstr "200"
-
-#~ msgid "5"
-#~ msgstr "5"
-
-#~ msgid "50"
-#~ msgstr "50"
-
-#~ msgid "Auto _refresh"
-#~ msgstr "Авто_обновление"
-
-#~ msgid "Bollinger"
-#~ msgstr "Боллинжер"
-
-#~ msgid "Downloading chart from <b>Yahoo!</b>"
-#~ msgstr "Загрузка графика с <b>Yahoo!</b>"
-
-#~ msgid "Exponential moving average: "
-#~ msgstr "Экспоненциальное скользящее среднее: "
-
-#~ msgid "Fast stoch"
-#~ msgstr "Fast stoch"
-
-#~ msgid "Financial Chart"
-#~ msgstr "Финансовый график"
-
-#~ msgid "Indicators: "
-#~ msgstr "Индикаторы: "
-
-#~ msgid "MACD"
-#~ msgstr "MACD"
-
-#~ msgid "MFI"
-#~ msgstr "MFI"
-
-#~ msgid "Moving average: "
-#~ msgstr "Скользящее среднее: "
-
-#~ msgid "Overlays: "
-#~ msgstr "Наложения: "
-
-#~ msgid "ROC"
-#~ msgstr "ROC"
-
-#~ msgid "RSI"
-#~ msgstr "RSI"
-
-#~ msgid "SAR"
-#~ msgstr "SAR"
-
-#~ msgid "Slow stoch"
-#~ msgstr "Slow stoch"
-
-#~ msgid "Splits"
-#~ msgstr "Splits"
-
-#~ msgid "Vol"
-#~ msgstr "Vol"
-
-#~ msgid "Vol+MA"
-#~ msgstr "Vol+MA"
-
-#~ msgid "Volumes"
-#~ msgstr "Volumes"
-
-#~ msgid "W%R"
-#~ msgstr "W%R"
-
-#~ msgid "_Graph style: "
-#~ msgstr "Стиль _графика: "
-
-#~ msgid "_Options"
-#~ msgstr "_Параметры"
-
-#~ msgid "_Ticker symbol: "
-#~ msgstr "Символ _тиккера: "
-
-#~ msgid ""
-#~ "l\n"
-#~ "b\n"
-#~ "c"
-#~ msgstr ""
-#~ "l\n"
-#~ "b\n"
-#~ "c"
-
-#~ msgid "<b>Stocks</b>"
-#~ msgstr "<b>Акции</b>"
-
-#~ msgid ""
-#~ "<i><small><b>Note:</b> Quotes are delayed at least 15 minutes.\n"
-#~ "<b>Source: </b> Yahoo!</small></i>"
-#~ msgstr ""
-#~ "<i><small><b>Примечание:</b>Квоты задерживаются как минимум на 15 минут.\n"
-#~ "<b>Источник: </b> Yahoo!</small></i>"
-
-#~ msgid "Invest Preferences"
-#~ msgstr "Параметры апплета \"Invest\""
-
-#~ msgid "Invest Website"
-#~ msgstr "Веб-сайт Invest"
-
-#~ msgid "Financial Chart - %s"
-#~ msgstr "Финансовая диаграмма - %s"
-
-#~ msgid "Opening Chart"
-#~ msgstr "Открывается график"
-
-#~ msgid "Downloading Chart"
-#~ msgstr "Загружается график"
-
-#~ msgid "Reading Chart chunk"
-#~ msgstr "Чтение части графика"
-
-#~ msgid "Invest Applet"
-#~ msgstr "Апплет Invest"
-
-#~ msgid "Symbol"
-#~ msgstr "Символ"
-
-#~ msgid "Amount"
-#~ msgstr "Количество"
-
-#~ msgid "Price"
-#~ msgstr "Стоимость"
-
-#~ msgid "Commission"
-#~ msgstr "Комиссия"
-
-#~ msgid "%.1f °F"
-#~ msgstr "%.1f °F"
-
-#~ msgid "%d °F"
-#~ msgstr "%d °F"
-
-#~ msgid "%.1f °C"
-#~ msgstr "%.1f °C"
-
-#~ msgid "%d °C"
-#~ msgstr "%d °C"
-
-#~ msgid "Deskbar (formerly Mini-Commander)"
-#~ msgstr "Deskbar (бывший Mini-Commander)"
-
-#~ msgid "Deskbar (transparent upgrade from Mini-Commander)"
-#~ msgstr "Deskbar (прозрачное обновление Mini-Commander)"
-
-#~ msgid "Command Line"
-#~ msgstr "Командная строка"
-
-#~ msgid "Mini-Commander"
-#~ msgstr "Даёт возможность вводить команды оболочки"
-
-#~ msgid "MiniCommander Applet Factory"
-#~ msgstr "Фабрика апплета \"Командная строка\""
-
-#~ msgid ""
-#~ "This GNOME applet adds a command line to the panel. It features command "
-#~ "completion, command history, and changeable macros."
-#~ msgstr ""
-#~ "Этот апплет GNOME добавляет на панель командную строку. В нём реализованы "
-#~ "завершение команд, история команд и изменяемые макросы."
-
-#~ msgid "No items in history"
-#~ msgstr "Элементы истории отсутствуют"
-
-#~ msgid "Start program"
-#~ msgstr "Запуск программы"
-
-#~ msgid "Command line"
-#~ msgstr "Командная строка"
-
-#~ msgid "Type a command here and Gnome will execute it for you"
-#~ msgstr "Введите здесь команду и среда Гном выполнит её"
-
-#~ msgid "Cannot get schema for %s: %s"
-#~ msgstr "Невозможно получить схему для %s: %s"
-
-#~ msgid "Cannot set schema for %s: %s"
-#~ msgstr "Невозможно изменить схему для %s: %s"
-
-#~ msgid "Set default list value for %s\n"
-#~ msgstr "Установить значение списка по умолчанию для \"%s\"\n"
-
-#~ msgid ""
-#~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
-#~ msgstr ""
-#~ "Переменная окружения GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL установлена, "
-#~ "схема не будет установлена\n"
-
-#~ msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
-#~ msgstr "Необходимо установить переменную окружения GCONF_CONFIG_SOURCE\n"
-
-#~ msgid "Failed to access configuration source(s): %s\n"
-#~ msgstr ""
-#~ "Произошёл сбой при попытке связаться с источником(ами) конфигурации: %s\n"
-
-#~ msgid "Error syncing config data: %s"
-#~ msgstr "Произошла ошибка при синхронизации конфигурационных данных: %s"
-
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro commands."
-#~ msgstr "Список значений GConfValue, содержащих строки записей макрокоманд."
-
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro patterns."
-#~ msgstr "Список значений GConfValue, содержащих строки шаблонов макрокоманд."
-
-#~ msgid "Macro command list"
-#~ msgstr "Список макрокоманд"
-
-#~ msgid "Macro pattern list"
-#~ msgstr "Список макрошаблонов"
-
-#~ msgid "*"
-#~ msgstr "*"
-
-#~ msgid "<b>Auto Completion</b>"
-#~ msgstr "<b>Автодополнение</b>"
-
-#~ msgid "<b>Colors</b>"
-#~ msgstr "<b>Цвета</b>"
-
-#~ msgid "<b>Size</b>"
-#~ msgstr "<b>Размер</b>"
-
-#~ msgid "Add New Macro"
-#~ msgstr "Добавить новый макрос"
-
-#~ msgid "Co_mmand:"
-#~ msgstr "_Команда:"
-
-#~ msgid "Command Line Preferences"
-#~ msgstr "Параметры апплета \"Командная строка\""
-
-#~ msgid "Command line _background:"
-#~ msgstr "_Фон командной строки:"
-
-#~ msgid "Command line _foreground:"
-#~ msgstr "_Цвет командной строки:"
-
-#~ msgid "E_nable history-based auto completion"
-#~ msgstr "Включить _автодополнение, основанное на истории командной строки"
-
-#~ msgid "Macros"
-#~ msgstr "Макрос"
-
-#~ msgid "Pick a color"
-#~ msgstr "Выберите цвет"
-
-#~ msgid "_Add Macro..."
-#~ msgstr "Доб_авить макрос..."
-
-#~ msgid "_Delete Macro"
-#~ msgstr "У_далить макрос"
-
-#~ msgid "_Macros:"
-#~ msgstr "_Макрос:"
-
-#~ msgid "_Pattern:"
-#~ msgstr "_Шаблон:"
-
-#~ msgid "_Use default theme colors"
-#~ msgstr "Использовать ис_ходные цвета темы"
-
-#~ msgid "_Width:"
-#~ msgstr "_Ширина:"
-
-#~ msgid "pixels"
-#~ msgstr "пикселей"
-
-#~ msgid ""
-#~ "Attempt to autocomplete a command from the history of commands entered."
-#~ msgstr "Пытаться автодополнять команды на основе истории командной строки."
-
-#~ msgid "Background color, blue component"
-#~ msgstr "Цвет фона, синий компонент"
-
-#~ msgid "Background color, green component"
-#~ msgstr "Цвет фона, зеленый компонент"
-
-#~ msgid "Background color, red component"
-#~ msgstr "Цвет фона, красный компонент"
-
-#~ msgid "Foreground color, blue component"
-#~ msgstr "Цвет переднего плана, синий компонент"
-
-#~ msgid "Foreground color, green component"
-#~ msgstr "Цвет переднего плана, зеленый компонент"
-
-#~ msgid "Foreground color, red component"
-#~ msgstr "Цвет переднего плана, красный компонент"
-
-#~ msgid "History list"
-#~ msgstr "История команд"
-
-#~ msgid "List of GConfValue entries containing strings for history entries."
-#~ msgstr "Список значений GConfValue, содержащих строки записей истории."
-
-#~ msgid "Perform history autocompletion"
-#~ msgstr "Производить автодополнение на основе истории команд"
-
-#~ msgid "Show a frame surrounding the applet."
-#~ msgstr "Показывать рамку вокруг строки."
-
-#~ msgid "Show a handle so the applet can be detached from the panel."
-#~ msgstr "Показывать заголовок так, что строку можно убрать из панели."
-
-#~ msgid "Show frame"
-#~ msgstr "Показывать рамку"
-
-#~ msgid "Show handle"
-#~ msgstr "Показывать заголовок"
-
-#~ msgid "The blue component of the background color."
-#~ msgstr "Синий компонент цвета фона."
-
-#~ msgid "The blue component of the foreground color."
-#~ msgstr "Синий компонент цвета основного экрана."
-
-#~ msgid "The green component of the background color."
-#~ msgstr "Зеленый компонент цвета фона."
-
-#~ msgid "The green component of the foreground color."
-#~ msgstr "Зеленый компонент цвета основного экрана."
-
-#~ msgid "The red component of the background color."
-#~ msgstr "Красный компонент цвета фона."
-
-#~ msgid "The red component of the foreground color."
-#~ msgstr "Красный компонент цвета основного экрана."
-
-#~ msgid ""
-#~ "This per-applet key is deprecated in favour of the global key, /schemas/"
-#~ "apps/mini-commander-global/macro_patterns."
-#~ msgstr ""
-#~ "Этот индивидуальный ключ устарел, вместо него используется глобальный "
-#~ "ключ /schemas/apps/mini-commander-global/macro_patterns."
-
-#~ msgid "Use the default theme colors"
-#~ msgstr "Использовать цвета темы по умолчанию"
-
-#~ msgid "Use theme colors instead of custom ones."
-#~ msgstr "Использовать цвета темы вместо определенных пользователем."
-
-#~ msgid "Width"
-#~ msgstr "Ширина"
-
-#~ msgid "Width of the applet"
-#~ msgstr "Ширина апплета"
-
-#~ msgid "Browser"
-#~ msgstr "Браузер"
-
-#~ msgid "Click this button to start the browser"
-#~ msgstr "Нажмите на эту кнопку для запуска браузера"
-
-#~ msgid "History"
-#~ msgstr "История"
-
-#~ msgid "Click this button for the list of previous commands"
-#~ msgstr ""
-#~ "Нажмите на эту кнопку для получения списка ранее исполнявшихся команд"
-
-#~ msgid "Command line has been disabled by your system administrator"
-#~ msgstr ""
-#~ "Апплет командной строки был запрещён вашим системным администратором"
-
-#~ msgid "Mini-Commander applet"
-#~ msgstr "Апплет \"Командная строка\""
-
-#~ msgid "This applet adds a command line to the panel"
-#~ msgstr "Этот апплет добавляет командную строку на панель"
-
-#~ msgid "You must specify a pattern"
-#~ msgstr "Необходимо указать шаблон"
-
-#~ msgid "You must specify a pattern and a command"
-#~ msgstr "Необходимо указать шаблон и команду"
-
-#~ msgid "You must specify a command"
-#~ msgstr "Необходимо указать команду"
-
-#~ msgid "You may not specify duplicate patterns"
-#~ msgstr "Нельзя определять повторяющиеся шаблоны"
-
-#~ msgid "Pattern"
-#~ msgstr "Шаблон"
-
-#~ msgid "Command"
-#~ msgstr "Команда"
-
-#~ msgid "Adjust the sound volume"
-#~ msgstr "Апплет регулирует громкость звука"
-
-#~ msgid "Volume Control"
-#~ msgstr "Регулятор громкости"
-
-#~ msgid "Mu_te"
-#~ msgstr "При_глушить"
-
-#~ msgid "_Open Volume Control"
-#~ msgstr "О_ткрыть регулятор громкости"
-
-#~ msgid "Volume Applet"
-#~ msgstr "Регулятор громкости"
-
-#~ msgid ""
-#~ "The volume control did not find any elements and/or devices to control. "
-#~ "This means either that you don't have the right GStreamer plugins "
-#~ "installed, or that you don't have a sound card configured."
-#~ msgstr ""
-#~ "Регулятору громкости не удается найти ни одного управляемого элемента и/"
-#~ "или устройства. Это означает, что либо не установлен правильный модуль "
-#~ "GStreamer, либо не настроена звуковая карта."
-
-#~ msgid ""
-#~ "You can remove the volume control from the panel by right-clicking the "
-#~ "speaker icon on the panel and selecting \"Remove From Panel\" from the "
-#~ "menu."
-#~ msgstr ""
-#~ "Вы можете удалить регулятор громкости с панели, нажав правую кнопку на "
-#~ "значке динамика и выбрав \"Удалить с панели\" из меню."
-
-#~ msgid "Failed to start Volume Control: %s"
-#~ msgstr "Не удается запустить регулятор громкости: %s"
-
-#~ msgid "%s: muted"
-#~ msgstr "%s: приглушен"
-
-#~ msgid "%s: %d%%"
-#~ msgstr "%s: %d%%"
-
-#~ msgid "Failed to display help: %s"
-#~ msgstr "Не удается отобразить справку: %s"
-
-#~ msgid "Volume control for your GNOME Panel."
-#~ msgstr "Регулятор громкости для вашей панели GNOME."
-
-#~ msgid "Using GStreamer 0.10."
-#~ msgstr "Использует GStreamer 0.10."
-
-#~ msgid "Using GStreamer 0.8."
-#~ msgstr "Использует GStreamer 0.8."
-
-#~ msgid "+"
-#~ msgstr "+"
-
-#~ msgid "-"
-#~ msgstr "-"
-
-#~ msgid "Unknown Volume Control %d"
-#~ msgstr "Неизвестный регулятор громкости %d"
-
-#~ msgid "Channel controlled by applet. Only for OSS setups"
-#~ msgstr "Канал, управляемый апплетом. Только для настроек OSS"
-
-#~ msgid "Saved mute state"
-#~ msgstr "Сохранённое состояние выключенного звука"
-
-#~ msgid "Saved volume to restore on startup"
-#~ msgstr ""
-#~ "Сохранённый уровень громкости для восстановления при следующем запуске"
-
-#~ msgid "Volume Control Preferences"
-#~ msgstr "Параметры регулятора громкости"
-
-#~ msgid "Select the device and track to control."
-#~ msgstr "Выберите устройство и канал для регулировки"
-
-#~ msgid "Activate and monitor a dial-up network connection"
-#~ msgstr "Активирует и отображает состояние диалап-соединения"
-
-#
-#~ msgid "Modem Monitor"
-#~ msgstr "Монитор модема"
-
-#~ msgid "_Activate"
-#~ msgstr "_Активировать"
-
-#~ msgid "_Deactivate"
-#~ msgstr "_Деактивировать"
-
-#~ msgid "_Properties"
-#~ msgstr "_Свойства"
-
-#~ msgid "Connection active, but could not get connection time"
-#~ msgstr "Соединение активно, но время соединения получить не удается"
-
-#~ msgid "Time connected: %.1d:%.2d"
-#~ msgstr "Время соединения: %.1d:%.2d"
-
-#~ msgid "Not connected"
-#~ msgstr "Не подсоединён"
-
-#~ msgid ""
-#~ "To connect to your Internet service provider, you need administrator "
-#~ "privileges"
-#~ msgstr ""
-#~ "Чтобы установить соединение с провайдером, необходимы административные "
-#~ "привилегии"
-
-#~ msgid ""
-#~ "To disconnect from your Internet service provider, you need administrator "
-#~ "privileges"
-#~ msgstr ""
-#~ "Чтобы разорвать соединение с провайдером, необходимы административные "
-#~ "привилегии"
-
-#~ msgid "The entered password is invalid"
-#~ msgstr "Введенный пароль неверен"
-
-#~ msgid ""
-#~ "Check that you have typed it correctly and that you haven't activated the "
-#~ "\"caps lock\" key"
-#~ msgstr ""
-#~ "Убедитесь, что пароль был введен правильно и что клавиша \"caps lock\" не "
-#~ "была активирована"
-
-#~ msgid "Do you want to connect?"
-#~ msgstr "Установить соединение?"
-
-#~ msgid "Do you want to disconnect?"
-#~ msgstr "Разорвать соединение?"
-
-#~ msgid "C_onnect"
-#~ msgstr "_Подключиться"
-
-#~ msgid "_Disconnect"
-#~ msgstr "_Отключиться"
-
-#~ msgid "Could not launch network configuration tool"
-#~ msgstr "Не удается запустить утилиту настройки сети"
-
-#~ msgid ""
-#~ "Check that it's installed in the correct path and that it has the correct "
-#~ "permissions"
-#~ msgstr ""
-#~ "Убедитесь, что она установлена в пути поиска и имеет правильные права "
-#~ "доступа"
-
-#~ msgid "Applet for activating and monitoring a dial-up network connection."
-#~ msgstr "Активирует и отображает состояние удаленного подключения к сети."
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Connecting with Internet Service "
-#~ "Provider</span>"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Подключение к провайдеру</span>\n"
-#~ "%s"
-
-#~ msgid "<span weight=\"bold\" size=\"larger\">Root password required</span>"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Требуется пароль root%s'</span>\n"
-#~ "%s"
-
-#~ msgid "Enter password"
-#~ msgstr "Введите пароль"
-
-#~ msgid "Password:"
-#~ msgstr "Пароль:"
-
-#~ msgid "A system load indicator"
-#~ msgstr "Апплет отображает текущую загрузку системы"
-
-#
-#~ msgid "System Monitor"
-#~ msgstr "Системный монитор"
-
-#
-#~ msgid "_Open System Monitor"
-#~ msgstr "О_ткрыть \"Системный монитор\""
-
-#~ msgid ""
-#~ "A system load monitor capable of displaying graphs for CPU, ram, and swap "
-#~ "space use, plus network traffic."
-#~ msgstr ""
-#~ "Системный монитор способен отображать графики загрузки процессора, "
-#~ "памяти, файла подкачки и сетевого трафика."
-
-#~ msgid "There was an error executing '%s': %s"
-#~ msgstr "Произошла ошибка при выполнении команды '%s': %s"
-
-#~ msgid "Processor"
-#~ msgstr "Процессор"
-
-#~ msgid "Memory"
-#~ msgstr "Память"
-
-#~ msgid "Network"
-#~ msgstr "Сеть"
-
-#~ msgid "Swap Space"
-#~ msgstr "Подкачка"
-
-#~ msgid "Load Average"
-#~ msgstr "Средняя загрузка"
-
-#~ msgid "Disk"
-#~ msgstr "Диск"
-
-#~ msgid ""
-#~ "%s:\n"
-#~ "%u%% in use by programs\n"
-#~ "%u%% in use as cache"
-#~ msgstr ""
-#~ "%s:\n"
-#~ "%u%% используется программами\n"
-#~ "%u%% используется как кэш"
-
-#~ msgid "The system load average is %0.02f"
-#~ msgstr "Средняя загрузка системы %0.02f"
-
-#~ msgid ""
-#~ "%s:\n"
-#~ "%u%% in use"
-#~ msgid_plural ""
-#~ "%s:\n"
-#~ "%u%% in use"
-#~ msgstr[0] ""
-#~ "%s:\n"
-#~ "%u%% используется"
-#~ msgstr[1] ""
-#~ "%s:\n"
-#~ "%u%% используется"
-#~ msgstr[2] ""
-#~ "%s:\n"
-#~ "%u%% используется"
-
-#~ msgid "CPU Load"
-#~ msgstr "Загрузка процессора"
-
-#~ msgid "Memory Load"
-#~ msgstr "Загрузка памяти"
-
-#~ msgid "Net Load"
-#~ msgstr "Загрузка сети"
-
-#~ msgid "Swap Load"
-#~ msgstr "Загрузка подкачки"
-
-#~ msgid "Disk Load"
-#~ msgstr "Загрузка диска"
-
-#~ msgid "Applet refresh rate in milliseconds"
-#~ msgstr "Частота обновления в миллисекундах"
-
-#~ msgid "Background color for disk load graph"
-#~ msgstr "Цвет фона для графика загрузки диска"
-
-#~ msgid "CPU graph background color"
-#~ msgstr "Цвет фона графика загрузки процессора"
-
-#~ msgid "Enable CPU load graph"
-#~ msgstr "Включить график загрузки процессора"
-
-#~ msgid "Enable disk load graph"
-#~ msgstr "Включить график загрузки диска"
-
-#~ msgid "Enable load average graph"
-#~ msgstr "Включить график средней загрузки"
-
-#~ msgid "Enable memory load graph"
-#~ msgstr "Включить график загрузки памяти"
-
-#~ msgid "Enable network load graph"
-#~ msgstr "Включить график загрузки сети"
-
-#~ msgid "Enable swap load graph"
-#~ msgstr "Включить график загрузки подкачки"
-
-#~ msgid ""
-#~ "For horizontal panels, the width of the graphs in pixels. For vertical "
-#~ "panels, this is the height of the graphs."
-#~ msgstr ""
-#~ "Для горизонтальной панели - ширина в пикселях. Для вертикальной панели - "
-#~ "высота графиков."
-
-#~ msgid "Graph color for Ethernet network activity"
-#~ msgstr "Цвет графика для отображения активности сети Ethernet"
-
-#~ msgid "Graph color for PLIP network activity"
-#~ msgstr "Цвет графика для отображения активности сети PLIP"
-
-#~ msgid "Graph color for SLIP network activity"
-#~ msgstr "Цвет графика для отображения активности сети SLIP"
-
-#~ msgid "Graph color for buffer memory"
-#~ msgstr "Цвет графика для отображения буфера памяти"
-
-#~ msgid "Graph color for cached memory"
-#~ msgstr "Цвет графика для отображения кэшированной памяти"
-
-#~ msgid "Graph color for disk read"
-#~ msgstr "Цвет графика для чтения с диска"
-
-#~ msgid "Graph color for disk write"
-#~ msgstr "Цвет графика для записи на диск"
-
-#~ msgid "Graph color for iowait related CPU activity"
-#~ msgstr "Цвет графика для отображения загрузки процессора с учетом iowait"
-
-#~ msgid "Graph color for load average"
-#~ msgstr "Цвет графика для отображения средней загрузки"
-
-#~ msgid "Graph color for nice-related CPU activity"
-#~ msgstr ""
-#~ "Цвет графика для отображения загрузки процессора с учетом приоритета"
-
-#~ msgid "Graph color for other network usage"
-#~ msgstr "Цвет графика для отображения другой загрузки сети"
-
-#~ msgid "Graph color for shared memory"
-#~ msgstr "Цвет графика для отображения разделяемой памяти"
-
-#~ msgid "Graph color for system-related CPU activity"
-#~ msgstr "Цвет графика для отображения системной загрузки процессора"
-
-#~ msgid "Graph color for user-related CPU activity"
-#~ msgstr "Цвет графика для отображения загрузки процессора пользователем"
-
-#~ msgid "Graph color for user-related memory usage"
-#~ msgstr "Цвет графика для отображения использования памяти пользователем"
-
-#~ msgid "Graph color for user-related swap usage"
-#~ msgstr "Цвет графика для отображения использования подкачки пользователем"
-
-#~ msgid "Graph size"
-#~ msgstr "Размер графика"
-
-#~ msgid "Load graph background color"
-#~ msgstr "Цвет фона графика для отображения загрузки системы"
-
-#~ msgid "Memory graph background color"
-#~ msgstr "Цвет фона графика для отображения загрузки памяти"
-
-#~ msgid "Network graph background color"
-#~ msgstr "Цвет фона графика для отображения загрузки сети"
-
-#~ msgid "Swap graph background color"
-#~ msgstr "Цвет фона графика для отображения загрузки подкачки"
-
-#~ msgid "Monitored Resources"
-#~ msgstr "Отслеживаемые ресурсы"
-
-#~ msgid "_Processor"
-#~ msgstr "Про_цессор"
-
-#~ msgid "_Memory"
-#~ msgstr "Па_мять"
-
-#~ msgid "_Network"
-#~ msgstr "_Сеть"
-
-#~ msgid "S_wap Space"
-#~ msgstr "Под_качки"
-
-#~ msgid "_Load"
-#~ msgstr "За_грузка системы"
-
-#~ msgid "_Harddisk"
-#~ msgstr "_Жесткий диск"
-
-#~ msgid "Options"
-#~ msgstr "Параметры"
-
-#~ msgid "System m_onitor width: "
-#~ msgstr "_Ширина системного монитора: "
-
-#~ msgid "System m_onitor height: "
-#~ msgstr "_Высота системного монитора: "
-
-#~ msgid "Sys_tem monitor update interval: "
-#~ msgstr "Скорость об_новления системного монитора: "
-
-#~ msgid "milliseconds"
-#~ msgstr "миллисекунд"
-
-#~ msgid "Colors"
-#~ msgstr "Цвета"
-
-#~ msgid "_User"
-#~ msgstr "По_льзователь"
-
-#~ msgid "S_ystem"
-#~ msgstr "С_истема"
-
-#~ msgid "N_ice"
-#~ msgstr "При_оритет"
-
-#~ msgid "I_OWait"
-#~ msgstr "I_OWait"
-
-#~ msgid "I_dle"
-#~ msgstr "Просто_й"
-
-#~ msgid "Sh_ared"
-#~ msgstr "Раз_деляемая"
-
-#~ msgid "_Buffers"
-#~ msgstr "Б_уфера"
-
-#~ msgid "Cach_ed"
-#~ msgstr "К_эшированная"
-
-#~ msgid "F_ree"
-#~ msgstr "Сво_бодная"
-
-#~ msgid "_SLIP"
-#~ msgstr "_SLIP"
-
-#~ msgid "PL_IP"
-#~ msgstr "PL_IP"
-
-#~ msgid "_Ethernet"
-#~ msgstr "_Ethernet"
-
-#~ msgid "Othe_r"
-#~ msgstr "Пр_очая"
-
-#~ msgid "_Background"
-#~ msgstr "_Фон"
-
-#~ msgid "_Used"
-#~ msgstr "Ис_пользуется"
-
-#~ msgid "_Free"
-#~ msgstr "Сво_бодно"
-
-#~ msgid "Load"
-#~ msgstr "Загрузка"
-
-#~ msgid "_Average"
-#~ msgstr "С_редняя"
-
-#~ msgid "Harddisk"
-#~ msgstr "Жесткий диск"
-
-#~ msgid "_Read"
-#~ msgstr "_Чтение"
-
-#~ msgid "_Write"
-#~ msgstr "_Запись"
-
-#~ msgid "System Monitor Preferences"
-#~ msgstr "Параметры системного монитора"
-
-#~ msgid "CD Player (Deprecated)"
-#~ msgstr "CD-проигрыватель (устаревший)"
-
-#~ msgid "Panel applet for playing audio CDs"
-#~ msgstr "Апплет для воспроизведения звуковых компакт-дисков"
-
-#~ msgid "Alert you when new mail arrives"
-#~ msgstr "Уведомлять о прибытии новой почты"
-
-#~ msgid "Inbox Monitor (Deprecated)"
-#~ msgstr "Монитор входящей почты (устаревший)"
-
-#~ msgid "Factory for deprecating applets"
-#~ msgstr "Фабрика для устаревших апплетов"
-
-#~ msgid "Null Applet Factory"
-#~ msgstr "Фабрика нулевого апплета"
-
-#~ msgid "Monitor the quality of a wireless network link"
-#~ msgstr "Отслеживает качество беспроводного сетевого соединения"
-
-#~ msgid "Wireless Link Monitor"
-#~ msgstr "Монитор беспроводной связи"
-
-#~ msgid "Some panel items are no longer available"
-#~ msgstr "Некоторые элементы панели более недоступны"
-
-#~ msgid ""
-#~ "One or more panel items (also referred to as applets) are no longer "
-#~ "available in the GNOME desktop."
-#~ msgstr ""
-#~ "Один или более элементов панели (апплетов) более недоступны в среде GNOME."
-
-#~ msgid "These items will now be removed from your configuration:"
-#~ msgstr "Эти элементы будут удалены из вашей конфигурации:"
-
-#~ msgid "You will not receive this message again."
-#~ msgstr "Вы больше не получите это сообщение."
-
-#~ msgid "Tomboy (ne Stickynotes)"
-#~ msgstr "Tomboy (не Липкие записки)"
-
-#~ msgid "Tomboy (transparent upgrade from stickynotes)"
-#~ msgstr "Tomboy (прозрачное обновление липких записок)"
-
-#~ msgid "Create, view, and manage sticky notes on the desktop"
-#~ msgstr "Создание, просмотра и управление липкими записками на рабочем столе"
-
-#~ msgid "Sticky Notes"
-#~ msgstr "Липкие записки"
-
-#~ msgid "Sticky Notes Applet Factory"
-#~ msgstr "Фабрика апплета липких записок"
-
-#~ msgid "Hi_de Notes"
-#~ msgstr "С_крыть записки"
-
-#~ msgid "_Delete Notes"
-#~ msgstr "У_далить записки"
-
-#~ msgid "_Lock Notes"
-#~ msgstr "_Зафиксировать записки"
-
-#~ msgid "_New Note"
-#~ msgstr "С_оздать записку"
-
-#~ msgid "This note is locked."
-#~ msgstr "Эта записка заблокирована."
-
-#~ msgid "This note is unlocked."
-#~ msgstr "Эта записка разблокирована."
-
-#~ msgid "    Font C_olor:"
-#~ msgstr "    Ц_вет шрифта:"
-
-#~ msgid "    Font Co_lor:"
-#~ msgstr "    Цв_ет шрифта:"
-
-#~ msgid "    Note C_olor:"
-#~ msgstr "    Ц_вет записки:"
-
-#~ msgid "    Note _Color:"
-#~ msgstr "    _Цвет записки:"
-
-#~ msgid "    _Font:"
-#~ msgstr "    _Шрифт:"
-
-#~ msgid "<b>Behavior</b>"
-#~ msgstr "<b>Поведение</b>"
-
-#~ msgid "<b>Default Note Properties</b>"
-#~ msgstr "<b>Cвойства записки по умолчанию</b>"
-
-#~ msgid ""
-#~ "<b>Delete all sticky notes?</b>\n"
-#~ "\n"
-#~ "This cannot be undone."
-#~ msgstr ""
-#~ "<b>Удалить все липкие записки?</b>\n"
-#~ "\n"
-#~ "Отменить это измение будет невозможно."
-
-#~ msgid ""
-#~ "<b>Delete this sticky note?</b>\n"
-#~ "\n"
-#~ "This cannot be undone."
-#~ msgstr ""
-#~ "<b>Удалить эту липкую записку?</b>\n"
-#~ "\n"
-#~ "Отменить это измение будет невозможно."
-
-#~ msgid "<b>Properties</b>"
-#~ msgstr "<b>Свойства</b>"
-
-#~ msgid "Choose a base color to use for all sticky notes"
-#~ msgstr "Выберите основной цвет для всех липких записок"
-
-#~ msgid "Choose a color for the note"
-#~ msgstr "Выберите цвет записки"
-
-#~ msgid "Choose a font for the note"
-#~ msgstr "Выберите шрифт записки"
-
-#~ msgid "Choose a font to use for all sticky notes"
-#~ msgstr "Выберите шрифт для всех записок"
-
-#~ msgid "Choose if notes are visible on all workspaces"
-#~ msgstr "Показывать записки на ВСЕХ рабочих столах"
-
-#~ msgid "Choose if the default style is forced on all notes"
-#~ msgstr "Применять стиль по умолчанию ко всем запискам"
-
-#~ msgid "Close note"
-#~ msgstr "Закрыть записку"
-
-#~ msgid "Force _default color and font on notes"
-#~ msgstr "Применить ис_ходный цвет и шрифт ко всем запискам"
-
-#~ msgid "H_eight:"
-#~ msgstr "_Высота:"
-
-#~ msgid "Lock/Unlock note"
-#~ msgstr "Зафиксировать/Расфиксировать записку"
-
-#~ msgid "Pick a color for the sticky note"
-#~ msgstr "Выберите цвет для записки"
-
-#~ msgid "Pick a default sticky note color"
-#~ msgstr "Выберите цвет записок по умолчанию"
-
-#~ msgid "Pick a default sticky note font"
-#~ msgstr "Выберите шрифт записок по умолчанию"
-
-#~ msgid "Pick a font for the sticky note"
-#~ msgstr "Выберите шрифт записки"
-
-#~ msgid "Resize note"
-#~ msgstr "Изменить размер записки"
-
-#~ msgid "Specify a title for the note"
-#~ msgstr "Укажите заголовок записки"
-
-#~ msgid "Specify the default height (in pixels) of new notes"
-#~ msgstr "Укажите высоту по умолчанию (в пикселях) новых записок"
-
-#~ msgid "Specify the default width (in pixels) of new notes"
-#~ msgstr "Укажите ширину по умолчанию (в пикселях) новых записок"
-
-#~ msgid "Sticky Note"
-#~ msgstr "Липкая записка"
-
-#~ msgid "Sticky Note Properties"
-#~ msgstr "Свойства липкой записки"
-
-#~ msgid "Sticky Notes Preferences"
-#~ msgstr "Параметры липких записок"
-
-#~ msgid "Use co_lor from the system theme"
-#~ msgstr "Использовать ц_вет из системной темы"
-
-#~ msgid "Use default co_lor"
-#~ msgstr "Использовать ц_вет по умолчанию"
-
-#~ msgid "Use default fo_nt"
-#~ msgstr "Использовать шриф_т по умолчанию"
-
-#~ msgid "Use fo_nt from the system theme"
-#~ msgstr "Использовать шриф_т из системной темы"
-
-#~ msgid "_Delete All"
-#~ msgstr "_Удалить все"
-
-#~ msgid "_Delete Note..."
-#~ msgstr "_Удалить Записку..."
-
-#~ msgid "_Lock Note"
-#~ msgstr "_Зафиксировать записку"
-
-#~ msgid "_Put notes on all workspaces"
-#~ msgstr "Прил_еплять записки на все рабочие места"
-
-#~ msgid "_Title:"
-#~ msgstr "З_аголовок:"
-
-#~ msgid ""
-#~ "By default, sticky notes are given the current date as the title when "
-#~ "they are created. This format is used; anything that can be parsed by "
-#~ "strftime() is valid."
-#~ msgstr ""
-#~ "По умолчанию липким запискам при создании даётся заголовок с текущей "
-#~ "датой. Используется этот формат; всё, что может быть корректно "
-#~ "проанализировано функцией strftime() является правильным."
-
-#~ msgid "Date format of note's title"
-#~ msgstr "Формат даты в заголовках записок"
-
-#~ msgid "Default color for font"
-#~ msgstr "Цвет шрифта по умолчанию"
-
-#~ msgid "Default color for new notes"
-#~ msgstr "Цвет новых записок по умолчанию"
-
-#~ msgid ""
-#~ "Default color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#30FF50\"."
-#~ msgstr ""
-#~ "Цвет по умолчанию для новых липких записок. Цвет должен соответствовать "
-#~ "шестнадцатиричной спецификации html, например \"#30FF50\"."
-
-#~ msgid ""
-#~ "Default font color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#000000\"."
-#~ msgstr ""
-#~ "Цвет шрифта по умолчанию для новых липких записок. Цвет должен "
-#~ "соответствовать шестнадцатиричной спецификации html, например \"#000000\"."
-
-#~ msgid "Default font for new notes"
-#~ msgstr "Шрифт по умолчанию для новых записок"
-
-#~ msgid ""
-#~ "Default font for new sticky notes. This should be a Pango Font Name, for "
-#~ "example \"Sans Italic 10\""
-#~ msgstr ""
-#~ "Шрифт по умолчанию для новых липких записок. Название шрифта должно "
-#~ "указываться в формате Pango, например \"Sans Italic 10\""
-
-#~ msgid "Default height for new notes"
-#~ msgstr "Высота по умолчанию для новых записок"
-
-#~ msgid "Default height for new sticky notes in pixels."
-#~ msgstr "Высота по умолчанию для новых липких записок в пикселях."
-
-#~ msgid "Default width for new notes"
-#~ msgstr "Ширина по умолчанию для новых записок"
-
-#~ msgid "Default width for new sticky notes in pixels."
-#~ msgstr "Ширина по умолчанию для новых липких записок в пикселях."
-
-#~ msgid "Empty notes are always deleted without confirmation"
-#~ msgstr "Пустые записки всегда удаляются без подтверждения"
-
-#~ msgid ""
-#~ "If this option is disabled, a custom color can be used as the default "
-#~ "color for all sticky notes."
-#~ msgstr ""
-#~ "Если этот ключ не установлен, то цвет пользователя может быть использован "
-#~ "как цвет по умолчанию для всех липких записок."
-
-#~ msgid ""
-#~ "If this option is disabled, a custom font can be used as the default font "
-#~ "for all sticky notes."
-#~ msgstr ""
-#~ "Если этот ключ не установлен, то шрифт пользователя может быть "
-#~ "использован как исходный шрифт для всех липких записок."
-
-#~ msgid ""
-#~ "If this option is enabled, the custom colors and fonts that have been "
-#~ "assigned to individual notes will be ignored."
-#~ msgstr ""
-#~ "Если этот ключ установлен, то будут игнорироваться цвет и шрифт "
-#~ "пользователя, назначенные отдельным запискам."
-
-#~ msgid "Specifies whether the sticky notes are locked (non-editable) or not."
-#~ msgstr ""
-#~ "Указывает, зафиксированы липкие записки (недоступны для изменений) или "
-#~ "нет."
-
-#~ msgid ""
-#~ "Specifies whether the sticky notes are visible on ALL workspaces on the "
-#~ "desktop, or not."
-#~ msgstr "Указывает, видимы липкие записки на ВСЕХ рабочих местах или нет."
-
-#~ msgid "Sticky notes' locked state"
-#~ msgstr "Состояние фиксации липких записок"
-
-#~ msgid "Sticky notes' workspace stickyness"
-#~ msgstr "Прилипчивость записок к рабочим местам"
-
-#~ msgid "Whether to ask for confirmation when deleting a note"
-#~ msgstr "Запрашивать ли подтверждение на удаление записки"
-
-#~ msgid "Whether to force the default color and font on all notes"
-#~ msgstr "Применять ли цвет и шрифт по умолчанию ко всем запискам"
-
-#~ msgid "Whether to use the default system color"
-#~ msgstr "Использовать ли системный цвет по умолчанию"
-
-#~ msgid "Whether to use the default system font"
-#~ msgstr "Использовать ли системный шрифт по умолчанию"
-
-#~ msgid "%d note"
-#~ msgid_plural "%d notes"
-#~ msgstr[0] "%d записка"
-#~ msgstr[1] "%d записки"
-#~ msgstr[2] "%d записок"
-
-#~ msgid "Show sticky notes"
-#~ msgstr "Отображать липкие записки"
-
-#~ msgid "Sticky Notes for the GNOME Desktop Environment"
-#~ msgstr "Липкие записки для среды GNOME"
-
-#~ msgid "Go to Trash"
-#~ msgstr "Перейти в корзину"
-
-#~ msgid "Trash"
-#~ msgstr "Корзина"
-
-#~ msgid "_Empty Trash"
-#~ msgstr "_Очистить корзину"
-
-#~ msgid "_Open"
-#~ msgstr "_Открыть"
-
-#~ msgid "Unable to find the Trash directory: %s"
-#~ msgstr "Не удается найти каталог корзины: %s"
-
-#~ msgid "No Items in Trash"
-#~ msgstr "В корзине нет элементов"
-
-#~ msgid "%d Item in Trash"
-#~ msgid_plural "%d Items in Trash"
-#~ msgstr[0] "%d элемент в корзине"
-#~ msgstr[1] "%d элемента в корзине"
-#~ msgstr[2] "%d элементов в корзине"
-
-#~ msgid "Removing item %d of %d"
-#~ msgstr "Удаляется элемент %d из %d"
-
-#~ msgid "Removing:"
-#~ msgstr "Удаляется:"
-
-#~ msgid "Empty all of the items from the trash?"
-#~ msgstr "Очистить все элементы из корзины?"
-
-#~ msgid ""
-#~ "If you choose to empty the trash, all items in it will be permanently "
-#~ "lost. Please note that you can also delete them separately."
-#~ msgstr ""
-#~ "Если вы очистите корзину, элементы будут окончательно удалены. Учтите, "
-#~ "что их также можно удалять по одному."
-
-#~ msgid ""
-#~ "Error while spawning nautilus:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Ошибка запуска nautilus:\n"
-#~ "%s"
-
-#~ msgid ""
-#~ "A GNOME trash bin that lives in your panel. You can use it to view the "
-#~ "trash or drag and drop items into the trash."
-#~ msgstr ""
-#~ "Корзина среды GNOME, которая живет в вашей панели. Вы можете использовать "
-#~ "ее для просмотра корзины или перетаскивания в нее элементов."
-
-#~ msgid "Delete Immediately?"
-#~ msgstr "Удалить окончательно?"
-
-#~ msgid "Cannot move items to trash, do you want to delete them immediately?"
-#~ msgstr "Не удается переместить элементы в корзину, удалить их окончательно?"
-
-#~ msgid ""
-#~ "Cannot move some items to trash, do you want to delete these immediately?"
-#~ msgstr "Не удается переместить элементы в корзину, удалить их окончательно?"
-
-#~ msgid ""
-#~ "Unable to move to trash:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Не удается переместить в корзину:\n"
-#~ "%s"
-
-#~ msgid "Trash Applet"
-#~ msgstr "Апплет корзины"
-
-#~ msgid "<b>From:</b>"
-#~ msgstr "<b>Из:</b>"
-
-#~ msgid "<big><b>Emptying the Trash</b></big>"
-#~ msgstr "<big><b>Очистка корзины</b></big>"
-
-#~ msgid "Emptying the Trash"
-#~ msgstr "Очистка корзины"
-
-#~ msgid "Secondary groups"
-#~ msgstr "Дополнительные группы"
-
-#~ msgid "Show flags in the applet"
-#~ msgstr "Показывать флаги в апплете"
-
-#~ msgid "Show flags in the applet to indicate the current layout"
-#~ msgstr "Показывать флаги в апплете для индикации текущей раскладки"
-
-#~ msgid "The list of enabled Keyboard Indicator plugins"
-#~ msgstr "Список включенных модулей индикатора клавиатуры"
-
-#~ msgid "Display yahoo charts"
-#~ msgstr "Показывает диаграммы yahoo"
-
-#~ msgid "Invest Chart"
-#~ msgstr "Инвестиционный график"
