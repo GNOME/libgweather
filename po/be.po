@@ -1,24 +1,23 @@
-# Беларускі пераклад gnome-applets.HEAD.
+# Беларускі пераклад libgweather.
 # SOME DESCRIPTIVE TITLE
 # Copyright (C) 2002, 2003, 2004 Free Software Foundation, Inc.
 # Vital Khilko <dojlid@mova.org>, 2002, 2003.
-# Ales Nyakhaychyk <nab@mail.by>, 2003, 2004.
+# Ales Nyakhaychyk <nab@mail.by>, 2003, 2004, 2008
 # Ihar Hrachyshka <boox.svaboda2006@gmail.com>, 2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-applets.HEAD\n"
+"Project-Id-Version: libgweather trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-26 21:39-0500\n"
-"PO-Revision-Date: 2007-02-03 13:06+0300\n"
-"Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
+"POT-Creation-Date: 2008-02-27 02:43+0000\n"
+"PO-Revision-Date: 2008-03-10 02:32+0200\n"
+"Last-Translator: Alexander Nyakhaychyk <nab@mail.by>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: KBabel 1.0.2\n"
 
 #. TRANSLATOR: Change this to the default location name,
 #. * used when you first start the Weather Applet. This is
@@ -34,7 +33,7 @@ msgstr ""
 #: ../libgweather/gweather-gconf.c:163 ../libgweather/gweather-gconf.c:164
 #: ../libgweather/gweather.schemas.in.h:5
 msgid "DEFAULT_LOCATION"
-msgstr "Minsk"
+msgstr "Менск"
 
 #. TRANSLATOR: Change this to the code of your default location that
 #. * corresponds to the DEFAULT_LOCATION name you put above. This is
@@ -105,32 +104,32 @@ msgstr "DEFAULT_COORDINATES"
 #: ../libgweather/gweather-prefs.c:25 ../libgweather/gweather-prefs.c:36
 #: ../libgweather/gweather-prefs.c:51 ../libgweather/gweather-prefs.c:68
 msgid "Default"
-msgstr "Прадвызначаная"
+msgstr "Прадвызначаныя"
 
 #. translators: Kelvin
 #: ../libgweather/gweather-prefs.c:27
 msgid "K"
-msgstr ""
+msgstr "K"
 
 #. translators: Celsius
 #: ../libgweather/gweather-prefs.c:29
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #. translators: Fahrenheit
 #: ../libgweather/gweather-prefs.c:31
 msgid "F"
-msgstr ""
+msgstr "F"
 
 #. translators: meters per second
 #: ../libgweather/gweather-prefs.c:38
 msgid "m/s"
-msgstr "мэтраў за сэкунду"
+msgstr "м/с"
 
 #. translators: kilometers per hour
 #: ../libgweather/gweather-prefs.c:40
 msgid "km/h"
-msgstr "кілямэтры за гадзіну"
+msgstr "км/г"
 
 #. translators: miles per hour
 #: ../libgweather/gweather-prefs.c:42
@@ -179,19 +178,18 @@ msgstr "атмасфэры"
 
 #. translators: meters
 #: ../libgweather/gweather-prefs.c:70
-#, fuzzy
 msgid "m"
-msgstr "мілібары"
+msgstr "м"
 
 #. translators: kilometers
 #: ../libgweather/gweather-prefs.c:72
 msgid "km"
-msgstr "кілямэтры"
+msgstr "км<"
 
 #. translators: miles
 #: ../libgweather/gweather-prefs.c:74
 msgid "mi"
-msgstr ""
+msgstr "мілі"
 
 #. TRANSLATOR: This is the default unit to use for temperature measurements.
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
@@ -793,27 +791,27 @@ msgstr "Невядомы час назіраньня"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
 #: ../libgweather/weather.c:710
-#, fuzzy, c-format
+#, c-format
 msgid "%.1f ℉"
-msgstr "%.1f K"
+msgstr "%.1f ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
 #: ../libgweather/weather.c:713
-#, fuzzy, c-format
+#, c-format
 msgid "%d ℉"
-msgstr "%d K"
+msgstr "%d ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
 #: ../libgweather/weather.c:719
-#, fuzzy, c-format
+#, c-format
 msgid "%.1f ℃"
-msgstr "%.1f K"
+msgstr "%.1f ℃"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
 #: ../libgweather/weather.c:722
-#, fuzzy, c-format
+#, c-format
 msgid "%d ℃"
-msgstr "%d K"
+msgstr "%d ℃"
 
 #. TRANSLATOR: This is the temperature in kelvin
 #: ../libgweather/weather.c:728
