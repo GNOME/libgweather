@@ -11,4 +11,4 @@ dist_libgweatherlocations_DATA = $(libgweatherlocations_in_files:.xml.in=.xml) l
 	LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po-locations/.intltool-merge-cache $(top_srcdir)/po-locations $< $@
 
 check:
-	xmllint --valid --noout Locations.xml.in
+	xmllint --valid --noout $(top_srcdir)/data/Locations.xml.in
