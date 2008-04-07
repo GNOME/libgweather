@@ -3,7 +3,7 @@ LIBRARY_VERSION = 0:0:0
 lib_LTLIBRARIES = libgweather.la
 
 libgweatherincdir = $(includedir)/libgweather
-libgweatherinc_HEADERS = weather.h gweather-gconf.h gweather-prefs.h
+libgweatherinc_HEADERS = weather.h gweather-gconf.h gweather-prefs.h gweather-xml.h
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gweather.pc
@@ -14,20 +14,23 @@ libgweather_la_SOURCES = \
 	weather-bom.c weather-wx.c \
 	weather-sun.c \
 	gweather-prefs.c gweather-prefs.h \
-	gweather-gconf.c gweather-gconf.h
+	gweather-gconf.c gweather-gconf.h \
+	gweather-xml.c gweather-xml.h
 
 libgweather_la_CFLAGS = \
 	-I$(top_srcdir)			\
 	-I$(srcdir)			\
 	$(WARN_CFLAGS)			\
 	$(GTK_CFLAGS)			\
+	$(LIBXML_CFLAGS)		\
 	$(GNOME_VFS_APPLETS_CFLAGS)	\
-	$(GNOME_APPLETS_CFLAGS)		\
 	-DG_LOG_DOMAIN=\"GWeather\"	\
-	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"
+	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
+	-DGWEATHER_XML_LOCATION=\""$(pkgdatadir)/Locations.xml"\"
 
 libgweather_la_LIBADD = \
 	$(GTK_LIBS)	\
+	$(LIBXML_LIBS)	\
 	$(GNOME_VFS_APPLETS_LIBS)
 
 libgweather_la_LDFLAGS = \
@@ -40,12 +43,10 @@ test_metar_CFLAGS = \
 	-I$(srcdir)			\
 	$(WARN_CFLAGS)			\
 	$(GTK_CFLAGS)			\
-	$(GNOME_APPLETS_CFLAGS)		\
 	$(GNOME_VFS_APPLETS_CFLAGS)	\
 	-DG_LOG_DOMAIN=\"GWeather\"
 
 test_metar_LDADD = \
-	$(GNOME_APPLETS_LIB) \
 	$(GNOME_VFS_APPLETS_LIB) \
 	libgweather.la
 

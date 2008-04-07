@@ -1,3 +1,15 @@
+2008-04-07  Vincent Untz  <vuntz@gnome.org>
+
+	Add gweather-xml API. Patch by Dan Winship <danw@gnome.org>.
+	Fix bug #526015.
+
+	* configure.in: find libxml libs/cflags
+	* libgweather/gweather-xml.c: move this here from gweather/clock-applet
+	and fix the XML parser to skip over unrecognized close tags as well as
+	unrecognized open tags
+	* libgweather/Makefile.am (libgweather_la_SOURCES): add gweather-xml.c
+	(libgweatherinc_HEADERS): add gweather-xml.h
+
 2008-03-18  Bastien Nocera  <hadess@hadess.net>
 
 	* MAINTAINERS: upd, Federico is the maintainer

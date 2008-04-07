@@ -8,6 +8,7 @@ GTK_REQUIRED=2.11.0
 GLIB_REQUIRED=2.13.0
 GNOME_VFS_REQUIRED=2.15.4
 GCONF_REQUIRED=2.8.0
+LIBXML_REQUIRED=2.6.0
 
 AM_MAINTAINER_MODE
 
@@ -65,6 +66,11 @@ dnl -- Check for GTK+ 2.0 (required) ------------------------------------------
 PKG_CHECK_MODULES(GTK, gtk+-2.0 >= $GTK_REQUIRED)
 AC_SUBST(GTK_FLAGS)
 AC_SUBST(GTK_LIBS)
+
+dnl -- Check for libxml (required) ------------------------------------------
+PKG_CHECK_MODULES(LIBXML, libxml-2.0 >= $LIBXML_REQUIRED)
+AC_SUBST(LIBXML_FLAGS)
+AC_SUBST(LIBXML_LIBS)
 
 dnl -- check for gnome-vfs (optional) -----------------------------------------
 PKG_CHECK_MODULES(GNOME_VFS_APPLETS, 
