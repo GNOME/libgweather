@@ -1,3 +1,31 @@
+libgweather 2.22.1
+==================
+
+The API/ABI has been broken in this release.
+
+libgweather
+
+	* Add API to parse Locations.xml, based on the code from
+	  gnome-applets/gnome-panel (Dan Winship)
+	* Parse country codes and timezone hints [breaks API/ABI] (Dan Winship)
+
+Locations.xml
+
+	* Add country codes and timezone hints to Locations.xml (Dan Winship)
+	* Make the file valid (Vincent)
+	* Add make check rule (Dan Winship)
+
+Misc
+
+	* Distribute Locations.xml.in and relevant translations (Loïc Minier,
+	  Sebastian Dröge)
+
+Translators
+
+	* Simos Xenitellis (el)
+	* Ivar Smolin (et)
+	* Eskild Hustvedt (nn)
+
 libgweather 2.22.0
 ==================
 
