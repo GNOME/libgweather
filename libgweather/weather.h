@@ -39,6 +39,8 @@ struct _WeatherLocation {
     gdouble  latitude;
     gdouble  longitude;
     gboolean latlon_valid;
+    gchar *country_code;
+    gchar *tz_hint;
 };
 
 typedef struct _WeatherLocation WeatherLocation;
@@ -47,7 +49,9 @@ WeatherLocation *	weather_location_new 	(const gchar *trans_name,
 						 const gchar *code,
 						 const gchar *zone,
 						 const gchar *radar,
-						 const gchar *coordinates);
+						 const gchar *coordinates,
+						 const gchar *country_code,
+						 const gchar *tz_hint);
 WeatherLocation *	weather_location_clone	(const WeatherLocation *location);
 void			weather_location_free	(WeatherLocation *location);
 gboolean		weather_location_equal	(const WeatherLocation *location1,

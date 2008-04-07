@@ -5,15 +5,17 @@
 <!ENTITY % name '(_name|name+)' >
 
 <!ELEMENT region (%name;, country+) >
-<!ELEMENT country (%name;, (location|state|city)+) >
-<!ELEMENT state (%name;, (location|city)+) >
+<!ELEMENT country (%name;, iso-code, tz-hint?, (location|state|city)+) >
+<!ELEMENT state (%name;, tz-hint?, (location|city)+) >
 <!ELEMENT city (%name;, zone?, radar?, location+) >
-<!ELEMENT location (%name;, code, zone?, radar?, coordinates?) >
+<!ELEMENT location (%name;, iso-code?, tz-hint?, code, zone?, radar?, coordinates?) >
 
 <!ELEMENT _name (#PCDATA) >
 <!ELEMENT name (#PCDATA) >
 <!ATTLIST name
   xml:lang CDATA #IMPLIED >
+<!ELEMENT iso-code (#PCDATA) >
+<!ELEMENT tz-hint (#PCDATA) >
 <!ELEMENT code (#PCDATA) >
 <!ELEMENT zone (#PCDATA) >
 <!ELEMENT radar (#PCDATA) >

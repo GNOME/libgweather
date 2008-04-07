@@ -85,7 +85,9 @@ static gdouble dmsh2rad (const gchar *latlon)
 
 WeatherLocation *weather_location_new (const gchar *name, const gchar *code,
 				       const gchar *zone, const gchar *radar,
-                                       const gchar *coordinates)
+                                       const gchar *coordinates,
+				       const gchar *country_code,
+				       const gchar *tz_hint)
 {
     WeatherLocation *location;
 
@@ -138,6 +140,9 @@ WeatherLocation *weather_location_new (const gchar *name, const gchar *code,
     }
 
     location->latlon_valid = (location->latitude < DBL_MAX && location->longitude < DBL_MAX);
+
+    location->country_code = g_strdup (country_code);
+    location->tz_hint = g_strdup (tz_hint);
     
     return location;
 }
@@ -148,7 +153,8 @@ WeatherLocation *weather_location_clone (const WeatherLocation *location)
 
     clone = weather_location_new (location->name,
 				  location->code, location->zone,
-				  location->radar, location->coordinates);
+				  location->radar, location->coordinates,
+				  location->country_code, location->tz_hint);
     clone->latitude = location->latitude;
     clone->longitude = location->longitude;
     clone->latlon_valid = location->latlon_valid;
@@ -163,6 +169,8 @@ void weather_location_free (WeatherLocation *location)
         g_free (location->zone);
         g_free (location->radar);
         g_free (location->coordinates);
+        g_free (location->country_code);
+        g_free (location->tz_hint);
     
         g_free (location);
     }

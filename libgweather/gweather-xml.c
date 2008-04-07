@@ -31,6 +31,8 @@
  *  <name xml:lang="zz">Another Translated Name</name>
  *  <country>
  *   <name>Name of the country</name>
+ *   <iso-code>2-letter ISO 3166 code for the country</iso-code>
+ *   <tz-hint>default timezone</tz-hint>
  *   <location>
  *    <name>Name of the location</name>
  *    <code>IWIN code</code>
@@ -57,6 +59,9 @@
  *
  * The thing to note is that each country can either contain different locations
  * or be split into "states" which in turn contain a list of locations.
+ *
+ * <iso-code> can appear at the country or location level. <tz-hint>
+ * can appear at country, state, or location.
  */
 
 #include <string.h>
@@ -191,9 +196,11 @@ static gboolean
 gweather_xml_parse_node (xmlTextReaderPtr xml,
 			 GtkTreeStore *store, GtkTreeIter *parent,
                          const char *dflt_radar, const char *dflt_zone,
-			 const char *cityname)
+                         const char *dflt_country_code,
+			 const char *dflt_tz_hint, const char *cityname)
 {
   char *name, *code, *zone, *radar, *coordinates;
+  char *country_code, *tz_hint;
   char **city, *nocity = NULL;
   GtkTreeIter iter, *self;
   gboolean is_location;
@@ -229,6 +236,9 @@ gweather_xml_parse_node (xmlTextReaderPtr xml,
   code = NULL;
   name = NULL;
 
+  country_code = dflt_country_code ? (char *) xmlStrdup( (xmlChar *) dflt_country_code ) : NULL;
+  tz_hint = dflt_tz_hint ? (char *) xmlStrdup( (xmlChar *) dflt_tz_hint ) : NULL;
+
   /* absorb the start tag */
   if( xmlTextReaderRead( xml ) != 1 )
     goto error_out;
@@ -254,13 +264,27 @@ gweather_xml_parse_node (xmlTextReaderPtr xml,
         !strcmp( tagname, "location" ) )
     {
       /* recursively handle sub-sections */
-      if( !gweather_xml_parse_node( xml, store, self, radar, zone, *city ) )
+      if( !gweather_xml_parse_node( xml, store, self, 
+				    radar, zone, country_code, tz_hint,
+				    *city ) )
         goto error_out;
     }
     else if ( !strcmp( tagname, "name" ) )
     {
       xmlFree( name );
       if( (name = gweather_xml_parse_name( xml )) == NULL )
+        goto error_out;
+    }
+    else if ( !strcmp( tagname, "iso-code" ) )
+    {
+      xmlFree( country_code );
+      if( (country_code = gweather_xml_get_value( xml )) == NULL )
+        goto error_out;
+    }
+    else if ( !strcmp( tagname, "tz-hint" ) )
+    {
+      xmlFree( tz_hint );
+      if( (tz_hint = gweather_xml_get_value( xml )) == NULL )
         goto error_out;
     }
     else if ( !strcmp( tagname, "code" ) )
@@ -322,7 +346,8 @@ gweather_xml_parse_node (xmlTextReaderPtr xml,
       dflt_zone = zone;
 
     new_loc =  weather_location_new( cityname, code, dflt_zone,
-                                     dflt_radar, coordinates);
+                                     dflt_radar, coordinates,
+				     country_code, tz_hint );
 
     gtk_tree_store_set( store, &iter, GWEATHER_XML_COL_POINTER, new_loc, -1 );
   }
@@ -335,6 +360,8 @@ error_out:
   xmlFree( zone );
   xmlFree( radar );
   xmlFree( coordinates );
+  xmlFree( country_code );
+  xmlFree( tz_hint );
 
   return ret;
 }
@@ -378,7 +405,7 @@ gweather_xml_load_locations( void )
 
   store = gtk_tree_store_new (2, G_TYPE_STRING, G_TYPE_POINTER);
 
-  if (!gweather_xml_parse_node( xml, store, NULL, NULL, NULL, NULL ))
+  if (!gweather_xml_parse_node( xml, store, NULL, NULL, NULL, NULL, NULL, NULL ))
   {
     g_object_unref( store );
     store = NULL;

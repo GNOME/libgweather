@@ -1,5 +1,21 @@
 2008-04-07  Vincent Untz  <vuntz@gnome.org>
 
+	Add country codes and timezone hints to Locations.xml. Patch by Dan
+	Winship <danw@gnome.org>. Fix bug #525451.
+
+	* data/Locations.xml.in: Add ISO 3166 codes for all countries (and
+	those sub-country regions that have them). Add guesses at the
+	timezones for various countries, states, and locations.
+	* data/locations.dtd: Update; a country must have an iso-code, and
+	a location may have one. A country, state, or location may have a
+	tz-hint.
+	* libgweather/gweather-xml.c (gweather_xml_parse_node): Handle iso-code
+	and tz-hint (and make them be inherited properly).
+	* libgweather/weather.[ch] (weather_location_new): add country_code and
+	tz_hint fields to WeatherLocation and update its methods
+
+2008-04-07  Vincent Untz  <vuntz@gnome.org>
+
 	Add gweather-xml API. Patch by Dan Winship <danw@gnome.org>.
 	Fix bug #526015.
 
