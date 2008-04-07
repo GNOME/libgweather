@@ -1,5 +1,3 @@
-LIBRARY_VERSION = 0:0:0
-
 lib_LTLIBRARIES = libgweather.la
 
 libgweatherincdir = $(includedir)/libgweather
@@ -34,7 +32,7 @@ libgweather_la_LIBADD = \
 	$(GNOME_VFS_APPLETS_LIBS)
 
 libgweather_la_LDFLAGS = \
-	-version-info $(LIBRARY_VERSION) -no-undefined
+	-version-info $(LT_VERSION) -no-undefined
 
 test_metar_SOURCES = test_metar.c
 
