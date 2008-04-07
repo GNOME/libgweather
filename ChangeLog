@@ -1,5 +1,10 @@
 2008-04-07  Vincent Untz  <vuntz@gnome.org>
 
+	* data/Makefile.am: add a "make check" to run "xmllint --valid"
+	Patch by Dan Winship <danw@gnome.org>. Fix bug #526013.
+
+2008-04-07  Vincent Untz  <vuntz@gnome.org>
+
 	* data/Locations.xml.in: make the file pass xmllint again (just changed
 	the order of two lines)
 
