@@ -593,6 +593,11 @@
   <country>
     <_name>Mexico</_name>
     <iso-code>MX</iso-code>
+    <!-- FIXME: need to divide the cities into states like US and
+         Canada do, and then assign the correct tz-hint to each state
+         (and separately to any locations on the borders that don't
+         have the same timezone as the rest of their state).
+      -->
     <tz-hint>America/Mexico_City</tz-hint>
     <location>
       <!-- Translators: This is in Mexico. -->
@@ -2223,7 +2228,7 @@
     <state>
       <!-- Translators: This is a state in the United States. -->
       <_name>Arizona</_name>
-      <tz-hint>America/Pheonix</tz-hint>
+      <tz-hint>America/Phoenix</tz-hint>
       <city>
         <!-- Translators: This is in Arizona in the United States. -->
        <_name>Bullhead City</_name>
@@ -15070,6 +15075,9 @@
   <country>
     <_name>Canada</_name>
     <iso-code>CA</iso-code>
+    <!-- FIXME: Many cities on the eastern and western edges of their
+         provinces need to override their province's tz-hint.
+      -->
     <state>
       <!-- Translators: This is a state in Canada. -->
       <_name>Alberta</_name>
@@ -17575,7 +17583,7 @@
   <country>
     <_name>Iceland</_name>
     <iso-code>IS</iso-code>
-    <tz-hint>Atlanta/Reykjavik</tz-hint>
+    <tz-hint>Atlantic/Reykjavik</tz-hint>
     <location>
       <!-- Translators: This is in Iceland. -->
       <_name>Akureyri</_name>
@@ -18553,7 +18561,6 @@
     <city>
       <!-- Translators: This is in Russia. -->
       <_name>Nizhny Novgorod</_name>
-      <tz-hint>Europe/Moscow</tz-hint>
       <location>
         <!-- Translators: This is in Nizhny Novgorod in Russia. -->
         <_name>Strigino</_name>
@@ -22278,7 +22285,7 @@
   <country>
     <_name>Ukraine</_name>
     <iso-code>UA</iso-code>
-    <tz-hint>Europe/Kieve</tz-hint>
+    <tz-hint>Europe/Kiev</tz-hint>
     <location>
       <_name>Chernovsty</_name>
       <code>UKLN</code>
@@ -23243,7 +23250,7 @@
   <country>
     <_name>Cape Verde</_name>
     <iso-code>CV</iso-code>
-    <tz-hint>Atlanta/Cape_Verde</tz-hint>
+    <tz-hint>Atlantic/Cape_Verde</tz-hint>
     <location>
       <_name>Sal</_name>
       <code>GVAC</code>
@@ -23313,19 +23320,21 @@
   <country>
     <_name>Congo, Democratic Republic of the</_name>
     <iso-code>CD</iso-code>
-    <tz-hint>Africa/Kinshasa</tz-hint>
     <location>
       <_name>Kindu</_name>
+      <tz-hint>Africa/Kinshasa</tz-hint>
       <code>FZOA</code>
       <coordinates>02-57S 025-55E</coordinates>
     </location>
     <location>
       <_name>Kinshasa / N'Djili</_name>
+      <tz-hint>Africa/Kinshasa</tz-hint>
       <code>FZAA</code>
       <coordinates>04-23S 015-26E</coordinates>
     </location>
     <location>
       <_name>Lubumbashi-Luano</_name>
+      <tz-hint>Africa/Lubumbashi</tz-hint>
       <code>FZQA</code>
       <coordinates>11-40S 027-29E</coordinates>
     </location>
@@ -23348,7 +23357,7 @@
   <country>
     <_name>Cote d'Ivoire</_name>
     <iso-code>CI</iso-code>
-    <tz-hint>African/Abidjan</tz-hint>
+    <tz-hint>Africa/Abidjan</tz-hint>
     <location>
       <_name>Abidjan</_name>
       <code>DIAP</code>
@@ -23368,7 +23377,7 @@
   <country>
     <_name>Egypt</_name>
     <iso-code>EG</iso-code>
-    <tz-hint>Europe/Cairo</tz-hint>
+    <tz-hint>Africa/Cairo</tz-hint>
     <location>
       <_name>Alexandria/Nouzha</_name>
       <code>HEAX</code>
@@ -24133,7 +24142,7 @@
   <country>
     <_name>South Africa</_name>
     <iso-code>ZA</iso-code>
-    <tz-hint>Africa/Johannesburt</tz-hint>
+    <tz-hint>Africa/Johannesburg</tz-hint>
     <location>
       <_name>Alexander Bay</_name>
       <code>FAAB</code>
@@ -24614,6 +24623,9 @@
   <country>
     <_name>Australia</_name>
     <iso-code>AU</iso-code>
+    <!-- FIXME: the tz-hint for each state is correct, but some
+         locations need to override the default for their state
+      -->
     <state>
      <_name>South Australia</_name>
      <tz-hint>Australia/Adelaide</tz-hint>
@@ -24896,6 +24908,7 @@
     <tz-hint>Asia/Jakarta</tz-hint>
     <location>
       <_name>Biak / Mokmer</_name>
+      <tz-hint>Asia/Jayapura</tz-hint>
       <code>WABB</code>
       <coordinates>01-11S 136-07E</coordinates>
     </location>
@@ -24911,6 +24924,7 @@
     </location>
     <location>
       <_name>Ujung Pandang / Hasanuddin</_name>
+      <tz-hint>Asia/Makassar</tz-hint>
       <code>WAAA</code>
       <coordinates>05-04S 119-33E</coordinates>
     </location>
@@ -26419,12 +26433,13 @@
     <tz-hint>Asia/Almaty</tz-hint>
     <location>
       <_name>Aktau</_name>
-      <tz-hint>Asia/Aqtau</tz-hint>
+      <tz-hint>Asia/Aqtobe</tz-hint>
       <code>UATE</code>
       <coordinates>43-52-12N 051-06E</coordinates>
     </location>
     <location>
       <_name>Aktjubinsk</_name>
+      <tz-hint>Asia/Aqtobe</tz-hint>
       <code>UATT</code>
       <coordinates>50-17N 057-09E</coordinates>
     </location>
@@ -26435,6 +26450,7 @@
     </location>
     <location>
       <_name>Astana</_name>
+      <tz-hint>Asia/Aqtobe</tz-hint>
       <code>UACC</code>
       <coordinates>51-12N 071-27E</coordinates>
     </location>
@@ -26445,6 +26461,7 @@
     </location>
     <location>
       <_name>Kostanay</_name>
+      <tz-hint>Asia/Aqtobe</tz-hint>
       <code>UAUU</code>
       <coordinates>53-12-23N 063-33-03E</coordinates>
     </location>
@@ -26456,6 +26473,7 @@
     </location>
     <location>
       <_name>Shymkent</_name>
+      <tz-hint>Asia/Oral</tz-hint>
       <code>UAII</code>
       <coordinates>42-19N 069-42E</coordinates>
     </location>
@@ -26476,7 +26494,6 @@
     </location>
     <location>
       <_name>Bintulu</_name>
-      <tz-hint>Asia/Kuching</tz-hint>
       <code>WBGB</code>
       <coordinates>03-12N 113-02E</coordinates>
     </location>
@@ -26492,7 +26509,6 @@
     </location>
     <location>
       <_name>Kota Kinabalu</_name>
-      <tz-hint>Asia/Kuching</tz-hint>
       <code>WBKK</code>
       <coordinates>05-56N 116-03E</coordinates>
     </location>
@@ -26507,19 +26523,16 @@
     </location>
     <location>
       <_name>Kuching</_name>
-      <tz-hint>Asia/Kuching</tz-hint>
       <code>WBGG</code>
       <coordinates>01-29N 110-20E</coordinates>
     </location>
     <location>
       <_name>Kudat</_name>
-      <tz-hint>Asia/Kuching</tz-hint>
       <code>WBKT</code>
       <coordinates>06-55N 116-50E</coordinates>
     </location>
     <location>
       <_name>Labuan</_name>
-      <tz-hint>Asia/Kuching</tz-hint>
       <code>WBKL</code>
       <coordinates>05-18N 115-15E</coordinates>
     </location>
@@ -26535,7 +26548,6 @@
     </location>
     <location>
       <_name>Miri</_name>
-      <tz-hint>Asia/Kuching</tz-hint>
       <code>WBGR</code>
       <coordinates>04-20N 113-59E</coordinates>
     </location>
@@ -26546,7 +26558,6 @@
     </location>
     <location>
       <_name>Sandakan</_name>
-      <tz-hint>Asia/Kuching</tz-hint>
       <code>WBKS</code>
       <coordinates>05-54N 118-04E</coordinates>
     </location>
@@ -26557,7 +26568,6 @@
     </location>
     <location>
       <_name>Sibu</_name>
-      <tz-hint>Asia/Kuching</tz-hint>
       <code>WBGS</code>
       <coordinates>02-20N 111-50E</coordinates>
     </location>
@@ -26573,7 +26583,6 @@
     </location>
     <location>
       <_name>Tawau</_name>
-      <tz-hint>Asia/Kuching</tz-hint>
       <code>WBKW</code>
       <coordinates>04-16N 117-53E</coordinates>
     </location>
@@ -26899,7 +26908,6 @@
     </location>
     <location>
       <_name>Tashkent</_name>
-      <tz-hint>Asia/Tashkent</tz-hint>
       <code>UTTT</code>
       <coordinates>41-16N 069-16E</coordinates>
     </location>
@@ -26975,7 +26983,7 @@
   <country>
     <_name>Bermuda</_name>
     <iso-code>BM</iso-code>
-    <tz-hint>America/Bermuda</tz-hint>
+    <tz-hint>Atlantic/Bermuda</tz-hint>
     <location>
       <_name>Bermuda</_name>
       <code>TXKF</code>
@@ -28124,7 +28132,7 @@
   <country>
     <_name>Venezuela</_name>
     <iso-code>VE</iso-code>
-    <tz-hint>America/Caracus</tz-hint>
+    <tz-hint>America/Caracas</tz-hint>
     <location>
       <_name>Acarigua</_name>
       <code>SVAC</code>
@@ -28544,6 +28552,10 @@
   <country>
     <_name>Brazil</_name>
     <iso-code>BR</iso-code>
+    <!-- FIXME: This tz-hint is correct for most of Brazil (by area),
+         but not all of it. Someone should split the cities up by
+         state and assign a tz-hint to each state.
+      -->
     <tz-hint>America/Sao_Paulo</tz-hint>
     <location>
       <_name>Bagé</_name>
@@ -28612,6 +28624,7 @@
     </city>
     <location>
       <_name>Fernando de Noronha</_name>
+      <tz-hint>America/Noronha</tz-hint>
       <code>SBFN</code>
       <coordinates>03-51S 032-25W</coordinates>
     </location>
@@ -28831,6 +28844,7 @@
   <country>
     <_name>Greenland</_name>
     <iso-code>GL</iso-code>
+    <!-- FIXME: parts of Greenland are on other time zones -->
     <tz-hint>America/Godthab</tz-hint>
     <location>
       <_name>Constable Pynt</_name>
@@ -28907,7 +28921,7 @@
   <country>
     <_name>Saint Helena</_name>
     <iso-code>SH</iso-code>
-    <tz-hint>Atlanta/Saint_Helena</tz-hint>
+    <tz-hint>Atlantic/St_Helena</tz-hint>
     <location>
       <_name>Wide Awake Field Ascension Island</_name>
       <code>FHAW</code>

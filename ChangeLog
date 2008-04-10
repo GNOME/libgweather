@@ -1,3 +1,22 @@
+2008-04-10  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in: add FIXMEs to Brazil and Mexico, which
+	need to be split up into states with per-state tz-hints, and
+	Australia, Canada, and Greenland, which need minor fix-ups. Fix
+	the timezones in DR Congo, Indonesia, and Kazakhstan myself since
+	there are few enough cities listed for each that I could just
+	Google them. Remove references to Asia/Kuching timezone in
+	Malaysia since it has been identical to Asia/Kuala_Lumpur since
+	1982 (pointed out by Ghee Teo). Fix various typos in tz-hints (and
+	spell-check against zone.tab this time to make sure there are no
+	more).
+
+	* data/check-timezones.sh: timezone-checking script
+
+	* data/Makefile.am (check): run check-timezones.sh
+
+	* data/README: explain Locations.xml.in some
+
 2008-04-08  Vincent Untz  <vuntz@gnome.org>
 
 	* data/Locations.xml.in: add correct tz-hint for Valparaiso, IN
