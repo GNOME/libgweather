@@ -24,7 +24,7 @@ libgweather_la_CFLAGS = \
 	$(GNOME_VFS_APPLETS_CFLAGS)	\
 	-DG_LOG_DOMAIN=\"GWeather\"	\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-DGWEATHER_XML_LOCATION=\""$(pkgdatadir)/Locations.xml"\"
+	-DGWEATHER_XML_LOCATION_DIR=\""$(pkgdatadir)"\"
 
 libgweather_la_LIBADD = \
 	$(GTK_LIBS)	\

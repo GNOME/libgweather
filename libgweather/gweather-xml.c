@@ -369,14 +369,42 @@ error_out:
 GtkTreeModel *
 gweather_xml_load_locations( void )
 {
+  const char * const *languages;
+  int i;
+  char *filename;
   char *tagname, *format;
   GtkTreeSortable *sortable;
   GtkTreeStore *store = NULL;
   xmlTextReaderPtr xml;
   int keep_going;
 
+  /* First try to load a locale-specific XML. It's much faster. */
+  languages = g_get_language_names ();
+  filename = NULL;
+
+  for (i = 0; languages[i] != NULL; i++)
+    {
+      filename = g_strdup_printf ("%s/Locations.%s.xml",
+                                  GWEATHER_XML_LOCATION_DIR, languages[i]);
+
+      if (g_file_test (filename, G_FILE_TEST_IS_REGULAR))
+        break;
+
+      g_free (filename);
+      filename = NULL;
+    }
+
+  /* Fallback on the file containing either all translations, or only
+   * the english names (depending on the configure flags). Note that it's
+   * also the file that is advertised in our pkg-config file, so it's
+   * part of the API. */
+  if (!filename)
+    filename = g_strdup (GWEATHER_XML_LOCATION_DIR"/Locations.xml");
+
   /* Open the xml file containing the different locations */
-  xml = xmlNewTextReaderFilename (GWEATHER_XML_LOCATION);
+  xml = xmlNewTextReaderFilename (filename);
+  g_free (filename);
+
   if( xml == NULL )
     return NULL;
 

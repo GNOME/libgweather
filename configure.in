@@ -33,6 +33,13 @@ AC_STDC_HEADERS
 AM_PROG_LIBTOOL
 AC_PATH_PROG(GCONFTOOL, gconftool-2)
 
+AC_ARG_ENABLE(all-translations-in-one-xml,
+        [AC_HELP_STRING([--enable-all-translations-in-one-xml],
+                        [Put all translations in a big Locations.xml file (slow to parse)])],
+        [enable_big_xml=yes],
+        [enable_big_xml=no])
+AM_CONDITIONAL(USE_ONE_BIG_XML, test "x$enable_big_xml" = "xyes")
+
 GNOME_COMPILE_WARNINGS
 
 dnl ***************************************************************************
@@ -154,6 +161,12 @@ libgweather/gweather.pc
 data/Makefile
 ])
 
+if test "x$enable_big_xml" = "xyes"; then
+	LOCATIONS_XML_TRANSLATIONS="one big file"
+else
+	LOCATIONS_XML_TRANSLATIONS="one file per translation"
+fi
+
 dnl ***************************************************************************
 dnl *** Display Summary                                                     ***
 dnl ***************************************************************************
@@ -163,4 +176,5 @@ libgweather-$VERSION configure summary:
 	Prefix:				${prefix}
 	Source code location:		${srcdir}
 	Compiler:			${CC}
+	Locations.xml translations:	${LOCATIONS_XML_TRANSLATIONS}
 " >&2

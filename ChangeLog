@@ -1,3 +1,19 @@
+2008-04-10  Vincent Untz  <vuntz@gnome.org>
+
+	Create a Locations.xml file per translation. This makes the parsing
+	of the XML file much much faster (down to ~0.25s from ~1.5s for me).
+	Also remove the spaces from the XML files (down from ~0.3s to ~0.25s).
+	There is a configure flag to keep the old behavior:
+	--enable-all-translations-in-one-xml
+
+	* configure.in: add --enable-all-translations-in-one-xml configure flag
+	* data/Makefile.am: pretty much rewrite to handle the new feature.
+	Note that we don't distribute locations_diff.py anymore. It's mainly
+	useful when hacking.
+	* libgweather/Makefile.am: small update
+	* libgweather/gweather-xml.c: (gweather_xml_load_locations): look for
+	localized xml files first, and then fallback on Locations.xml
+
 2008-04-10  Dan Winship  <danw@gnome.org>
 
 	* data/Locations.xml.in: add FIXMEs to Brazil and Mexico, which
