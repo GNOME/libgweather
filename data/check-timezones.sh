@@ -1,11 +1,22 @@
 #!/bin/sh
 
+if test -f /usr/share/zoneinfo/zone.tab; then
+	tzdb=/usr/share/zoneinfo/zone.tab
+else
+	if test -f /usr/share/lib/zoneinfo/tab/zone_sun.tab; then
+		tzdb=/usr/share/lib/zoneinfo/tab/zone_sun.tab
+	else
+		echo "No timezone database found"
+		exit 1
+	fi
+fi
+
 locations=${1:-Locations.xml.in}
 used=`mktemp`
 correct=`mktemp`
 
 sed -ne 's/.*<tz-hint>\(.*\)<.*/\1/p' $locations | sort -u > $used
-awk '{print $3;}' /usr/share/zoneinfo/zone.tab  | sort -u > $correct
+awk '{print $3;}' $tzdb  | sort -u > $correct
 bad=`comm -13 $correct $used`
 rm $correct $used
 
