@@ -7,6 +7,7 @@ locations_file=@datadir@/libgweather/Locations.xml
 Name: GWeather
 Description: GWeather shared library
 Version: @VERSION@
-Requires: gtk+-2.0, gnome-vfs-2.0
+Requires: glib-2.0 gobject-2.0 gdk-pixbuf-2.0 gtk+-2.0 gconf-2.0
+Requires.private: libxml-2.0 gnome-vfs-2.0
 Libs: -L${libdir} -lgweather -lm
 Cflags: -I${includedir}
