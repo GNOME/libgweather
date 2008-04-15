@@ -1,3 +1,29 @@
+libgweather 2.22.1.2
+====================
+
+The API/ABI has been broken in this release.
+
+libgweather
+
+	* Parse the localized Locations.xml if available (Vincent)
+
+Locations.xml
+
+	* Updated Russian tz-hints (Nickolay V. Shmyrev)
+	* Add correct tz-hint for Valparaiso, IN (Shaun McCance)
+	* Fix many tz-hints (Dan Winship)
+	* Add script to check the tz-hints are valid (Dan Winship, Vincent)
+	* Add some documentation about the format of the file (Dan Winship)
+	* Create per-locale XML files if asked so to improve performance
+	  (Vincent)
+
+Misc
+
+	* Add new --enable-all-translations-in-one-xml configure flag to keep
+	  the old behavior of building one XML file with all translations
+	  instead of creating per-locale XML files (Vincent)
+	* List the right libraries requirements in gweather.pc (Vincent)
+
 libgweather 2.22.1.1
 ====================
 
