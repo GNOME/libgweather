@@ -3,3 +3,4 @@ EXTRA_DIST = ChangeLog \
 	POTFILES.skip \
 	$(wildcard *.po)
 
+DISTCLEANFILES = .intltool-merge-cache

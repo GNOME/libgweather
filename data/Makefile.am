@@ -40,6 +40,7 @@ check:
 
 EXTRA_DIST =	\
 	$(libgweatherlocations_in_files)	\
+	$(libgweatherdtd_DATA)			\
 	check-timezones.sh			\
 	README
 
