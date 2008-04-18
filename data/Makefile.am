@@ -13,7 +13,7 @@ libgweatherlocations_DATA = $(libgweatherlocations_in_files:.xml.in=.xml)
 
 else # USE_ONE_BIG_XML
 
-PO_LOCATIONS = $(wildcard $(top_srcdir)/po-locations/*.po)
+PO_LOCATIONS = $(shell if test -n "$(LINGUAS)"; then for lang in $(LINGUAS); do if test -f "$(top_srcdir)/po-locations/$$lang.po"; then echo "$(top_srcdir)/po-locations/$$lang.po "; fi; done; else for pofile in $(top_srcdir)/po-locations/*.po; do echo $$pofile; done; fi)
 
 # Helper variable
 libgweatherlocations_data = $(libgweatherlocations_in_files:.xml.in=.xml)
