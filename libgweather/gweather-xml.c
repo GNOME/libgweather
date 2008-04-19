@@ -326,11 +326,6 @@ gweather_xml_parse_node (xmlTextReaderPtr xml,
   if( self )
     gtk_tree_store_set( store, self, GWEATHER_XML_COL_LOC, name, -1 );
 
-  /* absorb the end tag.  in the case of processing a <gweather> then 'self'
-     is NULL.  In this case, we let this fail since we might be at EOF */
-  if( xmlTextReaderRead( xml ) != 1 && self )
-    goto error_out;
-
   /* if this is an actual location, setup the WeatherLocation for it */
   if( is_location )
   {
@@ -351,8 +346,37 @@ gweather_xml_parse_node (xmlTextReaderPtr xml,
 
     gtk_tree_store_set( store, &iter, GWEATHER_XML_COL_POINTER, new_loc, -1 );
   }
+  /* if this is not a location and there's no child, then it's useless */
+  else if ( !gtk_tree_model_iter_has_child( GTK_TREE_MODEL (store), &iter ) )
+  {
+    gtk_tree_store_remove( store, &iter );
+  }
 
-  ret = TRUE;
+  /* if this is a city with only one location, then we merge the location and
+   * the city */
+  if (*city)
+  {
+    int n_children;
+
+    n_children = gtk_tree_model_iter_n_children( GTK_TREE_MODEL (store),
+                                                 &iter );
+    if ( n_children == 1 )
+    {
+      GtkTreeIter child;
+      WeatherLocation *loc;
+
+      gtk_tree_model_iter_children( GTK_TREE_MODEL (store), &child, &iter );
+      gtk_tree_model_get( GTK_TREE_MODEL (store), &child,
+                          GWEATHER_XML_COL_POINTER, &loc, -1 );
+      gtk_tree_store_remove( store, &child );
+      gtk_tree_store_set( store, &iter, GWEATHER_XML_COL_POINTER, loc, -1 );
+    }
+  }
+
+  /* absorb the end tag.  in the case of processing a <gweather> then 'self'
+     is NULL.  In this case, we let this fail since we might be at EOF */
+  if( xmlTextReaderRead( xml ) == 1 || !self )
+    ret = TRUE;
 
 error_out:
   xmlFree( name );
