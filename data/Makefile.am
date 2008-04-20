@@ -52,7 +52,8 @@ EXTRA_DIST =	\
 	$(libgweatherlocations_in_files)	\
 	$(libgweatherdtd_DATA)			\
 	check-timezones.sh			\
-	README
+	README					\
+	README.timezones
 
 CLEANFILES =	\
 	$(libgweatherlocations_DATA)		\
