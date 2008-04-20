@@ -55,7 +55,8 @@ A <country> MAY specify a <tz-hint>, giving the default time zone name
 for the country. Countries that only have one timezone (or where the
 majority of the country is covered by a single timezone) should list
 it at the <country> level. Countries with multiple timezones and no
-obvious "default" should not list anything here.
+obvious "default" should not list anything here. (See README.timezones
+for more information about timezones in Locations.xml.)
 
 A <country> can contain <city>s and <location>s directly, or can be
 split into <state>s which contain <city>s and <location>s. The name
