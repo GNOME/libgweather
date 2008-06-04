@@ -228,7 +228,7 @@ const gchar *weather_sky_string (WeatherSky sky)
 
 /*
  * Almost all reportable combinations listed in
- * http://www.crh.noaa.gov/arx/wx.tbl.html are entered below, except those
+ * http://www.crh.noaa.gov/arx/wx.tbl.php are entered below, except those
  * having 2 qualifiers mixed together [such as "Blowing snow in vicinity"
  * (VCBLSN), "Thunderstorm in vicinity" (VCTS), etc].
  * Combinations that are not possible are filled in with "??".
@@ -245,7 +245,7 @@ const gchar *weather_sky_string (WeatherSky sky)
 static const gchar *conditions_str[24][13] = {
 /* TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
  * etc means, you can go to http://www.weather.com/glossary/ and
- * http://www.crh.noaa.gov/arx/wx.tbl.html */
+ * http://www.crh.noaa.gov/arx/wx.tbl.php */
 /* NONE          */ {"??",                        "??",                                "??",                      "??",                         "??",                      "??",                        "??",                           "??",                        N_("Thunderstorm"),             "??",                        "??",                           "??",                         "??"                         },
 /* DRIZZLE       */ {N_("Drizzle"),               "??",                                N_("Light drizzle"),       N_("Moderate drizzle"),       N_("Heavy drizzle"),       "??",                        "??",                           "??",                        "??",                           "??",                        "??",                           "??",                         N_("Freezing drizzle")       },
 /* RAIN          */ {N_("Rain"),                  "??",                                N_("Light rain"),          N_("Moderate rain"),          N_("Heavy rain"),          "??",                        "??",                           "??",                        N_("Thunderstorm"),             "??",                        N_("Rain showers"),             "??",                         N_("Freezing rain")          },
