@@ -1,5 +1,14 @@
 2008-06-18  Dan Winship  <danw@gnome.org>
 
+	* libgweather/gweather-xml.c (gweather_xml_parse_node): When
+	skipping an unrecognized node, use xmlTextReaderNext(), which
+	properly handles skipping its children, making the parsing more
+	future-proof. (The old code could only deal with skipping nodes
+	containing only text.) Also, don't examine &iter if it hasn't been
+	set (fixing a g_warning).
+
+2008-06-18  Dan Winship  <danw@gnome.org>
+
 	* data/Locations.xml.in: Misc updates from bugzilla:
 
 	Fix spelling of Ulaanbaatar, Mongolia. #383259, DULMANDAKH
