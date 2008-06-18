@@ -1,5 +1,27 @@
 2008-06-18  Dan Winship  <danw@gnome.org>
 
+	* data/Locations.xml.in: Misc updates from bugzilla:
+
+	Fix spelling of Ulaanbaatar, Mongolia. #383259, DULMANDAKH
+	Sukhbaatar.
+
+	Remove duplicate copy of Gadsden, Alabama, US, which had somehow
+	snuck into Arkansas. #425778, Sebastian Bacher.
+
+	Fix BOM codes for Alice Springs and Darwin, Australia. #492268,
+	Andrew Burton.
+
+	Reorganize Brazil into <state>s, with proper timezone hints.
+	#528134, Grazieno Pellegrino.
+
+	Fix South African locations to not be based on out-of-date airport
+	names. #533622, Adrian Frith.
+
+	Add Łódź, Poland (which has a weather station but does not appear
+	in the METAR file). #534047, Marcin Banasiak.
+
+2008-06-18  Dan Winship  <danw@gnome.org>
+
 	* configure.in: require libsoup instead of gnome-vfs. (Also
 	require gconf explicitly; it used to be pulled in implicitly by
 	gnome-vfs.)
