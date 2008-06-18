@@ -1,3 +1,20 @@
+2008-04-20  Dan Winship  <danw@gnome.org>
+
+	* configure.in: require libsoup instead of gnome-vfs. (Also
+	require gconf explicitly; it used to be pulled in implicitly by
+	gnome-vfs.)
+
+	* libgweather/weather-bom.c:
+	* libgweather/weather-iwin.c:
+	* libgweather/weather-met.c:
+	* libgweather/weather-metar.c:
+	* libgweather/weather-wx.c: Use libsoup rather than gnome-vfs for
+	http. #527525
+
+	* libgweather/Makefile.am:
+	* libgweather/weather.c:
+	* libgweather/weather-priv.h: update for libsoup changes
+
 2008-06-18  Dan Winship  <danw@gnome.org>
 
 	* libgweather/*.[ch]: code cleanup. Try to standardize on a single

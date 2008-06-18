@@ -37,14 +37,10 @@
 #include <gtk/gtkicontheme.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk-pixbuf/gdk-pixbuf-loader.h>
-#include <libgnomevfs/gnome-vfs.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include <libgweather/weather.h>
 #include "weather-priv.h"
-
-static void close_cb (GnomeVFSAsyncHandle *handle, GnomeVFSResult result, gpointer data);
-
 
 /*
  * Convert string of the form "DD-MM-SSH" to radians
@@ -307,62 +303,16 @@ requests_init (WeatherInfo *info)
     if (info->requests_pending)
         return FALSE;
 
-    /*g_assert (!metar_handle && !iwin_handle && !wx_handle && !met_handle);*/
-
-    info->requests_pending = TRUE;
-
     return TRUE;
 }
 
-void
-request_done (GnomeVFSAsyncHandle *handle, WeatherInfo *info)
+void request_done (WeatherInfo *info, gboolean ok)
 {
-    if (!handle)
-    	return;
+    if (ok)
+	info->sunValid = info->valid && calc_sun (info);
 
-    gnome_vfs_async_close (handle, close_cb, info);
-
-    info->sunValid = info->valid && calc_sun (info);
-    return;
-}
-
-void
-requests_done_check (WeatherInfo *info)
-{
-    g_return_if_fail (info->requests_pending);
-
-    if (!info->metar_handle && !info->iwin_handle &&
-        !info->wx_handle && !info->met_handle &&
-	!info->bom_handle) {
-        info->requests_pending = FALSE;
+    if (!--info->requests_pending)
         info->finish_cb (info, info->cb_data);
-    }
-}
-
-static void
-close_cb (GnomeVFSAsyncHandle *handle, GnomeVFSResult result, gpointer data)
-{
-    WeatherInfo *info = (WeatherInfo *)data;
-
-    g_return_if_fail (info != NULL);
-
-    if (result != GNOME_VFS_OK)
-	g_warning ("Error closing GnomeVFSAsyncHandle.\n");
-
-    if (handle == info->metar_handle)
-	info->metar_handle = NULL;
-    if (handle == info->iwin_handle)
-	info->iwin_handle = NULL;
-    if (handle == info->wx_handle)
-	info->wx_handle = NULL;
-    if (handle == info->met_handle)
-	info->met_handle = NULL;
-    if (handle == info->bom_handle)
-	info->bom_handle = NULL;
-
-    requests_done_check (info);
-
-    return;
 }
 
 /* Relative humidity computation - thanks to <Olof.Oberg@modopaper.modogroup.com> */
@@ -480,16 +430,7 @@ _weather_info_fill (WeatherInfo *info,
     /* FIXME: i'm not sure this works as intended anymore */
     if (!info) {
     	info = g_new0 (WeatherInfo, 1);
-        info->metar_handle = NULL;
-    	info->iwin_handle = NULL;
-    	info->wx_handle = NULL;
-    	info->met_handle = NULL;
-        info->bom_handle = NULL;
-    	info->requests_pending = FALSE;
-    	info->metar_buffer = NULL;
-        info->iwin_buffer = NULL;
-	info->met_buffer = NULL;
-	info->bom_buffer = NULL;
+    	info->requests_pending = 0;
     	info->location = weather_location_clone (location);
     } else {
         location = info->location;
@@ -535,21 +476,22 @@ _weather_info_fill (WeatherInfo *info,
     info->forecast = NULL;
     info->radar = NULL;
     info->radar_url = prefs->radar && prefs->radar_custom_url ?
-	g_strdup (prefs->radar_custom_url) : NULL;
-    info->metar_handle = NULL;
-    info->iwin_handle = NULL;
-    info->wx_handle = NULL;
-    info->met_handle = NULL;
-    info->bom_handle = NULL;
-    info->requests_pending = TRUE;
+    		      g_strdup (prefs->radar_custom_url) : NULL;
     info->finish_cb = cb;
     info->cb_data = data;
 
-    metar_start_open (info);
-    iwin_start_open (info);
+    if (!info->session)
+	info->session = soup_session_async_new ();
 
-    if (prefs->radar)
+    metar_start_open (info);
+    info->requests_pending++;
+    iwin_start_open (info);
+    info->requests_pending++;
+
+    if (prefs->radar) {
         wx_start_open (info);
+	info->requests_pending++;
+    }
 
     return info;
 }
@@ -557,32 +499,10 @@ _weather_info_fill (WeatherInfo *info,
 void
 weather_info_abort (WeatherInfo *info)
 {
-    if (info->metar_handle) {
-	gnome_vfs_async_cancel (info->metar_handle);
-	info->metar_handle = NULL;
+    if (info->session) {
+	soup_session_abort (info->session);
+	info->requests_pending = 0;
     }
-
-    if (info->iwin_handle) {
-	gnome_vfs_async_cancel (info->iwin_handle);
-	info->iwin_handle = NULL;
-    }
-
-    if (info->wx_handle) {
-	gnome_vfs_async_cancel (info->wx_handle);
-	info->wx_handle = NULL;
-    }
-
-    if (info->met_handle) {
-	gnome_vfs_async_cancel (info->met_handle);
-	info->met_handle = NULL;
-    }
-
-    if (info->bom_handle) {
-	gnome_vfs_async_cancel (info->bom_handle);
-	info->bom_handle = NULL;
-    }
-
-    info->requests_pending = FALSE;
 }
 
 WeatherInfo *
@@ -619,6 +539,8 @@ weather_info_free (WeatherInfo *info)
         return;
 
     weather_info_abort (info);
+    if (info->session)
+	g_object_unref (info->session);
 
     weather_location_free (info->location);
     info->location = NULL;
@@ -630,19 +552,7 @@ weather_info_free (WeatherInfo *info)
         g_object_unref (info->radar);
         info->radar = NULL;
     }
-
-    if (info->iwin_buffer)
-	g_free (info->iwin_buffer);
-
-    if (info->metar_buffer)
-	g_free (info->metar_buffer);
-
-    if (info->met_buffer)
-        g_free (info->met_buffer);
-
-    if (info->bom_buffer)
-        g_free (info->bom_buffer);
-
+	
     g_free (info);
 }
 

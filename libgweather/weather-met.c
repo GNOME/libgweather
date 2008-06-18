@@ -116,7 +116,7 @@ met_reprocess (char *x, int len)
  */
 
 static gchar *
-met_parse (gchar *meto)
+met_parse (const gchar *meto)
 {
     gchar *p;
     gchar *rp;
@@ -140,89 +140,34 @@ met_parse (gchar *meto)
 }
 
 static void
-met_finish_read (GnomeVFSAsyncHandle *handle, GnomeVFSResult result,
-		 gpointer buffer, GnomeVFSFileSize requested,
-		 GnomeVFSFileSize body_len, gpointer data)
+met_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 {
     WeatherInfo *info = (WeatherInfo *)data;
-    WeatherLocation *loc;
-    gchar *body, *forecast, *temp;
 
     g_return_if_fail (info != NULL);
-    g_return_if_fail (handle == info->met_handle);
 
-    info->forecast = NULL;
-    loc = info->location;
-    body = (gchar *)buffer;
-    body[body_len] = '\0';
-
-    if (info->met_buffer == NULL)
-        info->met_buffer = g_strdup (body);
-    else {
-        temp = g_strdup (info->met_buffer);
-	g_free (info->met_buffer);
-	info->met_buffer = g_strdup_printf ("%s%s", temp, body);
-	g_free (temp);
-    }
-
-    if (result == GNOME_VFS_ERROR_EOF) {
-	forecast = met_parse (info->met_buffer);
-        info->forecast = forecast;
-    } else if (result != GNOME_VFS_OK) {
-	g_print ("%s", gnome_vfs_result_to_string (result));
-	info->met_handle = NULL;
-	requests_done_check (info);
-        g_warning ("Failed to get Met Office data.\n");
-    } else {
-        gnome_vfs_async_read (handle, body, DATA_SIZE - 1, met_finish_read, info);
+    if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
+	g_warning ("Failed to get Met Office forecast data: %d %s.\n",
+		   msg->status_code, msg->reason_phrase);
+        request_done (info, FALSE);
         return;
     }
 
-    request_done (info->met_handle, info);
-    g_free (buffer);
-    return;
-}
-
-static void
-met_finish_open (GnomeVFSAsyncHandle *handle, GnomeVFSResult result, gpointer data)
-{
-    WeatherInfo *info = (WeatherInfo *)data;
-    WeatherLocation *loc;
-    gchar *body;
-
-    g_return_if_fail (info != NULL);
-    g_return_if_fail (handle == info->met_handle);
-
-    body = g_malloc0 (DATA_SIZE);
-
-    info->met_buffer = NULL;
-    if (info->forecast)
-    	g_free (info->forecast);
-    info->forecast = NULL;
-    loc = info->location;
-    g_return_if_fail (loc != NULL);
-
-    if (result != GNOME_VFS_OK) {
-        g_warning ("Failed to get Met Office forecast data.\n");
-        info->met_handle = NULL;
-        requests_done_check (info);
-        g_free (body);
-    } else {
-    	gnome_vfs_async_read (handle, body, DATA_SIZE - 1, met_finish_read, info);
-    }
-    return;
+    info->forecast = met_parse (msg->response_body->data);
+    request_done (info, TRUE);
 }
 
 void
 metoffice_start_open (WeatherInfo *info)
 {
     gchar *url;
+    SoupMessage *msg;
     WeatherLocation *loc;
-    loc = info->location;
 
+    loc = info->location;
     url = g_strdup_printf ("http://www.metoffice.gov.uk/weather/europe/uk/%s.html", loc->zone + 1);
 
-    gnome_vfs_async_open (&info->met_handle, url, GNOME_VFS_OPEN_READ,
-			  0, met_finish_open, info);
+    msg = soup_message_new ("GET", url);
+    soup_session_queue_message (info->session, msg, met_finish, info);
     g_free (url);
 }

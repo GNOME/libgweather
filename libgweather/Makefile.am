@@ -21,7 +21,8 @@ libgweather_la_CFLAGS = \
 	$(WARN_CFLAGS)			\
 	$(GTK_CFLAGS)			\
 	$(LIBXML_CFLAGS)		\
-	$(GNOME_VFS_APPLETS_CFLAGS)	\
+	$(LIBSOUP_CFLAGS)		\
+	$(GCONF_CFLAGS)			\
 	-DG_LOG_DOMAIN=\"GWeather\"	\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-DGWEATHER_XML_LOCATION_DIR=\""$(pkgdatadir)"\"
@@ -29,7 +30,8 @@ libgweather_la_CFLAGS = \
 libgweather_la_LIBADD = \
 	$(GTK_LIBS)	\
 	$(LIBXML_LIBS)	\
-	$(GNOME_VFS_APPLETS_LIBS)
+	$(LIBSOUP_LIBS)	\
+	$(GCONF_LIBS)
 
 libgweather_la_LDFLAGS = \
 	-version-info $(LT_VERSION) -no-undefined
@@ -41,11 +43,11 @@ test_metar_CFLAGS = \
 	-I$(srcdir)			\
 	$(WARN_CFLAGS)			\
 	$(GTK_CFLAGS)			\
-	$(GNOME_VFS_APPLETS_CFLAGS)	\
+	$(LIBSOUP_CFLAGS)		\
 	-DG_LOG_DOMAIN=\"GWeather\"
 
 test_metar_LDADD = \
-	$(GNOME_VFS_APPLETS_LIB) \
+	$(LIBSOUP_LIBS)	\
 	libgweather.la
 
 noinst_HEADERS = weather-priv.h

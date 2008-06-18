@@ -483,105 +483,49 @@ metar_parse (gchar *metar, WeatherInfo *info)
 }
 
 static void
-metar_finish_read (GnomeVFSAsyncHandle *handle, GnomeVFSResult result,
-		   gpointer buffer, GnomeVFSFileSize requested,
-		   GnomeVFSFileSize body_len, gpointer data)
+metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 {
     WeatherInfo *info = (WeatherInfo *)data;
     WeatherLocation *loc;
-    gchar *metar, *eoln, *body, *temp;
+    const gchar *p, *eoln;
+    gchar *searchkey, *metar;
     gboolean success = FALSE;
-    gchar *searchkey;
 
     g_return_if_fail (info != NULL);
-    g_return_if_fail (handle == info->metar_handle);
 
-    loc = info->location;
-    body = (gchar *)buffer;
-
-    body[body_len] = '\0';
-
-    if (info->metar_buffer == NULL)
-    	info->metar_buffer = g_strdup (body);
-    else {
-	temp = g_strdup (info->metar_buffer);
-	g_free (info->metar_buffer);
-	info->metar_buffer = g_strdup_printf ("%s%s", temp, body);
-	g_free (temp);
-    }
-
-    if (result == GNOME_VFS_ERROR_EOF) {
-        searchkey = g_strdup_printf ("\n%s", loc->code);
-
-        metar = strstr (info->metar_buffer, searchkey);
-        g_free (searchkey);
-        if (metar == NULL) {
-            success = FALSE;
-        } else {
-            metar += WEATHER_LOCATION_CODE_LEN + 2;
-            eoln = strchr (metar, '\n');
-	    if (eoln != NULL)
-		*eoln = 0;
-            success = metar_parse (metar, info);
-	    if (eoln != NULL)
-		*eoln = '\n';
-        }
-
-        info->valid = success;
-    } else if (result != GNOME_VFS_OK) {
-	g_print ("%s", gnome_vfs_result_to_string (result));
-        g_warning (_("Failed to get METAR data.\n"));
-    } else {
-	gnome_vfs_async_read (handle, body, DATA_SIZE - 1, metar_finish_read, info);
+    if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
+        g_warning (_("Failed to get METAR data: %d %s.\n"),
+		   msg->status_code, msg->reason_phrase);
+	request_done (info, FALSE);
 	return;
     }
 
-    request_done (info->metar_handle, info);
-    g_free (buffer);
-    return;
-}
-
-static void
-metar_finish_open (GnomeVFSAsyncHandle *handle, GnomeVFSResult result, gpointer data)
-{
-    WeatherInfo *info = (WeatherInfo *)data;
-    WeatherLocation *loc;
-    gchar *body;
-
-    g_return_if_fail (info != NULL);
-    g_return_if_fail (handle == info->metar_handle);
-
-    body = g_malloc0 (DATA_SIZE);
-
-    if (info->metar_buffer)
-    	g_free (info->metar_buffer);
-    info->metar_buffer = NULL;
     loc = info->location;
-    if (loc == NULL) {
-	g_warning (_("WeatherInfo missing location"));
-	request_done (info->metar_handle, info);
-	requests_done_check (info);
-	g_free (body);
-	return;
+
+    searchkey = g_strdup_printf ("\n%s", loc->code);
+    p = strstr (msg->response_body->data, searchkey);
+    g_free (searchkey);
+    if (p) {
+	p += WEATHER_LOCATION_CODE_LEN + 2;
+	eoln = strchr(p, '\n');
+	if (eoln)
+	    metar = g_strndup (p, eoln - p);
+	else
+	    metar = g_strdup (p);
+	success = metar_parse (metar, info);
+	g_free (metar);
     }
 
-    if (result != GNOME_VFS_OK) {
-        g_warning (_("Failed to get METAR data.\n"));
-        info->metar_handle = NULL;
-	requests_done_check (info);
-	g_free (body);
-    } else {
-        gnome_vfs_async_read (handle, body, DATA_SIZE - 1, metar_finish_read, info);
-    }
-    return;
+    info->valid = success;
+    request_done (info, TRUE);
 }
 
 /* Read current conditions and fill in info structure */
 void
 metar_start_open (WeatherInfo *info)
 {
-    gchar *url;
     WeatherLocation *loc;
+    SoupMessage *msg;
 
     g_return_if_fail (info != NULL);
     info->valid = FALSE;
@@ -591,8 +535,9 @@ metar_start_open (WeatherInfo *info)
 	return;
     }
 
-    url = g_strdup_printf ("http://weather.noaa.gov/cgi-bin/mgetmetar.pl?cccc=%s", loc->code);
-    gnome_vfs_async_open (&info->metar_handle, url, GNOME_VFS_OPEN_READ,
-			  0, metar_finish_open, info);
-    g_free (url);
+    msg = soup_form_request_new (
+	"GET", "http://weather.noaa.gov/cgi-bin/mgetmetar.pl",
+	"cccc", loc->code,
+	NULL);
+    soup_session_queue_message (info->session, msg, metar_finish, info);
 }

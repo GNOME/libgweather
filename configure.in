@@ -17,7 +17,7 @@ AC_SUBST(LT_VERSION)
 
 GTK_REQUIRED=2.11.0
 GLIB_REQUIRED=2.13.0
-GNOME_VFS_REQUIRED=2.15.4
+LIBSOUP_REQUIRED=2.4.0
 GCONF_REQUIRED=2.8.0
 LIBXML_REQUIRED=2.6.0
 
@@ -90,11 +90,17 @@ PKG_CHECK_MODULES(LIBXML, libxml-2.0 >= $LIBXML_REQUIRED)
 AC_SUBST(LIBXML_FLAGS)
 AC_SUBST(LIBXML_LIBS)
 
-dnl -- check for gnome-vfs (optional) -----------------------------------------
-PKG_CHECK_MODULES(GNOME_VFS_APPLETS, 
-		  [gnome-vfs-2.0 >= $GNOME_VFS_REQUIRED])
-AC_SUBST(GNOME_VFS_APPLETS_CFLAGS)
-AC_SUBST(GNOME_VFS_APPLETS_LIBS)
+dnl -- check for libsoup (required) -----------------------------------------
+PKG_CHECK_MODULES(LIBSOUP, 
+		  [libsoup-2.4 >= $LIBSOUP_REQUIRED])
+AC_SUBST(LIBSOUP_CFLAGS)
+AC_SUBST(LIBSOUP_LIBS)
+
+dnl -- check for gconf (required) -----------------------------------------
+PKG_CHECK_MODULES(GCONF, 
+		  [gconf-2.0 >= $GCONF_REQUIRED])
+AC_SUBST(GCONF_CFLAGS)
+AC_SUBST(GCONF_LIBS)
 
 AM_GCONF_SOURCE_2
 

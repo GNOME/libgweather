@@ -13,7 +13,7 @@
 #define __WEATHER_PRIV_H_
 
 #include <time.h>
-#include <libgnomevfs/gnome-vfs.h>
+#include <libsoup/soup.h>
 
 #include "weather.h"
 
@@ -132,20 +132,12 @@ struct _WeatherInfo {
     WeatherUpdate sunrise;
     WeatherUpdate sunset;
     gchar *forecast;
-    gchar *metar_buffer;
-    gchar *iwin_buffer;
-    gchar *met_buffer;
-    gchar *bom_buffer;
     gchar *radar_buffer;
     gchar *radar_url;
     GdkPixbufLoader *radar_loader;
     GdkPixbufAnimation *radar;
-    GnomeVFSAsyncHandle *metar_handle;
-    GnomeVFSAsyncHandle *iwin_handle;
-    GnomeVFSAsyncHandle *wx_handle;
-    GnomeVFSAsyncHandle *met_handle;
-    GnomeVFSAsyncHandle *bom_handle;
-    gboolean requests_pending;
+    SoupSession *session;
+    gint requests_pending;
 
     WeatherInfoFunc finish_cb;
     gpointer cb_data;
@@ -202,9 +194,8 @@ gboolean	metar_parse		(gchar *metar,
 					 WeatherInfo *info);
 
 gboolean	requests_init		(WeatherInfo *info);
-void		request_done		(GnomeVFSAsyncHandle *handle,
-					 WeatherInfo *info);
-void		requests_done_check	(WeatherInfo *info);
+void		request_done		(WeatherInfo *info,
+					 gboolean     ok);
 
 gboolean	calc_sun		(WeatherInfo *info);
 

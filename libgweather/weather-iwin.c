@@ -66,82 +66,22 @@ formatWeatherMsg (gchar *forecast)
 }
 
 static void
-iwin_finish_read (GnomeVFSAsyncHandle *handle, GnomeVFSResult result,
-		  gpointer buffer, GnomeVFSFileSize requested,
-		  GnomeVFSFileSize body_len, gpointer data)
+iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 {
     WeatherInfo *info = (WeatherInfo *)data;
-    gchar *body, *temp;
 
     g_return_if_fail (info != NULL);
-    g_return_if_fail (handle == info->iwin_handle);
 
-    info->forecast = NULL;
-    body = (gchar *)buffer;
-    body[body_len] = '\0';
-
-    if (info->iwin_buffer == NULL)
-	info->iwin_buffer = g_strdup (body);
-    else {
-	temp = g_strdup (info->iwin_buffer);
-	g_free (info->iwin_buffer);
-	info->iwin_buffer = g_strdup_printf ("%s%s", temp, body);
-	g_free (temp);
-    }
-
-    if (result == GNOME_VFS_ERROR_EOF) {
-        info->forecast = formatWeatherMsg (g_strdup (info->iwin_buffer));
-    } else if (result != GNOME_VFS_OK) {
-	g_print ("%s", gnome_vfs_result_to_string (result));
-        g_warning ("Failed to get IWIN data.\n");
-    } else {
-        gnome_vfs_async_read (handle, body, DATA_SIZE - 1, iwin_finish_read, info);
-        return;
-    }
-
-    request_done (info->iwin_handle, info);
-    g_free (buffer);
-    return;
-}
-
-static void
-iwin_finish_open (GnomeVFSAsyncHandle *handle, GnomeVFSResult result, gpointer data)
-{
-    WeatherInfo *info = (WeatherInfo *)data;
-    WeatherLocation *loc;
-    gchar *body;
-
-    g_return_if_fail (info != NULL);
-    g_return_if_fail (handle == info->iwin_handle);
-
-    body = g_malloc0 (DATA_SIZE);
-
-    if (info->iwin_buffer)
-    	g_free (info->iwin_buffer);
-    info->iwin_buffer = NULL;
-    if (info->forecast)
-	g_free (info->forecast);
-    info->forecast = NULL;
-    loc = info->location;
-    if (loc == NULL) {
-	g_warning (_("WeatherInfo missing location"));
-	request_done (info->iwin_handle, info);
-	info->iwin_handle = NULL;
-	requests_done_check (info);
-	g_free (body);
+    if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
+        /* forecast data is not really interesting anyway ;) */
+	g_warning ("Failed to get IWIN forecast data: %d %s\n",
+		   msg->status_code, msg->reason_phrase);
+        request_done (info, FALSE);
 	return;
     }
 
-    if (result != GNOME_VFS_OK) {
-        /* forecast data is not really interesting anyway ;) */
-	g_warning ("Failed to get IWIN forecast data.\n");
-        info->iwin_handle = NULL;
-        requests_done_check (info);
-        g_free (body);
-    } else {
-        gnome_vfs_async_read (handle, body, DATA_SIZE - 1, iwin_finish_read, info);
-    }
-    return;
+    info->forecast = formatWeatherMsg (g_strdup (msg->response_body->data));
+    request_done (info, TRUE);
 }
 
 /* Get forecast into newly alloc'ed string */
@@ -150,6 +90,7 @@ iwin_start_open (WeatherInfo *info)
 {
     gchar *url, *state, *zone;
     WeatherLocation *loc;
+    SoupMessage *msg;
 
     g_return_if_fail (info != NULL);
     loc = info->location;
@@ -157,6 +98,11 @@ iwin_start_open (WeatherInfo *info)
 
     if (loc->zone[0] == '-')
         return;
+
+    if (info->forecast) {
+	g_free (info->forecast);
+	info->forecast = NULL;
+    }
 
     if (loc->zone[0] == ':') {
 	/* Met Office Region Names */
@@ -180,7 +126,7 @@ iwin_start_open (WeatherInfo *info)
     g_free (zone);
     g_free (state);
 
-    gnome_vfs_async_open (&info->iwin_handle, url, GNOME_VFS_OPEN_READ,
-			  0, iwin_finish_open, info);
+    msg = soup_message_new ("GET", url);
     g_free (url);
+    soup_session_queue_message (info->session, msg, iwin_finish, info);
 }
