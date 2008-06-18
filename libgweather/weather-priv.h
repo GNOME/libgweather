@@ -1,3 +1,4 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
 /*
  *  Papadimitriou Spiros <spapadim+@cs.cmu.edu>
  *
@@ -42,53 +43,53 @@ enum _WeatherSky {
 typedef enum _WeatherSky WeatherSky;
 
 enum _WeatherConditionPhenomenon {
-   PHENOMENON_NONE,
+    PHENOMENON_NONE,
 
-   PHENOMENON_DRIZZLE,
-   PHENOMENON_RAIN,
-   PHENOMENON_SNOW,
-   PHENOMENON_SNOW_GRAINS,
-   PHENOMENON_ICE_CRYSTALS,
-   PHENOMENON_ICE_PELLETS,
-   PHENOMENON_HAIL,
-   PHENOMENON_SMALL_HAIL,
-   PHENOMENON_UNKNOWN_PRECIPITATION,
+    PHENOMENON_DRIZZLE,
+    PHENOMENON_RAIN,
+    PHENOMENON_SNOW,
+    PHENOMENON_SNOW_GRAINS,
+    PHENOMENON_ICE_CRYSTALS,
+    PHENOMENON_ICE_PELLETS,
+    PHENOMENON_HAIL,
+    PHENOMENON_SMALL_HAIL,
+    PHENOMENON_UNKNOWN_PRECIPITATION,
 
-   PHENOMENON_MIST,
-   PHENOMENON_FOG,
-   PHENOMENON_SMOKE,
-   PHENOMENON_VOLCANIC_ASH,
-   PHENOMENON_SAND,
-   PHENOMENON_HAZE,
-   PHENOMENON_SPRAY,
-   PHENOMENON_DUST,
+    PHENOMENON_MIST,
+    PHENOMENON_FOG,
+    PHENOMENON_SMOKE,
+    PHENOMENON_VOLCANIC_ASH,
+    PHENOMENON_SAND,
+    PHENOMENON_HAZE,
+    PHENOMENON_SPRAY,
+    PHENOMENON_DUST,
 
-   PHENOMENON_SQUALL,
-   PHENOMENON_SANDSTORM,
-   PHENOMENON_DUSTSTORM,
-   PHENOMENON_FUNNEL_CLOUD,
-   PHENOMENON_TORNADO,
-   PHENOMENON_DUST_WHIRLS
+    PHENOMENON_SQUALL,
+    PHENOMENON_SANDSTORM,
+    PHENOMENON_DUSTSTORM,
+    PHENOMENON_FUNNEL_CLOUD,
+    PHENOMENON_TORNADO,
+    PHENOMENON_DUST_WHIRLS
 };
 
 typedef enum _WeatherConditionPhenomenon WeatherConditionPhenomenon;
 
 enum _WeatherConditionQualifier {
-   QUALIFIER_NONE,
+    QUALIFIER_NONE,
 
-   QUALIFIER_VICINITY,
+    QUALIFIER_VICINITY,
 
-   QUALIFIER_LIGHT,
-   QUALIFIER_MODERATE,
-   QUALIFIER_HEAVY,
-   QUALIFIER_SHALLOW,
-   QUALIFIER_PATCHES,
-   QUALIFIER_PARTIAL,
-   QUALIFIER_THUNDERSTORM,
-   QUALIFIER_BLOWING,
-   QUALIFIER_SHOWERS,
-   QUALIFIER_DRIFTING,
-   QUALIFIER_FREEZING
+    QUALIFIER_LIGHT,
+    QUALIFIER_MODERATE,
+    QUALIFIER_HEAVY,
+    QUALIFIER_SHALLOW,
+    QUALIFIER_PATCHES,
+    QUALIFIER_PARTIAL,
+    QUALIFIER_THUNDERSTORM,
+    QUALIFIER_BLOWING,
+    QUALIFIER_SHOWERS,
+    QUALIFIER_DRIFTING,
+    QUALIFIER_FREEZING
 };
 
 typedef enum _WeatherConditionQualifier WeatherConditionQualifier;
@@ -168,7 +169,7 @@ const gchar *	weather_conditions_string	(WeatherConditions cond);
 /* Units conversions and names */
 
 #define TEMP_F_TO_C(f)			(((f) - 32.0) * 0.555556)
-#define TEMP_F_TO_K(f)			(TEMP_F_TO_C(f) + 273.15)
+#define TEMP_F_TO_K(f)			(TEMP_F_TO_C (f) + 273.15)
 #define TEMP_C_TO_F(c)			(((c) * 1.8) + 32.0)
 
 #define WINDSPEED_KNOTS_TO_KPH(knots)	((knots) * 1.851965)
@@ -180,14 +181,14 @@ const gchar *	weather_conditions_string	(WeatherConditions cond);
 #define PRESSURE_INCH_TO_KPA(inch)	((inch) * 3.386)
 #define PRESSURE_INCH_TO_HPA(inch)	((inch) * 33.86)
 #define PRESSURE_INCH_TO_MM(inch)	((inch) * 25.40005)
-#define PRESSURE_INCH_TO_MB(inch)	(PRESSURE_INCH_TO_HPA(inch))
+#define PRESSURE_INCH_TO_MB(inch)	(PRESSURE_INCH_TO_HPA (inch))
 #define PRESSURE_INCH_TO_ATM(inch)	((inch) * 0.033421052)
 #define PRESSURE_MBAR_TO_INCH(mbar)	((mbar) * 0.029533373)
 
 #define VISIBILITY_SM_TO_KM(sm)		((sm) * 1.609344)
-#define VISIBILITY_SM_TO_M(sm)		(VISIBILITY_SM_TO_KM(sm) * 1000)
+#define VISIBILITY_SM_TO_M(sm)		(VISIBILITY_SM_TO_KM (sm) * 1000)
 
-#define DEGREES_TO_RADIANS(deg)		((fmod(deg,360.) / 180.) * M_PI)
+#define DEGREES_TO_RADIANS(deg)		((fmod (deg,360.) / 180.) * M_PI)
 #define RADIANS_TO_DEGREES(rad)		((rad) * 180. / M_PI)
 #define RADIANS_TO_HOURS(rad)		((rad) * 12. / M_PI)
 

@@ -1,3 +1,4 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
 /*
  * gweather-gconf.c: GConf interaction methods for gweather.
  *
@@ -34,118 +35,118 @@
 
 struct _GWeatherGConf
 {
-	GConfClient *gconf;
-	char *prefix;
+    GConfClient *gconf;
+    char *prefix;
 };
 
 
 GWeatherGConf *
-gweather_gconf_new(const char *prefix)
+gweather_gconf_new (const char *prefix)
 {
-	GWeatherGConf *ctx = g_new0(GWeatherGConf, 1);
-	ctx->gconf = gconf_client_get_default();
-	ctx->prefix = g_strdup(prefix);
+    GWeatherGConf *ctx = g_new0 (GWeatherGConf, 1);
+    ctx->gconf = gconf_client_get_default ();
+    ctx->prefix = g_strdup (prefix);
 
-	return ctx;
+    return ctx;
 }
 
 
 void
-gweather_gconf_free(GWeatherGConf *ctx)
+gweather_gconf_free (GWeatherGConf *ctx)
 {
-	g_object_unref(ctx->gconf);
-	g_free(ctx->prefix);
-	g_free(ctx);
+    g_object_unref (ctx->gconf);
+    g_free (ctx->prefix);
+    g_free (ctx);
 }
 
 
 GConfClient *
-gweather_gconf_get_client(GWeatherGConf *ctx)
+gweather_gconf_get_client (GWeatherGConf *ctx)
 {
-	return ctx->gconf;
+    return ctx->gconf;
 }
 
 
 gchar *
 gweather_gconf_get_full_key (GWeatherGConf *ctx,
-			     const gchar     *key)
+			     const gchar   *key)
 {
-	return g_strdup_printf ("%s/%s", ctx->prefix, key);
+    return g_strdup_printf ("%s/%s", ctx->prefix, key);
 }
 
 void
-gweather_gconf_set_bool (GWeatherGConf *ctx,
-			 const gchar     *key,
-			 gboolean         the_bool,
-			 GError         **opt_error)
+gweather_gconf_set_bool (GWeatherGConf  *ctx,
+			 const gchar    *key,
+			 gboolean        the_bool,
+			 GError        **opt_error)
 {
-	gchar *full_key = gweather_gconf_get_full_key (ctx, key);
-	gconf_client_set_bool (ctx->gconf, full_key, the_bool, opt_error);
-	g_free (full_key);
+    gchar *full_key = gweather_gconf_get_full_key (ctx, key);
+    gconf_client_set_bool (ctx->gconf, full_key, the_bool, opt_error);
+    g_free (full_key);
 }
 
 void
-gweather_gconf_set_int (GWeatherGConf *ctx,
-			const gchar     *key,
-			gint             the_int,
-			GError         **opt_error)
+gweather_gconf_set_int (GWeatherGConf  *ctx,
+			const gchar    *key,
+			gint            the_int,
+			GError        **opt_error)
 {
-	gchar *full_key = gweather_gconf_get_full_key (ctx, key);
-	gconf_client_set_int (ctx->gconf, full_key, the_int, opt_error);
-	g_free (full_key);
+    gchar *full_key = gweather_gconf_get_full_key (ctx, key);
+    gconf_client_set_int (ctx->gconf, full_key, the_int, opt_error);
+    g_free (full_key);
 }
 
 void
-gweather_gconf_set_string (GWeatherGConf *ctx,
-			   const gchar     *key,
-			   const gchar     *the_string,
-			   GError         **opt_error)
+gweather_gconf_set_string (GWeatherGConf  *ctx,
+			   const gchar    *key,
+			   const gchar    *the_string,
+			   GError        **opt_error)
 {
-	gchar *full_key = gweather_gconf_get_full_key (ctx, key);
-	gconf_client_set_string (ctx->gconf, full_key, the_string, opt_error);
-	g_free (full_key);
+    gchar *full_key = gweather_gconf_get_full_key (ctx, key);
+    gconf_client_set_string (ctx->gconf, full_key, the_string, opt_error);
+    g_free (full_key);
 }
 
 gboolean
-gweather_gconf_get_bool (GWeatherGConf *ctx,
-			 const gchar     *key,
-			 GError         **opt_error)
+gweather_gconf_get_bool (GWeatherGConf  *ctx,
+			 const gchar    *key,
+			 GError        **opt_error)
 {
-	gchar *full_key = gweather_gconf_get_full_key (ctx, key);
-	gboolean ret = gconf_client_get_bool (ctx->gconf, full_key, opt_error);
-	g_free (full_key);
-	return ret;
+    gchar *full_key = gweather_gconf_get_full_key (ctx, key);
+    gboolean ret = gconf_client_get_bool (ctx->gconf, full_key, opt_error);
+    g_free (full_key);
+    return ret;
 }
 
 gint
-gweather_gconf_get_int (GWeatherGConf *ctx,
-			const gchar     *key,
-			GError         **opt_error)
+gweather_gconf_get_int (GWeatherGConf  *ctx,
+			const gchar    *key,
+			GError        **opt_error)
 {
-	gchar *full_key = gweather_gconf_get_full_key (ctx, key);
-	gint ret = gconf_client_get_int (ctx->gconf, full_key, opt_error);
-	g_free (full_key);
-	return ret;
+    gchar *full_key = gweather_gconf_get_full_key (ctx, key);
+    gint ret = gconf_client_get_int (ctx->gconf, full_key, opt_error);
+    g_free (full_key);
+    return ret;
 }
 
 gchar *
-gweather_gconf_get_string (GWeatherGConf *ctx,
-			   const gchar     *key,
-			   GError         **opt_error)
+gweather_gconf_get_string (GWeatherGConf  *ctx,
+			   const gchar    *key,
+			   GError        **opt_error)
 {
-	gchar *full_key = gweather_gconf_get_full_key (ctx, key);
-	gchar *ret = gconf_client_get_string (ctx->gconf, full_key, opt_error);
-	g_free (full_key);
-	return ret;
+    gchar *full_key = gweather_gconf_get_full_key (ctx, key);
+    gchar *ret = gconf_client_get_string (ctx->gconf, full_key, opt_error);
+    g_free (full_key);
+    return ret;
 }
 
 
 WeatherLocation *
-gweather_gconf_get_location(GWeatherGConf *ctx)
+gweather_gconf_get_location (GWeatherGConf *ctx)
 {
     WeatherLocation *location;
     gchar *name, *code, *zone, *radar, *coordinates;
-    
+
     name = gweather_gconf_get_string (ctx, "location4", NULL);
     if (!name)
     {
@@ -167,7 +168,7 @@ gweather_gconf_get_location(GWeatherGConf *ctx)
     }
 
     code = gweather_gconf_get_string (ctx, "location1", NULL);
-    if (!code) 
+    if (!code)
     {
         /* TRANSLATOR: Change this to the code of your default location that
 	 * corresponds to the DEFAULT_LOCATION name you put above. This is
@@ -206,7 +207,7 @@ gweather_gconf_get_location(GWeatherGConf *ctx)
             zone = g_strdup ("PAZ021");
     }
 
-    radar = gweather_gconf_get_string(ctx, "location3", NULL);
+    radar = gweather_gconf_get_string (ctx, "location3", NULL);
     if (!radar)
     {
         /* TRANSLATOR: Change this to the radar of your default location that
@@ -244,18 +245,18 @@ gweather_gconf_get_location(GWeatherGConf *ctx)
 	 */
 	if (strcmp ("DEFAULT_COORDINATES", _("DEFAULT_COORDINATES")))
 	    coordinates = g_strdup (_("DEFAULT_COORDINATES"));
-	else 
+	else
 	    coordinates = g_strdup ("40-32N 080-13W");
     }
-    
+
     location = weather_location_new (name, code, zone, radar, coordinates,
 				     NULL, NULL);
-    
+
     g_free (name);
     g_free (code);
     g_free (zone);
     g_free (radar);
     g_free (coordinates);
-    
+
     return location;
 }

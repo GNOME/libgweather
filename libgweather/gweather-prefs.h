@@ -1,3 +1,4 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
 /*
  *  Papadimitriou Spiros <spapadim+@cs.cmu.edu>
  *
@@ -36,7 +37,7 @@ struct _GWeatherPrefs {
     gboolean radar_enabled;
     gboolean use_custom_radar_url;
     gchar *radar;
-	
+
     TempUnit     temperature_unit;
     gboolean     use_temperature_default;
     SpeedUnit    speed_unit;
@@ -55,9 +56,9 @@ const char *	gweather_prefs_speed_enum_to_string	(SpeedUnit speed);
 const char *	gweather_prefs_pressure_enum_to_string	(PressureUnit pressure);
 const char *	gweather_prefs_distance_enum_to_string	(DistanceUnit distance);
 
-TempUnit        gweather_prefs_parse_temperature        (const char *str, 
+TempUnit        gweather_prefs_parse_temperature        (const char *str,
                                                          gboolean   *is_default);
-SpeedUnit       gweather_prefs_parse_speed              (const char *str, 
+SpeedUnit       gweather_prefs_parse_speed              (const char *str,
                                                          gboolean   *is_default);
 
 const char *	gweather_prefs_get_temp_display_name		(TempUnit temp);

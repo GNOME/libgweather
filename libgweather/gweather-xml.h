@@ -1,4 +1,5 @@
-/* gweather-xml.h 
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+/* gweather-xml.h
  *
  * Copyright (C) 2004 Gareth Owen
  *
@@ -28,8 +29,8 @@ enum
     GWEATHER_XML_COL_LOC = 0,
     GWEATHER_XML_COL_POINTER,
     GWEATHER_XML_NUM_COLUMNS
-}; 
+};
 
-GtkTreeModel *gweather_xml_load_locations( void );
+GtkTreeModel *gweather_xml_load_locations (void);
 
 #endif /* __GWEATHER_XML_H__ */
