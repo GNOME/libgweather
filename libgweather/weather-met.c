@@ -47,7 +47,7 @@ met_reprocess (char *x, int len)
     x += len;       /* End mark */
 
     while (*p && p < x) {
-	if (isspace (*p)) {
+	if (g_ascii_isspace (*p)) {
 	    if (!spacing) {
 		spacing = 1;
 		lastspace = o;
@@ -65,19 +65,19 @@ met_reprocess (char *x, int len)
 	}
 
 	if (*p == '&') {
-	    if (strncasecmp (p, "&amp;", 5) == 0) {
+	    if (g_ascii_strncasecmp (p, "&amp;", 5) == 0) {
 		*o++ = '&';
 		count++;
 		p += 5;
 		continue;
 	    }
-	    if (strncasecmp (p, "&lt;", 4) == 0) {
+	    if (g_ascii_strncasecmp (p, "&lt;", 4) == 0) {
 		*o++ = '<';
 		count++;
 		p += 4;
 		continue;
 	    }
-	    if (strncasecmp (p, "&gt;", 4) == 0) {
+	    if (g_ascii_strncasecmp (p, "&gt;", 4) == 0) {
 		*o++ = '>';
 		count++;
 		p += 4;
@@ -85,11 +85,11 @@ met_reprocess (char *x, int len)
 	    }
 	}
 	if (*p == '<') {
-	    if (strncasecmp (p, "<BR>", 4) == 0) {
+	    if (g_ascii_strncasecmp (p, "<BR>", 4) == 0) {
 		*o++ = '\n';
 		count = 0;
 	    }
-	    if (strncasecmp (p, "<B>", 3) == 0) {
+	    if (g_ascii_strncasecmp (p, "<B>", 3) == 0) {
 		*o++ = '\n';
 		*o++ = '\n';
 		count = 0;

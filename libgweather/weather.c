@@ -76,7 +76,7 @@ dmsh2rad (const gchar *latlon)
 	return DBL_MAX;
     value = (gdouble)((deg * 60 + min) * 60 + sec) * M_PI / 648000.;
 
-    dir = toupper (latlon[strlen (latlon) - 1]);
+    dir = g_ascii_toupper (latlon[strlen (latlon) - 1]);
     if (dir == 'W' || dir == 'S')
 	value = -value;
     else if (dir != 'E' && dir != 'N' && (value != 0.0 || dir != '0'))

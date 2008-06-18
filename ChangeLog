@@ -3,6 +3,11 @@
 	* libgweather/*.[ch]: code cleanup. Try to standardize on a single
 	style. (No functional changes.)
 
+	* libgweather/weather.c (dmsh2rad): s/toupper/g_ascii_toupper/
+
+	* libgweather/weather-met.c (met_reprocess):
+	s/isspace/g_ascii_isspace/. s/strncasecmp/g_ascii_strncasecmp/
+
 2008-06-17  Vincent Untz  <vuntz@gnome.org>
 
 	* configure.in: post-release bump to 2.23.5
