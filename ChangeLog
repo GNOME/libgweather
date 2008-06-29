@@ -1,3 +1,17 @@
+2008-06-29  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in (Serbia and Montenegro): Belatedly split
+	"Serbia and Montenegro" into "Serbia" and "Montenegro".
+	(EGYP, NIUE, NSTU, PMDY, PWAK, TKPN): Move each of these from the
+	wrong <country> to the right one.
+	(Bermuda): move from "Central and South America" to "Atlantic".
+	(French Polynesia): move from "Central and South America" to
+	"Australasia & Oceania"
+	(CWWK, ESTA): Fix to use <_name> instead of <name>.
+	(K3A1, K4A9, KAUO, KDCU, KDHN, KGZH, KMGM, KMSL, KOZR, KTCL, KTOI):
+	Remove a bunch more locations that somehow got duplicated from
+	Alabama into Arkansas (qv #425778 below).
+
 2008-06-19  Vincent Untz  <vuntz@gnome.org>
 
 	* libgweather/gweather.schemas.in: change references from cvs.gnome.org
