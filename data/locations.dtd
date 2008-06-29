@@ -5,10 +5,10 @@
 <!ENTITY % name '(_name|name+)' >
 
 <!ELEMENT region (%name;, country+) >
-<!ELEMENT country (%name;, iso-code, tz-hint?, (location|state|city)+) >
-<!ELEMENT state (%name;, tz-hint?, (location|city)+) >
+<!ELEMENT country (%name;, iso-code, tz-hint?, (location|state|city)*) >
+<!ELEMENT state (%name;, tz-hint?, (location|city)*) >
 <!ELEMENT city (%name;, zone?, radar?, location+) >
-<!ELEMENT location (%name;, iso-code?, tz-hint?, code, zone?, radar?, coordinates?) >
+<!ELEMENT location (%name;, tz-hint?, code, zone?, radar?, coordinates?) >
 
 <!ELEMENT _name (#PCDATA) >
 <!ELEMENT name (#PCDATA) >

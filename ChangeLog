@@ -1,5 +1,19 @@
 2008-06-29  Dan Winship  <danw@gnome.org>
 
+	* data/Locations.xml.in: Reorganize countries exactly according to
+	ISO 3166; Move various territories/dependencies with their own ISO
+	codes out into their own <country> nodes, and preemptively add
+	nodes for the countries that we don't yet have weather stations
+	for. Sync up a few names/accents with ISO 3166 and/or common
+	English usage, and put a comment before each country giving the
+	official name (plus notes in the cases that are confusing or
+	non-obvious). #535518
+
+	* data/locations.dtd: Allow empty countries; the code already just
+	ignores them.
+
+2008-06-29  Dan Winship  <danw@gnome.org>
+
 	* data/Locations.xml.in (Serbia and Montenegro): Belatedly split
 	"Serbia and Montenegro" into "Serbia" and "Montenegro".
 	(EGYP, NIUE, NSTU, PMDY, PWAK, TKPN): Move each of these from the
