@@ -1,3 +1,46 @@
+libgweather 2.23.5
+==================
+
+libgweather
+
+	* Code cleanups & choose one unique coding style (Dan)
+	* Use libsoup for http (Dan)
+	* Make the XML parsing more future-proof (Dan)
+	* Change cvs.gnome.org references to svn.gnome.org (Jan Tichavský)
+
+Locations.xml
+
+	* Fix spelling of Ulaanbaatar, Mongolia (DULMANDAKH Sukhbaatar)
+	* Remove duplicate copy of Gadsden, Alabama, US and of other locations
+	  (Sebastien Bacher, Dan)
+	* Fix BOM codes for Alice Springs and Darwin, Australia (Andrew Burton)
+	* Reorganize Brazil into <state>s, with proper timezone hints (Grazieno
+	  Pellegrino)
+	* Fix South African locations to not be based on out-of-date airport
+	  names (Adrian Frith)
+	* Add Łódź, Poland (Marcin Banasiak)
+	* Split "Serbia and Montenegro" into "Serbia" and "Montenegro" (Dan)
+	* Move various locations to the right country or continent (Dan)
+	* Mark some locations as translatable (Dan)
+	* Reorganize countries exactly according to ISO 3166 (Dan)
+
+Misc
+
+	* Require libsoup and drop gnome-vfs dependency (we also explicitly
+	  require gconf now) (Dan)
+
+Translators
+
+	* Jorge González (es)
+	* Ivar Smolin (et)
+	* Ignacio Casal Quinteiro (gl)
+	* Yair Hershkovitz (he)
+	* Kjartan Maraas (nb)
+	* Wouter Bolsterlee (nl)
+	* Yannig Marchegay (Kokoyaya) (oc)
+	* Daniel Nylander (sv)
+	* Theppitak Karoonboonyanan (th)
+
 libgweather 2.23.4
 ==================
 
