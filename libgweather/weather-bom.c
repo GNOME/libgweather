@@ -71,4 +71,6 @@ bom_start_open (WeatherInfo *info)
     msg = soup_message_new ("GET", url);
     soup_session_queue_message (info->session, msg, bom_finish, info);
     g_free (url);
+
+    info->requests_pending++;
 }

@@ -484,13 +484,10 @@ _weather_info_fill (WeatherInfo *info,
 	info->session = soup_session_async_new ();
 
     metar_start_open (info);
-    info->requests_pending++;
     iwin_start_open (info);
-    info->requests_pending++;
 
     if (prefs->radar) {
         wx_start_open (info);
-	info->requests_pending++;
     }
 
     return info;

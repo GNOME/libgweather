@@ -93,4 +93,6 @@ wx_start_open (WeatherInfo *info)
     soup_message_set_flags (msg, SOUP_MESSAGE_OVERWRITE_CHUNKS);
     soup_session_queue_message (info->session, msg, wx_finish, info);
     g_free (url);
+
+    info->requests_pending++;
 }

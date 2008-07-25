@@ -492,7 +492,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     gboolean success = FALSE;
 
     g_return_if_fail (info != NULL);
-
+   
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
         g_warning (_("Failed to get METAR data: %d %s.\n"),
 		   msg->status_code, msg->reason_phrase);
@@ -540,4 +540,6 @@ metar_start_open (WeatherInfo *info)
 	"cccc", loc->code,
 	NULL);
     soup_session_queue_message (info->session, msg, metar_finish, info);
+
+    info->requests_pending++;
 }

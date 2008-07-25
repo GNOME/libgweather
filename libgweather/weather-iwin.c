@@ -125,8 +125,10 @@ iwin_start_open (WeatherInfo *info)
         		   state, zone);
     g_free (zone);
     g_free (state);
-
+    
     msg = soup_message_new ("GET", url);
     g_free (url);
     soup_session_queue_message (info->session, msg, iwin_finish, info);
+
+    info->requests_pending++;
 }
