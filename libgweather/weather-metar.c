@@ -494,6 +494,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     g_return_if_fail (info != NULL);
    
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
+        /* Translators: %d is an error code, and %s the error string */
         g_warning (_("Failed to get METAR data: %d %s.\n"),
 		   msg->status_code, msg->reason_phrase);
 	request_done (info, FALSE);
