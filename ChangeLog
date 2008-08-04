@@ -1,3 +1,30 @@
+2008-08-03  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in: Regenerate this. Now every <location>
+	node is inside a <city> node with a real city name, and the file
+	can be regenerated easily as we get updated weather station lists.
+
+	* data/build-locationdb.pl:
+	* data/update-locations.py: the Locations.xml.in-rebuilding
+	scripts. (Not yet in final form. Still need some refactoring and
+	bugfixes...)
+
+	* data/sources:
+	* data/sources/README.sources: Directory to store the
+	location/weather source files in, and a description of them
+
+	* data/city-fixups.pl:
+	* data/station-fixups.pl:
+	* data/major-cities.txt: Additional scripts and data to "patch"
+	the upstream data sources
+
+	* data/check-observations.py: Script to get a list of currently-
+	reporting weather stations
+
+	* data/Makefile.am: add rebuild-locations rule
+
+	* data/locations.dtd: update for schema changes
+
 2008-07-30  Claude Paroz  <claude@2xlibre.net>
 
 	* weather-metar.c: (metar_finish): Added translator comment.

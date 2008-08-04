@@ -1,0 +1,157 @@
+Locations.xml.in is generated from 6 primary sources:
+
+    data/Locations.xml.in
+    data/major_cities.txt
+
+    data/sources/nsd_cccc.txt
+    data/sources/POP_PLACES.txt
+    data/sources/US_CONCISE.txt
+    data/sources/geonames_dd_dms_date_*.txt
+
+The first two are maintained by us and are checked in to subversion.
+The other four are produced by the US government and can be downloaded
+off the web. Since they are very large, and only needed when
+regenerating Locations.xml.in, they are not checked in to subversion
+and must be downloaded to data/sources by hand if you want to rebuild
+Locations.xml.in.
+
+The files are used as follows:
+
+
+Locations.xml.in:
+
+   The process of building a new Locations.xml.in uses certain
+   information from the old Locations.xml.in:
+
+     * The overall division of the world into <region>, <country>, and
+       <state>. When a new country appears in the input data (either
+       because it's an actual new country, or because the country
+       previously did not have any active weather stations but now
+       does), a <country> node needs to be added to the appropriate
+       <region> in Locations.xml.in so that the importer knows where
+       the country belongs in the output.
+
+       Likewise, if you want to split an existing country into
+       <state>s, you must first create the <state> nodes in
+       Locations.xml.in, assigning one or more <fips-code>s to each
+       state. The importer will then use those FIPS codes to assign
+       cities to the correct states automatically.
+
+     * The <iso-code>, <fips-code>, <tz-hint>, <radar>, and <zone>
+       tags for <country>, <state>, and <location> nodes are copied
+       from the input to the output. Likewise, some comments in
+       Locations.xml.in will be copied over.
+
+
+major_cities.txt:
+
+   This is used to indicate major cities that should be included in
+   the generated Locations.xml.in file, even when those cities don't
+   have their own weather stations. (Eg, since Cambridge,
+   Massachusetts is listed in major_cities.txt, Locations.xml.in
+   includes an entry for Cambridge, using the closest weather station,
+   which is in Boston.)
+
+   For some countries, the importer can determine major-city
+   information itself using the data in the geonames file. However, if
+   the generated Locations.xml.in is missing major cities for a
+   country, that can be fixed by adding those cities here.
+
+   (The list of "major cities" in the US was generated from census
+   data, and contains all cities with population greater than
+   100,000.)
+
+
+nsd_cccc.txt:
+
+   This is the US National Weather Service's "Meteorological Station
+   Location Information", keyed by ICAO location indicator, available
+   from:
+
+     http://weather.noaa.gov/data/nsd_cccc.txt
+
+   described at: 
+
+     http://weather.noaa.gov/tg/site.shtml
+
+   This file was the original data source, and is the primary source
+   of the <code> elements in Locations.xml.in. Traditionally the
+   user-visible locations in Locations.xml were generated from this
+   file, but this was problematic in several ways:
+
+     * The locations are only divided into states within the US, so
+       Canadian/British/Chinese/etc locations needed to be split up
+       into provinces/regions/etc by hand.
+
+     * Many locations are named after airports or regions rather than
+       cities.
+
+     * The internationalization in this file is very inconsistent;
+       some cities have anglicized names ("Antwerp"), others have
+       ASCIIfied local names ("Muenchen"). Other names (particularly
+       in Africa and the Middle East) use odd variant forms of names
+       that are neither the preferred English form nor the preferred
+       local form.
+
+   Now we mostly use this file to get the station codes and
+   coordinates, and use the other two files to map those coordinates
+   to good city names.
+
+   The data in this file is not very good, and needs numerous
+   corrections; these are handled by data/station-fixups.pl, which
+   gets run on the data as it's being read.
+
+   Also, some of the stations in this list are inactive, or only
+   report sporadically, so we need to prune the list to only those
+   stations that report regularly. We do that by running
+   data/check-observations.py once a day on master.gnome.org, and then
+   using its output (which update-locations.py will download
+   automatically) to decide which stations to use.
+
+POP_PLACES.txt, US_CONCISE.txt:
+
+   This is our source of US city name information, and it comes from
+   the US Board on Geographic Names's State and Topical Gazetteer
+   downloads, available from:
+
+     http://geonames.usgs.gov/domestic/download_data.htm
+
+   POP_PLACES.txt is the "Populated Places" gazetteer, and
+   US_CONCISE.txt is the "Concise Features" gazetteer. The data format
+   is described here:
+
+     http://geonames.usgs.gov/domestic/gaz_fileformat.htm
+
+   This data also allows us to determine which US cities are in which
+   counties, which is needed to get the time zones correct in states
+   that span two time zones.
+
+
+geonames_dd_dms_date_*.txt:
+
+   (The actual filename includes a date stamp.) This is the extract
+   from the US National Geospatial- Intelligence Agency's GEOnet Names
+   Server country files data. We use the "single compressed zip file
+   that contains the entire country files dataset", linked from here:
+
+     http://earth-info.nga.mil/gns/html/namefiles.htm
+
+   The data is described here:
+
+     http://earth-info.nga.mil/gns/html/help.htm#C3
+
+   I can't find a convenient description of the DSG (Feature
+   Designation Code) values on the NGA's site, but they are explained
+   here:
+
+     http://speech.tec.army.mil/GeonamesDSGHelp.htm
+
+   This provides state/province/etc-level divisions for (some) non-US
+   cities, and also lets us replace the ASCIIfied names from the
+   weather station database with properly accented UTF-8 names.
+
+   Although this data is much much cleaner than the weather station
+   data, it does have a few problems. (In particular, some cities seem
+   to appear twice with different IDs.) data/city-fixups.pl is run on
+   this file while reading it in, and has examples of how to fix
+   various problems there.
