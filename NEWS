@@ -1,3 +1,34 @@
+libgweather 2.23.6
+==================
+
+libgweather
+
+	* Fixes weather information not showing up in the clock applet
+	  (Matthias Clasen)
+	* Add translator comment (Claude Paroz)
+	* Use a new Locations.xml.in parser (Dan)
+	* Add GWeatherTimezone type to represent a timezone (Dan)
+	* Add GWeatherLocation type to represent a location. It will eventually
+	  replace WeatherLocation (Dan)
+	* Add new GWeatherLocationEntry widget to select a location (Dan)
+	* Add new GWeatherTimezoneMenu widget to select a timezone (Dan)
+
+Locations.xml
+
+	* Completely reworked (Dan):
+	 - the file can be easily regenerated with some scripts
+	 - every <location> node is inside a <city> node with a real city name
+	 - we should have better & more consistent data now
+	* Add information about timezones (Dan)
+
+Translators
+
+	* Djihed Afifi (ar)
+	* Claude Paroz (fr)
+	* Ignacio Casal Quinteiro (gl)
+	* Yair Hershkovitz (he)
+	* Takeshi AIHANA (ja)
+
 libgweather 2.23.5
 ==================
 
