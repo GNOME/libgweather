@@ -29,8 +29,6 @@ G_BEGIN_DECLS
  * Location
  */
 
-#define WEATHER_LOCATION_CODE_LEN 4
-
 struct _WeatherLocation {
     gchar *name;
     gchar *code;

@@ -1,3 +1,24 @@
+2008-08-04  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in:
+	* data/locations.dtd: add information about timezones
+
+	* libgweather/parser.c: new Locations.xml.in parser
+
+	* libgweather/gweather-location.c: opaque replacement for
+	WeatherLocation, based on the new parser
+
+	* libgweather/location-entry.c: Autocompleting location-selecting
+	entry
+
+	* libgweather/gweather-timezone.c: type representing a timezone
+
+	* libgweather/timezone-menu.c: New widget for selecting
+	a (localized) timezone.
+
+	* libgweather/gweather-xml.c: use the new parser internally (but
+	convert to WeatherLocation externally)
+
 2008-08-03  Dan Winship  <danw@gnome.org>
 
 	* data/Locations.xml.in: Regenerate this. Now every <location>

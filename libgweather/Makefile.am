@@ -1,7 +1,10 @@
 lib_LTLIBRARIES = libgweather.la
 
 libgweatherincdir = $(includedir)/libgweather
-libgweatherinc_HEADERS = weather.h gweather-gconf.h gweather-prefs.h gweather-xml.h
+libgweatherinc_HEADERS = \
+	weather.h gweather-gconf.h gweather-prefs.h gweather-xml.h \
+	gweather-location.h location-entry.h \
+	gweather-timezone.h timezone-menu.h
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gweather.pc
@@ -13,7 +16,12 @@ libgweather_la_SOURCES = \
 	weather-sun.c \
 	gweather-prefs.c gweather-prefs.h \
 	gweather-gconf.c gweather-gconf.h \
-	gweather-xml.c gweather-xml.h
+	gweather-xml.c gweather-xml.h \
+	gweather-location.c gweather-location.h \
+	gweather-timezone.c gweather-timezone.h \
+	location-entry.c location-entry.h \
+	timezone-menu.c timezone-menu.h \
+	parser.c parser.h
 
 libgweather_la_CFLAGS = \
 	-I$(top_srcdir)			\
@@ -50,8 +58,20 @@ test_metar_LDADD = \
 	$(LIBSOUP_LIBS)	\
 	libgweather.la
 
+test_locations_SOURCES = test_locations.c
+
+test_locations_CFLAGS = \
+	-I$(top_srcdir)			\
+	-I$(srcdir)			\
+	$(WARN_CFLAGS)			\
+	$(GTK_CFLAGS)			\
+	$(GNOME_VFS_APPLETS_CFLAGS)	\
+	-DG_LOG_DOMAIN=\"GWeather\"
+
+test_locations_LDADD = libgweather.la
+
 noinst_HEADERS = weather-priv.h
-noinst_PROGRAMS = test_metar
+noinst_PROGRAMS = test_metar test_locations
 
 schemadir   = @GCONF_SCHEMA_FILE_DIR@
 schema_in_files = gweather.schemas.in

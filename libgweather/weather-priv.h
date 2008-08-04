@@ -16,6 +16,12 @@
 #include <libsoup/soup.h>
 
 #include "weather.h"
+#include "gweather-location.h"
+
+#define WEATHER_LOCATION_CODE_LEN 4
+
+WeatherLocation *gweather_location_to_weather_location (GWeatherLocation *gloc,
+							const char *name);
 
 /*
  * Weather information.
