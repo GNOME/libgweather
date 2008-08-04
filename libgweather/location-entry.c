@@ -294,10 +294,10 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	break;
 
     case GWEATHER_LOCATION_CITY:
-	/* If there are multiple (<location>) children, add a line for
-	 * each of them.
-	 */
-	if (children[1]) {
+	if (children[0] && children[1]) {
+	    /* If there are multiple (<location>) children, add a line
+	     * for each of them.
+	     */
 	    for (i = 0; children[i]; i++) {
 		display_name = g_strdup_printf ("%s (%s), %s",
 						gweather_location_get_name (loc),
@@ -318,9 +318,29 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 		g_free (display_name);
 		g_free (compare_name);
 	    }
-	    break;
+	} else if (children[0]) {
+	    /* Else there's only one location. This is a mix of the
+	     * city-with-multiple-location case above and the
+	     * location-with-no-city case below.
+	     */
+	    display_name = g_strdup_printf ("%s, %s",
+					    gweather_location_get_name (loc),
+					    parent_display_name);
+	    compare_name = g_strdup_printf ("%s, %s",
+					    gweather_location_get_sort_name (loc),
+					    parent_compare_name);
+
+	    gtk_tree_store_append (store, &iter, NULL);
+	    gtk_tree_store_set (store, &iter,
+				GWEATHER_LOCATION_ENTRY_COL_LOCATION, children[0],
+				GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
+				GWEATHER_LOCATION_ENTRY_COL_COMPARE_NAME, compare_name,
+				-1);
+
+	    g_free (display_name);
+	    g_free (compare_name);
 	}
-	/* else, if there's only a single location, fall through */
+	break;
 
     case GWEATHER_LOCATION_WEATHER_STATION:
 	/* <location> with no parent <city>, or <city> with a single

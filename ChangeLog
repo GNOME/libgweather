@@ -1,5 +1,14 @@
 2008-08-04  Dan Winship  <danw@gnome.org>
 
+	* libgweather/gweather-location.c
+	(gweather_location_get_city_name): Make this work for cities too,
+	not just <location>s.
+
+	* libgweather/location-entry.c (fill_location_entry_model): fix
+	the city-with-a-single-location case.
+
+2008-08-04  Dan Winship  <danw@gnome.org>
+
 	* configure.in (ZONEINFO_DIR): Figure out zoneinfo directory
 
 	* libgweather/gweather-timezone.c: Use that rather than hardcoding

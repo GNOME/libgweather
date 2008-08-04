@@ -505,12 +505,14 @@ gweather_location_get_code (GWeatherLocation *loc)
 char *
 gweather_location_get_city_name (GWeatherLocation *loc)
 {
-    if (loc->level != GWEATHER_LOCATION_WEATHER_STATION ||
-	!loc->parent ||
-	loc->parent->level != GWEATHER_LOCATION_CITY)
+    if (loc->level == GWEATHER_LOCATION_CITY)
+	return g_strdup (loc->name);
+    else if (loc->level == GWEATHER_LOCATION_WEATHER_STATION &&
+	     loc->parent &&
+	     loc->parent->level == GWEATHER_LOCATION_CITY)
+	return g_strdup (loc->parent->name);
+    else
 	return NULL;
-
-    return g_strdup (loc->parent->name);
 }
 
 WeatherLocation *
