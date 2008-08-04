@@ -143,6 +143,23 @@ if test "$gtk_ok" = "yes"; then
 fi
 
 dnl ***************************************************************************
+dnl *** Find tzdata                                                         ***
+dnl ***************************************************************************
+AC_ARG_WITH(zoneinfo-dir,
+	    [  --with-zoneinfo-dir     tzdata zoneinfo directory],
+	    ZONEINFO_DIR="$withval")
+if test -z "$zoneinfo_dir"; then
+    if test -d /usr/share/zoneinfo; then
+	ZONEINFO_DIR="/usr/share/zoneinfo"
+    elif test -d /usr/share/lib/zoneinfo/tab; then
+	ZONEINFO_DIR="/usr/share/lib/zoneinfo/tab"
+    else
+	AC_MSG_ERROR(Can't find zoneinfo directory. Use --with-zoneinfo-dir)
+    fi
+fi
+AC_DEFINE_UNQUOTED(ZONEINFO_DIR, "$ZONEINFO_DIR", [zoneinfo directory])
+
+dnl ***************************************************************************
 dnl *** Honour aclocal flags                                                ***
 dnl ***************************************************************************
 ACLOCAL_AMFLAGS="\${ACLOCAL_FLAGS}"

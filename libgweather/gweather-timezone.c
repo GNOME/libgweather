@@ -17,6 +17,8 @@
  * USA
  */
 
+#include "config.h"
+
 #include <string.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
@@ -30,8 +32,6 @@ struct _GWeatherTimezone {
 
     int ref_count;
 };
-
-#define ZONEINFO_DIR "/usr/share/zoneinfo"
 
 #define TZ_MAGIC "TZif"
 #define TZ_HEADER_SIZE 44
