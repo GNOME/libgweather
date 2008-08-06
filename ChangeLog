@@ -1,3 +1,16 @@
+2008-08-06  Dan Winship  <danw@gnome.org>
+
+	* data/update-locations.py: Output <coordinates> using decimal
+	degrees rather than converting them to degrees/minutes/seconds to
+	write them to Locations.xml.in and then having libgweather
+	immediately convert them back when it reads them in. (Also, the
+	decimal form is easier to use with google maps, etc.)
+
+	* data/Locations.xml.in: regen (only <coordinates> changed)
+
+	* libgweather/gweather-location.c (parse_coordinates): parse
+	decimal degrees rather than d/m/s.
+
 2008-08-05  Dan Winship  <danw@gnome.org>
 
 	* data/build-locationdb.pl: Mark PPLA ("state capital") cities as

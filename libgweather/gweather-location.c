@@ -69,55 +69,19 @@ sort_locations_by_distance (gconstpointer a, gconstpointer b, gpointer user_data
 	return 0;
 }
 
-/*
- * Convert string of the form "DD-MM[-SS]H" to radians
- * DD:degrees (to 3 digits), MM:minutes, SS:seconds H:hemisphere (NESW)
- * Return value is positive for N,E; negative for S,W.
- */
-static gboolean
-dmsh2rad (const char *latlon, double *value)
-{
-    char *p1, *p2;
-    int deg, min, sec, dir;
-
-    p1 = strchr (latlon, '-');
-    p2 = strrchr (latlon, '-');
-    if (p1 == NULL || p1 == latlon || p2 == p1 + 1)
-        return FALSE;
-
-    if (p1 == p2) {
-	sscanf (latlon, "%d-%d", &deg, &min);
-	sec = 0;
-    } else
-	sscanf (latlon, "%d-%d-%d", &deg, &min, &sec);
-    if (deg > 180 || min >= 60 || sec >= 60)
-	return FALSE;
-    *value = (double)((deg * 60 + min) * 60 + sec) * M_PI / 648000.0;
-
-    dir = g_ascii_toupper (latlon[strlen (latlon) - 1]);
-    if (dir == 'W' || dir == 'S')
-	*value = -*value;
-    else if (dir != 'E' && dir != 'N' && (*value != 0.0 || dir != '0'))
-	return FALSE;
-    return TRUE;
-}
-
 static gboolean
 parse_coordinates (const char *coordinates,
 		   double *latitude, double *longitude)
 {
-    char **pieces;
-    gboolean ret = FALSE;
+    char *p;
 
-    pieces = g_strsplit (coordinates, " ", -1);
-    if (g_strv_length (pieces) == 2) {
-	ret = TRUE;
-	ret = ret && dmsh2rad (pieces[0], latitude);
-	ret = ret && dmsh2rad (pieces[1], longitude);
-    }
-
-    g_strfreev (pieces);
-    return ret;
+    *latitude = g_ascii_strtod (coordinates, &p) * M_PI / 180.0;
+    if (p == (char *)coordinates)
+	return FALSE;
+    if (*p++ != ' ')
+	return FALSE;
+    *longitude = g_ascii_strtod (p, &p) * M_PI / 180.0;
+    return !*p;
 }
 
 static char *

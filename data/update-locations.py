@@ -121,34 +121,6 @@ def getFipsCountry(city):
         country = country.parent
     return country
 
-def decimal_degrees_to_dms(lat, long):
-    if lat < 0:
-        lat = -lat
-        dir = "S"
-    else:
-        dir = "N"
-    lat_deg = int(lat)
-    lat_min = int((lat - lat_deg) * 60)
-    lat_sec = int((((lat - lat_deg) * 60) - lat_min) * 60)
-    ret = "%02d-%02d" % (lat_deg, lat_min)
-    if lat_sec != 0:
-        ret += "-%02d" % lat_sec
-    ret += dir
-
-    if long < 0:
-        long = -long
-        dir = "W"
-    else:
-        dir = "E"
-    long_deg = int(long)
-    long_min = int((long - long_deg) * 60)
-    long_sec = int((((long - long_deg) * 60) - long_min) * 60)
-    ret += " %03d-%02d" % (long_deg, long_min)
-    if long_sec != 0:
-        ret += "-%02d" % long_sec
-    ret += dir
-    return ret
-
 languages = {}
 # FIXME, configurable
 iso639 = minidom.parse('/usr/share/xml/iso-codes/iso_639_3.xml')
@@ -327,7 +299,7 @@ class City(LocBase):
 
         if isinstance(arg, tuple):
             (self.id, self.latitude, self.longitude, elevation, importance, self.country_code, self.state_code, self.county_code, name_type, self.name_lang, short_name, long_name, flat_name) = arg
-            self.coordinates = decimal_degrees_to_dms(self.latitude, self.longitude)
+            self.coordinates = "%f %f" % (self.latitude, self.longitude)
             self.is_capital = importance == 3
             self.name = short_name or long_name
             self.has_conventional_name = name_type == 'C'
@@ -383,7 +355,7 @@ class Location(LocBase):
 
         if isinstance(arg, tuple):
             (self.code, self.name, self.state_code, self.country_code, self.latitude, self.longitude, elevation) = arg
-            self.coordinates = decimal_degrees_to_dms(self.latitude, self.longitude)
+            self.coordinates = "%f %f" % (self.latitude, self.longitude)
             if self.code in station_timezones:
                 self.tz_hint = station_timezones[self.code]
             if self.code in station_zones:
