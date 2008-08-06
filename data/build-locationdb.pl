@@ -32,7 +32,7 @@ binmode $cities, ":utf8";
 # RC UFI uni LAT LONG dms_lat dms_long mgrs jog fc DSG PC CC1 ADM1 adm2 POP ELEV CC2 NT LC SHORT_FORM generic SORT_NAME FULL_NAME FULL_NAME_ND modify_date
 
 print "Reading $intlsrc\n";
-open INTLSRC, "-|:utf8", "./city-fixups.pl < $intlsrc";
+open INTLSRC, "-|:utf8", "perl ./city-fixups.pl < $intlsrc";
 while (<INTLSRC>) {
   # skip header, and historical records
   next if $. == 1 || /\(\(/ || /\(historical\)/i;
@@ -106,10 +106,9 @@ while (<INTLSRC>) {
     # match.
     if ($designation eq "PPLC") {
       $importance = 3;
-    } elsif ($designation eq "PPLA" ||
-	     ($population && $population > 100000)) {
+    } elsif ($population && $population > 100000) {
       $importance = 2;
-    } elsif ($pc eq "1" || $pc eq "2") {
+    } elsif ($designation eq "PPLA" || $pc eq "1" || $pc eq "2") {
       $importance = 1;
     } elsif ($designation eq "PPLX" || $pc eq "4" || $pc eq "5") {
       $importance = -1;
@@ -410,7 +409,7 @@ sub dms_to_dec {
 
 print "\nCreating weather stations\n";
 ($stations, $stations_filename) = tempfile();
-open WEATHERSRC, "-|:utf8", "./station-fixups.pl < $weathersrc";
+open WEATHERSRC, "-|:utf8", "perl ./station-fixups.pl < $weathersrc";
 while (<WEATHERSRC>) {
   # remove CRLF and split
   chomp;

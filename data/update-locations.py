@@ -24,13 +24,20 @@ station_comments = {}
 station_states = {}
 
 # xml helpers
-def getChildContentByName(node, name):
+def getChildByName(node, name):
     node = node.firstChild
     while node is not None:
-        if node.nodeName == name:
-            return node.firstChild.nodeValue
+        if hasattr(node, 'tagName') and node.tagName == name:
+            return node
         node = node.nextSibling
     return None
+
+def getChildContentByName(node, name):
+    node = getChildByName(node, name)
+    if node is not None:
+        return node.firstChild.nodeValue
+    else:
+        return None
 
 def getChildrenByName(node, name):
     children = []
@@ -152,6 +159,36 @@ for lang in iso639.getElementsByTagName('iso_639_3_entry'):
 languages.setdefault('(Unknown Language)')
 
 # classes
+class Timezones:
+    def __init__(self, node):
+        self.zones = [Timezone(z) for z in getChildrenByName(node, 'timezone')]
+
+    def print_xml(self, indent):
+        print '%s<timezones>' % indent
+        for zone in self.zones:
+            zone.print_xml(indent + '  ')
+        print '%s</timezones>' % indent
+
+class Timezone:
+    def __init__(self, node):
+        self.id = node.getAttribute('id')
+        self.name = getChildContentByName(node, '_name')
+        self.comment = getComment(node)
+        self.obsoletes = [obs.firstChild.nodeValue for obs in getChildrenByName(node, 'obsoletes')]
+
+    def print_xml(self, indent):
+        if self.name is not None or len(self.obsoletes):
+            print '%s<timezone id="%s">' % (indent, self.id)
+            if self.comment is not None:
+                printComment(indent + '  ', self.comment)
+            if self.name is not None:
+                print '%s  <_name>%s</_name>' % (indent, self.name)
+            for obs in self.obsoletes:
+                print '%s  <obsoletes>%s</obsoletes>' % (indent, obs)
+            print '%s</timezone>' % indent
+        else:
+            print '%s<timezone id="%s" />' % (indent, self.id)
+
 class LocBase:
     def __init__(self, parent, arg):
         self.parent = parent
@@ -167,6 +204,11 @@ class LocBase:
             self.coordinates = getChildContentByName(arg, 'coordinates')
             self.fips_codes = getFipsCodes(arg, self)
             self.comment = getComment(arg)
+            zones = getChildByName(arg, 'timezones')
+            if zones is not None:
+                self.timezones = Timezones(zones)
+            else:
+                self.timezones = None
         else:
             self.name = None
             self.iso_code = None
@@ -176,6 +218,7 @@ class LocBase:
             self.comment = None
             self.zone = None
             self.radar = None
+            self.timezones = None
 
     def __cmp__(self, other):
         return cmp(self.name, other.name)
@@ -188,6 +231,8 @@ class LocBase:
                 print '%s  <fips-code>%s</fips-code>' % (indent, value)
         if self.pref_lang is not None:
             print '%s  <pref-lang>%s</pref-lang>' % (indent, self.pref_lang)
+        if self.timezones is not None:
+            self.timezones.print_xml(indent + '  ')
         if self.tz_hint is not None:
             print '%s  <tz-hint>%s</tz-hint>' % (indent, self.tz_hint)
         if self.zone is not None:
@@ -220,6 +265,18 @@ class Country(LocBase):
         self.missing_stations = []
         self.unknown_stations = []
         self.missing_cities = []
+
+        if self.name.find(',') != -1:
+            comma = self.name.find(',')
+            self.in_name = 'the %s %s' % (self.name[comma + 2:], self.name[:comma])
+        elif self.name.startswith('United') or \
+           self.name.find('Republic') != -1 or \
+           self.name.find('lands') != -1:
+            self.in_name = 'the ' + self.name
+        elif re.search(r'(IM|MV|PH|PS|SC|TF|VA)', self.iso_code):
+            self.in_name = 'the ' + self.name
+        else:
+            self.in_name = self.name
 
     def print_xml(self, indent):
         print '%s<country>' % indent
@@ -296,12 +353,12 @@ class City(LocBase):
                 country = self.parent
                 while not isinstance(country, Country):
                     country = country.parent
-                self.comment = 'Translators: this is the capital of %s' % country.name
+                self.comment = 'Translators: this is the capital of %s' % country.in_name
             elif self.parent.parent is not None:
                 self.comment = 'Translators: this is a city in %s in %s' % \
-                               (self.parent.name, self.parent.parent.name)
+                               (self.parent.name, self.parent.parent.in_name)
             else:
-                self.comment = 'Translators: this is a city in %s' % self.parent.name
+                self.comment = 'Translators: this is a city in %s' % self.parent.in_name
 
         print '%s<city>' % indent
         comment = self.comment or ''
@@ -633,7 +690,7 @@ while True:
             continue
 
     if city is None:
-        airport = re.search(r"([^/]*?) (International |Municipal )?Airport", location)
+        airport = re.search(r"([^/ ][^/]*?) (International |Municipal )?Airport", location)
         if airport is not None:
             city = find_city(c, airport.group(1), station, False)
 

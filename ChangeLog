@@ -1,3 +1,22 @@
+2008-08-05  Dan Winship  <danw@gnome.org>
+
+	* data/build-locationdb.pl: Mark PPLA ("state capital") cities as
+	importance 1, not importance 2 (meaning we won't create <city>
+	entries for them automatically). Importance=2 worked well for some
+	countries, but for most countries it just ends up creating a whole
+	lot of cruft.
+
+	* data/update-locations.py: Fix a regexp to not mangle the spacing
+	around "/" in some cases.
+	(LocBase.__init__, LocBase.print_xml): Handle <timezones> when
+	regenerating Locations.xml.in
+	(Country.__init__, City.print_xml): Fix the comments on cities to
+	insert "the" where needed. (eg, "a city in the United States",
+	not "a city in United States").
+
+	* data/Locations.xml.in: Regenerate, dropping 629 cities, changing
+	a bunch of comments
+
 2008-08-05  Jens Granseuer  <jensgr@gmx.net>
 
         * libgweather/gweather-xml.c: (gweather_xml_parse_node):
