@@ -1,29 +1,28 @@
-# translation of gnome-applets.gnome-2-16.po to pl
-# Copyright (C) 1999-2006 Free Software Foundation, Inc.
+# translation of libgweather to Polish
+# Copyright (C) 1999-2008 Free Software Foundation, Inc.
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Aktualną wersję tego pliku możesz odnaleźć w repozytorium cvs.gnomepl.org
-# (:pserver:anonymous@cvs.gnomepl.org:/gnomepl, moduł gnomepl, puste hasło)
+# Aviary.pl
 # Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
-# pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas na adres:
-# translators@gnomepl.org
+# pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
+# gnomepl@aviary.pl
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # GNOME PL Team <translators@gnomepl.org> 1999-2006
 # Kuba Winnicki <bw@idc.com.pl> 1999
 #
 # Zbigniew Braniecki <gandalf@aviary.pl>, 2006.
+# Tomasz Dominikowski <tdominikowski@aviary.pl>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-applets.gnome-2-16\n"
+"Project-Id-Version: libgweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-26 21:39-0500\n"
-"PO-Revision-Date: 2008-02-06 16:00+0100\n"
+"POT-Creation-Date: 2008-06-19 14:09+0000\n"
+"PO-Revision-Date: 2008-08-09 14:44+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
-"Language-Team: pl <pl@li.org>\n"
+"Language-Team: Aviary.pl <gnomepl@aviary.pl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.11.4\n"
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: POLAND\n"
@@ -39,10 +38,11 @@ msgstr ""
 #. * If you do not require a DEFAULT_LOCATION, set this to
 #. * "DEFAULT_LOCATION".
 #.
-#: ../libgweather/gweather-gconf.c:163 ../libgweather/gweather-gconf.c:164
+#: ../libgweather/gweather-gconf.c:164
+#: ../libgweather/gweather-gconf.c:165
 #: ../libgweather/gweather.schemas.in.h:5
 msgid "DEFAULT_LOCATION"
-msgstr "Krakow"
+msgstr "Warszawa"
 
 #. TRANSLATOR: Change this to the code of your default location that
 #. * corresponds to the DEFAULT_LOCATION name you put above. This is
@@ -55,10 +55,11 @@ msgstr "Krakow"
 #. *
 #. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
 #.
-#: ../libgweather/gweather-gconf.c:183 ../libgweather/gweather-gconf.c:184
+#: ../libgweather/gweather-gconf.c:184
+#: ../libgweather/gweather-gconf.c:185
 #: ../libgweather/gweather.schemas.in.h:3
 msgid "DEFAULT_CODE"
-msgstr "EPKK"
+msgstr "EPWA"
 
 #. TRANSLATOR: Change this to the zone of your default location that
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
@@ -71,10 +72,11 @@ msgstr "EPKK"
 #. * If your default location does not have a zone, set this to
 #. * "DEFAULT_ZONE".
 #.
-#: ../libgweather/gweather-gconf.c:203 ../libgweather/gweather-gconf.c:204
+#: ../libgweather/gweather-gconf.c:204
+#: ../libgweather/gweather-gconf.c:205
 #: ../libgweather/gweather.schemas.in.h:7
 msgid "DEFAULT_ZONE"
-msgstr "------"
+msgstr "DEFAULT_ZONE"
 
 #. TRANSLATOR: Change this to the radar of your default location that
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
@@ -88,10 +90,11 @@ msgstr "------"
 #. * (or space).
 #. * If you do not have a default location, set this to DEFAULT_RADAR.
 #.
-#: ../libgweather/gweather-gconf.c:224 ../libgweather/gweather-gconf.c:225
+#: ../libgweather/gweather-gconf.c:225
+#: ../libgweather/gweather-gconf.c:226
 #: ../libgweather/gweather.schemas.in.h:6
 msgid "DEFAULT_RADAR"
-msgstr "---"
+msgstr "DEFAULT_RADAR"
 
 #. TRANSLATOR: Change this to the coordinates of your default location
 #. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
@@ -105,111 +108,116 @@ msgstr "---"
 #. * If you do not have a default location, set this to
 #. * DEFAULT_COORDINATES.
 #.
-#: ../libgweather/gweather-gconf.c:245 ../libgweather/gweather-gconf.c:246
+#: ../libgweather/gweather-gconf.c:246
+#: ../libgweather/gweather-gconf.c:247
 #: ../libgweather/gweather.schemas.in.h:4
 msgid "DEFAULT_COORDINATES"
-msgstr "50-05N 019-48E"
+msgstr "52.166667 20.966667"
 
-#: ../libgweather/gweather-prefs.c:25 ../libgweather/gweather-prefs.c:36
-#: ../libgweather/gweather-prefs.c:51 ../libgweather/gweather-prefs.c:68
+#: ../libgweather/gweather-prefs.c:26
+#: ../libgweather/gweather-prefs.c:37
+#: ../libgweather/gweather-prefs.c:52
+#: ../libgweather/gweather-prefs.c:69
 msgid "Default"
 msgstr "Domyślne"
 
 #. translators: Kelvin
-#: ../libgweather/gweather-prefs.c:27
+#: ../libgweather/gweather-prefs.c:28
 msgid "K"
 msgstr "K"
 
 #. translators: Celsius
-#: ../libgweather/gweather-prefs.c:29
+#: ../libgweather/gweather-prefs.c:30
 msgid "C"
 msgstr "C"
 
 #. translators: Fahrenheit
-#: ../libgweather/gweather-prefs.c:31
+#: ../libgweather/gweather-prefs.c:32
 msgid "F"
 msgstr "F"
 
 #. translators: meters per second
-#: ../libgweather/gweather-prefs.c:38
+#: ../libgweather/gweather-prefs.c:39
 msgid "m/s"
 msgstr "m/s"
 
 #. translators: kilometers per hour
-#: ../libgweather/gweather-prefs.c:40
+#: ../libgweather/gweather-prefs.c:41
 msgid "km/h"
 msgstr "km/h"
 
 #. translators: miles per hour
-#: ../libgweather/gweather-prefs.c:42
+#: ../libgweather/gweather-prefs.c:43
 msgid "mph"
 msgstr "mph"
 
 #. translators: knots (speed unit)
-#: ../libgweather/gweather-prefs.c:44
+#: ../libgweather/gweather-prefs.c:45
 msgid "knots"
 msgstr "węzły"
 
 #. translators: wind speed
-#: ../libgweather/gweather-prefs.c:46
+#: ../libgweather/gweather-prefs.c:47
 msgid "Beaufort scale"
 msgstr "Skala Beauforta"
 
 #. translators: kilopascals
-#: ../libgweather/gweather-prefs.c:53
+#: ../libgweather/gweather-prefs.c:54
 msgid "kPa"
 msgstr "kPa"
 
 #. translators: hectopascals
-#: ../libgweather/gweather-prefs.c:55
+#: ../libgweather/gweather-prefs.c:56
 msgid "hPa"
 msgstr "hPa"
 
 #. translators: millibars
-#: ../libgweather/gweather-prefs.c:57
+#: ../libgweather/gweather-prefs.c:58
 msgid "mb"
 msgstr "mb"
 
 #. translators: millimeters of mercury
-#: ../libgweather/gweather-prefs.c:59
+#: ../libgweather/gweather-prefs.c:60
 msgid "mmHg"
 msgstr "mmHg"
 
 #. translators: inches of mercury
-#: ../libgweather/gweather-prefs.c:61
+#: ../libgweather/gweather-prefs.c:62
 msgid "inHg"
 msgstr "inHg"
 
 #. translators: atmosphere
-#: ../libgweather/gweather-prefs.c:63
+#: ../libgweather/gweather-prefs.c:64
 msgid "atm"
 msgstr "atm"
 
 #. translators: meters
-#: ../libgweather/gweather-prefs.c:70
+#: ../libgweather/gweather-prefs.c:71
 msgid "m"
 msgstr "m"
 
 #. translators: kilometers
-#: ../libgweather/gweather-prefs.c:72
+#: ../libgweather/gweather-prefs.c:73
 msgid "km"
 msgstr "km"
 
 #. translators: miles
-#: ../libgweather/gweather-prefs.c:74
+#: ../libgweather/gweather-prefs.c:75
 msgid "mi"
 msgstr "km"
 
 #. TRANSLATOR: This is the default unit to use for temperature measurements.
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:93 ../libgweather/gweather-prefs.c:102
+#: ../libgweather/gweather-prefs.c:95
+#: ../libgweather/gweather-prefs.c:103
 msgid "DEFAULT_TEMP_UNIT"
 msgstr "C"
 
 #. TRANSLATOR: This is the default unit to use for wind speed.
 #. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
 #. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:131 ../libgweather/gweather-prefs.c:141
+#: ../libgweather/gweather-prefs.c:133
+#: ../libgweather/gweather-prefs.c:143
 msgid "DEFAULT_SPEED_UNIT"
 msgstr "m/s"
 
@@ -217,38 +225,28 @@ msgstr "m/s"
 #. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
 #. "mb" (millibars), "mmHg" (millimeters of mercury),
 #. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:172 ../libgweather/gweather-prefs.c:183
+#: ../libgweather/gweather-prefs.c:175
+#: ../libgweather/gweather-prefs.c:186
 msgid "DEFAULT_PRESSURE_UNIT"
 msgstr "hPa"
 
 #. TRANSLATOR: This is the default unit to use for visibility distance.
 #. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:212 ../libgweather/gweather-prefs.c:221
+#: ../libgweather/gweather-prefs.c:216
+#: ../libgweather/gweather-prefs.c:225
 msgid "DEFAULT_DISTANCE_UNIT"
 msgstr "km"
 
 #: ../libgweather/gweather.schemas.in.h:1
-msgid ""
-"A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/"
-"Locations.xml.in"
-msgstr ""
-"Trzy-literowy kod do pobierania map radarowych ze strony weather.com, "
-"znaleziony na http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/"
-"Locations.xml.in"
+msgid "A three-digit-long code for retrieving radar maps from weather.com, found from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+msgstr "Trzy-literowy kod do pobierania map radarowych ze strony weather.com, znaleziony na http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
-msgid ""
-"A unique zone for the city, as found from http://cvs.gnome.org/viewcvs/"
-"*checkout*/gnome-applets/gweather/Locations.xml.in"
-msgstr ""
-"Unikalna strefa dla miasta, zgodnie z http://cvs.gnome.org/viewcvs/"
-"*checkout*/gnome-applets/gweather/Locations.xml.in"
+msgid "A unique zone for the city, as found from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+msgstr "Unikalna strefa dla miasta, zgodnie z http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:8
-msgid ""
-"Determines whether the applet automatically updates its weather statistics "
-"or not."
+msgid "Determines whether the applet automatically updates its weather statistics or not."
 msgstr "Określa czy aplet automatycznie aktualizuje statystyki pogodowe."
 
 #: ../libgweather/gweather.schemas.in.h:9
@@ -264,20 +262,12 @@ msgid "Fetch a radar map on each update."
 msgstr "Pobieranie mapy radarowej przy każdej aktualizacji."
 
 #: ../libgweather/gweather.schemas.in.h:12
-msgid ""
-"If true, then retrieve a radar map from a location specified by the \"radar"
-"\" key."
-msgstr ""
-"Określa, czy pobierać mapę radarową z położenia określonego w kluczu \"radar"
-"\"."
+msgid "If true, then retrieve a radar map from a location specified by the \"radar\" key."
+msgstr "Określa, czy pobierać mapę radarową z położenia określonego w kluczu \"radar\"."
 
 #: ../libgweather/gweather.schemas.in.h:13
-msgid ""
-"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-"[EW]."
-msgstr ""
-"Szerokość i długość geograficzna Twojego położenia wyrażona w DD-MM-SS[NS] "
-"(północ, południe) oraz DD-MM-SS[EW] (wschód, zachód)"
+msgid "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS[EW]."
+msgstr "Szerokość i długość geograficzna Twojego położenia wyrażona w DD-MM-SS[NS] (północ, południe) oraz DD-MM-SS[EW] (wschód, zachód)"
 
 #: ../libgweather/gweather.schemas.in.h:14
 msgid "Location coordinates"
@@ -288,12 +278,8 @@ msgid "Nearby city"
 msgstr "Pobliskie miasto"
 
 #: ../libgweather/gweather.schemas.in.h:16
-msgid ""
-"Nearby major zone, such as a capital city, as found from http://cvs.gnome."
-"org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
-msgstr ""
-"Pobliskie duże miasto, zgodnie z http://cvs.gnome.org/viewcvs/*checkout*/"
-"gnome-applets/gweather/Locations.xml.in"
+msgid "Nearby major zone, such as a capital city, as found from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+msgstr "Pobliska strefa główna, np. stolica, zgodnie z http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -383,483 +369,490 @@ msgstr "Informacja o miejscu prognozy."
 msgid "Zone location"
 msgstr "Położenie strefy"
 
-#: ../libgweather/weather-iwin.c:135 ../libgweather/weather-metar.c:554
-#: ../libgweather/weather-metar.c:582
+#: ../libgweather/weather-metar.c:497
+#, c-format
+msgid "Failed to get METAR data: %d %s.\n"
+msgstr "Nieudana próba pobrania danych METAR:%d %s.\n"
+
+#: ../libgweather/weather-metar.c:534
 msgid "WeatherInfo missing location"
 msgstr "Brak informacji o położeniu"
 
-#: ../libgweather/weather-metar.c:527 ../libgweather/weather-metar.c:562
-#: ../libgweather/weather-wx.c:63
-msgid "Failed to get METAR data.\n"
-msgstr "Nieudana próba pobrania danych METAR.\n"
-
-#: ../libgweather/weather.c:180
+#: ../libgweather/weather.c:189
 msgid "Variable"
 msgstr "Zmienne"
 
-#: ../libgweather/weather.c:181
+#: ../libgweather/weather.c:190
 msgid "North"
 msgstr "Północ"
 
-#: ../libgweather/weather.c:181
+#: ../libgweather/weather.c:190
 msgid "North - NorthEast"
 msgstr "Północ - północny wschód"
 
-#: ../libgweather/weather.c:181
+#: ../libgweather/weather.c:190
 msgid "Northeast"
 msgstr "Północny wschód"
 
-#: ../libgweather/weather.c:181
+#: ../libgweather/weather.c:190
 msgid "East - NorthEast"
 msgstr "Wschód - północny wschód"
 
-#: ../libgweather/weather.c:182
+#: ../libgweather/weather.c:191
 msgid "East"
 msgstr "Wschód"
 
-#: ../libgweather/weather.c:182
+#: ../libgweather/weather.c:191
 msgid "East - Southeast"
 msgstr "Wschód - południowy wschód"
 
-#: ../libgweather/weather.c:182
+#: ../libgweather/weather.c:191
 msgid "Southeast"
 msgstr "Południowy wschód"
 
-#: ../libgweather/weather.c:182
+#: ../libgweather/weather.c:191
 msgid "South - Southeast"
 msgstr "Południe - południowy wschód"
 
-#: ../libgweather/weather.c:183
+#: ../libgweather/weather.c:192
 msgid "South"
 msgstr "Południe"
 
-#: ../libgweather/weather.c:183
+#: ../libgweather/weather.c:192
 msgid "South - Southwest"
 msgstr "Południe - południowy zachód"
 
-#: ../libgweather/weather.c:183
+#: ../libgweather/weather.c:192
 msgid "Southwest"
 msgstr "Południowy zachód"
 
-#: ../libgweather/weather.c:183
+#: ../libgweather/weather.c:192
 msgid "West - Southwest"
 msgstr "Zachód - południowy zachód"
 
-#: ../libgweather/weather.c:184
+#: ../libgweather/weather.c:193
 msgid "West"
 msgstr "Zachód"
 
-#: ../libgweather/weather.c:184
+#: ../libgweather/weather.c:193
 msgid "West - Northwest"
 msgstr "Zachód - północny zachód"
 
-#: ../libgweather/weather.c:184
+#: ../libgweather/weather.c:193
 msgid "Northwest"
 msgstr "Północny zachód"
 
-#: ../libgweather/weather.c:184
+#: ../libgweather/weather.c:193
 msgid "North - Northwest"
 msgstr "Północ - północny zachód"
 
-#: ../libgweather/weather.c:190 ../libgweather/weather.c:690
-#: ../libgweather/weather.c:739 ../libgweather/weather.c:752
-#: ../libgweather/weather.c:764 ../libgweather/weather.c:779
-#: ../libgweather/weather.c:795 ../libgweather/weather.c:832
-#: ../libgweather/weather.c:844 ../libgweather/weather.c:863
-#: ../libgweather/weather.c:895 ../libgweather/weather.c:908
-#: ../libgweather/weather.c:928
+#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:627
+#: ../libgweather/weather.c:678
+#: ../libgweather/weather.c:692
+#: ../libgweather/weather.c:705
+#: ../libgweather/weather.c:723
+#: ../libgweather/weather.c:741
+#: ../libgweather/weather.c:779
+#: ../libgweather/weather.c:795
+#: ../libgweather/weather.c:818
+#: ../libgweather/weather.c:850
+#: ../libgweather/weather.c:866
+#: ../libgweather/weather.c:886
 msgid "Unknown"
 msgstr "Nieznany"
 
-#: ../libgweather/weather.c:192 ../libgweather/weather.c:209
-#: ../libgweather/weather.c:280
+#: ../libgweather/weather.c:202
+#: ../libgweather/weather.c:220
+#: ../libgweather/weather.c:292
 msgid "Invalid"
 msgstr "Niewłaściwy"
 
-#: ../libgweather/weather.c:198
+#: ../libgweather/weather.c:208
 msgid "Clear Sky"
 msgstr "Czyste niebo"
 
-#: ../libgweather/weather.c:199
+#: ../libgweather/weather.c:209
 msgid "Broken clouds"
 msgstr "Zachmurzenie umiarkowane"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:210
 msgid "Scattered clouds"
 msgstr "Kłębiaste chmury"
 
-#: ../libgweather/weather.c:201
+#: ../libgweather/weather.c:211
 msgid "Few clouds"
 msgstr "Mało pochmurne"
 
-#: ../libgweather/weather.c:202
+#: ../libgweather/weather.c:212
 msgid "Overcast"
 msgstr "Pochmurno"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
-#. * http://www.crh.noaa.gov/arx/wx.tbl.html
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:241 ../libgweather/weather.c:243
+#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:254
 msgid "Thunderstorm"
 msgstr "Burza"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:253
 msgid "Drizzle"
 msgstr "Mżawka"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:253
 msgid "Light drizzle"
 msgstr "Łagodna mżawka"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:253
 msgid "Moderate drizzle"
 msgstr "Umiarkowana mżawka"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:253
 msgid "Heavy drizzle"
 msgstr "Obfita mżawka"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:253
 msgid "Freezing drizzle"
 msgstr "Marznąca mżawka"
 
 #. RAIN
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:254
 msgid "Rain"
 msgstr "Deszcz"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:254
 msgid "Light rain"
 msgstr "Łagodne opady deszczu"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:254
 msgid "Moderate rain"
 msgstr "Umiarkowane opady deszczu"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:254
 msgid "Heavy rain"
 msgstr "Ulewny deszcz"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:254
 msgid "Rain showers"
 msgstr "Przelotne opady deszczu"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:254
 msgid "Freezing rain"
 msgstr "Marznący deszcz"
 
 #. SNOW
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:255
 msgid "Snow"
 msgstr "Śnieg"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:255
 msgid "Light snow"
 msgstr "Łagodny śnieg"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:255
 msgid "Moderate snow"
 msgstr "Umiarkowany śnieg"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:255
 msgid "Heavy snow"
 msgstr "Obfity śnieg"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:255
 msgid "Snowstorm"
 msgstr "Burza śnieżna"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:255
 msgid "Blowing snowfall"
 msgstr "Silna burza śnieżna"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:255
 msgid "Snow showers"
 msgstr "Przelotne opady śniegu"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:255
 msgid "Drifting snow"
 msgstr "Zamiecie śnieżne"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:245
+#: ../libgweather/weather.c:256
 msgid "Snow grains"
 msgstr "Lekkie opady śniegu"
 
-#: ../libgweather/weather.c:245
+#: ../libgweather/weather.c:256
 msgid "Light snow grains"
 msgstr "Lekkie ziarna śniegu"
 
-#: ../libgweather/weather.c:245
+#: ../libgweather/weather.c:256
 msgid "Moderate snow grains"
 msgstr "Zmienne ziarna śniegu"
 
-#: ../libgweather/weather.c:245
+#: ../libgweather/weather.c:256
 msgid "Heavy snow grains"
 msgstr "Grad śnieżny"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:246
+#: ../libgweather/weather.c:257
 msgid "Ice crystals"
 msgstr "Kryształy lodu"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:258
 msgid "Ice pellets"
 msgstr "Kulki lodowe"
 
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:258
 msgid "Few ice pellets"
 msgstr "Nieco kulek lodowych"
 
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:258
 msgid "Moderate ice pellets"
 msgstr "Umiarkowane kulki lodowe"
 
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:258
 msgid "Heavy ice pellets"
 msgstr "Obfite kulki lodowe"
 
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:258
 msgid "Ice pellet storm"
 msgstr "Burza z kulkami lodowymi"
 
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:258
 msgid "Showers of ice pellets"
 msgstr "Krótkotrwałe kulki lodowe"
 
 #. HAIL
-#: ../libgweather/weather.c:248
+#: ../libgweather/weather.c:259
 msgid "Hail"
 msgstr "Grad"
 
-#: ../libgweather/weather.c:248
+#: ../libgweather/weather.c:259
 msgid "Hailstorm"
 msgstr "Burza gradowa"
 
-#: ../libgweather/weather.c:248
+#: ../libgweather/weather.c:259
 msgid "Hail showers"
 msgstr "Krótkotrwały grad"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:249
+#: ../libgweather/weather.c:260
 msgid "Small hail"
 msgstr "Gradzik"
 
-#: ../libgweather/weather.c:249
+#: ../libgweather/weather.c:260
 msgid "Small hailstorm"
 msgstr "Mała burza gradowa"
 
-#: ../libgweather/weather.c:249
+#: ../libgweather/weather.c:260
 msgid "Showers of small hail"
 msgstr "Krótkotrwały gradzik"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:250
+#: ../libgweather/weather.c:261
 msgid "Unknown precipitation"
 msgstr "Nieznane opady"
 
 #. MIST
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:262
 msgid "Mist"
 msgstr "Mgiełka"
 
 #. FOG
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:263
 msgid "Fog"
 msgstr "Mgła"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:263
 msgid "Fog in the vicinity"
 msgstr "Nadchodząca mgła"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:263
 msgid "Shallow fog"
 msgstr "Słaba mgła"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:263
 msgid "Patches of fog"
 msgstr "Łagodna mgła"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:263
 msgid "Partial fog"
 msgstr "Częściowa mgła"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:263
 msgid "Freezing fog"
 msgstr "Marznąca mgła"
 
 #. SMOKE
-#: ../libgweather/weather.c:253
+#: ../libgweather/weather.c:264
 msgid "Smoke"
 msgstr "Dym"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:254
+#: ../libgweather/weather.c:265
 msgid "Volcanic ash"
 msgstr "Popiół wulkaniczny"
 
 #. SAND
-#: ../libgweather/weather.c:255
+#: ../libgweather/weather.c:266
 msgid "Sand"
 msgstr "Piasek"
 
-#: ../libgweather/weather.c:255
+#: ../libgweather/weather.c:266
 msgid "Blowing sand"
 msgstr "Szalejący piasek"
 
-#: ../libgweather/weather.c:255
+#: ../libgweather/weather.c:266
 msgid "Drifting sand"
 msgstr "Burza piaskowa"
 
 #. HAZE
-#: ../libgweather/weather.c:256
+#: ../libgweather/weather.c:267
 msgid "Haze"
 msgstr "Zamglenie"
 
 #. SPRAY
-#: ../libgweather/weather.c:257
+#: ../libgweather/weather.c:268
 msgid "Blowing sprays"
 msgstr "Szalejący pył wodny"
 
 #. DUST
-#: ../libgweather/weather.c:258
+#: ../libgweather/weather.c:269
 msgid "Dust"
 msgstr "Tumany kurzu"
 
-#: ../libgweather/weather.c:258
+#: ../libgweather/weather.c:269
 msgid "Blowing dust"
 msgstr "Szalejące tumany kurzu"
 
-#: ../libgweather/weather.c:258
+#: ../libgweather/weather.c:269
 msgid "Drifting dust"
 msgstr "Zbliżające się tumany kurzu"
 
 #. SQUALL
-#: ../libgweather/weather.c:259
+#: ../libgweather/weather.c:270
 msgid "Squall"
 msgstr "Szkwał"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:271
 msgid "Sandstorm"
 msgstr "Burza piaskowa"
 
-#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:271
 msgid "Sandstorm in the vicinity"
 msgstr "Bura piaskowa w pobliżu"
 
-#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:271
 msgid "Heavy sandstorm"
 msgstr "Ciężka burza piaskowa"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:261
+#: ../libgweather/weather.c:272
 msgid "Duststorm"
 msgstr "Burza kurzowa"
 
-#: ../libgweather/weather.c:261
+#: ../libgweather/weather.c:272
 msgid "Duststorm in the vicinity"
 msgstr "Burza kurzowa w pobliżu"
 
-#: ../libgweather/weather.c:261
+#: ../libgweather/weather.c:272
 msgid "Heavy duststorm"
 msgstr "Ciężka burza kurzowa"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:262
+#: ../libgweather/weather.c:273
 msgid "Funnel cloud"
 msgstr "Trąba powietrzna"
 
 #. TORNADO
-#: ../libgweather/weather.c:263
+#: ../libgweather/weather.c:274
 msgid "Tornado"
 msgstr "Tornado"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:264
+#: ../libgweather/weather.c:275
 msgid "Dust whirls"
 msgstr "Tumany kurzu"
 
-#: ../libgweather/weather.c:264
+#: ../libgweather/weather.c:275
 msgid "Dust whirls in the vicinity"
 msgstr "Tumany kurzu w pobliżu"
 
 #. TRANSLATOR: this is a format string for strftime
 #. *             see `man 3 strftime` for more details
 #.
-#: ../libgweather/weather.c:662
+#: ../libgweather/weather.c:598
 msgid "%a, %b %d / %H:%M"
 msgstr "%a, %b %d / %H:%M"
 
-#: ../libgweather/weather.c:677
+#: ../libgweather/weather.c:613
 msgid "Unknown observation time"
 msgstr "Nieznany czas obserwacji"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:710
+#: ../libgweather/weather.c:649
 #, c-format
 msgid "%.1f ℉"
 msgstr "%.1f ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:713
+#: ../libgweather/weather.c:652
 #, c-format
 msgid "%d ℉"
 msgstr "%d ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:719
+#: ../libgweather/weather.c:658
 #, c-format
 msgid "%.1f ℃"
 msgstr "%.1f ℃"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:722
+#: ../libgweather/weather.c:661
 #, c-format
 msgid "%d ℃"
 msgstr "%d ℃"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:728
+#: ../libgweather/weather.c:667
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:731
+#: ../libgweather/weather.c:670
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:782
+#: ../libgweather/weather.c:726
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:807
+#: ../libgweather/weather.c:754
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f węzłów"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:811
+#: ../libgweather/weather.c:758
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:815
+#: ../libgweather/weather.c:762
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:819
+#: ../libgweather/weather.c:766
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -867,196 +860,161 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:825
+#: ../libgweather/weather.c:772
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "%.1f w skali Beauforta"
 
-#: ../libgweather/weather.c:846
+#: ../libgweather/weather.c:797
 msgid "Calm"
 msgstr "Spokojny"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:850
+#: ../libgweather/weather.c:801
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:868
+#: ../libgweather/weather.c:823
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:872
+#: ../libgweather/weather.c:827
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:876
+#: ../libgweather/weather.c:831
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:880
+#: ../libgweather/weather.c:835
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:884
+#: ../libgweather/weather.c:839
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:888
+#: ../libgweather/weather.c:843
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:913
+#: ../libgweather/weather.c:871
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f mil"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:917
+#: ../libgweather/weather.c:875
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:921
+#: ../libgweather/weather.c:879
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:949 ../libgweather/weather.c:969
+#: ../libgweather/weather.c:908
+#: ../libgweather/weather.c:929
 msgid "%H:%M"
 msgstr "%H:%M"
 
-#: ../libgweather/weather.c:1002
+#: ../libgweather/weather.c:968
 msgid "Retrieval failed"
 msgstr "Pobranie nie powiodło się"
 
 #~ msgid "_About"
 #~ msgstr "_Informacje o"
-
 #~ msgid "_Help"
 #~ msgstr "Pomo_c"
-
 #~ msgid "_Keyboard Accessibility Preferences"
 #~ msgstr "Preferencje dostępności _klawiatury"
-
 #~ msgid "AccessX Status Applet Factory"
 #~ msgstr "Generator apletu stan AccessX"
-
 #~ msgid "Keyboard Accessibility Status"
 #~ msgstr "Stan dostępności klawiatury"
-
 #~ msgid "Keyboard Accessibility Status Applet Factory"
 #~ msgstr "Generator apletu stanu dostępności klawiatury"
-
 #~ msgid "Shows the status of keyboard accessibility features"
 #~ msgstr "Wyświetla stan właściwości dostępności klawiatury"
-
 #~ msgid "Shows the state of AccessX features such as latched modifiers"
 #~ msgstr ""
 #~ "Wyświetla stan właściwości AccessX takich jak modyfikatory zapadkowe"
-
 #~ msgid "translator-credits"
 #~ msgstr "GNOME PL Team <translators@gnomepl.org>"
-
 #~ msgid "There was an error launching the help viewer: %s"
 #~ msgstr "Przy uruchamianiu przeglądarki pomocy wystąpił błąd: %s"
-
 #~ msgid "There was an error launching the keyboard preferences dialog: %s"
 #~ msgstr "Przy uruchamianiu okna preferencji klawiatury wystąpił błąd: %s"
-
 #~ msgid "a"
 #~ msgstr "a"
-
 #~ msgid "AccessX Status"
 #~ msgstr "Stan AccessX"
-
 #~ msgid "Shows keyboard status when accessibility features are used."
 #~ msgstr "Wyświetla stan klawiatury, gdy używane są właściwości dostępności."
-
 #~ msgid "XKB Extension is not enabled"
 #~ msgstr "Rozszerzenie XKB nie jest włączone"
-
 #~ msgid "Unknown error"
 #~ msgstr "Nieznany błąd"
-
 #~ msgid "Error: %s"
 #~ msgstr "Błąd: %s"
-
 #~ msgid "Displays current state of keyboard accessibility features"
 #~ msgstr "Wyświetla bieżący stan właściwości dostępności klawiatury"
-
 #~ msgid "Battery Charge Monitor"
 #~ msgstr "Monitor poziomu naładowania akumulatora"
-
 #~ msgid "Battstat Factory"
 #~ msgstr "Generator stanu akumulatora"
-
 #~ msgid "Monitor a laptop's remaining power"
 #~ msgstr "Monitoruje poziomu naładowania akumulatora komputera przenośnego"
-
 #~ msgid "_Preferences"
 #~ msgstr "P_referencje"
-
 #~ msgid "0 for no label, 1 for percentage and 2 for time remaining"
 #~ msgstr "0 - brak etykiety, 1 - procenty, 2 - pozostały czas"
-
 #~ msgid "Beep for warnings"
 #~ msgstr "Dźwięk przy ostrzeżeniach"
-
 #~ msgid "Beep when displaying a warning"
 #~ msgstr "Sygnał dźwiękowy podczas wyświetlania ostrzeżenia"
-
 #~ msgid "Drain from top"
 #~ msgstr "Wyczerpywanie od góry"
-
 #~ msgid "Full Battery Notification"
 #~ msgstr "Powiadomienie o naładowanym akumulatorze"
-
 #~ msgid "Low Battery Notification"
 #~ msgstr "Powiadomienie o wyczerpanym akumulatorze"
-
 #~ msgid "Notify user when the battery is full"
 #~ msgstr "Powiadomienie użytkownika o pełnym naładowaniu akumulatora"
-
 #~ msgid "Notify user when the battery is low"
 #~ msgstr "Powiadomienie użytkownika o niskim poziomie naładowania akumulatora"
-
 #~ msgid "Red value level"
 #~ msgstr "Wartość poziomu czerwonego"
-
 #~ msgid ""
 #~ "Show the battery meter draining from the top of the battery. Only "
 #~ "implemented for traditional battery view."
 #~ msgstr ""
 #~ "Wyświetlenie opadającego wskaźnika akumulatora. Zaimplementowany tylko "
 #~ "dla tradycyjnego widoku akumulatora."
-
 #~ msgid "Show the horizontal battery"
 #~ msgstr "Wyświetlanie akumulatora poziomo"
-
 #~ msgid "Show the time/percent label"
 #~ msgstr "Wyświetlenie etykiety czas/procenty"
-
 #~ msgid "Show the traditional, horizontal battery on the panel"
 #~ msgstr "Wyświetlanie trdycyjnego, poziomego akumulatora na ekranie"
-
 #~ msgid "Show the upright, smaller battery on the panel"
 #~ msgstr "Wyświetlanie w prawym górnym rogu panelu, mniejszego akumulatora"
-
 #~ msgid ""
 #~ "The battery level below which the battery is displayed as red. Also the "
 #~ "value at which the low battery warning is displayed."
@@ -1064,89 +1022,68 @@ msgstr "Pobranie nie powiodło się"
 #~ "Poziom naładowania akumulatora, poniźej którego jego symbol jest "
 #~ "wyświetlany na czerwono. Również wartość przy której jest wyświetlanie "
 #~ "ostrzeżenie o rozładowaniu."
-
 #~ msgid "Upright (small) battery"
 #~ msgstr "Mały akumulator (prawy górny róg)"
-
 #~ msgid ""
 #~ "Use the value defined in red_value as a time remaining to show the "
 #~ "warning dialog rather than a percentage"
 #~ msgstr ""
 #~ "Użycie wartości zdefiniowanej w red_value jako pozostałego czasu do "
 #~ "wyświetlenia okna dialogowego zamiast procentów"
-
 #~ msgid "Warn on low time rather than low percentage"
 #~ msgstr "Ostrzeżenie o pozostałym czasie zamiast procentach"
-
 #~ msgid "System is running on AC power"
 #~ msgstr "System jest zasilany z sieci"
-
 #~ msgid "System is running on battery power"
 #~ msgstr "System jest zasilany z akumulatora"
-
 #~ msgid "Battery charged (%d%%)"
 #~ msgstr "Naładowanie akumulatora (%d%%)"
-
 #~ msgid "Unknown time (%d%%) remaining"
 #~ msgstr "Nieznany czas, pozostało (%d%%)"
-
 #~ msgid "Unknown time (%d%%) until charged"
 #~ msgstr "Nieznany czas (%d%%) do naładowania"
-
 #~ msgid "%d minute (%d%%) remaining"
 #~ msgid_plural "%d minutes (%d%%) remaining"
 #~ msgstr[0] "pozostała %d minuta (%d%%)"
 #~ msgstr[1] "pozostały %d minuty (%d%%)"
 #~ msgstr[2] "pozostało %d minut (%d%%)"
-
 #~ msgid "%d minute until charged (%d%%)"
 #~ msgid_plural "%d minutes until charged (%d%%)"
 #~ msgstr[0] "%d minuta do naładowania (%d%%)"
 #~ msgstr[1] "%d minuty do naładowania (%d%%)"
 #~ msgstr[2] "%d minut do naładowania (%d%%)"
-
 #~ msgid "%d hour (%d%%) remaining"
 #~ msgid_plural "%d hours (%d%%) remaining"
 #~ msgstr[0] "pozostała %d godzina (%d%%)"
 #~ msgstr[1] "pozostały %d godziny (%d%%)"
 #~ msgstr[2] "pozostało %d godzin (%d%%)"
-
 #~ msgid "%d hour until charged (%d%%)"
 #~ msgid_plural "%d hours until charged (%d%%)"
 #~ msgstr[0] "%d godzina do naładowania (%d%%)"
 #~ msgstr[1] "%d godziny do naładowania (%d%%)"
 #~ msgstr[2] "%d godzin do naładowania (%d%%)"
-
 #~ msgid "%d %s %d %s (%d%%) remaining"
 #~ msgstr "pozostało %d %s %d %s (%d%%)"
-
 #~ msgid "hour"
 #~ msgid_plural "hours"
 #~ msgstr[0] "godzina"
 #~ msgstr[1] "godziny"
 #~ msgstr[2] "godzin"
-
 #~ msgid "minute"
 #~ msgid_plural "minutes"
 #~ msgstr[0] "minuta"
 #~ msgstr[1] "minuty"
 #~ msgstr[2] "minut"
-
 #~ msgid "%d %s %d %s until charged (%d%%)"
 #~ msgstr "%d %s %d %s do naładowania (%d%%)"
-
 #~ msgid "Battery Monitor"
 #~ msgstr "Monitor akumulatora"
-
 #~ msgid "Your battery is now fully recharged"
 #~ msgstr "Akumulator jest teraz w pełni naładowany"
-
 #~ msgid "Battery Notice"
 #~ msgstr "Informacja akumulatora"
-
 #~ msgid "You have %d%% of your total battery capacity remaining."
 #~ msgstr "Pozostało %d%% pojemności baterii"
-
 #~ msgid ""
 #~ "You have %d minute of battery power remaining (%d%% of the total "
 #~ "capacity)."
@@ -1156,7 +1093,6 @@ msgstr "Pobranie nie powiodło się"
 #~ msgstr[0] "Pozostała %d minuta pracy na baterii (%d%% z całej pojemności)."
 #~ msgstr[1] "Pozostały %d minuty pracy na baterii (%d%% z całej pojemności)."
 #~ msgstr[2] "Pozostało %d minut pracy na baterii (%d%% z całej pojemności)."
-
 #~ msgid ""
 #~ "To avoid losing your work:\n"
 #~ " • plug your laptop into external power, or\n"
@@ -1165,7 +1101,6 @@ msgstr "Pobranie nie powiodło się"
 #~ "Aby zapobiec utraceniu danych:\n"
 #~ " • podłącz komputer do gniazdka zasilania, albo\n"
 #~ " • zapisz otwarte dokumenty i zakończ pracę komputera."
-
 #~ msgid ""
 #~ "To avoid losing your work:\n"
 #~ " • suspend your laptop to save power,\n"
@@ -1176,187 +1111,130 @@ msgstr "Pobranie nie powiodło się"
 #~ " • uśpij komputer aby zaoszczędzić energię,\n"
 #~ " • podłącz komputer do gniazdka zasilania, albo\n"
 #~ " • zapisz otwarte dokumenty i zakończ pracę komputera."
-
 #~ msgid "Your battery is running low"
 #~ msgstr "Niski poziom naładowania akumulatora"
-
 #~ msgid "No battery present"
 #~ msgstr "Brak akumulatora"
-
 #~ msgid "Battery status unknown"
 #~ msgstr "Nieznany stan akumulatora"
-
 #~ msgid "N/A"
 #~ msgstr "N/D"
-
 #~ msgid "There was an error displaying help: %s"
 #~ msgstr "Wystąpił błąd podczas wyświetlania pomocy: %s"
-
 #~ msgid "This utility shows the status of your laptop battery."
 #~ msgstr "Narzędzie wyświetlające stan akumulatora laptopa."
-
 #~ msgid "HAL backend enabled."
 #~ msgstr "Włączone wsparcie HAL."
-
 #~ msgid "Legacy (non-HAL) backend enabled."
 #~ msgstr "Włączone wsparcie standardowe (nie HAL)."
-
 #~ msgid "<b>Appearance</b>"
 #~ msgstr "<b>Wygląd</b>"
-
 #~ msgid "<b>Notifications</b>"
 #~ msgstr "<b>Powiadomienia</b>"
-
 #~ msgid "<small>(shows single image for status and charge)</small>"
 #~ msgstr "<small>(wyświetla pojedynczy obraz dla stanu i ładowania)</small>"
-
 #~ msgid "<small>(two images: one for status, one for charge)</small>"
 #~ msgstr "<small>(dwa obrazy: jeden dla stanu, drugi dla ładowania)</small>"
-
 #~ msgid "Battery Charge Monitor Preferences"
 #~ msgstr "Preferencje monitora poziomu naładowania akumulatora"
-
 #~ msgid "Show _percentage remaining"
 #~ msgstr "Wyświetlanie pozostałych procen_t"
-
 #~ msgid "Show _time remaining"
 #~ msgstr "Wyświetlanie pozostałego _czasu"
-
 #~ msgid "_Compact view"
 #~ msgstr "Widok _zacieśniony"
-
 #~ msgid "_Expanded view"
 #~ msgstr "Widok _rozszerzony"
-
 #~ msgid "_Notify when battery is fully recharged"
 #~ msgstr "Powiadomie_nie o pełnym naładowaniu akumulatora"
-
 #~ msgid "_Show time/percentage:"
 #~ msgstr "_Wyświetlanie czasu/procent:"
-
 #~ msgid "_Warn when battery charge drops to:"
 #~ msgstr "_Powiadomienie gdy poziom naładowaniu akumulatora spadnie do:"
-
 #~ msgid "Percent"
 #~ msgstr "procent"
-
 #~ msgid "Minutes Remaining"
 #~ msgstr "pozostałych minut"
-
 #~ msgid "Battery Status Utility"
 #~ msgstr "Narzędzie monitorujące stan akumulatora"
-
 #~ msgid "Battery fully re-charged"
 #~ msgstr "Akumulator jest w pełni naładowany"
-
 #~ msgid "Battery power low"
 #~ msgstr "Akumulator jest na wyczerpaniu"
-
 #~ msgid "Character Palette"
 #~ msgstr "Paleta znaków"
-
 #~ msgid "Charpicker Applet Factory"
 #~ msgstr "Generator apletu wybieraczki znaków"
-
 #~ msgid "Insert characters"
 #~ msgstr "Narzędzie do wstawiania znaków"
-
 #~ msgid "Available palettes"
 #~ msgstr "Dostępne palety"
-
 #~ msgid "Insert \"%s\""
 #~ msgstr "Wstawia \"%s\""
-
 #~ msgid "Insert special character"
 #~ msgstr "Wstawia znak specjalny"
-
 #~ msgid "insert special character %s"
 #~ msgstr "wstaw znak specjalny %s"
-
 #~ msgid ""
 #~ "Gnome Panel applet for selecting strange characters that are not on my "
 #~ "keyboard. Released under GNU General Public Licence."
 #~ msgstr ""
 #~ "Aplet Panelu GNOME, pozwalający wybierać nietypowe znaki, których nie ma "
 #~ "na klawiaturze. Rozpowszechniany na licencji GNU GPL."
-
 #~ msgid "Characters shown on applet startup"
 #~ msgstr "Znaki widoczne przy uruchamianiu apletu"
-
 #~ msgid "DEPRECATED - Characters shown on applet startup"
 #~ msgstr "PRZESTARZAŁE - Znaki widoczne przy uruchamianiu apletu"
-
 #~ msgid "List of available palettes"
 #~ msgstr "Lista dostępnych palet"
-
 #~ msgid "List of strings containing the available palettes"
 #~ msgstr "Lista ciągów znaków zawierających dostępne palety"
-
 #~ msgid ""
 #~ "The string that the user had selected when the applet was last used. This "
 #~ "string will be displayed when the user starts the applet."
 #~ msgstr ""
 #~ "Ciąg znaków, jaki użytkownik wybrał podczas ostatniego użycia apletu. "
 #~ "Ciąg ten zostanie wyświetlony przy uruchomieniu apletu."
-
 #~ msgid "_Edit"
 #~ msgstr "_Modyfikuj"
-
 #~ msgid "_Palette:"
 #~ msgstr "_Paleta:"
-
 #~ msgid "Palette entry"
 #~ msgstr "Element palety"
-
 #~ msgid "Modify a palette by adding or removing characters"
 #~ msgstr "Modyfikacja palety poprzez dodawanie lub usuwanie znaków"
-
 #~ msgid "Add Palette"
 #~ msgstr "Dodawanie palety"
-
 #~ msgid "Edit Palette"
 #~ msgstr "Edycja palety"
-
 #~ msgid "Palettes list"
 #~ msgstr "Lista palet"
-
 #~ msgid "_Palettes:"
 #~ msgstr "_Palety:"
-
 #~ msgid "Add button"
 #~ msgstr "Przycisk dodawania"
-
 #~ msgid "Click to add a new palette"
 #~ msgstr "Kliknij by dodać nową paletę"
-
 #~ msgid "Edit button"
 #~ msgstr "Przycisk edycji"
-
 #~ msgid "Click to edit the selected palette"
 #~ msgstr "Kliknij by edytować wybraną paletę"
-
 #~ msgid "Delete button"
 #~ msgstr "Przycisk usuwania"
-
 #~ msgid "Click to delete the selected palette"
 #~ msgstr "Kliknij by usunąć wybraną paletę"
-
 #~ msgid "Character Palette Preferences"
 #~ msgstr "Ustawienia palety znaków"
-
 #~ msgid "CPU Frequency Scaling Monitor"
 #~ msgstr "Monitor częstotliwości procesora"
-
 #~ msgid "Monitor the CPU Frequency Scaling"
 #~ msgstr "Śledzi zmiany częstotliwość pracy procesora"
-
 #~ msgid ""
 #~ "A 0 value means to show cpu frequency, 1 to show frequency and units, and "
 #~ "2 to show percentage instead of frequency."
 #~ msgstr ""
 #~ "Wartość 0 oznacza wyświetlanie częstotliwości procesora, 1 częstotliwości "
 #~ "i jednostek, 2 procentów zamiast częstotliwości."
-
 #~ msgid ""
 #~ "A 0 value means to show the applet in graphic mode (pixmap only), 1 to "
 #~ "show the applet in text mode (not to show the pixmap) and 2 to show the "
@@ -1365,74 +1243,52 @@ msgstr "Pobranie nie powiodło się"
 #~ "Wartość 0 oznacza wyświetlanie apletu w trybie graficznym (sama "
 #~ "piksmapa), 1 wyświetlenie apletu w trybie tekstowym (bez wyświetlania "
 #~ "piksmapy), 2 wyświetlenie grafiki i tekstu."
-
 #~ msgid "CPU to Monitor"
 #~ msgstr "Procesor do śledzenia"
-
 #~ msgid "Mode to show cpu usage"
 #~ msgstr "Tryb wyświetlania zużycia procesora"
-
 #~ msgid ""
 #~ "Set the CPU to monitor. In a single processor system you don't have to "
 #~ "change it."
 #~ msgstr ""
 #~ "Ustawia procesor do śledzenia. W systemach jednoprocesorowych, nie ma "
 #~ "potrzeby zmieniania tego."
-
 #~ msgid "The type of text to display (if the text is enabled)."
 #~ msgstr "Rodzaj wyświetlanego tekstu (jeżeli tekst jest włączony)."
-
 #~ msgid "    "
 #~ msgstr "    "
-
 #~ msgid "<b>Display Settings</b>"
 #~ msgstr "<b>Ustawienia wyświetlania</b>"
-
 #~ msgid "<b>Monitor Settings</b>"
 #~ msgstr "<b>Ustawienia monitora</b>"
-
 #~ msgid "CPU Frequency Monitor Preferences"
 #~ msgstr "Ustawienia monitora częstotliwości procesora"
-
 #~ msgid "Show CPU frequency as _frequency"
 #~ msgstr "Wyświetlanie częstotliwości procesora jako _częstotliwości"
-
 #~ msgid "Show CPU frequency as _percentage"
 #~ msgstr "Wyświetlanie częstotliwości procesora jako p_rocent"
-
 #~ msgid "Show frequency _units"
 #~ msgstr "Wyświetlanie j_ednostek częstotliwości"
-
 #~ msgid "_Appearance:"
 #~ msgstr "_Wygląd:"
-
 #~ msgid "_Monitored CPU:"
 #~ msgstr "_Monitorowany procesor:"
-
 #~ msgid "Could not open help document"
 #~ msgstr "Nie można otworzyć dokumentu pomocy"
-
 #~ msgid "This utility shows the current CPU Frequency Scaling."
 #~ msgstr "Narzędzie wyświetla bieżącą zmianę częstotliwość procesora."
-
 #~ msgid "This utility shows the current CPU Frequency"
 #~ msgstr "Narzędzie wyświetla bieżącą częstotliwość procesora"
-
 #~ msgid "Graphic"
 #~ msgstr "Graficznym"
-
 #~ msgid "Text"
 #~ msgstr "Tekstowym"
-
 #~ msgid "Graphic and Text"
 #~ msgstr "Graficzno-tekstowym"
-
 #~ msgid "Frequency Scaling Unsupported"
 #~ msgstr "Zmiana częstotliwości nie jest obsługiwana"
-
 #~ msgid "CPU frequency scaling unsupported"
 #~ msgstr "Zmiana częstotliwości procesora nie jest obsługiwana"
-
 #~ msgid ""
 #~ "You will not be able to modify the frequency of your machine.  Your "
 #~ "machine may be misconfigured or not have hardware support for CPU "
@@ -1441,27 +1297,20 @@ msgstr "Pobranie nie powiodło się"
 #~ "Nie będzie można zmieniać częstotliwości pracy procesora. Komputer może "
 #~ "być niepoprawnie skonfigurowany, albo nie obsługuje sprzętowej zmiany "
 #~ "częstotliwości."
-
 #~ msgid "Disk Mounter"
 #~ msgstr "Narzędzie do montowania dysków"
-
 #~ msgid "Drive Mount Applet Factory"
 #~ msgstr "Generator apletu montowania napędów"
-
 #~ msgid "Factory for drive mount applet"
 #~ msgstr "Generator apletu montowania napędów"
-
 #~ msgid "Mount local disks and devices"
 #~ msgstr "Narzędzie montujące lokalne dyski i urządzenia"
-
 #~ msgid "(mounted)"
 #~ msgstr "(zamontowane)"
-
 #~ msgid "(not mounted)"
 #~ msgstr "(nie zamontowane)"
-
 #~ msgid "(not connected)"
 #~ msgstr "(nie podłączone)"
-
 #~ msgid "Cannot execute '%s'"
 #~ msgstr "Nie można uruchomić \"%s\""
+
