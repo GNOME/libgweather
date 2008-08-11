@@ -15,15 +15,14 @@ msgstr ""
 "Project-Id-Version: libgweather.HEAD.ar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-08-06 09:20+0100\n"
-"PO-Revision-Date: 2008-02-01 00:36+0200\n"
-"Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
+"PO-Revision-Date: 2008-08-11 23:47+0100\n"
+"Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #. TRANSLATOR: Change this to the default location name,
 #. * used when you first start the Weather Applet. This is
@@ -36,7 +35,8 @@ msgstr ""
 #. * If you do not require a DEFAULT_LOCATION, set this to
 #. * "DEFAULT_LOCATION".
 #.
-#: ../libgweather/gweather-gconf.c:164 ../libgweather/gweather-gconf.c:165
+#: ../libgweather/gweather-gconf.c:164
+#: ../libgweather/gweather-gconf.c:165
 #: ../libgweather/gweather.schemas.in.h:5
 msgid "DEFAULT_LOCATION"
 msgstr "DEFAULT_LOCATION"
@@ -52,7 +52,8 @@ msgstr "DEFAULT_LOCATION"
 #. *
 #. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
 #.
-#: ../libgweather/gweather-gconf.c:184 ../libgweather/gweather-gconf.c:185
+#: ../libgweather/gweather-gconf.c:184
+#: ../libgweather/gweather-gconf.c:185
 #: ../libgweather/gweather.schemas.in.h:3
 msgid "DEFAULT_CODE"
 msgstr "DEFAULT_CODE"
@@ -68,7 +69,8 @@ msgstr "DEFAULT_CODE"
 #. * If your default location does not have a zone, set this to
 #. * "DEFAULT_ZONE".
 #.
-#: ../libgweather/gweather-gconf.c:204 ../libgweather/gweather-gconf.c:205
+#: ../libgweather/gweather-gconf.c:204
+#: ../libgweather/gweather-gconf.c:205
 #: ../libgweather/gweather.schemas.in.h:7
 msgid "DEFAULT_ZONE"
 msgstr "DEFAULT_ZONE"
@@ -85,7 +87,8 @@ msgstr "DEFAULT_ZONE"
 #. * (or space).
 #. * If you do not have a default location, set this to DEFAULT_RADAR.
 #.
-#: ../libgweather/gweather-gconf.c:225 ../libgweather/gweather-gconf.c:226
+#: ../libgweather/gweather-gconf.c:225
+#: ../libgweather/gweather-gconf.c:226
 #: ../libgweather/gweather.schemas.in.h:6
 msgid "DEFAULT_RADAR"
 msgstr "DEFAULT_RADAR"
@@ -102,35 +105,38 @@ msgstr "DEFAULT_RADAR"
 #. * If you do not have a default location, set this to
 #. * DEFAULT_COORDINATES.
 #.
-#: ../libgweather/gweather-gconf.c:246 ../libgweather/gweather-gconf.c:247
+#: ../libgweather/gweather-gconf.c:246
+#: ../libgweather/gweather-gconf.c:247
 #: ../libgweather/gweather.schemas.in.h:4
 msgid "DEFAULT_COORDINATES"
 msgstr "DEFAULT_COORDINATES"
 
-#: ../libgweather/gweather-prefs.c:26 ../libgweather/gweather-prefs.c:37
-#: ../libgweather/gweather-prefs.c:52 ../libgweather/gweather-prefs.c:69
+#: ../libgweather/gweather-prefs.c:26
+#: ../libgweather/gweather-prefs.c:37
+#: ../libgweather/gweather-prefs.c:52
+#: ../libgweather/gweather-prefs.c:69
 msgid "Default"
 msgstr "المبدئي"
 
 #. translators: Kelvin
 #: ../libgweather/gweather-prefs.c:28
 msgid "K"
-msgstr "ك"
+msgstr "ك (كالفن)"
 
 #. translators: Celsius
 #: ../libgweather/gweather-prefs.c:30
 msgid "C"
-msgstr "م"
+msgstr "م (درجة)"
 
 #. translators: Fahrenheit
 #: ../libgweather/gweather-prefs.c:32
 msgid "F"
-msgstr "ف"
+msgstr "ف (فهرنهايت)"
 
 #. translators: meters per second
 #: ../libgweather/gweather-prefs.c:39
 msgid "m/s"
-msgstr "م/ث"
+msgstr "متر/ثا"
 
 #. translators: kilometers per hour
 #: ../libgweather/gweather-prefs.c:41
@@ -199,14 +205,16 @@ msgstr "ميل"
 
 #. TRANSLATOR: This is the default unit to use for temperature measurements.
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:95 ../libgweather/gweather-prefs.c:103
+#: ../libgweather/gweather-prefs.c:95
+#: ../libgweather/gweather-prefs.c:103
 msgid "DEFAULT_TEMP_UNIT"
 msgstr "C"
 
 #. TRANSLATOR: This is the default unit to use for wind speed.
 #. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
 #. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:133 ../libgweather/gweather-prefs.c:143
+#: ../libgweather/gweather-prefs.c:133
+#: ../libgweather/gweather-prefs.c:143
 msgid "DEFAULT_SPEED_UNIT"
 msgstr "km/h"
 
@@ -214,38 +222,30 @@ msgstr "km/h"
 #. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
 #. "mb" (millibars), "mmHg" (millimeters of mercury),
 #. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:175 ../libgweather/gweather-prefs.c:186
+#: ../libgweather/gweather-prefs.c:175
+#: ../libgweather/gweather-prefs.c:186
 msgid "DEFAULT_PRESSURE_UNIT"
 msgstr "mmHg"
 
 #. TRANSLATOR: This is the default unit to use for visibility distance.
 #. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:216 ../libgweather/gweather-prefs.c:225
+#: ../libgweather/gweather-prefs.c:216
+#: ../libgweather/gweather-prefs.c:225
 msgid "DEFAULT_DISTANCE_UNIT"
 msgstr "km"
 
 #: ../libgweather/gweather.schemas.in.h:1
 #, fuzzy
-msgid ""
-"A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
-msgstr ""
-"رمز بثلاثة أحرف لتنزيل خرائط رادار من weather.com، موجودة في http://cvs."
-"gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
+msgid "A three-digit-long code for retrieving radar maps from weather.com, found from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+msgstr "رمز بثلاثة أحرف لتنزيل خرائط رادار من weather.com، موجودة في http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
 #, fuzzy
-msgid ""
-"A unique zone for the city, as found from http://svn.gnome.org/viewvc/"
-"libgweather/trunk/data/Locations.xml.in"
-msgstr ""
-"منطقة فريدة للمدينة، كما هي موجودة في http://cvs.gnome.org/viewcvs/"
-"*checkout*/gnome-applets/gweather/Locations.xml.in"
+msgid "A unique zone for the city, as found from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+msgstr "منطقة فريدة للمدينة، كما هي موجودة في http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:8
-msgid ""
-"Determines whether the applet automatically updates its weather statistics "
-"or not."
+msgid "Determines whether the applet automatically updates its weather statistics or not."
 msgstr "يحدد ما إذا يحدث البريمج إحصائياته عن حالة الطقس أم لا."
 
 #: ../libgweather/gweather.schemas.in.h:9
@@ -261,16 +261,11 @@ msgid "Fetch a radar map on each update."
 msgstr "احصل على خريطة رادار مع كل تحديث."
 
 #: ../libgweather/gweather.schemas.in.h:12
-msgid ""
-"If true, then retrieve a radar map from a location specified by the \"radar"
-"\" key."
-msgstr ""
-"إذا ضبط لصحيح، ستسحب خارطة رادار من الموقع المحدّد في المفتاح  \"radar\"."
+msgid "If true, then retrieve a radar map from a location specified by the \"radar\" key."
+msgstr "إذا ضبط لصحيح، ستسحب خارطة رادار من الموقع المحدّد في المفتاح  \"radar\"."
 
 #: ../libgweather/gweather.schemas.in.h:13
-msgid ""
-"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-"[EW]."
+msgid "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS[EW]."
 msgstr "خطوط الطول والعرض للموقع في بلدك بشكل: DD-MM-SS[NS] DD-MM-SS[EW]."
 
 #: ../libgweather/gweather.schemas.in.h:14
@@ -283,12 +278,8 @@ msgstr "مدينة قريبة"
 
 #: ../libgweather/gweather.schemas.in.h:16
 #, fuzzy
-msgid ""
-"Nearby major zone, such as a capital city, as found from http://svn.gnome."
-"org/viewvc/libgweather/trunk/data/Locations.xml.in"
-msgstr ""
-"منطقة مجاورة كبرى مثل العاصمة، كما هو موجود في http://cvs.gnome.org/viewcvs/"
-"*checkout*/gnome-applets/gweather/Locations.xml.in"
+msgid "Nearby major zone, such as a capital city, as found from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+msgstr "منطقة مجاورة كبرى مثل العاصمة، كما هو موجود في http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -456,17 +447,24 @@ msgstr "شمال غربي"
 msgid "North - Northwest"
 msgstr "شمال - شمال غربي"
 
-#: ../libgweather/weather.c:200 ../libgweather/weather.c:624
-#: ../libgweather/weather.c:675 ../libgweather/weather.c:689
-#: ../libgweather/weather.c:702 ../libgweather/weather.c:720
-#: ../libgweather/weather.c:738 ../libgweather/weather.c:776
-#: ../libgweather/weather.c:792 ../libgweather/weather.c:815
-#: ../libgweather/weather.c:847 ../libgweather/weather.c:863
+#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:624
+#: ../libgweather/weather.c:675
+#: ../libgweather/weather.c:689
+#: ../libgweather/weather.c:702
+#: ../libgweather/weather.c:720
+#: ../libgweather/weather.c:738
+#: ../libgweather/weather.c:776
+#: ../libgweather/weather.c:792
+#: ../libgweather/weather.c:815
+#: ../libgweather/weather.c:847
+#: ../libgweather/weather.c:863
 #: ../libgweather/weather.c:883
 msgid "Unknown"
 msgstr "مجهول"
 
-#: ../libgweather/weather.c:202 ../libgweather/weather.c:220
+#: ../libgweather/weather.c:202
+#: ../libgweather/weather.c:220
 #: ../libgweather/weather.c:292
 msgid "Invalid"
 msgstr "غير صحيح"
@@ -495,7 +493,8 @@ msgstr "مكفهر"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:252 ../libgweather/weather.c:254
+#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:254
 msgid "Thunderstorm"
 msgstr "عاصفة رعدية"
 
@@ -931,10 +930,12 @@ msgstr "%I.1f كم"
 msgid "%.0fm"
 msgstr "%I.0f م"
 
-#: ../libgweather/weather.c:905 ../libgweather/weather.c:926
+#: ../libgweather/weather.c:905
+#: ../libgweather/weather.c:926
 msgid "%H:%M"
 msgstr "%OI:%OM"
 
 #: ../libgweather/weather.c:965
 msgid "Retrieval failed"
 msgstr "فشل الجلب"
+
