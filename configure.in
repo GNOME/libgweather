@@ -148,7 +148,7 @@ dnl ***************************************************************************
 AC_ARG_WITH(zoneinfo-dir,
 	    [  --with-zoneinfo-dir     tzdata zoneinfo directory],
 	    ZONEINFO_DIR="$withval")
-if test -z "$zoneinfo_dir"; then
+if test -z "$ZONEINFO_DIR"; then
     if test -d /usr/share/zoneinfo; then
 	ZONEINFO_DIR="/usr/share/zoneinfo"
     elif test -d /usr/share/lib/zoneinfo/tab; then
