@@ -8,7 +8,8 @@ while (<>) {
   next if /-364867.*Tacna/; # Tacna, Peru
   next if /6034170.*Bujumbura/; # Bujumbura, Burundi
   next if /-225337.*Akita/; # Akita, Japan
-  next if /\t10074674\t/; # Tehran, Iran
+  next if /10074674.*\tIR\t/; # Tehran, Iran
+  next if /-3414440.*\tTH\t/; # Bangkok, Thailand
 
   # "Zürich" should be listed with an English name of "Zurich"
   if (/-2554935.*Zürich/) {

@@ -85,6 +85,7 @@ while (<>) {
   if (/^LFPG;/) { s/Paris-Aeroport Charles de Gaulle/Paris, Charles de Gaulle International Airport/; }
   if (/^LIPO;/) { s/Montichia;/Montichiara;/; } # 350945
   if (/^LOAV;/) { s/Lugplatz/Flugplatz/; }
+  if (/^MMGL;/) { s/Guadalaj;/Guadalajara;/; }
   if (/^MMMD;/) { s/ lic / /; }
   if (/^MNMG;/) { s/Managua A. C. Sandino/Managua, A. C. Sandino Airport/; }
   if (/^MTPP;/) { s/ \/ Aeroport International/ International Airport/; }
@@ -104,6 +105,11 @@ while (<>) {
   if (/^TKPN;/) { s/Newcast;/Newcastle;/; }
   if (/^UBBG;/) { s/Gyanca/Gyandzha/; }
   if (/^UKDR;/) { s/Krivyy/Kryvyy/; }
+
+
+  ### "Move" some stations to keep them from matching irrelevant cities
+  if (/^VTBD;/) { s/Don Muang/Bangkok/; }
+
 
   ### Untranslate/unabbreviate the word "Airport". (The names in
   ### nsd_cccc.txt don't seem to be especially close to

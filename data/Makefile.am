@@ -49,10 +49,10 @@ check:
 	$(srcdir)/check-timezones.sh $(srcdir)/Locations.xml.in
 
 ### Locations.xml.in rebuild
-rebuild-locations: locationdb.sqlite update-locations.py city-fixups.pl station-fixups.pl
+rebuild-locations: locationdb.sqlite update-locations.py
 	($(srcdir)/update-locations.py > Locations.xml.in.new && mv Locations.xml.in.new Locations.xml.in) || rm -f Locations.xml.in
 
-locationdb.sqlite: build-locationdb.pl major-cities.txt sources/nsd_cccc.txt sources/POP_PLACES.txt sources/US_CONCISE.txt sources/geonames_dd_dms_date_*.txt
+locationdb.sqlite: build-locationdb.pl major-cities.txt sources/nsd_cccc.txt sources/POP_PLACES.txt sources/US_CONCISE.txt sources/geonames_dd_dms_date_*.txt city-fixups.pl station-fixups.pl
 	$(srcdir)/build-locationdb.pl
 
 EXTRA_DIST =	\

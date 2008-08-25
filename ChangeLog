@@ -1,3 +1,21 @@
+2008-08-25  Dan Winship  <danw@gnome.org>
+
+	* data/city-fixups.pl: Remove duplicate Bangkok, Thailand under a
+	separate name. #548630.
+
+	* data/station-fixups.pl: Fix typo in MMGL (Guadalajara, Mexico)
+	#549047. Rename VTBD (Don Muang, Thailand) to "Bangkok" to avoid
+	adding a useless extra entry (especially since that entry was
+	buggy for another reason anyway). #548630.
+
+	* data/Locations.xml.in: Regen. Adds the string "Guadalajara", but
+	that was there in 2.22 so translations of it are already
+	available.
+
+	* data/Makefile.am (rebuild-locations, locationdb.sqlite): Fix;
+	city-fixups.pl and station-fixups.pl changes require a locationdb
+	rebuild, not just Locations.xml.in
+
 2008-08-19  Vincent Untz  <vuntz@gnome.org>
 
 	* configure.in: fix --with-zoneinfo-dir to actually work.
