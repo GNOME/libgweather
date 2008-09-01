@@ -1,3 +1,49 @@
+libgweather 2.23.92
+===================
+
+libgweather
+
+	* Fix build with old gcc (Jens Granseuer)
+	* Parse decimal degrees rather than d/m/s (Dan)
+
+Locations.xml
+
+	* Fix a regexp to not mangle the spacing around "/" in some cases (Dan)
+	* Fix various comments in Locations.xml (Dan)
+	* Drop a lot of cities that are not useful in this database (Dan)
+	* Make <coordinates> use decimal degrees rather than converting them to
+	  degrees/minutes/seconds (Dan)
+	* Fix Bangkok, Thailand (Dan)
+	* Fix typo in MMGL so it appears again (Guadalajara, Mexico) (Dan)
+
+Misc
+
+	* Make --with-zoneinfo-dir configure flag work (Matt Keenan)
+	* Build system fixes for Locations.xml (Dan)
+	* Add a gweather-uninstalled.pc.in file (Damien Carbery, Vincent)
+
+Translators
+
+	* Djihed Afifi (ar)
+	* Runa Bhattacharjee (bn_IN)
+	* Andre Klapper (de)
+	* Jorge Gonzalez (es)
+	* Iñaki Larrañaga Murgoitio (eu)
+	* Ilkka Tuohela (fi)
+	* Claude Paroz (fr)
+	* Seán de Búrca (ga)
+	* Ignacio Casal Quinteiro (gl)
+	* Yair Hershkovitz (he)
+	* Shankar Prasad (kn)
+	* Arangel Angov (mk)
+	* Kjartan Maraas (nb)
+	* Tomasz Dominikowski (pl)
+	* Fábio Nogueira (pt_BR)
+	* Duarte Loreto (pt)
+	* Daniel Nylander (sv)
+	* Theppitak Karoonboonyanan (th)
+	* Nguyễn Thái Ngọc Duy (vi)
+
 libgweather 2.23.6
 ==================
 
