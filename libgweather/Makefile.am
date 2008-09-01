@@ -92,7 +92,7 @@ uninstall-local:
 	done
 endif
 
-EXTRA_DIST = gweather.pc.in $(schema_in_files)
+EXTRA_DIST = gweather.pc.in gweather-uninstalled.pc.in $(schema_in_files)
 
 EXTRA_PROGRAMS = test_metar
 
