@@ -1,3 +1,26 @@
+2008-09-03  Dan Winship  <danw@gnome.org>
+
+	* libgweather/*.[ch]: Clean up the GPL notices and #includes.
+	Remove most of the "Author: ..." comments since they're mostly
+	wrong at this point anyway. The last remaining part of #538657.
+
+	* AUTHORS: add this, containing just the original author of
+	gweather applet, which is wrong, but it corresponds to what the .c
+	files claimed previously, and we'll figure out who else to list
+	later.
+
+	* libgweather/gweather-location.c:
+	* libgweather/gweather-location.h:
+	* libgweather/gweather-timezone.c:
+	* libgweather/gweather-timezone.h:
+	* libgweather/location-entry.c:
+	* libgweather/location-entry.h:
+	* libgweather/timezone-menu.c:
+	* libgweather/timezone-menu.h: Add Copyright and fix license text
+	to say LGPL rather than GPL; it doesn't really matter at this
+	point since the rest of the library is still GPL, but it may be
+	useful in the future.
+
 2008-09-01  Vincent Untz  <vuntz@gnome.org>
 
 	* configure.in: post-release bump to 2.23.92

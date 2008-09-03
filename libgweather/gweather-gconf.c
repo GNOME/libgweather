@@ -15,9 +15,8 @@
  * General Public License for more details.
  *
  * You should have received a copy of the GNU General Public
- * License along with this library; if not, write to the
- * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
+ * License along with this library; if not, see
+ * <http://www.gnu.org/licenses/>.
  *
  * Authors:
  *     Philip Langdale <philipl@mail.utexas.edu>
@@ -25,13 +24,14 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#  include <config.h>
+#include <config.h>
 #endif
 
 #include <string.h>
 #include <glib/gi18n-lib.h>
+
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
-#include <libgweather/gweather-gconf.h>
+#include "gweather-gconf.h"
 
 struct _GWeatherGConf
 {

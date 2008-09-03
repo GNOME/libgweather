@@ -1,6 +1,4 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-/* $Id: test_metar.c 9270 2006-01-15 10:15:19Z davyd $ */
-
 /*
  * Simple program to reproduce METAR parsing results from command line
  */

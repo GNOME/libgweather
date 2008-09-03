@@ -1,23 +1,29 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-/* $Id: weather-bom.c 9804 2006-08-07 14:05:56Z davyd $ */
-
-/*
- *  Papadimitriou Spiros <spapadim+@cs.cmu.edu>
+/* weather-bom.c - Australian Bureau of Meteorology forecast source
  *
- *  This code released under the GNU GPL.
- *  Read the file COPYING for more information.
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
  *
- *  Weather server functions (BOM)
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
  *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, see
+ * <http://www.gnu.org/licenses/>.
  */
 
 #ifdef HAVE_CONFIG_H
-#  include <config.h>
+#include <config.h>
 #endif
 
 #include <string.h>
+
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
-#include <libgweather/weather.h>
+#include "weather.h"
 #include "weather-priv.h"
 
 static gchar *
