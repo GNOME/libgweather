@@ -321,6 +321,21 @@ gweather_location_unref (GWeatherLocation *loc)
     g_slice_free (GWeatherLocation, loc);
 }
 
+GType
+gweather_location_get_type (void)
+{
+    static volatile gsize type_volatile = 0;
+
+    if (g_once_init_enter (&type_volatile)) {
+	GType type = g_boxed_type_register_static (
+	    g_intern_static_string ("GWeatherLocation"),
+	    (GBoxedCopyFunc) gweather_location_ref,
+	    (GBoxedFreeFunc) gweather_location_unref);
+	g_once_init_leave (&type_volatile, type);
+    }
+    return type_volatile;
+}
+
 const char *
 gweather_location_get_name (GWeatherLocation *loc)
 {

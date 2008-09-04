@@ -35,7 +35,7 @@ typedef struct _GWeatherLocation GWeatherLocation;
 typedef struct _GWeatherWeather  GWeatherWeather;
 typedef struct _GWeatherForecast GWeatherForecast;
 
-typedef enum {
+typedef enum { /*< underscore_name=gweather_location_level >*/
     GWEATHER_LOCATION_WORLD,
     GWEATHER_LOCATION_REGION,
     GWEATHER_LOCATION_COUNTRY,
@@ -46,6 +46,9 @@ typedef enum {
     GWEATHER_LOCATION_CITY,
     GWEATHER_LOCATION_WEATHER_STATION
 } GWeatherLocationLevel;
+
+GType gweather_location_get_type (void);
+#define GWEATHER_TYPE_LOCATION (gweather_location_get_type ())
 
 GWeatherLocation      *gweather_location_new_world      (gboolean           use_regions);
 GWeatherLocation      *gweather_location_ref            (GWeatherLocation  *loc);

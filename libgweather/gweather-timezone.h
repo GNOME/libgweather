@@ -25,11 +25,14 @@
 #error "libgweather should only be used if you understand that it's subject to change, and is not supported as a fixed API/ABI or as part of the platform"
 #endif
 
-#include <glib.h>
+#include <glib-object.h>
 
 G_BEGIN_DECLS
 
 typedef struct _GWeatherTimezone GWeatherTimezone;
+
+GType gweather_timezone_get_type (void);
+#define GWEATHER_TYPE_TIMEZONE (gweather_timezone_get_type ())
 
 const char       *gweather_timezone_get_name       (GWeatherTimezone *zone);
 const char       *gweather_timezone_get_tzid       (GWeatherTimezone *zone);

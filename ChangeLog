@@ -1,3 +1,18 @@
+2008-09-04  Dan Winship  <danw@gnome.org>
+
+	Set libgweather up for bindings. Part of #547824
+
+	* configure.in: set GLIB_MKENUMS
+
+	* libgweather/Makefile.am: build gweather-enum-types.[ch]
+
+	* libgweather/gweather-enum-types.c.tmpl:
+	* libgweather/gweather-enum-types.h.tmpl: Add these
+
+	* libgweather/gweather-location.c (gweather_location_get_type):
+	* libgweather/gweather-timezone.c (gweather_timezone_get_type):
+	register as boxed types
+
 2008-09-03  Dan Winship  <danw@gnome.org>
 
 	* libgweather/*.[ch]: Clean up the GPL notices and #includes.

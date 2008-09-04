@@ -1,10 +1,15 @@
 lib_LTLIBRARIES = libgweather.la
 
 libgweatherincdir = $(includedir)/libgweather
-libgweatherinc_HEADERS = \
-	weather.h gweather-gconf.h gweather-prefs.h gweather-xml.h \
+gweather_old_headers = \
+	weather.h gweather-gconf.h gweather-prefs.h gweather-xml.h
+gweather_new_headers = \
 	gweather-location.h location-entry.h \
 	gweather-timezone.h timezone-menu.h
+libgweatherinc_HEADERS = \
+	$(gweather_old_headers)		\
+	$(gweather_new_headers)		\
+	gweather-enum-types.h
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gweather.pc
@@ -14,6 +19,7 @@ libgweather_la_SOURCES = \
 	weather-metar.c weather-iwin.c weather-met.c \
 	weather-bom.c weather-wx.c \
 	weather-sun.c \
+	gweather-enum-types.c \
 	gweather-prefs.c gweather-prefs.h \
 	gweather-gconf.c gweather-gconf.h \
 	gweather-xml.c gweather-xml.h \
@@ -43,6 +49,22 @@ libgweather_la_LIBADD = \
 
 libgweather_la_LDFLAGS = \
 	-version-info $(LT_VERSION) -no-undefined
+
+MKENUMS_GENERATED = gweather-enum-types.c gweather-enum-types.h
+
+gweather-enum-types.h: $(gweather_new_headers)
+	( cd $(srcdir) && $(GLIB_MKENUMS) --template gweather-enum-types.h.tmpl \
+		$(gweather_new_headers) ) > gweather-enum-types.h.tmp \
+	&& mv gweather-enum-types.h.tmp gweather-enum-types.h \
+	|| rm -f gweather-enum-type.h.tmp
+
+gweather-enum-types.c: $(libgweatherinclude_HEADERS)
+	( cd $(srcdir) && $(GLIB_MKENUMS) --template gweather-enum-types.c.tmpl \
+		$(gweather_new_headers) ) > gweather-enum-types.c.tmp \
+	&& mv gweather-enum-types.c.tmp gweather-enum-types.c \
+	|| rm -f gweather-enum-type.c.tmp
+
+BUILT_SOURCES = $(MKENUMS_GENERATED)
 
 test_metar_SOURCES = test_metar.c
 
@@ -96,4 +118,4 @@ EXTRA_DIST = gweather.pc.in gweather-uninstalled.pc.in $(schema_in_files)
 
 EXTRA_PROGRAMS = test_metar
 
-CLEANFILES = $(schema_DATA) $(EXTRA_PROGRAMS)
+CLEANFILES = $(schema_DATA) $(EXTRA_PROGRAMS) $(MKENUMS_GENERATED)
