@@ -1,0 +1,104 @@
+/* -*- Mode: C; c-basic-offset: 4 -*-
+ *
+ * gweather.override: overrides for gweather
+ */
+%%
+headers
+#define NO_IMPORT_PYGOBJECT
+#include "pygobject.h"
+
+#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
+#include <libgweather/gweather-location.h>
+#include <libgweather/gweather-timezone.h>
+#include <libgweather/location-entry.h>
+#include <libgweather/timezone-menu.h>
+#include <libgweather/gweather-enum-types.h>
+
+%%
+modulename gweather
+%%
+import gtk.Entry as PyGtkEntry_Type
+import gtk.ComboBox as PyGtkComboBox_Type
+%%
+ignore
+  gweather_location_get_weather
+  gweather_location_free_children
+  gweather_location_free_timezones
+%%
+ignore-glob
+  *_get_type
+  *_ref
+  *_unref
+%%
+override gweather_location_get_children
+static PyObject *
+_wrap_gweather_location_get_children (PyGObject *self, PyObject *args)
+{
+    GWeatherLocation *loc, **children;
+    int i;
+    PyObject *pychildren, *pychild;
+
+    loc = pyg_boxed_get (self, GWeatherLocation);
+    children = gweather_location_get_children (loc);
+    for (i = 0; children[i]; i++)
+	;
+
+    pychildren = PyList_New (i);
+    for (i = 0; children[i]; i++) {
+	pychild = pyg_boxed_new (GWEATHER_TYPE_LOCATION, children[i], TRUE, TRUE);
+	PyList_SetItem (pychildren, i, pychild);
+    }
+
+    gweather_location_free_children (loc, children);
+    return pychildren;
+}
+%%
+override gweather_location_get_timezones
+static PyObject *
+_wrap_gweather_location_get_timezones (PyGObject *self, PyObject *args)
+{
+    GWeatherLocation *loc;
+    GWeatherTimezone **zones;
+    int i;
+    PyObject *pyzones, *pyzone;
+
+    loc = pyg_boxed_get (self, GWeatherLocation);
+    zones = gweather_location_get_timezones (loc);
+    for (i = 0; zones[i]; i++)
+	;
+
+    pyzones = PyList_New (i);
+    for (i = 0; zones[i]; i++) {
+	pyzone = pyg_boxed_new (GWEATHER_TYPE_TIMEZONE, zones[i], TRUE, TRUE);
+	PyList_SetItem (pyzones, i, pyzone);
+    }
+
+    gweather_location_free_timezones (loc, zones);
+    return pyzones;
+}
+%%
+override gweather_location_get_coords
+static PyObject *
+_wrap_gweather_location_get_coords (PyGObject *self, PyObject *args)
+{
+    GWeatherLocation *loc;
+    double latitude, longitude;
+    PyObject *ret;
+
+    loc = pyg_boxed_get (self, GWeatherLocation);
+    if (!gweather_location_has_coords (loc)) {
+	Py_INCREF (Py_None);
+	return Py_None;
+    }
+
+    gweather_location_get_coords (loc, &latitude, &longitude);
+    ret = PyTuple_New (2);
+    PyTuple_SetItem (ret, 0, PyFloat_FromDouble (latitude));
+    PyTuple_SetItem (ret, 1, PyFloat_FromDouble (longitude));
+    return ret;
+}
+%%
+new-constructor GWEATHER_TYPE_LOCATION_ENTRY
+%%
+new-constructor GWEATHER_TYPE_TIMEZONE_MENU
+%%

@@ -1,0 +1,326 @@
+;; -*- scheme -*-
+; boxed definitions ...
+
+(define-boxed Location
+  (in-module "GWeather")
+  (c-name "GWeatherLocation")
+  (gtype-id "GWEATHER_TYPE_LOCATION")
+)
+
+(define-boxed Timezone
+  (in-module "GWeather")
+  (c-name "GWeatherTimezone")
+  (gtype-id "GWEATHER_TYPE_TIMEZONE")
+)
+
+; interface definitions ...
+
+; object definitions ...
+
+(define-object LocationEntry
+  (in-module "GWeather")
+  (parent "GtkEntry")
+  (c-name "GWeatherLocationEntry")
+  (gtype-id "GWEATHER_TYPE_LOCATION_ENTRY")
+)
+
+(define-object TimezoneMenu
+  (in-module "GWeather")
+  (parent "GtkComboBox")
+  (c-name "GWeatherTimezoneMenu")
+  (gtype-id "GWEATHER_TYPE_TIMEZONE_MENU")
+)
+
+; pointer definitions ...
+
+;; Enumerations and Flags ...
+
+(define-enum LocationLevel
+  (in-module "GWeather")
+  (c-name "GWeatherLocationLevel")
+  (gtype-id "GWEATHER_TYPE_LOCATION_LEVEL")
+  (values
+    '("world" "GWEATHER_LOCATION_WORLD")
+    '("region" "GWEATHER_LOCATION_REGION")
+    '("country" "GWEATHER_LOCATION_COUNTRY")
+    '("adm1" "GWEATHER_LOCATION_ADM1")
+    '("adm2" "GWEATHER_LOCATION_ADM2")
+    '("city" "GWEATHER_LOCATION_CITY")
+    '("weather-station" "GWEATHER_LOCATION_WEATHER_STATION")
+  )
+)
+
+
+;; From gweather-enum-types.h
+
+(define-function g_weather_location_level_get_type
+  (c-name "g_weather_location_level_get_type")
+  (return-type "GType")
+)
+
+
+
+;; From gweather-location.h
+
+(define-function location_get_type
+  (c-name "gweather_location_get_type")
+  (return-type "GType")
+)
+
+(define-function location_new_world
+  (c-name "gweather_location_new_world")
+  (return-type "GWeatherLocation*")
+  (parameters
+    '("gboolean" "use_regions")
+  )
+)
+
+(define-method ref
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_ref")
+  (return-type "GWeatherLocation*")
+)
+
+(define-method unref
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_unref")
+  (return-type "none")
+)
+
+(define-method get_name
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_get_name")
+  (return-type "const-char*")
+)
+
+(define-method get_sort_name
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_get_sort_name")
+  (return-type "const-char*")
+)
+
+(define-method get_level
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_get_level")
+  (return-type "GWeatherLocationLevel")
+)
+
+(define-method get_parent
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_get_parent")
+  (return-type "GWeatherLocation*")
+)
+
+(define-method get_children
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_get_children")
+  (return-type "GWeatherLocation**")
+)
+
+(define-method free_children
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_free_children")
+  (return-type "none")
+  (parameters
+    '("GWeatherLocation**" "children")
+  )
+)
+
+(define-method has_coords
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_has_coords")
+  (return-type "gboolean")
+)
+
+(define-method get_coords
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_get_coords")
+  (return-type "none")
+  (parameters
+    '("double*" "latitude")
+    '("double*" "longitude")
+  )
+)
+
+(define-method get_distance
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_get_distance")
+  (return-type "double")
+  (parameters
+    '("GWeatherLocation*" "loc2")
+  )
+)
+
+(define-method get_country
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_get_country")
+  (return-type "const-char*")
+)
+
+(define-method get_timezone
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_get_timezone")
+  (return-type "GWeatherTimezone*")
+)
+
+(define-method get_timezones
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_get_timezones")
+  (return-type "GWeatherTimezone**")
+)
+
+(define-method free_timezones
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_free_timezones")
+  (return-type "none")
+  (parameters
+    '("GWeatherTimezone**" "zones")
+  )
+)
+
+(define-method get_code
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_get_code")
+  (return-type "const-char*")
+)
+
+(define-method get_city_name
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_get_city_name")
+  (return-type "char*")
+)
+
+(define-method get_weather
+  (of-object "GWeatherLocation")
+  (c-name "gweather_location_get_weather")
+  (return-type "WeatherInfo*")
+)
+
+
+
+;; From gweather-timezone.h
+
+(define-function timezone_get_type
+  (c-name "gweather_timezone_get_type")
+  (return-type "GType")
+)
+
+(define-method get_name
+  (of-object "GWeatherTimezone")
+  (c-name "gweather_timezone_get_name")
+  (return-type "const-char*")
+)
+
+(define-method get_tzid
+  (of-object "GWeatherTimezone")
+  (c-name "gweather_timezone_get_tzid")
+  (return-type "const-char*")
+)
+
+(define-method get_offset
+  (of-object "GWeatherTimezone")
+  (c-name "gweather_timezone_get_offset")
+  (return-type "int")
+)
+
+(define-method has_dst
+  (of-object "GWeatherTimezone")
+  (c-name "gweather_timezone_has_dst")
+  (return-type "gboolean")
+)
+
+(define-method get_dst_offset
+  (of-object "GWeatherTimezone")
+  (c-name "gweather_timezone_get_dst_offset")
+  (return-type "int")
+)
+
+(define-method ref
+  (of-object "GWeatherTimezone")
+  (c-name "gweather_timezone_ref")
+  (return-type "GWeatherTimezone*")
+)
+
+(define-method unref
+  (of-object "GWeatherTimezone")
+  (c-name "gweather_timezone_unref")
+  (return-type "none")
+)
+
+
+
+;; From location-entry.h
+
+(define-function location_entry_get_type
+  (c-name "gweather_location_entry_get_type")
+  (return-type "GType")
+)
+
+(define-function location_entry_new
+  (c-name "gweather_location_entry_new")
+  (is-constructor-of "GWeatherLocationEntry")
+  (return-type "GtkWidget*")
+  (properties
+    '("top")
+  )
+)
+
+(define-method set_location
+  (of-object "GWeatherLocationEntry")
+  (c-name "gweather_location_entry_set_location")
+  (return-type "none")
+  (parameters
+    '("GWeatherLocation*" "loc")
+  )
+)
+
+(define-method get_location
+  (of-object "GWeatherLocationEntry")
+  (c-name "gweather_location_entry_get_location")
+  (return-type "GWeatherLocation*")
+)
+
+(define-method set_city
+  (of-object "GWeatherLocationEntry")
+  (c-name "gweather_location_entry_set_city")
+  (return-type "none")
+  (parameters
+    '("const-char*" "city_name")
+    '("const-char*" "code")
+  )
+)
+
+
+
+;; From timezone-menu.h
+
+(define-function timezone_menu_get_type
+  (c-name "gweather_timezone_menu_get_type")
+  (return-type "GType")
+)
+
+(define-function timezone_menu_new
+  (c-name "gweather_timezone_menu_new")
+  (is-constructor-of "GWeatherTimezoneMenu")
+  (return-type "GtkWidget*")
+  (properties
+    '("top")
+  )
+)
+
+(define-method set_tzid
+  (of-object "GWeatherTimezoneMenu")
+  (c-name "gweather_timezone_menu_set_tzid")
+  (return-type "none")
+  (parameters
+    '("const-char*" "tzid")
+  )
+)
+
+(define-method get_tzid
+  (of-object "GWeatherTimezoneMenu")
+  (c-name "gweather_timezone_menu_get_tzid")
+  (return-type "const-char*")
+)
+
+
