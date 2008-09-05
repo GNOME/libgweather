@@ -1,6 +1,6 @@
 # This is the Bulgarian translation of libgweather po-file.
 # Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
-# Alexander Shopov <ash@contact.bg>, 2002, 2004, 2005, 2007.
+# Alexander Shopov <ash@contact.bg>, 2002, 2004, 2005, 2007, 2008.
 # Yanko Kaneti <yaneti@declera.com>, 2003.
 # Vladimir Petkov <vpetkov@i-space.org>, 2004, 2005.
 # Peter Slavov <pslavov@i-space.org>, 2004.
@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgweather trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-18 11:12+0300\n"
-"PO-Revision-Date: 2008-05-16 17:54+0300\n"
-"Last-Translator: Yavor Doganov <yavor@gnu.org>\n"
+"POT-Creation-Date: 2008-09-05 13:16+0300\n"
+"PO-Revision-Date: 2008-09-05 13:16+0300\n"
+"Last-Translator: Alexander Shopov <ash@contact.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgstr ""
 #. * If you do not require a DEFAULT_LOCATION, set this to
 #. * "DEFAULT_LOCATION".
 #.
-#: ../libgweather/gweather-gconf.c:163 ../libgweather/gweather-gconf.c:164
+#: ../libgweather/gweather-gconf.c:164 ../libgweather/gweather-gconf.c:165
 #: ../libgweather/gweather.schemas.in.h:5
 msgid "DEFAULT_LOCATION"
 msgstr "София"
@@ -47,7 +47,7 @@ msgstr "София"
 #. *
 #. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
 #.
-#: ../libgweather/gweather-gconf.c:183 ../libgweather/gweather-gconf.c:184
+#: ../libgweather/gweather-gconf.c:184 ../libgweather/gweather-gconf.c:185
 #: ../libgweather/gweather.schemas.in.h:3
 msgid "DEFAULT_CODE"
 msgstr "LBSF"
@@ -63,7 +63,7 @@ msgstr "LBSF"
 #. * If your default location does not have a zone, set this to
 #. * "DEFAULT_ZONE".
 #.
-#: ../libgweather/gweather-gconf.c:203 ../libgweather/gweather-gconf.c:204
+#: ../libgweather/gweather-gconf.c:204 ../libgweather/gweather-gconf.c:205
 #: ../libgweather/gweather.schemas.in.h:7
 msgid "DEFAULT_ZONE"
 msgstr "DEFAULT_ZONE"
@@ -80,7 +80,7 @@ msgstr "DEFAULT_ZONE"
 #. * (or space).
 #. * If you do not have a default location, set this to DEFAULT_RADAR.
 #.
-#: ../libgweather/gweather-gconf.c:224 ../libgweather/gweather-gconf.c:225
+#: ../libgweather/gweather-gconf.c:225 ../libgweather/gweather-gconf.c:226
 #: ../libgweather/gweather.schemas.in.h:6
 msgid "DEFAULT_RADAR"
 msgstr "DEFAULT_RADAR"
@@ -97,111 +97,111 @@ msgstr "DEFAULT_RADAR"
 #. * If you do not have a default location, set this to
 #. * DEFAULT_COORDINATES.
 #.
-#: ../libgweather/gweather-gconf.c:245 ../libgweather/gweather-gconf.c:246
+#: ../libgweather/gweather-gconf.c:246 ../libgweather/gweather-gconf.c:247
 #: ../libgweather/gweather.schemas.in.h:4
 msgid "DEFAULT_COORDINATES"
 msgstr "42-39N 023-23E"
 
-#: ../libgweather/gweather-prefs.c:25 ../libgweather/gweather-prefs.c:36
-#: ../libgweather/gweather-prefs.c:51 ../libgweather/gweather-prefs.c:68
+#: ../libgweather/gweather-prefs.c:34 ../libgweather/gweather-prefs.c:45
+#: ../libgweather/gweather-prefs.c:60 ../libgweather/gweather-prefs.c:77
 msgid "Default"
-msgstr "По подразбиране"
+msgstr "Стандартно"
 
 #. translators: Kelvin
-#: ../libgweather/gweather-prefs.c:27
+#: ../libgweather/gweather-prefs.c:36
 msgid "K"
-msgstr "K"
+msgstr "K"
 
 #. translators: Celsius
-#: ../libgweather/gweather-prefs.c:29
+#: ../libgweather/gweather-prefs.c:38
 msgid "C"
-msgstr "C"
+msgstr "℃"
 
 #. translators: Fahrenheit
-#: ../libgweather/gweather-prefs.c:31
+#: ../libgweather/gweather-prefs.c:40
 msgid "F"
-msgstr "F"
+msgstr "℉"
 
 #. translators: meters per second
-#: ../libgweather/gweather-prefs.c:38
+#: ../libgweather/gweather-prefs.c:47
 msgid "m/s"
 msgstr "м/сек"
 
 #. translators: kilometers per hour
-#: ../libgweather/gweather-prefs.c:40
+#: ../libgweather/gweather-prefs.c:49
 msgid "km/h"
 msgstr "км/ч"
 
 #. translators: miles per hour
-#: ../libgweather/gweather-prefs.c:42
+#: ../libgweather/gweather-prefs.c:51
 msgid "mph"
 msgstr "мили/ч"
 
 #. translators: knots (speed unit)
-#: ../libgweather/gweather-prefs.c:44
+#: ../libgweather/gweather-prefs.c:53
 msgid "knots"
 msgstr "възли"
 
 #. translators: wind speed
-#: ../libgweather/gweather-prefs.c:46
+#: ../libgweather/gweather-prefs.c:55
 msgid "Beaufort scale"
 msgstr "Скала на Бофорт"
 
 #. translators: kilopascals
-#: ../libgweather/gweather-prefs.c:53
+#: ../libgweather/gweather-prefs.c:62
 msgid "kPa"
 msgstr "кПа"
 
 #. translators: hectopascals
-#: ../libgweather/gweather-prefs.c:55
+#: ../libgweather/gweather-prefs.c:64
 msgid "hPa"
 msgstr "хПа"
 
 #. translators: millibars
-#: ../libgweather/gweather-prefs.c:57
+#: ../libgweather/gweather-prefs.c:66
 msgid "mb"
 msgstr "mb"
 
 #. translators: millimeters of mercury
-#: ../libgweather/gweather-prefs.c:59
+#: ../libgweather/gweather-prefs.c:68
 msgid "mmHg"
 msgstr "mmHg"
 
 #. translators: inches of mercury
-#: ../libgweather/gweather-prefs.c:61
+#: ../libgweather/gweather-prefs.c:70
 msgid "inHg"
 msgstr "inHg"
 
 #. translators: atmosphere
-#: ../libgweather/gweather-prefs.c:63
+#: ../libgweather/gweather-prefs.c:72
 msgid "atm"
 msgstr "атмосфери"
 
 #. translators: meters
-#: ../libgweather/gweather-prefs.c:70
+#: ../libgweather/gweather-prefs.c:79
 msgid "m"
 msgstr "м"
 
 #. translators: kilometers
-#: ../libgweather/gweather-prefs.c:72
+#: ../libgweather/gweather-prefs.c:81
 msgid "km"
 msgstr "км"
 
 #. translators: miles
-#: ../libgweather/gweather-prefs.c:74
+#: ../libgweather/gweather-prefs.c:83
 msgid "mi"
 msgstr "мили"
 
 #. TRANSLATOR: This is the default unit to use for temperature measurements.
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:93 ../libgweather/gweather-prefs.c:102
+#: ../libgweather/gweather-prefs.c:103 ../libgweather/gweather-prefs.c:111
 msgid "DEFAULT_TEMP_UNIT"
 msgstr "C"
 
 #. TRANSLATOR: This is the default unit to use for wind speed.
 #. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
 #. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:131 ../libgweather/gweather-prefs.c:141
+#: ../libgweather/gweather-prefs.c:141 ../libgweather/gweather-prefs.c:151
 msgid "DEFAULT_SPEED_UNIT"
 msgstr "m/s"
 
@@ -209,33 +209,32 @@ msgstr "m/s"
 #. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
 #. "mb" (millibars), "mmHg" (millimeters of mercury),
 #. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:172 ../libgweather/gweather-prefs.c:183
+#: ../libgweather/gweather-prefs.c:183 ../libgweather/gweather-prefs.c:194
 msgid "DEFAULT_PRESSURE_UNIT"
 msgstr "hPa"
 
 #. TRANSLATOR: This is the default unit to use for visibility distance.
 #. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:212 ../libgweather/gweather-prefs.c:221
+#: ../libgweather/gweather-prefs.c:224 ../libgweather/gweather-prefs.c:233
 msgid "DEFAULT_DISTANCE_UNIT"
 msgstr "m"
 
 #: ../libgweather/gweather.schemas.in.h:1
 msgid ""
 "A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/"
-"Locations.xml.in"
+"from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
 msgstr ""
-"Трибуквен код за получаването на радарни карти от weather.com. Проверете "
-"вашето местоположение в http://cvs.gnome.org/viewcvs/*checkout*/gnome-"
-"applets/gweather/Locations.xml.in"
+"Трицифрен код за получаването на радарни карти от weather.com. Проверете "
+"вашето местоположение в http://svn.gnome.org/viewvc/libgweather/trunk/data/"
+"Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
 msgid ""
-"A unique zone for the city, as found from http://cvs.gnome.org/viewcvs/"
-"*checkout*/gnome-applets/gweather/Locations.xml.in"
+"A unique zone for the city, as found from http://svn.gnome.org/viewvc/"
+"libgweather/trunk/data/Locations.xml.in"
 msgstr ""
-"Уникална зона в града. Проверете вашата зона в http://cvs.gnome.org/viewcvs/"
-"*checkout*/gnome-applets/gweather/Locations.xml.in"
+"Уникална зона в града. Проверете вашата зона в http://svn.gnome.org/viewvc/"
+"libgweather/trunk/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:8
 msgid ""
@@ -263,7 +262,7 @@ msgid ""
 "\" key."
 msgstr ""
 "Ако е истина, информацията за радарната карта се взима от местоположението "
-"определено от настройката „radar“."
+"определено от ключа „radar“."
 
 #: ../libgweather/gweather.schemas.in.h:13
 msgid ""
@@ -283,11 +282,11 @@ msgstr "Близък град"
 
 #: ../libgweather/gweather.schemas.in.h:16
 msgid ""
-"Nearby major zone, such as a capital city, as found from http://cvs.gnome."
-"org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
+"Nearby major zone, such as a capital city, as found from http://svn.gnome."
+"org/viewvc/libgweather/trunk/data/Locations.xml.in"
 msgstr ""
-"Близка голяма зона, като столица. Проверете вашата зона в http://cvs.gnome."
-"org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
+"Близка голяма зона, като столица. Проверете вашата зона в http://svn.gnome."
+"org/viewvc/libgweather/trunk/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -377,483 +376,483 @@ msgstr "Информация за времето в дадено местопо�
 msgid "Zone location"
 msgstr "Местоположение на зоната"
 
-#: ../libgweather/weather-iwin.c:135 ../libgweather/weather-metar.c:554
-#: ../libgweather/weather-metar.c:582
+#. Translators: %d is an error code, and %s the error string
+#: ../libgweather/weather-metar.c:499
+#, c-format
+msgid "Failed to get METAR data: %d %s.\n"
+msgstr "Неуспех при получаването на данните от METAR: %d %s.\n"
+
+#: ../libgweather/weather-metar.c:536
 msgid "WeatherInfo missing location"
 msgstr "Местоположението го няма в синоптичната информация."
 
-#: ../libgweather/weather-metar.c:527 ../libgweather/weather-metar.c:562
-#: ../libgweather/weather-wx.c:63
-msgid "Failed to get METAR data.\n"
-msgstr "Неуспех при получаването на данните от METAR.\n"
-
-#: ../libgweather/weather.c:188
+#: ../libgweather/weather.c:190
 msgid "Variable"
 msgstr "Променлива посока"
 
-#: ../libgweather/weather.c:189
+#: ../libgweather/weather.c:191
 msgid "North"
 msgstr "Север"
 
-#: ../libgweather/weather.c:189
+#: ../libgweather/weather.c:191
 msgid "North - NorthEast"
 msgstr "Север — североизток"
 
-#: ../libgweather/weather.c:189
+#: ../libgweather/weather.c:191
 msgid "Northeast"
 msgstr "Североизток"
 
-#: ../libgweather/weather.c:189
+#: ../libgweather/weather.c:191
 msgid "East - NorthEast"
 msgstr "Изток — североизток"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:192
 msgid "East"
 msgstr "Изток"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:192
 msgid "East - Southeast"
 msgstr "Изток — югоизток"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:192
 msgid "Southeast"
 msgstr "Югоизток"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:192
 msgid "South - Southeast"
 msgstr "Юг — югоизток"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:193
 msgid "South"
 msgstr "Юг"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:193
 msgid "South - Southwest"
 msgstr "Юг — югозапад"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:193
 msgid "Southwest"
 msgstr "Югозапад"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:193
 msgid "West - Southwest"
 msgstr "Запад — югозапад"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:194
 msgid "West"
 msgstr "Запад"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:194
 msgid "West - Northwest"
 msgstr "Запад — северозапад"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:194
 msgid "Northwest"
 msgstr "Северозапад"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:194
 msgid "North - Northwest"
 msgstr "Север — северозапад"
 
-#: ../libgweather/weather.c:198 ../libgweather/weather.c:698
-#: ../libgweather/weather.c:747 ../libgweather/weather.c:760
-#: ../libgweather/weather.c:772 ../libgweather/weather.c:787
-#: ../libgweather/weather.c:803 ../libgweather/weather.c:840
-#: ../libgweather/weather.c:852 ../libgweather/weather.c:871
-#: ../libgweather/weather.c:903 ../libgweather/weather.c:916
-#: ../libgweather/weather.c:936
+#: ../libgweather/weather.c:201 ../libgweather/weather.c:625
+#: ../libgweather/weather.c:676 ../libgweather/weather.c:690
+#: ../libgweather/weather.c:703 ../libgweather/weather.c:721
+#: ../libgweather/weather.c:739 ../libgweather/weather.c:777
+#: ../libgweather/weather.c:793 ../libgweather/weather.c:816
+#: ../libgweather/weather.c:848 ../libgweather/weather.c:864
+#: ../libgweather/weather.c:884
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: ../libgweather/weather.c:200 ../libgweather/weather.c:217
-#: ../libgweather/weather.c:288
+#: ../libgweather/weather.c:203 ../libgweather/weather.c:221
+#: ../libgweather/weather.c:293
 msgid "Invalid"
 msgstr "Невалиден"
 
-#: ../libgweather/weather.c:206
+#: ../libgweather/weather.c:209
 msgid "Clear Sky"
 msgstr "Ясно небе"
 
-#: ../libgweather/weather.c:207
+#: ../libgweather/weather.c:210
 msgid "Broken clouds"
 msgstr "Много малко облаци"
 
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:211
 msgid "Scattered clouds"
 msgstr "Разпръсната облачност"
 
-#: ../libgweather/weather.c:209
+#: ../libgweather/weather.c:212
 msgid "Few clouds"
 msgstr "Лека облачност"
 
-#: ../libgweather/weather.c:210
+#: ../libgweather/weather.c:213
 msgid "Overcast"
 msgstr "Плътна облачност"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
-#. * http://www.crh.noaa.gov/arx/wx.tbl.html
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:249 ../libgweather/weather.c:251
+#: ../libgweather/weather.c:253 ../libgweather/weather.c:255
 msgid "Thunderstorm"
 msgstr "Гръмотевици"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:250
+#: ../libgweather/weather.c:254
 msgid "Drizzle"
 msgstr "Ръмене"
 
-#: ../libgweather/weather.c:250
+#: ../libgweather/weather.c:254
 msgid "Light drizzle"
 msgstr "Лек дъжд"
 
-#: ../libgweather/weather.c:250
+#: ../libgweather/weather.c:254
 msgid "Moderate drizzle"
 msgstr "Умерено силно ръмене"
 
-#: ../libgweather/weather.c:250
+#: ../libgweather/weather.c:254
 msgid "Heavy drizzle"
 msgstr "Силно ръмене"
 
-#: ../libgweather/weather.c:250
+#: ../libgweather/weather.c:254
 msgid "Freezing drizzle"
 msgstr "Ръмене със заледявания"
 
 #. RAIN
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:255
 msgid "Rain"
 msgstr "Дъжд"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:255
 msgid "Light rain"
 msgstr "Лек дъжд"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:255
 msgid "Moderate rain"
 msgstr "Умерено силен дъжд"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:255
 msgid "Heavy rain"
 msgstr "Проливен дъжд"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:255
 msgid "Rain showers"
 msgstr "Дъждове с прекъсвания"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:255
 msgid "Freezing rain"
 msgstr "Дъжд със заледявания"
 
 #. SNOW
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:256
 msgid "Snow"
 msgstr "Снеговалеж"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:256
 msgid "Light snow"
 msgstr "Лек снеговалеж"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:256
 msgid "Moderate snow"
 msgstr "Умерено силен снеговалеж"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:256
 msgid "Heavy snow"
 msgstr "Тежък снеговалеж"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:256
 msgid "Snowstorm"
 msgstr "Снежна виелица"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:256
 msgid "Blowing snowfall"
 msgstr "Снеговалеж със силен вятър и намалена видимост"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:256
 msgid "Snow showers"
 msgstr "Снеговалежи с прекъсвания"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:256
 msgid "Drifting snow"
 msgstr "Снеговалеж, който ще се разсее"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:253
+#: ../libgweather/weather.c:257
 msgid "Snow grains"
 msgstr "Суграшица с прекъсвания"
 
-#: ../libgweather/weather.c:253
+#: ../libgweather/weather.c:257
 msgid "Light snow grains"
 msgstr "Лека суграшица"
 
-#: ../libgweather/weather.c:253
+#: ../libgweather/weather.c:257
 msgid "Moderate snow grains"
 msgstr "Умерено силна суграшица"
 
-#: ../libgweather/weather.c:253
+#: ../libgweather/weather.c:257
 msgid "Heavy snow grains"
 msgstr "Силна суграшица"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:254
+#: ../libgweather/weather.c:258
 msgid "Ice crystals"
 msgstr "Ледени кристали"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:255
+#: ../libgweather/weather.c:259
 msgid "Ice pellets"
 msgstr "Ледени топчици"
 
-#: ../libgweather/weather.c:255
+#: ../libgweather/weather.c:259
 msgid "Few ice pellets"
 msgstr "Малко ледени топчици"
 
-#: ../libgweather/weather.c:255
+#: ../libgweather/weather.c:259
 msgid "Moderate ice pellets"
 msgstr "Умерено количество ледени топчици"
 
-#: ../libgweather/weather.c:255
+#: ../libgweather/weather.c:259
 msgid "Heavy ice pellets"
 msgstr "Голямо количество ледени топчици"
 
-#: ../libgweather/weather.c:255
+#: ../libgweather/weather.c:259
 msgid "Ice pellet storm"
 msgstr "Буря с ледени топчици"
 
-#: ../libgweather/weather.c:255
+#: ../libgweather/weather.c:259
 msgid "Showers of ice pellets"
 msgstr "Ледени топчици с прекъсвания"
 
 #. HAIL
-#: ../libgweather/weather.c:256
+#: ../libgweather/weather.c:260
 msgid "Hail"
 msgstr "Градушка"
 
-#: ../libgweather/weather.c:256
+#: ../libgweather/weather.c:260
 msgid "Hailstorm"
 msgstr "Буря с градушка"
 
-#: ../libgweather/weather.c:256
+#: ../libgweather/weather.c:260
 msgid "Hail showers"
 msgstr "Градушка с прекъсвания"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:257
+#: ../libgweather/weather.c:261
 msgid "Small hail"
 msgstr "Краткотрайна градушка"
 
-#: ../libgweather/weather.c:257
+#: ../libgweather/weather.c:261
 msgid "Small hailstorm"
 msgstr "Краткотрайна буря с градушка"
 
-#: ../libgweather/weather.c:257
+#: ../libgweather/weather.c:261
 msgid "Showers of small hail"
 msgstr "Краткотрайна градушка с прекъсвания"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:258
+#: ../libgweather/weather.c:262
 msgid "Unknown precipitation"
 msgstr "Неясен вид валежи"
 
 #. MIST
-#: ../libgweather/weather.c:259
+#: ../libgweather/weather.c:263
 msgid "Mist"
 msgstr "Утринна мъгла"
 
 #. FOG
-#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:264
 msgid "Fog"
 msgstr "Мъгла"
 
-#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:264
 msgid "Fog in the vicinity"
 msgstr "Мъгла в околността"
 
-#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:264
 msgid "Shallow fog"
 msgstr "Незначителна мъгла"
 
-#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:264
 msgid "Patches of fog"
 msgstr "Мъгла на отделни места"
 
-#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:264
 msgid "Partial fog"
 msgstr "Частична мъгла"
 
-#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:264
 msgid "Freezing fog"
 msgstr "Мъгла със заледявания"
 
 #. SMOKE
-#: ../libgweather/weather.c:261
+#: ../libgweather/weather.c:265
 msgid "Smoke"
 msgstr "Пушек"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:262
+#: ../libgweather/weather.c:266
 msgid "Volcanic ash"
 msgstr "Вулканична пепел"
 
 #. SAND
-#: ../libgweather/weather.c:263
+#: ../libgweather/weather.c:267
 msgid "Sand"
 msgstr "Пясък"
 
-#: ../libgweather/weather.c:263
+#: ../libgweather/weather.c:267
 msgid "Blowing sand"
 msgstr "Пясък със силен вятър и намалена видимост"
 
-#: ../libgweather/weather.c:263
+#: ../libgweather/weather.c:267
 msgid "Drifting sand"
 msgstr "Пясък, който ще се разсее"
 
 #. HAZE
-#: ../libgweather/weather.c:264
+#: ../libgweather/weather.c:268
 msgid "Haze"
 msgstr "Мараня"
 
 #. SPRAY
-#: ../libgweather/weather.c:265
+#: ../libgweather/weather.c:269
 msgid "Blowing sprays"
 msgstr "Леко ръмене със силен вятър и намалена видимост"
 
 #. DUST
-#: ../libgweather/weather.c:266
+#: ../libgweather/weather.c:270
 msgid "Dust"
 msgstr "Прах"
 
-#: ../libgweather/weather.c:266
+#: ../libgweather/weather.c:270
 msgid "Blowing dust"
 msgstr "Прах със силен вятър и намалена видимост"
 
-#: ../libgweather/weather.c:266
+#: ../libgweather/weather.c:270
 msgid "Drifting dust"
 msgstr "Прах, който ще се разнесе"
 
 #. SQUALL
-#: ../libgweather/weather.c:267
+#: ../libgweather/weather.c:271
 msgid "Squall"
 msgstr "Шквал"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:268
+#: ../libgweather/weather.c:272
 msgid "Sandstorm"
 msgstr "Пясъчна буря"
 
-#: ../libgweather/weather.c:268
+#: ../libgweather/weather.c:272
 msgid "Sandstorm in the vicinity"
 msgstr "Пясъчна буря в околността"
 
-#: ../libgweather/weather.c:268
+#: ../libgweather/weather.c:272
 msgid "Heavy sandstorm"
 msgstr "Силна пясъчна буря"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:269
+#: ../libgweather/weather.c:273
 msgid "Duststorm"
 msgstr "Прашна буря"
 
-#: ../libgweather/weather.c:269
+#: ../libgweather/weather.c:273
 msgid "Duststorm in the vicinity"
 msgstr "Прашна буря в околността"
 
-#: ../libgweather/weather.c:269
+#: ../libgweather/weather.c:273
 msgid "Heavy duststorm"
 msgstr "Силна прашна буря"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:270
+#: ../libgweather/weather.c:274
 msgid "Funnel cloud"
 msgstr "Фуниевиден облак"
 
 #. TORNADO
-#: ../libgweather/weather.c:271
+#: ../libgweather/weather.c:275
 msgid "Tornado"
 msgstr "Торнадо"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:272
+#: ../libgweather/weather.c:276
 msgid "Dust whirls"
 msgstr "Прашни завихряния"
 
-#: ../libgweather/weather.c:272
+#: ../libgweather/weather.c:276
 msgid "Dust whirls in the vicinity"
 msgstr "Прашни завихряния в околността"
 
 #. TRANSLATOR: this is a format string for strftime
 #. *             see `man 3 strftime` for more details
 #.
-#: ../libgweather/weather.c:670
+#: ../libgweather/weather.c:596
 msgid "%a, %b %d / %H:%M"
 msgstr "%a, %d %b — %H:%M"
 
-#: ../libgweather/weather.c:685
+#: ../libgweather/weather.c:611
 msgid "Unknown observation time"
 msgstr "Неизвестно време на наблюдение"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:718
+#: ../libgweather/weather.c:647
 #, c-format
 msgid "%.1f ℉"
 msgstr "%.1f ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:721
+#: ../libgweather/weather.c:650
 #, c-format
 msgid "%d ℉"
 msgstr "%d ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:727
+#: ../libgweather/weather.c:656
 #, c-format
 msgid "%.1f ℃"
 msgstr "%.1f ℃"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:730
+#: ../libgweather/weather.c:659
 #, c-format
 msgid "%d ℃"
 msgstr "%d ℃"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:736
+#: ../libgweather/weather.c:665
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:739
+#: ../libgweather/weather.c:668
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:790
+#: ../libgweather/weather.c:724
 #, c-format
 msgid "%.f%%"
 msgstr "%.f %%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:815
+#: ../libgweather/weather.c:752
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f kn"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:819
+#: ../libgweather/weather.c:756
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mile/h"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:823
+#: ../libgweather/weather.c:760
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:827
+#: ../libgweather/weather.c:764
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -861,79 +860,79 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:833
+#: ../libgweather/weather.c:770
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Сила по Бофорт %.1f"
 
-#: ../libgweather/weather.c:854
+#: ../libgweather/weather.c:795
 msgid "Calm"
 msgstr "Спокойно"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:858
+#: ../libgweather/weather.c:799
 #, c-format
 msgid "%s / %s"
-msgstr "%s/%s"
+msgstr "%s / %s"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:876
+#: ../libgweather/weather.c:821
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:880
+#: ../libgweather/weather.c:825
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:884
+#: ../libgweather/weather.c:829
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:888
+#: ../libgweather/weather.c:833
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:892
+#: ../libgweather/weather.c:837
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:896
+#: ../libgweather/weather.c:841
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:921
+#: ../libgweather/weather.c:869
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f mile"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:925
+#: ../libgweather/weather.c:873
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:929
+#: ../libgweather/weather.c:877
 #, c-format
 msgid "%.0fm"
 msgstr "%.0f m"
 
-#: ../libgweather/weather.c:957 ../libgweather/weather.c:977
+#: ../libgweather/weather.c:906 ../libgweather/weather.c:927
 msgid "%H:%M"
 msgstr "%H:%M"
 
-#: ../libgweather/weather.c:1010
+#: ../libgweather/weather.c:966
 msgid "Retrieval failed"
 msgstr "Получаването неуспешно"
