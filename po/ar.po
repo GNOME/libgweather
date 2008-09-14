@@ -1,4 +1,4 @@
-# translation of libgweather.HEAD.ar.po to Arabic
+# translation of libgweather.HEAD.po to Arabic
 # translation of gnome-applets.HEAD.ar.po to
 # translation of gnome-applets.po to
 # This file is distributed under the same license as the PACKAGE package.
@@ -12,11 +12,11 @@
 # Khaled Hosny <khaledhosny@eglug.org>, 2006, 2007, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: libgweather.HEAD.ar\n"
+"Project-Id-Version: libgweather.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-08-06 09:20+0100\n"
-"PO-Revision-Date: 2008-08-11 23:47+0100\n"
-"Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
+"PO-Revision-Date: 2008-08-25 02:32+0300\n"
+"Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,22 +121,22 @@ msgstr "المبدئي"
 #. translators: Kelvin
 #: ../libgweather/gweather-prefs.c:28
 msgid "K"
-msgstr "ك (كالفن)"
+msgstr "ك"
 
 #. translators: Celsius
 #: ../libgweather/gweather-prefs.c:30
 msgid "C"
-msgstr "م (درجة)"
+msgstr "م"
 
 #. translators: Fahrenheit
 #: ../libgweather/gweather-prefs.c:32
 msgid "F"
-msgstr "ف (فهرنهايت)"
+msgstr "ف"
 
 #. translators: meters per second
 #: ../libgweather/gweather-prefs.c:39
 msgid "m/s"
-msgstr "متر/ثا"
+msgstr "م/ث"
 
 #. translators: kilometers per hour
 #: ../libgweather/gweather-prefs.c:41
@@ -161,12 +161,12 @@ msgstr "مقياس بيوفور"
 #. translators: kilopascals
 #: ../libgweather/gweather-prefs.c:54
 msgid "kPa"
-msgstr "كيلوباسكال"
+msgstr "ك.باسكال"
 
 #. translators: hectopascals
 #: ../libgweather/gweather-prefs.c:56
 msgid "hPa"
-msgstr "هكتوباسكال"
+msgstr "ه‍.باسكال"
 
 #. translators: millibars
 #: ../libgweather/gweather-prefs.c:58
@@ -235,14 +235,12 @@ msgid "DEFAULT_DISTANCE_UNIT"
 msgstr "km"
 
 #: ../libgweather/gweather.schemas.in.h:1
-#, fuzzy
 msgid "A three-digit-long code for retrieving radar maps from weather.com, found from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
-msgstr "رمز بثلاثة أحرف لتنزيل خرائط رادار من weather.com، موجودة في http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
+msgstr "رمز من ثلاثة أحرف لجلب خرائط رادار من weather.com، موجودة في http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
-#, fuzzy
 msgid "A unique zone for the city, as found from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
-msgstr "منطقة فريدة للمدينة، كما هي موجودة في http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
+msgstr "منطقة فريدة للمدينة، كما هي موجودة في http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:8
 msgid "Determines whether the applet automatically updates its weather statistics or not."
@@ -277,9 +275,8 @@ msgid "Nearby city"
 msgstr "مدينة قريبة"
 
 #: ../libgweather/gweather.schemas.in.h:16
-#, fuzzy
 msgid "Nearby major zone, such as a capital city, as found from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
-msgstr "منطقة مجاورة كبرى مثل العاصمة، كما هو موجود في http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
+msgstr "منطقة مجاورة كبرى مثل العاصمة، كما هو موجود في http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -371,9 +368,9 @@ msgstr "موقع المنطقة"
 
 #. Translators: %d is an error code, and %s the error string
 #: ../libgweather/weather-metar.c:498
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to get METAR data: %d %s.\n"
-msgstr "فشل الحصول على بيانات METAR.\n"
+msgstr "فشل الحصول على بيانات ‏METAR: ‏%Id ‏%s\n"
 
 #: ../libgweather/weather-metar.c:535
 msgid "WeatherInfo missing location"
