@@ -24,7 +24,6 @@
 #include <string.h>
 #include <sys/types.h>
 #include <regex.h>
-#include <glib/gi18n-lib.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "weather.h"

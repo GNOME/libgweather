@@ -23,7 +23,6 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
-#include <glib/gi18n-lib.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "weather.h"

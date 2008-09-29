@@ -20,10 +20,16 @@
 #define __WEATHER_PRIV_H_
 
 #include <time.h>
+#include <libintl.h>
 #include <libsoup/soup.h>
 
 #include "weather.h"
 #include "gweather-location.h"
+
+const char *gweather_gettext (const char *str) G_GNUC_FORMAT (1);
+#define _(str) (gweather_gettext (str))
+#define N_(str) (str)
+
 
 #define WEATHER_LOCATION_CODE_LEN 4
 

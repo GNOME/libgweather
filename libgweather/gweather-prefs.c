@@ -24,11 +24,11 @@
 #include <langinfo.h>
 #endif
 
-#include <glib/gi18n-lib.h>
 #include <gconf/gconf-client.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-prefs.h"
+#include "weather-priv.h"
 
 static GConfEnumStringPair temp_unit_enum_map [] = {
     { TEMP_UNIT_DEFAULT,    N_("Default") },

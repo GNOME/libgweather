@@ -28,10 +28,10 @@
 #endif
 
 #include <string.h>
-#include <glib/gi18n-lib.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-gconf.h"
+#include "weather-priv.h"
 
 struct _GWeatherGConf
 {

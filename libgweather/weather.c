@@ -34,7 +34,6 @@
 #include <time.h>
 #include <unistd.h>
 
-#include <glib/gi18n-lib.h>
 #include <gtk/gtkicontheme.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk-pixbuf/gdk-pixbuf-loader.h>
@@ -42,6 +41,22 @@
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "weather.h"
 #include "weather-priv.h"
+
+const char *
+gweather_gettext (const char *str)
+{
+    static gsize gweather_gettext_initialized = FALSE;
+
+    if (G_UNLIKELY (g_once_init_enter (&gweather_gettext_initialized))) {
+	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
+#ifdef HAVE_BIND_TEXTDOMAIN_CODESET
+	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+#endif
+	g_once_init_leave (&gweather_gettext_initialized, TRUE);
+    }
+
+    return dgettext (GETTEXT_PACKAGE, str);
+}
 
 /*
  * Convert string of the form "DD-MM-SSH" to radians

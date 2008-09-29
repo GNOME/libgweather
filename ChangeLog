@@ -1,3 +1,21 @@
+2008-09-10  Dan Winship  <danw@gnome.org>
+
+	* libgweather/weather.c (gweather_gettext): gettext wrapper that
+	ensures bindtextdomain() and bind_textdomain_codeset() have been
+	called for our GETTEXT_PACKAGE.
+
+	* libgweather/weather-priv.h: Prototype gweather_gettext, #define
+	_() in terms of it.
+
+	* libgweather/gweather-gconf.c:
+	* libgweather/gweather-prefs.c:
+	* libgweather/weather-iwin.c:
+	* libgweather/weather-metar.c:
+	* libgweather/weather-wx.c: Remove glib/gi18n-lib.h includes, add
+	weather-priv.h include, where needed
+
+	#535865, based on a patch from Minoru Hashima.
+
 2008-09-22  Vincent Untz  <vuntz@gnome.org>
 
 	* configure.in: post-release bump to 2.24.1
