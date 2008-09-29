@@ -1,4 +1,10 @@
-2008-09-10  Dan Winship  <danw@gnome.org>
+2008-09-29  Dan Winship  <danw@gnome.org>
+
+	* python/Makefile.am (EXTRA_DIST): dist gweather.defs (and move
+	EXTRA_DIST outside the if ENABLE_PYTHON). #554086, Emilio Pozuelo
+	Monfort.
+
+2008-09-29  Dan Winship  <danw@gnome.org>
 
 	* libgweather/weather.c (gweather_gettext): gettext wrapper that
 	ensures bindtextdomain() and bind_textdomain_codeset() have been

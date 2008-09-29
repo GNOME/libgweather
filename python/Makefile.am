@@ -13,8 +13,6 @@ nodist_gweather_la_SOURCES = gweather.c
 gweather.c: gweather.defs *.override
 CLEANFILES = gweather.c
 
-EXTRA_DIST = *.override bad__init__.py demo.py
-
 .defs.c:
 	(cd $(srcdir)\
 	 && pygtk-codegen-2.0 \
@@ -31,3 +29,5 @@ install-exec-hook:
 	chmod a+x $(DESTDIR)$(pyunstabledir)/__init__.py
 
 endif
+
+EXTRA_DIST = gweather.defs *.override bad__init__.py demo.py
