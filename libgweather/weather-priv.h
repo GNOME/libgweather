@@ -137,6 +137,7 @@ struct _WeatherInfo {
     DistanceUnit distance_unit;
 
     gboolean valid;
+    gboolean network_error;
     gboolean sunValid;
     WeatherLocation *location;
     WeatherUpdate update;

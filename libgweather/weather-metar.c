@@ -494,9 +494,13 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     g_return_if_fail (info != NULL);
    
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
-        /* Translators: %d is an error code, and %s the error string */
-        g_warning (_("Failed to get METAR data: %d %s.\n"),
-		   msg->status_code, msg->reason_phrase);
+	if (SOUP_STATUS_IS_TRANSPORT_ERROR (msg->status_code))
+	    info->network_error = TRUE;
+	else {
+	    /* Translators: %d is an error code, and %s the error string */
+	    g_warning (_("Failed to get METAR data: %d %s.\n"),
+		       msg->status_code, msg->reason_phrase);
+	}
 	request_done (info, FALSE);
 	return;
     }
@@ -515,6 +519,12 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 	    metar = g_strdup (p);
 	success = metar_parse (metar, info);
 	g_free (metar);
+    } else if (!strstr (msg->response_body->data, "National Weather Service")) {
+	/* The response doesn't even seem to have come from NWS...
+	 * most likely it is a wifi hotspot login page. Call that a
+	 * network error.
+	 */
+	info->network_error = TRUE;
     }
 
     info->valid = success;
@@ -529,7 +539,7 @@ metar_start_open (WeatherInfo *info)
     SoupMessage *msg;
 
     g_return_if_fail (info != NULL);
-    info->valid = FALSE;
+    info->valid = info->network_error = FALSE;
     loc = info->location;
     if (loc == NULL) {
 	g_warning (_("WeatherInfo missing location"));

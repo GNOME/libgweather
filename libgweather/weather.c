@@ -614,6 +614,13 @@ weather_info_is_valid (WeatherInfo *info)
     return info->valid;
 }
 
+gboolean
+weather_info_network_error (WeatherInfo *info)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    return info->network_error;
+}
+
 const WeatherLocation *
 weather_info_get_location (WeatherInfo *info)
 {

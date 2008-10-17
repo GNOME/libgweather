@@ -142,6 +142,7 @@ WeatherInfo *		weather_info_clone		(const WeatherInfo *info);
 void			weather_info_free		(WeatherInfo *info);
 
 gboolean		weather_info_is_valid		(WeatherInfo *info);
+gboolean		weather_info_network_error	(WeatherInfo *info);
 
 void			weather_info_to_metric		(WeatherInfo *info);
 void			weather_info_to_imperial	(WeatherInfo *info);

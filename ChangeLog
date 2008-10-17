@@ -1,5 +1,16 @@
 2008-10-17  Dan Winship  <danw@gnome.org>
 
+	* libgweather/weather.c (weather_info_network_error): Add this so
+	we can distinguish "the requested code was invalid" from "we
+	couldn't access the METAR site". Needed for #556776
+
+	* libgweather/weather-metar.c (metar_finish): set network_error if
+	the soup request gets a "transport error" status code, or if it
+	gets back an HTML page that looks like it didn't come from the
+	METAR server.
+
+2008-10-17  Dan Winship  <danw@gnome.org>
+
 	* libgweather/Makefile.am (libgweather_la_LIBADD): add -lm.
 	#551215, Frederic Peters.
 
