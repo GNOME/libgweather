@@ -5,6 +5,8 @@
 
 	* libgweather/gweather.pc.in: move -lm from Libs to Libs.private
 
+	* libgweather/gweather-location.h: remove unused types. #546317
+
 	* libgweather/gweather-timezone.c (gweather_timezones_parse_xml):
 	don't return NULL (and cause a crash) if a timezone name is
 	unrecognized; just ignore that timezone. Part of #553838.

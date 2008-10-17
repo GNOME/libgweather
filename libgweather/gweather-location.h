@@ -32,8 +32,6 @@
 G_BEGIN_DECLS
 
 typedef struct _GWeatherLocation GWeatherLocation;
-typedef struct _GWeatherWeather  GWeatherWeather;
-typedef struct _GWeatherForecast GWeatherForecast;
 
 typedef enum { /*< underscore_name=gweather_location_level >*/
     GWEATHER_LOCATION_WORLD,
