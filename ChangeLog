@@ -1,3 +1,9 @@
+2008-10-17  Dan Winship  <danw@gnome.org>
+
+	* libgweather/weather.c (weather_session_new): new utility to
+	create a SoupSession, using the GConf proxy settings. Sort of
+	addresses #552580.
+
 2008-10-14  Dan Winship  <danw@gnome.org>
 
 	* data/Locations.xml.in: The Mexican states of Chihuahua, Nayarit,

@@ -37,6 +37,7 @@
 #include <gtk/gtkicontheme.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk-pixbuf/gdk-pixbuf-loader.h>
+#include <gconf/gconf-client.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "weather.h"
@@ -431,6 +432,43 @@ calc_apparent (WeatherInfo *info)
     return apparent;
 }
 
+static SoupSession *
+weather_session_new (void)
+{
+    SoupURI *proxy = NULL;
+    GConfClient *gconf;
+
+    gconf = gconf_client_get_default ();
+    if (gconf_client_get_bool (gconf, "/system/http_proxy/use_http_proxy", NULL)) {
+	char *host, *user, *password;
+	int port;
+
+	host = gconf_client_get_string (gconf, "/system/http_proxy/host", NULL);
+	port = gconf_client_get_int (gconf, "/system/http_proxy/port", NULL);
+	if (gconf_client_get_bool (gconf, "/system/http_proxy/use_authentication", NULL)) {
+	    user = gconf_client_get_string (gconf, "/system/http_proxy/authentication_user", NULL);
+	    password = gconf_client_get_string (gconf, "/system/http_proxy/authentication_password", NULL);
+	} else
+	    user = password = NULL;
+
+	if (host && *host) {
+	    proxy = soup_uri_new (NULL);
+	    soup_uri_set_scheme (proxy, SOUP_URI_SCHEME_HTTP);
+	    soup_uri_set_host (proxy, host);
+	    soup_uri_set_port (proxy, port);
+	    soup_uri_set_user (proxy, user);
+	    soup_uri_set_password (proxy, password);
+	}
+	g_free (host);
+	g_free (user);
+	g_free (password);
+
+	g_object_unref (gconf);
+    }
+
+    return soup_session_async_new_with_options (SOUP_SESSION_PROXY_URI, proxy,
+						NULL);
+}
 
 WeatherInfo *
 _weather_info_fill (WeatherInfo *info,
@@ -497,7 +535,7 @@ _weather_info_fill (WeatherInfo *info,
     info->cb_data = data;
 
     if (!info->session)
-	info->session = soup_session_async_new ();
+	info->session = weather_session_new ();
 
     metar_start_open (info);
     iwin_start_open (info);
