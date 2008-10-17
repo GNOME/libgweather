@@ -1,5 +1,9 @@
 2008-10-17  Dan Winship  <danw@gnome.org>
 
+	* libgweather/gweather-timezone.c (gweather_timezones_parse_xml):
+	don't return NULL (and cause a crash) if a timezone name is
+	unrecognized; just ignore that timezone. Part of #553838.
+
 	* libgweather/weather.c (weather_session_new): new utility to
 	create a SoupSession, using the GConf proxy settings. Sort of
 	addresses #552580.

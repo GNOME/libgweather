@@ -215,9 +215,8 @@ gweather_timezones_parse_xml (GWeatherParser *parser)
 
 	if (!strcmp (tagname, "timezone")) {
 	    zone = parse_timezone (parser);
-	    if (!zone)
-		goto error_out;
-	    g_ptr_array_add (zones, zone);
+	    if (zone)
+		g_ptr_array_add (zones, zone);
 	}
 
 	if (xmlTextReaderNext (parser->xml) != 1)
