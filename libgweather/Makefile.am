@@ -42,6 +42,7 @@ libgweather_la_CFLAGS = \
 	-DGWEATHER_XML_LOCATION_DIR=\""$(pkgdatadir)"\"
 
 libgweather_la_LIBADD = \
+	-lm		\
 	$(GTK_LIBS)	\
 	$(LIBXML_LIBS)	\
 	$(LIBSOUP_LIBS)	\

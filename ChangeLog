@@ -1,5 +1,10 @@
 2008-10-17  Dan Winship  <danw@gnome.org>
 
+	* libgweather/Makefile.am (libgweather_la_LIBADD): add -lm.
+	#551215, Frederic Peters.
+
+	* libgweather/gweather.pc.in: move -lm from Libs to Libs.private
+
 	* libgweather/gweather-timezone.c (gweather_timezones_parse_xml):
 	don't return NULL (and cause a crash) if a timezone name is
 	unrecognized; just ignore that timezone. Part of #553838.
