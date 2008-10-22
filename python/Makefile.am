@@ -10,7 +10,7 @@ gweather_la_LDFLAGS = -module -avoid-version -export-symbols-regex initgweather
 gweather_la_LIBADD = ../libgweather/libgweather.la
 gweather_la_SOURCES = gweathermodule.c
 nodist_gweather_la_SOURCES = gweather.c
-gweather.c: gweather.defs *.override
+gweather.c: $(srcdir)/gweather.defs $(srcdir)/*.override
 CLEANFILES = gweather.c
 
 .defs.c:
