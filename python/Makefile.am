@@ -10,7 +10,7 @@ gweather_la_LDFLAGS = -module -avoid-version -export-symbols-regex initgweather
 gweather_la_LIBADD = ../libgweather/libgweather.la
 gweather_la_SOURCES = gweathermodule.c
 nodist_gweather_la_SOURCES = gweather.c
-gweather.c: $(srcdir)/gweather.defs $(srcdir)/*.override
+gweather.c: gweather.defs gweather.override
 CLEANFILES = gweather.c
 
 .defs.c:
@@ -30,4 +30,4 @@ install-exec-hook:
 
 endif
 
-EXTRA_DIST = gweather.defs *.override bad__init__.py demo.py
+EXTRA_DIST = gweather.defs gweather.override bad__init__.py demo.py
