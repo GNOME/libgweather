@@ -1,3 +1,33 @@
+libgweather 2.24.1
+==================
+
+libgweather
+
+	* Make sure the returned strings are UTF-8 (Minoru Hashima, Dan)
+	* Code cleanups (Dan)
+	* Fix crash if a timezone in Locations.xml is not known (Dan)
+	* Use the proxy settings (Dan)
+	* Add weather_info_network_error() API to know the type of error
+	  when getting the weather (Dan)
+
+Locations.xml
+
+	* Mexican states of Chihuahua, Nayarit, Sinaloa, and Sonora are in
+	  Mountain Time, not Central Time (Christopher Aillon)
+
+Misc
+
+	* Distribute gweather.defs so python bindings are buildable (Emilio
+	  Pozuelo Monfort)
+	* Add -lm to the build (Frederic Peters, Dan)
+
+Translators
+
+	* Alaksandar Navicki (be@latin)
+	* Fábio Nogueira (pt_BR)
+	* Vasiliy Faronov (ru)
+	* Danishka Navin (si)
+
 libgweather 2.24.0
 ==================
 
