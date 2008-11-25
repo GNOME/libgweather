@@ -327,9 +327,9 @@ class City(LocBase):
         self.name_comment = []
 
         if isinstance(arg, tuple):
-            (self.id, self.latitude, self.longitude, elevation, importance, self.country_code, self.state_code, self.county_code, name_type, self.name_lang, short_name, long_name, flat_name) = arg
+            (self.id, self.latitude, self.longitude, elevation, self.importance, self.country_code, self.state_code, self.county_code, name_type, self.name_lang, short_name, long_name, flat_name) = arg
             self.coordinates = "%f %f" % (self.latitude, self.longitude)
-            self.is_capital = importance == 3
+            self.is_capital = self.importance == 3
             self.name = short_name or long_name
             self.has_conventional_name = name_type == 'C'
         elif isinstance(arg, LocBase):
@@ -644,12 +644,22 @@ def find_city(c, city_name, station, try_nearby):
         return None
 
     city = get_city(best_loc[0], station.country_code)
-    add_city(city, station)
 
     if not shortened:
         station.name = station.name.replace(city_name, city.name)
 
     return city
+
+def dist_from_station(city, station, cmpcity):
+    if city.importance != cmpcity.importance:
+        return -cmp(city.importance, cmpcity.importance)
+    dist = distance(station.latitude, station.longitude,
+                    city.latitude, city.longitude)
+    if city.importance > 0:
+        dist = dist / 5.0
+    elif city.importance < 0: # and trivial ones are farther
+        dist = dist * 2.0
+    return dist
 
 observations_url = os.getenv('OBSERVATIONS_URL') or 'http://gnome.org/~danw/observations.txt'
 observations = urllib.urlopen(observations_url)
@@ -677,21 +687,25 @@ while True:
     # Find a match
     location = station.name.replace(", ", " / ")
     if location.find(" / ") != -1:
-        matched_any = False
+        matched_cities = []
         na_parts = [part for part in location.split(" / ")
                     if not part.endswith('Airport') and
                     part.find('County') == -1]
         for part in na_parts:
             city = find_city(c, part, station, False)
             if city is not None:
-                matched_any = True
-        if matched_any:
+                matched_cities.append(city)
+        if len(matched_cities):
+            matched_cities.sort(lambda c1, c2: cmp(dist_from_station(c1, station, c2), dist_from_station(c2, station, c1)))
+            add_city(matched_cities[0], station)
             continue
 
     if city is None:
         airport = re.search(r"([^/ ][^/]*?) (International |Municipal )?Airport", location)
         if airport is not None:
             city = find_city(c, airport.group(1), station, False)
+            if city is not None:
+                add_city(city, station)
 
     if city is None:
         city = find_city(c, location, station, True)
@@ -699,6 +713,9 @@ while True:
             country = fips_codes[station.country_code]
             country.missing_stations.append(station)
             continue
+        else:
+            add_city(city, station)
+
 
 # Now do missing major cities
 c.execute("SELECT id FROM cities WHERE importance > 1");

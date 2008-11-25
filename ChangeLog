@@ -1,3 +1,13 @@
+2008-11-25  Dan Winship  <danw@gnome.org>
+
+	* data/update-locations.py: when given a location name like
+	"Covington / Cincinnati", only create an entry for one of the two
+	cities (the larger one if we can tell, the one closer to the
+	weather station if we can't) rather than creating a separate entry
+	for each.
+
+	* data/Locations.xml.in: regen
+
 2008-11-25  Vincent Untz  <vuntz@gnome.org>
 
 	* configure.in: add --enable-locations-compression to compress the
