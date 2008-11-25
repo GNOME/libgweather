@@ -8,10 +8,13 @@ if USE_ONE_BIG_XML
 
 LOCATIONS_STAMP = 
 
-libgweatherlocations_DATA = $(libgweatherlocations_in_files:.xml.in=.xml)
+libgweatherlocations_DATA = $(libgweatherlocations_in_files:.xml.in=.xml$(COMPRESS_EXT))
 
-%.xml: %.xml.in $(wildcard $(top_srcdir)/po-locations/*.po)
-	LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po-locations/.intltool-merge-cache $(top_srcdir)/po-locations $< $@
+%.xml$(COMPRESS_EXT): %.xml.in $(wildcard $(top_srcdir)/po-locations/*.po)
+	LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po-locations/.intltool-merge-cache $(top_srcdir)/po-locations $< `echo $@ | sed "s/.xml$(COMPRESS_EXT)/.xml/"`
+	if test "x$(COMPRESS_EXT)" = "x.gz"; then				\
+		gzip --force `echo $@ | sed "s/.xml$(COMPRESS_EXT)/.xml/"`;	\
+	fi
 
 else # USE_ONE_BIG_XML
 
@@ -22,24 +25,30 @@ PO_LOCATIONS = $(shell if test -n "$(LINGUAS)"; then for lang in $(LINGUAS); do 
 # Helper variable
 libgweatherlocations_data = $(libgweatherlocations_in_files:.xml.in=.xml)
 
-libgweatherlocations_DATA = $(shell echo $(PO_LOCATIONS) | sed "s|$(top_srcdir)/po-locations/|Locations.|g;s|\.po|.xml|g") $(libgweatherlocations_data)
+libgweatherlocations_DATA = $(shell echo $(PO_LOCATIONS) | sed "s|$(top_srcdir)/po-locations/|Locations.|g;s|\.po|.xml$(COMPRESS_EXT)|g") $(libgweatherlocations_data)$(COMPRESS_EXT)
 
 # We need this step so that we merge all the make Locations.xy.xml destinations
 # into one unique destination. This makes -j2 work. (Else, we end up with
 # multiple and conflicting calls to intltool-merge)
 $(libgweatherlocations_DATA): $(LOCATIONS_STAMP)
 
-$(LOCATIONS_STAMP): $(libgweatherlocations_in_files) $(PO_LOCATIONS)
+$(LOCATIONS_STAMP): $(libgweatherlocations_in_files) $(PO_LOCATIONS) Makefile
 	LC_ALL=C $(INTLTOOL_MERGE) --multiple-output --xml-style --utf8 --cache=$(top_builddir)/po-locations/.intltool-merge-cache $(top_srcdir)/po-locations $< $(libgweatherlocations_data)
 	for pofile in $(PO_LOCATIONS); do \
 		locale=`echo $$pofile | sed "s;$(top_srcdir)/po-locations/\(.*\)\.po;\1;"`;	\
 		xmllint --noblanks -o Locations.$$locale.xml $$locale/$(libgweatherlocations_data); \
 		rm -f $$locale/$(libgweatherlocations_data);		\
 		test -d $$locale && rmdir $$locale;			\
+		if test "x$(COMPRESS_EXT)" = "x.gz"; then		\
+			gzip --force Locations.$$locale.xml;		\
+		fi;							\
 	done
 	xmllint --noblanks -o Locations.xml C/$(libgweatherlocations_data)
 	rm -f C/$(libgweatherlocations_data)
 	test -d C && rmdir C
+	if test "x$(COMPRESS_EXT)" = "x.gz"; then			\
+		gzip --force Locations.xml;				\
+	fi
 	touch $@
 
 endif # USE_ONE_BIG_XML

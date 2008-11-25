@@ -1,3 +1,13 @@
+2008-11-25  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: add --enable-locations-compression to compress the
+	Locations.xml files.
+	* data/Makefile.am: compress data files if requested.
+	* libgweather/parser.c: (gweather_parser_new): look for .gz files too.
+	Thanks to libxml2, we don't have to do anything to support compressed
+	files.
+	Fix bug #552868.
+
 2008-11-25  Dan Winship  <danw@gnome.org>
 
 	* configure.in (IT_PROG_INTLTOOL): require 0.40.3, for msgctxt
