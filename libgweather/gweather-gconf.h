@@ -32,8 +32,7 @@
 #endif
 
 
-#include <glib/gmacros.h>
-#include <glib/gerror.h>
+#include <glib.h>
 #include <gconf/gconf-client.h>
 #include <gconf/gconf-value.h>
 

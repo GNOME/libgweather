@@ -1,5 +1,17 @@
 2008-11-25  Dan Winship  <danw@gnome.org>
 
+	* libgweather/gweather-gconf.c:
+	* libgweather/weather.c:
+	* libgweather/weather.h: only use single includes. Patch from
+	Maxim Ermilov, #560794.
+
+	* configure.in: Add -DG_DISABLE_SINGLE_INCLUDES and
+	-DGTK_DISABLE_SINGLE_INCLUDES. Also add various
+	_DISABLE_DEPRECATED flags in maintainer mode. Fix a dumb bug where
+	we weren't setting GTK_CFLAGS or LIBXML_CFLAGS.
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
 	* configure.in: check for libsoup-gnome-2.4 >= 2.25.1 and set
 	HAVE_LIBSOUP_GNOME if found. Otherwise fall back to libsoup-2.4.
 	(The fallback is a temporary convenience thing so we don't require

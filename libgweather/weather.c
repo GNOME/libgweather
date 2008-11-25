@@ -34,9 +34,8 @@
 #include <time.h>
 #include <unistd.h>
 
-#include <gtk/gtkicontheme.h>
+#include <gtk/gtk.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
-#include <gdk-pixbuf/gdk-pixbuf-loader.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "weather.h"

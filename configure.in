@@ -81,14 +81,19 @@ else
     AC_MSG_RESULT(no)
 fi
 
+if test "x$enable_maintainer_mode" = "xyes"; then
+	CFLAGS="$CFLAGS -DG_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED -DLIBSOUP_DISABLE_DEPRECATED -DGCONF_DISABLE_DEPRECATED"
+fi
+
 dnl -- Check for GTK+ 2.0 (required) ------------------------------------------
 PKG_CHECK_MODULES(GTK, gtk+-2.0 >= $GTK_REQUIRED)
-AC_SUBST(GTK_FLAGS)
+GTK_CFLAGS="$GTK_CFLAGS -DGTK_DISABLE_SINGLE_INCLUDES"
+AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
 
 dnl -- Check for libxml (required) ------------------------------------------
 PKG_CHECK_MODULES(LIBXML, libxml-2.0 >= $LIBXML_REQUIRED)
-AC_SUBST(LIBXML_FLAGS)
+AC_SUBST(LIBXML_CFLAGS)
 AC_SUBST(LIBXML_LIBS)
 
 dnl -- check for libsoup (required) -----------------------------------------
@@ -111,6 +116,7 @@ AM_GCONF_SOURCE_2
 
 dnl -- check for glib; redundant at this point, but sets $GLIB_MKENUMS
 AM_PATH_GLIB_2_0($GLIB_REQUIRED)
+CFLAGS="$CFLAGS -DG_DISABLE_SINGLE_INCLUDES"
 
 dnl gettext
 
