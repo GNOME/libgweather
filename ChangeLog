@@ -1,14 +1,18 @@
 2008-11-25  Dan Winship  <danw@gnome.org>
 
+	* configure.in: Add -DG_DISABLE_SINGLE_INCLUDES and
+	-DGTK_DISABLE_SINGLE_INCLUDES. Also add various
+	_DISABLE_DEPRECATED flags in maintainer mode. Fix a dumb bug where
+	we weren't setting GTK_CFLAGS or LIBXML_CFLAGS.
+
 	* libgweather/gweather-gconf.c:
 	* libgweather/weather.c:
 	* libgweather/weather.h: only use single includes. Patch from
 	Maxim Ermilov, #560794.
 
-	* configure.in: Add -DG_DISABLE_SINGLE_INCLUDES and
-	-DGTK_DISABLE_SINGLE_INCLUDES. Also add various
-	_DISABLE_DEPRECATED flags in maintainer mode. Fix a dumb bug where
-	we weren't setting GTK_CFLAGS or LIBXML_CFLAGS.
+	* libgweather/weather-wx.c (wx_start_open): Use
+	soup_message_body_set_accumulate() rather than the deprecated
+	SOUP_MESSAGE_OVERWRITE_CHUNKS flag.
 
 2008-11-25  Dan Winship  <danw@gnome.org>
 
