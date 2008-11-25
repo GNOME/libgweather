@@ -57,16 +57,16 @@ main (int argc, char **argv)
 	memset (&info, 0, sizeof (info));
 	info.valid = 1;
 	metar_parse (buf, &info);
+	weather_info_to_metric (&info);
 	printf ("Returned info:\n");
 	printf ("  update:   %s", ctime (&info.update));
 	printf ("  sky:      %s\n", weather_info_get_sky (&info));
 	printf ("  cond:     %s\n", weather_info_get_conditions (&info));
-	printf ("  temp:     %g F\n", info.temp);
-	printf ("  dewp:     %g F\n", info.dew);
-	printf ("  winddir:  %s\n", weather_wind_direction_string (info.wind));
-	printf ("  windsp:   %d knots\n", info.windspeed);
-	printf ("  pressure: %g\" Hg\n", info.pressure);
-	printf ("  vis:      %g miles\n", info.visibility);
+	printf ("  temp:     %s\n", weather_info_get_temp (&info));
+	printf ("  dewp:     %s\n", weather_info_get_dew (&info));
+	printf ("  wind:     %s\n", weather_info_get_wind (&info));
+	printf ("  pressure: %s\n", weather_info_get_pressure (&info));
+	printf ("  vis:      %s\n", weather_info_get_visibility (&info));
 
 	// TODO: retrieve location's lat/lon to display sunrise/set times
     }

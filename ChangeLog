@@ -1,3 +1,13 @@
+2008-11-25  Dan Winship  <danw@gnome.org>
+
+	* libgweather/weather.c (temperature_string): Use the degree sign
+	followed by "C" or "F" rather than using the combined "degrees C"
+	and "degrees F" glyphs, which aren't available in some fonts, and
+	look bad in others. #526437
+
+	* libgweather/test_metar.c (main): tweak this a little to test
+	that change
+
 2008-11-25  Milan Crha <mcrha@redhat.com>
 
 	** Fix for bug #538787
