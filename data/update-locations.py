@@ -148,6 +148,7 @@ class Timezone:
         self.name = getChildContentByName(node, '_name')
         self.comment = getComment(node)
         self.obsoletes = [obs.firstChild.nodeValue for obs in getChildrenByName(node, 'obsoletes')]
+        self.dup_name = False
 
     def print_xml(self, indent):
         if self.name is not None or len(self.obsoletes):
@@ -155,7 +156,11 @@ class Timezone:
             if self.comment is not None:
                 printComment(indent + '  ', self.comment)
             if self.name is not None:
-                print '%s  <_name>%s</_name>' % (indent, self.name)
+                if self.dup_name:
+                    msgctxt=' msgctxt="Timezone"'
+                else:
+                    msgctxt=''
+                print '%s  <_name%s>%s</_name>' % (indent, msgctxt, self.name)
             for obs in self.obsoletes:
                 print '%s  <obsoletes>%s</obsoletes>' % (indent, obs)
             print '%s</timezone>' % indent
@@ -166,6 +171,7 @@ class LocBase:
     def __init__(self, parent, arg):
         self.parent = parent
         self.contents = []
+        self.dup_name = False
 
         if isinstance(arg, minidom.Element):
             self.name = getChildContentByName(arg, '_name')
@@ -217,6 +223,28 @@ class LocBase:
         for item in self.contents:
             item.print_xml(indent + '  ')
 
+    def print_name(self, indent):
+        if self.dup_name:
+            msgctxt = ' msgctxt="%s' % self.__class__.__name__
+            if self.parent is not None:
+                msgctxt += ' in '
+                c = self.parent
+                while c is not None:
+                    if c is not self.parent:
+                        msgctxt += ', '
+                    # although it would be prettier to use c.in_name
+                    # here for countries, that would be bad because if
+                    # we changed the list of "the"-using countries,
+                    # that would then cause translations to get
+                    # fuzzified
+                    msgctxt += saxutils.escape(c.name)
+                    c = c.parent
+            msgctxt += '"'
+        else:
+            msgctxt = ''
+
+        print '%s  <_name%s>%s</_name>' % (indent, msgctxt, saxutils.escape(self.name))
+
     def station_prefixes(self):
         return reduce(set.__or__, [x.station_prefixes() for x in self.contents], set())
 
@@ -228,7 +256,7 @@ class Region(LocBase):
         print '%s<region>' % indent
         if self.comment is not None:
             printComment(indent + '  ', self.comment)
-        print '%s  <_name>%s</_name>' % (indent, saxutils.escape(self.name))
+        self.print_name(indent)
         LocBase.print_xml(self, indent)
         print '%s</region>' % indent
 
@@ -255,7 +283,7 @@ class Country(LocBase):
         print '%s<country>' % indent
         if self.comment is not None:
             printComment(indent + '  ', self.comment)
-        print '%s  <_name>%s</_name>' % (indent, saxutils.escape(self.name))
+        self.print_name(indent)
         if len(self.missing_stations):
             self.missing_stations.sort()
             comment = 'Could not find cities for the following weather stations:\n'
@@ -282,13 +310,13 @@ class State(LocBase):
     def __init__(self, parent, elt):
         LocBase.__init__(self, parent, elt)
         if self.comment is None:
-            self.comment = 'Translators: this is a state/province/territory in %s' % self.parent.name
+            self.comment = 'A state/province/territory in %s' % self.parent.name
 
     def print_xml(self, indent):
         print '%s<state>' % indent
         if self.comment is not None:
             printComment(indent + '  ', self.comment)
-        print '%s  <_name>%s</_name>' % (indent, saxutils.escape(self.name))
+        self.print_name(indent)
         LocBase.print_xml(self, indent)
         print '%s</state>' % indent
 
@@ -326,12 +354,12 @@ class City(LocBase):
                 country = self.parent
                 while not isinstance(country, Country):
                     country = country.parent
-                self.comment = 'Translators: this is the capital of %s' % country.in_name
+                self.comment = 'The capital of %s' % country.in_name
             elif self.parent.parent is not None:
-                self.comment = 'Translators: this is a city in %s in %s' % \
+                self.comment = 'A city in %s in %s' % \
                                (self.parent.name, self.parent.parent.in_name)
             else:
-                self.comment = 'Translators: this is a city in %s' % self.parent.in_name
+                self.comment = 'A city in %s' % self.parent.in_name
 
         print '%s<city>' % indent
         comment = self.comment or ''
@@ -344,7 +372,7 @@ class City(LocBase):
             comment += '\n'.join(self.name_comment)
         if len(comment):
             printComment(indent + '  ', comment, True)
-        print '%s  <_name>%s</_name>' % (indent, saxutils.escape(self.name))
+        self.print_name(indent)
         print '%s  <coordinates>%s</coordinates>' % (indent, self.coordinates)
         for item in self.contents:
             item.print_xml(indent + '  ', self)
@@ -524,7 +552,7 @@ def get_city(id, country_code=None):
         city.name_comment.append('"%s" is the traditional English name.' % city.name)
     if local_short_name is not None:
         country = getFipsCountry(city)
-        city.name_comment.append('This is one of several cities in %s called "%s".' % (country.name, local_short_name))
+        city.name_comment.append('One of several cities in %s called "%s".' % (country.name, local_short_name))
     if script_name is not None:
         city.name_comment.append('The name is also written "%s".' % script_name)
     for lang in localnames:
@@ -730,6 +758,35 @@ for id in cities:
                 print "Could not find container for city %s in %s" % (city.name, city.country_code);
                 continue
     city.parent.contents.append(city)
+
+# Find duplicate names
+names = {}
+
+def add_names(container):
+    if container.name in names:
+        names[container.name].append(container)
+    else:
+        names[container.name] = [container]
+    if not isinstance(container, City):
+        for c in container.contents:
+            add_names(c)
+
+for region in regions:
+    add_names(region)
+
+# timezone names can conflict with country/state names, but not with
+# each other
+for region in regions:
+    for country in region.contents:
+        for zone in country.timezones.zones:
+            if zone.name in names:
+                names[zone.name].append(zone)
+
+for name in names:
+    name_list = names[name]
+    if len(name_list) > 1:
+        for container in name_list:
+            container.dup_name = True
 
 # Note unknown weather stations
 for id in stations:

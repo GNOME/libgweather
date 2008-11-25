@@ -1,5 +1,24 @@
 2008-11-25  Dan Winship  <danw@gnome.org>
 
+	* configure.in (IT_PROG_INTLTOOL): require 0.40.3, for msgctxt
+	support
+
+	* data/update-locations.py: find duplicate names, and add msgctxt
+	attributes to the XML so that, eg, translators can differentiate
+	"Athens, Georgia, USA" from the capital of Greece and the former
+	Soviet republic. #529057
+	(State.__init__, City.print_xml, get_city): trim down the text of
+	the comments. In particular, we don't need to prepend
+	"Translators: ..." to them, because *all* of the comments in
+	Locations.xml.in are for translators.
+
+	* data/Locations.xml.in: regen
+
+	* data/Makefile.am (rebuild-locations): fix this rule to delete
+	the right file on error
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
 	Don't worry about sub-city locations; people generally aren't
 	going to know which of the locations is closest to them, and the
 	weather reports from all of them should be basically the same
