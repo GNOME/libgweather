@@ -4,6 +4,7 @@
 import codecs
 import locale
 import math
+import os
 import re
 import sqlite3
 import sys
@@ -245,7 +246,7 @@ class Country(LocBase):
            self.name.find('Republic') != -1 or \
            self.name.find('lands') != -1:
             self.in_name = 'the ' + self.name
-        elif re.search(r'(IM|MV|PH|PS|SC|TF|VA)', self.iso_code):
+        elif re.search(r'(BS|IM|MV|PH|PS|SC|TF|VA)', self.iso_code):
             self.in_name = 'the ' + self.name
         else:
             self.in_name = self.name
@@ -346,7 +347,7 @@ class City(LocBase):
         print '%s  <_name>%s</_name>' % (indent, saxutils.escape(self.name))
         print '%s  <coordinates>%s</coordinates>' % (indent, self.coordinates)
         for item in self.contents:
-            item.print_xml(indent + '  ', self, len(self.contents) > 1)
+            item.print_xml(indent + '  ', self)
         print '%s</city>' % indent
 
 class Location(LocBase):
@@ -365,7 +366,7 @@ class Location(LocBase):
             if self.code in station_comments:
                 self.comment = station_comments[self.code]
 
-    def print_xml(self, indent, city=None, localize=True):
+    def print_xml(self, indent, city=None):
         print '%s<location>' % indent
         name = self.name
         if city is not None:
@@ -379,10 +380,7 @@ class Location(LocBase):
                 name = name[:-len(city.name) - 2]
         #if self.comment is not None:
         #    print '%s  <!-- %s -->' % (indent, self.comment)
-        if localize:
-            print '%s  <_name>%s</_name>' % (indent, saxutils.escape(name))
-        else:
-            print '%s  <name>%s</name>' % (indent, saxutils.escape(name))
+        print '%s  <name>%s</name>' % (indent, saxutils.escape(name))
         print '%s  <code>%s</code>' % (indent, self.code)
         LocBase.print_xml(self, indent)
         print '%s</location>' % indent
@@ -625,7 +623,8 @@ def find_city(c, city_name, station, try_nearby):
 
     return city
 
-observations = urllib.urlopen('http://gnome.org/~danw/observations.txt')
+observations_url = os.getenv('OBSERVATIONS_URL') or 'http://gnome.org/~danw/observations.txt'
+observations = urllib.urlopen(observations_url)
 recent = [obs.rstrip() for obs in observations.readlines()]
 observations.close()
 

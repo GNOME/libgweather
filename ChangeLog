@@ -1,5 +1,32 @@
 2008-11-25  Dan Winship  <danw@gnome.org>
 
+	Don't worry about sub-city locations; people generally aren't
+	going to know which of the locations is closest to them, and the
+	weather reports from all of them should be basically the same
+	anyway.
+
+	* data/update-locations.py (Location.print_xml): never use <_name>
+	for location-level names; always just use <name> so they don't get
+	localized
+	(observations_url): add a hack to let you override the
+	recent-observations file, so you can regenerate Locations.xml.in
+	without changing the set of active stations
+	(Country.__init__): add "Bahamas" to the list of countries whose
+	name we put "the" before in comments
+
+	* data/Locations.xml.in: regen, dropping localization for
+	<location> nodes
+
+	* libgweather/gweather-xml.c (gweather_xml_parse_node): Remove the
+	cities-with-multiple-locations code, and just make all cities use
+	their first child location. Also, ignore <location>s that aren't
+	children of <city>s (which should be impossible now anyway).
+
+	* libgweather/location-entry.c (fill_location_entry_model):
+	likewise
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
 	* libgweather/gweather.pc.in (locations_file): remove this; we do
 	not support other programs reading the locations file directly,
 	you have to use the libgweather API.
