@@ -105,7 +105,13 @@ metar_tok_wind (gchar *tokp, WeatherInfo *info)
         memset (sgust, 0, sizeof (sgust));
 	glen = strspn (gustp + 1, CONST_DIGITS);
         strncpy (sgust, gustp + 1, glen);
+	tokp = gustp + 1 + glen;
     }
+
+    if (!strcmp (tokp, "MPS"))
+	info->windspeed = WINDSPEED_MS_TO_KNOTS ((WeatherWindSpeed)spd);
+    else
+	info->windspeed = (WeatherWindSpeed)spd;
 
     if ((349 <= dir) || (dir <= 11))
         info->wind = WIND_N;
@@ -139,8 +145,6 @@ metar_tok_wind (gchar *tokp, WeatherInfo *info)
         info->wind = WIND_NW;
     else if ((327 <= dir) && (dir <= 348))
         info->wind = WIND_NNW;
-
-    info->windspeed = (WeatherWindSpeed)spd;
 }
 
 static void
@@ -379,7 +383,7 @@ metar_tok_cond (gchar *tokp, WeatherInfo *info)
 }
 
 #define TIME_RE_STR  "([0-9]{6})Z"
-#define WIND_RE_STR  "(([0-9]{3})|VRB)([0-9]?[0-9]{2})(G[0-9]?[0-9]{2})?KT"
+#define WIND_RE_STR  "(([0-9]{3})|VRB)([0-9]?[0-9]{2})(G[0-9]?[0-9]{2})?(KT|MPS)"
 #define VIS_RE_STR   "((([0-9]?[0-9])|(M?([12] )?([1357]/1?[0-9])))SM)|" \
     "([0-9]{4}(N|NE|E|SE|S|SW|W|NW( [0-9]{4}(N|NE|E|SE|S|SW|W|NW))?)?)|" \
     "CAVOK"

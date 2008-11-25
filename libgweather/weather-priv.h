@@ -51,7 +51,7 @@ typedef struct _WeatherConditions WeatherConditions;
 
 typedef gdouble WeatherTemperature;
 typedef gdouble WeatherHumidity;
-typedef gint WeatherWindSpeed;
+typedef gdouble WeatherWindSpeed;
 typedef gdouble WeatherPressure;
 typedef gdouble WeatherVisibility;
 typedef time_t WeatherUpdate;
@@ -119,6 +119,7 @@ const gchar *	weather_conditions_string	(WeatherConditions cond);
 #define WINDSPEED_KNOTS_TO_KPH(knots)	((knots) * 1.851965)
 #define WINDSPEED_KNOTS_TO_MPH(knots)	((knots) * 1.150779)
 #define WINDSPEED_KNOTS_TO_MS(knots)	((knots) * 0.514444)
+#define WINDSPEED_MS_TO_KNOTS(ms)	((ms) / 0.514444)
 /* 1 bft ~= (1 m/s / 0.836) ^ (2/3) */
 #define WINDSPEED_KNOTS_TO_BFT(knots)	(pow ((knots) * 0.615363, 0.666666))
 
