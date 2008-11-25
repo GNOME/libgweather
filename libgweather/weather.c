@@ -332,8 +332,25 @@ void request_done (WeatherInfo *info, gboolean ok)
         info->finish_cb (info, info->cb_data);
 }
 
-/* Relative humidity computation - thanks to <Olof.Oberg@modopaper.modogroup.com> */
+/* it's OK to pass in NULL */
+void
+free_forecast_list (WeatherInfo *info)
+{
+    GSList *p;
 
+    if (!info)
+	return;
+
+    for (p = info->forecast_list; p; p = p->next)
+	weather_info_free (p->data);
+
+    if (info->forecast_list) {
+	g_slist_free (info->forecast_list);
+	info->forecast_list = NULL;
+    }
+}
+
+/* Relative humidity computation - thanks to <Olof.Oberg@modopaper.modogroup.com> */
 
 static inline gdouble
 calc_humidity (gdouble temp, gdouble dewp)
@@ -490,8 +507,10 @@ _weather_info_fill (WeatherInfo *info,
         location = info->location;
 	if (info->forecast)
 	    g_free (info->forecast);
-
 	info->forecast = NULL;
+
+	free_forecast_list (info);
+
 	if (info->radar != NULL) {
 	    g_object_unref (info->radar);
 	    info->radar = NULL;
@@ -519,6 +538,9 @@ _weather_info_fill (WeatherInfo *info,
     info->cond.phenomenon = PHENOMENON_NONE;
     info->cond.qualifier = QUALIFIER_NONE;
     info->temp = -1000.0;
+    info->tempMinMaxValid = FALSE;
+    info->temp_min = -1000.0;
+    info->temp_max = -1000.0;
     info->dew = -1000.0;
     info->wind = -1;
     info->windspeed = -1;
@@ -528,6 +550,7 @@ _weather_info_fill (WeatherInfo *info,
     info->sunrise = 0;
     info->sunset = 0;
     info->forecast = NULL;
+    info->forecast_list = NULL;
     info->radar = NULL;
     info->radar_url = prefs->radar && prefs->radar_custom_url ?
     		      g_strdup (prefs->radar_custom_url) : NULL;
@@ -576,6 +599,17 @@ weather_info_clone (const WeatherInfo *info)
     clone->forecast = g_strdup (info->forecast);
     clone->radar_url = g_strdup (info->radar_url);
 
+    if (info->forecast_list) {
+	GSList *p;
+
+	clone->forecast_list = NULL;
+	for (p = info->forecast_list; p; p = p->next) {
+	    clone->forecast_list = g_slist_prepend (clone->forecast_list, weather_info_clone (p->data));
+	}
+
+	clone->forecast_list = g_slist_reverse (clone->forecast_list);
+    }
+
     clone->radar = info->radar;
     if (clone->radar != NULL)
 	g_object_ref (clone->radar);
@@ -599,6 +633,8 @@ weather_info_free (WeatherInfo *info)
     g_free (info->forecast);
     info->forecast = NULL;
 
+    free_forecast_list (info);
+
     if (info->radar != NULL) {
         g_object_unref (info->radar);
         info->radar = NULL;
@@ -619,6 +655,28 @@ weather_info_network_error (WeatherInfo *info)
 {
     g_return_val_if_fail (info != NULL, FALSE);
     return info->network_error;
+}
+
+void
+weather_info_to_metric (WeatherInfo *info)
+{
+    g_return_if_fail(info != NULL);
+
+    info->temperature_unit = TEMP_UNIT_CENTIGRADE;
+    info->speed_unit = SPEED_UNIT_MS;
+    info->pressure_unit = PRESSURE_UNIT_HPA;
+    info->distance_unit = DISTANCE_UNIT_METERS;
+}
+
+void
+weather_info_to_imperial (WeatherInfo *info)
+{
+    g_return_if_fail(info != NULL);
+
+    info->temperature_unit = TEMP_UNIT_FAHRENHEIT;
+    info->speed_unit = SPEED_UNIT_MPH;
+    info->pressure_unit = PRESSURE_UNIT_INCH_HG;
+    info->distance_unit = DISTANCE_UNIT_MILES;
 }
 
 const WeatherLocation *
@@ -750,6 +808,32 @@ weather_info_get_temp (WeatherInfo *info)
         return _("Unknown");
 
     return temperature_string (info->temp, info->temperature_unit, FALSE);
+}
+
+const gchar *
+weather_info_get_temp_min (WeatherInfo *info)
+{
+    g_return_val_if_fail (info != NULL, NULL);
+
+    if (!info->valid || !info->tempMinMaxValid)
+        return "-";
+    if (info->temp_min < -500.0)
+        return _("Unknown");
+
+    return temperature_string (info->temp_min, info->temperature_unit, FALSE);
+}
+
+const gchar *
+weather_info_get_temp_max (WeatherInfo *info)
+{
+    g_return_val_if_fail (info != NULL, NULL);
+
+    if (!info->valid || !info->tempMinMaxValid)
+        return "-";
+    if (info->temp_max < -500.0)
+        return _("Unknown");
+
+    return temperature_string (info->temp_max, info->temperature_unit, FALSE);
 }
 
 const gchar *
@@ -996,6 +1080,26 @@ weather_info_get_forecast (WeatherInfo *info)
     return info->forecast;
 }
 
+/**
+ * weather_info_get_forecast_list:
+ * Returns list of WeatherInfo* objects for the forecast.
+ * The list is owned by the 'info' object thus is alive as long
+ * as the 'info'. This list is filled only when requested with
+ * type FORECAST_LIST and if available for given location.
+ * The 'update' property is the date/time when the forecast info
+ * is used for.
+ **/
+GSList *
+weather_info_get_forecast_list (WeatherInfo *info)
+{
+    g_return_val_if_fail (info != NULL, NULL);
+
+    if (!info->valid)
+	return NULL;
+
+    return info->forecast_list;
+}
+
 GdkPixbufAnimation *
 weather_info_get_radar (WeatherInfo *info)
 {
@@ -1112,4 +1216,339 @@ weather_info_get_icon_name (WeatherInfo *info)
     }
 
     return NULL;
+}
+
+static gboolean
+temperature_value (gdouble far, TempUnit to_unit, gdouble *value, TempUnit def_unit)
+{
+    gboolean ok = TRUE;
+
+    *value = 0.0;
+    if (far < -500.0)
+	return FALSE;
+
+    if (to_unit == TEMP_UNIT_DEFAULT)
+	    to_unit = def_unit;
+
+    switch (to_unit) {
+        case TEMP_UNIT_FAHRENHEIT:
+	    *value = far;
+	    break;
+        case TEMP_UNIT_CENTIGRADE:
+	    *value = TEMP_F_TO_C (far);
+	    break;
+        case TEMP_UNIT_KELVIN:
+	    *value = TEMP_F_TO_K (far);
+	    break;
+        case TEMP_UNIT_INVALID:
+        case TEMP_UNIT_DEFAULT:
+	default:
+	    ok = FALSE;
+	    break;
+    }
+
+    return ok;
+}
+
+static gboolean
+speed_value (gdouble knots, SpeedUnit to_unit, gdouble *value, SpeedUnit def_unit)
+{
+    gboolean ok = TRUE;
+
+    *value = -1.0;
+
+    if (knots < 0.0)
+	return FALSE;
+
+    if (to_unit == SPEED_UNIT_DEFAULT)
+	    to_unit = def_unit;
+
+    switch (to_unit) {
+        case SPEED_UNIT_KNOTS:
+            *value = knots;
+	    break;
+        case SPEED_UNIT_MPH:
+            *value = WINDSPEED_KNOTS_TO_MPH (knots);
+	    break;
+        case SPEED_UNIT_KPH:
+            *value = WINDSPEED_KNOTS_TO_KPH (knots);
+	    break;
+        case SPEED_UNIT_MS:
+            *value = WINDSPEED_KNOTS_TO_MS (knots);
+	    break;
+	case SPEED_UNIT_BFT:
+	    *value = WINDSPEED_KNOTS_TO_BFT (knots);
+	    break;
+        case SPEED_UNIT_INVALID:
+        case SPEED_UNIT_DEFAULT:
+        default:
+            ok = FALSE;
+            break;
+    }
+
+    return ok;
+}
+
+static gboolean
+pressure_value (gdouble inHg, PressureUnit to_unit, gdouble *value, PressureUnit def_unit)
+{
+    gboolean ok = TRUE;
+
+    *value = -1.0;
+
+    if (inHg < 0.0)
+	return FALSE;
+
+    if (to_unit == PRESSURE_UNIT_DEFAULT)
+	    to_unit = def_unit;
+
+    switch (to_unit) {
+        case PRESSURE_UNIT_INCH_HG:
+            *value = inHg;
+	    break;
+        case PRESSURE_UNIT_MM_HG:
+            *value = PRESSURE_INCH_TO_MM (inHg);
+	    break;
+        case PRESSURE_UNIT_KPA:
+            *value = PRESSURE_INCH_TO_KPA (inHg);
+	    break;
+        case PRESSURE_UNIT_HPA:
+            *value = PRESSURE_INCH_TO_HPA (inHg);
+	    break;
+        case PRESSURE_UNIT_MB:
+            *value = PRESSURE_INCH_TO_MB (inHg);
+	    break;
+        case PRESSURE_UNIT_ATM:
+            *value = PRESSURE_INCH_TO_ATM (inHg);
+	    break;
+        case PRESSURE_UNIT_INVALID:
+        case PRESSURE_UNIT_DEFAULT:
+        default:
+	    ok = FALSE;
+	    break;
+    }
+
+    return ok;
+}
+
+static gboolean
+distance_value (gdouble miles, DistanceUnit to_unit, gdouble *value, DistanceUnit def_unit)
+{
+    gboolean ok = TRUE;
+
+    *value = -1.0;
+
+    if (miles < 0.0)
+	return FALSE;
+
+    if (to_unit == DISTANCE_UNIT_DEFAULT)
+	    to_unit = def_unit;
+
+    switch (to_unit) {
+        case DISTANCE_UNIT_MILES:
+            *value = miles;
+            break;
+        case DISTANCE_UNIT_KM:
+            *value = VISIBILITY_SM_TO_KM (miles);
+            break;
+        case DISTANCE_UNIT_METERS:
+            *value = VISIBILITY_SM_TO_M (miles);
+            break;
+        case DISTANCE_UNIT_INVALID:
+        case DISTANCE_UNIT_DEFAULT:
+        default:
+	    ok = FALSE;
+	    break;
+    }
+
+    return ok;
+}
+
+gboolean
+weather_info_get_value_sky (WeatherInfo *info, WeatherSky *sky)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (sky != NULL, FALSE);
+
+    if (!info->valid)
+	return FALSE;
+
+    if (info->sky < 0 || info->sky >= (sizeof (sky_str) / sizeof (char *)))
+	return FALSE;
+
+    *sky = info->sky;
+
+    return TRUE;
+}
+
+gboolean
+weather_info_get_value_conditions (WeatherInfo *info, WeatherConditionPhenomenon *phenomenon, WeatherConditionQualifier *qualifier)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (phenomenon != NULL, FALSE);
+    g_return_val_if_fail (qualifier != NULL, FALSE);
+
+    if (!info->valid)
+	return FALSE;
+
+    if (!info->cond.significant)
+	return FALSE;
+
+    if (!(info->cond.phenomenon >= 0 &&
+	info->cond.phenomenon < 24 &&
+	info->cond.qualifier >= 0 &&
+	info->cond.qualifier < 13))
+        return FALSE;
+
+    *phenomenon = info->cond.phenomenon;
+    *qualifier = info->cond.qualifier;
+
+    return TRUE;
+}
+
+gboolean
+weather_info_get_value_temp (WeatherInfo *info, TempUnit unit, gdouble *value)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (value != NULL, FALSE);
+
+    if (!info->valid)
+	return FALSE;
+
+    return temperature_value (info->temp, unit, value, info->temperature_unit);
+}
+
+gboolean
+weather_info_get_value_temp_min (WeatherInfo *info, TempUnit unit, gdouble *value)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (value != NULL, FALSE);
+
+    if (!info->valid || !info->tempMinMaxValid)
+	return FALSE;
+
+    return temperature_value (info->temp_min, unit, value, info->temperature_unit);
+}
+
+gboolean
+weather_info_get_value_temp_max (WeatherInfo *info, TempUnit unit, gdouble *value)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (value != NULL, FALSE);
+
+    if (!info->valid || !info->tempMinMaxValid)
+	return FALSE;
+
+    return temperature_value (info->temp_max, unit, value, info->temperature_unit);
+}
+
+gboolean
+weather_info_get_value_dew (WeatherInfo *info, TempUnit unit, gdouble *value)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (value != NULL, FALSE);
+
+    if (!info->valid)
+	return FALSE;
+
+    return temperature_value (info->dew, unit, value, info->temperature_unit);
+}
+
+gboolean
+weather_info_get_value_apparent (WeatherInfo *info, TempUnit unit, gdouble *value)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (value != NULL, FALSE);
+
+    if (!info->valid)
+	return FALSE;
+
+    return temperature_value (calc_apparent (info), unit, value, info->temperature_unit);
+}
+
+gboolean
+weather_info_get_value_update (WeatherInfo *info, time_t *value)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (value != NULL, FALSE);
+
+    if (!info->valid)
+	return FALSE;
+
+    *value = info->update;
+
+    return *value != 0;
+}
+
+gboolean
+weather_info_get_value_sunrise (WeatherInfo *info, time_t *value)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (value != NULL, FALSE);
+
+    if (!info->valid || !info->sunValid)
+	return FALSE;
+
+    *value = info->sunrise;
+
+    return *value != 0;
+}
+
+gboolean
+weather_info_get_value_sunset (WeatherInfo *info, time_t *value)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (value != NULL, FALSE);
+
+    if (!info->valid || !info->sunValid)
+	return FALSE;
+
+    *value = info->sunset;
+
+    return *value != 0;
+}
+
+gboolean
+weather_info_get_value_wind (WeatherInfo *info, SpeedUnit unit, gdouble *speed, WeatherWindDirection *direction)
+{
+    gboolean res = FALSE;
+
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (speed != NULL, FALSE);
+    g_return_val_if_fail (direction != NULL, FALSE);
+
+    if (!info->valid)
+	return FALSE;
+
+    if (info->windspeed < 0.0 || info->wind < 0 || info->wind >= (sizeof (wind_direction_str) / sizeof (char *)))
+        return FALSE;
+
+    res = speed_value (info->windspeed, unit, speed, info->speed_unit);
+    *direction = info->wind;
+
+    return res;
+}
+
+gboolean
+weather_info_get_value_pressure (WeatherInfo *info, PressureUnit unit, gdouble *value)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (value != NULL, FALSE);
+
+    if (!info->valid)
+	return FALSE;
+
+    return pressure_value (info->pressure, unit, value, info->pressure_unit);
+}
+
+gboolean
+weather_info_get_value_visibility (WeatherInfo *info, DistanceUnit unit, gdouble *value)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (value != NULL, FALSE);
+
+    if (!info->valid)
+	return FALSE;
+
+    return distance_value (info->visibility, unit, value, info->distance_unit);
 }

@@ -21,6 +21,7 @@
 
 #include <time.h>
 #include <libintl.h>
+#include <math.h>
 #include <libsoup/soup.h>
 
 #include "weather.h"
@@ -39,79 +40,6 @@ WeatherLocation *gweather_location_to_weather_location (GWeatherLocation *gloc,
 /*
  * Weather information.
  */
-
-enum _WeatherWindDirection {
-    WIND_VARIABLE,
-    WIND_N, WIND_NNE, WIND_NE, WIND_ENE,
-    WIND_E, WIND_ESE, WIND_SE, WIND_SSE,
-    WIND_S, WIND_SSW, WIND_SW, WIND_WSW,
-    WIND_W, WIND_WNW, WIND_NW, WIND_NNW
-};
-
-typedef enum _WeatherWindDirection WeatherWindDirection;
-
-enum _WeatherSky {
-    SKY_INVALID = -1,
-    SKY_CLEAR,
-    SKY_BROKEN,
-    SKY_SCATTERED,
-    SKY_FEW,
-    SKY_OVERCAST
-};
-
-typedef enum _WeatherSky WeatherSky;
-
-enum _WeatherConditionPhenomenon {
-    PHENOMENON_NONE,
-
-    PHENOMENON_DRIZZLE,
-    PHENOMENON_RAIN,
-    PHENOMENON_SNOW,
-    PHENOMENON_SNOW_GRAINS,
-    PHENOMENON_ICE_CRYSTALS,
-    PHENOMENON_ICE_PELLETS,
-    PHENOMENON_HAIL,
-    PHENOMENON_SMALL_HAIL,
-    PHENOMENON_UNKNOWN_PRECIPITATION,
-
-    PHENOMENON_MIST,
-    PHENOMENON_FOG,
-    PHENOMENON_SMOKE,
-    PHENOMENON_VOLCANIC_ASH,
-    PHENOMENON_SAND,
-    PHENOMENON_HAZE,
-    PHENOMENON_SPRAY,
-    PHENOMENON_DUST,
-
-    PHENOMENON_SQUALL,
-    PHENOMENON_SANDSTORM,
-    PHENOMENON_DUSTSTORM,
-    PHENOMENON_FUNNEL_CLOUD,
-    PHENOMENON_TORNADO,
-    PHENOMENON_DUST_WHIRLS
-};
-
-typedef enum _WeatherConditionPhenomenon WeatherConditionPhenomenon;
-
-enum _WeatherConditionQualifier {
-    QUALIFIER_NONE,
-
-    QUALIFIER_VICINITY,
-
-    QUALIFIER_LIGHT,
-    QUALIFIER_MODERATE,
-    QUALIFIER_HEAVY,
-    QUALIFIER_SHALLOW,
-    QUALIFIER_PATCHES,
-    QUALIFIER_PARTIAL,
-    QUALIFIER_THUNDERSTORM,
-    QUALIFIER_BLOWING,
-    QUALIFIER_SHOWERS,
-    QUALIFIER_DRIFTING,
-    QUALIFIER_FREEZING
-};
-
-typedef enum _WeatherConditionQualifier WeatherConditionQualifier;
 
 struct _WeatherConditions {
     gboolean significant;
@@ -139,11 +67,14 @@ struct _WeatherInfo {
     gboolean valid;
     gboolean network_error;
     gboolean sunValid;
+    gboolean tempMinMaxValid;
     WeatherLocation *location;
     WeatherUpdate update;
     WeatherSky sky;
     WeatherConditions cond;
     WeatherTemperature temp;
+    WeatherTemperature temp_min;
+    WeatherTemperature temp_max;
     WeatherTemperature dew;
     WeatherWindDirection wind;
     WeatherWindSpeed windspeed;
@@ -152,6 +83,7 @@ struct _WeatherInfo {
     WeatherUpdate sunrise;
     WeatherUpdate sunset;
     gchar *forecast;
+    GSList *forecast_list; /* list of WeatherInfo* for the forecast, NULL if not available */
     gchar *radar_buffer;
     gchar *radar_url;
     GdkPixbufLoader *radar_loader;
@@ -218,6 +150,8 @@ void		request_done		(WeatherInfo *info,
 					 gboolean     ok);
 
 gboolean	calc_sun		(WeatherInfo *info);
+
+void		free_forecast_list	(WeatherInfo *info);
 
 #endif /* __WEATHER_PRIV_H_ */
 

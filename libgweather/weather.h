@@ -67,7 +67,8 @@ gboolean		weather_location_equal	(const WeatherLocation *location1,
 
 typedef enum _WeatherForecastType {
     FORECAST_STATE,
-    FORECAST_ZONE
+    FORECAST_ZONE,
+    FORECAST_LIST
 } WeatherForecastType;
 
 typedef enum {
@@ -153,6 +154,8 @@ const gchar *		weather_info_get_update		(WeatherInfo *info);
 const gchar *		weather_info_get_sky		(WeatherInfo *info);
 const gchar *		weather_info_get_conditions	(WeatherInfo *info);
 const gchar *		weather_info_get_temp		(WeatherInfo *info);
+const gchar *		weather_info_get_temp_min	(WeatherInfo *info);
+const gchar *		weather_info_get_temp_max	(WeatherInfo *info);
 const gchar *		weather_info_get_dew		(WeatherInfo *info);
 const gchar *		weather_info_get_humidity	(WeatherInfo *info);
 const gchar *		weather_info_get_wind		(WeatherInfo *info);
@@ -162,6 +165,7 @@ const gchar *		weather_info_get_apparent	(WeatherInfo *info);
 const gchar *		weather_info_get_sunrise	(WeatherInfo *info);
 const gchar *		weather_info_get_sunset		(WeatherInfo *info);
 const gchar *		weather_info_get_forecast	(WeatherInfo *info);
+GSList *		weather_info_get_forecast_list	(WeatherInfo *info);
 GdkPixbufAnimation *	weather_info_get_radar		(WeatherInfo *info);
 
 const gchar *		weather_info_get_temp_summary	(WeatherInfo *info);
@@ -169,6 +173,96 @@ gchar *			weather_info_get_weather_summary(WeatherInfo *info);
 
 const gchar *		weather_info_get_icon_name	(WeatherInfo *info);
 gint			weather_info_next_sun_event	(WeatherInfo *info);
+
+/* values retrieving functions */
+
+enum _WeatherWindDirection {
+    WIND_VARIABLE,
+    WIND_N, WIND_NNE, WIND_NE, WIND_ENE,
+    WIND_E, WIND_ESE, WIND_SE, WIND_SSE,
+    WIND_S, WIND_SSW, WIND_SW, WIND_WSW,
+    WIND_W, WIND_WNW, WIND_NW, WIND_NNW
+};
+
+typedef enum _WeatherWindDirection WeatherWindDirection;
+
+enum _WeatherSky {
+    SKY_INVALID = -1,
+    SKY_CLEAR,
+    SKY_BROKEN,
+    SKY_SCATTERED,
+    SKY_FEW,
+    SKY_OVERCAST
+};
+
+typedef enum _WeatherSky WeatherSky;
+
+enum _WeatherConditionPhenomenon {
+    PHENOMENON_NONE,
+
+    PHENOMENON_DRIZZLE,
+    PHENOMENON_RAIN,
+    PHENOMENON_SNOW,
+    PHENOMENON_SNOW_GRAINS,
+    PHENOMENON_ICE_CRYSTALS,
+    PHENOMENON_ICE_PELLETS,
+    PHENOMENON_HAIL,
+    PHENOMENON_SMALL_HAIL,
+    PHENOMENON_UNKNOWN_PRECIPITATION,
+
+    PHENOMENON_MIST,
+    PHENOMENON_FOG,
+    PHENOMENON_SMOKE,
+    PHENOMENON_VOLCANIC_ASH,
+    PHENOMENON_SAND,
+    PHENOMENON_HAZE,
+    PHENOMENON_SPRAY,
+    PHENOMENON_DUST,
+
+    PHENOMENON_SQUALL,
+    PHENOMENON_SANDSTORM,
+    PHENOMENON_DUSTSTORM,
+    PHENOMENON_FUNNEL_CLOUD,
+    PHENOMENON_TORNADO,
+    PHENOMENON_DUST_WHIRLS
+};
+
+typedef enum _WeatherConditionPhenomenon WeatherConditionPhenomenon;
+
+enum _WeatherConditionQualifier {
+    QUALIFIER_NONE,
+
+    QUALIFIER_VICINITY,
+
+    QUALIFIER_LIGHT,
+    QUALIFIER_MODERATE,
+    QUALIFIER_HEAVY,
+    QUALIFIER_SHALLOW,
+    QUALIFIER_PATCHES,
+    QUALIFIER_PARTIAL,
+    QUALIFIER_THUNDERSTORM,
+    QUALIFIER_BLOWING,
+    QUALIFIER_SHOWERS,
+    QUALIFIER_DRIFTING,
+    QUALIFIER_FREEZING
+};
+
+typedef enum _WeatherConditionQualifier WeatherConditionQualifier;
+
+gboolean weather_info_get_value_update		(WeatherInfo *info, time_t *value);
+gboolean weather_info_get_value_sky		(WeatherInfo *info, WeatherSky *sky);
+gboolean weather_info_get_value_conditions	(WeatherInfo *info, WeatherConditionPhenomenon *phenomenon, WeatherConditionQualifier *qualifier);
+gboolean weather_info_get_value_temp		(WeatherInfo *info, TempUnit unit, gdouble *value);
+gboolean weather_info_get_value_temp_min	(WeatherInfo *info, TempUnit unit, gdouble *value);
+gboolean weather_info_get_value_temp_max	(WeatherInfo *info, TempUnit unit, gdouble *value);
+gboolean weather_info_get_value_dew		(WeatherInfo *info, TempUnit unit, gdouble *value);
+gboolean weather_info_get_value_apparent	(WeatherInfo *info, TempUnit unit, gdouble *value);
+gboolean weather_info_get_value_wind		(WeatherInfo *info, SpeedUnit unit, gdouble *speed, WeatherWindDirection *direction);
+gboolean weather_info_get_value_pressure	(WeatherInfo *info, PressureUnit unit, gdouble *value);
+gboolean weather_info_get_value_visibility	(WeatherInfo *info, DistanceUnit unit, gdouble *value);
+gboolean weather_info_get_value_sunrise		(WeatherInfo *info, time_t *value);
+gboolean weather_info_get_value_sunset 		(WeatherInfo *info, time_t *value);
+
 G_END_DECLS
 
 #endif /* __WEATHER_H_ */
