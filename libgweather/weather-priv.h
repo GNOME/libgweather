@@ -19,10 +19,16 @@
 #ifndef __WEATHER_PRIV_H_
 #define __WEATHER_PRIV_H_
 
+#include "config.h"
+
 #include <time.h>
 #include <libintl.h>
 #include <math.h>
+#ifdef HAVE_LIBSOUP_GNOME
+#include <libsoup/soup-gnome.h>
+#else
 #include <libsoup/soup.h>
+#endif
 
 #include "weather.h"
 #include "gweather-location.h"
