@@ -384,16 +384,16 @@ iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
         /* forecast data is not really interesting anyway ;) */
-    g_warning ("Failed to get IWIN forecast data: %d %s\n",
-           msg->status_code, msg->reason_phrase);
+        g_warning ("Failed to get IWIN forecast data: %d %s\n",
+                   msg->status_code, msg->reason_phrase);
         request_done (info, FALSE);
-    return;
+        return;
     }
 
     if (info->forecast_type == FORECAST_LIST)
-    info->forecast_list = parseForecastXml (msg->response_body->data, info);
+        info->forecast_list = parseForecastXml (msg->response_body->data, info);
     else
-    info->forecast = formatWeatherMsg (g_strdup (msg->response_body->data));
+        info->forecast = formatWeatherMsg (g_strdup (msg->response_body->data));
 
     request_done (info, TRUE);
 }
@@ -414,8 +414,8 @@ iwin_start_open (WeatherInfo *info)
         return;
 
     if (info->forecast) {
-    g_free (info->forecast);
-    info->forecast = NULL;
+        g_free (info->forecast);
+        info->forecast = NULL;
     }
 
     free_forecast_list (info);    

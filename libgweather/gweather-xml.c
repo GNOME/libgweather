@@ -37,7 +37,7 @@ gweather_xml_parse_node (GWeatherLocation *gloc,
 			 GtkTreeStore *store, GtkTreeIter *parent)
 {
     GtkTreeIter iter, *self = &iter;
-    GWeatherLocation **children, *parent_loc;
+    GWeatherLocation **children;
     GWeatherLocationLevel level;
     WeatherLocation *wloc;
     const char *name;
