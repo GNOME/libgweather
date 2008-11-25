@@ -1,5 +1,11 @@
 2008-11-25  Dan Winship  <danw@gnome.org>
 
+	* libgweather/gweather.pc.in (locations_file): remove this; we do
+	not support other programs reading the locations file directly,
+	you have to use the libgweather API.
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
 	* configure.in: Add -DG_DISABLE_SINGLE_INCLUDES and
 	-DGTK_DISABLE_SINGLE_INCLUDES. Also add various
 	_DISABLE_DEPRECATED flags in maintainer mode. Fix a dumb bug where
