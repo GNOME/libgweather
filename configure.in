@@ -217,11 +217,17 @@ AC_SUBST(LIBDIR)
 AC_SUBST(PYTHONDIR)
 AC_SUBST(GLADEDIR)
 
+##################################################
+# Checks for gtk-doc and docbook-tools
+##################################################
+GTK_DOC_CHECK([1.9])
+
 dnl ***************************************************************************
 dnl *** Output Makefiles et al                                              ***
 dnl ***************************************************************************
 AC_OUTPUT([
 Makefile
+doc/Makefile
 po/Makefile.in
 po-locations/Makefile
 libgweather/Makefile
