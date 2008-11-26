@@ -27,6 +27,12 @@
 
 #include <string.h>
 
+/**
+ * GWeatherTimezoneMenu:
+ *
+ * A #GtkComboBox subclass for choosing a #GWeatherTimezone
+ **/
+
 G_DEFINE_TYPE (GWeatherTimezoneMenu, gweather_timezone_menu, GTK_TYPE_COMBO_BOX)
 
 enum {
@@ -304,6 +310,18 @@ is_sensitive (GtkCellLayout *cell_layout, GtkCellRenderer *cell,
     g_object_set (cell, "sensitive", sensitive, NULL);
 }
 
+/**
+ * gweather_timezone_menu_new:
+ * @top: the top-level location for the menu.
+ *
+ * Creates a new #GWeatherTimezoneMenu.
+ *
+ * @top will normally be a location returned from
+ * gweather_location_new_world(), but you can create a menu that
+ * contains the timezones from a smaller set of locations if you want.
+ *
+ * Return value: the new #GWeatherTimezoneMenu
+ **/
 GtkWidget *
 gweather_timezone_menu_new (GWeatherLocation *top)
 {
@@ -337,6 +355,14 @@ check_tzid (GtkTreeModel *model, GtkTreePath *path,
 	return FALSE;
 }
 
+/**
+ * gweather_timezone_menu_set_tzid:
+ * @menu: a #GWeatherTimezoneMenu
+ * @tzid: (allow-none): a tzdata id (eg, "America/New_York")
+ *
+ * Sets @menu to the given @tzid. If @tzid is %NULL, sets @menu to
+ * "Unknown".
+ **/
 void
 gweather_timezone_menu_set_tzid (GWeatherTimezoneMenu *menu,
 				 const char           *tzid)
@@ -356,6 +382,15 @@ gweather_timezone_menu_set_tzid (GWeatherTimezoneMenu *menu,
 			    check_tzid, &tzd);
 }
 
+/**
+ * gweather_timezone_menu_get_tzid:
+ * @menu: a #GWeatherTimezoneMenu
+ *
+ * Gets @menu's timezone id.
+ *
+ * Return value: (allow-none): @menu's tzid, or %NULL if no timezone
+ * is selected.
+ **/
 const char *
 gweather_timezone_menu_get_tzid (GWeatherTimezoneMenu *menu)
 {

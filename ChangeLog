@@ -1,3 +1,20 @@
+2008-11-25  Dan Winship  <danw@gnome.org>
+
+	* libgweather/gweather-location.c:
+	(gweather_location_get_children)
+	(gweather_location_free_children): Make the memory-management here
+	less lame. #562274
+
+	* libgweather/gweather-timezone.c:
+	* libgweather/location-entry.c:
+	* libgweather/timezone-menu.c: Add some docs. #562261
+
+	* doc/Makefile.am (IGNORE_HFILES): set this
+
+	* doc/libgweather-sections.txt: update
+
+	* doc/libgweather-docs.sgml: fix (some)
+
 2008-11-26  Vincent Untz  <vuntz@gnome.org>
 
 	* Makefile.am:

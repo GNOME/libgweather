@@ -1,10 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
-[
-  <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
-]>
-<book id="index">
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<book id="index" xmlns:xi="http://www.w3.org/2001/XInclude">
   <bookinfo>
     <title>libgweather Reference Manual</title>
     <releaseinfo>
@@ -16,16 +13,13 @@
 
   <chapter>
     <title>[Insert title here]</title>
-    <xi:include href="xml/timezone-menu.xml"/>
+    <xi:include href="xml/gweather-location.xml"/>
     <xi:include href="xml/location-entry.xml"/>
-    <xi:include href="xml/gweather-enum-types.xml"/>
     <xi:include href="xml/gweather-timezone.xml"/>
-    <xi:include href="xml/parser.xml"/>
+    <xi:include href="xml/timezone-menu.xml"/>
+    <xi:include href="xml/weather.xml"/>
     <xi:include href="xml/gweather-xml.xml"/>
     <xi:include href="xml/gweather-gconf.xml"/>
     <xi:include href="xml/gweather-prefs.xml"/>
-    <xi:include href="xml/weather-priv.xml"/>
-    <xi:include href="xml/gweather-location.xml"/>
-    <xi:include href="xml/weather.xml"/>
   </chapter>
 </book>

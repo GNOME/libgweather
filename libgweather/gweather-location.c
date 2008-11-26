@@ -34,6 +34,15 @@
 #include "parser.h"
 #include "weather-priv.h"
 
+/**
+ * GWeatherLocation:
+ *
+ * A #GWeatherLocation represents a "location" of some type known to
+ * libgweather; anything from a single weather station to the entire
+ * world. See #GWeatherLocationLevel for information about how the
+ * hierarchy of locations works. 
+ **/
+
 struct _GWeatherLocation {
     char *name, *sort_name;
     GWeatherLocation *parent, **children;
@@ -46,6 +55,32 @@ struct _GWeatherLocation {
 
     int ref_count;
 };
+
+/**
+ * GWeatherLocationLevel:
+ * @GWEATHER_LOCATION_WORLD: A location representing the entire world.
+ * @GWEATHER_LOCATION_REGION: A location representing a continent or
+ * other top-level region.
+ * @GWEATHER_LOCATION_COUNTRY: A location representing a "country" (or
+ * other geographic unit that has an ISO-3166 country code)
+ * @GWEATHER_LOCATION_ADM1: A location representing a "first-level
+ * administrative division"; ie, a state, province, or similar
+ * division.
+ * @GWEATHER_LOCATION_ADM2: A location representing a subdivision of a
+ * %GWEATHER_LOCATION_ADM1 location. (Not currently used.)
+ * @GWEATHER_LOCATION_CITY: A location representing a city
+ * @GWEATHER_LOCATION_WEATHER_STATION: A location representing a
+ * weather station.
+ *
+ * The size/scope of a particular #GWeatherLocation.
+ *
+ * Locations form a hierarchy, with a %GWEATHER_LOCATION_WORLD
+ * location at the top, divided into regions or countries, and so on.
+ * Countries may or may not be divided into "adm1"s, and "adm1"s may
+ * or may not be divided into "adm2"s. A city will have at least one,
+ * and possibly several, weather stations inside it. Weather stations
+ * will never appear outside of cities.
+ **/
 
 static int
 sort_locations_by_name (gconstpointer a, gconstpointer b)
@@ -265,6 +300,25 @@ error_out:
     return NULL;
 }
 
+/**
+ * gweather_location_new_world:
+ * @use_regions: whether or not to divide the world into regions
+ *
+ * Creates a new #GWeatherLocation of type %GWEATHER_LOCATION_WORLD,
+ * representing a hierarchy containing all of the locations from
+ * Locations.xml.
+ *
+ * If @use_regions is %TRUE, the immediate children of the returned
+ * location will be %GWEATHER_LOCATION_REGION nodes, representing the
+ * top-level "regions" of Locations.xml (the continents and a few
+ * other divisions), and the country-level nodes will be the children
+ * of the regions. If @use_regions is %FALSE, the regions will be
+ * skipped, and the children of the returned location will be the
+ * %GWEATHER_LOCATION_COUNTRY nodes.
+ *
+ * Return value: (allow-none): a %GWEATHER_LOCATION_WORLD location, or
+ * %NULL if Locations.xml could not be found or could not be parsed.
+ **/
 GWeatherLocation *
 gweather_location_new_world (gboolean use_regions)
 {
@@ -281,6 +335,14 @@ gweather_location_new_world (gboolean use_regions)
     return world;
 }
 
+/**
+ * gweather_location_ref:
+ * @loc: a #GWeatherLocation
+ *
+ * Adds 1 to @loc's reference count.
+ *
+ * Return value: @loc
+ **/
 GWeatherLocation *
 gweather_location_ref (GWeatherLocation *loc)
 {
@@ -290,6 +352,13 @@ gweather_location_ref (GWeatherLocation *loc)
     return loc;
 }
 
+/**
+ * gweather_location_unref:
+ * @loc: a #GWeatherLocation
+ *
+ * Subtracts 1 from @loc's reference count, and frees it if the
+ * reference count reaches 0.
+ **/
 void
 gweather_location_unref (GWeatherLocation *loc)
 {
@@ -340,6 +409,19 @@ gweather_location_get_type (void)
     return type_volatile;
 }
 
+/**
+ * gweather_location_get_name:
+ * @loc: a #GWeatherLocation
+ *
+ * Gets @loc's name, localized into the current language.
+ *
+ * Note that %GWEATHER_LOCATION_WEATHER_STATION nodes are not
+ * localized, and so the name returned for those nodes will always be
+ * in English, and should therefore not be displayed to the user.
+ * (FIXME: should we just not return a name?)
+ *
+ * Return value: @loc's name
+ **/
 const char *
 gweather_location_get_name (GWeatherLocation *loc)
 {
@@ -347,6 +429,17 @@ gweather_location_get_name (GWeatherLocation *loc)
     return loc->name;
 }
 
+/**
+ * gweather_location_get_sort_name:
+ * @loc: a #GWeatherLocation
+ *
+ * Gets @loc's "sort name", which is the name after having
+ * g_utf8_normalize() (with %G_NORMALIZE_ALL) and g_utf8_casefold()
+ * called on it. You can use this to sort locations, or to comparing
+ * user input against a location name.
+ *
+ * Return value: @loc's sort name
+ **/
 const char *
 gweather_location_get_sort_name (GWeatherLocation *loc)
 {
@@ -354,6 +447,15 @@ gweather_location_get_sort_name (GWeatherLocation *loc)
     return loc->sort_name;
 }
 
+/**
+ * gweather_location_get_level:
+ * @loc: a #GWeatherLocation
+ *
+ * Gets @loc's level, from %GWEATHER_LOCATION_WORLD, to
+ * %GWEATHER_LOCATION_WEATHER_STATION.
+ *
+ * Return value: @loc's level
+ **/
 GWeatherLocationLevel
 gweather_location_get_level (GWeatherLocation *loc)
 {
@@ -361,6 +463,15 @@ gweather_location_get_level (GWeatherLocation *loc)
     return loc->level;
 }
 
+/**
+ * gweather_location_get_parent:
+ * @loc: a #GWeatherLocation
+ *
+ * Gets @loc's parent location.
+ *
+ * Return value: (transfer none) (allow-none): @loc's parent, or %NULL
+ * if @loc is a %GWEATHER_LOCATION_WORLD node.
+ **/
 GWeatherLocation *
 gweather_location_get_parent (GWeatherLocation *loc)
 {
@@ -368,29 +479,54 @@ gweather_location_get_parent (GWeatherLocation *loc)
     return loc->parent;
 }
 
+/**
+ * gweather_location_get_children:
+ * @loc: a #GWeatherLocation
+ *
+ * Gets an array of @loc's children; this is owned by @loc and will
+ * not remain valid if @loc is freed.
+ *
+ * Return value: (transfer none) (array zero-terminated=1): @loc's
+ * children. (May be empty, but will not be %NULL.)
+ **/
 GWeatherLocation **
 gweather_location_get_children (GWeatherLocation *loc)
 {
+    static GWeatherLocation *no_children = NULL;
+
     g_return_val_if_fail (loc != NULL, NULL);
 
-    gweather_location_ref (loc);
     if (loc->children)
 	return loc->children;
     else
-	return g_new0 (GWeatherLocation *, 1);
+	return &no_children;
 }
 
+
+/**
+ * gweather_location_free_children:
+ * @loc: a #GWeatherLocation
+ * @children: an array of @loc's children
+ *
+ * This is a no-op. Do not use it.
+ *
+ * Deprecated: This is a no-op.
+ **/
 void
 gweather_location_free_children (GWeatherLocation  *loc,
 				 GWeatherLocation **children)
 {
-    g_return_if_fail (loc != NULL);
-
-    if (!loc->children)
-	g_free (children);
-    gweather_location_unref (loc);
+    ;
 }
 
+/**
+ * gweather_location_has_coords:
+ * @loc: a #GWeatherLocation
+ *
+ * Checks if @loc has valid latitude and longitude.
+ *
+ * Return value: %TRUE if @loc has valid latitude and longitude.
+ **/
 gboolean
 gweather_location_has_coords (GWeatherLocation *loc)
 {
@@ -398,6 +534,15 @@ gweather_location_has_coords (GWeatherLocation *loc)
     return loc->latlon_valid;
 }
 
+/**
+ * gweather_location_get_coords:
+ * @loc: a #GWeatherLocation
+ * @latitude: (out): on return will contain @loc's latitude
+ * @longitude: (out): on return will contain @loc's longitude
+ *
+ * Gets @loc's coordinates; you must check
+ * gweather_location_has_coords() before calling this.
+ **/
 void
 gweather_location_get_coords (GWeatherLocation *loc,
 			      double *latitude, double *longitude)
@@ -411,6 +556,15 @@ gweather_location_get_coords (GWeatherLocation *loc,
     *longitude = loc->longitude / M_PI * 180.0;
 }
 
+/**
+ * gweather_location_get_distance:
+ * @loc: a #GWeatherLocation
+ * @loc2: a second #GWeatherLocation
+ *
+ * Determines the distance in kilometers between @loc and @loc2.
+ *
+ * Return value: the distance between @loc and @loc2.
+ **/
 double
 gweather_location_get_distance (GWeatherLocation *loc, GWeatherLocation *loc2)
 {
@@ -427,6 +581,16 @@ gweather_location_get_distance (GWeatherLocation *loc, GWeatherLocation *loc2)
 		 sin (loc->latitude) * sin (loc2->latitude)) * radius;
 }
 
+/**
+ * gweather_location_get_country:
+ * @loc: a #GWeatherLocation
+ *
+ * Gets the ISO 3166 country code of @loc (or %NULL if @loc is a
+ * region- or world-level location)
+ *
+ * Return value: (allow-none): @loc's country code (or %NULL if @loc
+ * is a region- or world-level location)
+ **/
 const char *
 gweather_location_get_country (GWeatherLocation *loc)
 {
@@ -437,6 +601,18 @@ gweather_location_get_country (GWeatherLocation *loc)
     return loc->country_code;
 }
 
+/**
+ * gweather_location_get_timezone:
+ * @loc: a #GWeatherLocation
+ *
+ * Gets the timezone associated with @loc, if known.
+ *
+ * The timezone is owned either by @loc or by one of its parents.
+ * FIXME.
+ *
+ * Return value: (transfer none) (allow-none): @loc's timezone, or
+ * %NULL
+ **/
 GWeatherTimezone *
 gweather_location_get_timezone (GWeatherLocation *loc)
 {
@@ -481,6 +657,17 @@ add_timezones (GWeatherLocation *loc, GPtrArray *zones)
     }
 }
 
+/**
+ * gweather_location_get_timezones:
+ * @loc: a #GWeatherLocation
+ *
+ * Gets an array of all timezones associated with any location under
+ * @loc. You can use gweather_location_free_timezones() to free this
+ * array.
+ *
+ * Return value: (transfer full) (array zero-terminated=1): an array
+ * of timezones. May be empty but will not be %NULL.
+ **/
 GWeatherTimezone **
 gweather_location_get_timezones (GWeatherLocation *loc)
 {
@@ -494,6 +681,14 @@ gweather_location_get_timezones (GWeatherLocation *loc)
     return (GWeatherTimezone **)g_ptr_array_free (zones, FALSE);
 }
 
+/**
+ * gweather_location_free_timezones:
+ * @loc: a #GWeatherLocation
+ * @zones: an array returned from gweather_location_get_timezones()
+ *
+ * Frees the array of timezones returned by
+ * gweather_location_get_timezones().
+ **/
 void
 gweather_location_free_timezones (GWeatherLocation  *loc,
 				  GWeatherTimezone **zones)
@@ -508,6 +703,15 @@ gweather_location_free_timezones (GWeatherLocation  *loc,
     g_free (zones);
 }
 
+/**
+ * gweather_location_get_code:
+ * @loc: a #GWeatherLocation
+ *
+ * Gets the METAR station code associated with a
+ * %GWEATHER_LOCATION_WEATHER_STATION location.
+ *
+ * Return value: (allow-none): @loc's METAR station code, or %NULL
+ **/
 const char *
 gweather_location_get_code (GWeatherLocation *loc)
 {
@@ -515,6 +719,18 @@ gweather_location_get_code (GWeatherLocation *loc)
     return loc->station_code;
 }
 
+/**
+ * gweather_location_get_city_name:
+ * @loc: a #GWeatherLocation
+ *
+ * For a %GWEATHER_LOCATION_CITY location, this is equivalent to
+ * gweather_location_get_name(). For a
+ * %GWEATHER_LOCATION_WEATHER_STATION location, it is equivalent to
+ * calling gweather_location_get_name() on the location's parent. For
+ * other locations it will return %NULL.
+ *
+ * Return value: (allow-none) @loc's city name, or %NULL
+ **/
 char *
 gweather_location_get_city_name (GWeatherLocation *loc)
 {
@@ -573,6 +789,16 @@ gweather_location_to_weather_location (GWeatherLocation *gloc,
     return wloc;
 }
 
+/**
+ * gweather_location_get_weather:
+ * @loc: a %GWeatherLocation
+ *
+ * Creates a #WeatherInfo corresponding to @loc; you can use
+ * weather_info_update() to fill it in.
+ *
+ * Return value: (transfer full): a #WeatherInfo corresponding to
+ * @loc.
+ **/
 WeatherInfo *
 gweather_location_get_weather (GWeatherLocation *loc)
 {

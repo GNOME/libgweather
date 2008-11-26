@@ -28,6 +28,16 @@
 #include "gweather-timezone.h"
 #include "parser.h"
 
+/**
+ * GWeatherTimezone:
+ *
+ * A timezone.
+ *
+ * There are no public methods for creating timezones; they can only
+ * be created by calling gweather_location_new_world() to parse
+ * Locations.xml, and then calling various #GWeatherLocation methods
+ * to extract relevant timezones from the location hierarchy.
+ **/
 struct _GWeatherTimezone {
     char *id, *name;
     int offset, dst_offset;
@@ -235,6 +245,14 @@ error_out:
     return NULL;
 }
 
+/**
+ * gweather_timezone_ref:
+ * @zone: a #GWeatherTimezone
+ *
+ * Adds 1 to @zone's reference count.
+ *
+ * Return value: @zone
+ **/
 GWeatherTimezone *
 gweather_timezone_ref (GWeatherTimezone *zone)
 {
@@ -244,6 +262,12 @@ gweather_timezone_ref (GWeatherTimezone *zone)
     return zone;
 }
 
+/**
+ * gweather_timezone_unref:
+ * @zone: a #GWeatherTimezone
+ *
+ * Subtracts 1 from @zone's reference count and frees it if it reaches 0.
+ **/
 void
 gweather_timezone_unref (GWeatherTimezone *zone)
 {
@@ -271,6 +295,19 @@ gweather_timezone_get_type (void)
     return type_volatile;
 }
 
+/**
+ * gweather_timezone_get_name:
+ * @zone: a #GWeatherTimezone
+ *
+ * Gets @zone's name; a translated, user-presentable string.
+ *
+ * Note that the returned name might not be unique among timezones,
+ * and may not make sense to the user unless it is presented along
+ * with the timezone's country's name (or in some context where the
+ * country is obvious).
+ *
+ * Return value: @zone's name
+ **/
 const char *
 gweather_timezone_get_name (GWeatherTimezone *zone)
 {
@@ -278,6 +315,14 @@ gweather_timezone_get_name (GWeatherTimezone *zone)
     return zone->name;
 }
 
+/**
+ * gweather_timezone_get_tzid:
+ * @zone: a #GWeatherTimezone
+ *
+ * Gets @zone's tzdata identifier, eg "America/New_York".
+ *
+ * Return value: @zone's tzid
+ **/
 const char *
 gweather_timezone_get_tzid (GWeatherTimezone *zone)
 {
@@ -285,6 +330,15 @@ gweather_timezone_get_tzid (GWeatherTimezone *zone)
     return zone->id;
 }
 
+/**
+ * gweather_timezone_get_offset:
+ * @zone: a #GWeatherTimezone
+ *
+ * Gets @zone's standard offset from UTC, in minutes. Eg, a value of
+ * %120 would indicate "GMT+2".
+ *
+ * Return value: @zone's standard offset, in minutes
+ **/
 int
 gweather_timezone_get_offset (GWeatherTimezone *zone)
 {
@@ -292,6 +346,14 @@ gweather_timezone_get_offset (GWeatherTimezone *zone)
     return zone->offset;
 }
 
+/**
+ * gweather_timezone_has_dst:
+ * @zone: a #GWeatherTimezone
+ *
+ * Checks if @zone observes daylight/summer time for part of the year.
+ *
+ * Return value: %TRUE if @zone observes daylight/summer time.
+ **/
 gboolean
 gweather_timezone_has_dst (GWeatherTimezone *zone)
 {
@@ -299,6 +361,16 @@ gweather_timezone_has_dst (GWeatherTimezone *zone)
     return zone->has_dst;
 }
 
+/**
+ * gweather_timezone_get_dst_offset:
+ * @zone: a #GWeatherTimezone
+ *
+ * Gets @zone's daylight/summer time offset from UTC, in minutes. Eg,
+ * a value of %120 would indicate "GMT+2". This is only meaningful if
+ * gweather_timezone_has_dst() returns %TRUE.
+ *
+ * Return value: @zone's daylight/summer time offset, in minutes
+ **/
 int
 gweather_timezone_get_dst_offset (GWeatherTimezone *zone)
 {

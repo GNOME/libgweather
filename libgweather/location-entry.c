@@ -27,6 +27,13 @@
 
 #include <string.h>
 
+/**
+ * GWeatherLocationEntry:
+ *
+ * A subclass of #GtkEntry that provides autocompletion on
+ * #GWeatherLocation<!-- -->s
+ **/
+
 G_DEFINE_TYPE (GWeatherLocationEntry, gweather_location_entry, GTK_TYPE_ENTRY)
 
 enum {
@@ -179,6 +186,15 @@ set_location_internal (GWeatherLocationEntry *entry,
     g_object_notify (G_OBJECT (entry), "location");
 }
 
+/**
+ * gweather_location_entry_set_location:
+ * @entry: a #GWeatherLocationEntry
+ * @loc: (allow-none): a #GWeatherLocation in @entry, or %NULL to
+ * clear @entry
+ *
+ * Sets @entry's location to @loc, and updates the text of the
+ * entry accordingly.
+ **/
 void
 gweather_location_entry_set_location (GWeatherLocationEntry *entry,
 				      GWeatherLocation      *loc)
@@ -207,6 +223,17 @@ gweather_location_entry_set_location (GWeatherLocationEntry *entry,
     set_location_internal (entry, model, NULL);
 }
 
+/**
+ * gweather_location_entry_get_location:
+ * @entry: a #GWeatherLocationEntry
+ *
+ * Gets the location that was set by a previous call to
+ * gweather_location_entry_set_location() or was selected by the user.
+ *
+ * Return value: (transfer full) (allow-none): the selected location
+ * (which you must unref when you are done with it), or %NULL if no
+ * location is selected.
+ **/
 GWeatherLocation *
 gweather_location_entry_get_location (GWeatherLocationEntry *entry)
 {
@@ -218,6 +245,16 @@ gweather_location_entry_get_location (GWeatherLocationEntry *entry)
 	return NULL;
 }
 
+/**
+ * gweather_location_entry_set_city:
+ * @entry: a #GWeatherLocationEntry
+ * @city_name: (allow-none): the city name, or %NULL
+ * @code: the METAR station code
+ *
+ * Sets @entry's location to a city with the given @code, and given
+ * @city_name, if non-%NULL. If there is no matching city, sets
+ * @entry's location to %NULL.
+ **/
 void
 gweather_location_entry_set_city (GWeatherLocationEntry *entry,
 				  const char            *city_name,
@@ -452,6 +489,18 @@ match_selected (GtkEntryCompletion *completion,
     return TRUE;
 }
 
+/**
+ * gweather_location_entry_new:
+ * @top: the top-level location for the entry.
+ *
+ * Creates a new #GWeatherLocationEntry.
+ *
+ * @top will normally be a location returned from
+ * gweather_location_new_world(), but you can create an entry that
+ * only accepts a smaller set of locations if you want.
+ *
+ * Return value: the new #GWeatherLocationEntry
+ **/
 GtkWidget *
 gweather_location_entry_new (GWeatherLocation *top)
 {
