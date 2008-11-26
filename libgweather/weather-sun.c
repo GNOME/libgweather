@@ -239,6 +239,8 @@ weather_info_next_sun_event (WeatherInfo *info)
     struct tm ltm;
     time_t    nxtEvent;
 
+    g_return_val_if_fail (info != NULL, -1);
+
     if (!calc_sun (info))
 	return -1;
 

@@ -1,3 +1,16 @@
+2008-11-26  Vincent Untz  <vuntz@gnome.org>
+
+	* libgweather/gweather-gconf.c:
+	* libgweather/gweather-location.c:
+	* libgweather/gweather-prefs.c:
+	* libgweather/gweather-timezone.c:
+	* libgweather/timezone-menu.c:
+	* libgweather/weather-sun.c:
+	* libgweather/weather.c:
+	Add some safety guards with g_return[_val]_if_fail() to public API.
+	Hopefully, I did it right. I guess people will notice quickly if it's
+	not the case ;-)
+
 2008-11-25  Vincent Untz  <vuntz@gnome.org>
 
 	* libgweather/gweather-xml.c: (gweather_xml_parse_node): remove unused

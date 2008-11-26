@@ -343,6 +343,8 @@ gweather_timezone_menu_set_tzid (GWeatherTimezoneMenu *menu,
 {
     SetTimezoneData tzd;
 
+    g_return_if_fail (GWEATHER_IS_TIMEZONE_MENU (menu));
+
     if (!tzid) {
 	gtk_combo_box_set_active (GTK_COMBO_BOX (menu), 0);
 	return;
@@ -357,6 +359,8 @@ gweather_timezone_menu_set_tzid (GWeatherTimezoneMenu *menu,
 const char *
 gweather_timezone_menu_get_tzid (GWeatherTimezoneMenu *menu)
 {
+    g_return_val_if_fail (GWEATHER_IS_TIMEZONE_MENU (menu), NULL);
+
     if (!menu->zone)
 	return NULL;
     return gweather_timezone_get_tzid (menu->zone);

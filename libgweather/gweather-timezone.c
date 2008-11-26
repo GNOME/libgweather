@@ -238,6 +238,8 @@ error_out:
 GWeatherTimezone *
 gweather_timezone_ref (GWeatherTimezone *zone)
 {
+    g_return_val_if_fail (zone != NULL, NULL);
+
     zone->ref_count++;
     return zone;
 }
@@ -245,6 +247,8 @@ gweather_timezone_ref (GWeatherTimezone *zone)
 void
 gweather_timezone_unref (GWeatherTimezone *zone)
 {
+    g_return_if_fail (zone != NULL);
+
     if (!--zone->ref_count) {
 	g_free (zone->id);
 	g_free (zone->name);
@@ -270,30 +274,35 @@ gweather_timezone_get_type (void)
 const char *
 gweather_timezone_get_name (GWeatherTimezone *zone)
 {
+    g_return_val_if_fail (zone != NULL, NULL);
     return zone->name;
 }
 
 const char *
 gweather_timezone_get_tzid (GWeatherTimezone *zone)
 {
+    g_return_val_if_fail (zone != NULL, NULL);
     return zone->id;
 }
 
 int
 gweather_timezone_get_offset (GWeatherTimezone *zone)
 {
+    g_return_val_if_fail (zone != NULL, 0);
     return zone->offset;
 }
 
 gboolean
 gweather_timezone_has_dst (GWeatherTimezone *zone)
 {
+    g_return_val_if_fail (zone != NULL, FALSE);
     return zone->has_dst;
 }
 
 int
 gweather_timezone_get_dst_offset (GWeatherTimezone *zone)
 {
+    g_return_val_if_fail (zone != NULL, 0);
     g_return_val_if_fail (zone->has_dst, 0);
     return zone->dst_offset;
 }

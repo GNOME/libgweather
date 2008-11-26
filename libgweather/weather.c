@@ -165,6 +165,8 @@ weather_location_clone (const WeatherLocation *location)
 {
     WeatherLocation *clone;
 
+    g_return_val_if_fail (location != NULL, NULL);
+
     clone = weather_location_new (location->name,
 				  location->code, location->zone,
 				  location->radar, location->coordinates,
@@ -194,8 +196,14 @@ weather_location_free (WeatherLocation *location)
 gboolean
 weather_location_equal (const WeatherLocation *location1, const WeatherLocation *location2)
 {
+    /* if something is NULL, then it's TRUE if and only if both are NULL) */
+    if (location1 == NULL || location2 == NULL)
+        return (location1 == location2);
     if (!location1->code || !location2->code)
-        return 1;
+        return (location1->code == location2->code);
+    if (!location1->name || !location2->name)
+        return (location1->name == location2->name);
+
     return ((strcmp (location1->code, location2->code) == 0) &&
 	    (strcmp (location1->name, location2->name) == 0));
 }
@@ -537,6 +545,8 @@ _weather_info_fill (WeatherInfo *info,
 void
 weather_info_abort (WeatherInfo *info)
 {
+    g_return_if_fail (info != NULL);
+
     if (info->session) {
 	soup_session_abort (info->session);
 	info->requests_pending = 0;
@@ -624,7 +634,7 @@ weather_info_network_error (WeatherInfo *info)
 void
 weather_info_to_metric (WeatherInfo *info)
 {
-    g_return_if_fail(info != NULL);
+    g_return_if_fail (info != NULL);
 
     info->temperature_unit = TEMP_UNIT_CENTIGRADE;
     info->speed_unit = SPEED_UNIT_MS;
@@ -635,7 +645,7 @@ weather_info_to_metric (WeatherInfo *info)
 void
 weather_info_to_imperial (WeatherInfo *info)
 {
-    g_return_if_fail(info != NULL);
+    g_return_if_fail (info != NULL);
 
     info->temperature_unit = TEMP_UNIT_FAHRENHEIT;
     info->speed_unit = SPEED_UNIT_MPH;
@@ -1074,8 +1084,8 @@ weather_info_get_radar (WeatherInfo *info)
 const gchar *
 weather_info_get_temp_summary (WeatherInfo *info)
 {
-    if (!info)
-        return NULL;
+    g_return_val_if_fail (info != NULL, NULL);
+
     if (!info->valid || info->temp < -500.0)
         return "--";
 
@@ -1106,7 +1116,9 @@ weather_info_get_icon_name (WeatherInfo *info)
     time_t current_time;
     gboolean daytime;
 
-    if (!info || !info->valid)
+    g_return_val_if_fail (info != NULL, NULL);
+
+    if (!info->valid)
         return NULL;
 
     cond = info->cond;

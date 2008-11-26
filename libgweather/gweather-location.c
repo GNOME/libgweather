@@ -284,6 +284,8 @@ gweather_location_new_world (gboolean use_regions)
 GWeatherLocation *
 gweather_location_ref (GWeatherLocation *loc)
 {
+    g_return_val_if_fail (loc != NULL, NULL);
+
     loc->ref_count++;
     return loc;
 }
@@ -292,6 +294,8 @@ void
 gweather_location_unref (GWeatherLocation *loc)
 {
     int i;
+
+    g_return_if_fail (loc != NULL);
 
     if (--loc->ref_count)
 	return;
@@ -339,30 +343,36 @@ gweather_location_get_type (void)
 const char *
 gweather_location_get_name (GWeatherLocation *loc)
 {
+    g_return_val_if_fail (loc != NULL, NULL);
     return loc->name;
 }
 
 const char *
 gweather_location_get_sort_name (GWeatherLocation *loc)
 {
+    g_return_val_if_fail (loc != NULL, NULL);
     return loc->sort_name;
 }
 
 GWeatherLocationLevel
 gweather_location_get_level (GWeatherLocation *loc)
 {
+    g_return_val_if_fail (loc != NULL, GWEATHER_LOCATION_WORLD);
     return loc->level;
 }
 
 GWeatherLocation *
 gweather_location_get_parent (GWeatherLocation *loc)
 {
+    g_return_val_if_fail (loc != NULL, NULL);
     return loc->parent;
 }
 
 GWeatherLocation **
 gweather_location_get_children (GWeatherLocation *loc)
 {
+    g_return_val_if_fail (loc != NULL, NULL);
+
     gweather_location_ref (loc);
     if (loc->children)
 	return loc->children;
@@ -374,6 +384,8 @@ void
 gweather_location_free_children (GWeatherLocation  *loc,
 				 GWeatherLocation **children)
 {
+    g_return_if_fail (loc != NULL);
+
     if (!loc->children)
 	g_free (children);
     gweather_location_unref (loc);
@@ -382,6 +394,7 @@ gweather_location_free_children (GWeatherLocation  *loc,
 gboolean
 gweather_location_has_coords (GWeatherLocation *loc)
 {
+    g_return_val_if_fail (loc != NULL, FALSE);
     return loc->latlon_valid;
 }
 
@@ -390,6 +403,9 @@ gweather_location_get_coords (GWeatherLocation *loc,
 			      double *latitude, double *longitude)
 {
     //g_return_if_fail (loc->latlon_valid);
+    g_return_if_fail (loc != NULL);
+    g_return_if_fail (latitude != NULL);
+    g_return_if_fail (longitude != NULL);
 
     *latitude = loc->latitude / M_PI * 180.0;
     *longitude = loc->longitude / M_PI * 180.0;
@@ -401,6 +417,9 @@ gweather_location_get_distance (GWeatherLocation *loc, GWeatherLocation *loc2)
     /* average radius of the earth in km */
     static const double radius = 6372.795;
 
+    g_return_val_if_fail (loc != NULL, 0);
+    g_return_val_if_fail (loc2 != NULL, 0);
+
     //g_return_val_if_fail (loc->latlon_valid, 0.0);
     //g_return_val_if_fail (loc2->latlon_valid, 0.0);
 
@@ -411,6 +430,8 @@ gweather_location_get_distance (GWeatherLocation *loc, GWeatherLocation *loc2)
 const char *
 gweather_location_get_country (GWeatherLocation *loc)
 {
+    g_return_val_if_fail (loc != NULL, NULL);
+
     while (loc->parent && !loc->country_code)
 	loc = loc->parent;
     return loc->country_code;
@@ -421,6 +442,8 @@ gweather_location_get_timezone (GWeatherLocation *loc)
 {
     const char *tz_hint;
     int i;
+
+    g_return_val_if_fail (loc != NULL, NULL);
 
     while (loc && !loc->tz_hint)
 	loc = loc->parent;
@@ -463,6 +486,8 @@ gweather_location_get_timezones (GWeatherLocation *loc)
 {
     GPtrArray *zones;
 
+    g_return_val_if_fail (loc != NULL, NULL);
+
     zones = g_ptr_array_new ();
     add_timezones (loc, zones);
     g_ptr_array_add (zones, NULL);
@@ -475,6 +500,9 @@ gweather_location_free_timezones (GWeatherLocation  *loc,
 {
     int i;
 
+    g_return_if_fail (loc != NULL);
+    g_return_if_fail (zones != NULL);
+
     for (i = 0; zones[i]; i++)
 	gweather_timezone_unref (zones[i]);
     g_free (zones);
@@ -483,12 +511,15 @@ gweather_location_free_timezones (GWeatherLocation  *loc,
 const char *
 gweather_location_get_code (GWeatherLocation *loc)
 {
+    g_return_val_if_fail (loc != NULL, NULL);
     return loc->station_code;
 }
 
 char *
 gweather_location_get_city_name (GWeatherLocation *loc)
 {
+    g_return_val_if_fail (loc != NULL, NULL);
+
     if (loc->level == GWEATHER_LOCATION_CITY)
 	return g_strdup (loc->name);
     else if (loc->level == GWEATHER_LOCATION_WEATHER_STATION &&
@@ -507,6 +538,8 @@ gweather_location_to_weather_location (GWeatherLocation *gloc,
     GWeatherLocation *l;
     WeatherLocation *wloc;
     char *coords;
+
+    g_return_val_if_fail (gloc != NULL, NULL);
 
     if (!name)
 	name = gweather_location_get_name (gloc);
@@ -545,6 +578,8 @@ gweather_location_get_weather (GWeatherLocation *loc)
 {
     WeatherLocation *wloc;
     WeatherInfo *info;
+
+    g_return_val_if_fail (loc != NULL, NULL);
 
     wloc = gweather_location_to_weather_location (loc, NULL);
     info = weather_info_new (wloc, NULL, NULL, NULL);

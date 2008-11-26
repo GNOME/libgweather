@@ -54,6 +54,9 @@ gweather_gconf_new (const char *prefix)
 void
 gweather_gconf_free (GWeatherGConf *ctx)
 {
+    if (!ctx)
+        return;
+
     g_object_unref (ctx->gconf);
     g_free (ctx->prefix);
     g_free (ctx);
@@ -63,6 +66,7 @@ gweather_gconf_free (GWeatherGConf *ctx)
 GConfClient *
 gweather_gconf_get_client (GWeatherGConf *ctx)
 {
+    g_return_val_if_fail (ctx != NULL, NULL);
     return ctx->gconf;
 }
 
@@ -71,6 +75,9 @@ gchar *
 gweather_gconf_get_full_key (GWeatherGConf *ctx,
 			     const gchar   *key)
 {
+    g_return_val_if_fail (ctx != NULL, NULL);
+    g_return_val_if_fail (key != NULL, NULL);
+
     return g_strdup_printf ("%s/%s", ctx->prefix, key);
 }
 
@@ -80,7 +87,13 @@ gweather_gconf_set_bool (GWeatherGConf  *ctx,
 			 gboolean        the_bool,
 			 GError        **opt_error)
 {
-    gchar *full_key = gweather_gconf_get_full_key (ctx, key);
+    gchar *full_key;
+    
+    g_return_if_fail (ctx != NULL);
+    g_return_if_fail (key != NULL);
+    g_return_if_fail (opt_error == NULL || *opt_error == NULL);
+
+    full_key = gweather_gconf_get_full_key (ctx, key);
     gconf_client_set_bool (ctx->gconf, full_key, the_bool, opt_error);
     g_free (full_key);
 }
@@ -91,7 +104,13 @@ gweather_gconf_set_int (GWeatherGConf  *ctx,
 			gint            the_int,
 			GError        **opt_error)
 {
-    gchar *full_key = gweather_gconf_get_full_key (ctx, key);
+    gchar *full_key;
+    
+    g_return_if_fail (ctx != NULL);
+    g_return_if_fail (key != NULL);
+    g_return_if_fail (opt_error == NULL || *opt_error == NULL);
+
+    full_key = gweather_gconf_get_full_key (ctx, key);
     gconf_client_set_int (ctx->gconf, full_key, the_int, opt_error);
     g_free (full_key);
 }
@@ -102,7 +121,13 @@ gweather_gconf_set_string (GWeatherGConf  *ctx,
 			   const gchar    *the_string,
 			   GError        **opt_error)
 {
-    gchar *full_key = gweather_gconf_get_full_key (ctx, key);
+    gchar *full_key;
+    
+    g_return_if_fail (ctx != NULL);
+    g_return_if_fail (key != NULL);
+    g_return_if_fail (opt_error == NULL || *opt_error == NULL);
+
+    full_key = gweather_gconf_get_full_key (ctx, key);
     gconf_client_set_string (ctx->gconf, full_key, the_string, opt_error);
     g_free (full_key);
 }
@@ -112,8 +137,15 @@ gweather_gconf_get_bool (GWeatherGConf  *ctx,
 			 const gchar    *key,
 			 GError        **opt_error)
 {
-    gchar *full_key = gweather_gconf_get_full_key (ctx, key);
-    gboolean ret = gconf_client_get_bool (ctx->gconf, full_key, opt_error);
+    gchar *full_key;
+    gboolean ret;
+
+    g_return_val_if_fail (ctx != NULL, FALSE);
+    g_return_val_if_fail (key != NULL, FALSE);
+    g_return_val_if_fail (opt_error == NULL || *opt_error == NULL, FALSE);
+
+    full_key = gweather_gconf_get_full_key (ctx, key);
+    ret = gconf_client_get_bool (ctx->gconf, full_key, opt_error);
     g_free (full_key);
     return ret;
 }
@@ -123,8 +155,15 @@ gweather_gconf_get_int (GWeatherGConf  *ctx,
 			const gchar    *key,
 			GError        **opt_error)
 {
-    gchar *full_key = gweather_gconf_get_full_key (ctx, key);
-    gint ret = gconf_client_get_int (ctx->gconf, full_key, opt_error);
+    gchar *full_key;
+    gint ret;
+
+    g_return_val_if_fail (ctx != NULL, 0);
+    g_return_val_if_fail (key != NULL, 0);
+    g_return_val_if_fail (opt_error == NULL || *opt_error == NULL, 0);
+
+    full_key = gweather_gconf_get_full_key (ctx, key);
+    ret = gconf_client_get_int (ctx->gconf, full_key, opt_error);
     g_free (full_key);
     return ret;
 }
@@ -134,8 +173,15 @@ gweather_gconf_get_string (GWeatherGConf  *ctx,
 			   const gchar    *key,
 			   GError        **opt_error)
 {
-    gchar *full_key = gweather_gconf_get_full_key (ctx, key);
-    gchar *ret = gconf_client_get_string (ctx->gconf, full_key, opt_error);
+    gchar *full_key;
+    gchar *ret;
+
+    g_return_val_if_fail (ctx != NULL, NULL);
+    g_return_val_if_fail (key != NULL, NULL);
+    g_return_val_if_fail (opt_error == NULL || *opt_error == NULL, NULL);
+
+    full_key = gweather_gconf_get_full_key (ctx, key);
+    ret = gconf_client_get_string (ctx->gconf, full_key, opt_error);
     g_free (full_key);
     return ret;
 }
@@ -146,6 +192,8 @@ gweather_gconf_get_location (GWeatherGConf *ctx)
 {
     WeatherLocation *location;
     gchar *name, *code, *zone, *radar, *coordinates;
+
+    g_return_val_if_fail (ctx != NULL, NULL);
 
     name = gweather_gconf_get_string (ctx, "location4", NULL);
     if (!name)

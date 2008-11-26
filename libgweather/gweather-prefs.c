@@ -280,6 +280,9 @@ gweather_prefs_load (GWeatherPrefs *prefs, GWeatherGConf *ctx)
     GError *error = NULL;
     gchar  *gconf_str = NULL;
 
+    g_return_if_fail (prefs != NULL);
+    g_return_if_fail (ctx != NULL);
+
     if (prefs->location) {
 	weather_location_free (prefs->location);
     }
@@ -338,6 +341,9 @@ gweather_prefs_parse_temperature (const char *str, gboolean *is_default)
 {
     GWeatherPrefs prefs;
 
+    g_return_val_if_fail (str != NULL, TEMP_UNIT_INVALID);
+    g_return_val_if_fail (is_default != NULL, TEMP_UNIT_INVALID);
+
     parse_temp_string (str, &prefs);
     *is_default = prefs.use_temperature_default;
     return prefs.temperature_unit;
@@ -347,6 +353,9 @@ SpeedUnit
 gweather_prefs_parse_speed (const char *str, gboolean *is_default)
 {
     GWeatherPrefs prefs;
+
+    g_return_val_if_fail (str != NULL, SPEED_UNIT_INVALID);
+    g_return_val_if_fail (is_default != NULL, SPEED_UNIT_INVALID);
 
     parse_speed_string (str, &prefs);
     *is_default = prefs.use_speed_default;
