@@ -41,6 +41,8 @@
 #include "weather.h"
 #include "weather-priv.h"
 
+static void _weather_internal_check (void);
+
 const char *
 gweather_gettext (const char *str)
 {
@@ -103,6 +105,8 @@ weather_location_new (const gchar *name, const gchar *code,
 		      const gchar *tz_hint)
 {
     WeatherLocation *location;
+
+    _weather_internal_check ();
 
     location = g_new (WeatherLocation, 1);
 
@@ -219,9 +223,7 @@ static const gchar *wind_direction_str[] = {
 const gchar *
 weather_wind_direction_string (WeatherWindDirection wind)
 {
-    if (wind < 0)
-	return _("Unknown");
-    if (wind >= (sizeof (wind_direction_str) / sizeof (char *)))
+    if (wind <= WIND_INVALID || wind >= WIND_LAST)
 	return _("Invalid");
 
     return _(wind_direction_str[(int)wind]);
@@ -238,8 +240,7 @@ static const gchar *sky_str[] = {
 const gchar *
 weather_sky_string (WeatherSky sky)
 {
-    if (sky < 0 ||
-	sky >= (sizeof (sky_str) / sizeof (char *)))
+    if (sky <= SKY_INVALID || sky >= SKY_LAST)
 	return _("Invalid");
 
     return _(sky_str[(int)sky]);
@@ -306,10 +307,10 @@ weather_conditions_string (WeatherConditions cond)
     if (!cond.significant) {
 	return "-";
     } else {
-	if (cond.phenomenon >= 0 &&
-	    cond.phenomenon < 24 &&
-	    cond.qualifier >= 0 &&
-	    cond.qualifier < 13)
+	if (cond.phenomenon > PHENOMENON_INVALID &&
+	    cond.phenomenon < PHENOMENON_LAST &&
+	    cond.qualifier > QUALIFIER_INVALID &&
+	    cond.qualifier < QUALIFIER_LAST)
 	    str = _(conditions_str[(int)cond.phenomenon][(int)cond.qualifier]);
 	else
 	    str = _("Invalid");
@@ -1130,6 +1131,8 @@ weather_info_get_icon_name (WeatherInfo *info)
             return "weather-storm";
 
         switch (cond.phenomenon) {
+	case PHENOMENON_INVALID:
+	case PHENOMENON_LAST:
 	case PHENOMENON_NONE:
 	    break;
 
@@ -1173,6 +1176,7 @@ weather_info_get_icon_name (WeatherInfo *info)
 
     switch (sky) {
     case SKY_INVALID:
+    case SKY_LAST:
     case SKY_CLEAR:
 	if (daytime)
 	    return "weather-clear";
@@ -1349,7 +1353,7 @@ weather_info_get_value_sky (WeatherInfo *info, WeatherSky *sky)
     if (!info->valid)
 	return FALSE;
 
-    if (info->sky < 0 || info->sky >= (sizeof (sky_str) / sizeof (char *)))
+    if (info->sky <= SKY_INVALID || info->sky >= SKY_LAST)
 	return FALSE;
 
     *sky = info->sky;
@@ -1370,10 +1374,10 @@ weather_info_get_value_conditions (WeatherInfo *info, WeatherConditionPhenomenon
     if (!info->cond.significant)
 	return FALSE;
 
-    if (!(info->cond.phenomenon >= 0 &&
-	info->cond.phenomenon < 24 &&
-	info->cond.qualifier >= 0 &&
-	info->cond.qualifier < 13))
+    if (!(info->cond.phenomenon > PHENOMENON_INVALID &&
+	  info->cond.phenomenon < PHENOMENON_LAST &&
+	  info->cond.qualifier > QUALIFIER_INVALID &&
+	  info->cond.qualifier < QUALIFIER_LAST))
         return FALSE;
 
     *phenomenon = info->cond.phenomenon;
@@ -1496,7 +1500,7 @@ weather_info_get_value_wind (WeatherInfo *info, SpeedUnit unit, gdouble *speed, 
     if (!info->valid)
 	return FALSE;
 
-    if (info->windspeed < 0.0 || info->wind < 0 || info->wind >= (sizeof (wind_direction_str) / sizeof (char *)))
+    if (info->windspeed < 0.0 || info->wind <= WIND_INVALID || info->wind >= WIND_LAST)
         return FALSE;
 
     res = speed_value (info->windspeed, unit, speed, info->speed_unit);
@@ -1527,4 +1531,13 @@ weather_info_get_value_visibility (WeatherInfo *info, DistanceUnit unit, gdouble
 	return FALSE;
 
     return distance_value (info->visibility, unit, value, info->distance_unit);
+}
+
+static void
+_weather_internal_check (void)
+{
+    g_assert (G_N_ELEMENTS (wind_direction_str) == WIND_LAST);
+    g_assert (G_N_ELEMENTS (sky_str) == SKY_LAST);
+    g_assert (G_N_ELEMENTS (conditions_str) == PHENOMENON_LAST);
+    g_assert (G_N_ELEMENTS (conditions_str[0]) == QUALIFIER_LAST);
 }

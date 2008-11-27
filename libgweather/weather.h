@@ -177,11 +177,13 @@ gint			weather_info_next_sun_event	(WeatherInfo *info);
 /* values retrieving functions */
 
 enum _WeatherWindDirection {
+    WIND_INVALID = -1,
     WIND_VARIABLE,
     WIND_N, WIND_NNE, WIND_NE, WIND_ENE,
     WIND_E, WIND_ESE, WIND_SE, WIND_SSE,
     WIND_S, WIND_SSW, WIND_SW, WIND_WSW,
-    WIND_W, WIND_WNW, WIND_NW, WIND_NNW
+    WIND_W, WIND_WNW, WIND_NW, WIND_NNW,
+    WIND_LAST
 };
 
 typedef enum _WeatherWindDirection WeatherWindDirection;
@@ -192,12 +194,15 @@ enum _WeatherSky {
     SKY_BROKEN,
     SKY_SCATTERED,
     SKY_FEW,
-    SKY_OVERCAST
+    SKY_OVERCAST,
+    SKY_LAST
 };
 
 typedef enum _WeatherSky WeatherSky;
 
 enum _WeatherConditionPhenomenon {
+    PHENOMENON_INVALID = -1,
+
     PHENOMENON_NONE,
 
     PHENOMENON_DRIZZLE,
@@ -224,12 +229,16 @@ enum _WeatherConditionPhenomenon {
     PHENOMENON_DUSTSTORM,
     PHENOMENON_FUNNEL_CLOUD,
     PHENOMENON_TORNADO,
-    PHENOMENON_DUST_WHIRLS
+    PHENOMENON_DUST_WHIRLS,
+
+    PHENOMENON_LAST
 };
 
 typedef enum _WeatherConditionPhenomenon WeatherConditionPhenomenon;
 
 enum _WeatherConditionQualifier {
+    QUALIFIER_INVALID = -1,
+
     QUALIFIER_NONE,
 
     QUALIFIER_VICINITY,
@@ -244,7 +253,9 @@ enum _WeatherConditionQualifier {
     QUALIFIER_BLOWING,
     QUALIFIER_SHOWERS,
     QUALIFIER_DRIFTING,
-    QUALIFIER_FREEZING
+    QUALIFIER_FREEZING,
+
+    QUALIFIER_LAST
 };
 
 typedef enum _WeatherConditionQualifier WeatherConditionQualifier;

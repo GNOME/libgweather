@@ -1,3 +1,16 @@
+2008-11-27  Vincent Untz  <vuntz@gnome.org>
+
+	* libgweather/weather.c:
+	(weather_wind_direction_string), (weather_sky_string),
+	(weather_conditions_string), (weather_info_get_icon_name),
+	(weather_info_get_value_sky), (weather_info_get_value_conditions),
+	(weather_info_get_value_wind), (weather_info_get_value_visibility):
+	have clearer & saner checks for validity of enum values.
+	(weather_location_new), (_weather_internal_check): internal consistency
+	checks
+	* libgweather/weather.h: add new enum values for LAST and INVALID
+	Fix bug #562283.
+
 2008-11-25  Dan Winship  <danw@gnome.org>
 
 	* libgweather/gweather-location.c:
