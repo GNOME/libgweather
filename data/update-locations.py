@@ -767,7 +767,8 @@ for id in cities:
         city.parent = fips_codes[city.state_code]
     else:
         for station in city.contents:
-            if station.code in station_states:
+            if station.country_code == city.country_code and \
+                   station.code in station_states:
                 city.parent = station_states[station.code]
                 break
         else:
