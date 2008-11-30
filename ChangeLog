@@ -1,3 +1,9 @@
+2008-11-30  Dan Winship  <danw@gnome.org>
+
+	* data/update-locations.py (get_city): Prefer a city name with no
+	language tag to one with, since that seems to mean "international
+	name". Fixes "Macau". #558310,  Leonardo Ferreira Fontenelle.
+
 2008-11-27  Vincent Untz  <vuntz@gnome.org>
 
 	* libgweather/weather.c:

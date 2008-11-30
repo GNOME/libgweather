@@ -493,8 +493,8 @@ def get_city(id, country_code=None):
         if not country_code:
             country_code = match[5]
 
-        # name type: "N" = standard, "NS" = standard in non-Latin
-        # script, "C" = conventional (ie, traditional English)
+        # name type: "N" = standard, "C" = conventional (ie,
+        # traditional English)
         if name_type == 'C' and ( language == 'eng' or language == ''):
             city = City(match)
             best_match = match
@@ -505,11 +505,13 @@ def get_city(id, country_code=None):
                 best_match = match
             elif not city.has_conventional_name:
                 country = getFipsCountry(city)
-                if country is not None and country.pref_lang == language:
+                if language == '' or (country is not None and country.pref_lang == language):
                     city = City(match)
                     best_match = match
 
-    # Shouldn't happen...
+    # Shouldn't happen, but some cities have only a "V" (variant) "D"
+    # (unofficial) or "NS"/"VS"/"DS" (N/V/D in alternate script) name
+    # given... maybe we should skip these?
     if city is None:
         city = City(matches[0])
         best_match = matches[0]
