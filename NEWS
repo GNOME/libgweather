@@ -1,3 +1,52 @@
+libgweather 2.25.2
+==================
+
+libgweather
+
+	* Add new API to directly get WeatherInfo values instead of strings
+	  (Milan Crha)
+	* Use the degree sign followed by "C" or "F" rather than using the
+	  combined "degrees C" and "degrees F" glyphs (Dan)
+	* Handle wind reports in m/s (Dan)
+	* Use new libsoup 2.25.1 API for proxy instead of some custom code
+	  (Dan)
+	* Use single includes for gtk/glib (Maxim Ermilov)
+	* Do not use deprecated libsoup API (Dan)
+	* Do not care about sub-city locations and only use the first child
+	  (Dan)
+	* Handle compressed Locations.xml files (Vincent)
+	* Code cleanups (Vincent, Dan)
+
+Locations.xml
+
+	* Do not localize sub-city locations since they won't be used in the UI
+	  (Dan)
+	* Add "Bahamas" to the list of countries whose name we put "the" before
+	  in comments (Dan)
+	* Add msgctxt attributes to the XML for duplicate names (Dan)
+	* When given a location name like "Covington / Cincinnati", only create
+	  an entry for one of the two cities (Dan)
+	* Fix spelling of local vs international names (Dan)
+	* Do not assume a weather station is in the same country as a city.
+	  This fixes Luxembourg not appearing in the list of countries (Dan)
+
+Misc
+
+	* Make sure that the shipped COPYING file is GPLv2 (Dan)
+	* Add various flags like -DG_DISABLE_SINGLE_INCLUDES and
+	  _DISABLE_DEPRECATED flags (Dan, Vincent)
+	* Remove locations_file from the pkg-config pc file (Dan, Vincent)
+	* Require intltool 0.40.3 (Dan)
+	* Add --enable-locations-compression configure flag to compress
+	  Locations.xml files with gzip (Vincent)
+	* Add some (incomplete) API documentation with gtk-doc (Vincent, Dan)
+
+Translators
+
+	* Jorge González (es_ES)
+	* Jorge González (es)
+	* Daniel Nylander (sv)
+
 libgweather 2.24.2
 ==================
 
