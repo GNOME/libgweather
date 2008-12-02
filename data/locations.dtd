@@ -17,9 +17,12 @@
 <!ELEMENT obsoletes (#PCDATA) >
 
 <!ELEMENT _name (#PCDATA) >
+<!ATTLIST _name
+  msgctxt CDATA #IMPLIED >
 <!ELEMENT name (#PCDATA) >
 <!ATTLIST name
-  xml:lang CDATA #IMPLIED >
+  xml:lang CDATA #IMPLIED
+  msgctxt CDATA #IMPLIED >
 <!ELEMENT iso-code (#PCDATA) >
 <!ELEMENT fips-code (#PCDATA) >
 <!ELEMENT pref-lang (#PCDATA) >
