@@ -729,36 +729,36 @@ weather_info_get_conditions (WeatherInfo *info)
 }
 
 static const gchar *
-temperature_string (gfloat far, TempUnit to_unit, gboolean round)
+temperature_string (gfloat temp_f, TempUnit to_unit, gboolean want_round)
 {
     static gchar buf[100];
 
     switch (to_unit) {
     case TEMP_UNIT_FAHRENHEIT:
-	if (!round) {
+	if (!want_round) {
 	    /* TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN) */
-	    g_snprintf (buf, sizeof (buf), _("%.1f \302\260F"), far);
+	    g_snprintf (buf, sizeof (buf), _("%.1f \302\260F"), temp_f);
 	} else {
 	    /* TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN) */
-	    g_snprintf (buf, sizeof (buf), _("%d \302\260F"), (int)floor (far + 0.5));
+	    g_snprintf (buf, sizeof (buf), _("%d \302\260F"), (int)floor (temp_f + 0.5));
 	}
 	break;
     case TEMP_UNIT_CENTIGRADE:
-	if (!round) {
+	if (!want_round) {
 	    /* TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN) */
-	    g_snprintf (buf, sizeof (buf), _("%.1f \302\260C"), TEMP_F_TO_C (far));
+	    g_snprintf (buf, sizeof (buf), _("%.1f \302\260C"), TEMP_F_TO_C (temp_f));
 	} else {
 	    /* TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN) */
-	    g_snprintf (buf, sizeof (buf), _("%d \302\260C"), (int)floor (TEMP_F_TO_C (far) + 0.5));
+	    g_snprintf (buf, sizeof (buf), _("%d \302\260C"), (int)floor (TEMP_F_TO_C (temp_f) + 0.5));
 	}
 	break;
     case TEMP_UNIT_KELVIN:
-	if (!round) {
+	if (!want_round) {
 	    /* TRANSLATOR: This is the temperature in kelvin */
-	    g_snprintf (buf, sizeof (buf), _("%.1f K"), TEMP_F_TO_K (far));
+	    g_snprintf (buf, sizeof (buf), _("%.1f K"), TEMP_F_TO_K (temp_f));
 	} else {
 	    /* TRANSLATOR: This is the temperature in kelvin */
-	    g_snprintf (buf, sizeof (buf), _("%d K"), (int)floor (TEMP_F_TO_K (far)));
+	    g_snprintf (buf, sizeof (buf), _("%d K"), (int)floor (TEMP_F_TO_K (temp_f)));
 	}
 	break;
 
@@ -1199,12 +1199,12 @@ weather_info_get_icon_name (WeatherInfo *info)
 }
 
 static gboolean
-temperature_value (gdouble far, TempUnit to_unit, gdouble *value, TempUnit def_unit)
+temperature_value (gdouble temp_f, TempUnit to_unit, gdouble *value, TempUnit def_unit)
 {
     gboolean ok = TRUE;
 
     *value = 0.0;
-    if (far < -500.0)
+    if (temp_f < -500.0)
 	return FALSE;
 
     if (to_unit == TEMP_UNIT_DEFAULT)
@@ -1212,13 +1212,13 @@ temperature_value (gdouble far, TempUnit to_unit, gdouble *value, TempUnit def_u
 
     switch (to_unit) {
         case TEMP_UNIT_FAHRENHEIT:
-	    *value = far;
+	    *value = temp_f;
 	    break;
         case TEMP_UNIT_CENTIGRADE:
-	    *value = TEMP_F_TO_C (far);
+	    *value = TEMP_F_TO_C (temp_f);
 	    break;
         case TEMP_UNIT_KELVIN:
-	    *value = TEMP_F_TO_K (far);
+	    *value = TEMP_F_TO_K (temp_f);
 	    break;
         case TEMP_UNIT_INVALID:
         case TEMP_UNIT_DEFAULT:

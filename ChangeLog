@@ -1,5 +1,12 @@
 2008-12-02  Vincent Untz  <vuntz@gnome.org>
 
+	* libgweather/weather.c: (temperature_string), (temperature_value):
+	rename some variables for win32 portability.
+	Based on patch by Tor Lillqvist <tml@iki.fi>
+	First part needed for bug #352287.
+
+2008-12-02  Vincent Untz  <vuntz@gnome.org>
+
 	* configure.in: post-release bump to 2.25.3
 
 ==================== 2.25.2 ====================
