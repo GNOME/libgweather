@@ -48,7 +48,7 @@ CFILE_GLOB=$(top_srcdir)/libgweather/*.c
 
 # Header files to ignore when scanning.
 # e.g. IGNORE_HFILES=gtkdebug.h gtkintl.h
-IGNORE_HFILES=gweather-enum-types.h parser.h weather-priv.h
+IGNORE_HFILES=gweather-enum-types.h gweather-win32.h parser.h weather-priv.h
 
 # Images to copy into HTML directory.
 # e.g. HTML_IMAGES=$(top_srcdir)/gtk/stock-icons/stock_about_24.png

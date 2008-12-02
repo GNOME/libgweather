@@ -1,5 +1,21 @@
 2008-12-02  Vincent Untz  <vuntz@gnome.org>
 
+	Second part of win32 portability.
+	Based on patch by Tor Lillqvist <tml@iki.fi>
+	Needed for bug #352287.
+
+	* configure.in: detect win32
+	* doc/Makefile.am: ignore gweather-win32.h
+	* libgweather/Makefile.am: hack stuff for win32
+	* libgweather/gweather-win32.[ch]: new, some black magic win32 changes
+	to get the right directories
+	* libgweather/gweather-timezone.c:
+	* libgweather/weather-metar.c:
+	* libgweather/weather-sun.c:
+	* libgweather/weather.c: include gweather-win32.h on win32
+
+2008-12-02  Vincent Untz  <vuntz@gnome.org>
+
 	* libgweather/weather.c: (temperature_string), (temperature_value):
 	rename some variables for win32 portability.
 	Based on patch by Tor Lillqvist <tml@iki.fi>

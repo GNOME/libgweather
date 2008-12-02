@@ -25,9 +25,16 @@ libgweather_la_SOURCES = \
 	gweather-xml.c gweather-xml.h \
 	gweather-location.c gweather-location.h \
 	gweather-timezone.c gweather-timezone.h \
+	gweather-win32.h \
 	location-entry.c location-entry.h \
 	timezone-menu.c timezone-menu.h \
 	parser.c parser.h
+
+if OS_WIN32
+libgweather_la_SOURCES += gweather-win32.c
+else
+EXTRA_libgweather_la_SOURCES = gweather-win32.c
+endif
 
 libgweather_la_CFLAGS = \
 	-I$(top_srcdir)			\
@@ -93,7 +100,7 @@ test_locations_CFLAGS = \
 
 test_locations_LDADD = libgweather.la
 
-noinst_HEADERS = weather-priv.h
+noinst_HEADERS = weather-priv.h gweather-win32.h
 noinst_PROGRAMS = test_metar test_locations
 
 schemadir   = @GCONF_SCHEMA_FILE_DIR@

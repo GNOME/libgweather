@@ -28,6 +28,10 @@
 #include "gweather-timezone.h"
 #include "parser.h"
 
+#ifdef G_OS_WIN32
+#include "gweather-win32.h"
+#endif
+
 /**
  * GWeatherTimezone:
  *

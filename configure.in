@@ -15,6 +15,19 @@ AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-bzip2])
 LT_VERSION=4:0:3
 AC_SUBST(LT_VERSION)
 
+AC_CANONICAL_HOST
+AC_MSG_CHECKING([for Win32])
+case "$host" in
+  *-*-mingw*)
+    gweather_native_win32="yes"
+    ;;
+  *)
+    gweather_native_win32="no"
+    ;;
+esac
+AC_MSG_RESULT([$gweather_native_win32])
+AM_CONDITIONAL(OS_WIN32, [test "$gweather_native_win32" = "yes"])
+
 GTK_REQUIRED=2.11.0
 GLIB_REQUIRED=2.13.0
 LIBSOUP_REQUIRED=2.4.0
