@@ -1,3 +1,13 @@
+2008-12-06  Dan Winship  <danw@gnome.org>
+
+	* Makefile.am:
+	* regen.sh: move the po-sorting Makefile rule into a script so
+	that translators can use it without needing to run
+	autogen.sh (#563455, Claude Paroz) and so that the po files don't
+	all get rebuilt by "make dist" (#562932, Vincent).
+
+	* README.translators: update instructions
+
 ==================== 2.25.2 ====================
 
 2008-11-29  Daniel Nylander  <po@danielnylander.se>

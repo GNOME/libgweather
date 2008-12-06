@@ -1,9 +1,9 @@
 By default, intltool/gettext will generate the .po file with the
 entries sorted completely alphabetically. This is not very useful for
-po-locations, so the Makefile here has rules to generate .po files in
-a better order. Do:
+po-locations, so we've provided a script to generate .po files in a
+better order. Do:
 
-	make en_US.po
+	./regen.sh en_US.po
 
 (substituting "en_US" of course) to regenerate your .po file with the
 entries sorted as follows:
