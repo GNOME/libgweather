@@ -108,11 +108,41 @@ gweather_xml_load_locations (void)
     store = gtk_tree_store_new (2, G_TYPE_STRING, G_TYPE_POINTER);
 
     if (!gweather_xml_parse_node (world, store, NULL)) {
-	g_object_unref (store);
+	gweather_xml_free_locations ((GtkTreeModel *)store);
 	store = NULL;
     }
 
     gweather_location_unref (world);
 
     return (GtkTreeModel *)store;
+}
+
+static gboolean
+free_locations (GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data)
+{
+	WeatherLocation *loc = NULL;
+
+	gtk_tree_model_get (model, iter,
+			    GWEATHER_XML_COL_POINTER, &loc,
+			    -1);
+
+	if (loc) {
+		weather_location_free (loc);
+		gtk_tree_store_set ((GtkTreeStore *)model, iter,
+			    GWEATHER_XML_COL_POINTER, NULL,
+			    -1);
+	}
+
+	return FALSE;
+}
+
+/* Frees model returned from @gweather_xml_load_locations. It contains allocated
+   WeatherLocation-s, thus this takes care of the freeing of that memory. */
+void
+gweather_xml_free_locations (GtkTreeModel *locations)
+{
+	if (locations && GTK_IS_TREE_STORE (locations)) {
+		gtk_tree_model_foreach (locations, free_locations, NULL);
+		g_object_unref (locations);
+	}
 }

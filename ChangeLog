@@ -1,3 +1,15 @@
+2008-12-19  Milan Crha  <mcrha@redhat.com>
+
+	** Part of fix for bug #564652
+
+	* libgweather/weather-iwin.c:
+	* libgweather/gweather-xml.h:
+	* libgweather/gweather-xml.c:
+	Do not copy soup session information for a forecast list. Check for
+	a forecast list information even without 'zone' of a 'location'.
+	Leak a bit less; new function 'gweather_xml_free_locations' to help
+	with this.
+
 2008-12-14  Vincent Untz  <vuntz@gnome.org>
 
 	* configure.in: post-release bump to 2.25.4

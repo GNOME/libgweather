@@ -32,5 +32,6 @@ enum
 };
 
 GtkTreeModel *gweather_xml_load_locations (void);
+void          gweather_xml_free_locations (GtkTreeModel *locations);
 
 #endif /* __GWEATHER_XML_H__ */

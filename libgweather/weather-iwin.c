@@ -102,14 +102,14 @@ parseForecastXml (const char *buff, WeatherInfo *master_info)
     g_return_val_if_fail (master_info != NULL, NULL);
 
     if (!buff || !*buff)
-    return NULL;
+        return NULL;
 
     #define XC (const xmlChar *)
     #define isElem(_node,_name) g_str_equal ((const char *)_node->name, _name)
 
     doc = xmlParseMemory (buff, strlen (buff));
     if (!doc)
-    return NULL;
+        return NULL;
 
     /* Description at http://www.weather.gov/mdl/XML/Design/MDL_XML_Design.pdf */
     root = xmlDocGetRootElement (doc);
@@ -143,15 +143,10 @@ parseForecastXml (const char *buff, WeatherInfo *master_info)
                                 xmlChar *val = xmlNodeGetContent (c);
 
                                 if (val) {
-                                    struct tm t;
-                                    char sign;
-                                    int gmt1 = 0, gmt2 = 0;
+                                    GTimeVal tv;
 
-                                    memset (&t, 0, sizeof (struct tm));
-                                    if (sscanf ((const char *)val, "%04d-%02d-%02dT%02d:%02d:%02d%c%02d:%02d", &t.tm_year, &t.tm_mon, &t.tm_mday, &t.tm_hour, &t.tm_min, &t.tm_sec, &sign, &gmt1, &gmt2) == 9) {
-                                        t.tm_mon--;
-                                        t.tm_year -= 1900;
-                                        update_times[count] = mktime (&t) + ((sign == '-' ? -1 : 1) * ((60 * gmt1) + gmt2) * 60);
+                                    if (g_time_val_from_iso8601 ((const char *)val, &tv)) {
+                                        update_times[count] = tv.tv_sec;
                                     } else {
                                         update_times[count] = 0;
                                     }
@@ -206,6 +201,10 @@ parseForecastXml (const char *buff, WeatherInfo *master_info)
                                 nfo->sunset = 0;
                                 g_free (nfo->forecast);
                                 nfo->forecast = NULL;
+				nfo->session = NULL;
+				nfo->requests_pending = 0;
+				nfo->finish_cb = NULL;
+				nfo->cb_data = NULL;
                                 res = g_slist_append (res, nfo);
                             }
                         }
@@ -226,7 +225,7 @@ parseForecastXml (const char *buff, WeatherInfo *master_info)
                                     xmlChar *val = xmlNodeGetContent (c);
 
                                     /* can pass some values as <value xsi:nil="true"/> */
-                                    if (!val) {
+                                    if (!val || !*val) {
                                         if (is_max)
                                             nfo->temp_max = nfo->temp_min;
                                         else
@@ -236,9 +235,10 @@ parseForecastXml (const char *buff, WeatherInfo *master_info)
                                             nfo->temp_max = atof ((const char *)val);
                                         else
                                             nfo->temp_min = atof ((const char *)val);
-
-                                        xmlFree (val);
                                     }
+
+                                    if (val)
+                                        xmlFree (val);
 
                                     nfo->tempMinMaxValid = nfo->tempMinMaxValid || (nfo->temp_max > -999.0 && nfo->temp_min > -999.0);
                                     nfo->valid = nfo->tempMinMaxValid;
@@ -321,6 +321,9 @@ parseForecastXml (const char *buff, WeatherInfo *master_info)
                                             }
                                         }
                                     }
+
+                                    if (val)
+                                        xmlFree (val);
 
                                     at = at->next;
                                 }
@@ -410,7 +413,7 @@ iwin_start_open (WeatherInfo *info)
     loc = info->location;
     g_return_if_fail (loc != NULL);
 
-    if (loc->zone[0] == '-')
+    if (loc->zone[0] == '-' && (info->forecast_type != FORECAST_LIST || !loc->latlon_valid))
         return;
 
     if (info->forecast) {
