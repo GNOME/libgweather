@@ -47,20 +47,34 @@
 
 static void _weather_internal_check (void);
 
-const char *
-gweather_gettext (const char *str)
+
+static inline void
+gweather_gettext_init (void)
 {
     static gsize gweather_gettext_initialized = FALSE;
 
     if (G_UNLIKELY (g_once_init_enter (&gweather_gettext_initialized))) {
-	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
+        bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
 #ifdef HAVE_BIND_TEXTDOMAIN_CODESET
-	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+        bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 #endif
-	g_once_init_leave (&gweather_gettext_initialized, TRUE);
+        g_once_init_leave (&gweather_gettext_initialized, TRUE);
     }
+}
 
+const char *
+gweather_gettext (const char *str)
+{
+    gweather_gettext_init ();
     return dgettext (GETTEXT_PACKAGE, str);
+}
+
+const char *
+gweather_dpgettext (const char *context,
+                    const char *str)
+{
+    gweather_gettext_init ();
+    return g_dpgettext2 (GETTEXT_PACKAGE, context, str);
 }
 
 /*

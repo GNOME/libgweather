@@ -24,6 +24,7 @@
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "timezone-menu.h"
+#include "weather-priv.h"
 
 #include <string.h>
 
@@ -269,16 +270,21 @@ gweather_timezone_model_new (GWeatherLocation *top)
     GtkTreeStore *store;
     GtkTreeModel *model;
     GtkTreeIter iter;
+    char *unknown;
 
     store = gtk_tree_store_new (2, G_TYPE_STRING, G_TYPE_POINTER);
     model = GTK_TREE_MODEL (store);
 
+    unknown = g_markup_printf_escaped ("<i>%s</i>", C_("timezone", "Unknown"));
+
     gtk_tree_store_append (store, &iter, NULL);
     gtk_tree_store_set (store, &iter,
-			GWEATHER_TIMEZONE_MENU_NAME, "<i>Unknown</i>",
+			GWEATHER_TIMEZONE_MENU_NAME, unknown,
 			GWEATHER_TIMEZONE_MENU_ZONE, NULL,
 			-1);
     gtk_tree_store_append (store, &iter, NULL);
+
+    g_free (unknown);
 
     insert_locations (store, top);
 

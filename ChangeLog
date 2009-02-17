@@ -1,5 +1,15 @@
 2009-02-17  Vincent Untz  <vuntz@gnome.org>
 
+	* libgweather/timezone-menu.c: (gweather_timezone_model_new): mark
+	Unknown for translation, with context.
+	* libgweather/weather-priv.h: add C_() (and gweather_dpgettext())
+	* libgweather/weather.c: (gweather_gettext_init): new inline function,
+	based on code from gweather_gettext()
+	(gweather_gettext): use gweather_gettext_init()
+	(gweather_dpgettext): create
+
+2009-02-17  Vincent Untz  <vuntz@gnome.org>
+
 	* configure.in: post-release bump to 2.25.92
 
 ==================== 2.25.91 ====================
