@@ -1,5 +1,14 @@
 2009-03-03  Dan Winship  <danw@gnome.org>
 
+	* data/Locations.xml.in: Regenerate after adding KBRX (Bordeaux,
+	Wyoming, USA) back to the observations list, because if we remove
+	it then Bordeaux, France is no longer ambiguous, so it loses its
+	msgctxt, which means its existing translation goes fuzzy, which
+	breaks string freeze. See #573969 for discussion of an eventual
+	real fix.
+
+2009-03-03  Dan Winship  <danw@gnome.org>
+
 	* data/city-fixups.pl: Remove a duplicate copy of Warsaw. #563496.
 
 	* data/station-fixups.pl: Strip out the automated Canadian
