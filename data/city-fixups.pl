@@ -10,6 +10,7 @@ while (<>) {
   next if /-225337.*Akita/; # Akita, Japan
   next if /10074674.*\tIR\t/; # Tehran, Iran
   next if /-3414440.*\tTH\t/; # Bangkok, Thailand
+  next if /9026906.*\tWarszawa/; # Warsaw, Poland
 
   # "Zürich" should be listed with an English name of "Zurich"
   if (/-2554935.*Zürich/) {
