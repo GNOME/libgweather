@@ -178,6 +178,13 @@ while (<>) {
     s/ R?CS//;
 
     s/Airport, [^;]*Station;/Airport;/;
+
+    # /CX../ stations are automated. Maybe we should drop all of them,
+    # but for now we'll just drop the ones where there's also a
+    # corresponding non-automated station
+    if (/^CX(DE|EC|EG|MI|MM|OX|TV|WN|ZU)/) {
+      next;
+    }
   }
 
   if (/;Cuba;/) {
