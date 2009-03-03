@@ -6,6 +6,12 @@
 	stations that (badly) duplicate non-automated stations. Among
 	other things, fixes Edmonton, #573936.
 
+	* data/Locations.xml.in: Regen for the preceding changes, and
+	using a new observations file containing the intersection of the
+	2.24 locations and the currently-reporting locations. Among other
+	things, this gets rid of the now-defunct Berlin Templehof station,
+	fixing the weather in Berlin. #567607.
+
 2009-03-03  Vincent Untz  <vuntz@gnome.org>
 
 	* configure.in: post-release bump to 2.26.0
