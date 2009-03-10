@@ -4,14 +4,14 @@
 # Nejc Novak <nejc.novak@guest.arnes.si>, 2002.
 # Andraz Tori <andraz.tori1@guest.arnes.si>, 2003.
 # Matic Žgur <mr.zgur@gmail.com>, 2006.
-# Matej Urbančič <mateju@svn.gnome.org>, 2008
+# Matej Urbančič <mateju@svn.gnome.org>, 2008 - 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgwether\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-applets&amp;component=gweather\n"
-"POT-Creation-Date: 2008-12-16 21:18+0000\n"
-"PO-Revision-Date: 2008-12-17 18:26+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-applets&component=gweather\n"
+"POT-Creation-Date: 2009-03-10 09:51+0000\n"
+"PO-Revision-Date: 2009-03-10 11:26+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian\n"
 "MIME-Version: 1.0\n"
@@ -364,6 +364,11 @@ msgstr "Podatki o položaju vremena."
 msgid "Zone location"
 msgstr "Položaj območja"
 
+#: ../libgweather/timezone-menu.c:278
+msgctxt "timezone"
+msgid "Unknown"
+msgstr "Neznano"
+
 #. Translators: %d is an error code, and %s the error string
 #: ../libgweather/weather-metar.c:508
 #, c-format
@@ -374,97 +379,97 @@ msgstr "Ni mogoče dobiti podatkov METAR: %d %s.\n"
 msgid "WeatherInfo missing location"
 msgstr "WatherInfo pogreša lokacijo"
 
-#: ../libgweather/weather.c:220
+#: ../libgweather/weather.c:234
 msgid "Variable"
 msgstr "Spremenljivka"
 
-#: ../libgweather/weather.c:221
+#: ../libgweather/weather.c:235
 msgid "North"
 msgstr "Sever"
 
-#: ../libgweather/weather.c:221
+#: ../libgweather/weather.c:235
 msgid "North - NorthEast"
 msgstr "Sever - Severovzhod"
 
-#: ../libgweather/weather.c:221
+#: ../libgweather/weather.c:235
 msgid "Northeast"
 msgstr "Severovzhod"
 
-#: ../libgweather/weather.c:221
+#: ../libgweather/weather.c:235
 msgid "East - NorthEast"
 msgstr "Vzhod - severovzhod"
 
-#: ../libgweather/weather.c:222
+#: ../libgweather/weather.c:236
 msgid "East"
 msgstr "Vzhod"
 
-#: ../libgweather/weather.c:222
+#: ../libgweather/weather.c:236
 msgid "East - Southeast"
 msgstr "Vzhod - jugovzhod"
 
-#: ../libgweather/weather.c:222
+#: ../libgweather/weather.c:236
 msgid "Southeast"
 msgstr "Jugovzhod"
 
-#: ../libgweather/weather.c:222
+#: ../libgweather/weather.c:236
 msgid "South - Southeast"
 msgstr "Jug - jugovzhod"
 
-#: ../libgweather/weather.c:223
+#: ../libgweather/weather.c:237
 msgid "South"
 msgstr "Jug"
 
-#: ../libgweather/weather.c:223
+#: ../libgweather/weather.c:237
 msgid "South - Southwest"
 msgstr "Jug - jugozahod"
 
-#: ../libgweather/weather.c:223
+#: ../libgweather/weather.c:237
 msgid "Southwest"
 msgstr "Jugozahod"
 
-#: ../libgweather/weather.c:223
+#: ../libgweather/weather.c:237
 msgid "West - Southwest"
 msgstr "Zahod - jugozahod"
 
-#: ../libgweather/weather.c:224
+#: ../libgweather/weather.c:238
 msgid "West"
 msgstr "Zahod"
 
-#: ../libgweather/weather.c:224
+#: ../libgweather/weather.c:238
 msgid "West - Northwest"
 msgstr "Zahod - severozahod"
 
-#: ../libgweather/weather.c:224
+#: ../libgweather/weather.c:238
 msgid "Northwest"
 msgstr "Severozahod"
 
-#: ../libgweather/weather.c:224
+#: ../libgweather/weather.c:238
 msgid "North - Northwest"
 msgstr "Sever - severozahod"
 
-#: ../libgweather/weather.c:231
-#: ../libgweather/weather.c:248
-#: ../libgweather/weather.c:320
+#: ../libgweather/weather.c:245
+#: ../libgweather/weather.c:262
+#: ../libgweather/weather.c:334
 msgid "Invalid"
 msgstr "Neveljavno"
 
-#: ../libgweather/weather.c:237
+#: ../libgweather/weather.c:251
 msgid "Clear Sky"
 msgstr "Jasno nebo"
 
-#: ../libgweather/weather.c:238
+#: ../libgweather/weather.c:252
 msgid "Broken clouds"
 msgstr "Pretežno oblačno"
 
-#: ../libgweather/weather.c:239
+#: ../libgweather/weather.c:253
 msgid "Scattered clouds"
 msgstr "Delno oblačno"
 
-#: ../libgweather/weather.c:240
+#: ../libgweather/weather.c:254
 msgid "Few clouds"
 msgstr "Pretežno jasno"
 
-#: ../libgweather/weather.c:241
+#: ../libgweather/weather.c:255
 msgid "Overcast"
 msgstr "Oblačno"
 
@@ -472,386 +477,386 @@ msgstr "Oblačno"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:280
-#: ../libgweather/weather.c:282
+#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:296
 msgid "Thunderstorm"
 msgstr "Nevihta"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:281
+#: ../libgweather/weather.c:295
 msgid "Drizzle"
 msgstr "Pršenje"
 
-#: ../libgweather/weather.c:281
+#: ../libgweather/weather.c:295
 msgid "Light drizzle"
 msgstr "Rahlo pršenje"
 
-#: ../libgweather/weather.c:281
+#: ../libgweather/weather.c:295
 msgid "Moderate drizzle"
 msgstr "Zmerno pršenje"
 
 # @ Hmmm...
-#: ../libgweather/weather.c:281
+#: ../libgweather/weather.c:295
 msgid "Heavy drizzle"
 msgstr "Močno pršenje"
 
-#: ../libgweather/weather.c:281
+#: ../libgweather/weather.c:295
 msgid "Freezing drizzle"
 msgstr "Zmrzujoče pršenje"
 
 #. RAIN
-#: ../libgweather/weather.c:282
+#: ../libgweather/weather.c:296
 msgid "Rain"
 msgstr "Dežuje"
 
-#: ../libgweather/weather.c:282
+#: ../libgweather/weather.c:296
 msgid "Light rain"
 msgstr "Rahlo dežuje"
 
-#: ../libgweather/weather.c:282
+#: ../libgweather/weather.c:296
 msgid "Moderate rain"
 msgstr "Zmerno dežuje"
 
-#: ../libgweather/weather.c:282
+#: ../libgweather/weather.c:296
 msgid "Heavy rain"
 msgstr "Močno dežuje"
 
 # @ Hmmm....
-#: ../libgweather/weather.c:282
+#: ../libgweather/weather.c:296
 msgid "Rain showers"
 msgstr "Plohe"
 
-#: ../libgweather/weather.c:282
+#: ../libgweather/weather.c:296
 msgid "Freezing rain"
 msgstr "Zmrznjen dež"
 
 #. SNOW
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:297
 msgid "Snow"
 msgstr "Sneži"
 
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:297
 msgid "Light snow"
 msgstr "Rahlo sneži"
 
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:297
 msgid "Moderate snow"
 msgstr "Zmerno sneži"
 
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:297
 msgid "Heavy snow"
 msgstr "Močno sneži"
 
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:297
 msgid "Snowstorm"
 msgstr "Snežna nevihta"
 
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:297
 msgid "Blowing snowfall"
 msgstr "Sneži z vetrom"
 
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:297
 msgid "Snow showers"
 msgstr "Snežne plohe"
 
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:297
 msgid "Drifting snow"
 msgstr "Sneži v pasovih"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:284
+#: ../libgweather/weather.c:298
 msgid "Snow grains"
 msgstr "Zrnat sneg"
 
-#: ../libgweather/weather.c:284
+#: ../libgweather/weather.c:298
 msgid "Light snow grains"
 msgstr "Rahlo zrnato sneži"
 
-#: ../libgweather/weather.c:284
+#: ../libgweather/weather.c:298
 msgid "Moderate snow grains"
 msgstr "Zmerno zrnato sneži"
 
-#: ../libgweather/weather.c:284
+#: ../libgweather/weather.c:298
 msgid "Heavy snow grains"
 msgstr "Močno zrnato sneži"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:285
+#: ../libgweather/weather.c:299
 msgid "Ice crystals"
 msgstr "Ledene iglice"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:286
+#: ../libgweather/weather.c:300
 msgid "Ice pellets"
 msgstr "Babje pšeno"
 
-#: ../libgweather/weather.c:286
+#: ../libgweather/weather.c:300
 msgid "Few ice pellets"
 msgstr "Nekaj babjega pšena"
 
-#: ../libgweather/weather.c:286
+#: ../libgweather/weather.c:300
 msgid "Moderate ice pellets"
 msgstr "Zmerno babje pšeno"
 
-#: ../libgweather/weather.c:286
+#: ../libgweather/weather.c:300
 msgid "Heavy ice pellets"
 msgstr "Močno babje pšeno"
 
-#: ../libgweather/weather.c:286
+#: ../libgweather/weather.c:300
 msgid "Ice pellet storm"
 msgstr "Nevihta babjega pšena"
 
-#: ../libgweather/weather.c:286
+#: ../libgweather/weather.c:300
 msgid "Showers of ice pellets"
 msgstr "Plohe babjega pšena"
 
 #. HAIL
-#: ../libgweather/weather.c:287
+#: ../libgweather/weather.c:301
 msgid "Hail"
 msgstr "Toča"
 
-#: ../libgweather/weather.c:287
+#: ../libgweather/weather.c:301
 msgid "Hailstorm"
 msgstr "Nevihta toče"
 
-#: ../libgweather/weather.c:287
+#: ../libgweather/weather.c:301
 msgid "Hail showers"
 msgstr "Ploha toče"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:288
+#: ../libgweather/weather.c:302
 msgid "Small hail"
 msgstr "Sodra"
 
-#: ../libgweather/weather.c:288
+#: ../libgweather/weather.c:302
 msgid "Small hailstorm"
 msgstr "Nevihta sodre"
 
-#: ../libgweather/weather.c:288
+#: ../libgweather/weather.c:302
 msgid "Showers of small hail"
 msgstr "Ploha sodre"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:289
+#: ../libgweather/weather.c:303
 msgid "Unknown precipitation"
 msgstr "Neznane padavine"
 
 #. MIST
-#: ../libgweather/weather.c:290
+#: ../libgweather/weather.c:304
 msgid "Mist"
 msgstr "Meglice"
 
 #. FOG
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:305
 msgid "Fog"
 msgstr "Megla"
 
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:305
 msgid "Fog in the vicinity"
 msgstr "Megla v okolici"
 
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:305
 msgid "Shallow fog"
 msgstr "Plitva megla"
 
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:305
 msgid "Patches of fog"
 msgstr "Ponekod megla"
 
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:305
 msgid "Partial fog"
 msgstr "Megla s presledki"
 
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:305
 msgid "Freezing fog"
 msgstr "Zmrzujoča megla"
 
 #. SMOKE
-#: ../libgweather/weather.c:292
+#: ../libgweather/weather.c:306
 msgid "Smoke"
 msgstr "Dim"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:307
 msgid "Volcanic ash"
 msgstr "Vulkanski pepel"
 
 #. SAND
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:308
 msgid "Sand"
 msgstr "Pesek"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:308
 msgid "Blowing sand"
 msgstr "Pesek z vetrom"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:308
 msgid "Drifting sand"
 msgstr "Pesek v pasovih"
 
 #. HAZE
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:309
 msgid "Haze"
 msgstr "Suha motnost"
 
 #. SPRAY
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:310
 msgid "Blowing sprays"
 msgstr "Pršec z vetrom"
 
 #. DUST
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:311
 msgid "Dust"
 msgstr "Prah"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:311
 msgid "Blowing dust"
 msgstr "Prah z vetrom"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:311
 msgid "Drifting dust"
 msgstr "Prah v pasovih"
 
 #. SQUALL
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:312
 msgid "Squall"
 msgstr "Piš vetra"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:313
 msgid "Sandstorm"
 msgstr "Peščeni vihar"
 
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:313
 msgid "Sandstorm in the vicinity"
 msgstr "Peščeni vihar v okolici"
 
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:313
 msgid "Heavy sandstorm"
 msgstr "Močan peščeni vihar"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:314
 msgid "Duststorm"
 msgstr "Prašni vihar"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:314
 msgid "Duststorm in the vicinity"
 msgstr "Prašni vihar v okolici"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:314
 msgid "Heavy duststorm"
 msgstr "Močan prašni vihar"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:315
 msgid "Funnel cloud"
 msgstr "Tromba"
 
 #. TORNADO
-#: ../libgweather/weather.c:302
+#: ../libgweather/weather.c:316
 msgid "Tornado"
 msgstr "Tornado"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:317
 msgid "Dust whirls"
 msgstr "Prašni vrtinec"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:317
 msgid "Dust whirls in the vicinity"
 msgstr "Prašni vrtinci v okolici"
 
 #. TRANSLATOR: this is a format string for strftime
 #. *             see `man 3 strftime` for more details
 #.
-#: ../libgweather/weather.c:693
+#: ../libgweather/weather.c:707
 msgid "%a, %b %d / %H:%M"
 msgstr "%a, %g %d / %H:%M"
 
-#: ../libgweather/weather.c:708
+#: ../libgweather/weather.c:722
 msgid "Unknown observation time"
 msgstr "Neznan čas meritve"
 
-#: ../libgweather/weather.c:722
-#: ../libgweather/weather.c:773
+#: ../libgweather/weather.c:736
 #: ../libgweather/weather.c:787
-#: ../libgweather/weather.c:800
-#: ../libgweather/weather.c:813
-#: ../libgweather/weather.c:826
-#: ../libgweather/weather.c:844
-#: ../libgweather/weather.c:862
-#: ../libgweather/weather.c:900
-#: ../libgweather/weather.c:916
-#: ../libgweather/weather.c:939
-#: ../libgweather/weather.c:971
-#: ../libgweather/weather.c:987
-#: ../libgweather/weather.c:1007
+#: ../libgweather/weather.c:801
+#: ../libgweather/weather.c:814
+#: ../libgweather/weather.c:827
+#: ../libgweather/weather.c:840
+#: ../libgweather/weather.c:858
+#: ../libgweather/weather.c:876
+#: ../libgweather/weather.c:914
+#: ../libgweather/weather.c:930
+#: ../libgweather/weather.c:953
+#: ../libgweather/weather.c:985
+#: ../libgweather/weather.c:1001
+#: ../libgweather/weather.c:1021
 msgid "Unknown"
 msgstr "Neznan"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:744
+#: ../libgweather/weather.c:758
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:747
+#: ../libgweather/weather.c:761
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:753
+#: ../libgweather/weather.c:767
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:756
+#: ../libgweather/weather.c:770
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:762
+#: ../libgweather/weather.c:776
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:765
+#: ../libgweather/weather.c:779
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:847
+#: ../libgweather/weather.c:861
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:875
+#: ../libgweather/weather.c:889
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f vozlov"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:879
+#: ../libgweather/weather.c:893
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f milj/uro"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:883
+#: ../libgweather/weather.c:897
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:887
+#: ../libgweather/weather.c:901
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -859,82 +864,82 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:893
+#: ../libgweather/weather.c:907
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Hitrost vetra %.1f Baeufort(ov)"
 
-#: ../libgweather/weather.c:918
+#: ../libgweather/weather.c:932
 msgid "Calm"
 msgstr "Mirno"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:922
+#: ../libgweather/weather.c:936
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:944
+#: ../libgweather/weather.c:958
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:948
+#: ../libgweather/weather.c:962
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:952
+#: ../libgweather/weather.c:966
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:956
+#: ../libgweather/weather.c:970
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:960
+#: ../libgweather/weather.c:974
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:964
+#: ../libgweather/weather.c:978
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:992
+#: ../libgweather/weather.c:1006
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f milj"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:996
+#: ../libgweather/weather.c:1010
 #, c-format
 msgid "%.1f km"
 msgstr "%1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1000
+#: ../libgweather/weather.c:1014
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:1029
-#: ../libgweather/weather.c:1050
+#: ../libgweather/weather.c:1043
+#: ../libgweather/weather.c:1064
 msgid "%H:%M"
 msgstr "%H:%M"
 
 # @ Which form?
-#: ../libgweather/weather.c:1109
+#: ../libgweather/weather.c:1123
 msgid "Retrieval failed"
 msgstr "Prevzem spodletel"
 
