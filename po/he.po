@@ -377,9 +377,7 @@ msgstr "Zone location"
 #: ../libgweather/weather-metar.c:497
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
-msgstr ""
-"נכשל בקבלת נתונים METAR: ‏%d ‏%s."
-"\n"
+msgstr "נכשל בקבלת נתוני METAR: ‏%d ‏%s.\n"
 
 #: ../libgweather/weather-metar.c:534
 msgid "WeatherInfo missing location"
@@ -790,30 +788,29 @@ msgstr "%a, %b %d / %H:%M"
 msgid "Unknown observation time"
 msgstr "זמן תצפית לא ידועה"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:649
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/weather.c:758
 #, c-format
-msgid "%.1f ℉"
-msgstr "‎%.1f ℉"
+msgid "%.1f °F"
+msgstr "%.1f °F"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:652
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/weather.c:761
 #, c-format
-msgid "%d ℉"
-msgstr "‎%d ℉"
+msgid "%d °F"
+msgstr "%d °F"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:658
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/weather.c:767
 #, c-format
-msgid "%.1f ℃"
-msgstr "‎%.1f ℃"
+msgid "%.1f °C"
+msgstr "%.1f °C"
 
-# c-format
-#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:661
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/weather.c:770
 #, c-format
-msgid "%d ℃"
-msgstr "‎%d ℃"
+msgid "%d °C"
+msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
 #: ../libgweather/weather.c:667
@@ -2099,18 +2096,6 @@ msgstr "קבלה נכשלה"
 
 #~ msgid "Commission"
 #~ msgstr "עמלה"
-
-#~ msgid "%.1f °F"
-#~ msgstr "%.1f °F"
-
-#~ msgid "%d °F"
-#~ msgstr "%d °F"
-
-#~ msgid "%.1f °C"
-#~ msgstr "%.1f °C"
-
-#~ msgid "%d °C"
-#~ msgstr "%d °C"
 
 #~ msgid "Deskbar (formerly Mini-Commander)"
 #~ msgstr "‏Deskbar (לשעבר Mini-Commander)"
