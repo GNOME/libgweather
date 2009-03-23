@@ -92,6 +92,12 @@ wx_start_open (WeatherInfo *info)
     }
  
     msg = soup_message_new ("GET", url);
+    if (!msg) {
+	g_warning ("Invalid radar URL: %s\n", url);
+	g_free (url);
+	return;
+    }
+
     g_signal_connect (msg, "got-chunk", G_CALLBACK (wx_got_chunk), info);
     soup_message_body_set_accumulate (msg->response_body, FALSE);
     soup_session_queue_message (info->session, msg, wx_finish, info);
