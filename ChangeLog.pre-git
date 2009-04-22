@@ -1,0 +1,1213 @@
+2009-04-14  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.26.2
+
+==================== 2.26.1 ====================
+
+2009-04-14  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.26.1
+
+2009-03-23  Dan Winship  <danw@gnome.org>
+
+	* libgweather/weather-wx.c (wx_start_open): don't crash if the
+	user provided an invalid URL for the radar check. #575113
+
+2009-03-16  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.26.1
+
+==================== 2.26.0 ====================
+
+2009-03-16  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.26.0
+
+2009-03-14  Vincent Untz  <vuntz@gnome.org>
+
+	* doc/tmpl/weather.sgml: template has changed a bit because of some
+	minor tweaks during this cycle.
+
+2009-03-04  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in: Regenerate again with KVDW; yesterday's
+	fix didn't completely fix the string freeze break.
+
+2009-03-03  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in: Regenerate after adding KBRX (Bordeaux,
+	Wyoming, USA) back to the observations list, because if we remove
+	it then Bordeaux, France is no longer ambiguous, so it loses its
+	msgctxt, which means its existing translation goes fuzzy, which
+	breaks string freeze. See #573969 for discussion of an eventual
+	real fix.
+
+2009-03-03  Dan Winship  <danw@gnome.org>
+
+	* data/city-fixups.pl: Remove a duplicate copy of Warsaw. #563496.
+
+	* data/station-fixups.pl: Strip out the automated Canadian
+	stations that (badly) duplicate non-automated stations. Among
+	other things, fixes Edmonton, #573936.
+
+	* data/Locations.xml.in: Regen for the preceding changes, and
+	using a new observations file containing the intersection of the
+	2.24 locations and the currently-reporting locations. Among other
+	things, this gets rid of the now-defunct Berlin Templehof station,
+	fixing the weather in Berlin. #567607.
+
+2009-03-03  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.26.0
+
+==================== 2.25.92 ====================
+
+2009-03-03  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.25.92
+
+2009-02-17  Vincent Untz  <vuntz@gnome.org>
+
+	* libgweather/timezone-menu.c: (gweather_timezone_model_new): mark
+	Unknown for translation, with context.
+	* libgweather/weather-priv.h: add C_() (and gweather_dpgettext())
+	* libgweather/weather.c: (gweather_gettext_init): new inline function,
+	based on code from gweather_gettext()
+	(gweather_gettext): use gweather_gettext_init()
+	(gweather_dpgettext): create
+
+2009-02-17  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.25.92
+
+==================== 2.25.91 ====================
+
+2009-02-17  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.25.91
+
+2009-02-17  Vincent Untz  <vuntz@gnome.org>
+
+	* data/Locations.xml.in: use Asia/Kathmandu instead of Asia/Katmandu
+	(change in tzdata 2009a)
+
+2009-01-19  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.25.90
+
+==================== 2.25.5 ====================
+
+2009-01-19  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.25.5
+
+2009-01-06  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.25.5
+
+==================== 2.25.4 ====================
+
+2009-01-06  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.25.4
+
+2008-12-19  Milan Crha  <mcrha@redhat.com>
+
+	** Part of fix for bug #564652
+
+	* libgweather/weather-iwin.c:
+	* libgweather/gweather-xml.h:
+	* libgweather/gweather-xml.c:
+	Do not copy soup session information for a forecast list. Check for
+	a forecast list information even without 'zone' of a 'location'.
+	Leak a bit less; new function 'gweather_xml_free_locations' to help
+	with this.
+
+2008-12-14  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.25.4
+
+==================== 2.25.3 ====================
+
+2008-12-14  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.25.3
+
+2008-12-02  Vincent Untz  <vuntz@gnome.org>
+
+	Second part of win32 portability.
+	Based on patch by Tor Lillqvist <tml@iki.fi>
+	Needed for bug #352287.
+
+	* configure.in: detect win32
+	* doc/Makefile.am: ignore gweather-win32.h
+	* libgweather/Makefile.am: hack stuff for win32
+	* libgweather/gweather-win32.[ch]: new, some black magic win32 changes
+	to get the right directories
+	* libgweather/gweather-timezone.c:
+	* libgweather/weather-metar.c:
+	* libgweather/weather-sun.c:
+	* libgweather/weather.c: include gweather-win32.h on win32
+
+2008-12-02  Vincent Untz  <vuntz@gnome.org>
+
+	* libgweather/weather.c: (temperature_string), (temperature_value):
+	rename some variables for win32 portability.
+	Based on patch by Tor Lillqvist <tml@iki.fi>
+	First part needed for bug #352287.
+
+2008-12-02  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.25.3
+
+==================== 2.25.2 ====================
+
+2008-12-02  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.25.2
+
+2008-12-02  Vincent Untz  <vuntz@gnome.org>
+
+	* data/locations.dtd: update for msgctxt
+
+2008-11-30  Dan Winship  <danw@gnome.org>
+
+	* data/update-locations.py (get_city): Prefer a city name with no
+	language tag to one with, since that seems to mean "international
+	name". Fixes "Macau". #558310,  Leonardo Ferreira Fontenelle.
+
+	* data/update-locations.py: Fix the logic around assuming that
+	cities are located in the same state as their weather station;
+	obviously this doesn't apply when they're in different countries.
+	Fixes a bug that previously caused Luxembourg (the city) to end up
+	in Belgium rather than Luxembourg (the country). #562772
+
+	* data/Locations.xml.in: regen
+
+2008-11-27  Vincent Untz  <vuntz@gnome.org>
+
+	* libgweather/weather.c:
+	(weather_wind_direction_string), (weather_sky_string),
+	(weather_conditions_string), (weather_info_get_icon_name),
+	(weather_info_get_value_sky), (weather_info_get_value_conditions),
+	(weather_info_get_value_wind), (weather_info_get_value_visibility):
+	have clearer & saner checks for validity of enum values.
+	(weather_location_new), (_weather_internal_check): internal consistency
+	checks
+	* libgweather/weather.h: add new enum values for LAST and INVALID
+	Fix bug #562283.
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
+	* libgweather/gweather-location.c:
+	(gweather_location_get_children)
+	(gweather_location_free_children): Make the memory-management here
+	less lame. #562274
+
+	* libgweather/gweather-timezone.c:
+	* libgweather/location-entry.c:
+	* libgweather/timezone-menu.c: Add some docs. #562261
+
+	* doc/Makefile.am (IGNORE_HFILES): set this
+
+	* doc/libgweather-sections.txt: update
+
+	* doc/libgweather-docs.sgml: fix (some)
+
+2008-11-26  Vincent Untz  <vuntz@gnome.org>
+
+	* Makefile.am:
+	* configure.in:
+	* doc/*: add gtk-doc setup. First step for bug #562261.
+
+2008-11-26  Vincent Untz  <vuntz@gnome.org>
+
+	* libgweather/gweather-gconf.c:
+	* libgweather/gweather-location.c:
+	* libgweather/gweather-prefs.c:
+	* libgweather/gweather-timezone.c:
+	* libgweather/timezone-menu.c:
+	* libgweather/weather-sun.c:
+	* libgweather/weather.c:
+	Add some safety guards with g_return[_val]_if_fail() to public API.
+	Hopefully, I did it right. I guess people will notice quickly if it's
+	not the case ;-)
+
+2008-11-25  Vincent Untz  <vuntz@gnome.org>
+
+	* libgweather/gweather-xml.c: (gweather_xml_parse_node): remove unused
+	variable
+	* libgweather/weather-iwin.c: (iwin_finish), (iwin_start_open):
+	correctly format code
+
+2008-11-25  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: use $DISABLE_DEPRECATED which is set by gnome-common
+	instead of listing _DISABLE_DEPRECATED flags ourselves. We'll stay
+	up-to-date this way. Note: use gnome-common from trunk if you want
+	LIBSOUP_DISABLE_DEPRECATED really hard.
+	* libgweather/gweather-uninstalled.pc.in: remove locations_file from
+	there too
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
+	* data/update-locations.py: when given a location name like
+	"Covington / Cincinnati", only create an entry for one of the two
+	cities (the larger one if we can tell, the one closer to the
+	weather station if we can't) rather than creating a separate entry
+	for each.
+
+	* data/Locations.xml.in: regen
+
+2008-11-25  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: add --enable-locations-compression to compress the
+	Locations.xml files.
+	* data/Makefile.am: compress data files if requested.
+	* libgweather/parser.c: (gweather_parser_new): look for .gz files too.
+	Thanks to libxml2, we don't have to do anything to support compressed
+	files.
+	Fix bug #552868.
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
+	* configure.in (IT_PROG_INTLTOOL): require 0.40.3, for msgctxt
+	support
+
+	* data/update-locations.py: find duplicate names, and add msgctxt
+	attributes to the XML so that, eg, translators can differentiate
+	"Athens, Georgia, USA" from the capital of Greece and the former
+	Soviet republic. #529057
+	(State.__init__, City.print_xml, get_city): trim down the text of
+	the comments. In particular, we don't need to prepend
+	"Translators: ..." to them, because *all* of the comments in
+	Locations.xml.in are for translators.
+
+	* data/Locations.xml.in: regen
+
+	* data/Makefile.am (rebuild-locations): fix this rule to delete
+	the right file on error
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
+	Don't worry about sub-city locations; people generally aren't
+	going to know which of the locations is closest to them, and the
+	weather reports from all of them should be basically the same
+	anyway.
+
+	* data/update-locations.py (Location.print_xml): never use <_name>
+	for location-level names; always just use <name> so they don't get
+	localized
+	(observations_url): add a hack to let you override the
+	recent-observations file, so you can regenerate Locations.xml.in
+	without changing the set of active stations
+	(Country.__init__): add "Bahamas" to the list of countries whose
+	name we put "the" before in comments
+
+	* data/Locations.xml.in: regen, dropping localization for
+	<location> nodes
+
+	* libgweather/gweather-xml.c (gweather_xml_parse_node): Remove the
+	cities-with-multiple-locations code, and just make all cities use
+	their first child location. Also, ignore <location>s that aren't
+	children of <city>s (which should be impossible now anyway).
+
+	* libgweather/location-entry.c (fill_location_entry_model):
+	likewise
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
+	* libgweather/gweather.pc.in (locations_file): remove this; we do
+	not support other programs reading the locations file directly,
+	you have to use the libgweather API.
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
+	* configure.in: Add -DG_DISABLE_SINGLE_INCLUDES and
+	-DGTK_DISABLE_SINGLE_INCLUDES. Also add various
+	_DISABLE_DEPRECATED flags in maintainer mode. Fix a dumb bug where
+	we weren't setting GTK_CFLAGS or LIBXML_CFLAGS.
+
+	* libgweather/gweather-gconf.c:
+	* libgweather/weather.c:
+	* libgweather/weather.h: only use single includes. Patch from
+	Maxim Ermilov, #560794.
+
+	* libgweather/weather-wx.c (wx_start_open): Use
+	soup_message_body_set_accumulate() rather than the deprecated
+	SOUP_MESSAGE_OVERWRITE_CHUNKS flag.
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
+	* configure.in: check for libsoup-gnome-2.4 >= 2.25.1 and set
+	HAVE_LIBSOUP_GNOME if found. Otherwise fall back to libsoup-2.4.
+	(The fallback is a temporary convenience thing so we don't require
+	libsoup trunk so early in the release cycle.)
+
+	* libgweather/weather.c: remove the http proxy lookup code, and
+	instead just use SoupProxyResolverGNOME when HAVE_LIBSOUP_GNOME.
+	Fixes #393168 (gweather retrieval fails with automatic proxy
+	config) and #344964 (Weather Report does not reload changed proxy
+	configuration).
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
+	* COPYING: add a copy of GPLv2 so that automake doesn't add a copy
+	of GPLv3. #561887
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
+	* libgweather/weather-metar.c (WIND_RE_STR, metar_tok_wind):
+	Handle wind reports in m/s. #541721
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
+	* libgweather/weather.c (temperature_string): Use the degree sign
+	followed by "C" or "F" rather than using the combined "degrees C"
+	and "degrees F" glyphs, which aren't available in some fonts, and
+	look bad in others. #526437
+
+	* libgweather/test_metar.c (main): tweak this a little to test
+	that change
+
+2008-11-25  Milan Crha <mcrha@redhat.com>
+
+	** Fix for bug #538787
+
+	* libgweather/weather.h:
+	* libgweather/weather.c:
+	* libgweather/weather-iwin.c:
+	Extending API to be able to get WeatherInfo values as numbers.
+
+2008-11-25  Dan Winship  <danw@gnome.org>
+
+	* configure.in: post-branch bump to 2.25.1
+
+2008-11-25  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.24.3
+
+==================== 2.24.2 ====================
+
+2008-11-25  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.24.2
+
+2008-10-22  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.24.2
+
+==================== 2.24.1 ====================
+
+2008-10-22  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.24.1
+
+2008-10-22  Vincent Untz  <vuntz@gnome.org>
+
+	* python/Makefile.am: try to fix distcheck
+
+2008-10-22  Vincent Untz  <vuntz@gnome.org>
+
+	* python/Makefile.am: try to fix distcheck
+
+2008-10-17  Dan Winship  <danw@gnome.org>
+
+	* libgweather/weather.c (weather_info_network_error): Add this so
+	we can distinguish "the requested code was invalid" from "we
+	couldn't access the METAR site". Needed for #556776
+
+	* libgweather/weather-metar.c (metar_finish): set network_error if
+	the soup request gets a "transport error" status code, or if it
+	gets back an HTML page that looks like it didn't come from the
+	METAR server.
+
+2008-10-17  Dan Winship  <danw@gnome.org>
+
+	* libgweather/Makefile.am (libgweather_la_LIBADD): add -lm.
+	#551215, Frederic Peters.
+
+	* libgweather/gweather.pc.in: move -lm from Libs to Libs.private
+
+	* libgweather/gweather-location.h: remove unused types. #546317
+
+	* libgweather/gweather-timezone.c (gweather_timezones_parse_xml):
+	don't return NULL (and cause a crash) if a timezone name is
+	unrecognized; just ignore that timezone. Part of #553838.
+
+	* libgweather/weather.c (weather_session_new): new utility to
+	create a SoupSession, using the GConf proxy settings. Sort of
+	addresses #552580.
+
+2008-10-14  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in: The Mexican states of Chihuahua, Nayarit,
+	Sinaloa, and Sonora are in Mountain Time, not Central Time.
+	#556322, Christopher Aillon.
+
+2008-09-29  Dan Winship  <danw@gnome.org>
+
+	* python/Makefile.am (EXTRA_DIST): dist gweather.defs (and move
+	EXTRA_DIST outside the if ENABLE_PYTHON). #554086, Emilio Pozuelo
+	Monfort.
+
+2008-09-29  Dan Winship  <danw@gnome.org>
+
+	* libgweather/weather.c (gweather_gettext): gettext wrapper that
+	ensures bindtextdomain() and bind_textdomain_codeset() have been
+	called for our GETTEXT_PACKAGE.
+
+	* libgweather/weather-priv.h: Prototype gweather_gettext, #define
+	_() in terms of it.
+
+	* libgweather/gweather-gconf.c:
+	* libgweather/gweather-prefs.c:
+	* libgweather/weather-iwin.c:
+	* libgweather/weather-metar.c:
+	* libgweather/weather-wx.c: Remove glib/gi18n-lib.h includes, add
+	weather-priv.h include, where needed
+
+	#535865, based on a patch from Minoru Hashima.
+
+2008-09-22  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.24.1
+
+==================== 2.24.0 ====================
+
+2008-09-22  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.24.0
+
+2008-09-08  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.24.0
+
+==================== 2.23.92 ====================
+
+2008-09-08  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.23.92
+
+2008-09-04  Dan Winship  <danw@gnome.org>
+
+	* python/*: create python bindings for GWeatherLocation,
+	GWeatherTimezone, GWeatherLocationEntry, and GWeatherTimezoneMenu.
+	As with the C library, these are unstable. #547824
+
+	* configure.in: Add --enable-python (off by default)
+
+	* acinclude.m4: stuff needed for that
+
+2008-09-04  Dan Winship  <danw@gnome.org>
+
+	Set libgweather up for bindings. Part of #547824
+
+	* configure.in: set GLIB_MKENUMS
+
+	* libgweather/Makefile.am: build gweather-enum-types.[ch]
+
+	* libgweather/gweather-enum-types.c.tmpl:
+	* libgweather/gweather-enum-types.h.tmpl: Add these
+
+	* libgweather/gweather-location.c (gweather_location_get_type):
+	* libgweather/gweather-timezone.c (gweather_timezone_get_type):
+	register as boxed types
+
+2008-09-03  Dan Winship  <danw@gnome.org>
+
+	* libgweather/*.[ch]: Clean up the GPL notices and #includes.
+	Remove most of the "Author: ..." comments since they're mostly
+	wrong at this point anyway. The last remaining part of #538657.
+
+	* AUTHORS: add this, containing just the original author of
+	gweather applet, which is wrong, but it corresponds to what the .c
+	files claimed previously, and we'll figure out who else to list
+	later.
+
+	* libgweather/gweather-location.c:
+	* libgweather/gweather-location.h:
+	* libgweather/gweather-timezone.c:
+	* libgweather/gweather-timezone.h:
+	* libgweather/location-entry.c:
+	* libgweather/location-entry.h:
+	* libgweather/timezone-menu.c:
+	* libgweather/timezone-menu.h: Add Copyright and fix license text
+	to say LGPL rather than GPL; it doesn't really matter at this
+	point since the rest of the library is still GPL, but it may be
+	useful in the future.
+
+2008-09-01  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.23.92
+
+==================== 2.23.91 ====================
+
+2008-09-01  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.23.91
+
+2008-09-01  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* libgweather/Makefile.am:
+	* libgweather/gweather-uninstalled.pc.in:
+	Add a gweather-uninstalled.pc.in file.
+	Based on patch by Damien Carbery <damien.carbery@sun.com>
+	Fix bug #510125
+
+2008-08-25  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in: fix cut+paste
+
+2008-08-25  Dan Winship  <danw@gnome.org>
+
+	* data/city-fixups.pl: Remove duplicate Bangkok, Thailand under a
+	separate name. #548630.
+
+	* data/station-fixups.pl: Fix typo in MMGL (Guadalajara, Mexico)
+	#549047. Rename VTBD (Don Muang, Thailand) to "Bangkok" to avoid
+	adding a useless extra entry (especially since that entry was
+	buggy for another reason anyway). #548630.
+
+	* data/Locations.xml.in: Regen. Adds the string "Guadalajara", but
+	that was there in 2.22 so translations of it are already
+	available.
+
+	* data/Makefile.am (rebuild-locations, locationdb.sqlite): Fix;
+	city-fixups.pl and station-fixups.pl changes require a locationdb
+	rebuild, not just Locations.xml.in
+
+2008-08-19  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: fix --with-zoneinfo-dir to actually work.
+	Patch by Matt Keenan <matt.keenan@sun.com>.
+	Fix bug #548440
+
+2008-08-06  Dan Winship  <danw@gnome.org>
+
+	* data/update-locations.py: Output <coordinates> using decimal
+	degrees rather than converting them to degrees/minutes/seconds to
+	write them to Locations.xml.in and then having libgweather
+	immediately convert them back when it reads them in. (Also, the
+	decimal form is easier to use with google maps, etc.)
+
+	* data/Locations.xml.in: regen (only <coordinates> changed)
+
+	* libgweather/gweather-location.c (parse_coordinates): parse
+	decimal degrees rather than d/m/s.
+
+2008-08-05  Dan Winship  <danw@gnome.org>
+
+	* data/build-locationdb.pl: Mark PPLA ("state capital") cities as
+	importance 1, not importance 2 (meaning we won't create <city>
+	entries for them automatically). Importance=2 worked well for some
+	countries, but for most countries it just ends up creating a whole
+	lot of cruft.
+
+	* data/update-locations.py: Fix a regexp to not mangle the spacing
+	around "/" in some cases.
+	(LocBase.__init__, LocBase.print_xml): Handle <timezones> when
+	regenerating Locations.xml.in
+	(Country.__init__, City.print_xml): Fix the comments on cities to
+	insert "the" where needed. (eg, "a city in the United States",
+	not "a city in United States").
+
+	* data/Locations.xml.in: Regenerate, dropping 629 cities, changing
+	a bunch of comments
+
+2008-08-05  Jens Granseuer  <jensgr@gmx.net>
+
+        * libgweather/gweather-xml.c: (gweather_xml_parse_node):
+	remove redundant semicolon that breaks the build with gcc 2
+	(bug #546325)
+
+2008-08-04  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.23.90
+
+==================== 2.23.6 ====================
+
+2008-08-04  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.23.6
+
+2008-08-04  Dan Winship  <danw@gnome.org>
+
+	* libgweather/gweather-location.c
+	(gweather_location_get_city_name): Make this work for cities too,
+	not just <location>s.
+
+	* libgweather/location-entry.c (fill_location_entry_model): fix
+	the city-with-a-single-location case.
+
+2008-08-04  Dan Winship  <danw@gnome.org>
+
+	* configure.in (ZONEINFO_DIR): Figure out zoneinfo directory
+
+	* libgweather/gweather-timezone.c: Use that rather than hardcoding
+	/usr/share/zoneinfo
+
+	* libgweather/gweather.pc.in: define datarootdir, to shut up an
+	autoconf warning
+
+2008-08-04  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in:
+	* data/locations.dtd: add information about timezones
+
+	* libgweather/parser.c: new Locations.xml.in parser
+
+	* libgweather/gweather-location.c: opaque replacement for
+	WeatherLocation, based on the new parser
+
+	* libgweather/location-entry.c: Autocompleting location-selecting
+	entry
+
+	* libgweather/gweather-timezone.c: type representing a timezone
+
+	* libgweather/timezone-menu.c: New widget for selecting
+	a (localized) timezone.
+
+	* libgweather/gweather-xml.c: use the new parser internally (but
+	convert to WeatherLocation externally)
+
+2008-08-03  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in: Regenerate this. Now every <location>
+	node is inside a <city> node with a real city name, and the file
+	can be regenerated easily as we get updated weather station lists.
+
+	* data/build-locationdb.pl:
+	* data/update-locations.py: the Locations.xml.in-rebuilding
+	scripts. (Not yet in final form. Still need some refactoring and
+	bugfixes...)
+
+	* data/sources:
+	* data/sources/README.sources: Directory to store the
+	location/weather source files in, and a description of them
+
+	* data/city-fixups.pl:
+	* data/station-fixups.pl:
+	* data/major-cities.txt: Additional scripts and data to "patch"
+	the upstream data sources
+
+	* data/check-observations.py: Script to get a list of currently-
+	reporting weather stations
+
+	* data/Makefile.am: add rebuild-locations rule
+
+	* data/locations.dtd: update for schema changes
+
+2008-07-30  Claude Paroz  <claude@2xlibre.net>
+
+	* weather-metar.c: (metar_finish): Added translator comment.
+
+2008-07-25  Matthias Clasen  <mclasen@redhat.com>
+
+	* libgweather/weather*.c: Only increase pending_requests if 
+	we actually queued request, else we may never call the finish_cb.
+	Fixes weather information not showing up in the clock applet.
+
+2008-07-22  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.23.6
+
+==================== 2.23.5 ====================
+
+2008-07-22  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.23.5
+
+2008-06-29  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in: Reorganize countries exactly according to
+	ISO 3166; Move various territories/dependencies with their own ISO
+	codes out into their own <country> nodes, and preemptively add
+	nodes for the countries that we don't yet have weather stations
+	for. Sync up a few names/accents with ISO 3166 and/or common
+	English usage, and put a comment before each country giving the
+	official name (plus notes in the cases that are confusing or
+	non-obvious). #535518
+
+	* data/locations.dtd: Allow empty countries; the code already just
+	ignores them.
+
+2008-06-29  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in (Serbia and Montenegro): Belatedly split
+	"Serbia and Montenegro" into "Serbia" and "Montenegro".
+	(EGYP, NIUE, NSTU, PMDY, PWAK, TKPN): Move each of these from the
+	wrong <country> to the right one.
+	(Bermuda): move from "Central and South America" to "Atlantic".
+	(French Polynesia): move from "Central and South America" to
+	"Australasia & Oceania"
+	(CWWK, ESTA): Fix to use <_name> instead of <name>.
+	(K3A1, K4A9, KAUO, KDCU, KDHN, KGZH, KMGM, KMSL, KOZR, KTCL, KTOI):
+	Remove a bunch more locations that somehow got duplicated from
+	Alabama into Arkansas (qv #425778 below).
+
+2008-06-19  Vincent Untz  <vuntz@gnome.org>
+
+	* libgweather/gweather.schemas.in: change references from cvs.gnome.org
+	to svn.gnome.org. Patch by Jan Tichavský <Jan.Tichavsky@gmail.com>, fix
+	bug #510619.
+
+2008-06-18  Dan Winship  <danw@gnome.org>
+
+	* libgweather/gweather-xml.c (gweather_xml_parse_node): When
+	skipping an unrecognized node, use xmlTextReaderNext(), which
+	properly handles skipping its children, making the parsing more
+	future-proof. (The old code could only deal with skipping nodes
+	containing only text.) Also, don't examine &iter if it hasn't been
+	set (fixing a g_warning).
+
+2008-06-18  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in: Misc updates from bugzilla:
+
+	Fix spelling of Ulaanbaatar, Mongolia. #383259, DULMANDAKH
+	Sukhbaatar.
+
+	Remove duplicate copy of Gadsden, Alabama, US, which had somehow
+	snuck into Arkansas. #425778, Sebastian Bacher.
+
+	Fix BOM codes for Alice Springs and Darwin, Australia. #492268,
+	Andrew Burton.
+
+	Reorganize Brazil into <state>s, with proper timezone hints.
+	#528134, Grazieno Pellegrino.
+
+	Fix South African locations to not be based on out-of-date airport
+	names. #533622, Adrian Frith.
+
+	Add Łódź, Poland (which has a weather station but does not appear
+	in the METAR file). #534047, Marcin Banasiak.
+
+2008-06-18  Dan Winship  <danw@gnome.org>
+
+	* configure.in: require libsoup instead of gnome-vfs. (Also
+	require gconf explicitly; it used to be pulled in implicitly by
+	gnome-vfs.)
+
+	* libgweather/weather-bom.c:
+	* libgweather/weather-iwin.c:
+	* libgweather/weather-met.c:
+	* libgweather/weather-metar.c:
+	* libgweather/weather-wx.c: Use libsoup rather than gnome-vfs for
+	http. #527525
+
+	* libgweather/Makefile.am:
+	* libgweather/weather.c:
+	* libgweather/weather-priv.h: update for libsoup changes
+
+2008-06-18  Dan Winship  <danw@gnome.org>
+
+	* libgweather/*.[ch]: code cleanup. Try to standardize on a single
+	style. (No functional changes.)
+
+	* libgweather/weather.c (dmsh2rad): s/toupper/g_ascii_toupper/
+
+	* libgweather/weather-met.c (met_reprocess):
+	s/isspace/g_ascii_isspace/. s/strncasecmp/g_ascii_strncasecmp/
+
+2008-06-17  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.23.5
+
+==================== 2.23.4 ====================
+
+2008-06-17  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.23.4
+
+2008-06-17  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: require intltool 0.40.0
+	* Makefile.am: remove old intltool cruft
+
+2008-06-04  Gabor Kelemen  <kelemeng@gnome.hu>
+
+	* libgweather/weather.c: Address of the Weather Phenomena Matrix slightly changed (.html->.php)
+
+2008-06-03  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.23.4
+
+==================== 2.23.3 ====================
+
+2008-06-03  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.23.3
+
+2008-05-29  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in: s/Lousiana/Louisiana/. Bug #525761,
+	except that I didn't touch the translations
+
+2008-05-14  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.23.3
+
+==================== 2.23.2 ====================
+
+2008-05-14  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.23.2
+
+2008-05-03  Callum McKenzie  <callum@spooky-possum.org>
+
+	* data/Locations.xml.in: Added the East-Flanders region of
+	Belgium, specifically Gent and Munte at the request of Tibault
+	Damman (Bug #530932).
+
+	* data/Locations.xml.in: Complete the entries for New Zealand
+	(most are commented out until I figure out the correct local
+	source of weather info). Move 'Williams Field, Antarctica' down to
+	the Antarctica section and rename it to McMurdo Williams since
+	there is already a Williams Field listing there (different METAR
+	code). Move the Christmas/Cassidy entry from New Zealand to
+	Kiribati, NOAA doesn't seem to understand the difference.
+
+2008-04-21  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.23.2
+
+==================== 2.23.1 ====================
+
+2008-04-21  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.23.1
+
+2008-04-20  Jaap A. Haitsma  <jaap@haitsma.org>
+
+	reviewed by: Vincent Untz
+
+	* data/Locations.xml.in:
+	Put coordinates for Santiago de Chile and Nefta in degrees, minutes,
+	such that clock applet does not crash. Partly fixes bug #522689
+
+2008-04-20  Dan Winship  <danw@gnome.org>
+
+	* data/README.timezones: notes on the timezone hints in
+	Locations.xml
+
+2008-04-19  Vincent Untz  <vuntz@gnome.org>
+
+	* libgweather/gweather-xml.c: (gweather_xml_parse_node):
+	Remove useless entries (region/country/state/city without any
+	location).
+	When there's only one location in a city, merge the two items since
+	it's kind of useless to display the child in this case.
+	Fix bug #527594.
+
+2008-04-18  Vincent Untz  <vuntz@gnome.org>
+
+	* data/Makefile.am: make "make -jX" work. Fix bug #528359.
+
+2008-04-18  Vincent Untz  <vuntz@gnome.org>
+
+	* data/Makefile.am: fix build when $LINGUAS is set. Fix bug #528031.
+
+2008-04-15  Vincent Untz  <vuntz@gnome.org>
+
+	* data/Makefile.am:
+	* po-locations/Makefile.am: changes to make distcheck work
+
+2008-04-15  Federico Mena Quintero  <federico@novell.com>
+
+	* data/Locations.xml.in: Don't use obsolete Mexico/BajaNorte and
+	Mexico/BajaSur.
+
+2008-04-14  Federico Mena Quintero  <federico@novell.com>
+
+	* data/Locations.xml.in: Fixed up Mexico - divide locations into
+	states; add all missing state capitals.
+
+2008-04-11  Vincent Untz  <vuntz@gnome.org>
+
+	* data/Locations.xml.in: add some FIXME for later, when we can break
+	strings.
+
+2008-04-11  Vincent Untz  <vuntz@gnome.org>
+
+	* libgweather/gweather.pc.in: add missing libraries in Requires and
+	move some stuff to Requires.private
+
+2008-04-10  Vincent Untz  <vuntz@gnome.org>
+
+	* data/check-timezones.sh: portability fix to also work on Solaris
+
+2008-04-10  Vincent Untz  <vuntz@gnome.org>
+
+	Create a Locations.xml file per translation. This makes the parsing
+	of the XML file much much faster (down to ~0.25s from ~1.5s for me).
+	Also remove the spaces from the XML files (down from ~0.3s to ~0.25s).
+	There is a configure flag to keep the old behavior:
+	--enable-all-translations-in-one-xml
+
+	* configure.in: add --enable-all-translations-in-one-xml configure flag
+	* data/Makefile.am: pretty much rewrite to handle the new feature.
+	Note that we don't distribute locations_diff.py anymore. It's mainly
+	useful when hacking.
+	* libgweather/Makefile.am: small update
+	* libgweather/gweather-xml.c: (gweather_xml_load_locations): look for
+	localized xml files first, and then fallback on Locations.xml
+
+2008-04-10  Dan Winship  <danw@gnome.org>
+
+	* data/Locations.xml.in: add FIXMEs to Brazil and Mexico, which
+	need to be split up into states with per-state tz-hints, and
+	Australia, Canada, and Greenland, which need minor fix-ups. Fix
+	the timezones in DR Congo, Indonesia, and Kazakhstan myself since
+	there are few enough cities listed for each that I could just
+	Google them. Remove references to Asia/Kuching timezone in
+	Malaysia since it has been identical to Asia/Kuala_Lumpur since
+	1982 (pointed out by Ghee Teo). Fix various typos in tz-hints (and
+	spell-check against zone.tab this time to make sure there are no
+	more).
+
+	* data/check-timezones.sh: timezone-checking script
+
+	* data/Makefile.am (check): run check-timezones.sh
+
+	* data/README: explain Locations.xml.in some
+
+2008-04-08  Vincent Untz  <vuntz@gnome.org>
+
+	* data/Locations.xml.in: add correct tz-hint for Valparaiso, IN
+	(America/Chicago instead of the default Indiana tz)
+	Patch by Shaun McCance <shaunm@gnome.org>
+	Fix bug #526975
+
+2008-04-08  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
+
+	* data/Locations.xml.in:
+	Updated Russian tz-hints.
+
+2008-04-08  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.22.2
+
+==================== 2.22.1.1 ====================
+
+2008-04-08  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.22.1.1
+
+2008-04-08  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* libgweather/Makefile.am: put the logic to change the soname in
+	configure.in, so I don't forget about it...
+
+2008-04-07  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.22.2
+
+==================== 2.22.1 ====================
+
+2008-04-07  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.22.1
+
+2008-04-07  Vincent Untz  <vuntz@gnome.org>
+
+	* data/Makefile.am: fix check rule to work with distcheck
+
+2008-04-07  Vincent Untz  <vuntz@gnome.org>
+
+	* data/Makefile.am: add a "make check" to run "xmllint --valid"
+	Patch by Dan Winship <danw@gnome.org>. Fix bug #526013.
+
+2008-04-07  Vincent Untz  <vuntz@gnome.org>
+
+	* data/Locations.xml.in: make the file pass xmllint again (just changed
+	the order of two lines)
+
+2008-04-07  Vincent Untz  <vuntz@gnome.org>
+
+	Add country codes and timezone hints to Locations.xml. Patch by Dan
+	Winship <danw@gnome.org>. Fix bug #525451.
+
+	* data/Locations.xml.in: Add ISO 3166 codes for all countries (and
+	those sub-country regions that have them). Add guesses at the
+	timezones for various countries, states, and locations.
+	* data/locations.dtd: Update; a country must have an iso-code, and
+	a location may have one. A country, state, or location may have a
+	tz-hint.
+	* libgweather/gweather-xml.c (gweather_xml_parse_node): Handle iso-code
+	and tz-hint (and make them be inherited properly).
+	* libgweather/weather.[ch] (weather_location_new): add country_code and
+	tz_hint fields to WeatherLocation and update its methods
+
+2008-04-07  Vincent Untz  <vuntz@gnome.org>
+
+	Add gweather-xml API. Patch by Dan Winship <danw@gnome.org>.
+	Fix bug #526015.
+
+	* configure.in: find libxml libs/cflags
+	* libgweather/gweather-xml.c: move this here from gweather/clock-applet
+	and fix the XML parser to skip over unrecognized close tags as well as
+	unrecognized open tags
+	* libgweather/Makefile.am (libgweather_la_SOURCES): add gweather-xml.c
+	(libgweatherinc_HEADERS): add gweather-xml.h
+
+2008-03-18  Bastien Nocera  <hadess@hadess.net>
+
+	* MAINTAINERS: upd, Federico is the maintainer
+
+2008-03-12  Sebastian Dröge  <slomo@circular-chaos.org>
+
+	* Makefile.am:
+	* configure.in:
+	* data/Makefile.am:
+	* po-locations/Makefile.am: Also dist Locations.xml.in and
+	po-locations/*. Based on a patch by Loïc Minier.
+	Closes bug #419863.
+
+2008-03-11  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in: post-release bump to 2.22.1
+
+==================== 2.22.0 ====================
+
+2008-03-11  Vincent Untz  <vuntz@gnome.org>
+
+	* configure.in:
+	* NEWS: version 2.22.0
+
+2008-02-26  Olav Vitters  <olav@bkor.dhs.org>
+
+	* NEWS:
+	* configure.in: Bump version number to 2.21.92 (pre-release).
+
+2008-01-15  Callum McKenzie  <callum@spooky-possum.org>
+
+	* data/Locations.xml.in: Add Santiago, Chile. For some reason we
+	had almost every other Santiago, but not the one that's a
+	capital city. Patch courtesy of Jaap Haitsma.
+
+2008-01-14  Federico Mena Quintero  <federico@novell.com>
+
+	* configure.in: Bump version number to 2.21.2.
+
+2008-01-14  Matthias Clasen  <mclasen@redhat.com>
+
+	* Guard header files with a GWEATHER_I_KNOW_THIS_IS_UNSTABLE
+	preprocessor symbol.
+
+2008-01-11  Matthias Clasen  <mclasen@redhat.com>
+
+	* libgweather/gweather-prefs.c (get_translated_unit): Fix
+	inverted logic in g_return_if_fail.
+
+2008-01-10  Christian Persch  <chpe@gnome.org>
+
+	* configure.in: Remove obsolete variables. Remove output about IPv6.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Fix zone for Seattle, WA.
+	Patch from Andrew Burton. Reported by Clifford Snow.
+	Closes bug #412823.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Fix zone for Kenai
+	and Soldotna in Alaska. Reported by John Pfeifer.
+	Closes bug #503999.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Add Eritrea/Asmara
+	Reported by Yonas Abraham. Closes bug #502576.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Add Ängelholm, Sweden.
+	Closes bug 451655. Reported by Thomas Novin.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Fix a location name.
+	Reported by Fabio Bonelli. Closes bug #350945.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Fix zone for
+	Santa Rosa, CA. Patch from Mike Ferrara
+	Closes bug #477785.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Add El Cerrito
+	Patch from Ryan Lovett. Closes bug #475039.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Various fixes:
+	- coordinates missing hemisphere
+	- duplicate locations
+	- <name> instead of <_name>
+	Patch from James Andrewartha. Closes bug #447559.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Saint-Hubert is a city in the
+	province of Luxembourg not Liège. Reported by Nicolas Évrard
+	Closes bug #416080.
+
+2008-01-08  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* data/Locations.xml.in: Merge some fixes I put in gnome-applets
+	here as well.
+
+2008-01-08  Federico Mena Quintero  <federico@novell.com>
+
+	* data/*: Moved Locations.xml and its accompanying files from
+	gnome-applets/gweather.
+
+	* po-locations/*: Moved from gnome-applets/po-locations.
+
+	* Makefile.am (SUBDIRS): Added the "data" directory.
+
+	* configure.in: Add data/Makefile to the files to generate.
+
+2008-01-03  Federico Mena Quintero  <federico@novell.com>
+
+	* configure.in: Check for gconftool-2.
+
+2007-11-22  Bastien Nocera  <hadess@hadess.net>
+
+	* Makefile.am:
+	* autogen.sh:
+	* configure.in: Add, mostly copied from gnome-applets
+
+2007-11-22  Bastien Nocera  <hadess@hadess.net>
+
+	* MAINTAINERS: add
+
