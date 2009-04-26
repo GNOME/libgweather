@@ -1,4 +1,6 @@
 if BUILD_PYTHON
+QUIET_GEN = $(Q:@=@echo '  GEN   '$@;)
+
 INCLUDES =			\
 	$(PYTHON_INCLUDES)	\
 	$(PYGOBJECT_CFLAGS)	\
@@ -14,7 +16,7 @@ gweather.c: gweather.defs gweather.override
 CLEANFILES = gweather.c
 
 .defs.c:
-	(cd $(srcdir)\
+	$(QUIET_GEN)(cd $(srcdir)\
 	 && pygtk-codegen-2.0 \
 		--register $(PYGTK_DEFS) \
 		--override $*.override \

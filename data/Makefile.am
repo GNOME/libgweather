@@ -1,3 +1,5 @@
+QUIET_GEN = $(Q:@=@echo '  GEN   '$@;)
+
 libgweatherdtddir = $(pkgdatadir)
 libgweatherdtd_DATA = locations.dtd
 
@@ -11,7 +13,7 @@ LOCATIONS_STAMP =
 libgweatherlocations_DATA = $(libgweatherlocations_in_files:.xml.in=.xml$(COMPRESS_EXT))
 
 %.xml$(COMPRESS_EXT): %.xml.in $(wildcard $(top_srcdir)/po-locations/*.po)
-	LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po-locations/.intltool-merge-cache $(top_srcdir)/po-locations $< `echo $@ | sed "s/.xml$(COMPRESS_EXT)/.xml/"`
+	$(QUIET_GEN)LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po-locations/.intltool-merge-cache $(top_srcdir)/po-locations $< `echo $@ | sed "s/.xml$(COMPRESS_EXT)/.xml/"` && \
 	if test "x$(COMPRESS_EXT)" = "x.gz"; then				\
 		gzip --force `echo $@ | sed "s/.xml$(COMPRESS_EXT)/.xml/"`;	\
 	fi
@@ -33,7 +35,7 @@ libgweatherlocations_DATA = $(shell echo $(PO_LOCATIONS) | sed "s|$(top_srcdir)/
 $(libgweatherlocations_DATA): $(LOCATIONS_STAMP)
 
 $(LOCATIONS_STAMP): $(libgweatherlocations_in_files) $(PO_LOCATIONS) Makefile
-	LC_ALL=C $(INTLTOOL_MERGE) --multiple-output --xml-style --utf8 --cache=$(top_builddir)/po-locations/.intltool-merge-cache $(top_srcdir)/po-locations $< $(libgweatherlocations_data)
+	LC_ALL=C $(INTLTOOL_MERGE) --multiple-output --xml-style --utf8 --cache=$(top_builddir)/po-locations/.intltool-merge-cache $(top_srcdir)/po-locations $< $(libgweatherlocations_data) && \
 	for pofile in $(PO_LOCATIONS); do \
 		locale=`echo $$pofile | sed "s;$(top_srcdir)/po-locations/\(.*\)\.po;\1;"`;	\
 		xmllint --noblanks -o Locations.$$locale.xml $$locale/$(libgweatherlocations_data); \
@@ -42,13 +44,13 @@ $(LOCATIONS_STAMP): $(libgweatherlocations_in_files) $(PO_LOCATIONS) Makefile
 		if test "x$(COMPRESS_EXT)" = "x.gz"; then		\
 			gzip --force Locations.$$locale.xml;		\
 		fi;							\
-	done
-	xmllint --noblanks -o Locations.xml C/$(libgweatherlocations_data)
-	rm -f C/$(libgweatherlocations_data)
-	test -d C && rmdir C
+	done &&								\
+	xmllint --noblanks -o Locations.xml C/$(libgweatherlocations_data) && \
+	rm -f C/$(libgweatherlocations_data) &&				\
+	test -d C && rmdir C &&						\
 	if test "x$(COMPRESS_EXT)" = "x.gz"; then			\
 		gzip --force Locations.xml;				\
-	fi
+	fi &&								\
 	touch $@
 
 endif # USE_ONE_BIG_XML
@@ -59,10 +61,10 @@ check:
 
 ### Locations.xml.in rebuild
 rebuild-locations: locationdb.sqlite update-locations.py
-	($(srcdir)/update-locations.py > Locations.xml.in.new && mv Locations.xml.in.new Locations.xml.in) || rm -f Locations.xml.in.new
+	$(QUIET_GEN)($(srcdir)/update-locations.py > Locations.xml.in.new && mv Locations.xml.in.new Locations.xml.in) || rm -f Locations.xml.in.new
 
 locationdb.sqlite: build-locationdb.pl major-cities.txt sources/nsd_cccc.txt sources/POP_PLACES.txt sources/US_CONCISE.txt sources/geonames_dd_dms_date_*.txt city-fixups.pl station-fixups.pl
-	$(srcdir)/build-locationdb.pl
+	$(QUIET_GEN)$(srcdir)/build-locationdb.pl
 
 EXTRA_DIST =	\
 	$(libgweatherlocations_in_files)	\
