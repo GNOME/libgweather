@@ -8,3 +8,5 @@ EXTRA_DIST =			\
 CLEANFILES = locations.pot Locations.xml.in.h
 
 DISTCLEANFILES = .intltool-merge-cache
+
+-include $(top_srcdir)/git.mk

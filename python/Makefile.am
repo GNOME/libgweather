@@ -33,3 +33,5 @@ install-exec-hook:
 endif
 
 EXTRA_DIST = gweather.defs gweather.override bad__init__.py demo.py
+
+-include $(top_srcdir)/git.mk

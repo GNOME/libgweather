@@ -76,3 +76,5 @@ EXTRA_DIST =	\
 CLEANFILES =	\
 	$(libgweatherlocations_DATA)		\
 	$(LOCATIONS_STAMP)
+
+-include $(top_srcdir)/git.mk

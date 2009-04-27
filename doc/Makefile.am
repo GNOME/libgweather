@@ -86,3 +86,5 @@ EXTRA_DIST +=
 # Comment this out if you want your docs-status tested during 'make check'
 #TESTS = $(GTKDOC_CHECK)
 
+
+-include $(top_srcdir)/git.mk

@@ -129,3 +129,5 @@ EXTRA_DIST = gweather.pc.in gweather-uninstalled.pc.in $(schema_in_files)
 EXTRA_PROGRAMS = test_metar
 
 CLEANFILES = $(schema_DATA) $(EXTRA_PROGRAMS) $(MKENUMS_GENERATED)
+
+-include $(top_srcdir)/git.mk
