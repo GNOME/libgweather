@@ -241,3 +241,11 @@ while (<>) {
 
   print;
 }
+
+# Add missing stations. Where possible, the details except station ID
+# should come from NOAA's "nsd_bbsss.txt" file, which contains
+# additional weather stations not listed in nsd_cccc.txt
+
+print <<EOF
+EPLL;12;465;Lodz;;Poland;6;51-44N;019-24E;51-44N;019-24E;187;188;P
+EOF
