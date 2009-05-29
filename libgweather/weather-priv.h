@@ -33,6 +33,10 @@
 #include "weather.h"
 #include "gweather-location.h"
 
+#ifdef _WIN32
+#include "gweather-win32.h"
+#endif
+
 const char *gweather_gettext (const char *str) G_GNUC_FORMAT (1);
 const char *gweather_dpgettext (const char *context, const char *str) G_GNUC_FORMAT (2);
 #define _(str) (gweather_gettext (str))

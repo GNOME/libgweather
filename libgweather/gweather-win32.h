@@ -21,9 +21,7 @@
 #ifndef __GWEATHER_WIN32_H__
 #define __GWEATHER_WIN32_H__
 
-G_BEGIN_DECLS
-
-#ifdef G_OS_WIN32
+#ifdef _WIN32
 
 #define localtime_r(t,tmp) (localtime (t) ? ((*tmp) = *localtime (t), tmp) : NULL)
 
@@ -33,11 +31,13 @@ G_BEGIN_DECLS
 #undef ZONEINFO_DIR
 #define ZONEINFO_DIR _gweather_win32_get_zoneinfo_dir ()
 
+#undef GWEATHER_XML_LOCATION_DIR
+#define GWEATHER_XML_LOCATION_DIR _gweather_win32_get_xml_location_dir ()
+
 char *_gweather_win32_get_locale_dir (void);
 char *_gweather_win32_get_zoneinfo_dir (void);
+char *_gweather_win32_get_xml_location_dir (void);
 
 #endif
-
-G_END_DECLS
 
 #endif /* __GWEATHER_WIN32_H__ */

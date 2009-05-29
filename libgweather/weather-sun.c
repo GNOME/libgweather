@@ -37,10 +37,6 @@
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "weather-priv.h"
 
-#ifdef G_OS_WIN32
-#include "gweather-win32.h"
-#endif
-
 #define EPOCH_TO_J2000(t)       (t - 946728000)
 #define MEAN_ECLIPTIC_LONGITUDE 280.46435
 #define PERIGEE_LONGITUDE       282.94719

@@ -29,10 +29,6 @@
 #include "weather.h"
 #include "weather-priv.h"
 
-#ifdef G_OS_WIN32
-#include "gweather-win32.h"
-#endif
-
 enum {
     TIME_RE,
     WIND_RE,

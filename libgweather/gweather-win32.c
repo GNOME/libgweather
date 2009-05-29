@@ -22,6 +22,8 @@
 #include <config.h>
 #endif
 
+#include <glib.h>
+
 #ifdef G_OS_WIN32
 
 #include <windows.h>
@@ -29,6 +31,12 @@
 #include "gweather-win32.h"
 
 static HMODULE dll = NULL;
+
+/* Prototype first to silence gcc warning */
+BOOL WINAPI
+DllMain (HINSTANCE hinstDLL,
+	 DWORD     fdwReason,
+	 LPVOID    lpvReserved);
 
 BOOL WINAPI
 DllMain (HINSTANCE hinstDLL,
@@ -68,6 +76,22 @@ _gweather_win32_get_locale_dir (void)
 
     root = g_win32_get_package_installation_directory_of_module (dll);
     retval = g_build_filename (root, "share/locale", NULL);
+    g_free (root);
+
+    return retval;
+}
+
+char *
+_gweather_win32_get_xml_location_dir (void)
+{
+    static char *retval = NULL;
+    char *root;
+
+    if (retval)
+	return retval;
+
+    root = g_win32_get_package_installation_directory_of_module (dll);
+    retval = g_build_filename (root, "share/libgweather", NULL);
     g_free (root);
 
     return retval;

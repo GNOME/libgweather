@@ -23,6 +23,8 @@
 #endif
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
+#include "weather-priv.h"
+
 #include "parser.h"
 
 #include <string.h>
@@ -199,11 +201,11 @@ gweather_parser_new (gboolean use_regions)
      * the english names (depending on the configure flags).
      */
     if (!filename)
-	filename = g_strdup (GWEATHER_XML_LOCATION_DIR "/Locations.xml");
+	filename = g_build_filename (GWEATHER_XML_LOCATION_DIR, "Locations.xml", NULL);
 
     if (!g_file_test (filename, G_FILE_TEST_IS_REGULAR) && zlib_support) {
         g_free (filename);
-	filename = g_strdup (GWEATHER_XML_LOCATION_DIR "/Locations.xml.gz");
+	filename = g_build_filename (GWEATHER_XML_LOCATION_DIR, "Locations.xml.gz", NULL);
     }
 
     /* Open the xml file containing the different locations */
