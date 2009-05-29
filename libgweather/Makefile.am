@@ -55,7 +55,8 @@ libgweather_la_LIBADD = \
 	$(GTK_LIBS)	\
 	$(LIBXML_LIBS)	\
 	$(LIBSOUP_LIBS)	\
-	$(GCONF_LIBS)
+	$(GCONF_LIBS) \
+	$(REGEX_LIBS)
 
 libgweather_la_LDFLAGS = \
 	-version-info $(LT_VERSION) -no-undefined
@@ -88,6 +89,7 @@ test_metar_CFLAGS = \
 
 test_metar_LDADD = \
 	$(LIBSOUP_LIBS)	\
+	$(REXEX_LIBS) \
 	libgweather.la
 
 test_locations_SOURCES = test_locations.c
