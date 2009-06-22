@@ -221,7 +221,7 @@ gweather_gconf_get_location (GWeatherGConf *ctx)
         /* TRANSLATOR: Change this to the code of your default location that
 	 * corresponds to the DEFAULT_LOCATION name you put above. This is
 	 * normally a four-letter (ICAO) code and can be found in
-	 * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+	 * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 	 * NB. The web page is over 1.7MB in size.
 	 * Pick a default location like a capital city so that it would be ok
 	 * for more of your users. For example, for Greek, we use "LGAV" for
@@ -242,7 +242,7 @@ gweather_gconf_get_location (GWeatherGConf *ctx)
 	 * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 	 * Normally, US and Canada locations have zones while the rest do not.
 	 * Check
-	 * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+	 * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 	 * as any zone you put here must also be present in the Locations.xml
 	 * file.
 	 * 
@@ -262,7 +262,7 @@ gweather_gconf_get_location (GWeatherGConf *ctx)
 	 * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 	 * Normally, US and Canada locations have radar names while the rest do
 	 * not. Check
-	 * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+	 * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 	 * as any radar you put here must also be present in the Locations.xml
 	 * file.
 	 *
@@ -282,7 +282,7 @@ gweather_gconf_get_location (GWeatherGConf *ctx)
         /* TRANSLATOR: Change this to the coordinates of your default location
 	 * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
 	 * above. Check
-	 * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+	 * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 	 * as any coordinates you put here must also be present in the
 	 * Locations.xml file.
 	 * 
