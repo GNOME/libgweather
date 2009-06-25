@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: libgweather HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "applets&component=gweather\n"
-"POT-Creation-Date: 2009-03-09 21:09+0000\n"
-"PO-Revision-Date: 2009-04-10 08:20+0300\n"
+"POT-Creation-Date: 2009-06-22 19:32+0000\n"
+"PO-Revision-Date: 2009-06-25 01:01+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz gmail com>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr "Tallinn"
 #. TRANSLATOR: Change this to the code of your default location that
 #. * corresponds to the DEFAULT_LOCATION name you put above. This is
 #. * normally a four-letter (ICAO) code and can be found in
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * NB. The web page is over 1.7MB in size.
 #. * Pick a default location like a capital city so that it would be ok
 #. * for more of your users. For example, for Greek, we use "LGAV" for
@@ -57,7 +57,7 @@ msgstr "EETN"
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 #. * Normally, US and Canada locations have zones while the rest do not.
 #. * Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any zone you put here must also be present in the Locations.xml
 #. * file.
 #. *
@@ -71,7 +71,7 @@ msgstr "Europe/Tallinn"
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 #. * Normally, US and Canada locations have radar names while the rest do
 #. * not. Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any radar you put here must also be present in the Locations.xml
 #. * file.
 #. *
@@ -85,7 +85,7 @@ msgstr "\" \""
 #. TRANSLATOR: Change this to the coordinates of your default location
 #. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
 #. * above. Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any coordinates you put here must also be present in the
 #. * Locations.xml file.
 #. *
@@ -191,20 +191,26 @@ msgstr "mmHg"
 msgid "DEFAULT_DISTANCE_UNIT"
 msgstr "km"
 
+#| msgid ""
+#| "A three-digit-long code for retrieving radar maps from weather.com, found "
+#| "from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
 msgid ""
 "A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+"from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
 "Kolmekohaline number radarikaardi vastuvõtmiseks weather.com saidist. "
-"Numbrid leiab aadressilt http://svn.gnome.org/viewvc/libgweather/trunk/data/"
+"Numbrid leiab aadressilt http://git.gnome.org/cgit/libgweather/plain/data/"
 "Locations.xml.in"
 
+#| msgid ""
+#| "A unique zone for the city, as found from http://svn.gnome.org/viewvc/"
+#| "libgweather/trunk/data/Locations.xml.in"
 msgid ""
-"A unique zone for the city, as found from http://svn.gnome.org/viewvc/"
-"libgweather/trunk/data/Locations.xml.in"
+"A unique zone for the city, as found from http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
 msgstr ""
-"Unikaalne piirkond linna jaoks, nagu on näidatud aadressil http://svn.gnome."
-"org/viewvc/libgweather/trunk/data/Locations.xml.in"
+"Unikaalne piirkond linna jaoks, nagu on näidatud aadressil http://git.gnome."
+"org/cgit/libgweather/plain/data/Locations.xml.in"
 
 msgid ""
 "Determines whether the applet automatically updates its weather statistics "
@@ -241,12 +247,15 @@ msgstr "Asukoha koordinaadid"
 msgid "Nearby city"
 msgstr "Lähim linn"
 
+#| msgid ""
+#| "Nearby major zone, such as a capital city, as found from http://svn.gnome."
+#| "org/viewvc/libgweather/trunk/data/Locations.xml.in"
 msgid ""
-"Nearby major zone, such as a capital city, as found from http://svn.gnome."
-"org/viewvc/libgweather/trunk/data/Locations.xml.in"
+"Nearby major zone, such as a capital city, as found from http://git.gnome."
+"org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
 "Lähim tähtsam piirkond (näiteks pealinn), nagu on näidatud aadressil http://"
-"svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+"git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 
 msgid "Not used anymore"
 msgstr "Enam ei kasutata"
@@ -314,7 +323,6 @@ msgstr "Ilmaasukoha andmed."
 msgid "Zone location"
 msgstr "Tsooni asukoht"
 
-#| msgid "Unknown"
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Teadmata"
@@ -635,25 +643,21 @@ msgstr "Teadmata"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
 #, c-format
-#| msgid "%.1f K"
 msgid "%.1f °F"
 msgstr "%.1f°F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
 #, c-format
-#| msgid "%d K"
 msgid "%d °F"
 msgstr "%d°F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
 #, c-format
-#| msgid "%.1f K"
 msgid "%.1f °C"
 msgstr "%.1f°C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
 #, c-format
-#| msgid "%d K"
 msgid "%d °C"
 msgstr "%d°C"
 
