@@ -1,5 +1,4 @@
 EXTRA_DIST =			\
-	ChangeLog		\
 	$(wildcard *.po)	\
 	README.translators	\
 	regen.sh		\
