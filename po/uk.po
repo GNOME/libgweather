@@ -2,14 +2,15 @@
 # Copyright (C) 2000 Free Software Foundation, Inc.
 # Yuri Syrota <rasta@renome.rovno.ua>, 2000
 # Maxim Dziumanenko <dziumanenko@gmail.com>, 2004-2008
+# wanderlust <wanderlust@ukr.net>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-26 17:06+0300\n"
-"PO-Revision-Date: 2009-03-07 16:56+0300\n"
-"Last-Translator: Maxim V. Dziumanenko <dziumanenko@gmail.com>\n"
-"Language-Team: Ukrainian <uk@li.org>\n"
+"POT-Creation-Date: 2009-07-09 15:17+0300\n"
+"PO-Revision-Date: 2009-07-08 11:56+0300\n"
+"Last-Translator: wanderlust <wanderlust@ukr.net>\n"
+"Language-Team: ukrainian <Ukrainian <uk@li.org>>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -35,7 +36,7 @@ msgstr "Київ - Бориспіль"
 #. TRANSLATOR: Change this to the code of your default location that
 #. * corresponds to the DEFAULT_LOCATION name you put above. This is
 #. * normally a four-letter (ICAO) code and can be found in
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * NB. The web page is over 1.7MB in size.
 #. * Pick a default location like a capital city so that it would be ok
 #. * for more of your users. For example, for Greek, we use "LGAV" for
@@ -52,7 +53,7 @@ msgstr "UKBB"
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 #. * Normally, US and Canada locations have zones while the rest do not.
 #. * Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any zone you put here must also be present in the Locations.xml
 #. * file.
 #. *
@@ -68,7 +69,7 @@ msgstr "DEFAULT_ZONE"
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 #. * Normally, US and Canada locations have radar names while the rest do
 #. * not. Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any radar you put here must also be present in the Locations.xml
 #. * file.
 #. *
@@ -84,7 +85,7 @@ msgstr "DEFAULT_RADAR"
 #. TRANSLATOR: Change this to the coordinates of your default location
 #. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
 #. * above. Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any coordinates you put here must also be present in the
 #. * Locations.xml file.
 #. *
@@ -218,18 +219,18 @@ msgstr "km"
 #: ../libgweather/gweather.schemas.in.h:1
 msgid ""
 "A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+"from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
 "Код з трьох цифр для отримання радарних мап з weather.com, відповідно до "
-"http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+"http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
 msgid ""
-"A unique zone for the city, as found from http://svn.gnome.org/viewvc/"
-"libgweather/trunk/data/Locations.xml.in"
+"A unique zone for the city, as found from http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
 msgstr ""
-"Унікальна зона міста, відповідно до http://svn.gnome.org/viewvc/libgweather/"
-"trunk/data/Locations.xml.in"
+"Унікальна зона міста, відповідно до http://git.gnome.org/cgit/libgweather/"
+"plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:8
 msgid ""
@@ -273,11 +274,11 @@ msgstr "Сусіднє місто"
 
 #: ../libgweather/gweather.schemas.in.h:16
 msgid ""
-"Nearby major zone, such as a capital city, as found from http://svn.gnome."
-"org/viewvc/libgweather/trunk/data/Locations.xml.in"
+"Nearby major zone, such as a capital city, as found from http://git.gnome."
+"org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
-"Сусідня головна зона, наприклад столиця, відповідно до даних на http://svn."
-"gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+"Сусідня головна зона, наприклад столиця, відповідно до даних на http://git."
+"gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -368,111 +369,110 @@ msgid "Zone location"
 msgstr "Розташування часового поясу"
 
 #: ../libgweather/timezone-menu.c:278
-#, fuzzy
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Невідомо"
 
 #. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:508
+#: ../libgweather/weather-metar.c:504
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "Не вдається отримати дані METAR: %d %s.\n"
 
-#: ../libgweather/weather-metar.c:552
+#: ../libgweather/weather-metar.c:548
 msgid "WeatherInfo missing location"
 msgstr "Не вказано місцевість згідно системі WeatherInfo"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:230
 msgid "Variable"
 msgstr "Змінних напрямків"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:231
 msgid "North"
 msgstr "Північний"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:231
 msgid "North - NorthEast"
 msgstr "Північний - північно-східний"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:231
 msgid "Northeast"
 msgstr "Північно-східний"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:231
 msgid "East - NorthEast"
 msgstr "Східний - північно-східний"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:232
 msgid "East"
 msgstr "Східний"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:232
 msgid "East - Southeast"
 msgstr "Східний - південно-східний"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:232
 msgid "Southeast"
 msgstr "Південно-східний"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:232
 msgid "South - Southeast"
 msgstr "Південний - південно-східний"
 
-#: ../libgweather/weather.c:237
+#: ../libgweather/weather.c:233
 msgid "South"
 msgstr "Південний"
 
-#: ../libgweather/weather.c:237
+#: ../libgweather/weather.c:233
 msgid "South - Southwest"
 msgstr "Південний - південно-західний"
 
-#: ../libgweather/weather.c:237
+#: ../libgweather/weather.c:233
 msgid "Southwest"
 msgstr "Південно-західний"
 
-#: ../libgweather/weather.c:237
+#: ../libgweather/weather.c:233
 msgid "West - Southwest"
 msgstr "Західний - Південно-західний"
 
-#: ../libgweather/weather.c:238
+#: ../libgweather/weather.c:234
 msgid "West"
 msgstr "Західний"
 
-#: ../libgweather/weather.c:238
+#: ../libgweather/weather.c:234
 msgid "West - Northwest"
 msgstr "Західний - північно-західний"
 
-#: ../libgweather/weather.c:238
+#: ../libgweather/weather.c:234
 msgid "Northwest"
 msgstr "Північно-західний"
 
-#: ../libgweather/weather.c:238
+#: ../libgweather/weather.c:234
 msgid "North - Northwest"
 msgstr "Північний - північно-західний"
 
-#: ../libgweather/weather.c:245 ../libgweather/weather.c:262
-#: ../libgweather/weather.c:334
+#: ../libgweather/weather.c:241 ../libgweather/weather.c:258
+#: ../libgweather/weather.c:330
 msgid "Invalid"
 msgstr "Помилковий"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:247
 msgid "Clear Sky"
 msgstr "Безхмарно"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:248
 msgid "Broken clouds"
 msgstr "Хмарно з проясненнями"
 
-#: ../libgweather/weather.c:253
+#: ../libgweather/weather.c:249
 msgid "Scattered clouds"
 msgstr "Окремі хмари"
 
-#: ../libgweather/weather.c:254
+#: ../libgweather/weather.c:250
 msgid "Few clouds"
 msgstr "Невелика хмарність"
 
-#: ../libgweather/weather.c:255
+#: ../libgweather/weather.c:251
 msgid "Overcast"
 msgstr "Хмарно"
 
@@ -480,376 +480,376 @@ msgstr "Хмарно"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:294 ../libgweather/weather.c:296
+#: ../libgweather/weather.c:290 ../libgweather/weather.c:292
 msgid "Thunderstorm"
 msgstr "Гроза"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:291
 msgid "Drizzle"
 msgstr "Мряка"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:291
 msgid "Light drizzle"
 msgstr "Легка мряка"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:291
 msgid "Moderate drizzle"
 msgstr "Помірна мряка"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:291
 msgid "Heavy drizzle"
 msgstr "Рясна мряка"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:291
 msgid "Freezing drizzle"
 msgstr "Холодна мряка"
 
 #. RAIN
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:292
 msgid "Rain"
 msgstr "Дощ"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:292
 msgid "Light rain"
 msgstr "Легкий дощ"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:292
 msgid "Moderate rain"
 msgstr "Помірний дощ"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:292
 msgid "Heavy rain"
 msgstr "Рясний дощ"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:292
 msgid "Rain showers"
 msgstr "Злива"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:292
 msgid "Freezing rain"
 msgstr "Дощ з градом"
 
 #. SNOW
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Snow"
 msgstr "Сніг"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Light snow"
 msgstr "Невеликий сніг"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Moderate snow"
 msgstr "Помірний сніг"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Heavy snow"
 msgstr "Сильний сніг"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Snowstorm"
 msgstr "Заметіль"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Blowing snowfall"
 msgstr "Хуртовина"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Snow showers"
 msgstr "Завірюха"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Drifting snow"
 msgstr "Снігові замети"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:294
 msgid "Snow grains"
 msgstr "Сніжна крупа"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:294
 msgid "Light snow grains"
 msgstr "Легка сніжна крупа"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:294
 msgid "Moderate snow grains"
 msgstr "Помірна сніжна крупа"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:294
 msgid "Heavy snow grains"
 msgstr "Рясна сніжна крупа"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:295
 msgid "Ice crystals"
 msgstr "Крижані кришталики"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:296
 msgid "Ice pellets"
 msgstr "Крижані кульки"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:296
 msgid "Few ice pellets"
 msgstr "Незначні опади крижаних кульок"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:296
 msgid "Moderate ice pellets"
 msgstr "Помірні опади крижаних кульок"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:296
 msgid "Heavy ice pellets"
 msgstr "Сильні опади крижаних кульок"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:296
 msgid "Ice pellet storm"
 msgstr "Буря крижаних кульок"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:296
 msgid "Showers of ice pellets"
 msgstr "Шквал крижаних кульок"
 
 #. HAIL
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:297
 msgid "Hail"
 msgstr "Град"
 
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:297
 msgid "Hailstorm"
 msgstr "Градова гроза"
 
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:297
 msgid "Hail showers"
 msgstr "Потужний поривчастий град"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:302
+#: ../libgweather/weather.c:298
 msgid "Small hail"
 msgstr "Дрібний град"
 
-#: ../libgweather/weather.c:302
+#: ../libgweather/weather.c:298
 msgid "Small hailstorm"
 msgstr "Дрібна гроза з градом"
 
-#: ../libgweather/weather.c:302
+#: ../libgweather/weather.c:298
 msgid "Showers of small hail"
 msgstr "Проливний дрібний град"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:299
 msgid "Unknown precipitation"
 msgstr "Невідомі опади"
 
 #. MIST
-#: ../libgweather/weather.c:304
+#: ../libgweather/weather.c:300
 msgid "Mist"
 msgstr "Легкий туман"
 
 #. FOG
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:301
 msgid "Fog"
 msgstr "Туман"
 
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:301
 msgid "Fog in the vicinity"
 msgstr "Туман на околицях"
 
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:301
 msgid "Shallow fog"
 msgstr "Дрібний туман"
 
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:301
 msgid "Patches of fog"
 msgstr "Місцями туман"
 
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:301
 msgid "Partial fog"
 msgstr "Часом туман"
 
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:301
 msgid "Freezing fog"
 msgstr "Холодний туман"
 
 #. SMOKE
-#: ../libgweather/weather.c:306
+#: ../libgweather/weather.c:302
 msgid "Smoke"
 msgstr "Дим"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:307
+#: ../libgweather/weather.c:303
 msgid "Volcanic ash"
 msgstr "Вулканічний пил"
 
 #. SAND
-#: ../libgweather/weather.c:308
+#: ../libgweather/weather.c:304
 msgid "Sand"
 msgstr "Пісочна буря"
 
-#: ../libgweather/weather.c:308
+#: ../libgweather/weather.c:304
 msgid "Blowing sand"
 msgstr "Вітер з піском"
 
-#: ../libgweather/weather.c:308
+#: ../libgweather/weather.c:304
 msgid "Drifting sand"
 msgstr "Пісочні заноси"
 
 #. HAZE
-#: ../libgweather/weather.c:309
+#: ../libgweather/weather.c:305
 msgid "Haze"
 msgstr "Серпанок"
 
 #. SPRAY
-#: ../libgweather/weather.c:310
+#: ../libgweather/weather.c:306
 msgid "Blowing sprays"
 msgstr "Пориві вітру з пилом"
 
 #. DUST
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:307
 msgid "Dust"
 msgstr "Пил"
 
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:307
 msgid "Blowing dust"
 msgstr "Вітер з пилом"
 
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:307
 msgid "Drifting dust"
 msgstr "Пилові заноси"
 
 #. SQUALL
-#: ../libgweather/weather.c:312
+#: ../libgweather/weather.c:308
 msgid "Squall"
 msgstr "Шквал"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:313
+#: ../libgweather/weather.c:309
 msgid "Sandstorm"
 msgstr "Пісочна буря"
 
-#: ../libgweather/weather.c:313
+#: ../libgweather/weather.c:309
 msgid "Sandstorm in the vicinity"
 msgstr "Пісочна буря в околицях"
 
-#: ../libgweather/weather.c:313
+#: ../libgweather/weather.c:309
 msgid "Heavy sandstorm"
 msgstr "Сильна пісочна буря"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:314
+#: ../libgweather/weather.c:310
 msgid "Duststorm"
 msgstr "Пилова буря"
 
-#: ../libgweather/weather.c:314
+#: ../libgweather/weather.c:310
 msgid "Duststorm in the vicinity"
 msgstr "Пилова буря в околицях"
 
-#: ../libgweather/weather.c:314
+#: ../libgweather/weather.c:310
 msgid "Heavy duststorm"
 msgstr "Сильна пилова буря"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:315
+#: ../libgweather/weather.c:311
 msgid "Funnel cloud"
 msgstr "Смерч"
 
 #. TORNADO
-#: ../libgweather/weather.c:316
+#: ../libgweather/weather.c:312
 msgid "Tornado"
 msgstr "Ураган"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:317
+#: ../libgweather/weather.c:313
 msgid "Dust whirls"
 msgstr "Пилові вихори"
 
-#: ../libgweather/weather.c:317
+#: ../libgweather/weather.c:313
 msgid "Dust whirls in the vicinity"
 msgstr "Пилові вихори в околицях"
 
 #. TRANSLATOR: this is a format string for strftime
 #. *             see `man 3 strftime` for more details
 #.
-#: ../libgweather/weather.c:707
+#: ../libgweather/weather.c:703
 msgid "%a, %b %d / %H:%M"
 msgstr "%a, %d %b, %H:%M"
 
-#: ../libgweather/weather.c:722
+#: ../libgweather/weather.c:718
 msgid "Unknown observation time"
 msgstr "Невідомий час спостереження"
 
-#: ../libgweather/weather.c:736 ../libgweather/weather.c:787
-#: ../libgweather/weather.c:801 ../libgweather/weather.c:814
-#: ../libgweather/weather.c:827 ../libgweather/weather.c:840
-#: ../libgweather/weather.c:858 ../libgweather/weather.c:876
-#: ../libgweather/weather.c:914 ../libgweather/weather.c:930
-#: ../libgweather/weather.c:953 ../libgweather/weather.c:985
-#: ../libgweather/weather.c:1001 ../libgweather/weather.c:1021
+#: ../libgweather/weather.c:732 ../libgweather/weather.c:783
+#: ../libgweather/weather.c:797 ../libgweather/weather.c:810
+#: ../libgweather/weather.c:823 ../libgweather/weather.c:836
+#: ../libgweather/weather.c:854 ../libgweather/weather.c:872
+#: ../libgweather/weather.c:910 ../libgweather/weather.c:926
+#: ../libgweather/weather.c:949 ../libgweather/weather.c:981
+#: ../libgweather/weather.c:997 ../libgweather/weather.c:1017
 msgid "Unknown"
 msgstr "Невідомо"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:758
+#: ../libgweather/weather.c:754
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:761
+#: ../libgweather/weather.c:757
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:767
+#: ../libgweather/weather.c:763
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:770
+#: ../libgweather/weather.c:766
 #, c-format
 msgid "%d °C"
-msgstr "°%d °C"
+msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:776
+#: ../libgweather/weather.c:772
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:779
+#: ../libgweather/weather.c:775
 #, c-format
 msgid "%d K"
 msgstr "%d К"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:861
+#: ../libgweather/weather.c:857
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:889
+#: ../libgweather/weather.c:885
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f вузлів"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:893
+#: ../libgweather/weather.c:889
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f міль/год."
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:897
+#: ../libgweather/weather.c:893
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f км/ч"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:901
+#: ../libgweather/weather.c:897
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f м/с"
@@ -857,3030 +857,81 @@ msgstr "%.1f м/с"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:907
+#: ../libgweather/weather.c:903
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "%.1f балів за шкалою Бофорта"
 
-#: ../libgweather/weather.c:932
+#: ../libgweather/weather.c:928
 msgid "Calm"
 msgstr "Безвітряно"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:936
+#: ../libgweather/weather.c:932
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:958
+#: ../libgweather/weather.c:954
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f дюймів рт.ст."
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:962
+#: ../libgweather/weather.c:958
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f мм рт.ст."
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:966
+#: ../libgweather/weather.c:962
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f кПа"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:970
+#: ../libgweather/weather.c:966
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f ГПа"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:974
+#: ../libgweather/weather.c:970
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f мбар"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:978
+#: ../libgweather/weather.c:974
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f атм"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:1006
+#: ../libgweather/weather.c:1002
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f миль"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:1010
+#: ../libgweather/weather.c:1006
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f км"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1014
+#: ../libgweather/weather.c:1010
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fм"
 
-#: ../libgweather/weather.c:1043 ../libgweather/weather.c:1064
+#: ../libgweather/weather.c:1039 ../libgweather/weather.c:1060
 msgid "%H:%M"
 msgstr "%H:%M"
 
-#: ../libgweather/weather.c:1123
+#: ../libgweather/weather.c:1119
 msgid "Retrieval failed"
 msgstr "Помилка отримання даних"
 
-#~ msgid "%.1f ℉"
-#~ msgstr "%.1f ℉"
 
-#~ msgid "%d ℉"
-#~ msgstr "%d ℉"
-
-#~ msgid "%.1f ℃"
-#~ msgstr "%.1f ℃"
-
-#~ msgid "%d ℃"
-#~ msgstr "%d ℃"
-
-#~ msgid "_About"
-#~ msgstr "_Про програму"
-
-#~ msgid "_Help"
-#~ msgstr "_Довідка"
-
-#~ msgid "_Keyboard Accessibility Preferences"
-#~ msgstr "Параметри спеціальних можливостей _клавіатури"
-
-#~ msgid "AccessX Status Applet Factory"
-#~ msgstr "Фабрика аплету стану AccessX"
-
-#~ msgid "Keyboard Accessibility Status"
-#~ msgstr "Стан спеціальних можливостей клавіатури"
-
-#~ msgid "Keyboard Accessibility Status Applet Factory"
-#~ msgstr "Фабрика стану спеціальних можливостей клавіатури"
-
-#~ msgid "Shows the status of keyboard accessibility features"
-#~ msgstr "Показує стан спеціальних можливостей можливостей клавіатури"
-
-#~ msgid "AccessX Status"
-#~ msgstr "Стан AccessX"
-
-#~ msgid "Shows the state of AccessX features such as latched modifiers"
-#~ msgstr ""
-#~ "Показує стан особливостей AccessX, наприклад, увімкнутих модифікаторів"
-
-#~ msgid "translator-credits"
-#~ msgstr ""
-#~ "Юрій Сирота <yuri@beer.com>\n"
-#~ "Максим Дзюманенко <dziumanenko@gmail.com>"
-
-#~ msgid "There was an error launching the help viewer: %s"
-#~ msgstr "Помилка при запуску переглядача довідки: %s"
-
-#~ msgid "There was an error launching the keyboard preferences dialog: %s"
-#~ msgstr "Помилка під час запуску діалогу параметрів клавіатури: %s"
-
-#~ msgid "a"
-#~ msgstr "а"
-
-#~ msgid "Shows keyboard status when accessibility features are used."
-#~ msgstr "Показує стан клавіатури при використанні спеціальних можливостей"
-
-#~ msgid "XKB Extension is not enabled"
-#~ msgstr "XKB розширення не ввімкнено"
-
-#~ msgid "Unknown error"
-#~ msgstr "Невідома помилка"
-
-#~ msgid "Error: %s"
-#~ msgstr "Помилка: %s"
-
-#~ msgid "Displays current state of keyboard accessibility features"
-#~ msgstr "Відображає поточний стан спеціальних можливостей клавіатури"
-
-#~ msgid "Battery Charge Monitor"
-#~ msgstr "Індикатор зарядження акумулятора"
-
-#~ msgid "Battstat Factory"
-#~ msgstr "Фабрика стану акумулятора"
-
-#~ msgid "Monitor a laptop's remaining power"
-#~ msgstr "Слідкує за зарядом акумулятора портативного комп'ютера"
-
-#~ msgid "_Preferences"
-#~ msgstr "П_араметри"
-
-#~ msgid "0 for no label, 1 for percentage and 2 for time remaining"
-#~ msgstr "0 - позначка, 1 - відсоток та  2 - залишилось часу"
-
-#~ msgid "Beep for warnings"
-#~ msgstr "Попередження звуковим сигналом"
-
-#~ msgid "Beep when displaying a warning"
-#~ msgstr "Супроводжувати вивід попереджень звуковим сигналом"
-
-#~ msgid "Drain from top"
-#~ msgstr "Зменшується згори"
-
-#~ msgid "Full Battery Notification"
-#~ msgstr "Сповіщення про повний заряд"
-
-#~ msgid "Low Battery Notification"
-#~ msgstr "Сповіщення про низький рівень заряду"
-
-#~ msgid "Notify user when the battery is full"
-#~ msgstr "Сповіщати про повний рівень заряду акумулятора"
-
-#~ msgid "Notify user when the battery is low"
-#~ msgstr "Сповіщати про низький рівень заряду акумулятора"
-
-#~ msgid "Red value level"
-#~ msgstr "Рівень червоного кольору"
-
-#~ msgid ""
-#~ "Show the battery meter draining from the top of the battery. Only "
-#~ "implemented for traditional battery view."
-#~ msgstr "При розряді акумулятора індикатор спускається згори"
-
-#~ msgid "Show the horizontal battery"
-#~ msgstr "Показувати батарею горизонтально"
-
-#~ msgid "Show the time/percent label"
-#~ msgstr "Показувати позначку часу/заряду"
-
-#~ msgid "Show the traditional, horizontal battery on the panel"
-#~ msgstr "Традиційний вигляд, горизонтальна батарея на панелі"
-
-#~ msgid "Show the upright, smaller battery on the panel"
-#~ msgstr "Вертикальний вигляд, менша батарея на панелі"
-
-#~ msgid ""
-#~ "The battery level below which the battery is displayed as red. Also the "
-#~ "value at which the low battery warning is displayed."
-#~ msgstr ""
-#~ "Рівень зарядження, нижче якого батарея зображується червоною. Також "
-#~ "значення, при якому виводиться попередження про низький заряд."
-
-#~ msgid "Upright (small) battery"
-#~ msgstr "Вертикальна (маленька) батарея"
-
-#~ msgid ""
-#~ "Use the value defined in red_value as a time remaining to show the "
-#~ "warning dialog rather than a percentage"
-#~ msgstr ""
-#~ "Встановлене у red_value значення є часом, що залишився до показу діалогу "
-#~ "попередження, а не відсотком заряду"
-
-#~ msgid "Warn on low time rather than low percentage"
-#~ msgstr "Попереджувати при маленькому часі, а не при низькому відсотки"
-
-#~ msgid "System is running on AC power"
-#~ msgstr "Система працює від мережі змінного струму"
-
-#~ msgid "System is running on battery power"
-#~ msgstr "Система працює від акумулятора"
-
-#~ msgid "Battery charged (%d%%)"
-#~ msgstr "Акумулятор повністю перезаряджена (%d%%)"
-
-#~ msgid "Unknown time (%d%%) remaining"
-#~ msgstr "Час завершення невідомий (%d%%)"
-
-#~ msgid "Unknown time (%d%%) until charged"
-#~ msgstr "Час до повного перезарядження (%d%%) невідомий"
-
-#~ msgid "%d minute (%d%%) remaining"
-#~ msgid_plural "%d minutes (%d%%) remaining"
-#~ msgstr[0] "залишилась %d хвилина (%d%%)"
-#~ msgstr[1] "залишилось %d хвилини (%d%%)"
-#~ msgstr[2] "залишилось %d хвилин (%d%%)"
-
-#~ msgid "%d minute until charged (%d%%)"
-#~ msgid_plural "%d minutes until charged (%d%%)"
-#~ msgstr[0] "%d хвилина (%d%%) до повного зарядження"
-#~ msgstr[1] "%d хвилини (%d%%) до повного зарядження"
-#~ msgstr[2] "%d хвилин (%d%%) до повного зарядження"
-
-#~ msgid "%d hour (%d%%) remaining"
-#~ msgid_plural "%d hours (%d%%) remaining"
-#~ msgstr[0] "залишилась %d година (%d%%)"
-#~ msgstr[1] "залишилось %d години (%d%%)"
-#~ msgstr[2] "залишилось %d годин (%d%%)"
-
-#~ msgid "%d hour until charged (%d%%)"
-#~ msgid_plural "%d hours until charged (%d%%)"
-#~ msgstr[0] "%d година (%d%%) до повного зарядження"
-#~ msgstr[1] "%d години (%d%%) до повного зарядження"
-#~ msgstr[2] "%d годин (%d%%) до повного зарядження"
-
-#~ msgid "%d %s %d %s (%d%%) remaining"
-#~ msgstr "залишилось %d %s %d %s (%d%%)"
-
-#~ msgid "hour"
-#~ msgid_plural "hours"
-#~ msgstr[0] "година"
-#~ msgstr[1] "години"
-#~ msgstr[2] "годин"
-
-#~ msgid "minute"
-#~ msgid_plural "minutes"
-#~ msgstr[0] "хвилина"
-#~ msgstr[1] "хвилини"
-#~ msgstr[2] "хвилин"
-
-#~ msgid "%d %s %d %s until charged (%d%%)"
-#~ msgstr "%d %s %d %s до повного зарядження (%d%%)"
-
-#~ msgid "Battery Monitor"
-#~ msgstr "Індикатор заряду акумулятора"
-
-#~ msgid "Your battery is now fully recharged"
-#~ msgstr "Акумулятор повністю перезаряджено."
-
-#~ msgid "Battery Notice"
-#~ msgstr "Інформація про акумулятор"
-
-#~ msgid "You have %d%% of your total battery capacity remaining."
-#~ msgstr "Залишилось %d%% ємності акумулятора."
-
-#~ msgid ""
-#~ "You have %d minute of battery power remaining (%d%% of the total "
-#~ "capacity)."
-#~ msgid_plural ""
-#~ "You have %d minutes of battery power remaining (%d%% of the total "
-#~ "capacity)."
-#~ msgstr[0] ""
-#~ "Час роботи від акумулятора, що лишився - %d хвилина (%d%% від загальної "
-#~ "ємності)."
-#~ msgstr[1] ""
-#~ "Час роботи від акумулятора, що лишився - %d хвилини (%d%% від загальної "
-#~ "ємності)."
-#~ msgstr[2] ""
-#~ "Час роботи від акумулятора, що лишився - %d хвилин (%d%% від загальної "
-#~ "ємності)."
-
-#~ msgid ""
-#~ "To avoid losing your work:\n"
-#~ " • plug your laptop into external power, or\n"
-#~ " • save open documents and shut your laptop down."
-#~ msgstr ""
-#~ "Щоб запобігти втраті вашої роботи:\n"
-#~ " • підключіть ноутбук до зовнішнього джерела живлення, або\n"
-#~ " • збережіть відкриті документи та завершіть роботу комп'ютера."
-
-#~ msgid ""
-#~ "To avoid losing your work:\n"
-#~ " • suspend your laptop to save power,\n"
-#~ " • plug your laptop into external power, or\n"
-#~ " • save open documents and shut your laptop down."
-#~ msgstr ""
-#~ "Щоб запобігти втраті вашої роботи:\n"
-#~ " • переведіть ноутбук у режим сну,\n"
-#~ " • підключіть ноутбук до зовнішнього джерела живлення, або\n"
-#~ " • збережіть відкриті документи та завершіть роботу комп'ютера."
-
-#~ msgid "Your battery is running low"
-#~ msgstr "Заряд акумулятора низький"
-
-#~ msgid "No battery present"
-#~ msgstr "Акумулятор відсутній"
-
-#~ msgid "Battery status unknown"
-#~ msgstr "Стан акумулятора невідомий"
-
-#~ msgid "N/A"
-#~ msgstr "Н/Д"
-
-#~ msgid "There was an error displaying help: %s"
-#~ msgstr "Помилка при відображенні довідки: %s"
-
-#~ msgid "This utility shows the status of your laptop battery."
-#~ msgstr "Ця утиліта показує стан акумулятора вашого комп'ютера."
-
-#~ msgid "HAL backend enabled."
-#~ msgstr "Увімкнено драйвер HAL."
-
-#~ msgid "Legacy (non-HAL) backend enabled."
-#~ msgstr "Включено застарілий (не-HAL) драйвер."
-
-#~ msgid "<b>Appearance</b>"
-#~ msgstr "<b>Зовнішній вигляд</b>"
-
-#~ msgid "<b>Notifications</b>"
-#~ msgstr "<b>Сповіщення</b>"
-
-#~ msgid "<small>(shows single image for status and charge)</small>"
-#~ msgstr "<small>(показано одне зображення зміни статусу та заряду)</small>"
-
-#~ msgid "<small>(two images: one for status, one for charge)</small>"
-#~ msgstr "<small>(два зображення: одне для статусу, одне для заряду)</small>"
-
-#~ msgid "Battery Charge Monitor Preferences"
-#~ msgstr "Параметри індикатора заряду акумулятора"
-
-#~ msgid "Show _percentage remaining"
-#~ msgstr "Показувати _відсотки, що залишились"
-
-#~ msgid "Show _time remaining"
-#~ msgstr "Показувати _час, що залишився"
-
-#~ msgid "_Compact view"
-#~ msgstr "_Компактний вигляд"
-
-#~ msgid "_Expanded view"
-#~ msgstr "_Розширений вигляд"
-
-#~ msgid "_Notify when battery is fully recharged"
-#~ msgstr "_Сповіщати про повний перезаряд акумулятора"
-
-#~ msgid "_Show time/percentage:"
-#~ msgstr "_Показувати час/відсотки:"
-
-#~ msgid "_Warn when battery charge drops to:"
-#~ msgstr "_Попереджувати коли заряд спадає до:"
-
-#~ msgid "Percent"
-#~ msgstr "Відсоток"
-
-#~ msgid "Minutes Remaining"
-#~ msgstr "Залишилось часу"
-
-#~ msgid "Battery Status Utility"
-#~ msgstr "Утиліта індикації стану акумулятора"
-
-#~ msgid "Battery fully re-charged"
-#~ msgstr "Акумулятор повністю перезаряджено"
-
-#~ msgid "Battery power low"
-#~ msgstr "Акумулятор розряджений"
-
-#~ msgid "Character Palette"
-#~ msgstr "Палітра символів"
-
-#~ msgid "Charpicker Applet Factory"
-#~ msgstr "Фабрика аплету вибору символів"
-
-#~ msgid "Insert characters"
-#~ msgstr "Вставка символів"
-
-#~ msgid "Available palettes"
-#~ msgstr "Наявні палітри"
-
-#~ msgid "Insert \"%s\""
-#~ msgstr "Вставити \"%s\""
-
-#~ msgid "Insert special character"
-#~ msgstr "Вставити спеціальний символ"
-
-#~ msgid "insert special character %s"
-#~ msgstr "вставити спеціальний символ %s"
-
-#~ msgid ""
-#~ "Gnome Panel applet for selecting strange characters that are not on my "
-#~ "keyboard. Released under GNU General Public Licence."
-#~ msgstr ""
-#~ "Аплет для вибору спеціальних знаків, котрих немає на клавіатурі. Випущено "
-#~ "під ліцензією GNU General Public Licence."
-
-#~ msgid "Characters shown on applet startup"
-#~ msgstr "Символи, що відображаються після запуску"
-
-#~ msgid "DEPRECATED - Characters shown on applet startup"
-#~ msgstr "НЕ РЕКОМЕНДУЮТЬСЯ - Символи, що показуватимуться після запуску"
-
-#~ msgid "List of available palettes"
-#~ msgstr "Список наявних палітр"
-
-#~ msgid "List of strings containing the available palettes"
-#~ msgstr "Список рядків, що містять доступні палітри"
-
-#~ msgid ""
-#~ "The string that the user had selected when the applet was last used. This "
-#~ "string will be displayed when the user starts the applet."
-#~ msgstr ""
-#~ "Рядок, який вибрав користувач під час останнього використання аплету. Цей "
-#~ "рядок відображатиметься після наступного запуску."
-
-#~ msgid "_Edit"
-#~ msgstr "_Правка"
-
-#~ msgid "_Palette:"
-#~ msgstr "_Палітра:"
-
-#~ msgid "Palette entry"
-#~ msgstr "Поле палітри"
-
-#~ msgid "Modify a palette by adding or removing characters"
-#~ msgstr "Змініть палітру додаючи чи забираючи символи"
-
-#~ msgid "Add Palette"
-#~ msgstr "Додавання палітри"
-
-#~ msgid "Edit Palette"
-#~ msgstr "Правка палітри"
-
-#~ msgid "Palettes list"
-#~ msgstr "Список палітр"
-
-#~ msgid "_Palettes:"
-#~ msgstr "_Палітри:"
-
-#~ msgid "Add button"
-#~ msgstr "Додати"
-
-#~ msgid "Click to add a new palette"
-#~ msgstr "Натисніть кнопку для додавання нової палітри"
-
-#~ msgid "Edit button"
-#~ msgstr "Змінити"
-
-#~ msgid "Click to edit the selected palette"
-#~ msgstr "Клацніть для зміни вибраної палітри"
-
-#~ msgid "Delete button"
-#~ msgstr "Видалити"
-
-#~ msgid "Click to delete the selected palette"
-#~ msgstr "Клацніть для видалення вибраної палітри"
-
-#~ msgid "Character Palette Preferences"
-#~ msgstr "Параметри палітри символів"
-
-#~ msgid "CPU Frequency Scaling Monitor"
-#~ msgstr "Індикатор зміни частоти процесора"
-
-#~ msgid "Monitor the CPU Frequency Scaling"
-#~ msgstr "Відслідковує зміну частоти процесора"
-
-#~ msgid ""
-#~ "A 0 value means to show cpu frequency, 1 to show frequency and units, and "
-#~ "2 to show percentage instead of frequency."
-#~ msgstr ""
-#~ "0 - відображати частоту ЦП, 1 - частоту та одиниці, 2 - відсотки замість "
-#~ "частоти."
-
-#~ msgid ""
-#~ "A 0 value means to show the applet in graphic mode (pixmap only), 1 to "
-#~ "show the applet in text mode (not to show the pixmap) and 2 to show the "
-#~ "applet in graphic and text mode."
-#~ msgstr ""
-#~ "0 - відображати аплет у графічному режимі (лише зображення), 1 - "
-#~ "текстовий режим (не відображати зображення), 2 - показувати текст та "
-#~ "зображення."
-
-#
-#~ msgid "CPU to Monitor"
-#~ msgstr "Процесор, що відслідковується"
-
-#~ msgid "Mode to show cpu usage"
-#~ msgstr "Режим показу використання ЦП"
-
-#~ msgid ""
-#~ "Set the CPU to monitor. In a single processor system you don't have to "
-#~ "change it."
-#~ msgstr ""
-#~ "Встановлює центральний процесор. На однопроцесорній системі змінювати не "
-#~ "треба."
-
-#~ msgid "The type of text to display (if the text is enabled)."
-#~ msgstr "Введіть текст для відображення (якщо текст увімкнено)."
-
-#~ msgid "    "
-#~ msgstr "    "
-
-#~ msgid "<b>Display Settings</b>"
-#~ msgstr "<b>Параметри відображення</b>"
-
-#~ msgid "<b>Monitor Settings</b>"
-#~ msgstr "<b>Параметри індикатора</b>"
-
-#~ msgid "CPU Frequency Monitor Preferences"
-#~ msgstr "Параметри індикатора частоти ЦП"
-
-#~ msgid "Show CPU frequency as _frequency"
-#~ msgstr "Показувати частоту ЦП як _частоту"
-
-#~ msgid "Show CPU frequency as _percentage"
-#~ msgstr "Показувати частоту ЦП у _відсотках"
-
-#~ msgid "Show frequency _units"
-#~ msgstr "Показувати _одиниці частоти"
-
-#~ msgid "_Appearance:"
-#~ msgstr "_Вигляд:"
-
-#~ msgid "_Monitored CPU:"
-#~ msgstr "_Контрольований процесор:"
-
-#~ msgid "Could not open help document"
-#~ msgstr "Не вдається відкрити документ довідки"
-
-#~ msgid "This utility shows the current CPU Frequency Scaling."
-#~ msgstr "Ця утиліта відображає поточну частоту процесора."
-
-#~ msgid "This utility shows the current CPU Frequency"
-#~ msgstr "Ця утиліта відображає поточну частоту ЦП"
-
-#~ msgid "Graphic"
-#~ msgstr "Графічний"
-
-#~ msgid "Text"
-#~ msgstr "Текст"
-
-#~ msgid "Graphic and Text"
-#~ msgstr "Графічний та текст"
-
-#~ msgid "Frequency Scaling Unsupported"
-#~ msgstr "Зміна частоти не підтримується"
-
-#~ msgid "CPU frequency scaling unsupported"
-#~ msgstr "Зміна частоти процесора не підтримується"
-
-#~ msgid ""
-#~ "You will not be able to modify the frequency of your machine.  Your "
-#~ "machine may be misconfigured or not have hardware support for CPU "
-#~ "frequency scaling."
-#~ msgstr ""
-#~ "Ви не зможете змінити частоту процесора на вашому комп'ютері. Можливо, "
-#~ "ваш комп'ютер неправильно налаштований, або не має апаратної підтримки "
-#~ "зміни частоти."
-
-#~ msgid "Disk Mounter"
-#~ msgstr "Підключення дисків"
-
-#~ msgid "Drive Mount Applet Factory"
-#~ msgstr "Фабрика аплету підключення"
-
-#~ msgid "Factory for drive mount applet"
-#~ msgstr "Фабрика для аплету підключення дисків"
-
-#~ msgid "Mount local disks and devices"
-#~ msgstr "Підключення локальних дисків і пристроїв"
-
-#~ msgid "(mounted)"
-#~ msgstr "(підключено)"
-
-#~ msgid "(not mounted)"
-#~ msgstr " (не підключено)"
-
-#~ msgid "(not connected)"
-#~ msgstr "(немає з'єднання)"
-
-#~ msgid "Cannot execute '%s'"
-#~ msgstr "Не вдається виконати \"%s\""
-
-#
-#~ msgid "Mount Error"
-#~ msgstr "Помилка підключення"
-
-#~ msgid "Unmount Error"
-#~ msgstr "Помилка відключення"
-
-#~ msgid "Eject Error"
-#~ msgstr "Помилка витягування"
-
-#~ msgid "Error"
-#~ msgstr "Помилка"
-
-#~ msgid "_Play DVD"
-#~ msgstr "_Грати DVD"
-
-#~ msgid "_Play CD"
-#~ msgstr "_Грати CD"
-
-#~ msgid "_Open %s"
-#~ msgstr "_Відкрити %s"
-
-#~ msgid "_Mount %s"
-#~ msgstr "_Підключити %s"
-
-#~ msgid "Un_mount %s"
-#~ msgstr "В_ідключити %s"
-
-#~ msgid "_Eject %s"
-#~ msgstr "Ви_тягти %s"
-
-#~ msgid "Applet for mounting and unmounting block volumes."
-#~ msgstr "Аплет для підключення та відключення блочних томів."
-
-#~ msgid "Interval timeout to check mount point status"
-#~ msgstr "Період перевірки стану точки підключення"
-
-#~ msgid "Time in seconds between status updates"
-#~ msgstr "Час, в секундах, між оновленнями стану"
-
-#~ msgid "A set of eyeballs for your panel"
-#~ msgstr "Встановлює аплет \"Очі\" на вашу панель"
-
-#~ msgid "Geyes"
-#~ msgstr "Очі"
-
-#~ msgid "Geyes Applet Factory"
-#~ msgstr "Фабрика аплету \"Очі\""
-
-#~ msgid "A goofy little xeyes clone for the GNOME panel."
-#~ msgstr "Варіант xeyes для панелі GNOME."
-
-#~ msgid "The eyes look in the direction of the mouse pointer"
-#~ msgstr "Очі, що дивляться в напрямку вказівника миші"
-
-#~ msgid "Directory in which the theme is located"
-#~ msgstr "Каталог, де розташована тема"
-
-#~ msgid "Can not launch the eyes applet."
-#~ msgstr "Не вдається запустити аплет \"Очі\"."
-
-#~ msgid "There was a fatal error while trying to load the theme."
-#~ msgstr "Фатальна помилка при спробі завантажити тему."
-
-#~ msgid "Geyes Preferences"
-#~ msgstr "Параметри аплету \"Очі\""
-
-#~ msgid "Themes"
-#~ msgstr "Теми"
-
-#~ msgid "_Select a theme:"
-#~ msgstr "_Виберіть тему:"
-
-#~ msgid "Alt+Control changes layout."
-#~ msgstr "Alt+Control перемикає розкладку."
-
-#~ msgid "Alt+Shift changes layout."
-#~ msgstr "Alt+Shift перемикає розкладку."
-
-#~ msgid "Arabic keymap"
-#~ msgstr "Арабська"
-
-#~ msgid "Armenian"
-#~ msgstr "Вірменська"
-
-#~ msgid "Basque"
-#~ msgstr "Баскська"
-
-#~ msgid "Belgian"
-#~ msgstr "Бельгійська"
-
-#~ msgid "Both Alt keys together change layout."
-#~ msgstr "Обидві клавіші Alt перемикають розкладу."
-
-#~ msgid "Both Ctrl keys together change layout."
-#~ msgstr "Обидві клавіші Ctrl перемикають розкладку."
-
-#~ msgid "Both Shift keys together change layout."
-#~ msgstr "Обидві клавіші Shift перемикають розкладку."
-
-#~ msgid "Brazil Portuguese keymap"
-#~ msgstr "Бразильська португальська"
-
-#~ msgid "Bulgarian Cyrillic"
-#~ msgstr "Болгарська кирилиця"
-
-#~ msgid "Bulgarian keymap"
-#~ msgstr "Болгарська"
-
-#~ msgid "CapsLock key changes layout."
-#~ msgstr "CapsLock перемикає розкладку."
-
-#~ msgid "Control+Shift changes layout."
-#~ msgstr "Control+Shift перемикає розкладку."
-
-#~ msgid "Czech keymap"
-#~ msgstr "Чеська"
-
-#~ msgid "Danish keymap"
-#~ msgstr "Датська"
-
-#~ msgid "Dutch keymap"
-#~ msgstr "Голландська"
-
-#~ msgid "English keymap"
-#~ msgstr "Англійська"
-
-#~ msgid "Estonian keymap"
-#~ msgstr "Естонська"
-
-#~ msgid "Finnish keymap"
-#~ msgstr "Фінська"
-
-#~ msgid "French Swiss"
-#~ msgstr "Швейцарська французька"
-
-#~ msgid "French Swiss keymap"
-#~ msgstr "Швейцарська французька"
-
-#~ msgid "French keymap"
-#~ msgstr "Французька"
-
-#~ msgid "French-Canadian 105-key"
-#~ msgstr "Канадська французька (105 клавіш)"
-
-#~ msgid "GB 102-key"
-#~ msgstr "Велика Британія (102 клавіші)"
-
-#~ msgid "GB 105-key"
-#~ msgstr "Велика Британія (105 клавіш)"
-
-#~ msgid "Generic Keyboard"
-#~ msgstr "Стандартна клавіатура"
-
-#~ msgid "Georgian Latin"
-#~ msgstr "Грузинська латиниця"
-
-#~ msgid "Georgian Russian layout"
-#~ msgstr "Грузинська російська"
-
-#~ msgid "Georgian keymap"
-#~ msgstr "Грузинська"
-
-#~ msgid "German"
-#~ msgstr "Німецька"
-
-#~ msgid "German Swiss with Euro"
-#~ msgstr "Швейцарська німецька з Євро"
-
-#~ msgid "German keymap"
-#~ msgstr "Німецька"
-
-#~ msgid "Greek keymap"
-#~ msgstr "Грецька"
-
-#~ msgid "Hebrew keymap"
-#~ msgstr "Єврейська"
-
-#~ msgid "Hungarian 101-key latin 1"
-#~ msgstr "Угорська Latin1 (101 клавіша)"
-
-#~ msgid "Hungarian 101-key latin 2"
-#~ msgstr "Угорська Latin2 (101 клавіша)"
-
-#~ msgid "Hungarian 105-key latin 1"
-#~ msgstr "Угорська Latin1 (105 клавіш)"
-
-#~ msgid "Hungarian 105-key latin 2"
-#~ msgstr "Угорська Latin2 (105 клавіш)"
-
-#~ msgid "Hungarian PC/AT 101 keyboard"
-#~ msgstr "Угорська клавіатура PC/AT 101"
-
-#~ msgid "Hungarian latin1"
-#~ msgstr "Угорська Latin1"
-
-#~ msgid "Icelandic keymap"
-#~ msgstr "Ісландська"
-
-#~ msgid "Italian keymap"
-#~ msgstr "Італійська"
-
-#~ msgid "Japanese keymap"
-#~ msgstr "Японська"
-
-#~ msgid "Lao keymap"
-#~ msgstr "Лаоська"
-
-#~ msgid "Layout shift behavior"
-#~ msgstr "Поведінка перемикача розкладки"
-
-#~ msgid "Left Alt key changes layout."
-#~ msgstr "Ліва клавіша Alt перемикає розкладку."
-
-#~ msgid "Left Ctrl key changes group."
-#~ msgstr "Ліва клавіша Ctrl перемикає розкладку."
-
-#~ msgid "Left Shift key changes group."
-#~ msgstr "Ліва клавіша Shift перемикає розкладку."
-
-#~ msgid "Left Win-key changes layout."
-#~ msgstr "Ліва клавіша Win перемикає розкладку."
-
-#~ msgid "Lithuanian keymap"
-#~ msgstr "Литовська"
-
-#~ msgid "Macedonian"
-#~ msgstr "Македонська"
-
-#~ msgid "Menu key changes layout."
-#~ msgstr "Клавіша Menu перемикає розкладку."
-
-#~ msgid "Mongolian alt keymap"
-#~ msgstr "Монгольська альтернативна"
-
-#~ msgid "Mongolian keymap"
-#~ msgstr "Монгольська"
-
-#~ msgid "Mongolian phonetic keymap"
-#~ msgstr "Монгольська фонетична"
-
-#~ msgid "Norwegian"
-#~ msgstr "Норвезька"
-
-#~ msgid "Plain Russian keymap"
-#~ msgstr "Російська проста"
-
-#~ msgid "Polish"
-#~ msgstr "Польська"
-
-#~ msgid "Polish deadkeys"
-#~ msgstr "Польська із спеціальними клавішами"
-
-#~ msgid "Portugal"
-#~ msgstr "Португалія"
-
-#~ msgid "Portugal Deadkeys"
-#~ msgstr "Португальська із спеціальними клавішами"
-
-#~ msgid "Portuguese keymap"
-#~ msgstr "Португальська"
-
-#~ msgid "Right Alt key changes layout."
-#~ msgstr "Права клавіша Alt перемикає розкладку."
-
-#~ msgid "Right Ctrl key changes group."
-#~ msgstr "Права клавіша Ctrl перемикає розкладку."
-
-#~ msgid "Right Shift key changes group."
-#~ msgstr "Права клавіша Shift перемикає розкладку."
-
-#~ msgid "Right Win-key changes layout."
-#~ msgstr "Права клавіша Win перемикає розкладку."
-
-#~ msgid "Russian Cyrillic"
-#~ msgstr "Російська кирилиця"
-
-#~ msgid "Russian keymap"
-#~ msgstr "Російська"
-
-#~ msgid "Serbian keymap"
-#~ msgstr "Сербська"
-
-#~ msgid "Shift+CapsLock changes layout."
-#~ msgstr "Shift+CapsLock перемикають розкладку."
-
-#~ msgid "Slovak keymap"
-#~ msgstr "Словацька"
-
-#~ msgid "Slovenian"
-#~ msgstr "Словенська"
-
-#~ msgid "Slovenian keymap"
-#~ msgstr "Словенська"
-
-#~ msgid "Spanish keymap"
-#~ msgstr "Іспанська"
-
-#~ msgid "Sun (!not PC!) type5 Hungarian latin 2"
-#~ msgstr "Угорська Latin2 Type-5 від Sun (не PC)"
-
-#~ msgid "Swedish"
-#~ msgstr "Шведська"
-
-#~ msgid "Swedish keymap"
-#~ msgstr "Шведська"
-
-#~ msgid "Swiss keymap"
-#~ msgstr "Швейцарська"
-
-#~ msgid "Thai"
-#~ msgstr "Тайська"
-
-#~ msgid "Thai Kedmanee"
-#~ msgstr "Тайська (Кедмані)"
-
-#~ msgid "Thai keymap"
-#~ msgstr "Тайська"
-
-#~ msgid "Turkish \"F\" keyboard"
-#~ msgstr "Турецька клавіатура \"F\""
-
-#~ msgid "Turkish \"Q\" keyboard"
-#~ msgstr "Турецька клавіатура \"Q\""
-
-#~ msgid "Turkish keymap"
-#~ msgstr "Турецька"
-
-#~ msgid "UK 105-key"
-#~ msgstr "Велика Британія (105 клавіш)"
-
-#~ msgid "UK PC/AT keyboard"
-#~ msgstr "Велика Британія (PC/AT)"
-
-#~ msgid "US 101-key keyboard"
-#~ msgstr "США (101 клавіша)"
-
-#~ msgid "US 105-key keyboard (with windows keys)"
-#~ msgstr "США (105 клавіш, без клавіш \"Windows\")"
-
-#~ msgid "US 84-key"
-#~ msgstr "США (84 клавіші)"
-
-#~ msgid "US DEC 450"
-#~ msgstr "США для DEC 450"
-
-#~ msgid "US IBM RS/6000"
-#~ msgstr "США для IBM RS/6000"
-
-#~ msgid "US International"
-#~ msgstr "США міжнародна"
-
-#~ msgid "US Macintosh"
-#~ msgstr "США для Макінтош"
-
-#~ msgid "US PC/AT 101 keyboard"
-#~ msgstr "США клавіатура PC/AT 101"
-
-#~ msgid "US Silicon Graphics 101-key"
-#~ msgstr "США для Silicon Graphics (101 клавіша)"
-
-#~ msgid "US Sun type5"
-#~ msgstr "США Type-5 від Sun"
-
-#~ msgid "Armenian Sun keymap"
-#~ msgstr "Вірменська Sun"
-
-#~ msgid "Azerbaijani Turkish Sun keymap"
-#~ msgstr "Азербайджанська турецька Sun"
-
-#~ msgid "Belarusian Sun keymap"
-#~ msgstr "Білоруська Sun"
-
-#~ msgid "Brazil Portuguese Sun USB keymap"
-#~ msgstr "Бразильська португальська Sun USB"
-
-#~ msgid "Brazil Portuguese Sun keymap"
-#~ msgstr "Бразильська португальська Sun"
-
-#~ msgid "British Sun Type-4 keymap"
-#~ msgstr "Британська Sun Type-4"
-
-#~ msgid "British Sun USB keymap"
-#~ msgstr "Британська Sun USB"
-
-#~ msgid "British Sun keymap"
-#~ msgstr "Британська Sun"
-
-#~ msgid "Bulgarian Sun keymap"
-#~ msgstr "Болгарська Sun"
-
-#~ msgid "Canadian Sun keymap"
-#~ msgstr "Канадська Sun"
-
-#~ msgid "Czech Sun keymap"
-#~ msgstr "Чеська Sun"
-
-#~ msgid "Danish Sun Type-4 keymap"
-#~ msgstr "Датська Sun Type-4"
-
-#~ msgid "Danish Sun USB keymap"
-#~ msgstr "Датська Sun USB"
-
-#~ msgid "Danish Sun keymap"
-#~ msgstr "Датська Sun"
-
-#~ msgid "Dutch Sun keymap"
-#~ msgstr "Голландська Sun"
-
-#~ msgid "Estonian Sun keymap"
-#~ msgstr "Естонська Sun"
-
-#~ msgid "Finnish Sun keymap"
-#~ msgstr "Фінська Sun"
-
-#~ msgid "French Sun USB keymap"
-#~ msgstr "Французька Sun USB"
-
-#~ msgid "French Sun keymap"
-#~ msgstr "Французька Sun"
-
-#~ msgid "German Sun Type-4 keymap"
-#~ msgstr "Німецька Sun Type-4"
-
-#~ msgid "German Sun USB keymap"
-#~ msgstr "Німецька Sun USB"
-
-#~ msgid "German Sun keymap"
-#~ msgstr "Німецька Sun"
-
-#~ msgid "Hebrew Sun keymap"
-#~ msgstr "Єврейська Sun"
-
-#~ msgid "Hungarian latin2 Sun keymap"
-#~ msgstr "Угорська Latin2 Sun"
-
-#~ msgid "Hungarian type5 latin 1 keymap"
-#~ msgstr "Угорська type5 latin 1"
-
-#~ msgid "Icelandic Sun keymap"
-#~ msgstr "Ісландська Sun"
-
-#~ msgid "Italian Sun Type-4 keymap"
-#~ msgstr "Італійська Sun Type-4"
-
-#~ msgid "Italian Sun USB keymap"
-#~ msgstr "Італійська Sun USB"
-
-#~ msgid "Italian Sun keymap"
-#~ msgstr "Італійська Sun"
-
-#~ msgid "Japanese Sun Type-4 keymap"
-#~ msgstr "Японська Sun Type-4"
-
-#~ msgid "Japanese Sun keymap"
-#~ msgstr "Японська Sun"
-
-#~ msgid "Latvian Sun keymap"
-#~ msgstr "Латвійська Sun"
-
-#~ msgid "Lithuanian Sun keymap"
-#~ msgstr "Литовська Sun"
-
-#~ msgid "Macedonian Sun keymap"
-#~ msgstr "Македонська Sun"
-
-#~ msgid "Norwegian Sun keymap"
-#~ msgstr "Норвезька Sun"
-
-#~ msgid "Polish Sun keymap"
-#~ msgstr "Польська Sun"
-
-#~ msgid "Portuguese Sun Type-4 keymap"
-#~ msgstr "Португальська Sun Type-4"
-
-#~ msgid "Portuguese Sun keymap"
-#~ msgstr "Португальська Sun"
-
-#~ msgid "Romanian Sun keymap"
-#~ msgstr "Румунська Sun"
-
-#~ msgid "Russian Sun keymap"
-#~ msgstr "Російська Sun"
-
-#~ msgid "Serbian Sun standard keymap"
-#~ msgstr "Сербська стандартна Sun"
-
-#~ msgid "Slovak Sun keymap"
-#~ msgstr "Словацька Sun"
-
-#~ msgid "Slovenian Sun keymap"
-#~ msgstr "Словенська Sun"
-
-#~ msgid "Spanish Sun Type-4 keymap"
-#~ msgstr "Іспанська Sun Type-4"
-
-#~ msgid "Spanish Sun USB keymap"
-#~ msgstr "Іспанська Sun USB"
-
-#~ msgid "Spanish Sun keymap"
-#~ msgstr "Іспанська Sun"
-
-#~ msgid "Swedish Sun Type-4 keymap"
-#~ msgstr "Шведська Sun Type-4"
-
-#~ msgid "Swedish Sun USB keymap"
-#~ msgstr "Шведська Sun USB"
-
-#~ msgid "Swedish Sun keymap"
-#~ msgstr "Шведська Sun"
-
-#~ msgid "Swiss German Sun keymap"
-#~ msgstr "Швейцарська Німецька Sun"
-
-#~ msgid "Thai Sun keymap"
-#~ msgstr "Тайська Sun"
-
-#~ msgid "Turkish Sun keymap"
-#~ msgstr "Турецька Sun"
-
-#~ msgid "US Sun Type-4 keymap"
-#~ msgstr "США Sun Type-4"
-
-#~ msgid "US Sun USB keymap"
-#~ msgstr "США Sun USB"
-
-#~ msgid "US Sun type5 keymap"
-#~ msgstr "США Type-5 від Sun"
-
-#~ msgid "Ukrainian Sun keymap"
-#~ msgstr "Українська Sun"
-
-#~ msgid "Vietnamese Sun keymap"
-#~ msgstr "В'єтнамська Sun"
-
-#~ msgid "Keyboard _Preferences"
-#~ msgstr "_Параметри клавіатури"
-
-#~ msgid "Show Current _Layout"
-#~ msgstr "Показати поточну _розкладку"
-
-#~ msgid "_Groups"
-#~ msgstr "_Групи"
-
-#~ msgid "Keyboard Indicator"
-#~ msgstr "Індикатор клавіатури"
-
-#~ msgid "Keyboard applet factory"
-#~ msgstr "Фабрика аплету клавіатури"
-
-#~ msgid "Keyboard layout indicator"
-#~ msgstr "Індикатор розкладки клавіатури"
-
-#~ msgid "Keyboard Layout \"%s\""
-#~ msgstr "Розкладка клавіатури \"%s\""
-
-#~ msgid "Copyright (c) Sergey V. Udaltsov 1999-2004"
-#~ msgstr "Авторські права (c) Сергій В. Удальцов 1999-2004"
-
-#~ msgid "Keyboard layout indicator applet for GNOME"
-#~ msgstr "Аплет індикатор розкладки клавіатури для GNOME"
-
-#~ msgid "Keyboard Indicator (%s)"
-#~ msgstr "Індикатор клавіатури (%s)"
-
-#~ msgid "Keyboard Layout"
-#~ msgstr "Розкладка клавіатури"
-
-#~ msgid "Secondary groups"
-#~ msgstr "Другорядні групи"
-
-#~ msgid "Show flags in the applet"
-#~ msgstr "Показувати прапори у аплеті"
-
-#~ msgid "Show flags in the applet to indicate the current layout"
-#~ msgstr "Показувати прапори у аплеті, для індикації поточної розкладки"
-
-#~ msgid "The list of enabled Keyboard Indicator plugins"
-#~ msgstr "Перелік активних модулів індикатора клавіатури"
-
-#~ msgid "_Details"
-#~ msgstr "Подро_биці"
-
-#~ msgid "_Update"
-#~ msgstr "_Оновити"
-
-#~ msgid "Factory for creating the weather applet."
-#~ msgstr "Фабрика для створення аплету погоди."
-
-#~ msgid "Gweather Applet Factory"
-#~ msgstr "Фабрика аплетів погоди"
-
-#~ msgid "Monitor the current weather conditions, and forecasts"
-#~ msgstr "Слідкує за поточними погодними умовами і робить прогнози"
-
-#~ msgid "Weather Report"
-#~ msgstr "Зведення погоди"
-
-#~ msgid "© 1999-2005 by S. Papadimitriou and others"
-#~ msgstr "Авторське право © 1999-2005 by S. Papadimitriou та інші."
-
-#~ msgid "A panel application for monitoring local weather conditions."
-#~ msgstr "Аплет відображення погодних умов."
-
-#~ msgid "GNOME Weather"
-#~ msgstr "Аплет \"Зведення погоди\""
-
-#~ msgid "Weather Forecast"
-#~ msgstr "Прогноз погоди"
-
-#~ msgid ""
-#~ "City: %s\n"
-#~ "Sky: %s\n"
-#~ "Temperature: %s"
-#~ msgstr ""
-#~ "Місто: %s\n"
-#~ "Небо: %s\n"
-#~ "Температура: %s"
-
-#~ msgid "Updating..."
-#~ msgstr "Триває оновлення..."
-
-#~ msgid "Details"
-#~ msgstr "Подробиці"
-
-#~ msgid "City:"
-#~ msgstr "Місто:"
-
-#~ msgid "Last update:"
-#~ msgstr "Останнє оновлення:"
-
-#~ msgid "Conditions:"
-#~ msgstr "Погодні умови:"
-
-#~ msgid "Sky:"
-#~ msgstr "Небо:"
-
-#~ msgid "Temperature:"
-#~ msgstr "Температура:"
-
-#~ msgid "Feels like:"
-#~ msgstr "Комфортність:"
-
-#~ msgid "Dew point:"
-#~ msgstr "Точка роси:"
-
-#~ msgid "Relative humidity:"
-#~ msgstr "Відносна вологість:"
-
-#~ msgid "Wind:"
-#~ msgstr "Вітер:"
-
-#~ msgid "Pressure:"
-#~ msgstr "Тиск:"
-
-#~ msgid "Visibility:"
-#~ msgstr "Видимість:"
-
-#~ msgid "Sunrise:"
-#~ msgstr "Схід сонця:"
-
-#~ msgid "Sunset:"
-#~ msgstr "Захід сонця:"
-
-#~ msgid "Current Conditions"
-#~ msgstr "Поточні погодні умови"
-
-#~ msgid "Forecast Report"
-#~ msgstr "Прогноз погоди"
-
-#~ msgid "See the ForeCast Details"
-#~ msgstr "Переглянути докладний прогноз"
-
-#~ msgid "Forecast"
-#~ msgstr "Прогноз"
-
-#~ msgid "Radar Map"
-#~ msgstr "Радарна мапа"
-
-#~ msgid "_Visit Weather.com"
-#~ msgstr "_Відвідати Weather.com"
-
-#~ msgid "Visit Weather.com"
-#~ msgstr "Відвідати Weather.com"
-
-#~ msgid "Click to Enter Weather.com"
-#~ msgstr "Клацніть, щоб відвідати Weather.com"
-
-#~ msgid "Forecast not currently available for this location."
-#~ msgstr "Для цієї місцевості прогноз наразі недоступний."
-
-#~ msgid "Location view"
-#~ msgstr "Перегляд місцевості"
-
-#~ msgid "Select Location from the list"
-#~ msgstr "Виберіть місцевість із списку"
-
-#~ msgid "Update spin button"
-#~ msgstr "Кнопка оновлення"
-
-#~ msgid "Spinbutton for updating"
-#~ msgstr "Кнопка оновлення"
-
-#~ msgid "Address Entry"
-#~ msgstr "Поле адреси"
-
-#~ msgid "Enter the URL"
-#~ msgstr "Введіть адресу (URL)"
-
-#~ msgid ""
-#~ "Failed to load the Locations XML database.  Please report this as a bug."
-#~ msgstr ""
-#~ "Не вдається завантажити XML базу даних місць. Сповістіть про помилку."
-
-#~ msgid "Weather Preferences"
-#~ msgstr "Параметри аплету \"Зведення погоди\""
-
-#~ msgid "_Automatically update every:"
-#~ msgstr "Автоматично оновлювати _кожні "
-
-#~ msgid "_Temperature unit:"
-#~ msgstr "_Температурі одиниці:"
-
-#~ msgid "Kelvin"
-#~ msgstr "за Кельвіном"
-
-#~ msgid "Celsius"
-#~ msgstr "за Цельсієм"
-
-#~ msgid "Fahrenheit"
-#~ msgstr "за Фаренгейтом"
-
-#~ msgid "_Wind speed unit:"
-#~ msgstr "Одиниці швидкості _вітру:"
-
-#~ msgid "_Pressure unit:"
-#~ msgstr "Одиниці т_иску:"
-
-#~ msgid "_Visibility unit:"
-#~ msgstr "Одиниці види_мості:"
-
-#~ msgid "meters"
-#~ msgstr "метрів"
-
-#~ msgid "miles"
-#~ msgstr "миль"
-
-#~ msgid "Enable _radar map"
-#~ msgstr "Увімкнути _радарну мапу"
-
-#~ msgid "Use _custom address for radar map"
-#~ msgstr "В_ласна адреса радарної мапи"
-
-#~ msgid "A_ddress:"
-#~ msgstr "_Адреса:"
-
-#~ msgid "Update"
-#~ msgstr "Оновлення"
-
-#~ msgid "minutes"
-#~ msgstr "хв"
-
-#~ msgid "Display"
-#~ msgstr "Відображення"
-
-#~ msgid "General"
-#~ msgstr "Загальне"
-
-#~ msgid "_Select a location:"
-#~ msgstr "_Місцевість:"
-
-#~ msgid "_Find:"
-#~ msgstr "Зна_йти:"
-
-#~ msgid "Find _Next"
-#~ msgstr "Знайти _наступний"
-
-#~ msgid "Location"
-#~ msgstr "Місцевість"
-
-#~ msgid "Invest"
-#~ msgstr "Інвестиції"
-
-#~ msgid "Track your invested money."
-#~ msgstr "Слідкування за інвестованими грошами."
-
-#~ msgid "_Refresh"
-#~ msgstr "_Оновити"
-
-#~ msgid "10"
-#~ msgstr "10"
-
-#~ msgid "100"
-#~ msgstr "100"
-
-#~ msgid ""
-#~ "1d\n"
-#~ "5d\n"
-#~ "3m\n"
-#~ "6m\n"
-#~ "1y\n"
-#~ "3y"
-#~ msgstr ""
-#~ "1д\n"
-#~ "5д\n"
-#~ "3м\n"
-#~ "6м\n"
-#~ "1р\n"
-#~ "3р"
-
-#~ msgid "20"
-#~ msgstr "20"
-
-#~ msgid "200"
-#~ msgstr "200"
-
-#~ msgid "5"
-#~ msgstr "5"
-
-#~ msgid "50"
-#~ msgstr "50"
-
-#~ msgid "Auto _refresh"
-#~ msgstr "Автоматичне _оновлення"
-
-#~ msgid "Bollinger"
-#~ msgstr "Боллінгер"
-
-#~ msgid "Downloading chart from <b>Yahoo!</b>"
-#~ msgstr "Завантажити діаграму з <b>Yahoo!</b>"
-
-#~ msgid "Exponential moving average: "
-#~ msgstr "Експоненціальне середнє переміщення: "
-
-#~ msgid "Fast stoch"
-#~ msgstr "Швидкий stoch"
-
-#~ msgid "Financial Chart"
-#~ msgstr "Фінансова діаграма"
-
-#~ msgid "Indicators: "
-#~ msgstr "Індикатори:"
-
-#~ msgid "MACD"
-#~ msgstr "MACD"
-
-#~ msgid "MFI"
-#~ msgstr "MFI"
-
-#~ msgid "Moving average: "
-#~ msgstr "Середнє переміщення: "
-
-#~ msgid "Overlays: "
-#~ msgstr "Оверлеї: "
-
-#~ msgid "ROC"
-#~ msgstr "ROC"
-
-#~ msgid "RSI"
-#~ msgstr "RSI"
-
-#~ msgid "SAR"
-#~ msgstr "SAR"
-
-#~ msgid "Slow stoch"
-#~ msgstr "Повільний stoch"
-
-#~ msgid "Splits"
-#~ msgstr "Части"
-
-#~ msgid "Vol"
-#~ msgstr "Vol"
-
-#~ msgid "Vol+MA"
-#~ msgstr "Vol+MA"
-
-#~ msgid "Volumes"
-#~ msgstr "Обсяги"
-
-#~ msgid "W%R"
-#~ msgstr "W%R"
-
-#~ msgid "_Graph style: "
-#~ msgstr "Стиль _графіка: "
-
-#~ msgid "_Options"
-#~ msgstr "_Параметри"
-
-#~ msgid "_Ticker symbol: "
-#~ msgstr "Символ _маятника:"
-
-#~ msgid ""
-#~ "l\n"
-#~ "b\n"
-#~ "c"
-#~ msgstr ""
-#~ "l\n"
-#~ "b\n"
-#~ "c"
-
-#~ msgid "Display yahoo charts"
-#~ msgstr "Відображення діаграм yahoo"
-
-#~ msgid "Invest Chart"
-#~ msgstr "Діаграма інвестицій"
-
-#~ msgid "<b>Stocks</b>"
-#~ msgstr "<b>Акції</b>"
-
-#~ msgid ""
-#~ "<i><small><b>Note:</b> Quotes are delayed at least 15 minutes.\n"
-#~ "<b>Source: </b> Yahoo!</small></i>"
-#~ msgstr ""
-#~ "<i><small><b>Примітка:</b> Котирування затримано на, принаймні, 15 "
-#~ "хвилин.\n"
-#~ "<b>Джерело: </b> Yahoo!</small></i>"
-
-#~ msgid "Invest Preferences"
-#~ msgstr "Параметри інвертицій"
-
-#~ msgid "Invest Website"
-#~ msgstr "Веб-сайт інвестицій"
-
-#~ msgid "Financial Chart - %s"
-#~ msgstr "Фінансова діаграма - %s"
-
-#~ msgid "Opening Chart"
-#~ msgstr "Відкривання діаграми"
-
-#~ msgid "Downloading Chart"
-#~ msgstr "Завантаження діаграми"
-
-#~ msgid "Reading Chart chunk"
-#~ msgstr "Читання частини діаграми"
-
-#~ msgid "Invest Applet"
-#~ msgstr "Аплет інвестицій"
-
-#~ msgid "Symbol"
-#~ msgstr "Символ"
-
-#~ msgid "Amount"
-#~ msgstr "Кількість"
-
-#~ msgid "Price"
-#~ msgstr "Ціна"
-
-#~ msgid "Commission"
-#~ msgstr "Комісія"
-
-#~ msgid "Deskbar (formerly Mini-Commander)"
-#~ msgstr "Deskbar (раніше відомий як \"Мініатюрний командний рядок\")"
-
-#~ msgid "Deskbar (transparent upgrade from Mini-Commander)"
-#~ msgstr "Deskbar (прозоре оновлення аплету Мініатюрний командний рядок)"
-
-#~ msgid "Command Line"
-#~ msgstr "Командний рядок"
-
-#~ msgid "Mini-Commander"
-#~ msgstr "Мініатюрний командний рядок"
-
-#~ msgid "MiniCommander Applet Factory"
-#~ msgstr "Фабрика аплету командного рядка"
-
-#~ msgid ""
-#~ "This GNOME applet adds a command line to the panel. It features command "
-#~ "completion, command history, and changeable macros."
-#~ msgstr ""
-#~ "Цей аплет GNOME додає на панель командний рядок. У ньому реалізовано "
-#~ "доповнення команд, історія команд та змінювані макроси."
-
-#~ msgid "No items in history"
-#~ msgstr "Історія порожня"
-
-#~ msgid "Start program"
-#~ msgstr "Запустити програму"
-
-#~ msgid "Command line"
-#~ msgstr "Командний рядок"
-
-#~ msgid "Type a command here and Gnome will execute it for you"
-#~ msgstr "Введіть команду та середовище GNOME її виконає"
-
-#~ msgid "Cannot get schema for %s: %s"
-#~ msgstr "Не вдається отримати схему для %s : %s"
-
-#~ msgid "Cannot set schema for %s: %s"
-#~ msgstr "Не вдається встановити схему для %s : %s"
-
-#~ msgid "Set default list value for %s\n"
-#~ msgstr "Встановити початкове значення переліку для %s\n"
-
-#~ msgid ""
-#~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
-#~ msgstr ""
-#~ "Виставлено GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL, схему не буде "
-#~ "встановлено.\n"
-
-#~ msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
-#~ msgstr "Необхідно визначити змінну оточення GCONF_CONFIG_SOURCE\n"
-
-#~ msgid "Failed to access configuration source(s): %s\n"
-#~ msgstr "Помилка доступу до джерел(а) параметрів: %s\n"
-
-#~ msgid "Error syncing config data: %s"
-#~ msgstr "Помилка узгодження даних параметрів: %s"
-
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro commands."
-#~ msgstr "Список записів GConfValue, що містять рядки макрокоманд."
-
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro patterns."
-#~ msgstr "Список записів GConfValue, що містять рядки шаблонів макрокоманд."
-
-#~ msgid "Macro command list"
-#~ msgstr "Список макрокоманд"
-
-#~ msgid "Macro pattern list"
-#~ msgstr "Список шаблонів макрокоманд"
-
-#~ msgid "*"
-#~ msgstr "*"
-
-#~ msgid "<b>Auto Completion</b>"
-#~ msgstr "<b>Автоматичне доповнення</b>"
-
-#~ msgid "<b>Colors</b>"
-#~ msgstr "<b>Кольори</b>"
-
-#~ msgid "<b>Size</b>"
-#~ msgstr "<b>Розмір</b>"
-
-#~ msgid "Add New Macro"
-#~ msgstr "Додати новий макрос"
-
-#~ msgid "Co_mmand:"
-#~ msgstr "К_оманда:"
-
-#~ msgid "Command Line Preferences"
-#~ msgstr "Параметри аплету \"Командний рядок\""
-
-#~ msgid "Command line _background:"
-#~ msgstr "_Тло командного рядка:"
-
-#~ msgid "Command line _foreground:"
-#~ msgstr "_Колір тексту командного рядка:"
-
-#~ msgid "E_nable history-based auto completion"
-#~ msgstr "Ввімкнути _автодоповнення, що ґрунтується на історії"
-
-#~ msgid "Macros"
-#~ msgstr "Макроси"
-
-#~ msgid "Pick a color"
-#~ msgstr "Виберіть колір"
-
-#~ msgid "_Add Macro..."
-#~ msgstr "Д_одати макрос..."
-
-#~ msgid "_Delete Macro"
-#~ msgstr "В_идалити макрос"
-
-#~ msgid "_Macros:"
-#~ msgstr "_Макроси:"
-
-#~ msgid "_Pattern:"
-#~ msgstr "_Шаблон:"
-
-#~ msgid "_Use default theme colors"
-#~ msgstr "_Використовувати звичайні кольори теми"
-
-#~ msgid "_Width:"
-#~ msgstr "Ш_ирина:"
-
-#~ msgid "pixels"
-#~ msgstr "точок"
-
-#~ msgid ""
-#~ "Attempt to autocomplete a command from the history of commands entered."
-#~ msgstr ""
-#~ "Намагатись автоматично доповнювати команду, ґрунтуючись на історії "
-#~ "введених команд."
-
-#~ msgid "Background color, blue component"
-#~ msgstr "Синій компонент кольору тла"
-
-#~ msgid "Background color, green component"
-#~ msgstr "Зелений компонент кольору тла"
-
-#~ msgid "Background color, red component"
-#~ msgstr "Червоний компонент кольору тла"
-
-#~ msgid "Foreground color, blue component"
-#~ msgstr "Синій компонент кольору переднього плану"
-
-#~ msgid "Foreground color, green component"
-#~ msgstr "Зелений компонент кольору переднього плану"
-
-#~ msgid "Foreground color, red component"
-#~ msgstr "Червоний компонент кольору переднього плану"
-
-#~ msgid "History list"
-#~ msgstr "Список історії"
-
-#~ msgid "List of GConfValue entries containing strings for history entries."
-#~ msgstr "Список записів GConfValue, що містять рядки записів історії."
-
-#~ msgid "Perform history autocompletion"
-#~ msgstr "Ввімкнути автодоповнення на основі історії команд"
-
-#~ msgid "Show a frame surrounding the applet."
-#~ msgstr "Показувати рамку навколо аплету."
-
-#~ msgid "Show a handle so the applet can be detached from the panel."
-#~ msgstr "Показувати держак, яким можна виймати аплет із панелі."
-
-#~ msgid "Show frame"
-#~ msgstr "Показувати рамку"
-
-#~ msgid "Show handle"
-#~ msgstr "Показувати заголовок"
-
-#~ msgid "The blue component of the background color."
-#~ msgstr "Синій компонент кольору тла."
-
-#~ msgid "The blue component of the foreground color."
-#~ msgstr "Синій компонент кольору переднього плану."
-
-#~ msgid "The green component of the background color."
-#~ msgstr "Зелений компонент кольору тла."
-
-#~ msgid "The green component of the foreground color."
-#~ msgstr "Зелений компонент кольору переднього плану."
-
-#~ msgid "The red component of the background color."
-#~ msgstr "Червоний компонент кольору тла."
-
-#~ msgid "The red component of the foreground color."
-#~ msgstr "Червоний компонент кольору переднього плану."
-
-#~ msgid ""
-#~ "This per-applet key is deprecated in favour of the global key, /schemas/"
-#~ "apps/mini-commander-global/macro_patterns."
-#~ msgstr ""
-#~ "Цей індивідуальний ключ застарів, натомість використовується глобальний "
-#~ "ключ /schemas/apps/mini-commander-global/macro_patterns."
-
-#~ msgid "Use the default theme colors"
-#~ msgstr "Використовувати звичайні кольори теми"
-
-#~ msgid "Use theme colors instead of custom ones."
-#~ msgstr "Використовувати кольори теми."
-
-#~ msgid "Width"
-#~ msgstr "Ширина"
-
-#~ msgid "Width of the applet"
-#~ msgstr "Ширина аплету"
-
-#~ msgid "Browser"
-#~ msgstr "Огляд"
-
-#~ msgid "Click this button to start the browser"
-#~ msgstr "Клацніть на цю кнопку, щоб запустити переглядач"
-
-#~ msgid "History"
-#~ msgstr "Історія"
-
-#~ msgid "Click this button for the list of previous commands"
-#~ msgstr "Натисніть на цю кнопку для отримання списку попередніх команд"
-
-#~ msgid "Command line has been disabled by your system administrator"
-#~ msgstr "Командний рядок заблокований системним адміністратором"
-
-#~ msgid "Mini-Commander applet"
-#~ msgstr "Аплет мініатюрний командний рядок"
-
-#~ msgid "This applet adds a command line to the panel"
-#~ msgstr "Цей аплет додає командний рядок до панелі"
-
-#~ msgid "You must specify a pattern"
-#~ msgstr "Необхідно вказати шаблон"
-
-#~ msgid "You must specify a pattern and a command"
-#~ msgstr "Необхідно вказати шаблон та команду"
-
-#~ msgid "You must specify a command"
-#~ msgstr "Необхідно вказати команду"
-
-#~ msgid "You may not specify duplicate patterns"
-#~ msgstr "Не можна вказувати однакові шаблони"
-
-#~ msgid "Pattern"
-#~ msgstr "Шаблон"
-
-#~ msgid "Command"
-#~ msgstr "Команда"
-
-#~ msgid "Adjust the sound volume"
-#~ msgstr "Регулює гучність звуку"
-
-#~ msgid "Volume Control"
-#~ msgstr "Регулятор гучності"
-
-#~ msgid "Mu_te"
-#~ msgstr "_Вимкнути"
-
-#~ msgid "_Open Volume Control"
-#~ msgstr "Відкрити _регулятор гучності"
-
-#~ msgid ""
-#~ "The volume control did not find any elements and/or devices to control. "
-#~ "This means either that you don't have the right GStreamer plugins "
-#~ "installed, or that you don't have a sound card configured."
-#~ msgstr ""
-#~ "Регулятор гучності не знайшов ніяких компонентів та/чи пристроїв "
-#~ "регулювання. Це означає, що у вас не встановлені відповідні модулі "
-#~ "GStreamer, або не налаштована звукова карта."
-
-#~ msgid ""
-#~ "You can remove the volume control from the panel by right-clicking the "
-#~ "speaker icon on the panel and selecting \"Remove From Panel\" from the "
-#~ "menu."
-#~ msgstr ""
-#~ "регулятор гучності можна видалити з панелі, якщо клацнути правою кнопкою "
-#~ "на панелі, а потім у меню вибрати \"Видалити з панелі\""
-
-#~ msgid "Failed to start Volume Control: %s"
-#~ msgstr "Не вдається запустити регулятор гучності: %s"
-
-#~ msgid "%s: muted"
-#~ msgstr "%s: заглушено"
-
-#~ msgid "%s: %d%%"
-#~ msgstr "%s: %d%%"
-
-#~ msgid "Failed to display help: %s"
-#~ msgstr "Не вдається відобразити довідку: %s"
-
-#~ msgid "Volume control for your GNOME Panel."
-#~ msgstr "Регулятор гучності для панелі GNOME."
-
-#~ msgid "Using GStreamer 0.10."
-#~ msgstr "Використовує GStreamer 0.10."
-
-#~ msgid "Using GStreamer 0.8."
-#~ msgstr "Використовує GStreamer 0.8."
-
-#~ msgid "Volume Applet"
-#~ msgstr "Регулятор гучності"
-
-#~ msgid "+"
-#~ msgstr "+"
-
-#~ msgid "-"
-#~ msgstr "-"
-
-#~ msgid "Unknown Volume Control %d"
-#~ msgstr "Невідомий регулятор гучності %d"
-
-#~ msgid "Channel controlled by applet. Only for OSS setups"
-#~ msgstr "Канал контролюється аплетом. Лише для OSS."
-
-#~ msgid "Saved mute state"
-#~ msgstr "Збережено стан з вимкненим звуком"
-
-#~ msgid "Saved volume to restore on startup"
-#~ msgstr "Збережено гучність для відновлення при наступному запуску"
-
-#~ msgid "Volume Control Preferences"
-#~ msgstr "Параметри керування гучністю"
-
-#~ msgid "Select the device and track to control."
-#~ msgstr "Виберіть пристрій та канал для регулювання."
-
-#~ msgid "Activate and monitor a dial-up network connection"
-#~ msgstr "Активує та відображає стан модемного з'єднання"
-
-#
-#~ msgid "Modem Monitor"
-#~ msgstr "Індикатор модему"
-
-#~ msgid "_Activate"
-#~ msgstr "_Активувати"
-
-#~ msgid "_Deactivate"
-#~ msgstr "_Деактивувати"
-
-#~ msgid "_Properties"
-#~ msgstr "В_ластивості"
-
-#~ msgid "Connection active, but could not get connection time"
-#~ msgstr "З'єднання активне, але час з'єднання отримати не вдається"
-
-#~ msgid "Time connected: %.1d:%.2d"
-#~ msgstr "Час з'єднання: %.1d:%.2d"
-
-#~ msgid "Not connected"
-#~ msgstr "Немає з'єднання"
-
-#~ msgid ""
-#~ "To connect to your Internet service provider, you need administrator "
-#~ "privileges"
-#~ msgstr ""
-#~ "Щоб встановити з'єднання з постачальником Інтернет, необхідні привілеї "
-#~ "адміністратора"
-
-#~ msgid ""
-#~ "To disconnect from your Internet service provider, you need administrator "
-#~ "privileges"
-#~ msgstr ""
-#~ "Щоб розірвати з'єднання з постачальником Інтернет, необхідні привілеї "
-#~ "адміністратора"
-
-#~ msgid "The entered password is invalid"
-#~ msgstr "Введено неправильний пароль"
-
-#~ msgid ""
-#~ "Check that you have typed it correctly and that you haven't activated the "
-#~ "\"caps lock\" key"
-#~ msgstr ""
-#~ "Переконайтесь, що пароль введено правильно та клавіша \"caps lock\" не "
-#~ "була активована"
-
-#~ msgid "Do you want to connect?"
-#~ msgstr "Встановити з'єднання?"
-
-#~ msgid "Do you want to disconnect?"
-#~ msgstr "Розірвати з'єднання?"
-
-#~ msgid "C_onnect"
-#~ msgstr "З'_єднатись"
-
-#~ msgid "_Disconnect"
-#~ msgstr "_Роз'єднатись"
-
-#~ msgid "Could not launch network configuration tool"
-#~ msgstr "Не вдається запустити утиліту налаштовування мережі"
-
-#~ msgid ""
-#~ "Check that it's installed in the correct path and that it has the correct "
-#~ "permissions"
-#~ msgstr ""
-#~ "Переконайтесь, що вона встановлена за шляхом пошуку та має правильні "
-#~ "права доступу"
-
-#~ msgid "Applet for activating and monitoring a dial-up network connection."
-#~ msgstr "Аплет для підключення та відображення стану модемних з'єднань."
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Connecting with Internet Service "
-#~ "Provider</span>"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Підключення до постачальника "
-#~ "Інтернет</span>"
-
-#~ msgid "<span weight=\"bold\" size=\"larger\">Root password required</span>"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Вимагається пароль root</span>"
-
-#~ msgid "Enter password"
-#~ msgstr "Введіть пароль"
-
-#~ msgid "Password:"
-#~ msgstr "Пароль:"
-
-#~ msgid "A system load indicator"
-#~ msgstr "Індикатор завантаження системи"
-
-#
-#~ msgid "System Monitor"
-#~ msgstr "Системний монітор"
-
-#
-#~ msgid "_Open System Monitor"
-#~ msgstr "Відкрити _Системний монітор"
-
-#~ msgid ""
-#~ "A system load monitor capable of displaying graphs for CPU, ram, and swap "
-#~ "space use, plus network traffic."
-#~ msgstr ""
-#~ "Монітор навантаження системи відображає графіки використання процесора, "
-#~ "пам'яті, файлу підкачки, дискового простору та мережі."
-
-#~ msgid "There was an error executing '%s': %s"
-#~ msgstr "Помилка при виконанні \"%s\": %s"
-
-#~ msgid "Processor"
-#~ msgstr "Процесор"
-
-#~ msgid "Memory"
-#~ msgstr "Пам'ять"
-
-#~ msgid "Network"
-#~ msgstr "Мережа"
-
-#~ msgid "Swap Space"
-#~ msgstr "Підкачка"
-
-#~ msgid "Load Average"
-#~ msgstr "Середнє завантаження"
-
-#~ msgid "Disk"
-#~ msgstr "Диск"
-
-#~ msgid ""
-#~ "%s:\n"
-#~ "%u%% in use by programs\n"
-#~ "%u%% in use as cache"
-#~ msgstr ""
-#~ "%s:\n"
-#~ "%u%% використовується програмами\n"
-#~ "%u%% використано під кеш"
-
-#~ msgid "The system load average is %0.02f"
-#~ msgstr "Середнє завантаження системи - %0.02f"
-
-#~ msgid ""
-#~ "%s:\n"
-#~ "%u%% in use"
-#~ msgid_plural ""
-#~ "%s:\n"
-#~ "%u%% in use"
-#~ msgstr[0] ""
-#~ "%s:\n"
-#~ "%u%% використовується"
-#~ msgstr[1] ""
-#~ "%s:\n"
-#~ "%u%% використовується"
-#~ msgstr[2] ""
-#~ "%s:\n"
-#~ "%u%% використовується"
-
-#~ msgid "CPU Load"
-#~ msgstr "Завантаження ЦП"
-
-#~ msgid "Memory Load"
-#~ msgstr "Використання пам'яті"
-
-#~ msgid "Net Load"
-#~ msgstr "Завантаження мережі"
-
-#~ msgid "Swap Load"
-#~ msgstr "Завантаження підкачки"
-
-#~ msgid "Disk Load"
-#~ msgstr "Завантаження диска"
-
-#~ msgid "Applet refresh rate in milliseconds"
-#~ msgstr "Частота оновлення аплету (в мілісекундах)"
-
-#~ msgid "Background color for disk load graph"
-#~ msgstr "Колір тла для графіка завантаження диска"
-
-#~ msgid "CPU graph background color"
-#~ msgstr "Колір тла графіка використання ЦП"
-
-#~ msgid "Enable CPU load graph"
-#~ msgstr "Ввімкнути графік використання ЦП"
-
-#~ msgid "Enable disk load graph"
-#~ msgstr "Ввімкнути графік використання диска"
-
-#~ msgid "Enable load average graph"
-#~ msgstr "Ввімкнути графік середнього завантаження"
-
-#~ msgid "Enable memory load graph"
-#~ msgstr "Ввімкнути графік використання пам'яті"
-
-#~ msgid "Enable network load graph"
-#~ msgstr "Ввімкнути графік використання мережі"
-
-#~ msgid "Enable swap load graph"
-#~ msgstr "Ввімкнути графік використання підкачки"
-
-#~ msgid ""
-#~ "For horizontal panels, the width of the graphs in pixels. For vertical "
-#~ "panels, this is the height of the graphs."
-#~ msgstr ""
-#~ "Для горизонтальних панелей — ширина графіка в точках. Для вертикальних — "
-#~ "висота графіка."
-
-#~ msgid "Graph color for Ethernet network activity"
-#~ msgstr "Колір графіка активності в мережі протоколу Ethernet"
-
-#~ msgid "Graph color for PLIP network activity"
-#~ msgstr "Колір графіка активності в мережі протоколу PLIP"
-
-#~ msgid "Graph color for SLIP network activity"
-#~ msgstr "Колір графіка активності в мережі протоколу SLIP"
-
-#~ msgid "Graph color for buffer memory"
-#~ msgstr "Колір графіка буфера пам'яті"
-
-#~ msgid "Graph color for cached memory"
-#~ msgstr "Колір графіка кешованої пам'яті"
-
-#~ msgid "Graph color for disk read"
-#~ msgstr "Колір графіка для читання з диска"
-
-#~ msgid "Graph color for disk write"
-#~ msgstr "Колір графіка для запису на диск"
-
-#~ msgid "Graph color for iowait related CPU activity"
-#~ msgstr "Колір графіка для відображення активності ЦП з урахуванням iowait"
-
-#~ msgid "Graph color for load average"
-#~ msgstr "Колір графіка середньої завантаженості"
-
-#~ msgid "Graph color for nice-related CPU activity"
-#~ msgstr "Колір графіка активності ЦП з урахуванням пріоритету"
-
-#~ msgid "Graph color for other network usage"
-#~ msgstr "Колір графіка іншого використання мережі"
-
-#~ msgid "Graph color for shared memory"
-#~ msgstr "Колір графіка спільної пам'яті"
-
-#~ msgid "Graph color for system-related CPU activity"
-#~ msgstr "Колір графіка системної активності процесора"
-
-#~ msgid "Graph color for user-related CPU activity"
-#~ msgstr "Колір графіка завантаженості процесора користувачем"
-
-#~ msgid "Graph color for user-related memory usage"
-#~ msgstr "Колір графіка використання пам'яті користувачем"
-
-#~ msgid "Graph color for user-related swap usage"
-#~ msgstr "Колір графіка використання підкачки користувачем"
-
-#~ msgid "Graph size"
-#~ msgstr "Розмір графіка"
-
-#~ msgid "Load graph background color"
-#~ msgstr "Колір тла графіка завантаженості"
-
-#~ msgid "Memory graph background color"
-#~ msgstr "Колір тла графіка пам'яті"
-
-#~ msgid "Network graph background color"
-#~ msgstr "Колір тла графіка мережі"
-
-#~ msgid "Swap graph background color"
-#~ msgstr "Колір тла графіка підкачки"
-
-#~ msgid "Monitored Resources"
-#~ msgstr "Ресурси, що контролюються"
-
-#~ msgid "_Processor"
-#~ msgstr "П_роцесор"
-
-#~ msgid "_Memory"
-#~ msgstr "_Пам'ять"
-
-#~ msgid "_Network"
-#~ msgstr "_Мережа"
-
-#~ msgid "S_wap Space"
-#~ msgstr "Під_качка"
-
-#~ msgid "_Load"
-#~ msgstr "З_авантаження"
-
-#~ msgid "_Harddisk"
-#~ msgstr "_Жорсткий диск"
-
-#~ msgid "Options"
-#~ msgstr "Параметри"
-
-#~ msgid "System m_onitor width: "
-#~ msgstr "_Ширина системного монітору:"
-
-#~ msgid "System m_onitor height: "
-#~ msgstr "_Висота системного монітору:"
-
-#~ msgid "Sys_tem monitor update interval: "
-#~ msgstr "Період _оновлення системного монітору:"
-
-#~ msgid "milliseconds"
-#~ msgstr "мс"
-
-#~ msgid "Colors"
-#~ msgstr "Кольори"
-
-#~ msgid "_User"
-#~ msgstr "_Користувач"
-
-#~ msgid "S_ystem"
-#~ msgstr "_Система"
-
-#~ msgid "N_ice"
-#~ msgstr "Пр_іоритеті"
-
-#~ msgid "I_OWait"
-#~ msgstr "I_OWait"
-
-#~ msgid "I_dle"
-#~ msgstr "О_чікування"
-
-#~ msgid "Sh_ared"
-#~ msgstr "_Спільна"
-
-#~ msgid "_Buffers"
-#~ msgstr "_Буфери"
-
-#~ msgid "Cach_ed"
-#~ msgstr "Ке_ш"
-
-#~ msgid "F_ree"
-#~ msgstr "_Вільна"
-
-#~ msgid "_SLIP"
-#~ msgstr "_SLIP"
-
-#~ msgid "PL_IP"
-#~ msgstr "_PLIP"
-
-#~ msgid "_Ethernet"
-#~ msgstr "_Ethernet"
-
-#~ msgid "Othe_r"
-#~ msgstr "_Інше"
-
-#~ msgid "_Background"
-#~ msgstr "_Тло"
-
-#~ msgid "_Used"
-#~ msgstr "В_икористано"
-
-#~ msgid "_Free"
-#~ msgstr "_Вільно"
-
-#~ msgid "Load"
-#~ msgstr "Завантаження"
-
-#~ msgid "_Average"
-#~ msgstr "_Середнє"
-
-#~ msgid "Harddisk"
-#~ msgstr "Жорсткий диск"
-
-#~ msgid "_Read"
-#~ msgstr "_Читання"
-
-#~ msgid "_Write"
-#~ msgstr "_Запис"
-
-#~ msgid "System Monitor Preferences"
-#~ msgstr "Параметри системного монітору"
-
-#~ msgid "CD Player (Deprecated)"
-#~ msgstr "CD-програвач (застарілий)"
-
-#~ msgid "Panel applet for playing audio CDs"
-#~ msgstr "Аплет для програвання музичних компакт-дисків"
-
-#~ msgid "Alert you when new mail arrives"
-#~ msgstr "Повідомляти про прибуття нової пошти"
-
-#~ msgid "Inbox Monitor (Deprecated)"
-#~ msgstr "Індикатор пошти (застарілий)"
-
-#~ msgid "Factory for deprecating applets"
-#~ msgstr "Фабрика для застарілих аплетів"
-
-#~ msgid "Null Applet Factory"
-#~ msgstr "Фабрика нульового аплету"
-
-#~ msgid "Monitor the quality of a wireless network link"
-#~ msgstr "Індикатор якості бездротового зв'язку"
-
-#~ msgid "Wireless Link Monitor"
-#~ msgstr "Індикатор бездротового зв'язку"
-
-#~ msgid "Some panel items are no longer available"
-#~ msgstr "Деякі елементи панелі вже більше недоступні"
-
-#~ msgid ""
-#~ "One or more panel items (also referred to as applets) are no longer "
-#~ "available in the GNOME desktop."
-#~ msgstr ""
-#~ "Один або більше елементів панелі (аплетів) більше недоступні у середовищі "
-#~ "GNOME."
-
-#~ msgid "These items will now be removed from your configuration:"
-#~ msgstr "Ці елементи будуть видалені з вашої конфігурації:"
-
-#~ msgid "You will not receive this message again."
-#~ msgstr "Ви більше не отримаєте це повідомлення."
-
-#~ msgid "Tomboy (ne Stickynotes)"
-#~ msgstr "Tomboy (не Липкі примітки)"
-
-#~ msgid "Tomboy (transparent upgrade from stickynotes)"
-#~ msgstr "Tomboy (прозоре оновлення липких приміток)"
-
-#~ msgid "Create, view, and manage sticky notes on the desktop"
-#~ msgstr "Створення, показ і керування примітками на робочому столі"
-
-#~ msgid "Sticky Notes"
-#~ msgstr "Липкі примітки"
-
-#~ msgid "Sticky Notes Applet Factory"
-#~ msgstr "Фабрика аплету липких приміток"
-
-#~ msgid "Hi_de Notes"
-#~ msgstr "С_ховати примітки"
-
-#~ msgid "_Delete Notes"
-#~ msgstr "Видалити _примітки"
-
-#~ msgid "_Lock Notes"
-#~ msgstr "_Блокувати примітки"
-
-#~ msgid "_New Note"
-#~ msgstr "_Створити примітку"
-
-#~ msgid "This note is locked."
-#~ msgstr "Ця примітка заблокована."
-
-#~ msgid "This note is unlocked."
-#~ msgstr "Ця примітка розблокована."
-
-#~ msgid "    Font C_olor:"
-#~ msgstr "    _Колір шрифту:"
-
-#~ msgid "    Font Co_lor:"
-#~ msgstr "    К_олір шрифту:"
-
-#~ msgid "    Note C_olor:"
-#~ msgstr "    _Колір примітки:"
-
-#~ msgid "    Note _Color:"
-#~ msgstr "    К_олір примітки:"
-
-#~ msgid "    _Font:"
-#~ msgstr "    _Шрифт:"
-
-#~ msgid "<b>Behavior</b>"
-#~ msgstr "<b>Поведінка</b>"
-
-#~ msgid "<b>Default Note Properties</b>"
-#~ msgstr "<b>Початкові властивості примітки</b>"
-
-#~ msgid ""
-#~ "<b>Delete all sticky notes?</b>\n"
-#~ "\n"
-#~ "This cannot be undone."
-#~ msgstr ""
-#~ "<b>Знищити всі примітки?</b>\n"
-#~ "\n"
-#~ "Скасувати зміни буде неможливо."
-
-#~ msgid ""
-#~ "<b>Delete this sticky note?</b>\n"
-#~ "\n"
-#~ "This cannot be undone."
-#~ msgstr ""
-#~ "<b>Знищити цю примітку?</b>\n"
-#~ "\n"
-#~ "Скасувати зміну буде неможливо."
-
-#~ msgid "<b>Properties</b>"
-#~ msgstr "<b>Властивості</b>"
-
-#~ msgid "Choose a base color to use for all sticky notes"
-#~ msgstr "Вибрати основний колір для всіх приміток"
-
-#~ msgid "Choose a color for the note"
-#~ msgstr "Вибрати колір примітки"
-
-#~ msgid "Choose a font for the note"
-#~ msgstr "Вибрати шрифт примітки"
-
-#~ msgid "Choose a font to use for all sticky notes"
-#~ msgstr "Вибрати шрифт для всіх приміток"
-
-#~ msgid "Choose if notes are visible on all workspaces"
-#~ msgstr "Відмітьте для показу приміток на всіх робочих областях"
-
-#~ msgid "Choose if the default style is forced on all notes"
-#~ msgstr "Відмітьте, щоб стандартний стиль застосовувався до всіх приміток"
-
-#~ msgid "Close note"
-#~ msgstr "Закрити приміток"
-
-#~ msgid "Force _default color and font on notes"
-#~ msgstr "С_тандартний колір і шрифт для всіх приміток"
-
-#~ msgid "H_eight:"
-#~ msgstr "_Висота:"
-
-#~ msgid "Lock/Unlock note"
-#~ msgstr "Розблокувати/заблокувати приміток"
-
-#~ msgid "Pick a color for the sticky note"
-#~ msgstr "Вибір кольору приміток"
-
-#~ msgid "Pick a default sticky note color"
-#~ msgstr "Вибір початкового кольору примітки"
-
-#~ msgid "Pick a default sticky note font"
-#~ msgstr "Вибір початкового шрифту примітку"
-
-#~ msgid "Pick a font for the sticky note"
-#~ msgstr "Вибір шрифту примітки"
-
-#~ msgid "Resize note"
-#~ msgstr "Змінити розмір примітки"
-
-#~ msgid "Specify a title for the note"
-#~ msgstr "Вказати заголовок примітки"
-
-#~ msgid "Specify the default height (in pixels) of new notes"
-#~ msgstr "Початкова висота нових приміток (в точках)"
-
-#~ msgid "Specify the default width (in pixels) of new notes"
-#~ msgstr "Початкова висота нових приміток (в точках)"
-
-#~ msgid "Sticky Note"
-#~ msgstr "Липка примітка"
-
-#~ msgid "Sticky Note Properties"
-#~ msgstr "Властивості липкої примітки"
-
-#~ msgid "Sticky Notes Preferences"
-#~ msgstr "Параметри липких приміток"
-
-#~ msgid "Use co_lor from the system theme"
-#~ msgstr "Використовувати ко_лір системної теми"
-
-#~ msgid "Use default co_lor"
-#~ msgstr "Використовувати початковий _колір"
-
-#~ msgid "Use default fo_nt"
-#~ msgstr "Використовувати початковий _шрифт"
-
-#~ msgid "Use fo_nt from the system theme"
-#~ msgstr "Використовувати ш_рифт системної теми"
-
-#~ msgid "_Delete All"
-#~ msgstr "В_идалити всі"
-
-#~ msgid "_Delete Note..."
-#~ msgstr "В_идалити примітку..."
-
-#~ msgid "_Lock Note"
-#~ msgstr "_Блокувати примітку"
-
-#~ msgid "_Put notes on all workspaces"
-#~ msgstr "_Показувати примітки на всіх робочих областях"
-
-#~ msgid "_Title:"
-#~ msgstr "_Заголовок:"
-
-#~ msgid ""
-#~ "By default, sticky notes are given the current date as the title when "
-#~ "they are created. This format is used; anything that can be parsed by "
-#~ "strftime() is valid."
-#~ msgstr ""
-#~ "Зазвичай, новим приміткам призначається заголовок з поточною датою. "
-#~ "Використовується формат, який розпізнає функція strftime()."
-
-#~ msgid "Date format of note's title"
-#~ msgstr "Формат дати заголовка примітки"
-
-#~ msgid "Default color for font"
-#~ msgstr "Типовий колір шрифту"
-
-#~ msgid "Default color for new notes"
-#~ msgstr "Початковий колір нових приміток"
-
-#~ msgid ""
-#~ "Default color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#30FF50\"."
-#~ msgstr ""
-#~ "Початковий колір нових приміток у шістнадцятковому форматі HTML, "
-#~ "наприклад, \"#30FF50\"."
-
-#~ msgid ""
-#~ "Default font color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#000000\"."
-#~ msgstr ""
-#~ "Початковий колір нових приміток у шістнадцятковому форматі HTML, "
-#~ "наприклад, \"#000000\"."
-
-#~ msgid "Default font for new notes"
-#~ msgstr "Початковий шрифт нових приміток"
-
-#~ msgid ""
-#~ "Default font for new sticky notes. This should be a Pango Font Name, for "
-#~ "example \"Sans Italic 10\""
-#~ msgstr ""
-#~ "Початковий шрифт у нових приміток. Це має бути назва шрифту у форматі "
-#~ "Pango, наприклад, \"Sans Italic 10\""
-
-#~ msgid "Default height for new notes"
-#~ msgstr "Початкова висота нових приміток"
-
-#~ msgid "Default height for new sticky notes in pixels."
-#~ msgstr "Початкова висота нових приміток в точках."
-
-#~ msgid "Default width for new notes"
-#~ msgstr "Початкова ширина нових приміток"
-
-#~ msgid "Default width for new sticky notes in pixels."
-#~ msgstr "Початкова ширина нових приміток в точках."
-
-#~ msgid "Empty notes are always deleted without confirmation"
-#~ msgstr "Порожні примітки завжди видаляються без попередження"
-
-#~ msgid ""
-#~ "If this option is disabled, a custom color can be used as the default "
-#~ "color for all sticky notes."
-#~ msgstr ""
-#~ "Якщо цей параметр вимкнено, то власний колір може бути використано в "
-#~ "якості стандартного кольору для всіх приміток."
-
-#~ msgid ""
-#~ "If this option is disabled, a custom font can be used as the default font "
-#~ "for all sticky notes."
-#~ msgstr ""
-#~ "Якщо цей параметр вимкнено, то власний шрифт може бути використано в "
-#~ "якості стандартного кольору для всіх приміток."
-
-#~ msgid ""
-#~ "If this option is enabled, the custom colors and fonts that have been "
-#~ "assigned to individual notes will be ignored."
-#~ msgstr ""
-#~ "Якщо цей параметр увімкнено, то власні призначені приміткам кольори і "
-#~ "шрифти будуть ігноруватись."
-
-#~ msgid "Specifies whether the sticky notes are locked (non-editable) or not."
-#~ msgstr "Визначає, чи примітки заблоковані (їх заборонено редагувати)."
-
-#~ msgid ""
-#~ "Specifies whether the sticky notes are visible on ALL workspaces on the "
-#~ "desktop, or not."
-#~ msgstr ""
-#~ "Визначає, чи показуються примітки на всіх робочих областях робочого столу."
-
-#~ msgid "Sticky notes' locked state"
-#~ msgstr "Заблокований стан приміток"
-
-#~ msgid "Sticky notes' workspace stickyness"
-#~ msgstr "Липкість приміток до робочої області"
-
-#~ msgid "Whether to ask for confirmation when deleting a note"
-#~ msgstr "Чи запитувати підтвердження перед знищенням нотатки"
-
-#~ msgid "Whether to force the default color and font on all notes"
-#~ msgstr "Чи застосовувати стандартний колір та шрифт до всіх приміток"
-
-#~ msgid "Whether to use the default system color"
-#~ msgstr "Чи використовувати типовий системний колір"
-
-#~ msgid "Whether to use the default system font"
-#~ msgstr "Чи використовувати типовий системний шрифт"
-
-#~ msgid "%d note"
-#~ msgid_plural "%d notes"
-#~ msgstr[0] "%d нотатка"
-#~ msgstr[1] "%d нотатки"
-#~ msgstr[2] "%d приміток"
-
-#~ msgid "Show sticky notes"
-#~ msgstr "Показує липкі нотаки"
-
-#~ msgid "Sticky Notes for the GNOME Desktop Environment"
-#~ msgstr "\"Липкі\" нотатки для середовища GNOME"
-
-#~ msgid "Go to Trash"
-#~ msgstr "Перейти у смітник"
-
-#~ msgid "Trash"
-#~ msgstr "Смітник"
-
-#~ msgid "_Empty Trash"
-#~ msgstr "О_чистити смітник"
-
-#~ msgid "_Open"
-#~ msgstr "_Відкрити"
-
-#~ msgid "Unable to find the Trash directory: %s"
-#~ msgstr "Не вдається знайти каталог смітника: %s"
-
-#~ msgid "No Items in Trash"
-#~ msgstr "У смітнику немає елементів"
-
-#~ msgid "%d Item in Trash"
-#~ msgid_plural "%d Items in Trash"
-#~ msgstr[0] "%d елемент у смітнику"
-#~ msgstr[1] "%d елементи у смітнику"
-#~ msgstr[2] "%d елементів у смітнику"
-
-#~ msgid "Removing item %d of %d"
-#~ msgstr "Видалення елементу %d з %d"
-
-#~ msgid "Removing:"
-#~ msgstr "Видалення:"
-
-#~ msgid "Empty all of the items from the trash?"
-#~ msgstr "Очистити усі елементи зі смітника?"
-
-#~ msgid ""
-#~ "If you choose to empty the trash, all items in it will be permanently "
-#~ "lost. Please note that you can also delete them separately."
-#~ msgstr ""
-#~ "Якщо ви очистите смітник, елементи будуть видалені остаточно. Зауважте, "
-#~ "їх також можна видаляти по одному."
-
-#~ msgid ""
-#~ "Error while spawning nautilus:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Помилка запуску nautilus:\n"
-#~ "%s"
-
-#~ msgid "Trash Applet"
-#~ msgstr "Аплет смітника"
-
-#~ msgid ""
-#~ "A GNOME trash bin that lives in your panel. You can use it to view the "
-#~ "trash or drag and drop items into the trash."
-#~ msgstr ""
-#~ "Смітник середовища GNOME, яка живе у вашій панелі. Ви можете "
-#~ "використовувати її для перегляду корзини або перетягування у неї "
-#~ "елементів."
-
-#~ msgid "Delete Immediately?"
-#~ msgstr "Видалити остаточно?"
-
-#~ msgid "Cannot move items to trash, do you want to delete them immediately?"
-#~ msgstr "Не вдається перемістити елементи в смітник, видалити їх остаточно?"
-
-#~ msgid ""
-#~ "Cannot move some items to trash, do you want to delete these immediately?"
-#~ msgstr "Не вдається перемістити елементи в смітник, видалити їх остаточно?"
-
-#~ msgid ""
-#~ "Unable to move to trash:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Не вдається перемістити у смітник:\n"
-#~ "%s"
-
-#~ msgid "<b>From:</b>"
-#~ msgstr " <b>З:</b>"
-
-#~ msgid "<big><b>Emptying the Trash</b></big>"
-#~ msgstr "<big><b>Очищення смітника</b></big>"
-
-#~ msgid "Emptying the Trash"
-#~ msgstr "Очищення смітника"
-
-#~ msgid "Mode to show the frequency selector drop down menu"
-#~ msgstr "Режим показу розкривного меню індикатора частоти"
-
-#~ msgid "<b>Frequency Selector</b>"
-#~ msgstr "<b>Вибір частоти</b>"
-
-#~ msgid "Show m_enu:"
-#~ msgstr "Показувати _меню:"
-
-#~ msgid "Frequencies"
-#~ msgstr "Частоти"
-
-#~ msgid "Governors"
-#~ msgstr "Регулятори"
-
-#~ msgid "Frequencies and Governors"
-#~ msgstr "Частоти та регулятори"
-
-#~ msgid "_Frequencies"
-#~ msgstr "_Частоти"
-
-#~ msgid "_Governors"
-#~ msgstr "_Регулятори"
-
-#~ msgid "No description."
-#~ msgstr "Немає опису."
-
-#~ msgid "Failed to init GConf: %s\n"
-#~ msgstr "Помилка ініціалізації GConf: %s\n"
-
-#~ msgid "Activate more plugins"
-#~ msgstr "Активувати додаткові модулі"
-
-#~ msgid "Active _plugins:"
-#~ msgstr "Активні _модулі:"
-
-#~ msgid "Add Plugin"
-#~ msgstr "Додавання модуля"
-
-#~ msgid "Close the dialog"
-#~ msgstr "Закрити вікно"
-
-#~ msgid "Configure the selected plugin"
-#~ msgstr "Настроїти вибраний модуль"
-
-#~ msgid "Deactivate selected plugin"
-#~ msgstr "Де-активувати вибраний модуль"
-
-#~ msgid "Decrease the plugin priority"
-#~ msgstr "Зменшити пріоритет модуля"
-
-#~ msgid "Increase the plugin priority"
-#~ msgstr "Збільшити пріоритет модуля"
-
-#~ msgid "Keyboard Indicator Plugins"
-#~ msgstr "Модулі індикатора клавіатури"
-
-#~ msgid "The list of active plugins"
-#~ msgstr "Перелік активних модулів"
-
-#~ msgid "_Available plugins:"
-#~ msgstr "_Наявні модулі:"
-
-#~ msgid "Keyboard Indicator Test (%s)"
-#~ msgstr "Перевірка індикатора клавіатури (%s)"
-
-#~ msgid "Indicator:"
-#~ msgstr "Індикатор:"
-
-#~ msgid "layout \"%s\""
-#~ msgid_plural "layouts \"%s\""
-#~ msgstr[0] "розкладка \"%s\""
-#~ msgstr[1] "розкладки \"%s\""
-#~ msgstr[2] "розкладок \"%s\""
-
-#~ msgid "option \"%s\""
-#~ msgid_plural "options \"%s\""
-#~ msgstr[0] "параметр \"%s\""
-#~ msgstr[1] "параметри \"%s\""
-#~ msgstr[2] "параметрів \"%s\""
-
-#~ msgid "model \"%s\", %s and %s"
-#~ msgstr "модель \"%s\", %s та %s"
-
-#~ msgid "no layout"
-#~ msgstr "немає розкладки"
-
-#~ msgid "no options"
-#~ msgstr "немає параметрів"
-
-#~ msgid "Enable/disable installed plugins"
-#~ msgstr "Увімкнути/вимкнути встановлені модулі"
-
-#~ msgid "Keyboard Indicator plugins"
-#~ msgstr "Модулі індикатора клавіатури"
-
-#~ msgid "Autosave timeout in minutes"
-#~ msgstr "Інтервал автоматичного збереження в хвилинах"
-
-#~ msgid ""
-#~ "Every time the specified number of minutes pass, the sticky notes are "
-#~ "automatically saved."
-#~ msgstr ""
-#~ "Липкі примітки автоматично зберігаються через вказаний інтервал часу (у "
-#~ "хвилинах)."
-
-#~ msgid "Pl_ugins"
-#~ msgstr "М_одулі"
-
-#~ msgid "_Layout View"
-#~ msgstr "_Розкладки"
-
-#~ msgid "XKB initialization error"
-#~ msgstr "Помилка ініціалізації XKB"
-
-#~ msgid "Error loading XKB configuration registry"
-#~ msgstr "Помилка завантаження реєстру конфігурації XKB"
-
-#~ msgid "Get continuously updated stock quotes"
-#~ msgstr "Отримує свіжі біржові котирування"
-
-#~ msgid "Gtik Applet Factory"
-#~ msgstr "Фабрика аплету Gtik"
-
-#~ msgid "Stock Ticker"
-#~ msgstr "Стрічка біржових новин"
-
-#~ msgid "Could not retrieve the stock data."
-#~ msgstr "Не вдається отримати біржові дані."
-
-#~ msgid "No stock list"
-#~ msgstr "Біржові дані відсутні"
-
-#~ msgid ""
-#~ "This program connects to a popular site and downloads current stock "
-#~ "quotes.\n"
-#~ "\n"
-#~ "The GNOME Stock Ticker is a free Internet-based application. It comes "
-#~ "with ABSOLUTELY NO WARRANTY.\n"
-#~ "\n"
-#~ "Do not use the GNOME Stock Ticker for making investment decisions; it is "
-#~ "for informational purposes only."
-#~ msgstr ""
-#~ "Ця програма з'єднується з популярними сайтами та звантажує біржові "
-#~ "котирування.\n"
-#~ "GNOME Стрічка біржових новин - це вільна програма, що ґрунтується на "
-#~ "Internet. Вона надається БЕЗ БУДЬ-ЯКИХ ГАРАНТІЙ. Не використовуйте "
-#~ "Стрічку біржових новин для прийняття рішень про капіталовкладення; вона "
-#~ "лише для інформаційних цілей."
-
-#~ msgid "Current _stocks:"
-#~ msgstr "Поточні _котирування:"
-
-#~ msgid "Stock Ticker Preferences"
-#~ msgstr "Параметри біржових котирувань"
-
-#~ msgid "Behavior"
-#~ msgstr "Поведінка"
-
-#~ msgid "Stock update fre_quency:"
-#~ msgstr "_Частота оновлення котирувань:"
-
-#~ msgid "_Scroll speed:"
-#~ msgstr "_Швидкість прокручування:"
-
-#~ msgid "Slow"
-#~ msgstr "Повільно"
-
-#~ msgid "Medium"
-#~ msgstr "Помірно"
-
-#~ msgid "Fast"
-#~ msgstr "Швидко"
-
-#~ msgid "_Enable scroll buttons"
-#~ msgstr "_Увімкнути кнопки прокручування"
-
-#~ msgid "Scroll _left to right"
-#~ msgstr "Прокручувати з_ліва направо"
-
-#~ msgid "Appearance"
-#~ msgstr "Вигляд"
-
-#~ msgid "Displa_y only symbols and price"
-#~ msgstr "_Показувати лише символи та вартість"
-
-#~ msgid "Font and Colors"
-#~ msgstr "Шрифт та кольори"
-
-#~ msgid "Use _default theme font and colors"
-#~ msgstr "_Використовувати звичайні кольори та шрифт теми"
-
-#~ msgid "_Font:"
-#~ msgstr "_Шрифт:"
-
-#~ msgid "Stock _raised:"
-#~ msgstr "Котирування з_росли:"
-
-#~ msgid "Stock _lowered:"
-#~ msgstr "Котирування вп_али:"
-
-#~ msgid "Stock _unchanged:"
-#~ msgstr "Котирування _не змінились:"
-
-#~ msgid "_Background:"
-#~ msgstr "_Тло:"
-
-#~ msgid "Skip forward"
-#~ msgstr "Наступна"
-
-#~ msgid "Skip backward"
-#~ msgstr "Попередня"
-
-#~ msgid ""
-#~ "Stock Ticker\n"
-#~ "Get continuously updated stock quotes"
-#~ msgstr ""
-#~ "Стрічка біржових новин\n"
-#~ "Постійно отримує свіжі біржові курси"
-
-#~ msgid "+%s (%s)"
-#~ msgstr "+%s (%s)"
-
-#~ msgid "%s (%s)"
-#~ msgstr "%s (%s)"
-
-#~ msgid "(No Change)"
-#~ msgstr "(Без змін)"
-
-#~ msgid "Applet scrolls right to left when this key is set to true."
-#~ msgstr ""
-#~ "Якщо це встановлено, то прокручування відбуватиметься справа наліво."
-
-#~ msgid "Background color"
-#~ msgstr "Колір тла"
-
-#~ msgid ""
-#~ "Display only stock symbols along with their value. Do not display changes "
-#~ "in value."
-#~ msgstr ""
-#~ "Показувати лише біржові символи з їх вартістю. Не показувати зміни у "
-#~ "вартості."
-
-#~ msgid "Display only symbols and price"
-#~ msgstr "Показувати лише символи та їх вартість"
-
-#~ msgid "Font"
-#~ msgstr "Шрифт"
-
-#~ msgid ""
-#~ "List containing the stocks to be displayed. Consists of the stock id "
-#~ "separated by \"+\""
-#~ msgstr ""
-#~ "Список котирувань, що відображатимуться. Складається з ідентифікаторів "
-#~ "котирувань розділених знаком \"+\""
-
-#~ msgid "Lowered color"
-#~ msgstr "Колір спадаючих"
-
-#~ msgid "Raised color"
-#~ msgstr "Колір тих, що підвищились"
-
-#~ msgid "Right to left scrolling"
-#~ msgstr "Прокручування справа наліво"
-
-#~ msgid "Shorter time means the stocks scroll by faster."
-#~ msgstr "Менші значення часу означають швидший рух."
-
-#~ msgid "Show arrow buttons"
-#~ msgstr "Показувати кнопки зі стрілками"
-
-#~ msgid ""
-#~ "Show arrow buttons on the side of the display so that the user can scroll "
-#~ "forward or backward."
-#~ msgstr ""
-#~ "Показувати кнопки зі стрілками з боків, щоб користувач міг прокручувати "
-#~ "вперед і назад."
-
-#~ msgid "Stocks to monitor - must be separated by a +"
-#~ msgstr "Контрольовані котирування - необхідно розділяти знаком +"
-
-#~ msgid ""
-#~ "The color of the background of the display. Has no effect when the user "
-#~ "chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Колір тла дисплея. Не матиме ефекту, якщо користувач вказав "
-#~ "використовувати кольори і шрифти теми."
-
-#~ msgid ""
-#~ "The color used when the stock's values has lowered. Has no effect when "
-#~ "the user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Колір котирування, курс якої знизився. Не матиме ефекту, якщо користувач "
-#~ "вказав використовувати кольори і шрифти теми."
-
-#~ msgid ""
-#~ "The color used when the stock's values has not changed. Has no effect "
-#~ "when the user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Колір котирування, курс якої не змінився. Не матиме ефекту, якщо "
-#~ "користувач вказав використовувати кольори і шрифти теми."
-
-#~ msgid ""
-#~ "The color used when the stock's values has raised. Has no effect when the "
-#~ "user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Колір котирування, курс якої зріс. Не матиме ефекту, якщо користувач "
-#~ "вказав використовувати кольори і шрифти теми."
-
-#~ msgid ""
-#~ "The font used for the display. Has no effect when the user chooses to use "
-#~ "the default theme fonts and colors."
-#~ msgstr ""
-#~ "Шрифт для дисплея. Не матиме ефекту, якщо користувач вказав "
-#~ "використовувати кольори і шрифти теми."
-
-#~ msgid "The time interval until when the applet updates the stock data."
-#~ msgstr "Період оновлення біржових даних."
-
-#~ msgid "The width in pixels of the applet."
-#~ msgstr "Ширина аплету (в точках)."
-
-#~ msgid "Time in milliseconds for display update"
-#~ msgstr "Час оновлення дисплея (в мілісекундах)"
-
-#~ msgid "Unchanged color"
-#~ msgstr "Колір незмінених"
-
-#~ msgid "Use default theme fonts and colors"
-#~ msgstr "Використовувати звичайні кольори і шрифти теми"
-
-#~ msgid "Use default theme fonts and colors instead of custom ones"
-#~ msgstr "Використовувати шрифт і кольори теми"
-
-#~ msgid "font 2 - No Longer used"
-#~ msgstr "Шрифт 2 - вже не використовується"
-
-#~ msgid "There was an error loading an image: %s"
-#~ msgstr "Помилка завантаження зображення: %s"
-
-#~ msgid "_Show in mode:"
-#~ msgstr "_Показувати у режимі:"
-
-#~ msgid "translator_credits"
-#~ msgstr ""
-#~ "Юрій Сирота <yuri@beer.com>\n"
-#~ "Максим Дзюманенко <dziumanenko@gmail.com>"
-
-#~ msgid "GNOME keyboard applet factory"
-#~ msgstr "Фабрика аплетів клавіатури"
-
-#~ msgid "A GNOME/GStreamer-based volume control applet"
-#~ msgstr "Аплет регулятора гучності на основі GNOME/GStreamer"
