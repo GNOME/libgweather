@@ -3,7 +3,7 @@ AC_PREREQ(2.59)
 
 AM_CONFIG_HEADER(config.h)
 AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-bzip2])
-AC_CONFIG_MACRO_DIR([m4])
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
 # Before making a release, the LT_VERSION string should be modified.
 # The string is of the form C:R:A.
@@ -245,15 +245,11 @@ AC_SUBST(GLADEDIR)
 ##################################################
 GTK_DOC_CHECK([1.9])
 
-SHAVE_INIT([.], [enable])
-
 dnl ***************************************************************************
 dnl *** Output Makefiles et al                                              ***
 dnl ***************************************************************************
 AC_OUTPUT([
 Makefile
-shave
-shave-libtool
 doc/Makefile
 po/Makefile.in
 po-locations/Makefile

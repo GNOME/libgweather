@@ -1,5 +1,3 @@
-QUIET_GEN = $(Q:@=@echo '  GEN   '$@;)
-
 libgweatherdtddir = $(pkgdatadir)
 libgweatherdtd_DATA = locations.dtd
 
@@ -13,7 +11,7 @@ LOCATIONS_STAMP =
 libgweatherlocations_DATA = $(libgweatherlocations_in_files:.xml.in=.xml$(COMPRESS_EXT))
 
 %.xml$(COMPRESS_EXT): %.xml.in $(wildcard $(top_srcdir)/po-locations/*.po)
-	$(QUIET_GEN)LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po-locations/.intltool-merge-cache $(top_srcdir)/po-locations $< `echo $@ | sed "s/.xml$(COMPRESS_EXT)/.xml/"` && \
+	$(AM_V_GEN)LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po-locations/.intltool-merge-cache $(top_srcdir)/po-locations $< `echo $@ | sed "s/.xml$(COMPRESS_EXT)/.xml/"` && \
 	if test "x$(COMPRESS_EXT)" = "x.gz"; then				\
 		gzip --force `echo $@ | sed "s/.xml$(COMPRESS_EXT)/.xml/"`;	\
 	fi
@@ -35,7 +33,7 @@ libgweatherlocations_DATA = $(shell echo $(PO_LOCATIONS) | sed "s|$(top_srcdir)/
 $(libgweatherlocations_DATA): $(LOCATIONS_STAMP)
 
 $(LOCATIONS_STAMP): $(libgweatherlocations_in_files) $(PO_LOCATIONS) Makefile
-	LC_ALL=C $(INTLTOOL_MERGE) --multiple-output --xml-style --utf8 --cache=$(top_builddir)/po-locations/.intltool-merge-cache $(top_srcdir)/po-locations $< $(libgweatherlocations_data) && \
+	$(AM_V_at)LC_ALL=C $(INTLTOOL_MERGE) --multiple-output --xml-style --utf8 --cache=$(top_builddir)/po-locations/.intltool-merge-cache $(top_srcdir)/po-locations $< $(libgweatherlocations_data) && \
 	for pofile in $(PO_LOCATIONS); do \
 		locale=`echo $$pofile | sed "s;$(top_srcdir)/po-locations/\(.*\)\.po;\1;"`;	\
 		xmllint --noblanks -o Locations.$$locale.xml $$locale/$(libgweatherlocations_data); \
@@ -61,10 +59,10 @@ check:
 
 ### Locations.xml.in rebuild
 rebuild-locations: locationdb.sqlite update-locations.py
-	$(QUIET_GEN)($(srcdir)/update-locations.py > Locations.xml.in.new && mv Locations.xml.in.new Locations.xml.in) || rm -f Locations.xml.in.new
+	$(AM_V_GEN)($(srcdir)/update-locations.py > Locations.xml.in.new && mv Locations.xml.in.new Locations.xml.in) || rm -f Locations.xml.in.new
 
 locationdb.sqlite: build-locationdb.pl major-cities.txt sources/nsd_cccc.txt sources/POP_PLACES.txt sources/US_CONCISE.txt sources/geonames_dd_dms_date_*.txt city-fixups.pl station-fixups.pl
-	$(QUIET_GEN)$(srcdir)/build-locationdb.pl
+	$(AM_V_GEN)$(srcdir)/build-locationdb.pl
 
 EXTRA_DIST =	\
 	$(libgweatherlocations_in_files)	\

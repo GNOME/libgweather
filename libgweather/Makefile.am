@@ -1,5 +1,3 @@
-QUIET_GEN = $(Q:@=@echo '  GEN   '$@;)
-
 lib_LTLIBRARIES = libgweather.la
 
 libgweatherincdir = $(includedir)/libgweather
@@ -64,13 +62,13 @@ libgweather_la_LDFLAGS = \
 MKENUMS_GENERATED = gweather-enum-types.c gweather-enum-types.h
 
 gweather-enum-types.h: $(gweather_new_headers)
-	$(QUIET_GEN)( cd $(srcdir) && $(GLIB_MKENUMS) --template gweather-enum-types.h.tmpl \
+	$(AM_V_GEN)( cd $(srcdir) && $(GLIB_MKENUMS) --template gweather-enum-types.h.tmpl \
 		$(gweather_new_headers) ) > gweather-enum-types.h.tmp \
 	&& mv gweather-enum-types.h.tmp gweather-enum-types.h \
 	|| rm -f gweather-enum-type.h.tmp
 
 gweather-enum-types.c: $(libgweatherinclude_HEADERS)
-	$(QUIET_GEN)( cd $(srcdir) && $(GLIB_MKENUMS) --template gweather-enum-types.c.tmpl \
+	$(AM_V_GEN)( cd $(srcdir) && $(GLIB_MKENUMS) --template gweather-enum-types.c.tmpl \
 		$(gweather_new_headers) ) > gweather-enum-types.c.tmp \
 	&& mv gweather-enum-types.c.tmp gweather-enum-types.c \
 	|| rm -f gweather-enum-type.c.tmp
