@@ -11,7 +11,6 @@ gweather_la_LIBADD = ../libgweather/libgweather.la
 gweather_la_SOURCES = gweathermodule.c
 nodist_gweather_la_SOURCES = gweather.c
 gweather.c: gweather.defs gweather.override
-CLEANFILES = gweather.c
 
 .defs.c:
 	$(AM_V_GEN)(cd $(srcdir)\
@@ -31,5 +30,7 @@ install-exec-hook:
 endif
 
 EXTRA_DIST = gweather.defs gweather.override bad__init__.py demo.py
+
+CLEANFILES = gweather.c
 
 -include $(top_srcdir)/git.mk
