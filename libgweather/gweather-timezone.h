@@ -43,6 +43,8 @@ int               gweather_timezone_get_dst_offset (GWeatherTimezone *zone);
 GWeatherTimezone *gweather_timezone_ref            (GWeatherTimezone *zone);
 void              gweather_timezone_unref          (GWeatherTimezone *zone);
 
+GWeatherTimezone *gweather_timezone_get_utc        (void);
+
 G_END_DECLS
 
 #endif /* __GWEATHER_TIMEZONE_H__ */

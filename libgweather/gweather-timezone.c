@@ -27,6 +27,7 @@
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-timezone.h"
 #include "parser.h"
+#include "weather-priv.h"
 
 /**
  * GWeatherTimezone:
@@ -293,6 +294,29 @@ gweather_timezone_get_type (void)
 	g_once_init_leave (&type_volatile, type);
     }
     return type_volatile;
+}
+
+/**
+ * gweather_timezone_get_utc:
+ *
+ * Gets the UTC timezone.
+ *
+ * Return value: a #GWeatherTimezone for UTC, or %NULL on error.
+ **/
+GWeatherTimezone *
+gweather_timezone_get_utc (void)
+{
+    GWeatherTimezone *zone = NULL;
+
+    zone = g_slice_new0 (GWeatherTimezone);
+    zone->ref_count = 1;
+    zone->id = g_strdup ("GMT");
+    zone->name = g_strdup (_("Greenwich Mean Time"));
+    zone->offset = 0;
+    zone->has_dst = FALSE;
+    zone->dst_offset = 0;
+
+    return zone;
 }
 
 /**
