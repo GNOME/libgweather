@@ -67,6 +67,7 @@ static gboolean match_selected (GtkEntryCompletion *completion,
 				GtkTreeModel       *model,
 				GtkTreeIter        *iter,
 				gpointer            entry);
+static void     entry_changed (GWeatherLocationEntry *entry);
 
 static void
 gweather_location_entry_init (GWeatherLocationEntry *entry)
@@ -84,6 +85,10 @@ gweather_location_entry_init (GWeatherLocationEntry *entry)
 
     gtk_entry_set_completion (GTK_ENTRY (entry), completion);
     g_object_unref (completion);
+
+    entry->custom_text = FALSE;
+    g_signal_connect (entry, "changed",
+		      G_CALLBACK (entry_changed), NULL);
 }
 
 static void
@@ -159,6 +164,12 @@ get_property (GObject *object, guint prop_id,
 }
 
 static void
+entry_changed (GWeatherLocationEntry *entry)
+{
+    entry->custom_text = TRUE;
+}
+
+static void
 set_location_internal (GWeatherLocationEntry *entry,
 		       GtkTreeModel          *model,
 		       GtkTreeIter           *iter)
@@ -176,10 +187,12 @@ set_location_internal (GWeatherLocationEntry *entry,
 			    -1);
 	entry->location = gweather_location_ref (loc);
 	gtk_entry_set_text (GTK_ENTRY (entry), name);
+	entry->custom_text = FALSE;
 	g_free (name);
     } else {
 	entry->location = NULL;
 	gtk_entry_set_text (GTK_ENTRY (entry), "");
+	entry->custom_text = TRUE;
     }
 
     gtk_editable_select_region (GTK_EDITABLE (entry), 0, -1);
@@ -243,6 +256,25 @@ gweather_location_entry_get_location (GWeatherLocationEntry *entry)
 	return gweather_location_ref (entry->location);
     else
 	return NULL;
+}
+
+/**
+ * gweather_location_entry_has_custom_text:
+ * @entry: a #GWeatherLocationEntry
+ *
+ * Checks whether or not @entry's text has been modified by the user.
+ * Note that this does not mean that no location is associated with @entry.
+ * gweather_location_entry_get_location() should be used for this.
+ *
+ * Return value: %TRUE if @entry's text was modified by the user, or %FALSE if
+ * it's set to the default text of a location.
+ **/
+gboolean
+gweather_location_entry_has_custom_text (GWeatherLocationEntry *entry)
+{
+    g_return_val_if_fail (GWEATHER_IS_LOCATION_ENTRY (entry), FALSE);
+
+    return entry->custom_text;
 }
 
 /**

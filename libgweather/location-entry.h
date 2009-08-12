@@ -36,6 +36,7 @@ typedef struct {
 
     /*< private >*/
     GWeatherLocation *location, *top;
+    guint custom_text : 1;
 } GWeatherLocationEntry;
 
 typedef struct {
@@ -50,6 +51,8 @@ GtkWidget        *gweather_location_entry_new          (GWeatherLocation      *t
 void              gweather_location_entry_set_location (GWeatherLocationEntry *entry,
 							GWeatherLocation      *loc);
 GWeatherLocation *gweather_location_entry_get_location (GWeatherLocationEntry *entry);
+
+gboolean          gweather_location_entry_has_custom_text (GWeatherLocationEntry *entry);
 
 gboolean          gweather_location_entry_set_city     (GWeatherLocationEntry *entry,
 							const char            *city_name,
