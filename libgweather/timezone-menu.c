@@ -210,6 +210,25 @@ get_offset (GWeatherTimezone *zone)
 }
 
 static void
+insert_location (GtkTreeStore *store, GWeatherTimezone *zone, const char *loc_name, GtkTreeIter *parent)
+{
+    GtkTreeIter iter;
+    char *name, *offset;
+
+    offset = get_offset (zone);
+    name = g_strdup_printf ("%s <small>(%s)</small>",
+                            loc_name ? loc_name : gweather_timezone_get_name (zone),
+                            offset);
+    gtk_tree_store_append (store, &iter, parent);
+    gtk_tree_store_set (store, &iter,
+                        GWEATHER_TIMEZONE_MENU_NAME, name,
+                        GWEATHER_TIMEZONE_MENU_ZONE, gweather_timezone_ref (zone),
+                        -1);
+    g_free (name);
+    g_free (offset);
+}
+
+static void
 insert_locations (GtkTreeStore *store, GWeatherLocation *loc)
 {
     int i;
@@ -223,8 +242,7 @@ insert_locations (GtkTreeStore *store, GWeatherLocation *loc)
 	gweather_location_free_children (loc, children);
     } else {
 	GWeatherTimezone **zones;
-	GtkTreeIter iter, ziter;
-	char *name, *offset;
+	GtkTreeIter iter;
 
 	zones = gweather_location_get_timezones (loc);
 	if (zones[1]) {
@@ -234,30 +252,10 @@ insert_locations (GtkTreeStore *store, GWeatherLocation *loc)
 				-1);
 
 	    for (i = 0; zones[i]; i++) {
-		offset = get_offset (zones[i]);
-		name = g_strdup_printf ("%s <small>(%s)</small>",
-					gweather_timezone_get_name (zones[i]),
-					offset);
-		gtk_tree_store_append (store, &ziter, &iter);
-		gtk_tree_store_set (store, &ziter,
-				    GWEATHER_TIMEZONE_MENU_NAME, name,
-				    GWEATHER_TIMEZONE_MENU_ZONE, gweather_timezone_ref (zones[i]),
-				    -1);
-		g_free (name);
-		g_free (offset);
+                insert_location (store, zones[i], NULL, &iter);
 	    }
 	} else if (zones[0]) {
-	    offset = get_offset (zones[0]);
-	    name = g_strdup_printf ("%s <small>(%s)</small>",
-				    gweather_location_get_name (loc),
-				    offset);
-	    gtk_tree_store_append (store, &iter, NULL);
-	    gtk_tree_store_set (store, &iter,
-				GWEATHER_TIMEZONE_MENU_NAME, name,
-				GWEATHER_TIMEZONE_MENU_ZONE, gweather_timezone_ref (zones[0]),
-				-1);
-	    g_free (name);
-	    g_free (offset);
+            insert_location (store, zones[0], gweather_location_get_name (loc), NULL);
 	}
 
 	gweather_location_free_timezones (loc, zones);
@@ -271,6 +269,7 @@ gweather_timezone_model_new (GWeatherLocation *top)
     GtkTreeModel *model;
     GtkTreeIter iter;
     char *unknown;
+    GWeatherTimezone *utc;
 
     store = gtk_tree_store_new (2, G_TYPE_STRING, G_TYPE_POINTER);
     model = GTK_TREE_MODEL (store);
@@ -282,6 +281,13 @@ gweather_timezone_model_new (GWeatherLocation *top)
 			GWEATHER_TIMEZONE_MENU_NAME, unknown,
 			GWEATHER_TIMEZONE_MENU_ZONE, NULL,
 			-1);
+
+    utc = gweather_timezone_get_utc ();
+    if (utc) {
+        insert_location (store, utc, NULL, NULL);
+        gweather_timezone_unref (utc);
+    }
+
     gtk_tree_store_append (store, &iter, NULL);
 
     g_free (unknown);
