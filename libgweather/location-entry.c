@@ -254,8 +254,11 @@ gweather_location_entry_get_location (GWeatherLocationEntry *entry)
  * Sets @entry's location to a city with the given @code, and given
  * @city_name, if non-%NULL. If there is no matching city, sets
  * @entry's location to %NULL.
+ *
+ * Return value: %TRUE if @entry's location could be set to a matching city,
+ * %FALSE otherwise.
  **/
-void
+gboolean
 gweather_location_entry_set_city (GWeatherLocationEntry *entry,
 				  const char            *city_name,
 				  const char            *code)
@@ -267,8 +270,8 @@ gweather_location_entry_set_city (GWeatherLocationEntry *entry,
     const char *cmpcode;
     char *cmpname;
 
-    g_return_if_fail (GWEATHER_IS_LOCATION_ENTRY (entry));
-    g_return_if_fail (code != NULL);
+    g_return_val_if_fail (GWEATHER_IS_LOCATION_ENTRY (entry), FALSE);
+    g_return_val_if_fail (code != NULL, FALSE);
 
     completion = gtk_entry_get_completion (GTK_ENTRY (entry));
     model = gtk_entry_completion_get_model (completion);
@@ -293,10 +296,12 @@ gweather_location_entry_set_city (GWeatherLocationEntry *entry,
 	}
 
 	set_location_internal (entry, model, &iter);
-	return;
+	return TRUE;
     } while (gtk_tree_model_iter_next (model, &iter));
 
     set_location_internal (entry, model, NULL);
+
+    return FALSE;
 }
 
 static void

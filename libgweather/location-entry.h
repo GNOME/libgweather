@@ -51,7 +51,7 @@ void              gweather_location_entry_set_location (GWeatherLocationEntry *e
 							GWeatherLocation      *loc);
 GWeatherLocation *gweather_location_entry_get_location (GWeatherLocationEntry *entry);
 
-void              gweather_location_entry_set_city     (GWeatherLocationEntry *entry,
+gboolean          gweather_location_entry_set_city     (GWeatherLocationEntry *entry,
 							const char            *city_name,
 							const char            *code);
 
