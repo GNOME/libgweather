@@ -10,14 +10,14 @@
 # Miguel de Icaza,computo,622-4680 <miguel@metropolis.nuclecu.unam.mx> 1998.
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2003-2006.
 # Tatiana Gutiérrez Bunster <tgutierr@ubiobio.cl>, 2003.
-# Jorge González <jorgegonz@svn.gnome.org>, 2007, 200, 2009.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "applets&component=gweather\n"
-"POT-Creation-Date: 2009-06-22 19:32+0000\n"
-"PO-Revision-Date: 2009-06-27 13:41+0200\n"
+"POT-Creation-Date: 2009-08-12 09:02+0000\n"
+"PO-Revision-Date: 2009-08-13 16:13+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -225,10 +225,11 @@ msgstr "mmHg"
 msgid "DEFAULT_DISTANCE_UNIT"
 msgstr "km"
 
+#: ../libgweather/gweather-timezone.c:314
+msgid "Greenwich Mean Time"
+msgstr "Hora media de Greenwich"
+
 #: ../libgweather/gweather.schemas.in.h:1
-#| msgid ""
-#| "A three-digit-long code for retrieving radar maps from weather.com, found "
-#| "from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
 msgid ""
 "A three-digit-long code for retrieving radar maps from weather.com, found "
 "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
@@ -238,9 +239,6 @@ msgstr ""
 "plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
-#| msgid ""
-#| "A unique zone for the city, as found from http://svn.gnome.org/viewvc/"
-#| "libgweather/trunk/data/Locations.xml.in"
 msgid ""
 "A unique zone for the city, as found from http://git.gnome.org/cgit/"
 "libgweather/plain/data/Locations.xml.in"
@@ -291,9 +289,6 @@ msgid "Nearby city"
 msgstr "Ciudad cercana"
 
 #: ../libgweather/gweather.schemas.in.h:16
-#| msgid ""
-#| "Nearby major zone, such as a capital city, as found from http://svn.gnome."
-#| "org/viewvc/libgweather/trunk/data/Locations.xml.in"
 msgid ""
 "Nearby major zone, such as a capital city, as found from http://git.gnome."
 "org/cgit/libgweather/plain/data/Locations.xml.in"
@@ -389,7 +384,7 @@ msgstr "Información meteorológica de una zona."
 msgid "Zone location"
 msgstr "Situación de la zona"
 
-#: ../libgweather/timezone-menu.c:278
+#: ../libgweather/timezone-menu.c:277
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Desconocida"
