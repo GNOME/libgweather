@@ -87,7 +87,7 @@ test_metar_CFLAGS = \
 
 test_metar_LDADD = \
 	$(LIBSOUP_LIBS)	\
-	$(REXEX_LIBS) \
+	$(REGEX_LIBS) \
 	libgweather.la
 
 test_locations_SOURCES = test_locations.c
