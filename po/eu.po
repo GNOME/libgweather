@@ -7,9 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-27 17:13+0200\n"
-"PO-Revision-Date: 2009-08-27 17:19+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-applets&component=gweather\n"
+"POT-Creation-Date: 2009-08-27 15:11+0000\n"
+"PO-Revision-Date: 2009-08-29 09:46+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -227,16 +227,16 @@ msgid ""
 "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
 "Hiru digitu luzerako kodea radar-mapak eskuratzeko weather.com gunetik, "
-"honako fitxategian aurkitzen den bezala: "
-"http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+"honako fitxategian aurkitzen den bezala: http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
 msgid ""
 "A unique zone for the city, as found from http://git.gnome.org/cgit/"
 "libgweather/plain/data/Locations.xml.in"
 msgstr ""
-"Hiriarentzako zona bakarra, honako fitxategian aurkitzen den bezala: "
-"http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+"Hiriarentzako zona bakarra, honako fitxategian aurkitzen den bezala: http://"
+"git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:8
 msgid ""
@@ -287,8 +287,9 @@ msgid ""
 "Nearby major zone, such as a capital city, as found from http://git.gnome."
 "org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
-"Gertuko zona nagusia, hiriburu bat bezalakoa, honako fitxategian aurkitzen den bezala: "
-"http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in "
+"Gertuko zona nagusia, hiriburu bat bezalakoa, honako fitxategian aurkitzen "
+"den bezala: http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml."
+"in "
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -377,6 +378,12 @@ msgstr "Leku bateko eguraldiaren informazioa."
 #: ../libgweather/gweather.schemas.in.h:38
 msgid "Zone location"
 msgstr "Zonaren lekua"
+
+#: ../libgweather/timezone-menu.c:277
+#| msgid "Unknown"
+msgctxt "timezone"
+msgid "Unknown"
+msgstr "Ezezaguna"
 
 #. Translators: %d is an error code, and %s the error string
 #: ../libgweather/weather-metar.c:504
