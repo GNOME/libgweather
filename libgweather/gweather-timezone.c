@@ -153,7 +153,7 @@ parse_timezone (GWeatherParser *parser)
 {
     GWeatherTimezone *zone = NULL;
     char *id = NULL, *name = NULL;
-    int offset, dst_offset;
+    int offset = 0, dst_offset = 0;
     gboolean has_dst = FALSE;
 
     id = (char *) xmlTextReaderGetAttribute (parser->xml, (xmlChar *) "id");
