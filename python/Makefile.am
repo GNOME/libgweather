@@ -23,7 +23,7 @@ gweather.c: gweather.defs gweather.override
 
 install-exec-hook:
 	$(MKDIR_P) "$(DESTDIR)$(pyunstabledir)"
-	$(INSTALL_SCRIPT) bad__init__.py "$(DESTDIR)$(pyexecdir)/gweather/__init__.py"
+	$(INSTALL_DATA) bad__init__.py "$(DESTDIR)$(pyexecdir)/gweather/__init__.py"
 	touch $(DESTDIR)$(pyunstabledir)/__init__.py
 	chmod a+x $(DESTDIR)$(pyunstabledir)/__init__.py
 
