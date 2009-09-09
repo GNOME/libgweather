@@ -15,7 +15,7 @@ gweather.c: gweather.defs gweather.override
 
 .defs.c:
 	$(AM_V_GEN)(cd $(srcdir)\
-	 && pygtk-codegen-2.0 \
+	 && pygobject-codegen-2.0 \
 		--register $(PYGTK_DEFS) \
 		--override $*.override \
 		--prefix py$* $*.defs) > gen-$*.c \
