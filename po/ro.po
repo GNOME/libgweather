@@ -1,26 +1,27 @@
 # translation of gnome-applets.HEAD.ro.po to Română
 # Romanian translation for gnome-applets.
 # Copyright (C) 2000-2001,2003, 2004, 2005, 2006 Free Software Foundation, Inc.
-#
 # TODO : threshold, readout, basic, custom
 # sliding, goofy, dew, caveat spurious Despeckle Emboss Frills, threshold
-#
 # Marius Andreiana <mandreiana@yahoo.com>, 2000.
 # Dan Damian <dand@dnttm.ro>, 2000, 2001.
 # Mugurel Tudor <mugurelu@gnome.ro>, 2002-2004, 2005, 2006.
 # Adi Roiban https://launchpad.net/~adiroiban, 2008, 2009
+# Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2009
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets.HEAD.ro\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-applets&component=gweather\n"
-"POT-Creation-Date: 2009-02-17 19:37+0000\n"
-"PO-Revision-Date: 2009-02-17 23:14+0200\n"
-"Last-Translator: Adi Roiban <adi@roiban.ro>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"applets&component=gweather\n"
+"POT-Creation-Date: 2009-09-04 09:16+0000\n"
+"PO-Revision-Date: 2009-09-13 23:42+0300\n"
+"Last-Translator: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
 "Language-Team: Gnome Romanian Team <gnomero-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3;plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1))\n"
+"Plural-Forms: nplurals=3;plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1))\n"
 
 #. TRANSLATOR: Change this to the default location name,
 #. * used when you first start the Weather Applet. This is
@@ -33,8 +34,7 @@ msgstr ""
 #. * If you do not require a DEFAULT_LOCATION, set this to
 #. * "DEFAULT_LOCATION".
 #.
-#: ../libgweather/gweather-gconf.c:212
-#: ../libgweather/gweather-gconf.c:213
+#: ../libgweather/gweather-gconf.c:212 ../libgweather/gweather-gconf.c:213
 #: ../libgweather/gweather.schemas.in.h:5
 msgid "DEFAULT_LOCATION"
 msgstr "București"
@@ -42,7 +42,7 @@ msgstr "București"
 #. TRANSLATOR: Change this to the code of your default location that
 #. * corresponds to the DEFAULT_LOCATION name you put above. This is
 #. * normally a four-letter (ICAO) code and can be found in
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * NB. The web page is over 1.7MB in size.
 #. * Pick a default location like a capital city so that it would be ok
 #. * for more of your users. For example, for Greek, we use "LGAV" for
@@ -50,8 +50,7 @@ msgstr "București"
 #. *
 #. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
 #.
-#: ../libgweather/gweather-gconf.c:232
-#: ../libgweather/gweather-gconf.c:233
+#: ../libgweather/gweather-gconf.c:232 ../libgweather/gweather-gconf.c:233
 #: ../libgweather/gweather.schemas.in.h:3
 msgid "DEFAULT_CODE"
 msgstr "LRBS"
@@ -60,15 +59,14 @@ msgstr "LRBS"
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 #. * Normally, US and Canada locations have zones while the rest do not.
 #. * Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any zone you put here must also be present in the Locations.xml
 #. * file.
 #. *
 #. * If your default location does not have a zone, set this to
 #. * "DEFAULT_ZONE".
 #.
-#: ../libgweather/gweather-gconf.c:252
-#: ../libgweather/gweather-gconf.c:253
+#: ../libgweather/gweather-gconf.c:252 ../libgweather/gweather-gconf.c:253
 #: ../libgweather/gweather.schemas.in.h:7
 msgid "DEFAULT_ZONE"
 msgstr "DEFAULT_ZONE"
@@ -77,7 +75,7 @@ msgstr "DEFAULT_ZONE"
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 #. * Normally, US and Canada locations have radar names while the rest do
 #. * not. Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any radar you put here must also be present in the Locations.xml
 #. * file.
 #. *
@@ -85,8 +83,7 @@ msgstr "DEFAULT_ZONE"
 #. * (or space).
 #. * If you do not have a default location, set this to DEFAULT_RADAR.
 #.
-#: ../libgweather/gweather-gconf.c:273
-#: ../libgweather/gweather-gconf.c:274
+#: ../libgweather/gweather-gconf.c:273 ../libgweather/gweather-gconf.c:274
 #: ../libgweather/gweather.schemas.in.h:6
 msgid "DEFAULT_RADAR"
 msgstr " "
@@ -94,7 +91,7 @@ msgstr " "
 #. TRANSLATOR: Change this to the coordinates of your default location
 #. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
 #. * above. Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any coordinates you put here must also be present in the
 #. * Locations.xml file.
 #. *
@@ -103,16 +100,13 @@ msgstr " "
 #. * If you do not have a default location, set this to
 #. * DEFAULT_COORDINATES.
 #.
-#: ../libgweather/gweather-gconf.c:294
-#: ../libgweather/gweather-gconf.c:295
+#: ../libgweather/gweather-gconf.c:294 ../libgweather/gweather-gconf.c:295
 #: ../libgweather/gweather.schemas.in.h:4
 msgid "DEFAULT_COORDINATES"
 msgstr "44.500000 26.133333"
 
-#: ../libgweather/gweather-prefs.c:34
-#: ../libgweather/gweather-prefs.c:45
-#: ../libgweather/gweather-prefs.c:60
-#: ../libgweather/gweather-prefs.c:77
+#: ../libgweather/gweather-prefs.c:34 ../libgweather/gweather-prefs.c:45
+#: ../libgweather/gweather-prefs.c:60 ../libgweather/gweather-prefs.c:77
 msgid "Default"
 msgstr "Implicit"
 
@@ -203,16 +197,14 @@ msgstr "mi"
 
 #. TRANSLATOR: This is the default unit to use for temperature measurements.
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:103
-#: ../libgweather/gweather-prefs.c:111
+#: ../libgweather/gweather-prefs.c:103 ../libgweather/gweather-prefs.c:111
 msgid "DEFAULT_TEMP_UNIT"
 msgstr "C"
 
 #. TRANSLATOR: This is the default unit to use for wind speed.
 #. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
 #. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:141
-#: ../libgweather/gweather-prefs.c:151
+#: ../libgweather/gweather-prefs.c:141 ../libgweather/gweather-prefs.c:151
 msgid "DEFAULT_SPEED_UNIT"
 msgstr "m/s"
 
@@ -220,29 +212,44 @@ msgstr "m/s"
 #. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
 #. "mb" (millibars), "mmHg" (millimeters of mercury),
 #. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:183
-#: ../libgweather/gweather-prefs.c:194
+#: ../libgweather/gweather-prefs.c:183 ../libgweather/gweather-prefs.c:194
 msgid "DEFAULT_PRESSURE_UNIT"
 msgstr "mmHg"
 
 #. TRANSLATOR: This is the default unit to use for visibility distance.
 #. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:224
-#: ../libgweather/gweather-prefs.c:233
+#: ../libgweather/gweather-prefs.c:224 ../libgweather/gweather-prefs.c:233
 msgid "DEFAULT_DISTANCE_UNIT"
 msgstr "km"
 
+#: ../libgweather/gweather-timezone.c:314
+msgid "Greenwich Mean Time"
+msgstr "ORA GMT"
+
 #: ../libgweather/gweather.schemas.in.h:1
-msgid "A three-digit-long code for retrieving radar maps from weather.com, found from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
-msgstr "Un cod de trei cifre pentru a opține hărți radar de pe weather.com, opținut din http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+msgid ""
+"A three-digit-long code for retrieving radar maps from weather.com, found "
+"from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+msgstr ""
+"Un cod de trei cifre pentru a opține hărți radar de pe weather.com, care "
+"poate fi găsit la http://git.gnome.org/cgit/libgweather/plain/data/Locations."
+"xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
-msgid "A unique zone for the city, as found from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
-msgstr "O zonă unică pentru oraș, cum este trecut în http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+msgid ""
+"A unique zone for the city, as found from http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
+msgstr ""
+"O zonă unică pentru oraș, cum este trecut în http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:8
-msgid "Determines whether the applet automatically updates its weather statistics or not."
-msgstr "Determină dacă miciaplicația actualizează automat sau nu statisticile despre vreme."
+msgid ""
+"Determines whether the applet automatically updates its weather statistics "
+"or not."
+msgstr ""
+"Determină dacă miciaplicația actualizează automat sau nu statisticile despre "
+"vreme."
 
 #: ../libgweather/gweather.schemas.in.h:9
 msgid "Display radar map"
@@ -257,12 +264,20 @@ msgid "Fetch a radar map on each update."
 msgstr "Obține o hartă radar la fiecare actualizare."
 
 #: ../libgweather/gweather.schemas.in.h:12
-msgid "If true, then retrieve a radar map from a location specified by the \"radar\" key."
-msgstr "Daca este setat true, atunci este transferată o hartă radar de la locația specificată de cheia „radar”."
+msgid ""
+"If true, then retrieve a radar map from a location specified by the \"radar"
+"\" key."
+msgstr ""
+"Daca este setat true, atunci este transferată o hartă radar de la locația "
+"specificată de cheia „radar”."
 
 #: ../libgweather/gweather.schemas.in.h:13
-msgid "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS[EW]."
-msgstr "Latitudinea și longitudinea locației dumneavoastră exprimată în DD-MM-SS[NS] DD-MM-SS [EW]."
+msgid ""
+"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
+"[EW]."
+msgstr ""
+"Latitudinea și longitudinea locației dumneavoastră exprimată în DD-MM-SS[NS] "
+"DD-MM-SS [EW]."
 
 #: ../libgweather/gweather.schemas.in.h:14
 msgid "Location coordinates"
@@ -273,8 +288,12 @@ msgid "Nearby city"
 msgstr "Oraș apropiat"
 
 #: ../libgweather/gweather.schemas.in.h:16
-msgid "Nearby major zone, such as a capital city, as found from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
-msgstr "Zonă importană din apropiere, cum ar fi capitala, cum este trecut în http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+msgid ""
+"Nearby major zone, such as a capital city, as found from http://git.gnome."
+"org/cgit/libgweather/plain/data/Locations.xml.in"
+msgstr ""
+"Zonă importană din apropiere, cum ar fi capitala, cum este trecut în http://"
+"git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -364,113 +383,111 @@ msgstr "Informații vreme locație."
 msgid "Zone location"
 msgstr "Poziționare zonă"
 
-#: ../libgweather/timezone-menu.c:278
-#| msgid "Unknown"
+#: ../libgweather/timezone-menu.c:277
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Necunoscut"
 
 #. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:508
+#: ../libgweather/weather-metar.c:504
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "Nu s-au putut obține datele METAR: %d %s.\n"
 
-#: ../libgweather/weather-metar.c:552
+#: ../libgweather/weather-metar.c:548
 msgid "WeatherInfo missing location"
 msgstr "Lipsește locația pentru WeatherInfo."
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:230
 msgid "Variable"
 msgstr "Variabilă"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:231
 msgid "North"
 msgstr "Nord"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:231
 msgid "North - NorthEast"
 msgstr "Nord - Nord est"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:231
 msgid "Northeast"
 msgstr "Nord est"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:231
 msgid "East - NorthEast"
 msgstr "Est - Nord est"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:232
 msgid "East"
 msgstr "Est"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:232
 msgid "East - Southeast"
 msgstr "Est - Sud est"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:232
 msgid "Southeast"
 msgstr "Sud est"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:232
 msgid "South - Southeast"
 msgstr "Sud - Sud est"
 
-#: ../libgweather/weather.c:237
+#: ../libgweather/weather.c:233
 msgid "South"
 msgstr "Sud"
 
-#: ../libgweather/weather.c:237
+#: ../libgweather/weather.c:233
 msgid "South - Southwest"
 msgstr "Sud - Sud vest"
 
-#: ../libgweather/weather.c:237
+#: ../libgweather/weather.c:233
 msgid "Southwest"
 msgstr "Sud vest"
 
-#: ../libgweather/weather.c:237
+#: ../libgweather/weather.c:233
 msgid "West - Southwest"
 msgstr "Vest - Sud vest"
 
-#: ../libgweather/weather.c:238
+#: ../libgweather/weather.c:234
 msgid "West"
 msgstr "Vest"
 
-#: ../libgweather/weather.c:238
+#: ../libgweather/weather.c:234
 msgid "West - Northwest"
 msgstr "Vest - Nord vest"
 
-#: ../libgweather/weather.c:238
+#: ../libgweather/weather.c:234
 msgid "Northwest"
 msgstr "Nord vest"
 
-#: ../libgweather/weather.c:238
+#: ../libgweather/weather.c:234
 msgid "North - Northwest"
 msgstr "Nord - Nord vest"
 
-#: ../libgweather/weather.c:245
-#: ../libgweather/weather.c:262
-#: ../libgweather/weather.c:334
+#: ../libgweather/weather.c:241 ../libgweather/weather.c:258
+#: ../libgweather/weather.c:330
 msgid "Invalid"
 msgstr "Nevalid"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:247
 msgid "Clear Sky"
 msgstr "Cer senin"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:248
 msgid "Broken clouds"
 msgstr "Nori sparți"
 
-#: ../libgweather/weather.c:253
+#: ../libgweather/weather.c:249
 msgid "Scattered clouds"
 msgstr "Nori împrăștiați"
 
-#: ../libgweather/weather.c:254
+#: ../libgweather/weather.c:250
 msgid "Few clouds"
 msgstr "Puțini nori"
 
-#: ../libgweather/weather.c:255
+#: ../libgweather/weather.c:251
 msgid "Overcast"
 msgstr "Noros"
 
@@ -478,384 +495,376 @@ msgstr "Noros"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:294
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:290 ../libgweather/weather.c:292
 msgid "Thunderstorm"
 msgstr "Furtună"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:291
 msgid "Drizzle"
 msgstr "Averse"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:291
 msgid "Light drizzle"
 msgstr "Burniță ușoară"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:291
 msgid "Moderate drizzle"
 msgstr "Averse moderate"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:291
 msgid "Heavy drizzle"
 msgstr "Averse intensificate"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:291
 msgid "Freezing drizzle"
 msgstr "Averse cu lapoviță"
 
 #. RAIN
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:292
 msgid "Rain"
 msgstr "Ploaie"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:292
 msgid "Light rain"
 msgstr "Ploaie ușoară"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:292
 msgid "Moderate rain"
 msgstr "Ploaie moderată"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:292
 msgid "Heavy rain"
 msgstr "Ploaie intensificată"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:292
 msgid "Rain showers"
 msgstr "Ploaie torențială"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:292
 msgid "Freezing rain"
 msgstr "Lapoviță"
 
 #. SNOW
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Snow"
 msgstr "Ninsoare"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Light snow"
 msgstr "Ninsoare ușoară"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Moderate snow"
 msgstr "Ninsoare moderată"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Heavy snow"
 msgstr "Ninsoare intensificată"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Snowstorm"
 msgstr "Furtună de zăpadă"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Blowing snowfall"
 msgstr "Viscol"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Snow showers"
 msgstr "Torente de zăpadă"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:293
 msgid "Drifting snow"
 msgstr "Ninsoare în rafale"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:294
 msgid "Snow grains"
 msgstr "Grindină și ninsoare"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:294
 msgid "Light snow grains"
 msgstr "Grindină ușoară"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:294
 msgid "Moderate snow grains"
 msgstr "Grindină moderată"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:294
 msgid "Heavy snow grains"
 msgstr "Grindină intensificată"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:295
 msgid "Ice crystals"
 msgstr "Cristale de gheață"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:296
 msgid "Ice pellets"
 msgstr "Pelete de gheață"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:296
 msgid "Few ice pellets"
 msgstr "Câteva pelete de gheață"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:296
 msgid "Moderate ice pellets"
 msgstr "Pelete de gheață moderate"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:296
 msgid "Heavy ice pellets"
 msgstr "Pelete de gheață intesificate"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:296
 msgid "Ice pellet storm"
 msgstr "Furtună de pelete de gheață"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:296
 msgid "Showers of ice pellets"
 msgstr "Rafale de pelete de gheață"
 
 #. HAIL
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:297
 msgid "Hail"
 msgstr "Grindină"
 
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:297
 msgid "Hailstorm"
 msgstr "Furtună cu grindină"
 
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:297
 msgid "Hail showers"
 msgstr "Averse de grindină"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:302
+#: ../libgweather/weather.c:298
 msgid "Small hail"
 msgstr "Grindină mică"
 
-#: ../libgweather/weather.c:302
+#: ../libgweather/weather.c:298
 msgid "Small hailstorm"
 msgstr "Furtună cu grindină mică"
 
-#: ../libgweather/weather.c:302
+#: ../libgweather/weather.c:298
 msgid "Showers of small hail"
 msgstr "Averse de grindină mică"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:299
 msgid "Unknown precipitation"
 msgstr "Precipitații necunoscute"
 
 #. MIST
-#: ../libgweather/weather.c:304
+#: ../libgweather/weather.c:300
 msgid "Mist"
 msgstr "Pâclă"
 
 #. FOG
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:301
 msgid "Fog"
 msgstr "Ceață"
 
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:301
 msgid "Fog in the vicinity"
 msgstr "Ceață în vecinătate"
 
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:301
 msgid "Shallow fog"
 msgstr "Ceață ușoară"
 
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:301
 msgid "Patches of fog"
 msgstr "Pâlcuri de ceață"
 
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:301
 msgid "Partial fog"
 msgstr "Ceață parțială"
 
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:301
 msgid "Freezing fog"
 msgstr "Ceață înghețată"
 
 #. SMOKE
-#: ../libgweather/weather.c:306
+#: ../libgweather/weather.c:302
 msgid "Smoke"
 msgstr "Fum"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:307
+#: ../libgweather/weather.c:303
 msgid "Volcanic ash"
 msgstr "Cenușă vulcanică"
 
 #. SAND
-#: ../libgweather/weather.c:308
+#: ../libgweather/weather.c:304
 msgid "Sand"
 msgstr "Nisip"
 
-#: ../libgweather/weather.c:308
+#: ../libgweather/weather.c:304
 msgid "Blowing sand"
 msgstr "Vânt cu nisip"
 
-#: ../libgweather/weather.c:308
+#: ../libgweather/weather.c:304
 msgid "Drifting sand"
 msgstr "Nisip împrăștiat"
 
 #. HAZE
-#: ../libgweather/weather.c:309
+#: ../libgweather/weather.c:305
 msgid "Haze"
 msgstr "Ceață fină"
 
 #. SPRAY
-#: ../libgweather/weather.c:310
+#: ../libgweather/weather.c:306
 msgid "Blowing sprays"
 msgstr "Vand cu ploaie ușoară"
 
 #. DUST
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:307
 msgid "Dust"
 msgstr "Praf"
 
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:307
 msgid "Blowing dust"
 msgstr "Vânt cu praf"
 
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:307
 msgid "Drifting dust"
 msgstr "Praf împrăștiat"
 
 #. SQUALL
-#: ../libgweather/weather.c:312
+#: ../libgweather/weather.c:308
 msgid "Squall"
 msgstr "Furtună"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:313
+#: ../libgweather/weather.c:309
 msgid "Sandstorm"
 msgstr "Furtună de nisip"
 
-#: ../libgweather/weather.c:313
+#: ../libgweather/weather.c:309
 msgid "Sandstorm in the vicinity"
 msgstr "Furtună de nisip în vecinătate"
 
-#: ../libgweather/weather.c:313
+#: ../libgweather/weather.c:309
 msgid "Heavy sandstorm"
 msgstr "Furtună de nisip intensă"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:314
+#: ../libgweather/weather.c:310
 msgid "Duststorm"
 msgstr "Furtună de praf"
 
-#: ../libgweather/weather.c:314
+#: ../libgweather/weather.c:310
 msgid "Duststorm in the vicinity"
 msgstr "Furtună de praf în vecinătate"
 
-#: ../libgweather/weather.c:314
+#: ../libgweather/weather.c:310
 msgid "Heavy duststorm"
 msgstr "Furtună de praf intensă"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:315
+#: ../libgweather/weather.c:311
 msgid "Funnel cloud"
 msgstr "Nor funnel"
 
 #. TORNADO
-#: ../libgweather/weather.c:316
+#: ../libgweather/weather.c:312
 msgid "Tornado"
 msgstr "Tornadă"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:317
+#: ../libgweather/weather.c:313
 msgid "Dust whirls"
 msgstr "Vârtej de praf"
 
-#: ../libgweather/weather.c:317
+#: ../libgweather/weather.c:313
 msgid "Dust whirls in the vicinity"
 msgstr "Vârtej de praf în vecinătate"
 
 #. TRANSLATOR: this is a format string for strftime
 #. *             see `man 3 strftime` for more details
 #.
-#: ../libgweather/weather.c:707
+#: ../libgweather/weather.c:703
 msgid "%a, %b %d / %H:%M"
 msgstr "%a, %b %d / %H:%M"
 
-#: ../libgweather/weather.c:722
+#: ../libgweather/weather.c:718
 msgid "Unknown observation time"
 msgstr "Timp de observare necunoscut"
 
-#: ../libgweather/weather.c:736
-#: ../libgweather/weather.c:787
-#: ../libgweather/weather.c:801
-#: ../libgweather/weather.c:814
-#: ../libgweather/weather.c:827
-#: ../libgweather/weather.c:840
-#: ../libgweather/weather.c:858
-#: ../libgweather/weather.c:876
-#: ../libgweather/weather.c:914
-#: ../libgweather/weather.c:930
-#: ../libgweather/weather.c:953
-#: ../libgweather/weather.c:985
-#: ../libgweather/weather.c:1001
-#: ../libgweather/weather.c:1021
+#: ../libgweather/weather.c:732 ../libgweather/weather.c:783
+#: ../libgweather/weather.c:797 ../libgweather/weather.c:810
+#: ../libgweather/weather.c:823 ../libgweather/weather.c:836
+#: ../libgweather/weather.c:854 ../libgweather/weather.c:872
+#: ../libgweather/weather.c:910 ../libgweather/weather.c:926
+#: ../libgweather/weather.c:949 ../libgweather/weather.c:981
+#: ../libgweather/weather.c:997 ../libgweather/weather.c:1017
 msgid "Unknown"
 msgstr "Necunoscută"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:758
+#: ../libgweather/weather.c:754
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:761
+#: ../libgweather/weather.c:757
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:767
+#: ../libgweather/weather.c:763
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:770
+#: ../libgweather/weather.c:766
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:776
+#: ../libgweather/weather.c:772
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:779
+#: ../libgweather/weather.c:775
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:861
+#: ../libgweather/weather.c:857
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:889
+#: ../libgweather/weather.c:885
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f noduri"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:893
+#: ../libgweather/weather.c:889
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:897
+#: ../libgweather/weather.c:893
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:901
+#: ../libgweather/weather.c:897
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -863,2035 +872,80 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:907
+#: ../libgweather/weather.c:903
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Forța Beaufort %.1f"
 
-#: ../libgweather/weather.c:932
+#: ../libgweather/weather.c:928
 msgid "Calm"
 msgstr "Calm"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:936
+#: ../libgweather/weather.c:932
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:958
+#: ../libgweather/weather.c:954
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:962
+#: ../libgweather/weather.c:958
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:966
+#: ../libgweather/weather.c:962
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:970
+#: ../libgweather/weather.c:966
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:974
+#: ../libgweather/weather.c:970
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:978
+#: ../libgweather/weather.c:974
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:1006
+#: ../libgweather/weather.c:1002
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f mile"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:1010
+#: ../libgweather/weather.c:1006
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1014
+#: ../libgweather/weather.c:1010
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:1043
-#: ../libgweather/weather.c:1064
+#: ../libgweather/weather.c:1039 ../libgweather/weather.c:1060
 msgid "%H:%M"
 msgstr "%H:%M"
 
-#: ../libgweather/weather.c:1123
+#: ../libgweather/weather.c:1119
 msgid "Retrieval failed"
 msgstr "Recepționare eșuată"
-
-#, fuzzy
-#~ msgid "%.1f ℉"
-#~ msgstr "%.1f K"
-
-#, fuzzy
-#~ msgid "%d ℉"
-#~ msgstr "%d K"
-
-#, fuzzy
-#~ msgid "%.1f ℃"
-#~ msgstr "%.1f K"
-
-#, fuzzy
-#~ msgid "%d ℃"
-#~ msgstr "%d K"
-#~ msgid "_About"
-#~ msgstr "_Despre"
-#~ msgid "_Help"
-#~ msgstr "_Ajutor"
-#~ msgid "_Keyboard Accessibility Preferences"
-#~ msgstr "Preferințe _accesibilitate tastatură"
-#~ msgid "AccessX Status Applet Factory"
-#~ msgstr "Uzina status aplet AccessX"
-#~ msgid "Keyboard Accessibility Status"
-#~ msgstr "Status accesibilitate tastatură"
-#~ msgid "Keyboard Accessibility Status Applet Factory"
-#~ msgstr "Uzina aplet status pentru accesibilitatea tastaturii"
-#~ msgid "Shows the status of keyboard accessibility features"
-#~ msgstr "Arată statusul pentru facilitățile de accesibilitate a tastaturii"
-#~ msgid "AccessX Status"
-#~ msgstr "Status AccesX"
-#~ msgid "Shows the state of AccessX features such as latched modifiers"
-#~ msgstr "Arată starea facilităților AccessX precum modificatorii blocanți"
-#~ msgid "translator-credits"
-#~ msgstr ""
-#~ "Marius Andreiana <mandreiana@yahoo.com>\n"
-#~ "Dan Damian <dand@dnttm.ro>\n"
-#~ "Mugurel Tudor <mugurelu@gnome.ro>"
-#~ msgid "There was an error launching the help viewer: %s"
-#~ msgstr "A intervenit o eroare la lansarea ajutorului: %s"
-#~ msgid "There was an error launching the keyboard preferences dialog: %s"
-#~ msgstr ""
-#~ "A intervenit o eroare la lansarea dialogului pentru preferințele "
-#~ "tastaturii: %s"
-#~ msgid "a"
-#~ msgstr "a"
-#~ msgid "Shows keyboard status when accessibility features are used."
-#~ msgstr ""
-#~ "Afișează statusul tastaturii la folosirea facilităților de accesibilitate "
-#~ "a tastaturii."
-#~ msgid "XKB Extension is not enabled"
-#~ msgstr "Extensia XKB nu este activată"
-#~ msgid "Unknown error"
-#~ msgstr "Eroare necunoscută"
-#~ msgid "Error: %s"
-#~ msgstr "Eroare: %s"
-#~ msgid "Displays current state of keyboard accessibility features"
-#~ msgstr ""
-#~ "Afișează starea curentă a facilităților de accesibilitate pentru tastatură"
-#~ msgid "Battery Charge Monitor"
-#~ msgstr "Monitor încărcare acumulator"
-#~ msgid "Battstat Factory"
-#~ msgstr "Factory status acumulator"
-#~ msgid "Monitor a laptop's remaining power"
-#~ msgstr "Monitorizează puterea rămasă pentru un laptop"
-#~ msgid "_Preferences"
-#~ msgstr "_Preferințe"
-#~ msgid "0 for no label, 1 for percentage and 2 for time remaining"
-#~ msgstr ""
-#~ "0 pentru nici o etichetă, 1 pentru procentaj și 2 pentru timpul rămas"
-#~ msgid "Beep for warnings"
-#~ msgstr "Bip la avertismente"
-#~ msgid "Beep when displaying a warning"
-#~ msgstr "Bip la afișarea unui avertisment"
-#~ msgid "Drain from top"
-#~ msgstr "Scade de sus în jos"
-#~ msgid "Full Battery Notification"
-#~ msgstr "Notificare acumulator încărcat"
-#~ msgid "Low Battery Notification"
-#~ msgstr "Notificare acumulator descărcat"
-#~ msgid "Notify user when the battery is full"
-#~ msgstr "Notifică utilizatorul când acumulatorul este încărcat"
-#~ msgid "Notify user when the battery is low"
-#~ msgstr "Notifică utilizatorul când acumulatorul este descărcat"
-#~ msgid "Red value level"
-#~ msgstr "Valoare nivel roșu"
-#~ msgid ""
-#~ "Show the battery meter draining from the top of the battery. Only "
-#~ "implemented for traditional battery view."
-#~ msgstr ""
-#~ "Afișează acumulatorul golindu-se de sus în jos. Implementat doar pentru "
-#~ "vizualizarea tradițională a acumulatorului."
-#~ msgid "Show the horizontal battery"
-#~ msgstr "Afișează acumulatorul orizontal"
-#~ msgid "Show the time/percent label"
-#~ msgstr "Afișează timpul/procentajul în etichetă"
-#~ msgid "Show the traditional, horizontal battery on the panel"
-#~ msgstr "Afișează acumulatorul în mod tradițional, orizontal, în panou"
-#~ msgid "Show the upright, smaller battery on the panel"
-#~ msgstr ""
-#~ "Afișează acumulatorul în mod vertical, redusă ca dimensiuni, în panou"
-#~ msgid ""
-#~ "The battery level below which the battery is displayed as red. Also the "
-#~ "value at which the low battery warning is displayed."
-#~ msgstr ""
-#~ "Nivelul limită sub care acumulatorul va fi afișat ca roșu. Este de "
-#~ "asemenea valoarea la care avertismentul pentru acumulator descărcat este "
-#~ "afișat."
-#~ msgid "Upright (small) battery"
-#~ msgstr "Acumulator vertical (mic)"
-#~ msgid ""
-#~ "Use the value defined in red_value as a time remaining to show the "
-#~ "warning dialog rather than a percentage"
-#~ msgstr ""
-#~ "Folosește valoarea definită în red_value ca timp rămas pentru a afișa "
-#~ "dialogul de avertizare mai degrabă decât pentru a afișa un procentaj"
-#~ msgid "Warn on low time rather than low percentage"
-#~ msgstr ""
-#~ "Avertizează la micșorarea timpului mai degrabă decât cea a procentajului"
-#~ msgid "System is running on AC power"
-#~ msgstr "Sistemul rulează alimentat AC"
-#~ msgid "System is running on battery power"
-#~ msgstr "Sistemul rulează alimentat de acumulator"
-#~ msgid "Battery charged (%d%%)"
-#~ msgstr "Acumulator încărcat (%d%%)"
-#~ msgid "Unknown time (%d%%) remaining"
-#~ msgstr "Timp necunoscut (%d%%) rămas"
-#~ msgid "Unknown time (%d%%) until charged"
-#~ msgstr "Timp necunoscut (%d%%) până la încărcare"
-#~ msgid "%d minute (%d%%) remaining"
-#~ msgid_plural "%d minutes (%d%%) remaining"
-#~ msgstr[0] "%d minut (%d%%) rămas"
-#~ msgstr[1] "%d minute (%d%%) rămase"
-#~ msgstr[2] "%d de minute (%d%%) rămase"
-#~ msgid "%d minute until charged (%d%%)"
-#~ msgid_plural "%d minutes until charged (%d%%)"
-#~ msgstr[0] "%d minut până la încărcare (%d%%)"
-#~ msgstr[1] "%d minute până la încărcare (%d%%)"
-#~ msgstr[2] "%d de minute până la încărcare (%d%%)"
-#~ msgid "%d hour (%d%%) remaining"
-#~ msgid_plural "%d hours (%d%%) remaining"
-#~ msgstr[0] "%d oră (%d%%) rămasă"
-#~ msgstr[1] "%d ore (%d%%) rămase"
-#~ msgstr[2] "%d de ore (%d%%) rămase"
-#~ msgid "%d hour until charged (%d%%)"
-#~ msgid_plural "%d hours until charged (%d%%)"
-#~ msgstr[0] "%d oră rămasă până la încărcare (%d%%)"
-#~ msgstr[1] "%d ore rămase până la încărcare (%d%%)"
-#~ msgstr[2] "%d de ore rămase până la încărcare (%d%%)"
-#~ msgid "%d %s %d %s (%d%%) remaining"
-#~ msgstr "%d %s %d %s (%d%%) rămase"
-#~ msgid "hour"
-#~ msgid_plural "hours"
-#~ msgstr[0] "oră"
-#~ msgstr[1] "ore"
-#~ msgstr[2] "de ore"
-#~ msgid "minute"
-#~ msgid_plural "minutes"
-#~ msgstr[0] "minut"
-#~ msgstr[1] "minute"
-#~ msgstr[2] "de minute"
-#~ msgid "%d %s %d %s until charged (%d%%)"
-#~ msgstr "%d %s %d %s până la încărcare (%d%%)"
-#~ msgid "Battery Monitor"
-#~ msgstr "Monitor pentru acumulator"
-#~ msgid "Your battery is now fully recharged"
-#~ msgstr "Acumulatorul este complet încărcat"
-#~ msgid "Battery Notice"
-#~ msgstr "Notificare acumulator"
-#~ msgid ""
-#~ "You have %d minute of battery power remaining (%d%% of the total "
-#~ "capacity)."
-#~ msgid_plural ""
-#~ "You have %d minutes of battery power remaining (%d%% of the total "
-#~ "capacity)."
-#~ msgstr[0] ""
-#~ "Mai aveți %d minut de funcționare a acumulatorului (%d%% din capacitatea "
-#~ "totală)."
-#~ msgstr[1] ""
-#~ "Mai aveți %d minute de funcționare a acumulatorului (%d%% din capacitatea "
-#~ "totală)."
-#~ msgstr[2] ""
-#~ "Mai aveți %d de minute de funcționare a acumulatorului (%d%% din "
-#~ "capacitatea totală)."
-#~ msgid ""
-#~ "To avoid losing your work:\n"
-#~ " • plug your laptop into external power, or\n"
-#~ " • save open documents and shut your laptop down."
-#~ msgstr ""
-#~ "Pentru a evita pierderea de date:\n"
-#~ " • conectați laptop-ul la rețeaua de alimentare electrică, sau\n"
-#~ " • salvați documentele deschise și opriți laptop-ul."
-#~ msgid ""
-#~ "To avoid losing your work:\n"
-#~ " • suspend your laptop to save power,\n"
-#~ " • plug your laptop into external power, or\n"
-#~ " • save open documents and shut your laptop down."
-#~ msgstr ""
-#~ "Pentru a evita pierderea de date:\n"
-#~ " • comutați laptop-ul în starea „suspend” pentru a salva energie,\n"
-#~ " • conectați laptop-ul la rețeaua de alimentare electrică, sau\n"
-#~ " • salvați documentele deschise și opriți laptop-ul."
-#~ msgid "Your battery is running low"
-#~ msgstr "Acumulatorul este pe terminate"
-#~ msgid "No battery present"
-#~ msgstr "Nici un acumulator prezent"
-#~ msgid "Battery status unknown"
-#~ msgstr "Status acumulator necunoscut"
-#~ msgid "N/A"
-#~ msgstr "N/A"
-#~ msgid "There was an error displaying help: %s"
-#~ msgstr "A intervenit o eroare la afișarea ajutorului: %s"
-#~ msgid "This utility shows the status of your laptop battery."
-#~ msgstr "Acest utilitar vă arată starea acumulatorului de la laptop."
-#~ msgid "HAL backend enabled."
-#~ msgstr "Suportul HAL activat."
-#~ msgid "Legacy (non-HAL) backend enabled."
-#~ msgstr "Suportul HAL dezactivat."
-#~ msgid "<b>Appearance</b>"
-#~ msgstr "<b>Aspect</b>"
-#~ msgid "<b>Notifications</b>"
-#~ msgstr "<b>Avertismente</b>"
-#~ msgid "<small>(shows single image for status and charge)</small>"
-#~ msgstr ""
-#~ "<small>(afișează o singură imagine pentru status și încărcare)</small>"
-#~ msgid "<small>(two images: one for status, one for charge)</small>"
-#~ msgstr ""
-#~ "<small>(două imagini: una pentru status, una pentru încărcare)</small>"
-#~ msgid "Battery Charge Monitor Preferences"
-#~ msgstr "Preferințe Monitor încărcare acumulator"
-#~ msgid "Show _percentage remaining"
-#~ msgstr "Afișează _procentaj rămas"
-#~ msgid "Show _time remaining"
-#~ msgstr "Afișează _timpul rămas"
-#~ msgid "_Compact view"
-#~ msgstr "Vizualizare _compactă"
-#~ msgid "_Expanded view"
-#~ msgstr "Vizualizare _extinsă"
-#~ msgid "_Notify when battery is fully recharged"
-#~ msgstr "A_vertizează când acumulatorul este complet reîncărcat"
-#~ msgid "_Show time/percentage:"
-#~ msgstr "_Afișează timp/procentaj:"
-#~ msgid "_Warn when battery charge drops to:"
-#~ msgstr "A_vertizează când încărcarea acumulatorul scade la:"
-#~ msgid "Percent"
-#~ msgstr "Procente"
-#~ msgid "Minutes Remaining"
-#~ msgstr "Minute rămase"
-#~ msgid "Battery Status Utility"
-#~ msgstr "Utilitar pentru monitorizare acumulator"
-#~ msgid "Battery fully re-charged"
-#~ msgstr "Acumulator complet reîncărcat"
-#~ msgid "Battery power low"
-#~ msgstr "Acumulator pe terminate"
-#~ msgid "Character Palette"
-#~ msgstr "Selector caractere"
-#~ msgid "Charpicker Applet Factory"
-#~ msgstr "Factory aplet selcar"
-#~ msgid "Insert characters"
-#~ msgstr "Inserează caracterele"
-#~ msgid "Available palettes"
-#~ msgstr "Palete disponibile"
-#~ msgid "Insert \"%s\""
-#~ msgstr "Inserează „%s”"
-#~ msgid "Insert special character"
-#~ msgstr "Inserează caracter special"
-#~ msgid "insert special character %s"
-#~ msgstr "inserează caracterul special %s"
-#~ msgid ""
-#~ "Gnome Panel applet for selecting strange characters that are not on my "
-#~ "keyboard. Released under GNU General Public Licence."
-#~ msgstr ""
-#~ "Aplet pentru panoul Gnome pentru a selecta caractere ciudate care nu sunt "
-#~ "pe tastatura mea. Publicat sub licența publică generală GNU."
-#~ msgid "Characters shown on applet startup"
-#~ msgstr "Caractere afișate la pornirea apletului"
-#~ msgid "DEPRECATED - Characters shown on applet startup"
-#~ msgstr "ÎNVECHIT - Caractere afișate la pornirea apletului"
-#~ msgid "List of available palettes"
-#~ msgstr "Lista paletelor disponibile"
-#~ msgid "List of strings containing the available palettes"
-#~ msgstr "Lista paletelor disponibile"
-#~ msgid ""
-#~ "The string that the user had selected when the applet was last used. This "
-#~ "string will be displayed when the user starts the applet."
-#~ msgstr ""
-#~ "Șirul folosit de utilizator la ultima folosire a apletului. Acest șir va "
-#~ "fi afișat atunci când utilizatorul va porni acest aplet."
-#~ msgid "_Edit"
-#~ msgstr "_Editare"
-#~ msgid "_Palette:"
-#~ msgstr "_Paletă:"
-#~ msgid "Palette entry"
-#~ msgstr "Intrare paletă"
-#~ msgid "Modify a palette by adding or removing characters"
-#~ msgstr "Modifică o paletă adăugând sau eliminând caractere"
-#~ msgid "Add Palette"
-#~ msgstr "Adaugă paletă"
-#~ msgid "Edit Palette"
-#~ msgstr "Editare paletă"
-#~ msgid "Palettes list"
-#~ msgstr "Listă palete"
-#~ msgid "_Palettes:"
-#~ msgstr "_Palete:"
-#~ msgid "Add button"
-#~ msgstr "Buton adăugare"
-#~ msgid "Click to add a new palette"
-#~ msgstr "Clic pentru adăugarea unei noi palete"
-#~ msgid "Edit button"
-#~ msgstr "Buton editare"
-#~ msgid "Click to edit the selected palette"
-#~ msgstr "Clic pentru a edita paleta selectată"
-#~ msgid "Delete button"
-#~ msgstr "Buton ștergere"
-#~ msgid "Click to delete the selected palette"
-#~ msgstr "Clic pentru a șterge paleta selectată"
-#~ msgid "Character Palette Preferences"
-#~ msgstr "Preferințe Selector Caractere"
-#~ msgid "CPU Frequency Scaling Monitor"
-#~ msgstr "Monitor pentru scalare frecvență CPU"
-#~ msgid "Monitor the CPU Frequency Scaling"
-#~ msgstr "Monitorizează scalarea în frecvență pentru CPU"
-#~ msgid ""
-#~ "A 0 value means to show cpu frequency, 1 to show frequency and units, and "
-#~ "2 to show percentage instead of frequency."
-#~ msgstr ""
-#~ "O valoare de 0 înseamnă să afișeze frecvența cpu, 1 să afișeze frecvențe "
-#~ "și unități și 2 pentru a afișa procente în loc de frecvențe."
-#~ msgid ""
-#~ "A 0 value means to show the applet in graphic mode (pixmap only), 1 to "
-#~ "show the applet in text mode (not to show the pixmap) and 2 to show the "
-#~ "applet in graphic and text mode."
-#~ msgstr ""
-#~ "O valoare de 0 înseamnă afișarea apletului în mod grafic (doar pixmap), 1 "
-#~ "pentru afișarea apletului în mod text (fără afișarea pixmap-ului) și 2 "
-#~ "pentru afișarea apletului în mod grafic și text."
-#~ msgid "CPU to Monitor"
-#~ msgstr "CPU monitorizat"
-#~ msgid "Mode to show cpu usage"
-#~ msgstr "Modul pentru afișarea încărcării cpu"
-#~ msgid "Mode to show the frequency selector drop down menu"
-#~ msgstr "Modul pentru afișarea meniului de selectare a frecvenței"
-#~ msgid ""
-#~ "Set the CPU to monitor. In a single processor system you don't have to "
-#~ "change it."
-#~ msgstr ""
-#~ "Setează CPU pentru monitorizare. Într-un sistem cu un singur procesor, nu "
-#~ "este nevoie să modificați această valoare."
-#~ msgid "The type of text to display (if the text is enabled)."
-#~ msgstr "Tipul de text pentru afișare (dacă textul este activat)."
-#~ msgid "    "
-#~ msgstr "    "
-#~ msgid "<b>Display Settings</b>"
-#~ msgstr "<b>Setări afișare</b>"
-#~ msgid "<b>Frequency Selector</b>"
-#~ msgstr "<b>Selector pentru frecvență</b>"
-#~ msgid "<b>Monitor Settings</b>"
-#~ msgstr "<b>Setări monitor</b>"
-#~ msgid "CPU Frequency Monitor Preferences"
-#~ msgstr "Preferințe Monitor frecvență CPU"
-#~ msgid "Show CPU frequency as _frequency"
-#~ msgstr "Afișează frecvența CPU ca _frecvență"
-#~ msgid "Show CPU frequency as _percentage"
-#~ msgstr "Afișează frecevența CPU ca _procentaj"
-#~ msgid "Show frequency _units"
-#~ msgstr "Afișează _unități de frecvență"
-#~ msgid "Show m_enu:"
-#~ msgstr "Afișează m_eniul:"
-#~ msgid "_Appearance:"
-#~ msgstr "_Aspect:"
-#~ msgid "_Monitored CPU:"
-#~ msgstr "CPU _monitorizat:"
-#~ msgid "Could not open help document"
-#~ msgstr "Nu s-a putut deschide documentul de ajutor"
-#~ msgid "This utility shows the current CPU Frequency Scaling."
-#~ msgstr "Acest utilitar afișează scalarea curentă a frecvenței CPU."
-#~ msgid "This utility shows the current CPU Frequency"
-#~ msgstr "Acest utilitar afișează frecvența curentă pentru CPU"
-#~ msgid "Graphic"
-#~ msgstr "Grafic"
-#~ msgid "Text"
-#~ msgstr "Text"
-#~ msgid "Graphic and Text"
-#~ msgstr "Grafic și text"
-#~ msgid "Frequencies"
-#~ msgstr "Frecvențe"
-#~ msgid "Governors"
-#~ msgstr "Guvernatori"
-#~ msgid "Frequencies and Governors"
-#~ msgstr "Frecvențe și guvernatori"
-#~ msgid "Frequency Scaling Unsupported"
-#~ msgstr "Scalare frecvență nesuportată"
-#~ msgid "CPU frequency scaling unsupported"
-#~ msgstr "Scalare frecvență CPU nesuportată"
-#~ msgid ""
-#~ "You will not be able to modify the frequency of your machine.  Your "
-#~ "machine may be misconfigured or not have hardware support for CPU "
-#~ "frequency scaling."
-#~ msgstr ""
-#~ "Nu veți putea modifica frecevența procesorului dumneavoastră. Sistemul "
-#~ "dumneavoastră ar putea fi configurat greșit sau nu are suport hardware "
-#~ "pentru scalarea frecvenței CPU."
-#~ msgid "Disk Mounter"
-#~ msgstr "Montare Dispozitiv"
-#~ msgid "Drive Mount Applet Factory"
-#~ msgstr "Factory Aplet Montare Dispozitiv"
-#~ msgid "Factory for drive mount applet"
-#~ msgstr "Factory pentru apletul de montare a dispozitivelor"
-#~ msgid "Mount local disks and devices"
-#~ msgstr "Montează discurile și dispozitivele locale"
-#~ msgid "(mounted)"
-#~ msgstr "(montat)"
-#~ msgid "(not mounted)"
-#~ msgstr "(nu este montat)"
-#~ msgid "(not connected)"
-#~ msgstr "(neconectat)"
-#~ msgid "Cannot execute '%s'"
-#~ msgstr "Nu pot executa „%s”"
-#~ msgid "Mount Error"
-#~ msgstr "Eroare montare"
-#~ msgid "Unmount Error"
-#~ msgstr "Eroare demontare"
-#~ msgid "Eject Error"
-#~ msgstr "Eroare ejectare"
-#~ msgid "Error"
-#~ msgstr "Eroare"
-#~ msgid "_Play DVD"
-#~ msgstr "_Redă DVD"
-#~ msgid "_Play CD"
-#~ msgstr "_Redă CD"
-#~ msgid "_Open %s"
-#~ msgstr "_Deschide %s"
-#~ msgid "_Mount %s"
-#~ msgstr "_Montează %s"
-#~ msgid "Un_mount %s"
-#~ msgstr "_Demontează %s"
-#~ msgid "_Eject %s"
-#~ msgstr "_Ejectează %s"
-#~ msgid "Applet for mounting and unmounting block volumes."
-#~ msgstr "Aplet pentru montarea și demontarea dispozitivelor bloc"
-#~ msgid "Interval timeout to check mount point status"
-#~ msgstr ""
-#~ "Intervalul de timp la care se verifică statusul punctului de montare"
-#~ msgid "Time in seconds between status updates"
-#~ msgstr "Timpul în secunde între reverificări"
-#~ msgid "A set of eyeballs for your panel"
-#~ msgstr "Un set de ochi pentru panelul dumneavoastră"
-#~ msgid "Geyes"
-#~ msgstr "gOchi"
-#~ msgid "Geyes Applet Factory"
-#~ msgstr "Factory aplet gOchi"
-#~ msgid "A goofy little xeyes clone for the GNOME panel."
-#~ msgstr "O mică clonă xeyes pentru panelul GNOME."
-#~ msgid "The eyes look in the direction of the mouse pointer"
-#~ msgstr "Ochii se uită în direcția mouse-ului."
-#~ msgid "Directory in which the theme is located"
-#~ msgstr "Dosarul în care tema este localizată"
-#~ msgid "Can not launch the eyes applet."
-#~ msgstr "Nu am putut lansa apletul eyes."
-#~ msgid "There was a fatal error while trying to load the theme."
-#~ msgstr "A intervenit o eroare fatală la încărcarea temei."
-#~ msgid "Geyes Preferences"
-#~ msgstr "Preferințe gOchi"
-#~ msgid "Themes"
-#~ msgstr "Teme"
-#~ msgid "_Select a theme:"
-#~ msgstr "_Selectați o temă:"
-#~ msgid "Alt+Control changes layout."
-#~ msgstr "Alt+Control schimbă layout-ul."
-#~ msgid "Alt+Shift changes layout."
-#~ msgstr "Alt+Shift schimbă layout-ul."
-#~ msgid "Arabic keymap"
-#~ msgstr "Mapare arabă"
-#~ msgid "Armenian"
-#~ msgstr "Armeană"
-#~ msgid "Basque"
-#~ msgstr "Țara Bascilor"
-#~ msgid "Belgian"
-#~ msgstr "Belgiană"
-#~ msgid "Both Alt keys together change layout."
-#~ msgstr "Amândouă tastele Alt împreună schimbă layout-ul."
-#~ msgid "Both Ctrl keys together change layout."
-#~ msgstr "Amândouă tastele Ctrl împreună schimbă layout-ul."
-#~ msgid "Both Shift keys together change layout."
-#~ msgstr "Amândouă tastele Shift împreună schimbă layout-ul."
-#~ msgid "Brazil Portuguese keymap"
-#~ msgstr "Mapare braziliană portugheză"
-#~ msgid "Bulgarian Cyrillic"
-#~ msgstr "Bulgară chirilică"
-#~ msgid "Bulgarian keymap"
-#~ msgstr "Mapare bulgară"
-#~ msgid "CapsLock key changes layout."
-#~ msgstr "Tasta CapsLock schimbă layout-ul."
-#~ msgid "Control+Shift changes layout."
-#~ msgstr "Control+Shift schimbă layout-ul."
-#~ msgid "Czech keymap"
-#~ msgstr "Mapare cehă"
-#~ msgid "Danish keymap"
-#~ msgstr "Mapare daneză"
-#~ msgid "Dutch keymap"
-#~ msgstr "Mapare olandeză"
-#~ msgid "English keymap"
-#~ msgstr "Mapare englezească"
-#~ msgid "Estonian keymap"
-#~ msgstr "Mapare estoniană"
-#~ msgid "Finnish keymap"
-#~ msgstr "Mapare finlandeză"
-#~ msgid "French Swiss"
-#~ msgstr "Elvețiană franceză"
-#~ msgid "French Swiss keymap"
-#~ msgstr "Mapare franceză elvețiană"
-#~ msgid "French keymap"
-#~ msgstr "Mapare franceză"
-#~ msgid "French-Canadian 105-key"
-#~ msgstr "Franceză canadiană 105 taste"
-#~ msgid "GB 102-key"
-#~ msgstr "GB 102 taste"
-#~ msgid "GB 105-key"
-#~ msgstr "GB 105 taste"
-#~ msgid "Generic Keyboard"
-#~ msgstr "Tastatură generică"
-#~ msgid "Georgian Latin"
-#~ msgstr "Georgiană Latină"
-#~ msgid "Georgian Russian layout"
-#~ msgstr "Layout georgian rus"
-#~ msgid "Georgian keymap"
-#~ msgstr "Mapare georgiană"
-#~ msgid "German"
-#~ msgstr "Germană"
-#~ msgid "German Swiss with Euro"
-#~ msgstr "Elvețiană germană cu Euro"
-#~ msgid "German keymap"
-#~ msgstr "Mapare germană"
-#~ msgid "Greek keymap"
-#~ msgstr "Mapare grecească"
-#~ msgid "Hebrew keymap"
-#~ msgstr "Mapare ebraică"
-#~ msgid "Hungarian 101-key latin 1"
-#~ msgstr "Ungară 101 taste latin 1"
-#~ msgid "Hungarian 101-key latin 2"
-#~ msgstr "Ungară 101 taste latin 2"
-#~ msgid "Hungarian 105-key latin 1"
-#~ msgstr "Ungară 105 taste latin 1"
-#~ msgid "Hungarian 105-key latin 2"
-#~ msgstr "Ungară 105 taste latin 2"
-#~ msgid "Hungarian PC/AT 101 keyboard"
-#~ msgstr "Tastatură ungară PC/AT 101"
-#~ msgid "Hungarian latin1"
-#~ msgstr "Ungară latin1"
-#~ msgid "Icelandic keymap"
-#~ msgstr "Mapare islandeză"
-#~ msgid "Italian keymap"
-#~ msgstr "Mapare italiană"
-#~ msgid "Japanese keymap"
-#~ msgstr "Mapare japoneză"
-#~ msgid "Lao keymap"
-#~ msgstr "Mapare Lao"
-#~ msgid "Layout shift behavior"
-#~ msgstr "Comportamentul layout-ului pentru shift"
-#~ msgid "Left Alt key changes layout."
-#~ msgstr "Tasta Alt stânga schimbă layout-ul."
-#~ msgid "Left Ctrl key changes group."
-#~ msgstr "Tasta Ctrl stânga schimbă grupul."
-#~ msgid "Left Shift key changes group."
-#~ msgstr "Tasta Shift stânga schimbă grupul."
-#~ msgid "Left Win-key changes layout."
-#~ msgstr "Tasta Win stânga schimbă layout-ul."
-#~ msgid "Lithuanian keymap"
-#~ msgstr "Mapare Lithuanian"
-#~ msgid "Macedonian"
-#~ msgstr "Macedonă"
-#~ msgid "Menu key changes layout."
-#~ msgstr "Tasta Meniu schimbă layout-ul."
-#~ msgid "Mongolian alt keymap"
-#~ msgstr "Mapare mongoleză alt"
-#~ msgid "Mongolian keymap"
-#~ msgstr "Mapare mongoleză"
-#~ msgid "Mongolian phonetic keymap"
-#~ msgstr "Mapare mongoleză fonetic"
-#~ msgid "Norwegian"
-#~ msgstr "Norvegiană"
-#~ msgid "Plain Russian keymap"
-#~ msgstr "Mapare rusă simplă"
-#~ msgid "Polish"
-#~ msgstr "Poloneză"
-#~ msgid "Polish deadkeys"
-#~ msgstr "Polish deadkeys"
-#~ msgid "Portugal"
-#~ msgstr "Portugalia"
-#~ msgid "Portugal Deadkeys"
-#~ msgstr "Portugal Deadkeys"
-#~ msgid "Portuguese keymap"
-#~ msgstr "Maparare portugheză"
-#~ msgid "Right Alt key changes layout."
-#~ msgstr "Tasta Alt dreapta schimbă layout-ul."
-#~ msgid "Right Ctrl key changes group."
-#~ msgstr "Tasta Ctrl dreapta schimbă grupul."
-#~ msgid "Right Shift key changes group."
-#~ msgstr "Tasta Shift dreapta schimbă grupul."
-#~ msgid "Right Win-key changes layout."
-#~ msgstr "Tasta Win dreapta schimbă layout-ul."
-#~ msgid "Russian Cyrillic"
-#~ msgstr "Rusă chirilică"
-#~ msgid "Russian keymap"
-#~ msgstr "Mapare rusească"
-#~ msgid "Serbian keymap"
-#~ msgstr "Mapare sârbească"
-#~ msgid "Shift+CapsLock changes layout."
-#~ msgstr "Tastele Shift+CapsLock schimbă layout-ul."
-#~ msgid "Slovak keymap"
-#~ msgstr "Mapare slovacă"
-#~ msgid "Slovenian"
-#~ msgstr "Slovenă"
-#~ msgid "Slovenian keymap"
-#~ msgstr "Mapare slovenă"
-#~ msgid "Spanish keymap"
-#~ msgstr "Mapare spaniolă"
-#~ msgid "Sun (!not PC!) type5 Hungarian latin 2"
-#~ msgstr "Sun (!nu PC!) tip 5 ungară latin 2"
-#~ msgid "Swedish"
-#~ msgstr "Suedeză"
-#~ msgid "Swedish keymap"
-#~ msgstr "Mapare suedeză"
-#~ msgid "Swiss keymap"
-#~ msgstr "Mapare elvețiană"
-#~ msgid "Thai"
-#~ msgstr "Tailandeză"
-#~ msgid "Thai Kedmanee"
-#~ msgstr "Thai Kedmanee"
-#~ msgid "Thai keymap"
-#~ msgstr "Mapare tailandeză"
-#~ msgid "Turkish \"F\" keyboard"
-#~ msgstr "Mapare turcă „F“"
-#~ msgid "Turkish \"Q\" keyboard"
-#~ msgstr "Mapare turcă „Q“"
-#~ msgid "Turkish keymap"
-#~ msgstr "Mapare turcă"
-#~ msgid "UK 105-key"
-#~ msgstr "UK 105 taste"
-#~ msgid "UK PC/AT keyboard"
-#~ msgstr "Tastatură UK PC/AT"
-#~ msgid "US 101-key keyboard"
-#~ msgstr "Tastatură US 101 taste"
-#~ msgid "US 105-key keyboard (with windows keys)"
-#~ msgstr "Mapare US 105 taste (cu taste windows)"
-#~ msgid "US 84-key"
-#~ msgstr "US 84 taste"
-#~ msgid "US DEC 450"
-#~ msgstr "US DEC 450"
-#~ msgid "US IBM RS/6000"
-#~ msgstr "US IBM RS/6000"
-#~ msgid "US International"
-#~ msgstr "US Internațional"
-#~ msgid "US Macintosh"
-#~ msgstr "US Macintosh"
-#~ msgid "US PC/AT 101 keyboard"
-#~ msgstr "Tastatură US PC/AT 101"
-#~ msgid "US Silicon Graphics 101-key"
-#~ msgstr "US Silicon Graphics 101 taste"
-#~ msgid "US Sun type5"
-#~ msgstr "US Sun tip 5"
-#~ msgid "Armenian Sun keymap"
-#~ msgstr "Mapare Sun armenă"
-#~ msgid "Azerbaijani Turkish Sun keymap"
-#~ msgstr "Mapare Sun azeră turcă"
-#~ msgid "Belarusian Sun keymap"
-#~ msgstr "Mapare Sun bielorusă"
-#~ msgid "Brazil Portuguese Sun USB keymap"
-#~ msgstr "Mapare Sun USB braziliană portugheză"
-#~ msgid "Brazil Portuguese Sun keymap"
-#~ msgstr "Mapare Sun braziliană portugheză"
-#~ msgid "British Sun Type-4 keymap"
-#~ msgstr "Mapare Sun Type-4 britanică"
-#~ msgid "British Sun USB keymap"
-#~ msgstr "Mapare Sun USB britanică"
-#~ msgid "British Sun keymap"
-#~ msgstr "Mapare Sun britanică"
-#~ msgid "Bulgarian Sun keymap"
-#~ msgstr "Mapare Sun bulgară"
-#~ msgid "Canadian Sun keymap"
-#~ msgstr "Mapare Sun canadiană"
-#~ msgid "Czech Sun keymap"
-#~ msgstr "Mapare Sun cehă"
-#~ msgid "Danish Sun Type-4 keymap"
-#~ msgstr "Mapare Sun Tip 4 daneză"
-#~ msgid "Danish Sun USB keymap"
-#~ msgstr "Mapare Sun USB daneză"
-#~ msgid "Danish Sun keymap"
-#~ msgstr "Mapare Sun daneză"
-#~ msgid "Dutch Sun keymap"
-#~ msgstr "Mapare Sun olandeză"
-#~ msgid "Estonian Sun keymap"
-#~ msgstr "Mapare Sun estonă"
-#~ msgid "Finnish Sun keymap"
-#~ msgstr "Mapare Sun finlandeză"
-#~ msgid "French Sun USB keymap"
-#~ msgstr "Mapare Sun USB franceză"
-#~ msgid "French Sun keymap"
-#~ msgstr "Mapare Sun franceză"
-#~ msgid "German Sun Type-4 keymap"
-#~ msgstr "Mapare Sun Tip 4 germană"
-#~ msgid "German Sun USB keymap"
-#~ msgstr "Mapare Sun USB germană"
-#~ msgid "German Sun keymap"
-#~ msgstr "Mapare Sun germană"
-#~ msgid "Hebrew Sun keymap"
-#~ msgstr "Mapare Sun ebraică"
-#~ msgid "Hungarian latin2 Sun keymap"
-#~ msgstr "Mapare Sun ungară latin2"
-#~ msgid "Hungarian type5 latin 1 keymap"
-#~ msgstr "Mapare ungară type5 latin 1"
-#~ msgid "Icelandic Sun keymap"
-#~ msgstr "Mapare Sun islandeză"
-#~ msgid "Italian Sun Type-4 keymap"
-#~ msgstr "Mapare Sun Type-4 italiană"
-#~ msgid "Italian Sun USB keymap"
-#~ msgstr "Mapare Sun USB italiană"
-#~ msgid "Italian Sun keymap"
-#~ msgstr "Mapare Sun italiană"
-#~ msgid "Japanese Sun Type-4 keymap"
-#~ msgstr "Mapare Sun Type-4 japoneză"
-#~ msgid "Japanese Sun keymap"
-#~ msgstr "Mapare Sun japoneză"
-#~ msgid "Latvian Sun keymap"
-#~ msgstr "Mapare Sun letonă"
-#~ msgid "Lithuanian Sun keymap"
-#~ msgstr "Mapare Sun lituaniană"
-#~ msgid "Macedonian Sun keymap"
-#~ msgstr "Mapare Sun macedoneană"
-#~ msgid "Norwegian Sun keymap"
-#~ msgstr "Mapare Sun norvegiană"
-#~ msgid "Polish Sun keymap"
-#~ msgstr "Mapare Sun poloneză"
-#~ msgid "Portuguese Sun Type-4 keymap"
-#~ msgstr "Mapare Sun Type-4 portugheză"
-#~ msgid "Portuguese Sun keymap"
-#~ msgstr "Mapare Sun portugheză"
-#~ msgid "Romanian Sun keymap"
-#~ msgstr "Mapare Sun românească"
-#~ msgid "Russian Sun keymap"
-#~ msgstr "Mapare Sun rusească"
-#~ msgid "Serbian Sun standard keymap"
-#~ msgstr "Mapare Sun sârbească standard"
-#~ msgid "Slovak Sun keymap"
-#~ msgstr "Mapare Sun slovacă"
-#~ msgid "Slovenian Sun keymap"
-#~ msgstr "Mapare Sun slovenă"
-#~ msgid "Spanish Sun Type-4 keymap"
-#~ msgstr "Mapare Sun Type-4 spaniolă"
-#~ msgid "Spanish Sun USB keymap"
-#~ msgstr "Mapare Sun USB spaniolă"
-#~ msgid "Spanish Sun keymap"
-#~ msgstr "Mapare Sun spaniolă"
-#~ msgid "Swedish Sun Type-4 keymap"
-#~ msgstr "Mapare Sun Type-4 suedeză"
-#~ msgid "Swedish Sun USB keymap"
-#~ msgstr "Mapare Sun USB suedeză"
-#~ msgid "Swedish Sun keymap"
-#~ msgstr "Mapare Sun suedeză"
-#~ msgid "Swiss German Sun keymap"
-#~ msgstr "Mapare Sun elvețiană germană"
-#~ msgid "Thai Sun keymap"
-#~ msgstr "Mapare Sun tailandeză"
-#~ msgid "Turkish Sun keymap"
-#~ msgstr "Mapare Sun turcă"
-#~ msgid "US Sun Type-4 keymap"
-#~ msgstr "Mapare Sun Type-4 US"
-#~ msgid "US Sun USB keymap"
-#~ msgstr "Mapare Sun USB US"
-#~ msgid "US Sun type5 keymap"
-#~ msgstr "Mapare Sun type5 US"
-#~ msgid "Ukrainian Sun keymap"
-#~ msgstr "Mapare Sun ucrainiană"
-#~ msgid "Vietnamese Sun keymap"
-#~ msgstr "Mapare Sun vietnameză"
-#~ msgid "Pl_ugins"
-#~ msgstr "_Module"
-#~ msgid "_Groups"
-#~ msgstr "_Grupuri"
-#~ msgid "_Layout View"
-#~ msgstr "Vizualizare _layout"
-#~ msgid "_Open Keyboard Preferences"
-#~ msgstr "_Deschide preferințe tastatură"
-#~ msgid "Keyboard Indicator"
-#~ msgstr "Indicator tastatură"
-#~ msgid "Keyboard applet factory"
-#~ msgstr "Factory aplet tastatură"
-#~ msgid "Keyboard layout indicator"
-#~ msgstr "Indicator layout tastatură"
-#~ msgid "Keyboard Indicator (%s)"
-#~ msgstr "Indicator tastatură (%s)"
-#~ msgid "Keyboard Layout \"%s\""
-#~ msgstr "Layout pentru tastatură „%s”"
-#~ msgid "Copyright (c) Sergey V. Udaltsov 1999-2004"
-#~ msgstr "Copyright (c) Sergey V. Udaltsov 1999-2004"
-#~ msgid "Keyboard layout indicator applet for GNOME"
-#~ msgstr "Apletul Indicator de mapare tastatură pentru GNOME"
-#~ msgid "XKB initialization error"
-#~ msgstr "Eroare de inițializare XKB"
-#~ msgid "Error loading XKB configuration registry"
-#~ msgstr "Eroare la încărcarea configurării XKB din regiștri"
-#~ msgid "No description."
-#~ msgstr "Nici o descriere."
-#~ msgid "Failed to init GConf: %s\n"
-#~ msgstr "Eroare la inițializarea GConf: %s\n"
-#~ msgid "Activate more plugins"
-#~ msgstr "Activează mai multe module"
-#~ msgid "Active _plugins:"
-#~ msgstr "_Module active:"
-#~ msgid "Add Plugin"
-#~ msgstr "Adaugă modul"
-#~ msgid "Close the dialog"
-#~ msgstr "Închide dialogul"
-#~ msgid "Configure the selected plugin"
-#~ msgstr "Configurează modulul selectat"
-#~ msgid "Deactivate selected plugin"
-#~ msgstr "Dezactivează modulul selectat"
-#~ msgid "Decrease the plugin priority"
-#~ msgstr "Scade prioritatea modulului"
-#~ msgid "Increase the plugin priority"
-#~ msgstr "Crește prioritatea modulului"
-#~ msgid "Keyboard Indicator Plugins"
-#~ msgstr "Module pentru indicarea tastaturii"
-#~ msgid "The list of active plugins"
-#~ msgstr "Lista modulelor active"
-#~ msgid "_Available plugins:"
-#~ msgstr "Module _disponibile:"
-#~ msgid "Keyboard Layout"
-#~ msgstr "Layout tastatură"
-#~ msgid "Secondary groups"
-#~ msgstr "Grupuri secundare"
-#~ msgid "Show flags in the applet"
-#~ msgstr "Afișează steagurile în aplet"
-#~ msgid "Show flags in the applet to indicate the current layout"
-#~ msgstr "Afișează steagurile în aplet pentru a indica layout-ul curent"
-#~ msgid "The list of enabled Keyboard Indicator plugins"
-#~ msgstr "Lista modulelor activate pentru indicarea tastaturii"
-#~ msgid "Get continuously updated stock quotes"
-#~ msgstr "Primește în continuu ultimele valori ale acțiunilor"
-#~ msgid "Gtik Applet Factory"
-#~ msgstr "Factory aplet Gtik"
-#~ msgid "Stock Ticker"
-#~ msgstr "Afișaj bursă"
-#~ msgid "_Update"
-#~ msgstr "_Actualizează"
-#~ msgid "Could not retrieve the stock data."
-#~ msgstr "Nu am putut obține datele bursiere."
-#~ msgid "No stock list"
-#~ msgstr "Nici o listă de bursă"
-#~ msgid "Updating..."
-#~ msgstr "Actualizez..."
-#~ msgid ""
-#~ "This program connects to a popular site and downloads current stock "
-#~ "quotes.\n"
-#~ "\n"
-#~ "The GNOME Stock Ticker is a free Internet-based application. It comes "
-#~ "with ABSOLUTELY NO WARRANTY.\n"
-#~ "\n"
-#~ "Do not use the GNOME Stock Ticker for making investment decisions; it is "
-#~ "for informational purposes only."
-#~ msgstr ""
-#~ "Acest program se conectează la un sit popular și descarcă cotațiile de "
-#~ "bursă curente.\n"
-#~ "\n"
-#~ "GNOME Stock Ticker este o aplicație Internet liberă. Este distribuită cu "
-#~ "ABSOLUT NICI O GARANȚIE.\n"
-#~ "\n"
-#~ "Nu folosiți GNOME Stock Ticker pentru a face decizii de investiții; este "
-#~ "pentru scopuri pur informaționale."
-#~ msgid "Current _stocks:"
-#~ msgstr "_Valori curente:"
-#~ msgid "Add _new symbol:"
-#~ msgstr "Adaugă simbol _nou:"
-#~ msgid "Stock Ticker Preferences"
-#~ msgstr "Proprietăți Stock Ticker"
-#~ msgid "Symbols"
-#~ msgstr "Simboluri"
-#~ msgid "Behavior"
-#~ msgstr "Comportament"
-#~ msgid "Update"
-#~ msgstr "Actualizează"
-#~ msgid "Stock update fre_quency:"
-#~ msgstr "_Frecvența de actualizare:"
-#~ msgid "minutes"
-#~ msgstr "minute"
-#~ msgid "Scrolling"
-#~ msgstr "Derulare"
-#~ msgid "_Scroll speed:"
-#~ msgstr "Viteza de _defilare:"
-#~ msgid "Slow"
-#~ msgstr "Lent"
-#~ msgid "Medium"
-#~ msgstr "Mediu"
-#~ msgid "Fast"
-#~ msgstr "Rapid"
-#~ msgid "_Enable scroll buttons"
-#~ msgstr "_Activează butoanele de defilare"
-#~ msgid "Scroll _left to right"
-#~ msgstr "Defilează de la _stânga la dreapta"
-#~ msgid "Appearance"
-#~ msgstr "Aspect"
-#~ msgid "Display"
-#~ msgstr "Afișare"
-#~ msgid "Displa_y only symbols and price"
-#~ msgstr "Afi_șează numai simboluri și prețuri"
-#~ msgid "_Width:"
-#~ msgstr "_Lățime:"
-#~ msgid "pixels"
-#~ msgstr "pixeli"
-#~ msgid "Font and Colors"
-#~ msgstr "Fonturi și culori"
-#~ msgid "Use _default theme font and colors"
-#~ msgstr "_Folosește culorile și fonturile implicite ale temei"
-#~ msgid "_Font:"
-#~ msgstr "_Font:"
-#~ msgid "Stock _raised:"
-#~ msgstr "Valoarea a _crescut:"
-#~ msgid "Stock _lowered:"
-#~ msgstr "Valoarea a scăzut:"
-#~ msgid "Stock _unchanged:"
-#~ msgstr "Valoare ne_modificată:"
-#~ msgid "_Background:"
-#~ msgstr "_Fundal:"
-#~ msgid "Skip forward"
-#~ msgstr "Sări înainte"
-#~ msgid "Skip backward"
-#~ msgstr "Sări înapoi"
-#~ msgid ""
-#~ "Stock Ticker\n"
-#~ "Get continuously updated stock quotes"
-#~ msgstr ""
-#~ "Stock Ticker\n"
-#~ "Afișează încontinuu date bursiere"
-#~ msgid "+%s (%s)"
-#~ msgstr "+%s (%s)"
-#~ msgid "%s (%s)"
-#~ msgstr "%s (%s)"
-#~ msgid "(No Change)"
-#~ msgstr "(Nici o schimbare)"
-#~ msgid "Applet scrolls right to left when this key is set to true."
-#~ msgstr ""
-#~ "Textul defilează de la dreapta la stânga când această cheie este setată "
-#~ "la true."
-#~ msgid "Background color"
-#~ msgstr "Culoare fundal"
-#~ msgid ""
-#~ "Display only stock symbols along with their value. Do not display changes "
-#~ "in value."
-#~ msgstr ""
-#~ "Afișează doar simbolurile de bursă cu valorile lor. Schimbările de "
-#~ "valoare nu sunt afișate."
-#~ msgid "Display only symbols and price"
-#~ msgstr "Afișează numai simboluri și prețuri"
-#~ msgid "Font"
-#~ msgstr "Font"
-#~ msgid ""
-#~ "List containing the stocks to be displayed. Consists of the stock id "
-#~ "separated by \"+\""
-#~ msgstr ""
-#~ "Listă conținând indicii de afișat. Este formată doar din indici separați "
-#~ "de „+“."
-#~ msgid "Lowered color"
-#~ msgstr "Culoare scădere"
-#~ msgid "Raised color"
-#~ msgstr "Culoare creștere"
-#~ msgid "Right to left scrolling"
-#~ msgstr "Defilare de la dreapta la stânga"
-#~ msgid "Shorter time means the stocks scroll by faster."
-#~ msgstr "Timp mai scurt înseamnă defilare mai rapidă."
-#~ msgid "Show arrow buttons"
-#~ msgstr "Arată butoanele în formă de săgeată"
-#~ msgid ""
-#~ "Show arrow buttons on the side of the display so that the user can scroll "
-#~ "forward or backward."
-#~ msgstr ""
-#~ "Arată butoanele în formă de săgeată la extremități astfel încât să "
-#~ "permită defilarea la cerere înainte sau înapoi."
-#~ msgid "Stocks to monitor - must be separated by a +"
-#~ msgstr "Indicii de monitorizat - trebuie să fie separați printr-un +"
-#~ msgid ""
-#~ "The color of the background of the display. Has no effect when the user "
-#~ "chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Culoarea de fundal folosită pentru afișare. Nu are efect atunci când "
-#~ "utilizatorul alege să folosească fonturile și culorile implicite ale "
-#~ "temei."
-#~ msgid ""
-#~ "The color used when the stock's values has lowered. Has no effect when "
-#~ "the user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Culoarea folosită atunci când valoarea indicelui a scăzut. Nu are efect "
-#~ "atunci când utilizatorul alege să folosească fonturile și culorile "
-#~ "implicite ale temei."
-#~ msgid ""
-#~ "The color used when the stock's values has not changed. Has no effect "
-#~ "when the user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Culoarea folosită atunci când valoarea indicelui nu s-a modificat. Nu are "
-#~ "efect atunci când utilizatorul alege să folosească fonturile și culorile "
-#~ "implicite ale temei."
-#~ msgid ""
-#~ "The color used when the stock's values has raised. Has no effect when the "
-#~ "user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Culoarea folosită atunci când valoarea indicelui a crescut. Nu are efect "
-#~ "atunci când utilizatorul alege să folosească fonturile și culorile "
-#~ "implicite ale temei."
-#~ msgid ""
-#~ "The font used for the display. Has no effect when the user chooses to use "
-#~ "the default theme fonts and colors."
-#~ msgstr ""
-#~ "Fontul folosit la afișare. Nu are efect atunci când utilizatorul alege să "
-#~ "folosească fonturile și culorile implicite ale temei."
-#~ msgid "The time interval until when the applet updates the stock data."
-#~ msgstr "Intervalul de timp după care apletul actualizează datele."
-#~ msgid "The width in pixels of the applet."
-#~ msgstr "Lățimea în pixeli a apletului."
-#~ msgid "Time in milliseconds for display update"
-#~ msgstr "Timpul în milisecunde pentru actualizarea afișării"
-#~ msgid "Unchanged color"
-#~ msgstr "Culoare fixă"
-#~ msgid "Use default theme fonts and colors"
-#~ msgstr "Folosește culorile și fonturile implicite ale temei"
-#~ msgid "Use default theme fonts and colors instead of custom ones"
-#~ msgstr ""
-#~ "Folosește fonturile și culorile temei implicite, în locul celor "
-#~ "personalizate"
-#~ msgid "Width of the applet"
-#~ msgstr "Lățimea apletului"
-#~ msgid "font 2 - No Longer used"
-#~ msgstr "font 2 - Nu mai este folosit"
-#~ msgid "_Details"
-#~ msgstr "_Detalii"
-#~ msgid "Factory for creating the weather applet."
-#~ msgstr "Factory pentru crearea apletului meteorologic."
-#~ msgid "Gweather Applet Factory"
-#~ msgstr "Factory Aplet Gvreme"
-#~ msgid "Monitor the current weather conditions, and forecasts"
-#~ msgstr "Monitorizează condițiile meteorologice curente, și previziunile"
-#~ msgid "Weather Report"
-#~ msgstr "Raport meteorologic"
-#~ msgid "© 1999-2005 by S. Papadimitriou and others"
-#~ msgstr "© 1999-2005 de S. Papadimitriou și alții"
-#~ msgid "A panel application for monitoring local weather conditions."
-#~ msgstr "Un aplet pentru monitorizarea condițiilor meteorologice locale."
-#~ msgid "GNOME Weather"
-#~ msgstr "Vremea GNOME"
-#~ msgid ""
-#~ "City: %s\n"
-#~ "Sky: %s\n"
-#~ "Temperature: %s"
-#~ msgstr ""
-#~ "Oraș: %s\n"
-#~ "Cer: %s\n"
-#~ "Temperatură: %s"
-#~ msgid "Details"
-#~ msgstr "Detalii"
-#~ msgid "City:"
-#~ msgstr "Oraș:"
-#~ msgid "Last update:"
-#~ msgstr "Ultima actualizare:"
-#~ msgid "Conditions:"
-#~ msgstr "Condiții:"
-#~ msgid "Sky:"
-#~ msgstr "Cer:"
-#~ msgid "Temperature:"
-#~ msgstr "Temperatură:"
-#~ msgid "Feels like:"
-#~ msgstr "Urmează să:"
-#~ msgid "Dew point:"
-#~ msgstr "Punct dew:"
-#~ msgid "Relative humidity:"
-#~ msgstr "Umiditate relativă:"
-#~ msgid "Wind:"
-#~ msgstr "Vânt:"
-#~ msgid "Pressure:"
-#~ msgstr "Presiune:"
-#~ msgid "Visibility:"
-#~ msgstr "Vizibilitate:"
-#~ msgid "Sunrise:"
-#~ msgstr "Soarele răsare:"
-#~ msgid "Sunset:"
-#~ msgstr "Soarele apune:"
-#~ msgid "Current Conditions"
-#~ msgstr "Condiții curente"
-#~ msgid "Forecast Report"
-#~ msgstr "Previziune"
-#~ msgid "See the ForeCast Details"
-#~ msgstr "Vezi detalii despre previziune"
-#~ msgid "Forecast"
-#~ msgstr "Previziune"
-#~ msgid "Radar Map"
-#~ msgstr "Hartă radar"
-#~ msgid "_Visit Weather.com"
-#~ msgstr "_Vizitați Weather.com"
-#~ msgid "Visit Weather.com"
-#~ msgstr "Vizitați Weather.com"
-#~ msgid "Click to Enter Weather.com"
-#~ msgstr "Clic pentru a intra la Weather.com"
-#~ msgid "Forecast not currently available for this location."
-#~ msgstr "Previziunea nu este disponibilă pentru această locație."
-#~ msgid "Location view"
-#~ msgstr "Vizualizare locație"
-#~ msgid "Select Location from the list"
-#~ msgstr "Selectați locația din listă"
-#~ msgid "Update spin button"
-#~ msgstr "Actualizarea rotește butonul"
-#~ msgid "Spinbutton for updating"
-#~ msgstr "Butonul pulsează la actualizare"
-#~ msgid "Address Entry"
-#~ msgstr "Intrare adresă"
-#~ msgid "Enter the URL"
-#~ msgstr "Introduceți URL"
-#~ msgid ""
-#~ "Failed to load the Locations XML database.  Please report this as a bug."
-#~ msgstr ""
-#~ "Nu am putut încărca baza de date XML Locații. Vă rugăm raportați acest "
-#~ "bug."
-#~ msgid "Weather Preferences"
-#~ msgstr "Preferințe vreme"
-#~ msgid "_Automatically update every:"
-#~ msgstr "Actualizează _automat la fiecare:"
-#~ msgid "_Temperature unit:"
-#~ msgstr "Unitate pentru _temperatură:"
-#~ msgid "Kelvin"
-#~ msgstr "Kelvin"
-#~ msgid "Celsius"
-#~ msgstr "Celsius"
-#~ msgid "Fahrenheit"
-#~ msgstr "Fahrenheit"
-#~ msgid "_Wind speed unit:"
-#~ msgstr "Unitate pentru viteza _vântului:"
-#~ msgid "_Pressure unit:"
-#~ msgstr "Unitate pentru _presiune:"
-#~ msgid "_Visibility unit:"
-#~ msgstr "Unitate pentru v_izibilitate:"
-#~ msgid "meters"
-#~ msgstr "metri"
-#~ msgid "miles"
-#~ msgstr "mile"
-#~ msgid "Enable _radar map"
-#~ msgstr "Activează harta _radar"
-#~ msgid "Use _custom address for radar map"
-#~ msgstr "Folosește adresă personalizabilă pentru harta _radar"
-#~ msgid "A_ddress:"
-#~ msgstr "A_dresă:"
-#~ msgid "General"
-#~ msgstr "General"
-#~ msgid "_Select a location:"
-#~ msgstr "_Selectați o locație:"
-#~ msgid "_Find:"
-#~ msgstr "_Caută:"
-#~ msgid "Find _Next"
-#~ msgstr "Caută _următorul:"
-#~ msgid "There was an error loading an image: %s"
-#~ msgstr "A intervenit o eroare la încărcarea imaginii: %s"
-#~ msgid "Deskbar (ne Mini-Commander)"
-#~ msgstr "Deskbar (Mini commander)"
-#~ msgid "Deskbar (transparent upgrade from Mini-Commander)"
-#~ msgstr "Deskbar (actualizare transparentă de la Mini commander)"
-#~ msgid "Command Line"
-#~ msgstr "Comandă"
-#~ msgid "Mini-Commander"
-#~ msgstr "Mini-Commander"
-#~ msgid "MiniCommander Applet Factory"
-#~ msgstr "Factory aplet MiniCommander"
-#~ msgid ""
-#~ "This GNOME applet adds a command line to the panel. It features command "
-#~ "completion, command history, and changeable macros."
-#~ msgstr ""
-#~ "Acest aplet GNOME adaugă o linie de comandă la panou. Are ca facilități "
-#~ "auto-completarea comenzii, istoricul comenzilor rulate și macro-uri "
-#~ "personalizabile."
-#~ msgid "No items in history"
-#~ msgstr "Nici un element în istoric"
-#~ msgid "Start program"
-#~ msgstr "Începe program"
-#~ msgid "Command line"
-#~ msgstr "Linie de comandă"
-#~ msgid "Type a command here and Gnome will execute it for you"
-#~ msgstr "Scrieți o comandă aici și Gnome o va executa pentru dumneavoastră"
-#~ msgid "Cannot get schema for %s: %s"
-#~ msgstr "Nu am putut lua schema pentru %s: %s"
-#~ msgid "Cannot set schema for %s: %s"
-#~ msgstr "Nu am putut seta schema pentru %s: %s"
-#~ msgid "Set default list value for %s\n"
-#~ msgstr "Setează valoarea implicită a listei pentru %s\n"
-#~ msgid ""
-#~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
-#~ msgstr ""
-#~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL este setat, nu instalez schema\n"
-#~ msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
-#~ msgstr "Trebuie să setați variabila de mediu GCONF_CONFIG_SOURCE\n"
-#~ msgid "Failed to access configuration source(s): %s\n"
-#~ msgstr "Nu am putut accesa sursa(sursele) de configurare: %s\n"
-#~ msgid "Error syncing config data: %s"
-#~ msgstr "Eroare la sincronizarea datelor de configurare: %s"
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro commands."
-#~ msgstr ""
-#~ "Listă cu intrări GConfValue conținând secvențe de text pentru maco-uri."
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro patterns."
-#~ msgstr ""
-#~ "Listă cu intrări GConfValue conținând secvențe de text pentru modele de "
-#~ "macro-uri."
-#~ msgid "Macro command list"
-#~ msgstr "Lista de macro comenzi"
-#~ msgid "Macro pattern list"
-#~ msgstr "Lista de macro modele"
-#~ msgid "*"
-#~ msgstr "*"
-#~ msgid "<b>Auto Completion</b>"
-#~ msgstr "<b>Autocompletare</b>"
-#~ msgid "<b>Colors</b>"
-#~ msgstr "<b>Culori</b>"
-#~ msgid "<b>Size</b>"
-#~ msgstr "<b>Mărime</b>"
-#~ msgid "Add New Macro"
-#~ msgstr "Adaugă un nou macro"
-#~ msgid "Co_mmand:"
-#~ msgstr "Co_mandă"
-#~ msgid "Command Line Preferences"
-#~ msgstr "Preferințe Mini-Commander"
-#~ msgid "Command line _background:"
-#~ msgstr "Culoare _fundal linie de comandă:"
-#~ msgid "Command line _foreground:"
-#~ msgstr "Culoare _prim plan linie de comandă:"
-#~ msgid "E_nable history-based auto completion"
-#~ msgstr "Activează autocompletarea bazată pe _istoric"
-#~ msgid "Macros"
-#~ msgstr "Macrouri"
-#~ msgid "Pick a color"
-#~ msgstr "Alegeți o culoare"
-#~ msgid "_Add Macro..."
-#~ msgstr "_Adaugă macro..."
-#~ msgid "_Delete Macro"
-#~ msgstr "_Șterge macro"
-#~ msgid "_Macros:"
-#~ msgstr "_Macrouri:"
-#~ msgid "_Pattern:"
-#~ msgstr "M_odel:"
-#~ msgid "_Use default theme colors"
-#~ msgstr "_Folosește culorile implicite ale temei"
-#~ msgid ""
-#~ "Attempt to autocomplete a command from the history of commands entered."
-#~ msgstr ""
-#~ "Încearcă autocompletarea comenzii folosind istoricul comenzilor deja "
-#~ "rulate."
-#~ msgid "Background color, blue component"
-#~ msgstr "Culoarea de fundal, componenta albastră"
-#~ msgid "Background color, green component"
-#~ msgstr "Culoarea de fundal, componenta verde"
-#~ msgid "Background color, red component"
-#~ msgstr "Culoarea de fundal, componenta roșie"
-#~ msgid "Foreground color, blue component"
-#~ msgstr "Culoarea de prim plan, componenta albastră"
-#~ msgid "Foreground color, green component"
-#~ msgstr "Culoarea de prim plan, componenta verde"
-#~ msgid "Foreground color, red component"
-#~ msgstr "Culoarea de prim plan, componenta roșie"
-#~ msgid "History list"
-#~ msgstr "Listă istoric"
-#~ msgid "List of GConfValue entries containing strings for history entries."
-#~ msgstr ""
-#~ "Listă cu intrări GConfValue conținând secvențe de text pentru istoric."
-#~ msgid "Perform history autocompletion"
-#~ msgstr "Activează autocompletarea bazată pe istoric"
-#~ msgid "Show a frame surrounding the applet."
-#~ msgstr "Înconjoară apletul cu un cadru."
-#~ msgid "Show a handle so the applet can be detached from the panel."
-#~ msgstr ""
-#~ "Afișează un mâner astfel încat apletul să poată fi detașat de panel."
-#~ msgid "Show frame"
-#~ msgstr "Arată cadru"
-#~ msgid "Show handle"
-#~ msgstr "Arată mâner"
-#~ msgid "The blue component of the background color."
-#~ msgstr "Componenta albastră pentru culoarea de fundal."
-#~ msgid "The blue component of the foreground color."
-#~ msgstr "Componenta albastră pentru culoarea de prim plan."
-#~ msgid "The green component of the background color."
-#~ msgstr "Componenta verde pentru culoarea de fundal."
-#~ msgid "The green component of the foreground color."
-#~ msgstr "Componenta verde pentru culoarea de prim plan."
-#~ msgid "The red component of the background color."
-#~ msgstr "Componenta roșie pentru culoarea de fundal."
-#~ msgid "The red component of the foreground color."
-#~ msgstr "Componenta roșie pentru culoarea de prim plan."
-#~ msgid ""
-#~ "This per-applet key is deprecated in favour of the global key, /schemas/"
-#~ "apps/mini-commander-global/macro_patterns."
-#~ msgstr ""
-#~ "Această cheie per-aplet este învechită, utilizați cheia globală /schemas/"
-#~ "apps/mini-commander-global/macro_patterns."
-#~ msgid "Use the default theme colors"
-#~ msgstr "Folosește culorile implicite ale temei"
-#~ msgid "Use theme colors instead of custom ones."
-#~ msgstr "Folosește culorile temei în locul celor personalizate."
-#~ msgid "Width"
-#~ msgstr "Lățime"
-#~ msgid "Browser"
-#~ msgstr "Navigator"
-#~ msgid "Click this button to start the browser"
-#~ msgstr "Apăsați acest buton pentru a naviga"
-#~ msgid "History"
-#~ msgstr "Istoric"
-#~ msgid "Click this button for the list of previous commands"
-#~ msgstr "Apăsați acest buton pentru o listă a comenzilor anterioare"
-#~ msgid "Command line has been disabled by your system administrator"
-#~ msgstr "Linia de comandă a fost dezactivată de administratorul de sistem"
-#~ msgid "Mini-Commander applet"
-#~ msgstr "Aplet Mini-Commander"
-#~ msgid "This applet adds a command line to the panel"
-#~ msgstr "Acest aplet adaugă o linie de comandă panelului"
-#~ msgid "You must specify a pattern"
-#~ msgstr "Trebuie să specificați un model"
-#~ msgid "You must specify a pattern and a command"
-#~ msgstr "Trebuie să specificați un model și o comandă"
-#~ msgid "You must specify a command"
-#~ msgstr "Trebuie să specificați o comandă"
-#~ msgid "You may not specify duplicate patterns"
-#~ msgstr "Nu puteți specifica modele duplicat"
-#~ msgid "Pattern"
-#~ msgstr "Model"
-#~ msgid "Command"
-#~ msgstr "Comandă"
-#~ msgid "Adjust the sound volume"
-#~ msgstr "Ajustează volumul sunetului"
-#~ msgid "Volume Control"
-#~ msgstr "Control volum"
-#~ msgid "_Mute"
-#~ msgstr "_Mut"
-#~ msgid "_Open Volume Control"
-#~ msgstr "_Deschide Control volum"
-#~ msgid ""
-#~ "The volume control did not find any elements and/or devices to control. "
-#~ "This means either that you don't have the right GStreamer plugins "
-#~ "installed, or that you don't have a sound card configured."
-#~ msgstr ""
-#~ "Controlul de volum nu a găsit nici un element și/sau dispozitiv pentru a "
-#~ "fi controlat. Acest lucru înseamnă fie că nu aveți modulele GStreamer "
-#~ "necesare instalate, fie că nu aveți placa de sunet configurată."
-#~ msgid ""
-#~ "You can remove the volume control from the panel by right-clicking the "
-#~ "speaker icon on the panel and selecting \"Remove From Panel\" from the "
-#~ "menu."
-#~ msgstr ""
-#~ "Puteți elimina controlul de volum din panou printr-un clic dreapta pe "
-#~ "iconița difuzorului din panou și selectarea opțiunii „Elimină din panou” "
-#~ "din meniu."
-#~ msgid "Failed to start Volume Control: %s"
-#~ msgstr "Eroare la pornirea Control Volum: %s"
-#~ msgid "%s: muted"
-#~ msgstr "%s: anulat"
-#~ msgid "%s: %d%%"
-#~ msgstr "%s: %d%%"
-#~ msgid "Failed to display help: %s"
-#~ msgstr "Eroare la afișarea ajutorului: %s"
-#~ msgid "Volume control for your GNOME Panel."
-#~ msgstr "Control de volum pentru panoul GNOME."
-#~ msgid "Using GStreamer 0.10."
-#~ msgstr "Utilizare GStreamer 0.10."
-#~ msgid "Using GStreamer 0.8."
-#~ msgstr "Utilizare GStreamer 0.8."
-#~ msgid "Volume Applet"
-#~ msgstr "Aplet pentru volum"
-#~ msgid "+"
-#~ msgstr "+"
-#~ msgid "-"
-#~ msgstr "-"
-#~ msgid "Unknown Volume Control %d"
-#~ msgstr "Control volum %d necunoscut"
-#~ msgid "Channel controlled by applet. Only for OSS setups"
-#~ msgstr "Canalul controlat de aplet. Doar pentru setări OSS"
-#~ msgid "Saved mute state"
-#~ msgstr "Anularea sunetului salvată"
-#~ msgid "Saved volume to restore on startup"
-#~ msgstr "Volum salvat pentru restaurarea la pornire"
-#~ msgid "Volume Control Preferences"
-#~ msgstr "Preferințe Control volum"
-#~ msgid "Select the device and track to control."
-#~ msgstr "Selectați dispozitivul și pista pentru control."
-#~ msgid "Activate and monitor a dial-up network connection"
-#~ msgstr "Activează și monitorizează o conexiune de rețea dial-up"
-#~ msgid "Modem Monitor"
-#~ msgstr "Monitor modem"
-#~ msgid "_Activate"
-#~ msgstr "_Activează"
-#~ msgid "_Deactivate"
-#~ msgstr "_Dezactivează"
-#~ msgid "_Properties"
-#~ msgstr "_Proprietăți"
-#~ msgid "Connection active, but could not get connection time"
-#~ msgstr "Conexiune activă, dar nu am putut obține durata de conectare"
-#~ msgid "Time connected: %.1d:%.2d"
-#~ msgstr "Durată conectare: %.1d:%.2d"
-#~ msgid "Not connected"
-#~ msgstr "Neconectat"
-#~ msgid ""
-#~ "To connect to your Internet service provider, you need administrator "
-#~ "privileges"
-#~ msgstr ""
-#~ "Pentru a vă conecta la furnizorul dumneavoastră de servicii Internet, "
-#~ "aveți nevoie de drepturi de administrare"
-#~ msgid ""
-#~ "To disconnect from your Internet service provider, you need administrator "
-#~ "privileges"
-#~ msgstr ""
-#~ "Pentru a vă deconecta de la furnizorul dumneavoastră de servicii "
-#~ "Internet, aveți nevoie de drepturi de administrare"
-#~ msgid "The entered password is invalid"
-#~ msgstr "Parola introdusă este invalidă"
-#~ msgid ""
-#~ "Check that you have typed it correctly and that you haven't activated the "
-#~ "\"caps lock\" key"
-#~ msgstr ""
-#~ "Verificați faptul că ați scris-o corect și că nu aveți activată tasta "
-#~ "„caps lock”"
-#~ msgid "Do you want to connect?"
-#~ msgstr "Doriți să vă conectați?"
-#~ msgid "Do you want to disconnect?"
-#~ msgstr "Doriți să vă deconectați?"
-#~ msgid "C_onnect"
-#~ msgstr "_Conectare"
-#~ msgid "_Disconnect"
-#~ msgstr "_Deconectare"
-#~ msgid "Could not launch network configuration tool"
-#~ msgstr "Nu am putut lansa utilitarul pentru configurarea rețelei"
-#~ msgid ""
-#~ "Check that it's installed in the correct path and that it has the correct "
-#~ "permissions"
-#~ msgstr ""
-#~ "Verificați faptul că este instalat în locația corectă și că permisiunile "
-#~ "sunt cele corecte"
-#~ msgid "Applet for activating and monitoring a dial-up network connection."
-#~ msgstr ""
-#~ "Aplet pentru activarea și monitorizarea conexiunilor de rețea dial-up."
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Connecting with Internet Service "
-#~ "Provider</span>"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Conectare la furnizorul de servicii "
-#~ "Internet</span>"
-#~ msgid "<span weight=\"bold\" size=\"larger\">Root password required</span>"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Este necesară parola pentru root</"
-#~ "span>"
-#~ msgid "Enter password"
-#~ msgstr "Introduceți parola"
-#~ msgid "Password:"
-#~ msgstr "Parola:"
-#~ msgid "A system load indicator"
-#~ msgstr "Un indicator al încărcării sistemului"
-#~ msgid "System Monitor"
-#~ msgstr "Monitor sistem"
-#~ msgid "_Open System Monitor"
-#~ msgstr "_Deschide Monitor sistem"
-#~ msgid ""
-#~ "A system load monitor capable of displaying graphs for CPU, ram, and swap "
-#~ "space use, plus network traffic."
-#~ msgstr ""
-#~ "Un monitor al sistemului capabil de a afișa grafice despre CPU, ram, swap "
-#~ "folosit, plus traficul pe rețea."
-#~ msgid "There was an error executing '%s': %s"
-#~ msgstr "A intervenit o eroare la executarea „%s“: %s"
-#~ msgid "Processor"
-#~ msgstr "Procesor"
-#~ msgid "Memory"
-#~ msgstr "Memorie"
-#~ msgid "Network"
-#~ msgstr "Rețea"
-#~ msgid "Swap Space"
-#~ msgstr "Swap"
-#~ msgid "Load Average"
-#~ msgstr "Încărcare medie"
-#~ msgid "Disk"
-#~ msgstr "Disk"
-#~ msgid ""
-#~ "%s:\n"
-#~ "%u%% in use by programs\n"
-#~ "%u%% in use as cache"
-#~ msgstr ""
-#~ "%s:\n"
-#~ "%u%% folosiți de programe\n"
-#~ "%u%% folosiți pentru cache"
-#~ msgid ""
-#~ "%s:\n"
-#~ "%u%% in use"
-#~ msgid_plural ""
-#~ "%s:\n"
-#~ "%u%% in use"
-#~ msgstr[0] ""
-#~ "%s:\n"
-#~ "%u%% folosit"
-#~ msgstr[1] ""
-#~ "%s:\n"
-#~ "%u%% folosiți"
-#~ msgstr[2] ""
-#~ "%s:\n"
-#~ "%u%% folosiți"
-#~ msgid "CPU Load"
-#~ msgstr "Încărcare CPU"
-#~ msgid "Memory Load"
-#~ msgstr "Utilizare memorie"
-#~ msgid "Net Load"
-#~ msgstr "Încărcare rețea"
-#~ msgid "Swap Load"
-#~ msgstr "Încărcare swap"
-#~ msgid "Disk Load"
-#~ msgstr "Utilizare disk"
-#~ msgid "Applet refresh rate in milliseconds"
-#~ msgstr "Rata de reîmprospătare a apletului în milisecunde"
-#~ msgid "Background color for disk load graph"
-#~ msgstr "Culoarea de fundal pentru graficul utilizării disk-ului."
-#~ msgid "CPU graph background color"
-#~ msgstr "Culoarea de fundal pentru graficul CPU"
-#~ msgid "Enable CPU load graph"
-#~ msgstr "Activează graficul pentru utilizare CPU"
-#~ msgid "Enable disk load graph"
-#~ msgstr "Activează graficul pentru utilizarea disk-ului"
-#~ msgid "Enable load average graph"
-#~ msgstr "Activează graficul pentru încarcarea medie"
-#~ msgid "Enable memory load graph"
-#~ msgstr "Activează graficul pentru utilizarea memoriei"
-#~ msgid "Enable network load graph"
-#~ msgstr "Activează graficul pentru utilizarea rețelei"
-#~ msgid "Enable swap load graph"
-#~ msgstr "Activează graficul pentru utilizarea memoriei swap"
-#~ msgid ""
-#~ "For horizontal panels, the width of the graphs in pixels. For vertical "
-#~ "panels, this is the height of the graphs."
-#~ msgstr ""
-#~ "Pentru panelurile orizontale, lătimea graficului în pixeli. Pentru "
-#~ "panelurile verticale, aceasta este înălțimea graficelor."
-#~ msgid "Graph color for Ethernet network activity"
-#~ msgstr "Culoarea graficului pentru activitatea rețelei Ethernet"
-#~ msgid "Graph color for PLIP network activity"
-#~ msgstr "Culoarea graficului pentru activitatea rețelei PLIP"
-#~ msgid "Graph color for SLIP network activity"
-#~ msgstr "Culoarea graficului pentru activitatea rețelei SLIP"
-#~ msgid "Graph color for buffer memory"
-#~ msgstr "Culoarea graficului pentru memoria tampon"
-#~ msgid "Graph color for cached memory"
-#~ msgstr "Culoarea graficului pentru memoria cache"
-#~ msgid "Graph color for disk read"
-#~ msgstr "Culoarea graficului pentru citire disk"
-#~ msgid "Graph color for disk write"
-#~ msgstr "Culoarea graficului pentru scriere disk"
-#~ msgid "Graph color for iowait related CPU activity"
-#~ msgstr "Culoarea graficului pentru activitatea CPU iowait"
-#~ msgid "Graph color for load average"
-#~ msgstr "Culoarea graficului pentru încărcarea medie"
-#~ msgid "Graph color for nice-related CPU activity"
-#~ msgstr "Culoarea graficului pentru activitatea CPU nice"
-#~ msgid "Graph color for other network usage"
-#~ msgstr "Culoarea graficului pentru alte activități al rețelei"
-#~ msgid "Graph color for shared memory"
-#~ msgstr "Culoarea graficului pentru memoria partajată"
-#~ msgid "Graph color for system-related CPU activity"
-#~ msgstr "Culoarea graficului pentru activitatea CPU sistem"
-#~ msgid "Graph color for user-related CPU activity"
-#~ msgstr "Culoarea graficului pentru activitatea CPU utilizator"
-#~ msgid "Graph color for user-related memory usage"
-#~ msgstr "Culoarea graficului pentru utilizarea memoriei de către utilizator"
-#~ msgid "Graph color for user-related swap usage"
-#~ msgstr ""
-#~ "Culoarea graficului pentru utilizarea memoriei swap de către utilizator"
-#~ msgid "Graph size"
-#~ msgstr "Mărime grafic"
-#~ msgid "Load graph background color"
-#~ msgstr "Culoarea de fundal pentru graficul de utilizare"
-#~ msgid "Memory graph background color"
-#~ msgstr "Culoarea de fundal pentru graficul de memorie"
-#~ msgid "Network graph background color"
-#~ msgstr "Culoarea de fundal pentru graficul de utilizare rețea"
-#~ msgid "Swap graph background color"
-#~ msgstr "Culoarea de fundal pentru graficul memoriei swap"
-#~ msgid "Monitored Resources"
-#~ msgstr "Resurse monitorizate"
-#~ msgid "_Processor"
-#~ msgstr "_Procesor:"
-#~ msgid "_Memory"
-#~ msgstr "_Memorie"
-#~ msgid "_Network"
-#~ msgstr "_Rețea"
-#~ msgid "S_wap Space"
-#~ msgstr "Spațiu s_wap"
-#~ msgid "_Load"
-#~ msgstr "Î_ncărcare"
-#~ msgid "_Harddisk"
-#~ msgstr "_Harddisk"
-#~ msgid "Options"
-#~ msgstr "Opțiuni"
-#~ msgid "System m_onitor width: "
-#~ msgstr "Lățime m_onitor sistem:"
-#~ msgid "System m_onitor height: "
-#~ msgstr "Înălțime monitor sistem:"
-#~ msgid "Sys_tem monitor update interval: "
-#~ msgstr "Interval de _actualizare monitorizare:"
-#~ msgid "milliseconds"
-#~ msgstr "milisecunde"
-#~ msgid "Colors"
-#~ msgstr "Culori"
-#~ msgid "_User"
-#~ msgstr "_Utilizator"
-#~ msgid "S_ystem"
-#~ msgstr "S_istem"
-#~ msgid "N_ice"
-#~ msgstr "N_ice"
-#~ msgid "I_OWait"
-#~ msgstr "I_OWait"
-#~ msgid "I_dle"
-#~ msgstr "Ne_folosit"
-#~ msgid "Sh_ared"
-#~ msgstr "_Împărțit"
-#~ msgid "_Buffers"
-#~ msgstr "_Buffere"
-#~ msgid "Cach_ed"
-#~ msgstr "Ca_che"
-#~ msgid "F_ree"
-#~ msgstr "L_iber"
-#~ msgid "_SLIP"
-#~ msgstr "_SLIP"
-#~ msgid "PL_IP"
-#~ msgstr "PL_IP"
-#~ msgid "_Ethernet"
-#~ msgstr "_Ethernet"
-#~ msgid "Othe_r"
-#~ msgstr "A_ltul"
-#~ msgid "_Background"
-#~ msgstr "_Fundal"
-#~ msgid "_Used"
-#~ msgstr "_Folosit"
-#~ msgid "_Free"
-#~ msgstr "_Liber"
-#~ msgid "Load"
-#~ msgstr "Încărcare"
-#~ msgid "_Average"
-#~ msgstr "Încărcare _medie"
-#~ msgid "Harddisk"
-#~ msgstr "Harddisk"
-#~ msgid "_Read"
-#~ msgstr "_Citire"
-#~ msgid "_Write"
-#~ msgstr "_Scriere"
-#~ msgid "System Monitor Preferences"
-#~ msgstr "Preferințe monitorizare sistem"
-#~ msgid "CD Player (Deprecated)"
-#~ msgstr "CD Player (învechit)"
-#~ msgid "Panel applet for playing audio CDs"
-#~ msgstr "Aplet pentru redarea CD-urilor audio"
-#~ msgid "Alert you when new mail arrives"
-#~ msgstr "Te alertează la sosirea unui nou mail"
-#~ msgid "Inbox Monitor (Deprecated)"
-#~ msgstr "Monitorizare Inbox (învechit)"
-#~ msgid "Factory for deprecating applets"
-#~ msgstr "Factory pentru apleturile învechite"
-#~ msgid "Null Applet Factory"
-#~ msgstr "Factory aplet nul"
-#~ msgid "Monitor the quality of a wireless network link"
-#~ msgstr "Monitorizează calitatea unei legături wireless de rețea"
-#~ msgid "Wireless Link Monitor"
-#~ msgstr "Monitor legătură wireless"
-#~ msgid "Some panel items are no longer available"
-#~ msgstr "Unele elemente pentru panou nu mai sunt disponibile"
-#~ msgid ""
-#~ "One or more panel items (also referred to as applets) are no longer "
-#~ "available in the GNOME desktop."
-#~ msgstr ""
-#~ "Unul sau mai multe elemente pentru panou (numite și apleturi) nu mai sunt "
-#~ "disponibile pentru desktop-ul GNOME."
-#~ msgid "These items will now be removed from your configuration:"
-#~ msgstr "Aceste elemente vor fi șterse din configurația dumneavoastră:"
-#~ msgid "You will not receive this message again."
-#~ msgstr "Nu veți mai primi acest mesaj în viitor."
-#~ msgid "Create, view, and manage sticky notes on the desktop"
-#~ msgstr ""
-#~ "Creează, vizualizează și gestionează notițele adezive pentru desktop"
-#~ msgid "Sticky Notes"
-#~ msgstr "Notițe adezive"
-#~ msgid "Sticky Notes Applet Factory"
-#~ msgstr "Uzina aplet Notițe adezive"
-#~ msgid "Hi_de Notes"
-#~ msgstr "Ascun_de notițele"
-#~ msgid "_Delete Notes"
-#~ msgstr "Ș_terge notițele"
-#~ msgid "_Lock Notes"
-#~ msgstr "_Blochează notițele"
-#~ msgid "_New Note"
-#~ msgstr "Notiță _nouă"
-#~ msgid "This note is locked."
-#~ msgstr "Această notiță este blocată."
-#~ msgid "This note is unlocked."
-#~ msgstr "Această notiță este deblocată."
-#~ msgid "    Font C_olor:"
-#~ msgstr "    _Culoare font:"
-#~ msgid "    Font Co_lor:"
-#~ msgstr "    C_uloare font:"
-#~ msgid "    Note C_olor:"
-#~ msgstr "    Culoare _notiță:"
-#~ msgid "    Note _Color:"
-#~ msgstr "    Culoare n_otiță:"
-#~ msgid "    _Font:"
-#~ msgstr "    _Font:"
-#~ msgid "<b>Behavior</b>"
-#~ msgstr "<b>Comportament</b>"
-#~ msgid "<b>Default Note Properties</b>"
-#~ msgstr "<b>Proprietăți standard</b>"
-#~ msgid ""
-#~ "<b>Delete all sticky notes?</b>\n"
-#~ "\n"
-#~ "This cannot be undone."
-#~ msgstr ""
-#~ "<b>Ștergeți toate notițele adezive?</b>\n"
-#~ "\n"
-#~ "Acest lucru nu va mai putea fi anulat mai târziu."
-#~ msgid ""
-#~ "<b>Delete this sticky note?</b>\n"
-#~ "\n"
-#~ "This cannot be undone."
-#~ msgstr ""
-#~ "<b>Ștergeți această notiță adezivă?</b>\n"
-#~ "\n"
-#~ "Acest lucru nu va mai putea fi anulat mai târziu."
-#~ msgid "<b>Properties</b>"
-#~ msgstr "<b>Proprietăți</b>"
-#~ msgid "Choose a base color to use for all sticky notes"
-#~ msgstr "Alegeți o culoare de bază pentru toate notițele adezive"
-#~ msgid "Choose a color for the note"
-#~ msgstr "Alegeți o culoare pentru notiță"
-#~ msgid "Choose a font for the note"
-#~ msgstr "Alegeți un font pentru notiță"
-#~ msgid "Choose a font to use for all sticky notes"
-#~ msgstr "Alegeți un font pentru toate notițele adezive"
-#~ msgid "Choose if notes are visible on all workspaces"
-#~ msgstr "Alegeți dacă notele sunt vizibile pe toate spațiile de lucru"
-#~ msgid "Choose if the default style is forced on all notes"
-#~ msgstr "Alegeți dacă stilul implicit va fi folosit la toate notițele"
-#~ msgid "Close note"
-#~ msgstr "Închide notița"
-#~ msgid "Force _default color and font on notes"
-#~ msgstr "Forțează culoarea și fontul _implicit pentru note"
-#~ msgid "H_eight:"
-#~ msgstr "Înă_lțime:"
-#~ msgid "Lock/Unlock note"
-#~ msgstr "Blochează/Deblochează notița"
-#~ msgid "Pick a color for the sticky note"
-#~ msgstr "Alegeți o culoare pentru notița adezivă"
-#~ msgid "Pick a default sticky note color"
-#~ msgstr "Alegeți o culoare implicită pentru notițele adezive"
-#~ msgid "Pick a default sticky note font"
-#~ msgstr "Alegeți un font implicit pentru notița adezivă"
-#~ msgid "Pick a font for the sticky note"
-#~ msgstr "Alegeți un font pentru notița adezivă"
-#~ msgid "Resize note"
-#~ msgstr "Redimensionează notița"
-#~ msgid "Specify a title for the note"
-#~ msgstr "Specifică un titlu pentru notiță"
-#~ msgid "Specify the default height (in pixels) of new notes"
-#~ msgstr "Specificați înălțimea implicită (în pixeli) a noilor notițe"
-#~ msgid "Specify the default width (in pixels) of new notes"
-#~ msgstr "Specificați lățimea implicită (în pixeli) a noilor notițe"
-#~ msgid "Sticky Note"
-#~ msgstr "Notiță adezivă"
-#~ msgid "Sticky Note Properties"
-#~ msgstr "Proprietăți Notițe adezive"
-#~ msgid "Sticky Notes Preferences"
-#~ msgstr "Preferințe Notițe adezive"
-#~ msgid "Use co_lor from the system theme"
-#~ msgstr "Folosește cu_loarea temei"
-#~ msgid "Use default co_lor"
-#~ msgstr "Folosește culoarea i_mplicită"
-#~ msgid "Use default fo_nt"
-#~ msgstr "Folosește fo_ntul implicit"
-#~ msgid "Use fo_nt from the system theme"
-#~ msgstr "Folosește fo_ntul temei de sistem"
-#~ msgid "_Delete All"
-#~ msgstr "_Șterge totul"
-#~ msgid "_Delete Note..."
-#~ msgstr "Ș_terge notița..."
-#~ msgid "_Lock Note"
-#~ msgstr "_Blochează notița"
-#~ msgid "_Put notes on all workspaces"
-#~ msgstr "_Pune notițele pe toate spațiile de lucru"
-#~ msgid "_Title:"
-#~ msgstr "_Titlu:"
-#~ msgid "Autosave timeout in minutes"
-#~ msgstr "Intervalul de autosalvare în minute"
-#~ msgid ""
-#~ "By default, sticky notes are given the current date as the title when "
-#~ "they are created. This format is used; anything that can be parsed by "
-#~ "strftime() is valid."
-#~ msgstr ""
-#~ "Implicit, notițele adezive primesc ca titlu data la care sunt create. "
-#~ "Acest format este folosit, orice poate fi parsat de strftime() este valid."
-#~ msgid "Date format of note's title"
-#~ msgstr "Formatul datei pentru tilul notiței"
-#~ msgid "Default color for font"
-#~ msgstr "Culoarea implicită pentru font"
-#~ msgid "Default color for new notes"
-#~ msgstr "Culoarea implicită pentru noile notițe"
-#~ msgid ""
-#~ "Default color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#30FF50\"."
-#~ msgstr ""
-#~ "Culoarea implicită pentru noile notițe adezive. Aceasta ar trebui "
-#~ "specificată în format hexa, spre exemplu \"#30FF50\"."
-#~ msgid ""
-#~ "Default font color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#000000\"."
-#~ msgstr ""
-#~ "Culoarea implicită a fontului pentru noile notițe adezive. Aceasta ar "
-#~ "trebui specificată în format html hexa, spre exemplu „#30FF5”."
-#~ msgid "Default font for new notes"
-#~ msgstr "Fontul implicit pentru noile notițe"
-#~ msgid ""
-#~ "Default font for new sticky notes. This should be a Pango Font Name, for "
-#~ "example \"Sans Italic 10\""
-#~ msgstr ""
-#~ "Fontul implicit pentru noile notițe adezive. Acesta ar trebui să fie un "
-#~ "nume de font PANGO, spre exemplu \"Sans Italic 10\"."
-#~ msgid "Default height for new notes"
-#~ msgstr "Înălțimea standard pentru noile notițe"
-#~ msgid "Default height for new sticky notes in pixels."
-#~ msgstr "Înălțimea implicită pentru noile notițe adezive în pixeli."
-#~ msgid "Default width for new notes"
-#~ msgstr "Lățimea implicită pentru noile notițe"
-#~ msgid "Default width for new sticky notes in pixels."
-#~ msgstr "Lățimea implicită în pixeli pentru noile notițe adezive."
-#~ msgid "Empty notes are always deleted without confirmation"
-#~ msgstr "Notițele goale sunt șterse întotdeauna fără confirmare"
-#~ msgid ""
-#~ "Every time the specified number of minutes pass, the sticky notes are "
-#~ "automatically saved."
-#~ msgstr ""
-#~ "La fiecare număr de minute specificat, notițele adezive sunt salvate "
-#~ "automat."
-#~ msgid ""
-#~ "If this option is disabled, a custom color can be used as the default "
-#~ "color for all sticky notes."
-#~ msgstr ""
-#~ "Dacă această opțiune este dezactivată, o culoare personalizată poate fi "
-#~ "folosită ca implicită pentru toate noile notițe adezive."
-#~ msgid ""
-#~ "If this option is disabled, a custom font can be used as the default font "
-#~ "for all sticky notes."
-#~ msgstr ""
-#~ "Dacă această opțiune este dezactivată, un font personalizat poate fi "
-#~ "folosit ca font implicit pentru toate notițele adezive."
-#~ msgid ""
-#~ "If this option is enabled, the custom colors and fonts that have been "
-#~ "assigned to individual notes will be ignored."
-#~ msgstr ""
-#~ "Dacă această opțiune este activată, culorile și fonturile atribuite "
-#~ "individual notițelor vor fi ignorate."
-#~ msgid "Specifies whether the sticky notes are locked (non-editable) or not."
-#~ msgstr ""
-#~ "Specifică dacă notițele adezive sunt blocate (non-editabile) sau nu."
-#~ msgid ""
-#~ "Specifies whether the sticky notes are visible on ALL workspaces on the "
-#~ "desktop, or not."
-#~ msgstr ""
-#~ "Specifică dacă notițele adezive sunt vizibile pe TOATE spațiile de lucru "
-#~ "de pe desktop, sau nu."
-#~ msgid "Sticky notes' locked state"
-#~ msgstr "Starea blocată pentru notițe"
-#~ msgid "Sticky notes' workspace stickyness"
-#~ msgstr "Persistența notițelor pe spațiile de lucru"
-#~ msgid "Whether to ask for confirmation when deleting a note"
-#~ msgstr "Dacă să fie cerută confirmarea la ștergerea unei notițe"
-#~ msgid "Whether to force the default color and font on all notes"
-#~ msgstr ""
-#~ "Dacă să fie forțată culoarea și fontul implicit pentru toate notițele"
-#~ msgid "Whether to use the default system color"
-#~ msgstr "Dacă să fie folosite culorile implicite ale temei"
-#~ msgid "Whether to use the default system font"
-#~ msgstr "Dacă să fie folosit fontul implicit ale temei"
-#~ msgid "%d note"
-#~ msgid_plural "%d notes"
-#~ msgstr[0] "%d notiță"
-#~ msgstr[1] "%d notițe"
-#~ msgstr[2] "%d de notițe"
-#~ msgid "Show sticky notes"
-#~ msgstr "Afișează notițele adezive"
-#~ msgid "Sticky Notes for the GNOME Desktop Environment"
-#~ msgstr "Notițe adezive pentru desktopul GNOME"
-#~ msgid "Go to Trash"
-#~ msgstr "Deschide Gunoiul"
-#~ msgid "Trash"
-#~ msgstr "Gunoi"
-#~ msgid "_Empty Trash"
-#~ msgstr "_Golește gunoiul"
-#~ msgid "_Open"
-#~ msgstr "_Deschide"
-#~ msgid "Unable to find the Trash directory: %s"
-#~ msgstr "Nu am putut găsi dosarul Gunoi: %s"
-#~ msgid "No Items in Trash"
-#~ msgstr "Nici un element în Gunoi"
-#~ msgid "%d Item in Trash"
-#~ msgid_plural "%d Items in Trash"
-#~ msgstr[0] "%d element în Gunoi"
-#~ msgstr[1] "%d elemente în Gunoi"
-#~ msgstr[2] "%d de elemente în Gunoi"
-#~ msgid "Removing item %s of %s"
-#~ msgstr "Șterg elementul %s din %s"
-#~ msgid "<i>Removing: %s</i>"
-#~ msgstr "<i>Șterg: %s</i>"
-#~ msgid "Empty all of the items from the trash?"
-#~ msgstr "Ștergeți toate elementele de la gunoi?"
-#~ msgid ""
-#~ "If you choose to empty the trash, all items in it will be permanently "
-#~ "lost. Please note that you can also delete them separately."
-#~ msgstr ""
-#~ "Dacă alegeți să goliți gunoiul, toate elementele din el vor fi pierdute "
-#~ "pentru totdeauna. Nu uitați că elementele din gunoi pot fi șterse și "
-#~ "independent unul de celălalt."
-#~ msgid ""
-#~ "Error while spawning nautilus:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Eroare la crearea nautilus:\n"
-#~ "%s"
-#~ msgid "Trash Applet"
-#~ msgstr "Aplet pentru gunoi"
-#~ msgid ""
-#~ "A GNOME trash bin that lives in your panel. You can use it to view the "
-#~ "trash or drag and drop items into the trash."
-#~ msgstr ""
-#~ "Un aplet GNOME pentru gunoi ce poate fi folosit pentru vizualizarea "
-#~ "elementelor aflate la gunoi sau pentru a muta elemente, prin tragere și "
-#~ "plasare, la gunoi."
-#~ msgid "Delete Immediately?"
-#~ msgstr "Ștergeți permanent?"
-#~ msgid "Cannot move items to trash, do you want to delete them immediately?"
-#~ msgstr "Nu pot muta elementele la gunoi, doriți să le ștergeți permanent?"
-#~ msgid ""
-#~ "Cannot move some items to trash, do you want to delete these immediately?"
-#~ msgstr ""
-#~ "Nu pot muta unele elemente la gunoi, doriți să le ștergeți pe acestea "
-#~ "permanent?"
-#~ msgid ""
-#~ "Unable to move to trash:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Nu am putut muta la gunoi:\n"
-#~ "%s"
-#~ msgid "<b>From:</b>"
-#~ msgstr "<b>De la:</b>"
-#~ msgid "<big><b>Emptying the Trash</b></big>"
-#~ msgstr "<big><b>Golesc Gunoiul</b></big>"
-#~ msgid "Emptying the Trash"
-#~ msgstr "Golesc gunoiul"
 
