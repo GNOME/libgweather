@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-29 16:37+0900\n"
-"PO-Revision-Date: 2009-01-29 16:37+0900\n"
+"POT-Creation-Date: 2009-09-20 09:30+0900\n"
+"PO-Revision-Date: 2009-09-20 09:31+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr "Seoul"
 #. TRANSLATOR: Change this to the code of your default location that
 #. * corresponds to the DEFAULT_LOCATION name you put above. This is
 #. * normally a four-letter (ICAO) code and can be found in
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * NB. The web page is over 1.7MB in size.
 #. * Pick a default location like a capital city so that it would be ok
 #. * for more of your users. For example, for Greek, we use "LGAV" for
@@ -54,7 +54,7 @@ msgstr "RKSL"
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 #. * Normally, US and Canada locations have zones while the rest do not.
 #. * Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any zone you put here must also be present in the Locations.xml
 #. * file.
 #. *
@@ -70,7 +70,7 @@ msgstr "DEFAULT_ZONE"
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 #. * Normally, US and Canada locations have radar names while the rest do
 #. * not. Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any radar you put here must also be present in the Locations.xml
 #. * file.
 #. *
@@ -86,7 +86,7 @@ msgstr "DEFAULT_RADAR"
 #. TRANSLATOR: Change this to the coordinates of your default location
 #. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
 #. * above. Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any coordinates you put here must also be present in the
 #. * Locations.xml file.
 #. *
@@ -217,21 +217,21 @@ msgstr "hPa"
 msgid "DEFAULT_DISTANCE_UNIT"
 msgstr "m"
 
+#: ../libgweather/gweather-timezone.c:314
+msgid "Greenwich Mean Time"
+msgstr "그리니치 표준시"
+
 #: ../libgweather/gweather.schemas.in.h:1
 msgid ""
 "A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
-msgstr ""
-"weather.com에서 레이더 지도를 가져올 3자리 숫자로 된 코드, http://svn.gnome."
-"org/viewvc/libgweather/trunk/data/Locations.xml.in 안에 들어 있습니다"
+"from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+msgstr "weather.com에서 레이더 지도를 가져올 3자리 숫자로 된 코드, http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in 안에 들어 있습니다"
 
 #: ../libgweather/gweather.schemas.in.h:2
 msgid ""
-"A unique zone for the city, as found from http://svn.gnome.org/viewvc/"
-"libgweather/trunk/data/Locations.xml.in"
-msgstr ""
-"도시의 구분되는 지역, http://svn.gnome.org/viewvc/libgweather/trunk/data/"
-"Locations.xml.in 안에 들어 있습니다"
+"A unique zone for the city, as found from http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
+msgstr "도시의 구분되는 지역, http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in 안에 들어 있습니다"
 
 #: ../libgweather/gweather.schemas.in.h:8
 msgid ""
@@ -273,11 +273,9 @@ msgstr "가까운 도시"
 
 #: ../libgweather/gweather.schemas.in.h:16
 msgid ""
-"Nearby major zone, such as a capital city, as found from http://svn.gnome."
-"org/viewvc/libgweather/trunk/data/Locations.xml.in"
-msgstr ""
-"가까이 있는 주요 지역 (예를 들어 수도), http://svn.gnome.org/viewvc/"
-"libgweather/trunk/data/Locations.xml.in 안에 들어 있습니다"
+"Nearby major zone, such as a capital city, as found from http://git.gnome."
+"org/cgit/libgweather/plain/data/Locations.xml.in"
+msgstr "가까이 있는 주요 지역 (예를 들어 수도), http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in 안에 들어 있습니다"
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -367,106 +365,111 @@ msgstr "날씨 위치 정보."
 msgid "Zone location"
 msgstr "지역 위치"
 
+#: ../libgweather/timezone-menu.c:277
+msgctxt "timezone"
+msgid "Unknown"
+msgstr "알 수 없음"
+
 #. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:508
+#: ../libgweather/weather-metar.c:504
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "METAR 데이터를 받는데 실패했습니다: %d %s.\n"
 
-#: ../libgweather/weather-metar.c:552
+#: ../libgweather/weather-metar.c:548
 msgid "WeatherInfo missing location"
 msgstr "WeatherInfo 위치가 없습니다"
 
-#: ../libgweather/weather.c:220
+#: ../libgweather/weather.c:230
 msgid "Variable"
 msgstr "가변"
 
-#: ../libgweather/weather.c:221
+#: ../libgweather/weather.c:231
 msgid "North"
 msgstr "북"
 
-#: ../libgweather/weather.c:221
+#: ../libgweather/weather.c:231
 msgid "North - NorthEast"
 msgstr "북북동"
 
-#: ../libgweather/weather.c:221
+#: ../libgweather/weather.c:231
 msgid "Northeast"
 msgstr "남동"
 
-#: ../libgweather/weather.c:221
+#: ../libgweather/weather.c:231
 msgid "East - NorthEast"
 msgstr "동남동"
 
-#: ../libgweather/weather.c:222
+#: ../libgweather/weather.c:232
 msgid "East"
 msgstr "동"
 
-#: ../libgweather/weather.c:222
+#: ../libgweather/weather.c:232
 msgid "East - Southeast"
 msgstr "동남동"
 
-#: ../libgweather/weather.c:222
+#: ../libgweather/weather.c:232
 msgid "Southeast"
 msgstr "남동"
 
-#: ../libgweather/weather.c:222
+#: ../libgweather/weather.c:232
 msgid "South - Southeast"
 msgstr "남남동"
 
-#: ../libgweather/weather.c:223
+#: ../libgweather/weather.c:233
 msgid "South"
 msgstr "남"
 
-#: ../libgweather/weather.c:223
+#: ../libgweather/weather.c:233
 msgid "South - Southwest"
 msgstr "남남서"
 
-#: ../libgweather/weather.c:223
+#: ../libgweather/weather.c:233
 msgid "Southwest"
 msgstr "남서"
 
-#: ../libgweather/weather.c:223
+#: ../libgweather/weather.c:233
 msgid "West - Southwest"
 msgstr "서남서"
 
-#: ../libgweather/weather.c:224
+#: ../libgweather/weather.c:234
 msgid "West"
 msgstr "서"
 
-#: ../libgweather/weather.c:224
+#: ../libgweather/weather.c:234
 msgid "West - Northwest"
 msgstr "서북서"
 
-#: ../libgweather/weather.c:224
+#: ../libgweather/weather.c:234
 msgid "Northwest"
 msgstr "북서"
 
-#: ../libgweather/weather.c:224
+#: ../libgweather/weather.c:234
 msgid "North - Northwest"
 msgstr "북북서"
 
-#: ../libgweather/weather.c:231 ../libgweather/weather.c:248
-#: ../libgweather/weather.c:320
+#: ../libgweather/weather.c:241 ../libgweather/weather.c:258
+#: ../libgweather/weather.c:330
 msgid "Invalid"
 msgstr "잘못됨"
 
-#: ../libgweather/weather.c:237
+#: ../libgweather/weather.c:247
 msgid "Clear Sky"
 msgstr "구름 한 점 없는 맑은 하늘"
 
-#: ../libgweather/weather.c:238
+#: ../libgweather/weather.c:248
 msgid "Broken clouds"
 msgstr "구름이 거의 없는 하늘"
 
-#: ../libgweather/weather.c:239
+#: ../libgweather/weather.c:249
 msgid "Scattered clouds"
 msgstr "드문드문 구름이 낀 하늘"
 
-#: ../libgweather/weather.c:240
+#: ../libgweather/weather.c:250
 msgid "Few clouds"
 msgstr "약간의 구름이 낀 하늘"
 
-#: ../libgweather/weather.c:241
+#: ../libgweather/weather.c:251
 msgid "Overcast"
 msgstr "구름으로 뒤덮인 흐린 하늘"
 
@@ -474,376 +477,376 @@ msgstr "구름으로 뒤덮인 흐린 하늘"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:280 ../libgweather/weather.c:282
+#: ../libgweather/weather.c:290 ../libgweather/weather.c:292
 msgid "Thunderstorm"
 msgstr "벼락치는 폭풍"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:281
+#: ../libgweather/weather.c:291
 msgid "Drizzle"
 msgstr "이슬비"
 
-#: ../libgweather/weather.c:281
+#: ../libgweather/weather.c:291
 msgid "Light drizzle"
 msgstr "이슬비 약간"
 
-#: ../libgweather/weather.c:281
+#: ../libgweather/weather.c:291
 msgid "Moderate drizzle"
 msgstr "이슬비 보통"
 
-#: ../libgweather/weather.c:281
+#: ../libgweather/weather.c:291
 msgid "Heavy drizzle"
 msgstr "이슬비 많이"
 
-#: ../libgweather/weather.c:281
+#: ../libgweather/weather.c:291
 msgid "Freezing drizzle"
 msgstr "얼어붙는 이슬비"
 
 #. RAIN
-#: ../libgweather/weather.c:282
+#: ../libgweather/weather.c:292
 msgid "Rain"
 msgstr "비"
 
-#: ../libgweather/weather.c:282
+#: ../libgweather/weather.c:292
 msgid "Light rain"
 msgstr "비 약간"
 
-#: ../libgweather/weather.c:282
+#: ../libgweather/weather.c:292
 msgid "Moderate rain"
 msgstr "비 보통"
 
-#: ../libgweather/weather.c:282
+#: ../libgweather/weather.c:292
 msgid "Heavy rain"
 msgstr "폭우"
 
-#: ../libgweather/weather.c:282
+#: ../libgweather/weather.c:292
 msgid "Rain showers"
 msgstr "소나기"
 
-#: ../libgweather/weather.c:282
+#: ../libgweather/weather.c:292
 msgid "Freezing rain"
 msgstr "얼어붙는 비"
 
 #. SNOW
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:293
 msgid "Snow"
 msgstr "눈"
 
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:293
 msgid "Light snow"
 msgstr "눈 약간"
 
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:293
 msgid "Moderate snow"
 msgstr "눈 보통"
 
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:293
 msgid "Heavy snow"
 msgstr "폭설"
 
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:293
 msgid "Snowstorm"
 msgstr "눈보라"
 
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:293
 msgid "Blowing snowfall"
 msgstr "눈 날림"
 
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:293
 msgid "Snow showers"
 msgstr "눈 소나기"
 
-#: ../libgweather/weather.c:283
+#: ../libgweather/weather.c:293
 msgid "Drifting snow"
 msgstr "눈 떠 다님"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:284
+#: ../libgweather/weather.c:294
 msgid "Snow grains"
 msgstr "눈 알갱이"
 
-#: ../libgweather/weather.c:284
+#: ../libgweather/weather.c:294
 msgid "Light snow grains"
 msgstr "눈 알갱이 약간"
 
-#: ../libgweather/weather.c:284
+#: ../libgweather/weather.c:294
 msgid "Moderate snow grains"
 msgstr "눈 알갱이 보통"
 
-#: ../libgweather/weather.c:284
+#: ../libgweather/weather.c:294
 msgid "Heavy snow grains"
 msgstr "심한 눈 알갱이"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:285
+#: ../libgweather/weather.c:295
 msgid "Ice crystals"
 msgstr "눈 결정"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:286
+#: ../libgweather/weather.c:296
 msgid "Ice pellets"
 msgstr "눈덩이"
 
-#: ../libgweather/weather.c:286
+#: ../libgweather/weather.c:296
 msgid "Few ice pellets"
 msgstr "눈덩이 약간"
 
-#: ../libgweather/weather.c:286
+#: ../libgweather/weather.c:296
 msgid "Moderate ice pellets"
 msgstr "눈덩이 보통"
 
-#: ../libgweather/weather.c:286
+#: ../libgweather/weather.c:296
 msgid "Heavy ice pellets"
 msgstr "눈덩이 많이"
 
-#: ../libgweather/weather.c:286
+#: ../libgweather/weather.c:296
 msgid "Ice pellet storm"
 msgstr "눈덩이 폭풍"
 
-#: ../libgweather/weather.c:286
+#: ../libgweather/weather.c:296
 msgid "Showers of ice pellets"
 msgstr "눈덩이 소나기"
 
 #. HAIL
-#: ../libgweather/weather.c:287
+#: ../libgweather/weather.c:297
 msgid "Hail"
 msgstr "우박"
 
-#: ../libgweather/weather.c:287
+#: ../libgweather/weather.c:297
 msgid "Hailstorm"
 msgstr "우박 폭풍"
 
-#: ../libgweather/weather.c:287
+#: ../libgweather/weather.c:297
 msgid "Hail showers"
 msgstr "우박 소나기"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:288
+#: ../libgweather/weather.c:298
 msgid "Small hail"
 msgstr "작은 우박"
 
-#: ../libgweather/weather.c:288
+#: ../libgweather/weather.c:298
 msgid "Small hailstorm"
 msgstr "작은 우박 폭풍"
 
-#: ../libgweather/weather.c:288
+#: ../libgweather/weather.c:298
 msgid "Showers of small hail"
 msgstr "작은 우박 소나기"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:289
+#: ../libgweather/weather.c:299
 msgid "Unknown precipitation"
 msgstr "강수(강설)량 알 수 없음"
 
 #. MIST
-#: ../libgweather/weather.c:290
+#: ../libgweather/weather.c:300
 msgid "Mist"
 msgstr "연무"
 
 #. FOG
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:301
 msgid "Fog"
 msgstr "안개"
 
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:301
 msgid "Fog in the vicinity"
 msgstr "부근에 안개"
 
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:301
 msgid "Shallow fog"
 msgstr "옅은 안개"
 
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:301
 msgid "Patches of fog"
 msgstr "군데군데 안개"
 
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:301
 msgid "Partial fog"
 msgstr "부분적인 안개"
 
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:301
 msgid "Freezing fog"
 msgstr "얼어붙는 안개"
 
 #. SMOKE
-#: ../libgweather/weather.c:292
+#: ../libgweather/weather.c:302
 msgid "Smoke"
 msgstr "연기"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:303
 msgid "Volcanic ash"
 msgstr "화산재"
 
 #. SAND
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:304
 msgid "Sand"
 msgstr "모래"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:304
 msgid "Blowing sand"
 msgstr "모래 날림"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:304
 msgid "Drifting sand"
 msgstr "모래 떠 다님"
 
 #. HAZE
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:305
 msgid "Haze"
 msgstr "아지랑이"
 
 #. SPRAY
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:306
 msgid "Blowing sprays"
 msgstr "물안개 날림"
 
 #. DUST
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:307
 msgid "Dust"
 msgstr "먼지"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:307
 msgid "Blowing dust"
 msgstr "먼지 날림"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:307
 msgid "Drifting dust"
 msgstr "먼지 떠 다님"
 
 #. SQUALL
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:308
 msgid "Squall"
 msgstr "돌풍"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:309
 msgid "Sandstorm"
 msgstr "모래 폭풍"
 
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:309
 msgid "Sandstorm in the vicinity"
 msgstr "부근에 모래 폭풍"
 
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:309
 msgid "Heavy sandstorm"
 msgstr "심한 모래 폭풍"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:310
 msgid "Duststorm"
 msgstr "먼지 폭풍"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:310
 msgid "Duststorm in the vicinity"
 msgstr "부근에 먼지 폭풍"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:310
 msgid "Heavy duststorm"
 msgstr "심한 먼지 폭풍"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:311
 msgid "Funnel cloud"
 msgstr "깔때기 구름"
 
 #. TORNADO
-#: ../libgweather/weather.c:302
+#: ../libgweather/weather.c:312
 msgid "Tornado"
 msgstr "토네이도"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:313
 msgid "Dust whirls"
 msgstr "먼지 회오리"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:313
 msgid "Dust whirls in the vicinity"
 msgstr "부근에 먼지 회오리"
 
 #. TRANSLATOR: this is a format string for strftime
 #. *             see `man 3 strftime` for more details
 #.
-#: ../libgweather/weather.c:693
+#: ../libgweather/weather.c:703
 msgid "%a, %b %d / %H:%M"
 msgstr "%b %e일 (%a) / %H:%M"
 
-#: ../libgweather/weather.c:708
+#: ../libgweather/weather.c:718
 msgid "Unknown observation time"
 msgstr "관측 시각 알 수 없음"
 
-#: ../libgweather/weather.c:722 ../libgweather/weather.c:773
-#: ../libgweather/weather.c:787 ../libgweather/weather.c:800
-#: ../libgweather/weather.c:813 ../libgweather/weather.c:826
-#: ../libgweather/weather.c:844 ../libgweather/weather.c:862
-#: ../libgweather/weather.c:900 ../libgweather/weather.c:916
-#: ../libgweather/weather.c:939 ../libgweather/weather.c:971
-#: ../libgweather/weather.c:987 ../libgweather/weather.c:1007
+#: ../libgweather/weather.c:732 ../libgweather/weather.c:783
+#: ../libgweather/weather.c:797 ../libgweather/weather.c:810
+#: ../libgweather/weather.c:823 ../libgweather/weather.c:836
+#: ../libgweather/weather.c:854 ../libgweather/weather.c:872
+#: ../libgweather/weather.c:910 ../libgweather/weather.c:926
+#: ../libgweather/weather.c:949 ../libgweather/weather.c:981
+#: ../libgweather/weather.c:997 ../libgweather/weather.c:1017
 msgid "Unknown"
 msgstr "알 수 없음"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:744
+#: ../libgweather/weather.c:754
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:747
+#: ../libgweather/weather.c:757
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:753
+#: ../libgweather/weather.c:763
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:756
+#: ../libgweather/weather.c:766
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:762
+#: ../libgweather/weather.c:772
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:765
+#: ../libgweather/weather.c:775
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:847
+#: ../libgweather/weather.c:857
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:875
+#: ../libgweather/weather.c:885
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f knots"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:879
+#: ../libgweather/weather.c:889
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:883
+#: ../libgweather/weather.c:893
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:887
+#: ../libgweather/weather.c:897
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -851,80 +854,80 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:893
+#: ../libgweather/weather.c:903
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "뷰포트 등급 %.1f"
 
-#: ../libgweather/weather.c:918
+#: ../libgweather/weather.c:928
 msgid "Calm"
 msgstr "바람 없음"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:922
+#: ../libgweather/weather.c:932
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:944
+#: ../libgweather/weather.c:954
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:948
+#: ../libgweather/weather.c:958
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:952
+#: ../libgweather/weather.c:962
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:956
+#: ../libgweather/weather.c:966
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:960
+#: ../libgweather/weather.c:970
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:964
+#: ../libgweather/weather.c:974
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f기압"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:992
+#: ../libgweather/weather.c:1002
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f마일"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:996
+#: ../libgweather/weather.c:1006
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1000
+#: ../libgweather/weather.c:1010
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:1029 ../libgweather/weather.c:1050
+#: ../libgweather/weather.c:1039 ../libgweather/weather.c:1060
 msgid "%H:%M"
 msgstr "%H:%M"
 
-#: ../libgweather/weather.c:1109
+#: ../libgweather/weather.c:1119
 msgid "Retrieval failed"
 msgstr "가져오기 실패"
 
