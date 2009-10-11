@@ -1,28 +1,29 @@
+# translation of ru.po to Russian
 # translation of libgweather to Russian
-# Copyright (C) 1998-2004, 2005, 2006, 2007 Free Software Foundation, Inc.
+# Copyright (C) 1998-2004, 2005, 2006, 2007, 2009 Free Software Foundation, Inc.
 #
 # Alexandre Prokhudine, 2002.
 # Max Valianskiy <maxcom@vinchi.ru>, 1998,99.
 # Sergey Panov <sipan@mit.edu>, 1999.
 # Valek Filippov <frob@df.ru>, 2000-2002.
 # Dmitry G. Mastrukov <dmitry@taurussoft.org>, 2002-2004.
-# Leonid Kanter <leon@asplinux.ru>, 2002-2004, 2005, 2006, 2007.
+# Leonid Kanter <leon@asplinux.ru>, 2002-2004, 2005, 2006, 2007, 2009.
 # Alexander Ovcharenko <sarulezzz@inbox.ru>, 2003.
 # Sergey V. Udaltsov<svu@users.sourceforge.net>, 2003.
 # Michael Yakhontov <mvy@asplinux.ru>, 2003.
 msgid ""
 msgstr ""
-"Project-Id-Version: libgweather trunk\n"
+"Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-11 16:30+0300\n"
-"PO-Revision-Date: 2009-02-27 00:06+0300\n"
-"Last-Translator: Nickolay V. Shmyrev <nshmyrev@yandex.ru>\n"
-"Language-Team: Russian <gnome-cyr@gnome.org>\n"
+"PO-Revision-Date: 2009-10-11 16:33+0300\n"
+"Last-Translator: Leonid Kanter <leon@asplinux.ru>\n"
+"Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #. TRANSLATOR: Change this to the default location name,
 #. * used when you first start the Weather Applet. This is
@@ -225,26 +226,21 @@ msgstr "km"
 
 #: ../libgweather/gweather-timezone.c:314
 msgid "Greenwich Mean Time"
-msgstr ""
+msgstr "По Гринвичу"
 
 #: ../libgweather/gweather.schemas.in.h:1
-#, fuzzy
 msgid ""
 "A three-digit-long code for retrieving radar maps from weather.com, found "
 "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Трёхзначный код для получения радарных карт от weather.com — его можно найти "
-"в http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/Locations."
-"xml.in"
+msgstr "Трёхзначный код для получения радарных карт от weather.com — его можно найти по адресу http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
-#, fuzzy
 msgid ""
 "A unique zone for the city, as found from http://git.gnome.org/cgit/"
 "libgweather/plain/data/Locations.xml.in"
 msgstr ""
-"Уникальная зона для города — её можно найти в http://cvs.gnome.org/viewcvs/"
-"*checkout*/gnome-applets/gweather/Locations.xml.in"
+"Уникальная зона для города — её можно найти в http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:8
 msgid ""
@@ -287,13 +283,12 @@ msgid "Nearby city"
 msgstr "Ближайший город"
 
 #: ../libgweather/gweather.schemas.in.h:16
-#, fuzzy
 msgid ""
 "Nearby major zone, such as a capital city, as found from http://git.gnome."
 "org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
-"Ближайший крупный город — его можно найти в http://cvs.gnome.org/viewcvs/"
-"*checkout*/gnome-applets/gweather/Locations.xml.in"
+"Ближайший крупный город — его можно найти в http://git.gnome."
+"org/cgit/libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -949,14 +944,3 @@ msgstr "%H:%M"
 msgid "Retrieval failed"
 msgstr "Произошёл сбой при получении"
 
-#~ msgid "%.1f ℉"
-#~ msgstr "%.1f ℉"
-
-#~ msgid "%d ℉"
-#~ msgstr "%d ℉"
-
-#~ msgid "%.1f ℃"
-#~ msgstr "%.1f ℃"
-
-#~ msgid "%d ℃"
-#~ msgstr "%d ℃"
