@@ -24,4 +24,17 @@ if [ -n "$bad" ]; then
     echo "Invalid timezones in ${locations}: $bad" 1>&2
     exit 1
 fi
+
+used=`mktemp`
+obsolete=`mktemp`
+
+sed -ne 's/.*<tz-hint>\(.*\)<.*/\1/p' $locations | sort -u > $used
+sed -ne 's/.*<obsoletes>\(.*\)<.*/\1/p' $locations | sort -u > $obsolete
+bad=`comm -12 $used $obsolete`
+rm $used $obsolete
+
+if [ -n "$bad" ]; then
+    echo "Obsolete <tz-hint> timezones in ${locations}: $bad" 1>&2
+    exit 1
+fi
 exit 0
