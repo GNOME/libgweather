@@ -1,0 +1,937 @@
+# Shavian translation..
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the libgweather package.
+# Thomas Thurman <tthurman@gnome.org>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgweather\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"applets&component=gweather\n"
+"POT-Creation-Date: 2009-10-18 11:00+0000\n"
+"PO-Revision-Date: 2009-11-01 15:02-0500\n"
+"Last-Translator: Thomas Thurman <tthurman@gnome.org>\n"
+"Language-Team: Shavian <ubuntu-l10n-en-shaw@lists.launchpad.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. TRANSLATOR: Change this to the default location name,
+#. * used when you first start the Weather Applet. This is
+#. * the common localised name that corresponds to
+#. * the location code (DEFAULT_CODE) you will put on the next message
+#. * For example, for the Greek locale, we set this to "Athens", the
+#. * capital city and we write it in Greek. It's important to translate
+#. * this name.
+#. *
+#. * If you do not require a DEFAULT_LOCATION, set this to
+#. * "DEFAULT_LOCATION".
+#.
+#: ../libgweather/gweather-gconf.c:212 ../libgweather/gweather-gconf.c:213
+#: ../libgweather/gweather.schemas.in.h:5
+msgid "DEFAULT_LOCATION"
+msgstr "DEFAULT_LOCATION"
+
+#. TRANSLATOR: Change this to the code of your default location that
+#. * corresponds to the DEFAULT_LOCATION name you put above. This is
+#. * normally a four-letter (ICAO) code and can be found in
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
+#. * NB. The web page is over 1.7MB in size.
+#. * Pick a default location like a capital city so that it would be ok
+#. * for more of your users. For example, for Greek, we use "LGAV" for
+#. * the capital city, Athens.
+#. *
+#. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
+#.
+#: ../libgweather/gweather-gconf.c:232 ../libgweather/gweather-gconf.c:233
+#: ../libgweather/gweather.schemas.in.h:3
+msgid "DEFAULT_CODE"
+msgstr "DEFAULT_CODE"
+
+#. TRANSLATOR: Change this to the zone of your default location that
+#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
+#. * Normally, US and Canada locations have zones while the rest do not.
+#. * Check
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
+#. * as any zone you put here must also be present in the Locations.xml
+#. * file.
+#. *
+#. * If your default location does not have a zone, set this to
+#. * "DEFAULT_ZONE".
+#.
+#: ../libgweather/gweather-gconf.c:252 ../libgweather/gweather-gconf.c:253
+#: ../libgweather/gweather.schemas.in.h:7
+msgid "DEFAULT_ZONE"
+msgstr "DEFAULT_ZONE"
+
+#. TRANSLATOR: Change this to the radar of your default location that
+#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
+#. * Normally, US and Canada locations have radar names while the rest do
+#. * not. Check
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
+#. * as any radar you put here must also be present in the Locations.xml
+#. * file.
+#. *
+#. * If your default location does not have a radar, set this to " "
+#. * (or space).
+#. * If you do not have a default location, set this to DEFAULT_RADAR.
+#.
+#: ../libgweather/gweather-gconf.c:273 ../libgweather/gweather-gconf.c:274
+#: ../libgweather/gweather.schemas.in.h:6
+msgid "DEFAULT_RADAR"
+msgstr "DEFAULT_RADAR"
+
+#. TRANSLATOR: Change this to the coordinates of your default location
+#. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
+#. * above. Check
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
+#. * as any coordinates you put here must also be present in the
+#. * Locations.xml file.
+#. *
+#. * If your default location does not have known coordinates, set this
+#. * to " " (or space).
+#. * If you do not have a default location, set this to
+#. * DEFAULT_COORDINATES.
+#.
+#: ../libgweather/gweather-gconf.c:294 ../libgweather/gweather-gconf.c:295
+#: ../libgweather/gweather.schemas.in.h:4
+msgid "DEFAULT_COORDINATES"
+msgstr "DEFAULT_COORDINATES"
+
+#: ../libgweather/gweather-prefs.c:34 ../libgweather/gweather-prefs.c:45
+#: ../libgweather/gweather-prefs.c:60 ../libgweather/gweather-prefs.c:77
+msgid "Default"
+msgstr "𐑛𐑦𐑓𐑪𐑤𐑑"
+
+#. translators: Kelvin
+#: ../libgweather/gweather-prefs.c:36
+msgid "K"
+msgstr "𐑒"
+
+#. translators: Celsius
+#: ../libgweather/gweather-prefs.c:38
+msgid "C"
+msgstr "𐑕"
+
+#. translators: Fahrenheit
+#: ../libgweather/gweather-prefs.c:40
+msgid "F"
+msgstr "𐑓"
+
+#. translators: meters per second
+#: ../libgweather/gweather-prefs.c:47
+msgid "m/s"
+msgstr "m/s"
+
+#. translators: kilometers per hour
+#: ../libgweather/gweather-prefs.c:49
+msgid "km/h"
+msgstr "km/h"
+
+#. translators: miles per hour
+#: ../libgweather/gweather-prefs.c:51
+msgid "mph"
+msgstr "mph"
+
+#. translators: knots (speed unit)
+#: ../libgweather/gweather-prefs.c:53
+msgid "knots"
+msgstr "𐑯𐑪𐑑𐑕"
+
+#. translators: wind speed
+#: ../libgweather/gweather-prefs.c:55
+msgid "Beaufort scale"
+msgstr "·𐑚𐑴𐑓𐑻𐑑 𐑕𐑒𐑱𐑤"
+
+#. translators: kilopascals
+#: ../libgweather/gweather-prefs.c:62
+msgid "kPa"
+msgstr "kPa"
+
+#. translators: hectopascals
+#: ../libgweather/gweather-prefs.c:64
+msgid "hPa"
+msgstr "hPa"
+
+#. translators: millibars
+#: ../libgweather/gweather-prefs.c:66
+msgid "mb"
+msgstr "mb"
+
+#. translators: millimeters of mercury
+#: ../libgweather/gweather-prefs.c:68
+msgid "mmHg"
+msgstr "mmHg"
+
+#. translators: inches of mercury
+#: ../libgweather/gweather-prefs.c:70
+msgid "inHg"
+msgstr "inHg"
+
+#. translators: atmosphere
+#: ../libgweather/gweather-prefs.c:72
+msgid "atm"
+msgstr "𐑨𐑑𐑥"
+
+#. translators: meters
+#: ../libgweather/gweather-prefs.c:79
+msgid "m"
+msgstr "m"
+
+#. translators: kilometers
+#: ../libgweather/gweather-prefs.c:81
+msgid "km"
+msgstr "km"
+
+#. translators: miles
+#: ../libgweather/gweather-prefs.c:83
+msgid "mi"
+msgstr "𐑥𐑲"
+
+#. TRANSLATOR: This is the default unit to use for temperature measurements.
+#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
+#: ../libgweather/gweather-prefs.c:103 ../libgweather/gweather-prefs.c:111
+msgid "DEFAULT_TEMP_UNIT"
+msgstr "C"
+
+#. TRANSLATOR: This is the default unit to use for wind speed.
+#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
+#. "mph" (miles per hour) and "knots"
+#: ../libgweather/gweather-prefs.c:141 ../libgweather/gweather-prefs.c:151
+msgid "DEFAULT_SPEED_UNIT"
+msgstr "mph"
+
+#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
+#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
+#. "mb" (millibars), "mmHg" (millimeters of mercury),
+#. "inHg" (inches of mercury) and "atm" (atmosphere)
+#: ../libgweather/gweather-prefs.c:183 ../libgweather/gweather-prefs.c:194
+msgid "DEFAULT_PRESSURE_UNIT"
+msgstr "mb"
+
+#. TRANSLATOR: This is the default unit to use for visibility distance.
+#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
+#: ../libgweather/gweather-prefs.c:224 ../libgweather/gweather-prefs.c:233
+msgid "DEFAULT_DISTANCE_UNIT"
+msgstr "mi"
+
+#: ../libgweather/gweather-timezone.c:314
+msgid "Greenwich Mean Time"
+msgstr "·𐑜𐑮𐑧𐑯𐑦𐑗 𐑥𐑰𐑯 𐑑𐑲𐑥"
+
+#: ../libgweather/gweather.schemas.in.h:1
+msgid ""
+"A three-digit-long code for retrieving radar maps from weather.com, found "
+"from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+msgstr ""
+"𐑩 𐑔𐑮𐑰-𐑛𐑦𐑡𐑦𐑑-𐑤𐑪𐑙 𐑒𐑴𐑛 𐑓𐑹 𐑮𐑦𐑑𐑮𐑰𐑝𐑦𐑙 𐑮𐑱𐑛𐑭𐑮 𐑥𐑨𐑐𐑕 𐑓𐑮𐑪𐑥 𐑢𐑧𐑞𐑼.𐑒𐑪𐑥, 𐑓𐑬𐑯𐑛 𐑓𐑮𐑪𐑥 "
+"http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+
+#: ../libgweather/gweather.schemas.in.h:2
+msgid ""
+"A unique zone for the city, as found from http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
+msgstr ""
+"𐑩 𐑿𐑯𐑰𐑒 𐑟𐑴𐑯 𐑓𐑹 𐑞 𐑕𐑦𐑑𐑦, 𐑨𐑟 𐑓𐑬𐑯𐑛 𐑓𐑮𐑪𐑥 http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
+
+#: ../libgweather/gweather.schemas.in.h:8
+msgid ""
+"Determines whether the applet automatically updates its weather statistics "
+"or not."
+msgstr "𐑛𐑦𐑑𐑻𐑥𐑦𐑯𐑟 𐑢𐑧𐑞𐑼 𐑞 𐑨𐑐𐑤𐑩𐑑 𐑷𐑑𐑩𐑥𐑨𐑑𐑦𐑒𐑤𐑦 𐑳𐑐𐑛𐑱𐑑𐑕 𐑦𐑑𐑕 𐑢𐑧𐑞𐑼 𐑕𐑑𐑩𐑑𐑦𐑕𐑑𐑦𐑒𐑕 𐑹 𐑯𐑪𐑑."
+
+#: ../libgweather/gweather.schemas.in.h:9
+msgid "Display radar map"
+msgstr "𐑛𐑩𐑕𐑐𐑤𐑱 𐑮𐑱𐑛𐑭𐑮 𐑥𐑨𐑐"
+
+#: ../libgweather/gweather.schemas.in.h:10
+msgid "Distance unit"
+msgstr "𐑛𐑦𐑕𐑑𐑩𐑯𐑕 𐑿𐑯𐑦𐑑"
+
+#: ../libgweather/gweather.schemas.in.h:11
+msgid "Fetch a radar map on each update."
+msgstr "𐑓𐑧𐑗 𐑩 𐑮𐑱𐑛𐑭𐑮 𐑥𐑨𐑐 𐑪𐑯 𐑰𐑗 𐑳𐑐𐑛𐑱𐑑."
+
+#: ../libgweather/gweather.schemas.in.h:12
+msgid ""
+"If true, then retrieve a radar map from a location specified by the \"radar"
+"\" key."
+msgstr ""
+"𐑦𐑓 𐑑𐑮𐑵, 𐑞𐑧𐑯 𐑮𐑦𐑑𐑮𐑰𐑝 𐑩 𐑮𐑱𐑛𐑭𐑮 𐑥𐑨𐑐 𐑓𐑮𐑪𐑥 𐑩 𐑤𐑴𐑒𐑱𐑖𐑩𐑯 𐑕𐑐𐑧𐑕𐑦𐑓𐑲𐑛 𐑚𐑲 𐑞 \"radar\" 𐑒𐑰."
+
+#: ../libgweather/gweather.schemas.in.h:13
+msgid ""
+"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
+"[EW]."
+msgstr "𐑤𐑨𐑑𐑦𐑑𐑿𐑛 𐑯 𐑤𐑪𐑙𐑜𐑦𐑑𐑿𐑛 𐑝 𐑿𐑼 𐑤𐑴𐑒𐑱𐑖𐑩𐑯 𐑦𐑒𐑕𐑐𐑮𐑧𐑕𐑑 𐑦𐑯 DD-MM-SS[NS] DD-MM-SS[EW]."
+
+#: ../libgweather/gweather.schemas.in.h:14
+msgid "Location coordinates"
+msgstr "𐑤𐑴𐑒𐑱𐑖𐑩𐑯 𐑒𐑴𐑹𐑛𐑦𐑯𐑱𐑑𐑕"
+
+#: ../libgweather/gweather.schemas.in.h:15
+msgid "Nearby city"
+msgstr "𐑯𐑦𐑮𐑚𐑲 𐑕𐑦𐑑𐑦"
+
+#: ../libgweather/gweather.schemas.in.h:16
+msgid ""
+"Nearby major zone, such as a capital city, as found from http://git.gnome."
+"org/cgit/libgweather/plain/data/Locations.xml.in"
+msgstr ""
+"𐑯𐑦𐑮𐑚𐑲 𐑥𐑱𐑡𐑼 𐑟𐑴𐑯, 𐑕𐑳𐑗 𐑨𐑟 𐑩 𐑒𐑨𐑐𐑦𐑑𐑩𐑤 𐑕𐑦𐑑𐑦, 𐑨𐑟 𐑓𐑬𐑯𐑛 𐑓𐑮𐑪𐑥 http://git.gnome."
+"org/cgit/libgweather/plain/data/Locations.xml.in"
+
+#: ../libgweather/gweather.schemas.in.h:17
+msgid "Not used anymore"
+msgstr "𐑯𐑪𐑑 𐑿𐑕𐑑 𐑧𐑯𐑰𐑥𐑪𐑮"
+
+#: ../libgweather/gweather.schemas.in.h:18
+msgid "Pressure unit"
+msgstr "𐑐𐑮𐑧𐑖𐑼 𐑿𐑯𐑦𐑑"
+
+#: ../libgweather/gweather.schemas.in.h:19
+msgid "Radar location"
+msgstr "𐑮𐑱𐑛𐑭𐑮 𐑤𐑴𐑒𐑱𐑖𐑩𐑯"
+
+#: ../libgweather/gweather.schemas.in.h:20
+msgid "Speed unit"
+msgstr "𐑕𐑐𐑰𐑛 𐑿𐑯𐑦𐑑"
+
+#: ../libgweather/gweather.schemas.in.h:21
+msgid "Temperature unit"
+msgstr "𐑑𐑧𐑥𐑐𐑼𐑩𐑗𐑼 𐑿𐑯𐑦𐑑"
+
+#: ../libgweather/gweather.schemas.in.h:22
+msgid "The city that gweather displays information for."
+msgstr "𐑞 𐑕𐑦𐑑𐑦 𐑞𐑨𐑑 ·𐑜𐑢𐑧𐑞𐑼 𐑛𐑦𐑕𐑐𐑤𐑱𐑟 𐑦𐑯𐑓𐑼𐑥𐑱𐑖𐑩𐑯 𐑓𐑹."
+
+#: ../libgweather/gweather.schemas.in.h:23
+msgid "The custom url from where to retrieve a radar map."
+msgstr "𐑞 𐑒𐑳𐑕𐑑𐑩𐑥 URL 𐑓𐑮𐑪𐑥 𐑢𐑺 𐑑 𐑮𐑦𐑑𐑮𐑰𐑝 𐑩 𐑮𐑱𐑛𐑭𐑮 𐑥𐑨𐑐."
+
+#: ../libgweather/gweather.schemas.in.h:24
+msgid "The interval, in seconds, between automatic updates."
+msgstr "𐑞 𐑦𐑯𐑑𐑼𐑝𐑩𐑤, 𐑦𐑯 𐑕𐑧𐑒𐑩𐑯𐑛𐑟, 𐑚𐑦𐑑𐑢𐑰𐑯 𐑷𐑑𐑴𐑥𐑨𐑑𐑦𐑒 𐑳𐑐𐑛𐑱𐑑𐑕."
+
+#: ../libgweather/gweather.schemas.in.h:25
+msgid "The unit to use for pressure."
+msgstr "𐑞 𐑿𐑯𐑦𐑑 𐑑 𐑿𐑕 𐑓𐑹 𐑐𐑮𐑧𐑖𐑼."
+
+#: ../libgweather/gweather.schemas.in.h:26
+msgid "The unit to use for temperature."
+msgstr "𐑞 𐑿𐑯𐑦𐑑 𐑑 𐑿𐑕 𐑓𐑹 𐑑𐑧𐑥𐑐𐑼𐑩𐑗𐑼."
+
+#: ../libgweather/gweather.schemas.in.h:27
+msgid "The unit to use for visibility."
+msgstr "𐑞 𐑿𐑯𐑦𐑑 𐑑 𐑿𐑕 𐑓𐑹 𐑝𐑦𐑟𐑦𐑚𐑦𐑤𐑦𐑑𐑦."
+
+#: ../libgweather/gweather.schemas.in.h:28
+msgid "The unit to use for wind speed."
+msgstr "𐑞 𐑿𐑯𐑦𐑑 𐑑 𐑿𐑕 𐑓𐑹 𐑢𐑦𐑯𐑛 𐑕𐑐𐑰𐑛."
+
+#: ../libgweather/gweather.schemas.in.h:29
+msgid "Update interval"
+msgstr "𐑳𐑐𐑛𐑱𐑑 𐑦𐑯𐑑𐑼𐑝𐑩𐑤"
+
+#: ../libgweather/gweather.schemas.in.h:30
+msgid "Update the data automatically"
+msgstr "𐑳𐑐𐑛𐑱𐑑 𐑞 𐑛𐑱𐑑𐑩 𐑷𐑑𐑩𐑥𐑨𐑑𐑦𐑒𐑤𐑦"
+
+#: ../libgweather/gweather.schemas.in.h:31
+msgid "Url for the radar map"
+msgstr "URL 𐑓𐑹 𐑞 𐑮𐑱𐑛𐑭𐑮 𐑥𐑨𐑐"
+
+#: ../libgweather/gweather.schemas.in.h:32
+msgid "Use custom url for the radar map"
+msgstr "𐑿𐑟 𐑒𐑳𐑕𐑑𐑩𐑥 URL 𐑓𐑹 𐑞 𐑮𐑱𐑛𐑭𐑮 𐑥𐑨𐑐"
+
+#: ../libgweather/gweather.schemas.in.h:33
+msgid "Use metric units"
+msgstr "𐑿𐑟 𐑥𐑧𐑑𐑮𐑦𐑒 𐑿𐑯𐑦𐑑𐑕"
+
+#: ../libgweather/gweather.schemas.in.h:34
+msgid "Use metric units instead of english units."
+msgstr "𐑿𐑟 𐑥𐑧𐑑𐑮𐑦𐑒 𐑿𐑯𐑦𐑑𐑕 𐑦𐑯𐑕𐑑𐑧𐑛 𐑝 𐑦𐑙𐑤𐑦𐑖 𐑿𐑯𐑦𐑑𐑕."
+
+#: ../libgweather/gweather.schemas.in.h:35
+msgid "Weather for a city"
+msgstr "𐑢𐑧𐑞𐑼 𐑓𐑹 𐑩 𐑕𐑦𐑑𐑦"
+
+#: ../libgweather/gweather.schemas.in.h:36
+msgid "Weather location information"
+msgstr "𐑢𐑧𐑞𐑼 𐑤𐑴𐑒𐑱𐑖𐑩𐑯 𐑦𐑯𐑓𐑼𐑥𐑱𐑖𐑩𐑯"
+
+#: ../libgweather/gweather.schemas.in.h:37
+msgid "Weather location information."
+msgstr "𐑢𐑧𐑞𐑼 𐑤𐑴𐑒𐑱𐑖𐑩𐑯 𐑦𐑯𐑓𐑼𐑥𐑱𐑖𐑩𐑯."
+
+#: ../libgweather/gweather.schemas.in.h:38
+msgid "Zone location"
+msgstr "𐑟𐑴𐑯 𐑤𐑴𐑒𐑱𐑖𐑩𐑯"
+
+#: ../libgweather/timezone-menu.c:277
+msgctxt "timezone"
+msgid "Unknown"
+msgstr "𐑳𐑯𐑴𐑯"
+
+#. Translators: %d is an error code, and %s the error string
+#: ../libgweather/weather-metar.c:504
+#, c-format
+msgid "Failed to get METAR data: %d %s.\n"
+msgstr "𐑓𐑱𐑤𐑛 𐑑 𐑜𐑧𐑑 METAR 𐑛𐑱𐑑𐑩: %d %s.\n"
+
+#: ../libgweather/weather-metar.c:548
+msgid "WeatherInfo missing location"
+msgstr "·𐑢𐑧𐑞𐑼𐑦𐑓𐑴 𐑥𐑦𐑕𐑦𐑙 𐑤𐑴𐑒𐑱𐑖𐑩𐑯"
+
+#: ../libgweather/weather.c:230
+msgid "Variable"
+msgstr "𐑝𐑺𐑦𐑩𐑚𐑩𐑤"
+
+#: ../libgweather/weather.c:231
+msgid "North"
+msgstr "𐑯𐑹𐑔"
+
+#: ../libgweather/weather.c:231
+msgid "North - NorthEast"
+msgstr "𐑯𐑹𐑔 - 𐑯𐑪𐑮𐑔𐑰𐑕𐑑"
+
+#: ../libgweather/weather.c:231
+msgid "Northeast"
+msgstr "𐑯𐑪𐑮𐑔𐑰𐑕𐑑"
+
+#: ../libgweather/weather.c:231
+msgid "East - NorthEast"
+msgstr "𐑰𐑕𐑑 - 𐑯𐑪𐑮𐑔𐑰𐑕𐑑"
+
+#: ../libgweather/weather.c:232
+msgid "East"
+msgstr "𐑰𐑕𐑑"
+
+#: ../libgweather/weather.c:232
+msgid "East - Southeast"
+msgstr "𐑰𐑕𐑑 - 𐑕𐑶𐑔𐑰𐑕𐑑"
+
+#: ../libgweather/weather.c:232
+msgid "Southeast"
+msgstr "𐑕𐑶𐑔𐑰𐑕𐑑"
+
+#: ../libgweather/weather.c:232
+msgid "South - Southeast"
+msgstr "𐑕𐑬𐑔 - 𐑕𐑶𐑔𐑰𐑕𐑑"
+
+#: ../libgweather/weather.c:233
+msgid "South"
+msgstr "𐑕𐑬𐑔"
+
+#: ../libgweather/weather.c:233
+msgid "South - Southwest"
+msgstr "𐑕𐑬𐑔 - 𐑕𐑶𐑔𐑢𐑧𐑕𐑑"
+
+#: ../libgweather/weather.c:233
+msgid "Southwest"
+msgstr "𐑕𐑶𐑔𐑢𐑧𐑕𐑑"
+
+#: ../libgweather/weather.c:233
+msgid "West - Southwest"
+msgstr "𐑢𐑧𐑕𐑑 - 𐑕𐑶𐑔𐑢𐑧𐑕𐑑"
+
+#: ../libgweather/weather.c:234
+msgid "West"
+msgstr "𐑢𐑧𐑕𐑑"
+
+#: ../libgweather/weather.c:234
+msgid "West - Northwest"
+msgstr "𐑢𐑧𐑕𐑑 - 𐑯𐑪𐑮𐑔𐑢𐑧𐑕𐑑"
+
+#: ../libgweather/weather.c:234
+msgid "Northwest"
+msgstr "𐑯𐑪𐑮𐑔𐑢𐑧𐑕𐑑"
+
+#: ../libgweather/weather.c:234
+msgid "North - Northwest"
+msgstr "𐑯𐑹𐑔 - 𐑯𐑪𐑮𐑔𐑢𐑧𐑕𐑑"
+
+#: ../libgweather/weather.c:241 ../libgweather/weather.c:258
+#: ../libgweather/weather.c:330
+msgid "Invalid"
+msgstr "𐑦𐑯𐑝𐑨𐑤𐑦𐑛"
+
+#: ../libgweather/weather.c:247
+msgid "Clear Sky"
+msgstr "𐑒𐑤𐑽 𐑕𐑒𐑲"
+
+#: ../libgweather/weather.c:248
+msgid "Broken clouds"
+msgstr "𐑚𐑮𐑴𐑒𐑩𐑯 𐑒𐑤𐑬𐑛𐑟"
+
+#: ../libgweather/weather.c:249
+msgid "Scattered clouds"
+msgstr "𐑕𐑒𐑨𐑑𐑼𐑛 𐑒𐑤𐑬𐑛𐑟"
+
+#: ../libgweather/weather.c:250
+msgid "Few clouds"
+msgstr "𐑓𐑿 𐑒𐑤𐑬𐑛𐑟"
+
+#: ../libgweather/weather.c:251
+msgid "Overcast"
+msgstr "𐑴𐑝𐑻𐑒𐑨𐑕𐑑"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
+#. NONE
+#: ../libgweather/weather.c:290 ../libgweather/weather.c:292
+msgid "Thunderstorm"
+msgstr "𐑔𐑳𐑯𐑛𐑼𐑕𐑑𐑹𐑥"
+
+#. DRIZZLE
+#: ../libgweather/weather.c:291
+msgid "Drizzle"
+msgstr "𐑛𐑮𐑦𐑟𐑩𐑤"
+
+#: ../libgweather/weather.c:291
+msgid "Light drizzle"
+msgstr "𐑤𐑲𐑑 𐑛𐑮𐑦𐑟𐑩𐑤"
+
+#: ../libgweather/weather.c:291
+msgid "Moderate drizzle"
+msgstr "𐑥𐑴𐑛𐑮𐑱𐑑 𐑛𐑮𐑦𐑟𐑩𐑤"
+
+#: ../libgweather/weather.c:291
+msgid "Heavy drizzle"
+msgstr "𐑣𐑧𐑝𐑦 𐑛𐑮𐑦𐑟𐑩𐑤"
+
+#: ../libgweather/weather.c:291
+msgid "Freezing drizzle"
+msgstr "𐑓𐑮𐑰𐑟𐑦𐑙 𐑛𐑮𐑦𐑟𐑩𐑤"
+
+#. RAIN
+#: ../libgweather/weather.c:292
+msgid "Rain"
+msgstr "𐑮𐑱𐑯"
+
+#: ../libgweather/weather.c:292
+msgid "Light rain"
+msgstr "𐑤𐑲𐑑 𐑮𐑱𐑯"
+
+#: ../libgweather/weather.c:292
+msgid "Moderate rain"
+msgstr "𐑥𐑴𐑛𐑮𐑱𐑑 𐑮𐑱𐑯"
+
+#: ../libgweather/weather.c:292
+msgid "Heavy rain"
+msgstr "𐑣𐑧𐑝𐑦 𐑮𐑱𐑯"
+
+#: ../libgweather/weather.c:292
+msgid "Rain showers"
+msgstr "𐑮𐑱𐑯 𐑖𐑬𐑼𐑟"
+
+#: ../libgweather/weather.c:292
+msgid "Freezing rain"
+msgstr "𐑓𐑮𐑰𐑟𐑦𐑙 𐑮𐑱𐑯"
+
+#. SNOW
+#: ../libgweather/weather.c:293
+msgid "Snow"
+msgstr "𐑕𐑯𐑴"
+
+#: ../libgweather/weather.c:293
+msgid "Light snow"
+msgstr "𐑤𐑲𐑑 𐑕𐑯𐑴"
+
+#: ../libgweather/weather.c:293
+msgid "Moderate snow"
+msgstr "𐑥𐑴𐑛𐑮𐑱𐑑 𐑕𐑯𐑴"
+
+#: ../libgweather/weather.c:293
+msgid "Heavy snow"
+msgstr "𐑣𐑧𐑝𐑦 𐑕𐑯𐑴"
+
+#: ../libgweather/weather.c:293
+msgid "Snowstorm"
+msgstr "𐑕𐑯𐑴𐑕𐑑𐑹𐑥"
+
+#: ../libgweather/weather.c:293
+msgid "Blowing snowfall"
+msgstr "𐑚𐑤𐑴𐑦𐑙 𐑕𐑯𐑴𐑓𐑭𐑤"
+
+#: ../libgweather/weather.c:293
+msgid "Snow showers"
+msgstr "𐑕𐑯𐑴 𐑖𐑬𐑼𐑟"
+
+#: ../libgweather/weather.c:293
+msgid "Drifting snow"
+msgstr "𐑛𐑮𐑦𐑓𐑑𐑦𐑙 𐑕𐑯𐑴"
+
+#. SNOW_GRAINS
+#: ../libgweather/weather.c:294
+msgid "Snow grains"
+msgstr "𐑕𐑯𐑴 𐑜𐑮𐑱𐑯𐑟"
+
+#: ../libgweather/weather.c:294
+msgid "Light snow grains"
+msgstr "𐑤𐑲𐑑 𐑕𐑯𐑴 𐑜𐑮𐑱𐑯𐑟"
+
+#: ../libgweather/weather.c:294
+msgid "Moderate snow grains"
+msgstr "𐑥𐑴𐑛𐑮𐑱𐑑 𐑕𐑯𐑴 𐑜𐑮𐑱𐑯𐑟"
+
+#: ../libgweather/weather.c:294
+msgid "Heavy snow grains"
+msgstr "𐑣𐑧𐑝𐑦 𐑕𐑯𐑴 𐑜𐑮𐑱𐑯𐑟"
+
+#. ICE_CRYSTALS
+#: ../libgweather/weather.c:295
+msgid "Ice crystals"
+msgstr "𐑲𐑕 𐑒𐑮𐑦𐑕𐑑𐑩𐑤𐑟"
+
+#. ICE_PELLETS
+#: ../libgweather/weather.c:296
+msgid "Ice pellets"
+msgstr "𐑲𐑕 𐑐𐑧𐑤𐑩𐑑𐑕"
+
+#: ../libgweather/weather.c:296
+msgid "Few ice pellets"
+msgstr "𐑓𐑿 𐑲𐑕 𐑐𐑧𐑤𐑩𐑑𐑕"
+
+#: ../libgweather/weather.c:296
+msgid "Moderate ice pellets"
+msgstr "𐑥𐑴𐑛𐑮𐑱𐑑 𐑲𐑕 𐑐𐑧𐑤𐑩𐑑𐑕"
+
+#: ../libgweather/weather.c:296
+msgid "Heavy ice pellets"
+msgstr "𐑣𐑧𐑝𐑦 𐑲𐑕 𐑐𐑧𐑤𐑩𐑑𐑕"
+
+#: ../libgweather/weather.c:296
+msgid "Ice pellet storm"
+msgstr "𐑲𐑕 𐑐𐑧𐑤𐑩𐑑 𐑕𐑑𐑹𐑥"
+
+#: ../libgweather/weather.c:296
+msgid "Showers of ice pellets"
+msgstr "𐑖𐑬𐑼𐑟 𐑝 𐑲𐑕 𐑐𐑧𐑤𐑩𐑑𐑕"
+
+#. HAIL
+#: ../libgweather/weather.c:297
+msgid "Hail"
+msgstr "𐑣𐑱𐑤"
+
+#: ../libgweather/weather.c:297
+msgid "Hailstorm"
+msgstr "𐑣𐑱𐑤𐑕𐑑𐑹𐑥"
+
+#: ../libgweather/weather.c:297
+msgid "Hail showers"
+msgstr "𐑣𐑱𐑤 𐑖𐑬𐑼𐑟"
+
+#. SMALL_HAIL
+#: ../libgweather/weather.c:298
+msgid "Small hail"
+msgstr "𐑕𐑥𐑷𐑤 𐑣𐑱𐑤"
+
+#: ../libgweather/weather.c:298
+msgid "Small hailstorm"
+msgstr "𐑕𐑥𐑷𐑤 𐑣𐑱𐑤𐑕𐑑𐑹𐑥"
+
+#: ../libgweather/weather.c:298
+msgid "Showers of small hail"
+msgstr "𐑖𐑬𐑼𐑟 𐑝 𐑕𐑥𐑷𐑤 𐑣𐑱𐑤"
+
+#. PRECIPITATION
+#: ../libgweather/weather.c:299
+msgid "Unknown precipitation"
+msgstr "𐑳𐑯𐑴𐑯 𐑐𐑮𐑦𐑕𐑦𐑐𐑦𐑑𐑱𐑖𐑩𐑯"
+
+#. MIST
+#: ../libgweather/weather.c:300
+msgid "Mist"
+msgstr "𐑥𐑦𐑕𐑑"
+
+#. FOG
+#: ../libgweather/weather.c:301
+msgid "Fog"
+msgstr "𐑓𐑪𐑜"
+
+#: ../libgweather/weather.c:301
+msgid "Fog in the vicinity"
+msgstr "𐑓𐑪𐑜 𐑦𐑯 𐑞 𐑝𐑩𐑕𐑦𐑯𐑩𐑑𐑰"
+
+#: ../libgweather/weather.c:301
+msgid "Shallow fog"
+msgstr "𐑖𐑨𐑤𐑴 𐑓𐑪𐑜"
+
+#: ../libgweather/weather.c:301
+msgid "Patches of fog"
+msgstr "𐑐𐑨𐑗𐑩𐑟 𐑝 𐑓𐑪𐑜"
+
+#: ../libgweather/weather.c:301
+msgid "Partial fog"
+msgstr "𐑐𐑸𐑑𐑦𐑨𐑤 𐑓𐑪𐑜"
+
+#: ../libgweather/weather.c:301
+msgid "Freezing fog"
+msgstr "𐑓𐑮𐑰𐑟𐑦𐑙 𐑓𐑪𐑜"
+
+#. SMOKE
+#: ../libgweather/weather.c:302
+msgid "Smoke"
+msgstr "𐑕𐑥𐑴𐑒"
+
+#. VOLCANIC_ASH
+#: ../libgweather/weather.c:303
+msgid "Volcanic ash"
+msgstr "𐑝𐑭𐑤𐑒𐑨𐑯𐑦𐑒 𐑨𐑖"
+
+#. SAND
+#: ../libgweather/weather.c:304
+msgid "Sand"
+msgstr "𐑕𐑨𐑯𐑛"
+
+#: ../libgweather/weather.c:304
+msgid "Blowing sand"
+msgstr "𐑚𐑤𐑴𐑦𐑙 𐑕𐑨𐑯𐑛"
+
+#: ../libgweather/weather.c:304
+msgid "Drifting sand"
+msgstr "𐑛𐑮𐑦𐑓𐑑𐑦𐑙 𐑕𐑨𐑯𐑛"
+
+#. HAZE
+#: ../libgweather/weather.c:305
+msgid "Haze"
+msgstr "𐑣𐑱𐑟"
+
+#. SPRAY
+#: ../libgweather/weather.c:306
+msgid "Blowing sprays"
+msgstr "𐑚𐑤𐑴𐑦𐑙 𐑕𐑐𐑮𐑱𐑟"
+
+#. DUST
+#: ../libgweather/weather.c:307
+msgid "Dust"
+msgstr "𐑛𐑳𐑕𐑑"
+
+#: ../libgweather/weather.c:307
+msgid "Blowing dust"
+msgstr "𐑚𐑤𐑴𐑦𐑙 𐑛𐑳𐑕𐑑"
+
+#: ../libgweather/weather.c:307
+msgid "Drifting dust"
+msgstr "𐑛𐑮𐑦𐑓𐑑𐑦𐑙 𐑛𐑳𐑕𐑑"
+
+#. SQUALL
+#: ../libgweather/weather.c:308
+msgid "Squall"
+msgstr "𐑕𐑒𐑢𐑪𐑤"
+
+#. SANDSTORM
+#: ../libgweather/weather.c:309
+msgid "Sandstorm"
+msgstr "𐑕𐑨𐑯𐑛𐑕𐑑𐑹𐑥"
+
+#: ../libgweather/weather.c:309
+msgid "Sandstorm in the vicinity"
+msgstr "𐑕𐑨𐑯𐑛𐑕𐑑𐑹𐑥 𐑦𐑯 𐑞 𐑝𐑩𐑕𐑦𐑯𐑩𐑑𐑰"
+
+#: ../libgweather/weather.c:309
+msgid "Heavy sandstorm"
+msgstr "𐑣𐑧𐑝𐑦 𐑕𐑨𐑯𐑛𐑕𐑑𐑹𐑥"
+
+#. DUSTSTORM
+#: ../libgweather/weather.c:310
+msgid "Duststorm"
+msgstr "𐑛𐑳𐑕𐑑𐑕𐑑𐑹𐑥"
+
+#: ../libgweather/weather.c:310
+msgid "Duststorm in the vicinity"
+msgstr "𐑛𐑳𐑕𐑑𐑕𐑑𐑹𐑥 𐑦𐑯 𐑞 𐑝𐑩𐑕𐑦𐑯𐑩𐑑𐑰"
+
+#: ../libgweather/weather.c:310
+msgid "Heavy duststorm"
+msgstr "𐑣𐑧𐑝𐑦 𐑛𐑳𐑕𐑑𐑕𐑑𐑹𐑥"
+
+#. FUNNEL_CLOUD
+#: ../libgweather/weather.c:311
+msgid "Funnel cloud"
+msgstr "𐑓𐑳𐑯𐑩𐑤 𐑒𐑤𐑬𐑛"
+
+#. TORNADO
+#: ../libgweather/weather.c:312
+msgid "Tornado"
+msgstr "𐑑𐑪𐑮𐑯𐑱𐑛𐑴"
+
+#. DUST_WHIRLS
+#: ../libgweather/weather.c:313
+msgid "Dust whirls"
+msgstr "𐑛𐑳𐑕𐑑 𐑢𐑻𐑤𐑟"
+
+#: ../libgweather/weather.c:313
+msgid "Dust whirls in the vicinity"
+msgstr "𐑛𐑳𐑕𐑑 𐑢𐑻𐑤𐑟 𐑦𐑯 𐑞 𐑝𐑩𐑕𐑦𐑯𐑩𐑑𐑰"
+
+#. TRANSLATOR: this is a format string for strftime
+#. *             see `man 3 strftime` for more details
+#.
+#: ../libgweather/weather.c:703
+msgid "%a, %b %d / %H:%M"
+msgstr "%a, %b %d / %H:%M"
+
+#: ../libgweather/weather.c:718
+msgid "Unknown observation time"
+msgstr "𐑳𐑯𐑴𐑯 𐑪𐑚𐑟𐑼𐑝𐑱𐑖𐑩𐑯 𐑑𐑲𐑥"
+
+#: ../libgweather/weather.c:732 ../libgweather/weather.c:783
+#: ../libgweather/weather.c:797 ../libgweather/weather.c:810
+#: ../libgweather/weather.c:823 ../libgweather/weather.c:836
+#: ../libgweather/weather.c:854 ../libgweather/weather.c:872
+#: ../libgweather/weather.c:910 ../libgweather/weather.c:926
+#: ../libgweather/weather.c:949 ../libgweather/weather.c:981
+#: ../libgweather/weather.c:997 ../libgweather/weather.c:1017
+msgid "Unknown"
+msgstr "𐑳𐑯𐑴𐑯"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/weather.c:754
+#, c-format
+msgid "%.1f °F"
+msgstr "%.1f °𐑓"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/weather.c:757
+#, c-format
+msgid "%d °F"
+msgstr "%d °𐑓"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/weather.c:763
+#, c-format
+msgid "%.1f °C"
+msgstr "%.1f °𐑕"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/weather.c:766
+#, c-format
+msgid "%d °C"
+msgstr "%d °𐑕"
+
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../libgweather/weather.c:772
+#, c-format
+msgid "%.1f K"
+msgstr "%.1f K"
+
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../libgweather/weather.c:775
+#, c-format
+msgid "%d K"
+msgstr "%d K"
+
+#. TRANSLATOR: This is the humidity in percent
+#: ../libgweather/weather.c:857
+#, c-format
+msgid "%.f%%"
+msgstr "%.f%%"
+
+#. TRANSLATOR: This is the wind speed in knots
+#: ../libgweather/weather.c:885
+#, c-format
+msgid "%0.1f knots"
+msgstr "%0.1f 𐑯𐑪𐑑𐑕"
+
+#. TRANSLATOR: This is the wind speed in miles per hour
+#: ../libgweather/weather.c:889
+#, c-format
+msgid "%.1f mph"
+msgstr "%.1f mph"
+
+#. TRANSLATOR: This is the wind speed in kilometers per hour
+#: ../libgweather/weather.c:893
+#, c-format
+msgid "%.1f km/h"
+msgstr "%.1f km/h"
+
+#. TRANSLATOR: This is the wind speed in meters per second
+#: ../libgweather/weather.c:897
+#, c-format
+msgid "%.1f m/s"
+msgstr "%.1f m/s"
+
+#. TRANSLATOR: This is the wind speed as a Beaufort force factor
+#. * (commonly used in nautical wind estimation).
+#.
+#: ../libgweather/weather.c:903
+#, c-format
+msgid "Beaufort force %.1f"
+msgstr "·𐑚𐑴𐑓𐑻𐑑 𐑓𐑹𐑕 %.1f"
+
+#: ../libgweather/weather.c:928
+msgid "Calm"
+msgstr "𐑒𐑭𐑥"
+
+#. TRANSLATOR: This is 'wind direction' / 'wind speed'
+#: ../libgweather/weather.c:932
+#, c-format
+msgid "%s / %s"
+msgstr "%s / %s"
+
+#. TRANSLATOR: This is pressure in inches of mercury
+#: ../libgweather/weather.c:954
+#, c-format
+msgid "%.2f inHg"
+msgstr "%.2f inHg"
+
+#. TRANSLATOR: This is pressure in millimeters of mercury
+#: ../libgweather/weather.c:958
+#, c-format
+msgid "%.1f mmHg"
+msgstr "%.1f mmHg"
+
+#. TRANSLATOR: This is pressure in kiloPascals
+#: ../libgweather/weather.c:962
+#, c-format
+msgid "%.2f kPa"
+msgstr "%.2f kPa"
+
+#. TRANSLATOR: This is pressure in hectoPascals
+#: ../libgweather/weather.c:966
+#, c-format
+msgid "%.2f hPa"
+msgstr "%.2f hPa"
+
+#. TRANSLATOR: This is pressure in millibars
+#: ../libgweather/weather.c:970
+#, c-format
+msgid "%.2f mb"
+msgstr "%.2f mb"
+
+#. TRANSLATOR: This is pressure in atmospheres
+#: ../libgweather/weather.c:974
+#, c-format
+msgid "%.3f atm"
+msgstr "%.3f 𐑨𐑑𐑥"
+
+#. TRANSLATOR: This is the visibility in miles
+#: ../libgweather/weather.c:1002
+#, c-format
+msgid "%.1f miles"
+msgstr "%.1f 𐑥𐑲𐑤𐑟"
+
+#. TRANSLATOR: This is the visibility in kilometers
+#: ../libgweather/weather.c:1006
+#, c-format
+msgid "%.1f km"
+msgstr "%.1f km"
+
+#. TRANSLATOR: This is the visibility in meters
+#: ../libgweather/weather.c:1010
+#, c-format
+msgid "%.0fm"
+msgstr "%.0fm"
+
+#: ../libgweather/weather.c:1039 ../libgweather/weather.c:1060
+msgid "%H:%M"
+msgstr "%H:%M"
+
+#: ../libgweather/weather.c:1119
+msgid "Retrieval failed"
+msgstr "𐑮𐑦𐑑𐑮𐑰𐑝𐑩𐑤 𐑓𐑱𐑤𐑛"
