@@ -259,6 +259,8 @@ enum _WeatherConditionQualifier {
 };
 
 typedef enum _WeatherConditionQualifier WeatherConditionQualifier;
+typedef gdouble WeatherMoonPhase;
+typedef gdouble WeatherMoonLatitude;
 
 gboolean weather_info_get_value_update		(WeatherInfo *info, time_t *value);
 gboolean weather_info_get_value_sky		(WeatherInfo *info, WeatherSky *sky);
@@ -273,6 +275,9 @@ gboolean weather_info_get_value_pressure	(WeatherInfo *info, PressureUnit unit, 
 gboolean weather_info_get_value_visibility	(WeatherInfo *info, DistanceUnit unit, gdouble *value);
 gboolean weather_info_get_value_sunrise		(WeatherInfo *info, time_t *value);
 gboolean weather_info_get_value_sunset 		(WeatherInfo *info, time_t *value);
+gboolean weather_info_get_value_moonphase       (WeatherInfo *info, WeatherMoonPhase *value, WeatherMoonLatitude *lat);
+gboolean weather_info_get_upcoming_moonphases   (WeatherInfo *info, time_t *phases);
+
 
 G_END_DECLS
 

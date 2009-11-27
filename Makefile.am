@@ -1,4 +1,4 @@
-SUBDIRS = po po-locations libgweather doc data python
+SUBDIRS = po po-locations libgweather doc data python icons
 
 ACLOCAL_AMFLAGS = -I m4
 

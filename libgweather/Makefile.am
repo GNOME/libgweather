@@ -18,7 +18,7 @@ libgweather_la_SOURCES = \
 	weather.c weather.h weather-priv.h \
 	weather-metar.c weather-iwin.c weather-met.c \
 	weather-bom.c weather-wx.c \
-	weather-sun.c \
+	weather-sun.c weather-moon.c \
 	gweather-enum-types.c \
 	gweather-prefs.c gweather-prefs.h \
 	gweather-gconf.c gweather-gconf.h \
@@ -102,8 +102,24 @@ test_locations_CFLAGS = \
 
 test_locations_LDADD = libgweather.la
 
+test_sun_moon_SOURCES = \
+	test_sun_moon.c
+
+test_sun_moon_CFLAGS = \
+	-I$(top_srcdir)			\
+	-I$(srcdir)			\
+	$(WARN_CFLAGS)			\
+	$(GTK_CFLAGS)			\
+	$(LIBSOUP_CFLAGS)		\
+	-DG_LOG_DOMAIN=\"GWeather\"
+
+test_sun_moon_LDADD = \
+	$(LIBSOUP_LIBS)	\
+	libgweather_la-weather-sun.o \
+	libgweather_la-weather-moon.o
+
 noinst_HEADERS = weather-priv.h gweather-win32.h
-noinst_PROGRAMS = test_metar test_locations
+noinst_PROGRAMS = test_metar test_locations test_sun_moon
 
 schemadir   = @GCONF_SCHEMA_FILE_DIR@
 schema_in_files = gweather.schemas.in
@@ -126,7 +142,7 @@ endif
 
 EXTRA_DIST = gweather.pc.in gweather-uninstalled.pc.in $(schema_in_files)
 
-EXTRA_PROGRAMS = test_metar
+EXTRA_PROGRAMS = test_metar test_sun_moon
 
 CLEANFILES = $(schema_DATA) $(EXTRA_PROGRAMS) $(MKENUMS_GENERATED)
 

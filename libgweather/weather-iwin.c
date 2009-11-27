@@ -196,7 +196,8 @@ parseForecastXml (const char *buff, WeatherInfo *master_info)
                                 nfo->windspeed = -1;
                                 nfo->pressure = -1.0;
                                 nfo->visibility = -1.0;
-                                nfo->sunValid = FALSE;
+                                nfo->sunriseValid = FALSE;
+                                nfo->sunsetValid = FALSE;
                                 nfo->sunrise = 0;
                                 nfo->sunset = 0;
                                 g_free (nfo->forecast);

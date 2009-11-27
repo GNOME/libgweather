@@ -41,6 +41,8 @@
 #include "weather.h"
 #include "weather-priv.h"
 
+#define MOON_PHASES 36
+
 static void _weather_internal_check (void);
 
 
@@ -346,9 +348,10 @@ requests_init (WeatherInfo *info)
 
 void request_done (WeatherInfo *info, gboolean ok)
 {
-    if (ok)
-	info->sunValid = info->valid && calc_sun (info);
-
+    if (ok) {
+	(void) calc_sun (info);
+	info->moonValid = info->valid && calc_moon (info);
+    }
     if (!--info->requests_pending)
         info->finish_cb (info, info->cb_data);
 }
@@ -529,9 +532,13 @@ _weather_info_fill (WeatherInfo *info,
     info->windspeed = -1;
     info->pressure = -1.0;
     info->visibility = -1.0;
-    info->sunValid = FALSE;
+    info->sunriseValid = FALSE;
+    info->sunsetValid = FALSE;
+    info->moonValid = FALSE;
     info->sunrise = 0;
     info->sunset = 0;
+    info->moonphase = 0;
+    info->moonlatitude = 0;
     info->forecast = NULL;
     info->forecast_list = NULL;
     info->radar = NULL;
@@ -1127,9 +1134,14 @@ const gchar *
 weather_info_get_icon_name (WeatherInfo *info)
 {
     WeatherConditions cond;
-    WeatherSky sky;
-    time_t current_time;
-    gboolean daytime;
+    WeatherSky        sky;
+    time_t            current_time;
+    gboolean          daytime;
+    gchar*            icon;
+    static gchar      icon_buffer[32];
+    WeatherMoonPhase  moonPhase;
+    WeatherMoonLatitude moonLat;
+    gint              phase;
 
     g_return_val_if_fail (info != NULL, NULL);
 
@@ -1183,10 +1195,17 @@ weather_info_get_icon_name (WeatherInfo *info)
         }
     }
 
-    current_time = time (NULL);
-    daytime = ((!info->sunValid) ||
-               (current_time >= info->sunrise &&
-                current_time < info->sunset));
+    if (info->midnightSun ||
+	(!info->sunriseValid && !info->sunsetValid))
+	daytime = TRUE;
+    else if (info->polarNight)
+	daytime = FALSE;
+    else {
+	current_time = time (NULL);
+	daytime =
+	    ( !info->sunriseValid || (current_time >= info->sunrise) ) &&
+	    ( !info->sunsetValid || (current_time < info->sunset) );
+    }
 
     switch (sky) {
     case SKY_INVALID:
@@ -1194,22 +1213,58 @@ weather_info_get_icon_name (WeatherInfo *info)
     case SKY_CLEAR:
 	if (daytime)
 	    return "weather-clear";
-	else
-	    return "weather-clear-night";
+	else {
+	    icon = g_stpcpy(icon_buffer, "weather-clear-night");
+	    break;
+	}
 
     case SKY_BROKEN:
     case SKY_SCATTERED:
     case SKY_FEW:
 	if (daytime)
 	    return "weather-few-clouds";
-	else
-	    return "weather-few-clouds-night";
+	else {
+	    icon = g_stpcpy(icon_buffer, "weather-few-clouds-night");
+	    break;
+	}
 
     case SKY_OVERCAST:
 	return "weather-overcast";
+
+    default: /* unrecognized */
+	return NULL;
     }
 
-    return NULL;
+    /*
+     * A phase-of-moon icon is to be returned.
+     * Determine which one based on the moon's location
+     */
+    if (info->moonValid && weather_info_get_value_moonphase(info, &moonPhase, &moonLat)) {
+	phase = (gint)((moonPhase * MOON_PHASES / 360.) + 0.5);
+	if (phase == MOON_PHASES) {
+	    phase = 0;
+	} else if (phase > 0 &&
+		   weather_info_get_location(info)->latitude < moonLat) {
+	    /*
+	     * Locations south of the moon's latitude will see the moon in the northern sky.
+	     * The moon waxes and wanes from left to right so we reference an icon running
+	     * in the opposite direction.
+	     */
+	    phase = MOON_PHASES - phase;
+	}
+
+	/*
+	 * If the moon is not full then append the angle to the icon string.
+	 * Note that an icon by this name is not required to exist:
+	 * the caller can use GTK_ICON_LOOKUP_GENERIC_FALLBACK to fall back to
+	 * the full moon image.
+	 */
+	if ((0 == (MOON_PHASES & 0x1)) && (MOON_PHASES/2 != phase)) {
+	    g_snprintf(icon, sizeof(icon_buffer) - strlen(icon_buffer),
+		       "-%03d", phase * 360 / MOON_PHASES);
+	}
+    }
+    return icon_buffer;
 }
 
 static gboolean
@@ -1471,7 +1526,7 @@ weather_info_get_value_update (WeatherInfo *info, time_t *value)
 
     *value = info->update;
 
-    return *value != 0;
+    return TRUE;
 }
 
 gboolean
@@ -1480,12 +1535,12 @@ weather_info_get_value_sunrise (WeatherInfo *info, time_t *value)
     g_return_val_if_fail (info != NULL, FALSE);
     g_return_val_if_fail (value != NULL, FALSE);
 
-    if (!info->valid || !info->sunValid)
+    if (!info->valid || !info->sunriseValid)
 	return FALSE;
 
     *value = info->sunrise;
 
-    return *value != 0;
+    return TRUE;
 }
 
 gboolean
@@ -1494,12 +1549,29 @@ weather_info_get_value_sunset (WeatherInfo *info, time_t *value)
     g_return_val_if_fail (info != NULL, FALSE);
     g_return_val_if_fail (value != NULL, FALSE);
 
-    if (!info->valid || !info->sunValid)
+    if (!info->valid || !info->sunsetValid)
 	return FALSE;
 
     *value = info->sunset;
 
-    return *value != 0;
+    return TRUE;
+}
+
+gboolean
+weather_info_get_value_moonphase (WeatherInfo      *info,
+				  WeatherMoonPhase *value,
+				  WeatherMoonLatitude *lat)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (value != NULL, FALSE);
+
+    if (!info->valid || !info->moonValid)
+	return FALSE;
+
+    *value = info->moonphase;
+    *lat   = info->moonlatitude;
+
+    return TRUE;
 }
 
 gboolean
@@ -1545,6 +1617,24 @@ weather_info_get_value_visibility (WeatherInfo *info, DistanceUnit unit, gdouble
 	return FALSE;
 
     return distance_value (info->visibility, unit, value, info->distance_unit);
+}
+
+/**
+ * weather_info_get_upcoming_moonphases:
+ * @info:   WeatherInfo containing the time_t of interest
+ * @phases: An array of four time_t values that will hold the returned values.
+ *    The values are estimates of the time of the next new, quarter, full and
+ *    three-quarter moons.
+ *
+ * Returns: gboolean indicating success or failure
+ */
+gboolean
+weather_info_get_upcoming_moonphases (WeatherInfo *info, time_t *phases)
+{
+    g_return_val_if_fail (info != NULL, FALSE);
+    g_return_val_if_fail (phases != NULL, FALSE);
+
+    return calc_moon_phases(info, phases);
 }
 
 static void

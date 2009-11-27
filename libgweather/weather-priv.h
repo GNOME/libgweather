@@ -78,7 +78,11 @@ struct _WeatherInfo {
 
     gboolean valid;
     gboolean network_error;
-    gboolean sunValid;
+    gboolean sunriseValid;
+    gboolean sunsetValid;
+    gboolean midnightSun;
+    gboolean polarNight;
+    gboolean moonValid;
     gboolean tempMinMaxValid;
     WeatherLocation *location;
     WeatherUpdate update;
@@ -94,6 +98,8 @@ struct _WeatherInfo {
     WeatherVisibility visibility;
     WeatherUpdate sunrise;
     WeatherUpdate sunset;
+    WeatherMoonPhase moonphase;
+    WeatherMoonLatitude moonlatitude;
     gchar *forecast;
     GSList *forecast_list; /* list of WeatherInfo* for the forecast, NULL if not available */
     gchar *radar_buffer;
@@ -145,9 +151,19 @@ const gchar *	weather_conditions_string	(WeatherConditions cond);
 #define VISIBILITY_SM_TO_KM(sm)		((sm) * 1.609344)
 #define VISIBILITY_SM_TO_M(sm)		(VISIBILITY_SM_TO_KM (sm) * 1000)
 
-#define DEGREES_TO_RADIANS(deg)		((fmod (deg,360.) / 180.) * M_PI)
+#define DEGREES_TO_RADIANS(deg)		((fmod ((deg),360.) / 180.) * M_PI)
 #define RADIANS_TO_DEGREES(rad)		((rad) * 180. / M_PI)
 #define RADIANS_TO_HOURS(rad)		((rad) * 12. / M_PI)
+
+/*
+ * Planetary Mean Orbit and their progressions from J2000 are based on the
+ * values in http://ssd.jpl.nasa.gov/txt/aprx_pos_planets.pdf
+ * converting longitudes from heliocentric to geocentric coordinates (+180)
+ */
+#define EPOCH_TO_J2000(t)          ((gdouble)(t)-946727935.816)
+#define MEAN_ECLIPTIC_LONGITUDE(d) (280.46457166 + (d)/36525.*35999.37244981)
+#define SOL_PROGRESSION            (360./365.242191)
+#define PERIGEE_LONGITUDE(d)       (282.93768193 + (d)/36525.*0.32327364)
 
 void		metar_start_open	(WeatherInfo *info);
 void		iwin_start_open		(WeatherInfo *info);
@@ -162,7 +178,16 @@ gboolean	requests_init		(WeatherInfo *info);
 void		request_done		(WeatherInfo *info,
 					 gboolean     ok);
 
+void		ecl2equ			(gdouble t,
+					 gdouble eclipLon,
+					 gdouble eclipLat,
+					 gdouble *ra,
+					 gdouble *decl);
+gdouble		sunEclipLongitude	(time_t t);
 gboolean	calc_sun		(WeatherInfo *info);
+gboolean	calc_sun_time		(WeatherInfo *info, time_t t);
+gboolean	calc_moon		(WeatherInfo *info);
+gboolean	calc_moon_phases	(WeatherInfo *info, time_t *phases);
 
 void		free_forecast_list	(WeatherInfo *info);
 
