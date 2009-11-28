@@ -115,8 +115,7 @@ test_sun_moon_CFLAGS = \
 
 test_sun_moon_LDADD = \
 	$(LIBSOUP_LIBS)	\
-	libgweather_la-weather-sun.o \
-	libgweather_la-weather-moon.o
+	libgweather.la
 
 noinst_HEADERS = weather-priv.h gweather-win32.h
 noinst_PROGRAMS = test_metar test_locations test_sun_moon

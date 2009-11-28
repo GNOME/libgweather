@@ -1244,11 +1244,12 @@ weather_info_get_icon_name (WeatherInfo *info)
 	if (phase == MOON_PHASES) {
 	    phase = 0;
 	} else if (phase > 0 &&
-		   weather_info_get_location(info)->latitude < moonLat) {
+		   (RADIANS_TO_DEGREES(weather_info_get_location(info)->latitude)
+		    < moonLat)) {
 	    /*
-	     * Locations south of the moon's latitude will see the moon in the northern sky.
-	     * The moon waxes and wanes from left to right so we reference an icon running
-	     * in the opposite direction.
+	     * Locations south of the moon's latitude will see the moon in the
+	     * northern sky.  The moon waxes and wanes from left to right
+	     * so we reference an icon running in the opposite direction.
 	     */
 	    phase = MOON_PHASES - phase;
 	}
@@ -1268,7 +1269,10 @@ weather_info_get_icon_name (WeatherInfo *info)
 }
 
 static gboolean
-temperature_value (gdouble temp_f, TempUnit to_unit, gdouble *value, TempUnit def_unit)
+temperature_value (gdouble temp_f,
+		   TempUnit to_unit,
+		   gdouble *value,
+		   TempUnit def_unit)
 {
     gboolean ok = TRUE;
 
