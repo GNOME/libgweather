@@ -37,7 +37,7 @@ gweather_xml_parse_node (GWeatherLocation *gloc,
 			 GtkTreeStore *store, GtkTreeIter *parent)
 {
     GtkTreeIter iter, *self = &iter;
-    GWeatherLocation **children;
+    GWeatherLocation **children, *parent_loc;
     GWeatherLocationLevel level;
     WeatherLocation *wloc;
     const char *name;
@@ -47,7 +47,7 @@ gweather_xml_parse_node (GWeatherLocation *gloc,
     children = gweather_location_get_children (gloc);
     level = gweather_location_get_level (gloc);
 
-    if (!children[0]) {
+    if (!children[0] && level < GWEATHER_LOCATION_WEATHER_STATION) {
 	gweather_location_free_children (gloc, children);
 	return TRUE;
     }
@@ -69,18 +69,35 @@ gweather_xml_parse_node (GWeatherLocation *gloc,
 	break;
 
     case GWEATHER_LOCATION_CITY:
-	/* Merge with child location */
+	/* If multiple children, treat this like a
+	 * region/country/adm1. If a single child, merge with that
+	 * location.
+	 */
 	gtk_tree_store_append (store, &iter, parent);
 	gtk_tree_store_set (store, &iter,
 			    GWEATHER_XML_COL_LOC, name,
 			    -1);
-	wloc = gweather_location_to_weather_location (children[0], name);
-	gtk_tree_store_set (store, &iter,
-			    GWEATHER_XML_COL_POINTER, wloc,
-			    -1);
+	if (children[0] && !children[1]) {
+	    wloc = gweather_location_to_weather_location (children[0], name);
+	    gtk_tree_store_set (store, &iter,
+				GWEATHER_XML_COL_POINTER, wloc,
+				-1);
+	}
 	break;
 
     case GWEATHER_LOCATION_WEATHER_STATION:
+	gtk_tree_store_append (store, &iter, parent);
+	gtk_tree_store_set (store, &iter,
+			    GWEATHER_XML_COL_LOC, name,
+			    -1);
+
+	parent_loc = gweather_location_get_parent (gloc);
+	if (parent_loc && gweather_location_get_level (parent_loc) == GWEATHER_LOCATION_CITY)
+	    name = gweather_location_get_name (parent_loc);
+	wloc = gweather_location_to_weather_location (gloc, name);
+	gtk_tree_store_set (store, &iter,
+			    GWEATHER_XML_COL_POINTER, wloc,
+			    -1);
 	break;
     }
 
