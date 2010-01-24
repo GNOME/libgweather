@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: libgweather master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-09 18:15+0800\n"
-"PO-Revision-Date: 2009-09-09 18:22+0800\n"
+"PO-Revision-Date: 2010-01-24 17:01+0800\n"
 "Last-Translator: Aron Xu <happyaron.xu@gmail.com>\n"
 "Language-Team: Chinese/Simplified <i18n-zh@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -128,17 +128,17 @@ msgstr "F"
 #. translators: meters per second
 #: ../libgweather/gweather-prefs.c:47
 msgid "m/s"
-msgstr "m/s"
+msgstr "米/秒"
 
 #. translators: kilometers per hour
 #: ../libgweather/gweather-prefs.c:49
 msgid "km/h"
-msgstr "km/h"
+msgstr "千米/小时"
 
 #. translators: miles per hour
 #: ../libgweather/gweather-prefs.c:51
 msgid "mph"
-msgstr "mph"
+msgstr "英里/小时"
 
 #. translators: knots (speed unit)
 #: ../libgweather/gweather-prefs.c:53
@@ -163,17 +163,17 @@ msgstr "百帕"
 #. translators: millibars
 #: ../libgweather/gweather-prefs.c:66
 msgid "mb"
-msgstr "mb"
+msgstr "毫巴"
 
 #. translators: millimeters of mercury
 #: ../libgweather/gweather-prefs.c:68
 msgid "mmHg"
-msgstr "mmHg"
+msgstr "毫米汞柱"
 
 #. translators: inches of mercury
 #: ../libgweather/gweather-prefs.c:70
 msgid "inHg"
-msgstr "inHg"
+msgstr "英尺汞柱"
 
 #. translators: atmosphere
 #: ../libgweather/gweather-prefs.c:72
@@ -183,7 +183,7 @@ msgstr "大气压"
 #. translators: meters
 #: ../libgweather/gweather-prefs.c:79
 msgid "m"
-msgstr "m"
+msgstr "米"
 
 #. translators: kilometers
 #: ../libgweather/gweather-prefs.c:81
@@ -193,7 +193,7 @@ msgstr "千米"
 #. translators: miles
 #: ../libgweather/gweather-prefs.c:83
 msgid "mi"
-msgstr "mi"
+msgstr "英里"
 
 #. TRANSLATOR: This is the default unit to use for temperature measurements.
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
@@ -206,7 +206,7 @@ msgstr "C"
 #. "mph" (miles per hour) and "knots"
 #: ../libgweather/gweather-prefs.c:141 ../libgweather/gweather-prefs.c:151
 msgid "DEFAULT_SPEED_UNIT"
-msgstr "km/h"
+msgstr "千米/小时"
 
 #. TRANSLATOR: This is the default unit to use for atmospheric pressure.
 #. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
@@ -812,13 +812,13 @@ msgstr "%d °F"
 #: ../libgweather/weather.c:763
 #, c-format
 msgid "%.1f °C"
-msgstr "%.1f℃"
+msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
 #: ../libgweather/weather.c:766
 #, c-format
 msgid "%d °C"
-msgstr "%d℃"
+msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
 #: ../libgweather/weather.c:772
@@ -848,19 +848,19 @@ msgstr "%0.1f 节"
 #: ../libgweather/weather.c:889
 #, c-format
 msgid "%.1f mph"
-msgstr "%.1f mph"
+msgstr "%.1f 英里/小时"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
 #: ../libgweather/weather.c:893
 #, c-format
 msgid "%.1f km/h"
-msgstr "%.1f km/h"
+msgstr "%.1f 千米/小时"
 
 #. TRANSLATOR: This is the wind speed in meters per second
 #: ../libgweather/weather.c:897
 #, c-format
 msgid "%.1f m/s"
-msgstr "%.1f m/s"
+msgstr "%.1f 米/秒"
 
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
@@ -878,7 +878,7 @@ msgstr "平静"
 #: ../libgweather/weather.c:932
 #, c-format
 msgid "%s / %s"
-msgstr "%s/%s"
+msgstr "%s / %s"
 
 #. TRANSLATOR: This is pressure in inches of mercury
 #: ../libgweather/weather.c:954
@@ -896,19 +896,19 @@ msgstr "%.1f 毫米汞柱"
 #: ../libgweather/weather.c:962
 #, c-format
 msgid "%.2f kPa"
-msgstr "%.2f kPa"
+msgstr "%.2f 千帕"
 
 #. TRANSLATOR: This is pressure in hectoPascals
 #: ../libgweather/weather.c:966
 #, c-format
 msgid "%.2f hPa"
-msgstr "%.2f hPa"
+msgstr "%.2f 百帕"
 
 #. TRANSLATOR: This is pressure in millibars
 #: ../libgweather/weather.c:970
 #, c-format
 msgid "%.2f mb"
-msgstr "%.2f mb"
+msgstr "%.2f 毫巴"
 
 #. TRANSLATOR: This is pressure in atmospheres
 #: ../libgweather/weather.c:974
@@ -926,13 +926,13 @@ msgstr "%.1f 英里"
 #: ../libgweather/weather.c:1006
 #, c-format
 msgid "%.1f km"
-msgstr "%.1f km"
+msgstr "%.1f 千米"
 
 #. TRANSLATOR: This is the visibility in meters
 #: ../libgweather/weather.c:1010
 #, c-format
 msgid "%.0fm"
-msgstr "%.0fm"
+msgstr "%.0f 米"
 
 #: ../libgweather/weather.c:1039 ../libgweather/weather.c:1060
 msgid "%H:%M"
@@ -947,12 +947,6 @@ msgstr "获取失败"
 
 #~ msgid "%d ℉"
 #~ msgstr "%d ℉"
-
-#~ msgid "%.1f ℃"
-#~ msgstr "%.1f ℃"
-
-#~ msgid "%d ℃"
-#~ msgstr "%d ℃"
 
 #~ msgid "_About"
 #~ msgstr "关于(_A)"
