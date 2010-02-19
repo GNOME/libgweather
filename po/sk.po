@@ -1,29 +1,22 @@
-# translation of gnome-applets.gnome-2-4.sk.po to Slovak
-# translation of gnome-applets.HEAD.po to Slovak
-# translation of sk.po to Slovak
-# Slovak translation of sk.po
-# gnome-applets Slovak translation.
-# Copyright (C) 2000, 2001, 2002, 2003, 2004, 2005 Free Software Foundation, Inc.
-# Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>, 2000,2001,2002,2003, 2004.
-# Stanislav Višňovský <visnovsky@nenya.ms.mff.cuni.cz>, 2002.
-# Stanislav Visnovsky <visnov@suse.cz>, 2003.
-# Stanislav Visnovsky <visnovsky@kde.org>, 2003.
-# Marcel Telka <marcel@telka.sk>, 2005.
-#
-# $Id: sk.po,v 1.70 2005/08/10 22:23:46 marcel Exp $
+# Slovak translation of libgweather.
+# Copyright (C) 2000, 2001, 2002, 2003, 2004, 2005, 2009 Free Software Foundation, Inc.
+# This file is distributed under the same license as the libgweather package.
+# Stanislav Višňovský <visnovsky@nenya.ms.mff.cuni.cz>, 2000, 2001, 2002, 2003, 2004.
+# Marcel Telka <marcel@telka.sk>, 2005, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-applets\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-26 21:39-0500\n"
-"PO-Revision-Date: 2005-08-11 00:22+0200\n"
+"Project-Id-Version: libgweather\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"applets&component=gweather\n"
+"POT-Creation-Date: 2009-11-29 22:55+0000\n"
+"PO-Revision-Date: 2009-12-07 06:47+0100\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
-"Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
+"Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural= (n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
 
 #. TRANSLATOR: Change this to the default location name,
 #. * used when you first start the Weather Applet. This is
@@ -36,7 +29,7 @@ msgstr ""
 #. * If you do not require a DEFAULT_LOCATION, set this to
 #. * "DEFAULT_LOCATION".
 #.
-#: ../libgweather/gweather-gconf.c:163 ../libgweather/gweather-gconf.c:164
+#: ../libgweather/gweather-gconf.c:212 ../libgweather/gweather-gconf.c:213
 #: ../libgweather/gweather.schemas.in.h:5
 msgid "DEFAULT_LOCATION"
 msgstr "Bratislava"
@@ -44,7 +37,7 @@ msgstr "Bratislava"
 #. TRANSLATOR: Change this to the code of your default location that
 #. * corresponds to the DEFAULT_LOCATION name you put above. This is
 #. * normally a four-letter (ICAO) code and can be found in
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * NB. The web page is over 1.7MB in size.
 #. * Pick a default location like a capital city so that it would be ok
 #. * for more of your users. For example, for Greek, we use "LGAV" for
@@ -52,7 +45,7 @@ msgstr "Bratislava"
 #. *
 #. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
 #.
-#: ../libgweather/gweather-gconf.c:183 ../libgweather/gweather-gconf.c:184
+#: ../libgweather/gweather-gconf.c:232 ../libgweather/gweather-gconf.c:233
 #: ../libgweather/gweather.schemas.in.h:3
 msgid "DEFAULT_CODE"
 msgstr "LZIB"
@@ -61,23 +54,23 @@ msgstr "LZIB"
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 #. * Normally, US and Canada locations have zones while the rest do not.
 #. * Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any zone you put here must also be present in the Locations.xml
 #. * file.
 #. *
 #. * If your default location does not have a zone, set this to
 #. * "DEFAULT_ZONE".
 #.
-#: ../libgweather/gweather-gconf.c:203 ../libgweather/gweather-gconf.c:204
+#: ../libgweather/gweather-gconf.c:252 ../libgweather/gweather-gconf.c:253
 #: ../libgweather/gweather.schemas.in.h:7
 msgid "DEFAULT_ZONE"
-msgstr ""
+msgstr "DEFAULT_ZONE"
 
 #. TRANSLATOR: Change this to the radar of your default location that
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
 #. * Normally, US and Canada locations have radar names while the rest do
 #. * not. Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any radar you put here must also be present in the Locations.xml
 #. * file.
 #. *
@@ -85,15 +78,15 @@ msgstr ""
 #. * (or space).
 #. * If you do not have a default location, set this to DEFAULT_RADAR.
 #.
-#: ../libgweather/gweather-gconf.c:224 ../libgweather/gweather-gconf.c:225
+#: ../libgweather/gweather-gconf.c:273 ../libgweather/gweather-gconf.c:274
 #: ../libgweather/gweather.schemas.in.h:6
 msgid "DEFAULT_RADAR"
-msgstr ""
+msgstr " "
 
 #. TRANSLATOR: Change this to the coordinates of your default location
 #. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
 #. * above. Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
+#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
 #. * as any coordinates you put here must also be present in the
 #. * Locations.xml file.
 #. *
@@ -102,112 +95,111 @@ msgstr ""
 #. * If you do not have a default location, set this to
 #. * DEFAULT_COORDINATES.
 #.
-#: ../libgweather/gweather-gconf.c:245 ../libgweather/gweather-gconf.c:246
+#: ../libgweather/gweather-gconf.c:294 ../libgweather/gweather-gconf.c:295
 #: ../libgweather/gweather.schemas.in.h:4
 msgid "DEFAULT_COORDINATES"
-msgstr ""
+msgstr "48.150000 17.116667"
 
-#: ../libgweather/gweather-prefs.c:25 ../libgweather/gweather-prefs.c:36
-#: ../libgweather/gweather-prefs.c:51 ../libgweather/gweather-prefs.c:68
+#: ../libgweather/gweather-prefs.c:34 ../libgweather/gweather-prefs.c:45
+#: ../libgweather/gweather-prefs.c:60 ../libgweather/gweather-prefs.c:77
 msgid "Default"
 msgstr "Štandardné"
 
 #. translators: Kelvin
-#: ../libgweather/gweather-prefs.c:27
+#: ../libgweather/gweather-prefs.c:36
 msgid "K"
-msgstr ""
+msgstr "K"
 
 #. translators: Celsius
-#: ../libgweather/gweather-prefs.c:29
+#: ../libgweather/gweather-prefs.c:38
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #. translators: Fahrenheit
-#: ../libgweather/gweather-prefs.c:31
+#: ../libgweather/gweather-prefs.c:40
 msgid "F"
-msgstr ""
+msgstr "F"
 
 #. translators: meters per second
-#: ../libgweather/gweather-prefs.c:38
+#: ../libgweather/gweather-prefs.c:47
 msgid "m/s"
 msgstr "m/s"
 
 #. translators: kilometers per hour
-#: ../libgweather/gweather-prefs.c:40
+#: ../libgweather/gweather-prefs.c:49
 msgid "km/h"
 msgstr "km/h"
 
 #. translators: miles per hour
-#: ../libgweather/gweather-prefs.c:42
+#: ../libgweather/gweather-prefs.c:51
 msgid "mph"
-msgstr "míľ za hodinu"
+msgstr "mph"
 
 #. translators: knots (speed unit)
-#: ../libgweather/gweather-prefs.c:44
+#: ../libgweather/gweather-prefs.c:53
 msgid "knots"
 msgstr "uzlov"
 
 #. translators: wind speed
-#: ../libgweather/gweather-prefs.c:46
+#: ../libgweather/gweather-prefs.c:55
 msgid "Beaufort scale"
 msgstr "Beaufortova stupnica"
 
 #. translators: kilopascals
-#: ../libgweather/gweather-prefs.c:53
+#: ../libgweather/gweather-prefs.c:62
 msgid "kPa"
 msgstr "kPa"
 
 #. translators: hectopascals
-#: ../libgweather/gweather-prefs.c:55
+#: ../libgweather/gweather-prefs.c:64
 msgid "hPa"
 msgstr "hPa"
 
 #. translators: millibars
-#: ../libgweather/gweather-prefs.c:57
+#: ../libgweather/gweather-prefs.c:66
 msgid "mb"
-msgstr "milibarov"
+msgstr "mbar"
 
 #. translators: millimeters of mercury
-#: ../libgweather/gweather-prefs.c:59
+#: ../libgweather/gweather-prefs.c:68
 msgid "mmHg"
-msgstr "milibarov ortute"
+msgstr "mmHg"
 
 #. translators: inches of mercury
-#: ../libgweather/gweather-prefs.c:61
+#: ../libgweather/gweather-prefs.c:70
 msgid "inHg"
-msgstr "palcov ortute"
+msgstr "inHg"
 
 #. translators: atmosphere
-#: ../libgweather/gweather-prefs.c:63
+#: ../libgweather/gweather-prefs.c:72
 msgid "atm"
-msgstr ""
+msgstr "atm"
 
 #. translators: meters
-#: ../libgweather/gweather-prefs.c:70
-#, fuzzy
+#: ../libgweather/gweather-prefs.c:79
 msgid "m"
-msgstr "milibarov"
+msgstr "m"
 
 #. translators: kilometers
-#: ../libgweather/gweather-prefs.c:72
+#: ../libgweather/gweather-prefs.c:81
 msgid "km"
 msgstr "km"
 
 #. translators: miles
-#: ../libgweather/gweather-prefs.c:74
+#: ../libgweather/gweather-prefs.c:83
 msgid "mi"
-msgstr ""
+msgstr "míľ"
 
 #. TRANSLATOR: This is the default unit to use for temperature measurements.
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:93 ../libgweather/gweather-prefs.c:102
+#: ../libgweather/gweather-prefs.c:103 ../libgweather/gweather-prefs.c:111
 msgid "DEFAULT_TEMP_UNIT"
 msgstr "C"
 
 #. TRANSLATOR: This is the default unit to use for wind speed.
 #. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
 #. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:131 ../libgweather/gweather-prefs.c:141
+#: ../libgweather/gweather-prefs.c:141 ../libgweather/gweather-prefs.c:151
 msgid "DEFAULT_SPEED_UNIT"
 msgstr "m/s"
 
@@ -215,38 +207,47 @@ msgstr "m/s"
 #. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
 #. "mb" (millibars), "mmHg" (millimeters of mercury),
 #. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:172 ../libgweather/gweather-prefs.c:183
+#: ../libgweather/gweather-prefs.c:183 ../libgweather/gweather-prefs.c:194
 msgid "DEFAULT_PRESSURE_UNIT"
 msgstr "hPa"
 
 #. TRANSLATOR: This is the default unit to use for visibility distance.
 #. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:212 ../libgweather/gweather-prefs.c:221
+#: ../libgweather/gweather-prefs.c:224 ../libgweather/gweather-prefs.c:233
 msgid "DEFAULT_DISTANCE_UNIT"
 msgstr "m"
+
+#: ../libgweather/gweather-timezone.c:314
+msgid "Greenwich Mean Time"
+msgstr "greenwichský stredný čas"
 
 #: ../libgweather/gweather.schemas.in.h:1
 msgid ""
 "A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/"
-"Locations.xml.in"
+"from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
+"Trojčíslicový kód pre získavanie radarových máp z weather.com, ako sa dá "
+"nájsť na http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
 msgid ""
-"A unique zone for the city, as found from http://cvs.gnome.org/viewcvs/"
-"*checkout*/gnome-applets/gweather/Locations.xml.in"
+"A unique zone for the city, as found from http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
 msgstr ""
+"Jedinečná zóna pre mesto, ako sa dá nájsť na http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:8
 msgid ""
 "Determines whether the applet automatically updates its weather statistics "
 "or not."
-msgstr "Určuje, či applet bude automaticky aktualizovať počasie alebo nie."
+msgstr ""
+"Určuje, či aplet bude automaticky aktualizovať svoje štatistiky o počasí "
+"alebo nie."
 
 #: ../libgweather/gweather.schemas.in.h:9
 msgid "Display radar map"
-msgstr "Zobraziť radarové mapy"
+msgstr "Zobraziť radarovú mapu"
 
 #: ../libgweather/gweather.schemas.in.h:10
 msgid "Distance unit"
@@ -261,28 +262,31 @@ msgid ""
 "If true, then retrieve a radar map from a location specified by the \"radar"
 "\" key."
 msgstr ""
-"Ak je true, radarová mapa sa získa z umiestnenia zadaného v kľúči  \"radar\"."
+"Ak je true, radarová mapa sa získa z umiestnenia zadaného v kľúči \"radar\"."
 
 #: ../libgweather/gweather.schemas.in.h:13
 msgid ""
 "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
 "[EW]."
 msgstr ""
+"Zemepisná šírka a dĺžka vášho miesta vyjadrená v tvare DD-MM-SS[NS] DD-MM-SS"
+"[EW]."
 
 #: ../libgweather/gweather.schemas.in.h:14
-#, fuzzy
 msgid "Location coordinates"
-msgstr "súradnice umiestnenia"
+msgstr "Súradnice miesta"
 
 #: ../libgweather/gweather.schemas.in.h:15
 msgid "Nearby city"
-msgstr ""
+msgstr "Blízke mesto"
 
 #: ../libgweather/gweather.schemas.in.h:16
 msgid ""
-"Nearby major zone, such as a capital city, as found from http://cvs.gnome."
-"org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
+"Nearby major zone, such as a capital city, as found from http://git.gnome."
+"org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
+"Blízka väčšia zóna, ako je napr. hlavné mesto, ako sa dá nájsť na http://git."
+"gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -293,9 +297,8 @@ msgid "Pressure unit"
 msgstr "Jednotka tlaku"
 
 #: ../libgweather/gweather.schemas.in.h:19
-#, fuzzy
 msgid "Radar location"
-msgstr "Umiestnenie"
+msgstr "Umiestnenie radaru"
 
 #: ../libgweather/gweather.schemas.in.h:20
 msgid "Speed unit"
@@ -307,15 +310,15 @@ msgstr "Jednotka teploty"
 
 #: ../libgweather/gweather.schemas.in.h:22
 msgid "The city that gweather displays information for."
-msgstr ""
+msgstr "Mesto, pre ktoré gweather zobrazuje informácie."
 
 #: ../libgweather/gweather.schemas.in.h:23
 msgid "The custom url from where to retrieve a radar map."
-msgstr "Vlastné URL pre získanie radarovej mapy."
+msgstr "Vlastné url, z ktorého získať radarovú mapu."
 
 #: ../libgweather/gweather.schemas.in.h:24
 msgid "The interval, in seconds, between automatic updates."
-msgstr "Interval automatickej aktualizácie v sekundách."
+msgstr "Interval (v sekundách) medzi automatickými aktualizáciami."
 
 #: ../libgweather/gweather.schemas.in.h:25
 msgid "The unit to use for pressure."
@@ -339,15 +342,15 @@ msgstr "Interval aktualizácie"
 
 #: ../libgweather/gweather.schemas.in.h:30
 msgid "Update the data automatically"
-msgstr "Aktualizovať dáta automaticky"
+msgstr "Aktualizovať údaje automaticky"
 
 #: ../libgweather/gweather.schemas.in.h:31
 msgid "Url for the radar map"
-msgstr "URL pre radarové mapy"
+msgstr "Url pre radarovú mapu"
 
 #: ../libgweather/gweather.schemas.in.h:32
 msgid "Use custom url for the radar map"
-msgstr "Použiť vlastnú adresu pre radarovú mapu"
+msgstr "Použiť vlastné url pre radarovú mapu"
 
 #: ../libgweather/gweather.schemas.in.h:33
 msgid "Use metric units"
@@ -355,505 +358,506 @@ msgstr "Použiť metrické jednotky"
 
 #: ../libgweather/gweather.schemas.in.h:34
 msgid "Use metric units instead of english units."
-msgstr "Použiť metrické jednotky namiesto anglických."
+msgstr "Použiť metrické jednotky namiesto anglických jednotiek."
 
 #: ../libgweather/gweather.schemas.in.h:35
-#, fuzzy
 msgid "Weather for a city"
-msgstr "Predpoveď počasia"
+msgstr "Počasie pre mesto"
 
 #: ../libgweather/gweather.schemas.in.h:36
-#, fuzzy
 msgid "Weather location information"
-msgstr "informácia o umiestnení pre počasie."
+msgstr "Informácia o počasí pre miesto"
 
 #: ../libgweather/gweather.schemas.in.h:37
-#, fuzzy
 msgid "Weather location information."
-msgstr "informácia o umiestnení pre počasie."
+msgstr "Informácia o počasí pre miesto."
 
 #: ../libgweather/gweather.schemas.in.h:38
-#, fuzzy
 msgid "Zone location"
-msgstr "Umiestnenie"
+msgstr "Umiestnenie zóny"
 
-#: ../libgweather/weather-iwin.c:135 ../libgweather/weather-metar.c:554
-#: ../libgweather/weather-metar.c:582
+#: ../libgweather/timezone-menu.c:277
+msgctxt "timezone"
+msgid "Unknown"
+msgstr "Neznáma"
+
+#. Translators: %d is an error code, and %s the error string
+#: ../libgweather/weather-metar.c:504
+#, c-format
+msgid "Failed to get METAR data: %d %s.\n"
+msgstr "Neporadilo sa získať údaje METAR: %d %s.\n"
+
+#: ../libgweather/weather-metar.c:548
 msgid "WeatherInfo missing location"
-msgstr "Neznáme miesto pre WeatherInfo"
+msgstr "Chýbajúce miesto pre WeatherInfo"
 
-#: ../libgweather/weather-metar.c:527 ../libgweather/weather-metar.c:562
-#: ../libgweather/weather-wx.c:63
-msgid "Failed to get METAR data.\n"
-msgstr "Neporadilo sa získať METAR dáta.\n"
-
-#: ../libgweather/weather.c:180
+#: ../libgweather/weather.c:232
 msgid "Variable"
 msgstr "Premenlivo"
 
-#: ../libgweather/weather.c:181
+#: ../libgweather/weather.c:233
 msgid "North"
 msgstr "Sever"
 
-#: ../libgweather/weather.c:181
+#: ../libgweather/weather.c:233
 msgid "North - NorthEast"
 msgstr "Severo-severovýchod"
 
-#: ../libgweather/weather.c:181
+#: ../libgweather/weather.c:233
 msgid "Northeast"
 msgstr "Severovýchod"
 
-#: ../libgweather/weather.c:181
+#: ../libgweather/weather.c:233
 msgid "East - NorthEast"
 msgstr "Východo-severovýchod"
 
-#: ../libgweather/weather.c:182
+#: ../libgweather/weather.c:234
 msgid "East"
 msgstr "Východ"
 
-#: ../libgweather/weather.c:182
+#: ../libgweather/weather.c:234
 msgid "East - Southeast"
-msgstr "Východo-Juhovýchod"
+msgstr "Východo-juhovýchod"
 
-#: ../libgweather/weather.c:182
+#: ../libgweather/weather.c:234
 msgid "Southeast"
 msgstr "Juhovýchod"
 
-#: ../libgweather/weather.c:182
+#: ../libgweather/weather.c:234
 msgid "South - Southeast"
 msgstr "Juho-juhovýchod"
 
-#: ../libgweather/weather.c:183
+#: ../libgweather/weather.c:235
 msgid "South"
 msgstr "Juh"
 
-#: ../libgweather/weather.c:183
+#: ../libgweather/weather.c:235
 msgid "South - Southwest"
 msgstr "Juho-juhozápad"
 
-#: ../libgweather/weather.c:183
+#: ../libgweather/weather.c:235
 msgid "Southwest"
 msgstr "Juhozápad"
 
-#: ../libgweather/weather.c:183
+#: ../libgweather/weather.c:235
 msgid "West - Southwest"
 msgstr "Západo-juhozápad"
 
-#: ../libgweather/weather.c:184
+#: ../libgweather/weather.c:236
 msgid "West"
 msgstr "Západ"
 
-#: ../libgweather/weather.c:184
+#: ../libgweather/weather.c:236
 msgid "West - Northwest"
 msgstr "Západo-severozápad"
 
-#: ../libgweather/weather.c:184
+#: ../libgweather/weather.c:236
 msgid "Northwest"
 msgstr "Severozápad"
 
-#: ../libgweather/weather.c:184
+#: ../libgweather/weather.c:236
 msgid "North - Northwest"
 msgstr "Severo-severozápad"
 
-#: ../libgweather/weather.c:190 ../libgweather/weather.c:690
-#: ../libgweather/weather.c:739 ../libgweather/weather.c:752
-#: ../libgweather/weather.c:764 ../libgweather/weather.c:779
-#: ../libgweather/weather.c:795 ../libgweather/weather.c:832
-#: ../libgweather/weather.c:844 ../libgweather/weather.c:863
-#: ../libgweather/weather.c:895 ../libgweather/weather.c:908
-#: ../libgweather/weather.c:928
-msgid "Unknown"
-msgstr "Neznámy"
-
-#: ../libgweather/weather.c:192 ../libgweather/weather.c:209
-#: ../libgweather/weather.c:280
+#: ../libgweather/weather.c:243 ../libgweather/weather.c:260
+#: ../libgweather/weather.c:332
 msgid "Invalid"
 msgstr "Neplatné"
 
-#: ../libgweather/weather.c:198
+#: ../libgweather/weather.c:249
 msgid "Clear Sky"
-msgstr "Čistá obloha"
+msgstr "Jasno"
 
-#: ../libgweather/weather.c:199
+#: ../libgweather/weather.c:250
 msgid "Broken clouds"
-msgstr "Oblačno"
+msgstr "Polooblačno"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:251
 msgid "Scattered clouds"
 msgstr "Rozptýlená oblačnosť"
 
-#: ../libgweather/weather.c:201
+#: ../libgweather/weather.c:252
 msgid "Few clouds"
-msgstr "Malá oblačnosť"
+msgstr "Nízka oblačnosť"
 
-#: ../libgweather/weather.c:202
+#: ../libgweather/weather.c:253
 msgid "Overcast"
-msgstr "Zatiahnuté"
+msgstr "Zamračené"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
-#. * http://www.crh.noaa.gov/arx/wx.tbl.html
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:241 ../libgweather/weather.c:243
+#: ../libgweather/weather.c:292 ../libgweather/weather.c:294
 msgid "Thunderstorm"
 msgstr "Búrka"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:293
 msgid "Drizzle"
 msgstr "Mrholenie"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:293
 msgid "Light drizzle"
 msgstr "Ľahký dážď"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:293
 msgid "Moderate drizzle"
 msgstr "Mierne mrholenie"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:293
 msgid "Heavy drizzle"
-msgstr "Ťažké mrholenie"
+msgstr "Husté mrholenie"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/weather.c:293
 msgid "Freezing drizzle"
 msgstr "Mrznúce mrholenie"
 
 #. RAIN
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:294
 msgid "Rain"
 msgstr "Dážď"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:294
 msgid "Light rain"
 msgstr "Ľahký dážď"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:294
 msgid "Moderate rain"
 msgstr "Mierny dážď"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:294
 msgid "Heavy rain"
-msgstr "Ťažký dážď"
+msgstr "Hustý dážď"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:294
 msgid "Rain showers"
 msgstr "Dážďové spŕšky"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/weather.c:294
 msgid "Freezing rain"
 msgstr "Mrznúci dážď"
 
 #. SNOW
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:295
 msgid "Snow"
 msgstr "Sneženie"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:295
 msgid "Light snow"
 msgstr "Ľahké sneženie"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:295
 msgid "Moderate snow"
 msgstr "Mierne sneženie"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:295
 msgid "Heavy snow"
-msgstr "Ťažké sneženie"
+msgstr "Husté sneženie"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:295
 msgid "Snowstorm"
 msgstr "Snehová búrka"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:295
 msgid "Blowing snowfall"
-msgstr "Veterné sneženie"
+msgstr "Záveje"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:295
 msgid "Snow showers"
 msgstr "Snehové spŕšky"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/weather.c:295
 msgid "Drifting snow"
-msgstr "Kolísajúce sneženie"
+msgstr "Zvírený sneh"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:245
+#: ../libgweather/weather.c:296
 msgid "Snow grains"
 msgstr "Spŕšky zrnitého snehu"
 
-#: ../libgweather/weather.c:245
+#: ../libgweather/weather.c:296
 msgid "Light snow grains"
 msgstr "Ľahké zrnité sneženie"
 
-#: ../libgweather/weather.c:245
+#: ../libgweather/weather.c:296
 msgid "Moderate snow grains"
 msgstr "Mierne zrnité sneženie"
 
-#: ../libgweather/weather.c:245
+#: ../libgweather/weather.c:296
 msgid "Heavy snow grains"
-msgstr "Ťažké zrnité sneženie"
+msgstr "Husté zrnité sneženie"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:246
+#: ../libgweather/weather.c:297
 msgid "Ice crystals"
 msgstr "Ľadové kryštály"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:298
 msgid "Ice pellets"
 msgstr "Ľadové guličky"
 
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:298
 msgid "Few ice pellets"
 msgstr "Málo ľadových guličiek"
 
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:298
 msgid "Moderate ice pellets"
 msgstr "Mierne ľadové guličky"
 
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:298
 msgid "Heavy ice pellets"
-msgstr "Ťažké ľadové guličky"
+msgstr "Husté ľadové guličky"
 
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:298
 msgid "Ice pellet storm"
 msgstr "Búrka ľadových guličiek"
 
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:298
 msgid "Showers of ice pellets"
 msgstr "Spŕšky ľadových guličiek"
 
 #. HAIL
-#: ../libgweather/weather.c:248
+#: ../libgweather/weather.c:299
 msgid "Hail"
 msgstr "Krúpy"
 
-#: ../libgweather/weather.c:248
+#: ../libgweather/weather.c:299
 msgid "Hailstorm"
 msgstr "Krupobitie"
 
-#: ../libgweather/weather.c:248
+#: ../libgweather/weather.c:299
 msgid "Hail showers"
 msgstr "Spŕšky krúp"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:249
+#: ../libgweather/weather.c:300
 msgid "Small hail"
-msgstr "Male krúpy"
+msgstr "Malé krúpy"
 
-#: ../libgweather/weather.c:249
+#: ../libgweather/weather.c:300
 msgid "Small hailstorm"
 msgstr "Krupobitie s malými krúpami"
 
-#: ../libgweather/weather.c:249
+#: ../libgweather/weather.c:300
 msgid "Showers of small hail"
 msgstr "Spŕšky malých krúp"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:250
+#: ../libgweather/weather.c:301
 msgid "Unknown precipitation"
 msgstr "Neznáme zrážky"
 
 #. MIST
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:302
 msgid "Mist"
 msgstr "Opar"
 
 #. FOG
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:303
 msgid "Fog"
 msgstr "Hmla"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:303
 msgid "Fog in the vicinity"
 msgstr "Hmla v okolí"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:303
 msgid "Shallow fog"
 msgstr "Slabá hmla"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:303
 msgid "Patches of fog"
 msgstr "Občasná hmla"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:303
 msgid "Partial fog"
 msgstr "Čiastočná hmla"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:303
 msgid "Freezing fog"
 msgstr "Mrznúca hmla"
 
 #. SMOKE
-#: ../libgweather/weather.c:253
+#: ../libgweather/weather.c:304
 msgid "Smoke"
 msgstr "Dym"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:254
+#: ../libgweather/weather.c:305
 msgid "Volcanic ash"
 msgstr "Sopečný popol"
 
 #. SAND
-#: ../libgweather/weather.c:255
+#: ../libgweather/weather.c:306
 msgid "Sand"
 msgstr "Piesok"
 
-#: ../libgweather/weather.c:255
+#: ../libgweather/weather.c:306
 msgid "Blowing sand"
-msgstr "Veterný piesok"
+msgstr "Viaty piesok"
 
-#: ../libgweather/weather.c:255
+#: ../libgweather/weather.c:306
 msgid "Drifting sand"
-msgstr "Kolísajúci piesok"
+msgstr "Zvírený piesok"
 
 #. HAZE
-#: ../libgweather/weather.c:256
+#: ../libgweather/weather.c:307
 msgid "Haze"
 msgstr "Opar"
 
 #. SPRAY
-#: ../libgweather/weather.c:257
+#: ../libgweather/weather.c:308
 msgid "Blowing sprays"
-msgstr "Veterné jemné spŕšky"
+msgstr "Viate jemné spŕšky"
 
 #. DUST
-#: ../libgweather/weather.c:258
+#: ../libgweather/weather.c:309
 msgid "Dust"
 msgstr "Prach"
 
-#: ../libgweather/weather.c:258
+#: ../libgweather/weather.c:309
 msgid "Blowing dust"
-msgstr "Veterný prach"
+msgstr "Viaty prach"
 
-#: ../libgweather/weather.c:258
+#: ../libgweather/weather.c:309
 msgid "Drifting dust"
-msgstr "Kolísajúci prach"
+msgstr "Zvírený prach"
 
 #. SQUALL
-#: ../libgweather/weather.c:259
+#: ../libgweather/weather.c:310
 msgid "Squall"
-msgstr "Poryvy"
+msgstr "Víchor"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:311
 msgid "Sandstorm"
 msgstr "Piesočná búrka"
 
-#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:311
 msgid "Sandstorm in the vicinity"
 msgstr "Piesočná búrka v okolí"
 
-#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:311
 msgid "Heavy sandstorm"
-msgstr "Ťažká piesočná búrka"
+msgstr "Silná piesočná búrka"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:261
+#: ../libgweather/weather.c:312
 msgid "Duststorm"
 msgstr "Prachová búrka"
 
-#: ../libgweather/weather.c:261
+#: ../libgweather/weather.c:312
 msgid "Duststorm in the vicinity"
 msgstr "Prachová búrka v okolí"
 
-#: ../libgweather/weather.c:261
+#: ../libgweather/weather.c:312
 msgid "Heavy duststorm"
-msgstr "Ťažká prachová búrka"
+msgstr "Silná prachová búrka"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:262
+#: ../libgweather/weather.c:313
 msgid "Funnel cloud"
 msgstr "Vzdušné tornádo"
 
 #. TORNADO
-#: ../libgweather/weather.c:263
+#: ../libgweather/weather.c:314
 msgid "Tornado"
 msgstr "Tornádo"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:264
+#: ../libgweather/weather.c:315
 msgid "Dust whirls"
 msgstr "Prachové víry"
 
-#: ../libgweather/weather.c:264
+#: ../libgweather/weather.c:315
 msgid "Dust whirls in the vicinity"
 msgstr "Prachové víry v okolí"
 
 #. TRANSLATOR: this is a format string for strftime
 #. *             see `man 3 strftime` for more details
 #.
-#: ../libgweather/weather.c:662
+#: ../libgweather/weather.c:710
 msgid "%a, %b %d / %H:%M"
-msgstr "%a, %b %d / %H:%M"
+msgstr "%a, %e. %b / %H:%M"
 
-#: ../libgweather/weather.c:677
+#: ../libgweather/weather.c:725
 msgid "Unknown observation time"
 msgstr "Neznámy čas pozorovania"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:710
-#, fuzzy, c-format
-msgid "%.1f ℉"
-msgstr "%.1f K"
+#: ../libgweather/weather.c:739 ../libgweather/weather.c:790
+#: ../libgweather/weather.c:804 ../libgweather/weather.c:817
+#: ../libgweather/weather.c:830 ../libgweather/weather.c:843
+#: ../libgweather/weather.c:861 ../libgweather/weather.c:879
+#: ../libgweather/weather.c:917 ../libgweather/weather.c:933
+#: ../libgweather/weather.c:956 ../libgweather/weather.c:988
+#: ../libgweather/weather.c:1004 ../libgweather/weather.c:1024
+msgid "Unknown"
+msgstr "Neznámy"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:713
-#, fuzzy, c-format
-msgid "%d ℉"
-msgstr "%d K"
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/weather.c:761
+#, c-format
+msgid "%.1f °F"
+msgstr "%.1f °F"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:719
-#, fuzzy, c-format
-msgid "%.1f ℃"
-msgstr "%.1f K"
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/weather.c:764
+#, c-format
+msgid "%d °F"
+msgstr "%d °F"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:722
-#, fuzzy, c-format
-msgid "%d ℃"
-msgstr "%d K"
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/weather.c:770
+#, c-format
+msgid "%.1f °C"
+msgstr "%.1f °C"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/weather.c:773
+#, c-format
+msgid "%d °C"
+msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:728
+#: ../libgweather/weather.c:779
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:731
+#: ../libgweather/weather.c:782
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:782
+#: ../libgweather/weather.c:864
 #, c-format
 msgid "%.f%%"
 msgstr "%.f %%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:807
+#: ../libgweather/weather.c:892
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f uzlov"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:811
+#: ../libgweather/weather.c:896
 #, c-format
 msgid "%.1f mph"
-msgstr "%.1g mph"
+msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:815
+#: ../libgweather/weather.c:900
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:819
+#: ../libgweather/weather.c:904
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -861,2553 +865,79 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:825
+#: ../libgweather/weather.c:910
 #, c-format
 msgid "Beaufort force %.1f"
-msgstr ""
+msgstr "Beaufortova sila %.1f"
 
-#: ../libgweather/weather.c:846
+#: ../libgweather/weather.c:935
 msgid "Calm"
 msgstr "Bezvetrie"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:850
+#: ../libgweather/weather.c:939
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:868
+#: ../libgweather/weather.c:961
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:872
+#: ../libgweather/weather.c:965
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:876
+#: ../libgweather/weather.c:969
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:880
+#: ../libgweather/weather.c:973
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:884
+#: ../libgweather/weather.c:977
 #, c-format
 msgid "%.2f mb"
-msgstr "%.2f mb"
+msgstr "%.2f mbar"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:888
-#, fuzzy, c-format
+#: ../libgweather/weather.c:981
+#, c-format
 msgid "%.3f atm"
-msgstr "%.2f mb"
+msgstr "%.3f atm"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:913
+#: ../libgweather/weather.c:1009
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f míľ"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:917
+#: ../libgweather/weather.c:1013
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:921
+#: ../libgweather/weather.c:1017
 #, c-format
 msgid "%.0fm"
 msgstr "%.0f m"
 
-#: ../libgweather/weather.c:949 ../libgweather/weather.c:969
+#: ../libgweather/weather.c:1046 ../libgweather/weather.c:1067
 msgid "%H:%M"
 msgstr "%H:%M"
 
-#: ../libgweather/weather.c:1002
+#: ../libgweather/weather.c:1126
 msgid "Retrieval failed"
 msgstr "Získanie zlyhalo"
-
-#~ msgid "_About"
-#~ msgstr "_O programe"
-
-#~ msgid "_Help"
-#~ msgstr "_Pomocník"
-
-#~ msgid "_Keyboard Accessibility Preferences"
-#~ msgstr "Nastavenie _Prístupnosti klávesníc"
-
-#~ msgid "AccessX Status Applet Factory"
-#~ msgstr "Vytváracie rozhranie pre applet stavu AccessX"
-
-#~ msgid "Keyboard Accessibility Status"
-#~ msgstr "Stav prístupnosti klávesnice"
-
-#~ msgid "Keyboard Accessibility Status Applet Factory"
-#~ msgstr "Vytváracie rozhranie pre applet stavu prístupnosti klávesnice"
-
-#~ msgid "Shows the status of keyboard accessibility features"
-#~ msgstr "Zobrazí stav funkcií pre sprístupnenie klávesnice"
-
-#~ msgid "AccessX Status"
-#~ msgstr "Stav AccessX"
-
-#~ msgid "Shows the state of AccessX features such as latched modifiers"
-#~ msgstr "Zobrazuje stav funkcií AccessX, ako sú prepínancie modifikátory"
-
-#~ msgid "translator-credits"
-#~ msgstr ""
-#~ "Stanislav Višňovský\n"
-#~ "Marcel Telka <marcel@telka.sk>"
-
-#~ msgid "There was an error launching the help viewer: %s"
-#~ msgstr "Pri spúšťaní prehliadača pomocníka nastala chyba: %s"
-
-#~ msgid "There was an error launching the keyboard preferences dialog: %s"
-#~ msgstr ""
-#~ "Vyskytla sa chyba pri spúšťaní dialógového okna predvolieb klávesnice: %s"
-
-#~ msgid "a"
-#~ msgstr "a"
-
-#~ msgid "Shows keyboard status when accessibility features are used."
-#~ msgstr ""
-#~ "Zobrazí stav klávesnice pre sprístupnenie pri zapnutí sprístupnenia."
-
-#~ msgid "XKB Extension is not enabled"
-#~ msgstr "Rozšírenie XKB nie je povolené"
-
-#~ msgid "Unknown error"
-#~ msgstr "Neznáma chzba"
-
-#~ msgid "Error: %s"
-#~ msgstr "Chyba: %s"
-
-#~ msgid "Displays current state of keyboard accessibility features"
-#~ msgstr "Zobrazuje aktuálny stav funkcií pre sprístupnenie klávesnice"
-
-#~ msgid "Battery Charge Monitor"
-#~ msgstr "Monitor nabitia batérií"
-
-#~ msgid "Battstat Factory"
-#~ msgstr "Vytváracie rozhranie pre Battstat"
-
-#~ msgid "Monitor a laptop's remaining power"
-#~ msgstr "Sleduje zostávajúce nabitie batérií notebooku"
-
-#~ msgid "_Preferences"
-#~ msgstr "Nas_tavenia"
-
-#~ msgid "Beep for warnings"
-#~ msgstr "Pípnuť pre varovania"
-
-#~ msgid "Beep when displaying a warning"
-#~ msgstr "Pípnuť pri zobrazení varovania"
-
-#~ msgid "Drain from top"
-#~ msgstr "Vyprázdniť zhora"
-
-#~ msgid "Full Battery Notification"
-#~ msgstr "Upozornenie na plné batérie"
-
-#~ msgid "Low Battery Notification"
-#~ msgstr "Upozornenie na skoro prázdne batérie"
-
-#~ msgid "Notify user when the battery is full"
-#~ msgstr "Upozorniť, že sú batérie plne dobité"
-
-#~ msgid "Notify user when the battery is low"
-#~ msgstr "Upozorniť, že sú batérie skoro vybité"
-
-#~ msgid "Red value level"
-#~ msgstr "Hodnota červenej úrovne"
-
-#, fuzzy
-#~ msgid ""
-#~ "Show the battery meter draining from the top of the battery. Only "
-#~ "implemented for traditional battery view."
-#~ msgstr "Vyprázdňovať zobrazený stav batérie zhora"
-
-#~ msgid "Show the horizontal battery"
-#~ msgstr "Zobraziť batériu vodorovne"
-
-#~ msgid "Show the time/percent label"
-#~ msgstr "Zobraziť návestie s časom/percentami"
-
-#~ msgid "Show the traditional, horizontal battery on the panel"
-#~ msgstr "Zobraziť tradičnú vodorovnú batériu na paneli"
-
-#, fuzzy
-#~ msgid ""
-#~ "The battery level below which the battery is displayed as red. Also the "
-#~ "value at which the low battery warning is displayed."
-#~ msgstr "Úroveň batérií pod touto hodnotou sú zobrazené oranžovou farbou."
-
-#~ msgid "Warn on low time rather than low percentage"
-#~ msgstr "Upozorniť radšej pri nízkom čase ako pri nízkych percentách"
-
-#~ msgid "System is running on AC power"
-#~ msgstr "Systém beží zo siete"
-
-#~ msgid "System is running on battery power"
-#~ msgstr "Systém beží na batérie"
-
-#~ msgid "Battery charged (%d%%)"
-#~ msgstr "Batérie sú dobité (%d %%)"
-
-#~ msgid "Unknown time (%d%%) remaining"
-#~ msgstr "Zostáva neznámy čas (%d %%)"
-
-#~ msgid "Unknown time (%d%%) until charged"
-#~ msgstr "Neznámy čas (%d %%) do nabitia"
-
-#~ msgid "%d minute (%d%%) remaining"
-#~ msgid_plural "%d minutes (%d%%) remaining"
-#~ msgstr[0] "zostáva %d minút (%d %%)"
-#~ msgstr[1] "zostáva %d minúta (%d %%)"
-#~ msgstr[2] "zostávajú %d minúty (%d %%)"
-
-#~ msgid "%d minute until charged (%d%%)"
-#~ msgid_plural "%d minutes until charged (%d%%)"
-#~ msgstr[0] "%d minút do nabitia (%d %%)"
-#~ msgstr[1] "%d minúta do nabitia (%d %%)"
-#~ msgstr[2] "%d minúty do nabitia (%d %%)"
-
-#~ msgid "%d hour (%d%%) remaining"
-#~ msgid_plural "%d hours (%d%%) remaining"
-#~ msgstr[0] "zostáva %d hodín (%d %%)"
-#~ msgstr[1] "zostáva %d hodina (%d %%)"
-#~ msgstr[2] "zostávajú %d hodiny (%d %%)"
-
-#~ msgid "%d hour until charged (%d%%)"
-#~ msgid_plural "%d hours until charged (%d%%)"
-#~ msgstr[0] "%d hodín do nabitia (%d %%)"
-#~ msgstr[1] "%d hodina do nabitia (%d %%)"
-#~ msgstr[2] "%d hodiny do nabitia (%d %%)"
-
-#~ msgid "%d %s %d %s (%d%%) remaining"
-#~ msgstr "zostáva %d %s %d %s (%d %%)"
-
-#~ msgid "hour"
-#~ msgid_plural "hours"
-#~ msgstr[0] "hodín"
-#~ msgstr[1] "hodina"
-#~ msgstr[2] "hodiny"
-
-#~ msgid "minute"
-#~ msgid_plural "minutes"
-#~ msgstr[0] "minút"
-#~ msgstr[1] "minúta"
-#~ msgstr[2] "minúty"
-
-#~ msgid "%d %s %d %s until charged (%d%%)"
-#~ msgstr "%d %s %d %s do nabitia (%d %%)"
-
-#~ msgid "Battery Monitor"
-#~ msgstr "Monitor batérie"
-
-#~ msgid "Your battery is now fully recharged"
-#~ msgstr "Batérie sú plne dobité"
-
-#~ msgid "Battery Notice"
-#~ msgstr "Správa o batériách"
-
-#~ msgid "No battery present"
-#~ msgstr "Žiadna batéria nie je dostupná"
-
-#~ msgid "Battery status unknown"
-#~ msgstr "Neznámy stav batérie"
-
-#~ msgid "N/A"
-#~ msgstr "N/A"
-
-#~ msgid "There was an error displaying help: %s"
-#~ msgstr "Pri pokuse o zobrazenie Pomocníka nastala chyba: %s"
-
-#~ msgid "This utility shows the status of your laptop battery."
-#~ msgstr "Tento nástroj zobrazuje stav batérií vášho prenosného počítača."
-
-#~ msgid "<b>Appearance</b>"
-#~ msgstr "<b>Vzhľad</b>"
-
-#~ msgid "<b>Notifications</b>"
-#~ msgstr "<b>Oznámenia</b>"
-
-#~ msgid "Battery Charge Monitor Preferences"
-#~ msgstr "Monitor nabitia batérií"
-
-#~ msgid "Show _percentage remaining"
-#~ msgstr "Zobraziť zostávajúce _percentá"
-
-#~ msgid "Show _time remaining"
-#~ msgstr "Zobraziť zostávajúci č_as"
-
-#, fuzzy
-#~ msgid "_Compact view"
-#~ msgstr "Umiestnenie"
-
-#~ msgid "_Notify when battery is fully recharged"
-#~ msgstr "_Upozorniť, keď sú batéria je plne dobitá"
-
-#~ msgid "_Show time/percentage:"
-#~ msgstr "_Zobraziť čas/percentá:"
-
-#~ msgid "_Warn when battery charge drops to:"
-#~ msgstr "U_pozorniť keď sa batéria vybije na:"
-
-#~ msgid "Percent"
-#~ msgstr "percent"
-
-#~ msgid "Minutes Remaining"
-#~ msgstr "zostávajúcich minút"
-
-#~ msgid "Battery Status Utility"
-#~ msgstr "Nástroj pre stav batérií"
-
-#~ msgid "Battery fully re-charged"
-#~ msgstr "Batérie sú plne dobité"
-
-#~ msgid "Battery power low"
-#~ msgstr "Slabé batérie"
-
-#~ msgid "Character Palette"
-#~ msgstr "Paleta znakov"
-
-#~ msgid "Charpicker Applet Factory"
-#~ msgstr "Vytváracie rozhranie pre applet Charpicker"
-
-#~ msgid "Insert characters"
-#~ msgstr "Vkladanie znakov"
-
-#~ msgid "Available palettes"
-#~ msgstr "Dostupné palety"
-
-#~ msgid "Insert \"%s\""
-#~ msgstr "Vložiť \"%s\""
-
-#~ msgid "Insert special character"
-#~ msgstr "Vložiť špeciálny znak"
-
-#~ msgid "insert special character %s"
-#~ msgstr "vložiť špeciálny znak %s"
-
-#~ msgid ""
-#~ "Gnome Panel applet for selecting strange characters that are not on my "
-#~ "keyboard. Released under GNU General Public Licence."
-#~ msgstr ""
-#~ "Applet panelu pre výber divných znakov, ktoré nie sú na vašej klávesnici. "
-#~ "Vydané pod licenciou GNU General Public Licence."
-
-#~ msgid "Characters shown on applet startup"
-#~ msgstr "Znaky zobrazené v applete po spustení"
-
-#~ msgid "DEPRECATED - Characters shown on applet startup"
-#~ msgstr "ZASTARALÉ - Znaky zobrazené v applete pri spustení"
-
-#~ msgid "List of available palettes"
-#~ msgstr "Zoznam dostupných paliet"
-
-#~ msgid "List of strings containing the available palettes"
-#~ msgstr "Zoznam reťazcov obsahujúcich dostupné palety"
-
-#~ msgid ""
-#~ "The string that the user had selected when the applet was last used. This "
-#~ "string will be displayed when the user starts the applet."
-#~ msgstr ""
-#~ "Reťaec vybraný používateľom pri poslednom použití appletu. Je zobrazený "
-#~ "pri budúcom spustení."
-
-#~ msgid "_Edit"
-#~ msgstr "_Upraviť"
-
-#~ msgid "_Palette:"
-#~ msgstr "_Paleta:"
-
-#~ msgid "Palette entry"
-#~ msgstr "Položka palety"
-
-#~ msgid "Modify a palette by adding or removing characters"
-#~ msgstr "Upravte paletu pridaním alebo odstránením znakov"
-
-#~ msgid "Add Palette"
-#~ msgstr "Pridať paletu"
-
-#~ msgid "Edit Palette"
-#~ msgstr "Upraviť paletu"
-
-#~ msgid "Palettes list"
-#~ msgstr "Zoznam paliet"
-
-#~ msgid "_Palettes:"
-#~ msgstr "_Paletay:"
-
-#~ msgid "Add button"
-#~ msgstr "Tlačidlo Pridať"
-
-#~ msgid "Click to add a new palette"
-#~ msgstr "Kliknutím pridáte novú paletu"
-
-#~ msgid "Edit button"
-#~ msgstr "Tlačidlo Upraviť"
-
-#~ msgid "Click to edit the selected palette"
-#~ msgstr "Kliknutím upravíte vybranú paletu"
-
-#~ msgid "Delete button"
-#~ msgstr "Tlačidlo Odstrániť"
-
-#~ msgid "Click to delete the selected palette"
-#~ msgstr "Kliknutím odstránite vybranú paletu"
-
-#~ msgid "Character Palette Preferences"
-#~ msgstr "Nastavenie Palety znakov"
-
-#~ msgid "CPU Frequency Scaling Monitor"
-#~ msgstr "Sledovanie škálovania frekvencie procesora"
-
-#~ msgid "Monitor the CPU Frequency Scaling"
-#~ msgstr "Sledovať škálovanie frekvencie procesora"
-
-#~ msgid "CPU to Monitor"
-#~ msgstr "Sledovanie procesora"
-
-#~ msgid "<b>Display Settings</b>"
-#~ msgstr "<b>Nastavenia displeja</b>"
-
-#~ msgid "<b>Frequency Selector</b>"
-#~ msgstr "<b>Výber frekvencie</b>"
-
-#~ msgid "<b>Monitor Settings</b>"
-#~ msgstr "<b>Nastavenia monitora</b>"
-
-#~ msgid "CPU Frequency Monitor Preferences"
-#~ msgstr "Parametre sledovania frekvencie procesora"
-
-#~ msgid "Show CPU frequency as _frequency"
-#~ msgstr "Zobraziť frekvenciu procesora ako _frekvenciu"
-
-#~ msgid "Show CPU frequency as _percentage"
-#~ msgstr "Zobraziť silu signálu v _percentách"
-
-#~ msgid "Show frequency _units"
-#~ msgstr "Zobraziť jednotky frekvencie"
-
-#~ msgid "Show m_enu:"
-#~ msgstr "Zobraziť m_enu:"
-
-#~ msgid "_Monitored CPU:"
-#~ msgstr "_Sledovaný procesor:"
-
-#~ msgid "_Show in mode:"
-#~ msgstr "_Zobraziť v režime:"
-
-#~ msgid "Could not open help document"
-#~ msgstr "Nepodarilo sa otvoriť dokument pomocníka"
-
-#~ msgid "This utility shows the current CPU Frequency Scaling."
-#~ msgstr "Tento nástroj zobrazuje aktuálne škálovanie frekvencie procesora."
-
-#~ msgid "This utility shows the current CPU Frequency"
-#~ msgstr "Tento nástroj zobrazuje aktuálnu frekvenciu procesora"
-
-#~ msgid "Graphic"
-#~ msgstr "Graficky"
-
-#~ msgid "Text"
-#~ msgstr "Text"
-
-#~ msgid "Frequencies"
-#~ msgstr "Frekvencie"
-
-#~ msgid "Frequency Scaling Unsupported"
-#~ msgstr "Škálovanie frekvencie je nepodporované"
-
-#~ msgid "CPU frequency scaling unsupported"
-#~ msgstr "Škálovanie frekvencie procesora je nepodporované"
-
-#~ msgid "Disk Mounter"
-#~ msgstr "Pripojenie diskov"
-
-#~ msgid "Drive Mount Applet Factory"
-#~ msgstr "Vytváracie rozhranie pre applet Pripojenie diskov"
-
-#~ msgid "Factory for drive mount applet"
-#~ msgstr "Vytváracie rozhranie pre applet Pripojenie diskov"
-
-#~ msgid "Mount local disks and devices"
-#~ msgstr "Pripojenie lokálnych diskov a zariadení"
-
-#~ msgid "(mounted)"
-#~ msgstr "(pripojené)"
-
-#~ msgid "(not mounted)"
-#~ msgstr "(nepripojené)"
-
-#~ msgid "(not connected)"
-#~ msgstr "(nepripojený)"
-
-#~ msgid "Cannot execute '%s'"
-#~ msgstr "Nepodarilo sa spustiť '%s'"
-
-#~ msgid "Mount Error"
-#~ msgstr "Chyba pri pripájaní"
-
-#~ msgid "Unmount Error"
-#~ msgstr "Chyba pri odpájaní"
-
-#~ msgid "Eject Error"
-#~ msgstr "Chyba pri vysunutí"
-
-#~ msgid "Error"
-#~ msgstr "Chyba"
-
-#~ msgid "_Open %s"
-#~ msgstr "_Otvoriť %s"
-
-#~ msgid "_Mount %s"
-#~ msgstr "_Pripojiť %s"
-
-#~ msgid "Un_mount %s"
-#~ msgstr "Od_pojiť %s"
-
-#~ msgid "_Eject %s"
-#~ msgstr "_Vysunúť %s"
-
-#~ msgid "Applet for mounting and unmounting block volumes."
-#~ msgstr "Applet pre pripojenie a odpojenie diskov."
-
-#~ msgid "translator_credits"
-#~ msgstr ""
-#~ "Stanislav Višňovský\n"
-#~ "Marcel Telka <marcel@telka.sk>"
-
-#~ msgid "Interval timeout to check mount point status"
-#~ msgstr "Interval, po ktorom kontrolovať stav bodu pripojenia"
-
-#~ msgid "Time in seconds between status updates"
-#~ msgstr "Čas v sekundách medzi aktualizáciami stavu"
-
-#~ msgid "A set of eyeballs for your panel"
-#~ msgstr "Oči pre váš panel"
-
-#~ msgid "Geyes"
-#~ msgstr "Geyes"
-
-#~ msgid "Geyes Applet Factory"
-#~ msgstr "Vytváracie rozhranie pre Geyes"
-
-#~ msgid "A goofy little xeyes clone for the GNOME panel."
-#~ msgstr "Klon slávnych X očí pre GNOME panel."
-
-#~ msgid "The eyes look in the direction of the mouse pointer"
-#~ msgstr "Oči sledujú kurzor myši"
-
-#~ msgid "Directory in which the theme is located"
-#~ msgstr "Priečinok, kde je umiestnená téma"
-
-#~ msgid "Can not launch the eyes applet."
-#~ msgstr "Nepodarilo sa spustiť applet Oči."
-
-#~ msgid "There was a fatal error while trying to load the theme."
-#~ msgstr "Pri pokuse o načítanie témy nastala kritická chyba."
-
-#~ msgid "Geyes Preferences"
-#~ msgstr "Nastavenie Geyes"
-
-#~ msgid "Themes"
-#~ msgstr "Témy"
-
-#~ msgid "_Select a theme:"
-#~ msgstr "_Vybrať tému:"
-
-#~ msgid "Alt+Control changes layout."
-#~ msgstr "Alt+Control prepne rozloženie."
-
-#~ msgid "Alt+Shift changes layout."
-#~ msgstr "Alt+Shift prepne rozloženie."
-
-#~ msgid "Arabic keymap"
-#~ msgstr "Arabská"
-
-#~ msgid "Armenian"
-#~ msgstr "Arménska"
-
-#~ msgid "Basque"
-#~ msgstr "Baskitsko"
-
-#~ msgid "Belgian"
-#~ msgstr "Belgická"
-
-#~ msgid "Both Alt keys together change layout."
-#~ msgstr "Obidve Alt klávesy spolu prepnú rozloženie."
-
-#~ msgid "Both Ctrl keys together change layout."
-#~ msgstr "Obidve Ctrl klávesy spolu prepnú rozloženie."
-
-#~ msgid "Both Shift keys together change layout."
-#~ msgstr "Obidve Shift klávesy spolu prepnú rozloženie."
-
-#~ msgid "Brazil Portuguese keymap"
-#~ msgstr "Brazílska portugalská"
-
-#~ msgid "Bulgarian Cyrillic"
-#~ msgstr "Bulharská azbuka"
-
-#~ msgid "Bulgarian keymap"
-#~ msgstr "Bulharská"
-
-#~ msgid "CapsLock key changes layout."
-#~ msgstr "Klávesa CapsLock prepne rozloženie."
-
-#~ msgid "Control+Shift changes layout."
-#~ msgstr "Control+Shift prepne rozloženie."
-
-#~ msgid "Czech keymap"
-#~ msgstr "Česká"
-
-#~ msgid "Danish keymap"
-#~ msgstr "Dánska"
-
-#~ msgid "Dutch keymap"
-#~ msgstr "Holandská"
-
-#~ msgid "English keymap"
-#~ msgstr "Anglická"
-
-#~ msgid "Estonian keymap"
-#~ msgstr "Estónska"
-
-#~ msgid "Finnish keymap"
-#~ msgstr "Fínska"
-
-#~ msgid "French Swiss"
-#~ msgstr "Švajčiarska francúzska"
-
-#~ msgid "French Swiss keymap"
-#~ msgstr "Švajčiarska francúzska"
-
-#~ msgid "French keymap"
-#~ msgstr "Francúzska"
-
-#~ msgid "French-Canadian 105-key"
-#~ msgstr "Kanadská francúzska 105 kláves"
-
-#~ msgid "GB 102-key"
-#~ msgstr "GB 102 kláves"
-
-#~ msgid "GB 105-key"
-#~ msgstr "GB 105 kláves"
-
-#~ msgid "Generic Keyboard"
-#~ msgstr "Všeobecná klávesnica"
-
-#~ msgid "Georgian Latin"
-#~ msgstr "Gruzínska Latin"
-
-#~ msgid "Georgian Russian layout"
-#~ msgstr "Gruzínska ruská"
-
-#~ msgid "Georgian keymap"
-#~ msgstr "Gruzínska"
-
-#~ msgid "German"
-#~ msgstr "Nemecká"
-
-#~ msgid "German Swiss with Euro"
-#~ msgstr "Švajčiarska nemecká s Euro"
-
-#~ msgid "German keymap"
-#~ msgstr "Nemecká"
-
-#~ msgid "Greek keymap"
-#~ msgstr "Grécka"
-
-#~ msgid "Hebrew keymap"
-#~ msgstr "Hebrejská"
-
-#~ msgid "Hungarian 101-key latin 1"
-#~ msgstr "Maďarská 101 kláves latin 1"
-
-#~ msgid "Hungarian 101-key latin 2"
-#~ msgstr "Maďarská 101 kláves latin 2"
-
-#~ msgid "Hungarian 105-key latin 1"
-#~ msgstr "Maďarská 105 kláves latin 1"
-
-#~ msgid "Hungarian 105-key latin 2"
-#~ msgstr "Maďarská 105 kláves latin 2"
-
-#~ msgid "Hungarian PC/AT 101 keyboard"
-#~ msgstr "Maďarská PC/AT 101 kláves"
-
-#~ msgid "Hungarian latin1"
-#~ msgstr "Maďarská latin1"
-
-#~ msgid "Icelandic keymap"
-#~ msgstr "Islandská"
-
-#~ msgid "Italian keymap"
-#~ msgstr "Talianska"
-
-#~ msgid "Japanese keymap"
-#~ msgstr "Japonská"
-
-#~ msgid "Lao keymap"
-#~ msgstr "Laoská"
-
-#~ msgid "Lithuanian keymap"
-#~ msgstr "Litovská"
-
-#~ msgid "Macedonian"
-#~ msgstr "Macedónska"
-
-#~ msgid "Mongolian alt keymap"
-#~ msgstr "Mongolská alternatívna"
-
-#~ msgid "Mongolian keymap"
-#~ msgstr "Mongolská"
-
-#~ msgid "Mongolian phonetic keymap"
-#~ msgstr "Mongolská fonetická"
-
-#~ msgid "Norwegian"
-#~ msgstr "Nórska"
-
-#~ msgid "Plain Russian keymap"
-#~ msgstr "Ruská jednoduchá"
-
-#~ msgid "Polish"
-#~ msgstr "Poľská"
-
-#~ msgid "Polish deadkeys"
-#~ msgstr "Poľská mŕtve klávesy"
-
-#~ msgid "Portugal"
-#~ msgstr "Portugalsko"
-
-#~ msgid "Portugal Deadkeys"
-#~ msgstr "Portugalská mŕtve klávesy"
-
-#~ msgid "Portuguese keymap"
-#~ msgstr "Portugalská"
-
-#~ msgid "Russian Cyrillic"
-#~ msgstr "Ruská azbuka"
-
-#~ msgid "Russian keymap"
-#~ msgstr "Ruská"
-
-#~ msgid "Serbian keymap"
-#~ msgstr "Srbská"
-
-#~ msgid "Slovak keymap"
-#~ msgstr "Slovenská"
-
-#~ msgid "Slovenian"
-#~ msgstr "Slovinská"
-
-#~ msgid "Slovenian keymap"
-#~ msgstr "Slovinská"
-
-#~ msgid "Spanish keymap"
-#~ msgstr "Španielska"
-
-#~ msgid "Sun (!not PC!) type5 Hungarian latin 2"
-#~ msgstr "Sun (!nie PC!) type5 Maďarská latin 2"
-
-#~ msgid "Swedish"
-#~ msgstr "Švédska"
-
-#~ msgid "Swedish keymap"
-#~ msgstr "Švédska"
-
-#~ msgid "Swiss keymap"
-#~ msgstr "Švajčiarska"
-
-#~ msgid "Thai"
-#~ msgstr "Thajská"
-
-#~ msgid "Thai Kedmanee"
-#~ msgstr "Thajská Kedmanee"
-
-#~ msgid "Thai keymap"
-#~ msgstr "Thajská"
-
-#~ msgid "Turkish \"F\" keyboard"
-#~ msgstr "Turecká \"F\""
-
-#~ msgid "Turkish \"Q\" keyboard"
-#~ msgstr "Turecká \"Q\""
-
-#~ msgid "Turkish keymap"
-#~ msgstr "Turecká"
-
-#~ msgid "UK 105-key"
-#~ msgstr "UK 105 kláves"
-
-#~ msgid "UK PC/AT keyboard"
-#~ msgstr "UK PC/AT"
-
-#~ msgid "US 101-key keyboard"
-#~ msgstr "US 101 kláves"
-
-#~ msgid "US 105-key keyboard (with windows keys)"
-#~ msgstr "US 105 kláves (s klávesami windows)"
-
-#~ msgid "US 84-key"
-#~ msgstr "US 84 kláves"
-
-#~ msgid "US DEC 450"
-#~ msgstr "US DEC 450"
-
-#~ msgid "US IBM RS/6000"
-#~ msgstr "US IBM RS/6000"
-
-#~ msgid "US International"
-#~ msgstr "US medzinárodná"
-
-#~ msgid "US Macintosh"
-#~ msgstr "US Macintosh"
-
-#~ msgid "US PC/AT 101 keyboard"
-#~ msgstr "US PC/AT 101 kláves"
-
-#~ msgid "US Silicon Graphics 101-key"
-#~ msgstr "US Silicon Graphics 101 kláves"
-
-#~ msgid "US Sun type5"
-#~ msgstr "US Sun type5"
-
-#~ msgid "Armenian Sun keymap"
-#~ msgstr "Arménska Sun"
-
-#~ msgid "Azerbaijani Turkish Sun keymap"
-#~ msgstr "Ázerbajdžánska turecká Sun"
-
-#~ msgid "Belarusian Sun keymap"
-#~ msgstr "Bieloruská Sun"
-
-#~ msgid "Brazil Portuguese Sun USB keymap"
-#~ msgstr "Brazilská portugalská Sun USB"
-
-#~ msgid "Brazil Portuguese Sun keymap"
-#~ msgstr "Brazilská portugalská Sun"
-
-#~ msgid "British Sun Type-4 keymap"
-#~ msgstr "Britská Sun Type-4"
-
-#~ msgid "British Sun USB keymap"
-#~ msgstr "Britská Sun USB"
-
-#~ msgid "British Sun keymap"
-#~ msgstr "Britská Sun"
-
-#~ msgid "Bulgarian Sun keymap"
-#~ msgstr "Bulharská Sun"
-
-#~ msgid "Canadian Sun keymap"
-#~ msgstr "Kanadská Sun"
-
-#~ msgid "Czech Sun keymap"
-#~ msgstr "Česká Sun"
-
-#~ msgid "Danish Sun Type-4 keymap"
-#~ msgstr "Dánska Sun Type-4"
-
-#~ msgid "Danish Sun USB keymap"
-#~ msgstr "Dánska Sun USB"
-
-#~ msgid "Danish Sun keymap"
-#~ msgstr "Dánska Sun"
-
-#~ msgid "Dutch Sun keymap"
-#~ msgstr "Holandská Sun"
-
-#~ msgid "Estonian Sun keymap"
-#~ msgstr "Estónska Sun"
-
-#~ msgid "Finnish Sun keymap"
-#~ msgstr "Fínska Sun"
-
-#~ msgid "French Sun USB keymap"
-#~ msgstr "Francúzska Sun USB"
-
-#~ msgid "French Sun keymap"
-#~ msgstr "Francúzska Sun"
-
-#~ msgid "German Sun Type-4 keymap"
-#~ msgstr "Nemecká Sun Type-4"
-
-#~ msgid "German Sun USB keymap"
-#~ msgstr "Nemecká Sun USB"
-
-#~ msgid "German Sun keymap"
-#~ msgstr "Nemecká Sun"
-
-#~ msgid "Hebrew Sun keymap"
-#~ msgstr "Hebrejská Sun"
-
-#~ msgid "Hungarian latin2 Sun keymap"
-#~ msgstr "Maďarská latin2 Sun"
-
-#~ msgid "Hungarian type5 latin 1 keymap"
-#~ msgstr "Maďarská type5 latin 1"
-
-#~ msgid "Icelandic Sun keymap"
-#~ msgstr "Islandská Sun"
-
-#~ msgid "Italian Sun Type-4 keymap"
-#~ msgstr "Talianska Sun Type-4"
-
-#~ msgid "Italian Sun USB keymap"
-#~ msgstr "Talianska Sun USB"
-
-#~ msgid "Italian Sun keymap"
-#~ msgstr "Talianska Sun"
-
-#~ msgid "Japanese Sun Type-4 keymap"
-#~ msgstr "Japonská Sun Type-4"
-
-#~ msgid "Japanese Sun keymap"
-#~ msgstr "Japonská Sun"
-
-#~ msgid "Latvian Sun keymap"
-#~ msgstr "Litovská Sun"
-
-#~ msgid "Lithuanian Sun keymap"
-#~ msgstr "Litovská Sun"
-
-#~ msgid "Macedonian Sun keymap"
-#~ msgstr "Macedónska Sun"
-
-#~ msgid "Norwegian Sun keymap"
-#~ msgstr "Nórska Sun"
-
-#~ msgid "Polish Sun keymap"
-#~ msgstr "Poľská Sun"
-
-#~ msgid "Portuguese Sun Type-4 keymap"
-#~ msgstr "Portugalská Sun Type-4"
-
-#~ msgid "Portuguese Sun keymap"
-#~ msgstr "Portugalská Sun"
-
-#~ msgid "Romanian Sun keymap"
-#~ msgstr "Rumunská Sun"
-
-#~ msgid "Russian Sun keymap"
-#~ msgstr "Ruská Sun"
-
-#~ msgid "Serbian Sun standard keymap"
-#~ msgstr "Srbská Sun štandardná"
-
-#~ msgid "Slovak Sun keymap"
-#~ msgstr "Slovenská Sun"
-
-#~ msgid "Slovenian Sun keymap"
-#~ msgstr "Sloveniská Sun"
-
-#~ msgid "Spanish Sun Type-4 keymap"
-#~ msgstr "Španielska Sun Type-4"
-
-#~ msgid "Spanish Sun USB keymap"
-#~ msgstr "Španielska Sun USB"
-
-#~ msgid "Spanish Sun keymap"
-#~ msgstr "Španielska Sun"
-
-#~ msgid "Swedish Sun Type-4 keymap"
-#~ msgstr "Švédska Sun Type-4"
-
-#~ msgid "Swedish Sun USB keymap"
-#~ msgstr "Švédska Sun USB"
-
-#~ msgid "Swedish Sun keymap"
-#~ msgstr "Švédska Sun"
-
-#~ msgid "Swiss German Sun keymap"
-#~ msgstr "Švajčiarska nemecká Sun"
-
-#~ msgid "Thai Sun keymap"
-#~ msgstr "Thajská Sun"
-
-#~ msgid "Turkish Sun keymap"
-#~ msgstr "Turecká Sun"
-
-#~ msgid "US Sun Type-4 keymap"
-#~ msgstr "US Sun Type-4"
-
-#~ msgid "US Sun USB keymap"
-#~ msgstr "US Sun USB"
-
-#~ msgid "US Sun type5 keymap"
-#~ msgstr "US Sun type5"
-
-#~ msgid "Ukrainian Sun keymap"
-#~ msgstr "Ukrajinská Sun"
-
-#~ msgid "Vietnamese Sun keymap"
-#~ msgstr "Vietnamská Sun"
-
-#~ msgid "Pl_ugins"
-#~ msgstr "_Moduly"
-
-#~ msgid "_Groups"
-#~ msgstr "_Skupiny"
-
-#~ msgid "_Open Keyboard Preferences"
-#~ msgstr "Zobraziť nas_tavenie klávesníc"
-
-#~ msgid "GNOME keyboard applet factory"
-#~ msgstr "Vytváracie rozhranie pre applet GNOME klávesnica"
-
-#~ msgid "GNOME keyboard layout indicator"
-#~ msgstr "Indikátor Prepínania klávesníc"
-
-#~ msgid "Keyboard Indicator"
-#~ msgstr "Indikátor klávesnice"
-
-#~ msgid "Keyboard applet factory"
-#~ msgstr "Vytváracie rozhranie pre applet Klávesnica"
-
-#~ msgid "Keyboard Indicator (%s)"
-#~ msgstr "Indikátor klávesnice (%s)"
-
-#~ msgid "Keyboard Layout \"%s\""
-#~ msgstr "Rozloženie klávesnice \"%s\""
-
-#~ msgid "Copyright (c) Sergey V. Udaltsov 1999-2004"
-#~ msgstr "Autorské práva © Sergey V. Udaltsov 1999-2004"
-
-#~ msgid "Keyboard layout indicator applet for GNOME"
-#~ msgstr "Indikátor prepínania klávesníc pre GNOME"
-
-#~ msgid "XKB initialization error"
-#~ msgstr "Chyba inicializácie XKB"
-
-#~ msgid "Error loading XKB configuration registry"
-#~ msgstr "Chyba pri načítavaní konfigurácie XKB"
-
-#~ msgid "No description."
-#~ msgstr "Bez popisu."
-
-#~ msgid "Failed to init GConf: %s\n"
-#~ msgstr "Nepodarilo sa inicializovať GConf: %s\n"
-
-#~ msgid "Activate more plugins"
-#~ msgstr "Aktivovať ďalšie moduly"
-
-#~ msgid "Active _plugins:"
-#~ msgstr "Aktívne _moduly:"
-
-#~ msgid "Add Plugin"
-#~ msgstr "Pridať modul"
-
-#~ msgid "Close the dialog"
-#~ msgstr "Zavrieť dialog"
-
-#~ msgid "Configure the selected plugin"
-#~ msgstr "Nastaviť vybraný modul"
-
-#~ msgid "Deactivate selected plugin"
-#~ msgstr "Deaktivovať vybraný modul"
-
-#~ msgid "Decrease the plugin priority"
-#~ msgstr "Znížiť prioritu modulu"
-
-#~ msgid "Increase the plugin priority"
-#~ msgstr "Zvýšiť prioritu modulu"
-
-#~ msgid "Keyboard Indicator Plugins"
-#~ msgstr "Moduly Prepínania klávesníc"
-
-#~ msgid "The list of active plugins"
-#~ msgstr "Zoznam aktívnych modulov"
-
-#~ msgid "_Available plugins:"
-#~ msgstr "_Dostupné moduly:"
-
-#~ msgid "Keyboard Layout"
-#~ msgstr "Rozloženie klávesnice"
-
-#~ msgid "Secondary groups"
-#~ msgstr "Sekundárne skupiny"
-
-#~ msgid "Show flags in the applet"
-#~ msgstr "Zobraziť vlajky v applete."
-
-#~ msgid "Show flags in the applet to indicate the current layout"
-#~ msgstr "Zobraziť vlajky v applete ako indikátor aktuálnej klávesnice"
-
-#~ msgid "The list of enabled Keyboard Indicator plugins"
-#~ msgstr "Zoznam povolených zásuvných modulov indikátora klávesníc"
-
-#~ msgid "Get continuously updated stock quotes"
-#~ msgstr "Získava neustále aktualizované kurzy akcií"
-
-#~ msgid "Gtik Applet Factory"
-#~ msgstr "Vytváracie rozhranie pre applet Gtik"
-
-#~ msgid "Stock Ticker"
-#~ msgstr "Sledovanie burzy"
-
-#~ msgid "_Update"
-#~ msgstr "_Aktualizovať"
-
-#~ msgid "Could not retrieve the stock data."
-#~ msgstr "Nepodarilo sa získať dáta o kurzoch."
-
-#~ msgid "No stock list"
-#~ msgstr "Bez zoznamu kurzov"
-
-#~ msgid "Updating..."
-#~ msgstr "Obnovujem..."
-
-#~ msgid ""
-#~ "This program connects to a popular site and downloads current stock "
-#~ "quotes.\n"
-#~ "\n"
-#~ "The GNOME Stock Ticker is a free Internet-based application. It comes "
-#~ "with ABSOLUTELY NO WARRANTY.\n"
-#~ "\n"
-#~ "Do not use the GNOME Stock Ticker for making investment decisions; it is "
-#~ "for informational purposes only."
-#~ msgstr ""
-#~ "Tento program sa pripája k populárnym serverom a sťahuje aktuálne kurzy "
-#~ "akcií.\n"
-#~ "\n"
-#~ "Sledovanie burzy pre GNOME je voľne šíriteľná internetová aplikácia. "
-#~ "Neobsahuje ABSOLÚTNE ŽIADNE ZÁRUKY.\n"
-#~ "\n"
-#~ "Nepoužívajte Sledovanie burzy pre GNOME na investičné rozhodnutia; slúži "
-#~ "len na informačné účely."
-
-#~ msgid "Current _stocks:"
-#~ msgstr "_Aktuálne kurzy:"
-
-#~ msgid "Add _new symbol:"
-#~ msgstr "Pridať _nový symbol:"
-
-#~ msgid "Stock Ticker Preferences"
-#~ msgstr "Nastavenie Sledovania burzy"
-
-#~ msgid "Symbols"
-#~ msgstr "Symboly"
-
-#~ msgid "Behavior"
-#~ msgstr "Chovanie"
-
-#~ msgid "Update"
-#~ msgstr "Aktualizovať"
-
-#~ msgid "Stock update fre_quency:"
-#~ msgstr "Frekvencia _aktualizácie kurzov:"
-
-#~ msgid "minutes"
-#~ msgstr "minút"
-
-#~ msgid "Scrolling"
-#~ msgstr "Posúvanie"
-
-#~ msgid "_Scroll speed:"
-#~ msgstr "_Rýchlosť posunu:"
-
-#~ msgid "Slow"
-#~ msgstr "Pomaly"
-
-#~ msgid "Medium"
-#~ msgstr "Stredne"
-
-#~ msgid "Fast"
-#~ msgstr "Rýchlo"
-
-#~ msgid "_Enable scroll buttons"
-#~ msgstr "Po_voliť tlačidlá pre posun"
-
-#~ msgid "Scroll _left to right"
-#~ msgstr "Posúvať do_prava"
-
-#~ msgid "Appearance"
-#~ msgstr "Vzhľad"
-
-#~ msgid "Display"
-#~ msgstr "Zobrazenie"
-
-#~ msgid "Displa_y only symbols and price"
-#~ msgstr "Zobraziť iba s_ymboly a cenu"
-
-#~ msgid "_Width:"
-#~ msgstr "Ší_rka:"
-
-#~ msgid "pixels"
-#~ msgstr "bodov"
-
-#~ msgid "Font and Colors"
-#~ msgstr "Písmo a farby"
-
-#~ msgid "Use _default theme font and colors"
-#~ msgstr "_Použiť štandardné farby a písma témy"
-
-#~ msgid "_Font:"
-#~ msgstr "_Písmo:"
-
-#~ msgid "Stock _raised:"
-#~ msgstr "_Rast kurzu:"
-
-#~ msgid "Stock _lowered:"
-#~ msgstr "_Pokles kurzu:"
-
-#~ msgid "Stock _unchanged:"
-#~ msgstr "Kurz _bez zmeny:"
-
-#~ msgid "_Background:"
-#~ msgstr "Po_zadie:"
-
-#~ msgid "Skip forward"
-#~ msgstr "Preskočiť dopredu"
-
-#~ msgid "Skip backward"
-#~ msgstr "Preskočiť dozadu"
-
-#~ msgid ""
-#~ "Stock Ticker\n"
-#~ "Get continuously updated stock quotes"
-#~ msgstr ""
-#~ "Sledovanie kurzov\n"
-#~ "Získava neustále aktualizované kurzy akcií"
-
-#~ msgid "+%s (%s)"
-#~ msgstr "+%s (%s)"
-
-#~ msgid "%s (%s)"
-#~ msgstr "%s (%s)"
-
-#~ msgid "(No Change)"
-#~ msgstr "(Bez zmeny)"
-
-#~ msgid "Applet scrolls right to left when this key is set to true."
-#~ msgstr "Applet posúva zprava doľava ak je toto true."
-
-#~ msgid "Background color"
-#~ msgstr "Farba pozadia"
-
-#~ msgid ""
-#~ "Display only stock symbols along with their value. Do not display changes "
-#~ "in value."
-#~ msgstr ""
-#~ "Zobraziť iba symboly akcií spolu s ich hodnotou. Nezobrazovať zmeny "
-#~ "hodnôt."
-
-#~ msgid "Display only symbols and price"
-#~ msgstr "Zobraziť iba symboly a cenu"
-
-#~ msgid "Font"
-#~ msgstr "Písmo"
-
-#~ msgid ""
-#~ "List containing the stocks to be displayed. Consists of the stock id "
-#~ "separated by \"+\""
-#~ msgstr "Zoznam zobrazených kurzov. Obsahuje ID kurzov oddelené \"+\""
-
-#~ msgid "Lowered color"
-#~ msgstr "Farba poklesu"
-
-#~ msgid "Raised color"
-#~ msgstr "Farba rastu"
-
-#~ msgid "Right to left scrolling"
-#~ msgstr "Posun zprava doľava"
-
-#~ msgid "Shorter time means the stocks scroll by faster."
-#~ msgstr "Kratší čas znamená rýchlejší posun kurzov."
-
-#~ msgid "Show arrow buttons"
-#~ msgstr "Zobraziť tlačidlá so šipkami"
-
-#~ msgid ""
-#~ "Show arrow buttons on the side of the display so that the user can scroll "
-#~ "forward or backward."
-#~ msgstr ""
-#~ "Zobraziť tlačidlá so šipkami na každej strane displeja, takže je možné "
-#~ "posúvať text dopredu a dozadu."
-
-#~ msgid "Stocks to monitor - must be separated by a +"
-#~ msgstr "Sledované kurzy - musia byť oddelené +"
-
-#~ msgid ""
-#~ "The color of the background of the display. Has no effect when the user "
-#~ "chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Farba pozadia. Nemá zmysel ak používateľ zvolí štandardné písma a farby "
-#~ "témy."
-
-#~ msgid ""
-#~ "The color used when the stock's values has lowered. Has no effect when "
-#~ "the user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Farba v prípade, že sa cena akcie znížila. Nemá zmysel ak používateľ "
-#~ "zvolí štandardné písma a farby témy."
-
-#~ msgid ""
-#~ "The color used when the stock's values has not changed. Has no effect "
-#~ "when the user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Farba v prípade, že sa cena akcie nezmenila. Nemá zmysel ak používateľ "
-#~ "zvolí štandardné písma a farby témy."
-
-#~ msgid ""
-#~ "The color used when the stock's values has raised. Has no effect when the "
-#~ "user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Farba v prípade, že sa cena akcie zvýšila. Nemá zmysel ak používateľ "
-#~ "zvolí štandardné písma a farby témy."
-
-#~ msgid ""
-#~ "The font used for the display. Has no effect when the user chooses to use "
-#~ "the default theme fonts and colors."
-#~ msgstr ""
-#~ "Písmo použité v applete. Nemá zmysel ak používateľ zvolí štandardné písma "
-#~ "a farby témy."
-
-#~ msgid "The time interval until when the applet updates the stock data."
-#~ msgstr "Čas v milisekundách pre aktualizáciu dát kurzov."
-
-#~ msgid "The width in pixels of the applet."
-#~ msgstr "Šírka appletu v bodoch."
-
-#~ msgid "Time in milliseconds for display update"
-#~ msgstr "Čas v milisekundách pre aktualizáciu zobrazenia"
-
-#~ msgid "Unchanged color"
-#~ msgstr "Farba bez zmeny"
-
-#~ msgid "Use default theme fonts and colors"
-#~ msgstr "Použiť štandardné farby a písma témy"
-
-#~ msgid "Use default theme fonts and colors instead of custom ones"
-#~ msgstr "Použiť písmo a farby štandardnej témy namiesto vlastných"
-
-#~ msgid "Width of the applet"
-#~ msgstr "Šírka appletu"
-
-#~ msgid "font 2 - No Longer used"
-#~ msgstr "font 2 - už nepoužívané"
-
-#~ msgid "_Details"
-#~ msgstr "_Podrobnosti"
-
-#~ msgid "Factory for creating the weather applet."
-#~ msgstr "Vytváracie rozhranie pre applet počasia."
-
-#~ msgid "Gweather Applet Factory"
-#~ msgstr "Vytváracie rozhranie pre applet Gweather"
-
-#~ msgid "Monitor the current weather conditions, and forecasts"
-#~ msgstr "Sleduje aktuálne počasie a predpovede"
-
-#~ msgid "Weather Report"
-#~ msgstr "Správa o počasí"
-
-#~ msgid "© 1999-2005 by S. Papadimitriou and others"
-#~ msgstr "© 1999-2005 S. Papadimitriou a ostatní"
-
-#~ msgid "A panel application for monitoring local weather conditions."
-#~ msgstr ""
-#~ "Aplikácia panela pre sledovanie miestnych poveternostných podmienok."
-
-#~ msgid "GNOME Weather"
-#~ msgstr "GNOME Počasie"
-
-#~ msgid ""
-#~ "City: %s\n"
-#~ "Sky: %s\n"
-#~ "Temperature: %s"
-#~ msgstr ""
-#~ "Mesto: %s\n"
-#~ "Obloha: %s\n"
-#~ "Teplota: %s"
-
-#~ msgid "Details"
-#~ msgstr "Podrobnosti"
-
-#~ msgid "City:"
-#~ msgstr "Mesto:"
-
-#~ msgid "Last update:"
-#~ msgstr "Posledná aktualizácia:"
-
-#~ msgid "Conditions:"
-#~ msgstr "Podmienky:"
-
-#~ msgid "Sky:"
-#~ msgstr "Obloha:"
-
-#~ msgid "Temperature:"
-#~ msgstr "Teplota:"
-
-#~ msgid "Dew point:"
-#~ msgstr "Rosný bod:"
-
-#~ msgid "Relative humidity:"
-#~ msgstr "Relatívna vlkosť:"
-
-#~ msgid "Wind:"
-#~ msgstr "Vietor:"
-
-#~ msgid "Pressure:"
-#~ msgstr "Tlak:"
-
-#~ msgid "Visibility:"
-#~ msgstr "Viditeľnosť:"
-
-#~ msgid "Sunrise:"
-#~ msgstr "Východ slnka:"
-
-#~ msgid "Sunset:"
-#~ msgstr "Západ slnka:"
-
-#~ msgid "Current Conditions"
-#~ msgstr "Aktuálne podmienky"
-
-#~ msgid "Forecast Report"
-#~ msgstr "Predpoveď počasia"
-
-#~ msgid "See the ForeCast Details"
-#~ msgstr "Zobraziť podrobnosti predpovede"
-
-#~ msgid "Forecast"
-#~ msgstr "Predpoveď"
-
-#~ msgid "Radar Map"
-#~ msgstr "Radarová mapa"
-
-#~ msgid "_Visit Weather.com"
-#~ msgstr "Na_vštíviť Weather.com"
-
-#~ msgid "Visit Weather.com"
-#~ msgstr "Navštíviť Weather.com"
-
-#~ msgid "Click to Enter Weather.com"
-#~ msgstr "Kliknutím navštívite Weather.com"
-
-#~ msgid "Forecast not currently available for this location."
-#~ msgstr "Predpoveď momentálne nie je dostupná pre toto miesto."
-
-#~ msgid "Location view"
-#~ msgstr "Umiestnenie"
-
-#~ msgid "Select Location from the list"
-#~ msgstr "Vyberať miesto zo zoznamu"
-
-#~ msgid "Update spin button"
-#~ msgstr "Spinbutton pre frekvenciu obnovovania"
-
-#~ msgid "Spinbutton for updating"
-#~ msgstr "Spinbutton pre aktualizáciu"
-
-#~ msgid "Address Entry"
-#~ msgstr "Položka adresy"
-
-#~ msgid "Enter the URL"
-#~ msgstr "Zadajte URL"
-
-#~ msgid ""
-#~ "Failed to load the Locations XML database.  Please report this as a bug."
-#~ msgstr ""
-#~ "Zlyhalo načítanie XML databázy umiestnení. Prosím, oznámte toto ako chybu."
-
-#~ msgid "Weather Preferences"
-#~ msgstr "Nastavenie Počasia"
-
-#~ msgid "_Automatically update every:"
-#~ msgstr "_Automaticky aktualizovať každých:"
-
-#~ msgid "_Temperature unit:"
-#~ msgstr "Jednotka _teploty:"
-
-#~ msgid "Kelvin"
-#~ msgstr "Kelvinov"
-
-#~ msgid "Celsius"
-#~ msgstr "Celzia"
-
-#~ msgid "Fahrenheit"
-#~ msgstr "Fahrenheita"
-
-#~ msgid "_Wind speed unit:"
-#~ msgstr "Jednotka rýchlosti _vetra:"
-
-#~ msgid "_Pressure unit:"
-#~ msgstr "Jednotka _tlaku:"
-
-#~ msgid "_Visibility unit:"
-#~ msgstr "Jednotky _viditeľnosti:"
-
-#~ msgid "meters"
-#~ msgstr "metre"
-
-#~ msgid "miles"
-#~ msgstr "míle"
-
-#~ msgid "Enable _radar map"
-#~ msgstr "Povoliť _radarové mapy"
-
-#~ msgid "Use _custom address for radar map"
-#~ msgstr "Použiť _vlastnú adresu pre radarovú mapu"
-
-#~ msgid "A_ddress:"
-#~ msgstr "_Adresa:"
-
-#~ msgid "General"
-#~ msgstr "Všeobecné"
-
-#~ msgid "_Select a location:"
-#~ msgstr "_Vyberte miesto:"
-
-#~ msgid "_Find:"
-#~ msgstr "_Nájsť:"
-
-#~ msgid "Find _Next"
-#~ msgstr "Nájsť ďa_lšie"
-
-#~ msgid "%.1f °F"
-#~ msgstr "%.1f °F"
-
-#~ msgid "%d °F"
-#~ msgstr "%d °F"
-
-#~ msgid "%.1f °C"
-#~ msgstr "%.1f °C"
-
-#~ msgid "%d °C"
-#~ msgstr "%d °C"
-
-#~ msgid "There was an error loading an image: %s"
-#~ msgstr "Vyskytla sa chyba pri načítavaní obrázka: %s"
-
-#~ msgid "Command Line"
-#~ msgstr "Príkazový riadok"
-
-#~ msgid "Mini-Commander"
-#~ msgstr "Mini-Commander"
-
-#~ msgid "MiniCommander Applet Factory"
-#~ msgstr "Vytváracie rozhranie pre applet Mini-Commander"
-
-#~ msgid "No items in history"
-#~ msgstr "História prázdna"
-
-#~ msgid "Start program"
-#~ msgstr "Spustiť program"
-
-#~ msgid "Command line"
-#~ msgstr "Príkazový riadok"
-
-#~ msgid "Type a command here and Gnome will execute it for you"
-#~ msgstr "Sem zadajte príkaz a GNOME ho pre vás spustí"
-
-#~ msgid "Cannot get schema for %s: %s"
-#~ msgstr "Nepodarilo sa získať schému pre %s: %s"
-
-#~ msgid "Cannot set schema for %s: %s"
-#~ msgstr "Nepodarilo sa nastaviť schému pre %s: %s"
-
-#~ msgid "Set default list value for %s\n"
-#~ msgstr "Nastaviť štandardnú hodnotu pre %s\n"
-
-#~ msgid ""
-#~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
-#~ msgstr ""
-#~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL je nastavené, neinštalujem schémy\n"
-
-#~ msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
-#~ msgstr "Je nutné nastaviť premennú prostredia GCONF_CONFIG_SOURCE\n"
-
-#~ msgid "Failed to access configuration source(s): %s\n"
-#~ msgstr "Nepodarilo sa použiť konfiguračný zdroj: %s\n"
-
-#~ msgid "Error syncing config data: %s"
-#~ msgstr "Chyba pri synchronizácii konfiguračných dát: %s"
-
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro commands."
-#~ msgstr "Zoznam položiek GConfValue obsahujúcich reťazce pre makro príkazy."
-
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro patterns."
-#~ msgstr "Zoznam položiek GConfValue obsahujúcich reťazce pre vzorky makier."
-
-#~ msgid "Macro command list"
-#~ msgstr "Zoznam makro príkazov"
-
-#~ msgid "Macro pattern list"
-#~ msgstr "Zoznam vzoriek makier"
-
-#~ msgid "    "
-#~ msgstr "    "
-
-#~ msgid "*"
-#~ msgstr "*"
-
-#~ msgid "<b>Auto Completion</b>"
-#~ msgstr "<b>Automatické dopĺňanie</b>"
-
-#~ msgid "<b>Colors</b>"
-#~ msgstr "<b>Farby</b>"
-
-#~ msgid "<b>Size</b>"
-#~ msgstr "<b>Veľkosť</b>"
-
-#~ msgid "Add New Macro"
-#~ msgstr "Pridať nové makro"
-
-#~ msgid "Co_mmand:"
-#~ msgstr "_Príkaz:"
-
-#~ msgid "Command Line Preferences"
-#~ msgstr "Nastavenie Príkazového riadku"
-
-#~ msgid "Command line _background:"
-#~ msgstr "Po_zadie príkazového riadku:"
-
-#~ msgid "Command line _foreground:"
-#~ msgstr "_Popredie príkazového riadku:"
-
-#~ msgid "E_nable history-based auto completion"
-#~ msgstr "Povoliť automatické dopĺňanie založené na _histórii"
-
-#~ msgid "Macros"
-#~ msgstr "Makrá"
-
-#~ msgid "Pick a color"
-#~ msgstr "Vyberte farbu"
-
-#~ msgid "_Add Macro..."
-#~ msgstr "_Pridať makro..."
-
-#~ msgid "_Delete Macro"
-#~ msgstr "_Odstrániť makro"
-
-#~ msgid "_Macros:"
-#~ msgstr "_Makrá:"
-
-#~ msgid "_Pattern:"
-#~ msgstr "_Vzorka:"
-
-#~ msgid "_Use default theme colors"
-#~ msgstr "_Použiť štandardné farby témy"
-
-#~ msgid ""
-#~ "Attempt to autocomplete a command from the history of commands entered."
-#~ msgstr ""
-#~ "Pokus o automatické doplnenie príkazu podľa histórie zadaných príkazov."
-
-#~ msgid "Background color, blue component"
-#~ msgstr "Farba pozadia, modrá časť"
-
-#~ msgid "Background color, green component"
-#~ msgstr "Farba pozadia, zelená časť"
-
-#~ msgid "Background color, red component"
-#~ msgstr "Farba pozadia, červená časť"
-
-#~ msgid "Foreground color, blue component"
-#~ msgstr "Farba popredia, modrá časť"
-
-#~ msgid "Foreground color, green component"
-#~ msgstr "Farba popredia, zelená časť"
-
-#~ msgid "Foreground color, red component"
-#~ msgstr "Farba popredia, červená časť"
-
-#~ msgid "History list"
-#~ msgstr "História"
-
-#~ msgid "List of GConfValue entries containing strings for history entries."
-#~ msgstr ""
-#~ "Zoznam položiek GConfValue obsahujúcich reťazce pre záznamy histórie."
-
-#~ msgid "Perform history autocompletion"
-#~ msgstr "Povoliť automatické dopĺňanie založené na histórii"
-
-#~ msgid "Show a frame surrounding the applet."
-#~ msgstr "Zobraziť rám okolo appletu."
-
-#~ msgid "Show a handle so the applet can be detached from the panel."
-#~ msgstr "Zobraziť ovládací prvok pre odtrhnutie appletu z panelu."
-
-#~ msgid "Show frame"
-#~ msgstr "Zobraziť rámec"
-
-#~ msgid "Show handle"
-#~ msgstr "Zobraziť handle"
-
-#~ msgid "The blue component of the background color."
-#~ msgstr "Modrá časť farby pozadia."
-
-#~ msgid "The blue component of the foreground color."
-#~ msgstr "Modrá časť farby popredia."
-
-#~ msgid "The green component of the background color."
-#~ msgstr "Zelená časť farby pozadia."
-
-#~ msgid "The green component of the foreground color."
-#~ msgstr "Zelená časť farby popredia."
-
-#~ msgid "The red component of the background color."
-#~ msgstr "Červená časť farby pozadia."
-
-#~ msgid "The red component of the foreground color."
-#~ msgstr "Červená časť farby popredia."
-
-#~ msgid "Use the default theme colors"
-#~ msgstr "Použiť štandardné farby témy"
-
-#~ msgid "Use theme colors instead of custom ones."
-#~ msgstr "Použiť farby témy namiesto vlastných."
-
-#~ msgid "Width"
-#~ msgstr "Šírka"
-
-#~ msgid "Browser"
-#~ msgstr "Prehliadač"
-
-#~ msgid "Click this button to start the browser"
-#~ msgstr "Stlačením tohto tlačidla spustíte prehliadač"
-
-#~ msgid "History"
-#~ msgstr "História"
-
-#~ msgid "Click this button for the list of previous commands"
-#~ msgstr "Stlačením tohto tlačidla zobrazíte zoznam predchádzajúcich príkazov"
-
-#~ msgid "Command line has been disabled by your system administrator"
-#~ msgstr "Príkazový riadok pre vás zakázal administrátor systému"
-
-#~ msgid "Mini-Commander applet"
-#~ msgstr "Applet Mini-Commander"
-
-#~ msgid "This applet adds a command line to the panel"
-#~ msgstr "Tento applet pridá do panelu príkazový riadok"
-
-#~ msgid "You must specify a pattern"
-#~ msgstr "Musíte zadať vzorku"
-
-#~ msgid "You must specify a pattern and a command"
-#~ msgstr "Musíte zadať vzorku a príkaz"
-
-#~ msgid "You must specify a command"
-#~ msgstr "Musíte zadať príkaz"
-
-#~ msgid "You may not specify duplicate patterns"
-#~ msgstr "Nemôžete zadať duplikované vzorky"
-
-#~ msgid "Pattern"
-#~ msgstr "Vzorka"
-
-#~ msgid "Command"
-#~ msgstr "Príkaz"
-
-#~ msgid "Adjust the sound volume"
-#~ msgstr "Úprava hlasitosti zvuku"
-
-#~ msgid "Volume Control"
-#~ msgstr "Ovládanie hlasitosti"
-
-#~ msgid "_Mute"
-#~ msgstr "_Potichu"
-
-#~ msgid "_Open Volume Control"
-#~ msgstr "_Otvoriť Ovládanie hlasitosti"
-
-#~ msgid "Failed to start Volume Control: %s"
-#~ msgstr "Nepodarilo sa spustiť Ovládanie hlasitosti: %s"
-
-#~ msgid "%s: muted"
-#~ msgstr "%s: potichu"
-
-#~ msgid "%s: %d%%"
-#~ msgstr "%s: %d%%"
-
-#~ msgid "Failed to display help: %s"
-#~ msgstr "Zlyhalo zobrazenie pomocníka: %s"
-
-#~ msgid "Volume Applet"
-#~ msgstr "Applet hlasitosti"
-
-#~ msgid "A GNOME/GStreamer-based volume control applet"
-#~ msgstr "Applet nastavenia hlasitosti založený na GNOME/GStreamer"
-
-#~ msgid "+"
-#~ msgstr "+"
-
-#~ msgid "-"
-#~ msgstr "-"
-
-#~ msgid "Unknown Volume Control %d"
-#~ msgstr "Neznáme Ovládanie hlasitosti %d"
-
-#~ msgid "Channel controlled by applet. Only for OSS setups"
-#~ msgstr "Kanál ovládaný appletom. Iba pre systémy OSS"
-
-#~ msgid "Saved mute state"
-#~ msgstr "Uložený stav potichu"
-
-#~ msgid "Saved volume to restore on startup"
-#~ msgstr "Uložená hlasitosť obnovená pri štarte"
-
-#~ msgid "Volume Control Preferences"
-#~ msgstr "Nastavenie Ovládania hlasitosti"
-
-#, fuzzy
-#~ msgid "Select the device and track to control."
-#~ msgstr "_Vyberte ovládaný kanál:"
-
-#~ msgid "Activate and monitor a dial-up network connection"
-#~ msgstr "Aktivovať a sledovať vytáčané pripojenie siete"
-
-#~ msgid "Modem Monitor"
-#~ msgstr "Sledovanie modemu"
-
-#~ msgid "_Activate"
-#~ msgstr "_Aktivovať"
-
-#~ msgid "_Deactivate"
-#~ msgstr "_Deaktivovať"
-
-#~ msgid "_Properties"
-#~ msgstr "_Vlastnosti"
-
-#~ msgid "Connection active, but could not get connection time"
-#~ msgstr "Spojenie aktívne, ale nepodarilo sa získať čas spojenia"
-
-#~ msgid "Time connected: %.1d:%.2d"
-#~ msgstr "Čas spojenia: %.1d:%.2d"
-
-#~ msgid "Not connected"
-#~ msgstr "Nepripojený"
-
-#~ msgid ""
-#~ "To connect to your Internet service provider, you need administrator "
-#~ "privileges"
-#~ msgstr ""
-#~ "Aby ste sa mohli pripojiť k vášmu poskytovateľovi internetových služieb, "
-#~ "potrebujete práva správcu"
-
-#~ msgid ""
-#~ "To disconnect from your Internet service provider, you need administrator "
-#~ "privileges"
-#~ msgstr ""
-#~ "Aby ste sa mohli odpojiť od vášho poskytovateľa internetových služieb, "
-#~ "potrebujete práva správcu"
-
-#~ msgid "The entered password is invalid"
-#~ msgstr "Zadané heslo je neplatné"
-
-#~ msgid "Do you want to connect?"
-#~ msgstr "Chcete sa pripojiť?"
-
-#~ msgid "Do you want to disconnect?"
-#~ msgstr "Chcete sa odpojiť?"
-
-#~ msgid "C_onnect"
-#~ msgstr "Prip_ojiť"
-
-#~ msgid "_Disconnect"
-#~ msgstr "O_dpojiť"
-
-#~ msgid "Could not launch network configuration tool"
-#~ msgstr "Nepodarilo sa spustiť nástroj na konfiguráciu siete"
-
-#~ msgid ""
-#~ "Check that it's installed in the correct path and that it has the correct "
-#~ "permissions"
-#~ msgstr ""
-#~ "Skontrolujte, či je nainštalovaný na správnej ceste a či má správne práva"
-
-#~ msgid "Applet for activating and monitoring a dial-up network connection."
-#~ msgstr "Applet pre aktiváciu a sledovanie vytáčaného sieťového pripojenia."
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Connecting with Internet Service "
-#~ "Provider</span>"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Pripájanie k poskytovateľovi "
-#~ "internetových služieb</span>"
-
-#~ msgid "<span weight=\"bold\" size=\"larger\">Root password required</span>"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Je vyžadované heslo správcu</span>"
-
-#~ msgid "Enter password"
-#~ msgstr "Zadajte heslo"
-
-#~ msgid "Password:"
-#~ msgstr "Heslo:"
-
-#~ msgid "A system load indicator"
-#~ msgstr "Indikátor zaťaženie systému"
-
-#~ msgid "System Monitor"
-#~ msgstr "Systémový monitor"
-
-#~ msgid "_Open System Monitor"
-#~ msgstr "_Otvoriť systémový monitor"
-
-#~ msgid "CPU Load"
-#~ msgstr "Zaťaženie CPU"
-
-#~ msgid "Disk Load"
-#~ msgstr "Zaťaženie disku"
-
-#~ msgid "Load Average"
-#~ msgstr "Priemerné zaťaženie"
-
-#, fuzzy
-#~ msgid ""
-#~ "A system load monitor capable of displaying graphs for CPU, ram, and swap "
-#~ "space use, plus network traffic."
-#~ msgstr ""
-#~ "Vydané pod licenciou GNU General Public License.\n"
-#~ "\n"
-#~ "Monitor zaťaženia systému, ktorý zobrazuje grafy pre procesor, pamäť, "
-#~ "odkladací súbor a sieťový prenos."
-
-#~ msgid "There was an error executing '%s': %s"
-#~ msgstr "Pri pokuse o spustenie '%s' nastala chyba: %s"
-
-#~ msgid "Processor"
-#~ msgstr "Procesor"
-
-#~ msgid "Memory"
-#~ msgstr "Pamäť"
-
-#~ msgid "Network"
-#~ msgstr "Sieť"
-
-#~ msgid "Swap Space"
-#~ msgstr "Odkladací súbor"
-
-#~ msgid "Disk"
-#~ msgstr "Disk"
-
-#, fuzzy
-#~ msgid ""
-#~ "%s:\n"
-#~ "%u%% in use"
-#~ msgid_plural ""
-#~ "%s:\n"
-#~ "%u%% in use"
-#~ msgstr[0] ""
-#~ "%s:\n"
-#~ "%d%% sa používa"
-#~ msgstr[1] ""
-#~ "%s:\n"
-#~ "%d%% sa používa"
-#~ msgstr[2] ""
-#~ "%s:\n"
-#~ "%d%% sa používa"
-
-#~ msgid "Memory Load"
-#~ msgstr "Zaťaženie pamäti"
-
-#~ msgid "Applet refresh rate in milliseconds"
-#~ msgstr "Rýchlosť aktualizácie appletu v milisekundách"
-
-#~ msgid "Background color for disk load graph"
-#~ msgstr "Farba pozadia pre graf zaťaženia disku"
-
-#~ msgid "CPU graph background color"
-#~ msgstr "Farba pozadia grafu CPU"
-
-#~ msgid "Enable CPU load graph"
-#~ msgstr "Povoliť graf zaťaženia CPU"
-
-#~ msgid "Enable disk load graph"
-#~ msgstr "Povoliť graf zaťaženia disku"
-
-#~ msgid "Enable load average graph"
-#~ msgstr "Povoliť graf priemerného zaťaženia"
-
-#~ msgid "Enable memory load graph"
-#~ msgstr "Povoliť graf zaťaženia pamäti"
-
-#~ msgid "Enable network load graph"
-#~ msgstr "Povoliť graf zaťaženia siete"
-
-#~ msgid "Enable swap load graph"
-#~ msgstr "Povoliť graf zaťaženia odkladacieho priestoru"
-
-#~ msgid ""
-#~ "For horizontal panels, the width of the graphs in pixels. For vertical "
-#~ "panels, this is the height of the graphs."
-#~ msgstr ""
-#~ "Pre horizontálne panely šírka grafu v bodoch. Pre vertikálne výška grafov."
-
-#~ msgid "Graph color for Ethernet network activity"
-#~ msgstr "Farba grafu pre aktivitu siete Ethernet"
-
-#~ msgid "Graph color for PLIP network activity"
-#~ msgstr "Farba grafu pre aktivitu siete PLIP"
-
-#~ msgid "Graph color for SLIP network activity"
-#~ msgstr "Farba grafu pre aktivitu siete SLIP"
-
-#~ msgid "Graph color for buffer memory"
-#~ msgstr "Farba grafu pre bufferovanú pamäť"
-
-#~ msgid "Graph color for cached memory"
-#~ msgstr "Farba grafu pre vyrovnávaciu pamäť"
-
-#~ msgid "Graph color for disk read"
-#~ msgstr "Farba grafu pre čítanie z disku"
-
-#~ msgid "Graph color for disk write"
-#~ msgstr "Farba grafu pre zápis na disk"
-
-#~ msgid "Graph color for iowait related CPU activity"
-#~ msgstr "Farba grafu pre aktivitu CPU súvisiacu s iowait"
-
-#~ msgid "Graph color for load average"
-#~ msgstr "Farba grafu pre priemerné zaťaženie"
-
-#~ msgid "Graph color for nice-related CPU activity"
-#~ msgstr "Farba grafu pre aktivitu CPU s nice"
-
-#~ msgid "Graph color for other network usage"
-#~ msgstr "Farba grafu pre iné využitie siete"
-
-#~ msgid "Graph color for shared memory"
-#~ msgstr "Farba grafu pre zdieľanú pamäť"
-
-#~ msgid "Graph color for system-related CPU activity"
-#~ msgstr "Farba grafu pre aktivitu CPU v jadre"
-
-#~ msgid "Graph color for user-related CPU activity"
-#~ msgstr "Farba grafu pre aktivitu CPU mimo jadro"
-
-#~ msgid "Graph color for user-related memory usage"
-#~ msgstr "Farba grafu pre využitie pamäti mimo jadro"
-
-#~ msgid "Graph color for user-related swap usage"
-#~ msgstr "Farba grafu pre využitie odkladacieho priestoru mimo jadro"
-
-#~ msgid "Graph size"
-#~ msgstr "Veľkosť grafu"
-
-#~ msgid "Load graph background color"
-#~ msgstr "Farba pozadia grafu zaťaženia"
-
-#~ msgid "Memory graph background color"
-#~ msgstr "Farba pozadia grafu pamäti"
-
-#~ msgid "Network graph background color"
-#~ msgstr "Farba pozadia grafu siete"
-
-#~ msgid "Swap graph background color"
-#~ msgstr "Farba pozadia grafu odkladacej pamäti"
-
-#~ msgid "Net Load"
-#~ msgstr "Sieťové zaťaženie"
-
-#~ msgid "Monitored Resources"
-#~ msgstr "Sledované zdroje"
-
-#~ msgid "_Processor"
-#~ msgstr "_Procesor"
-
-#~ msgid "_Memory"
-#~ msgstr "Pa_mäť"
-
-#~ msgid "_Network"
-#~ msgstr "_Sieť"
-
-#~ msgid "S_wap Space"
-#~ msgstr "_Odkladací súbor"
-
-#~ msgid "_Load"
-#~ msgstr "_Zaťaženie"
-
-#~ msgid "_Harddisk"
-#~ msgstr "_Pevný disk"
-
-#~ msgid "Options"
-#~ msgstr "Možnosti"
-
-#~ msgid "System m_onitor width: "
-#~ msgstr "Ší_rka monitoru:"
-
-#~ msgid "System m_onitor height: "
-#~ msgstr "_Výška monitoru:"
-
-#~ msgid "Sys_tem monitor update interval: "
-#~ msgstr "_Rýchlosť monitoru:"
-
-#~ msgid "milliseconds"
-#~ msgstr "millisekúnd"
-
-#~ msgid "Colors"
-#~ msgstr "Farby"
-
-#~ msgid "_User"
-#~ msgstr "Po_užívateľ"
-
-#~ msgid "S_ystem"
-#~ msgstr "_Systém"
-
-#~ msgid "N_ice"
-#~ msgstr "_Nice"
-
-#~ msgid "I_dle"
-#~ msgstr "N_ečinný"
-
-#~ msgid "Sh_ared"
-#~ msgstr "_Zdieľaná"
-
-#~ msgid "_Buffers"
-#~ msgstr "_Buffery"
-
-#~ msgid "Cach_ed"
-#~ msgstr "_Vo vyrovnávacej pamäti"
-
-#~ msgid "F_ree"
-#~ msgstr "V_oľná"
-
-#~ msgid "_SLIP"
-#~ msgstr "_SLIP"
-
-#~ msgid "PL_IP"
-#~ msgstr "PL_IP"
-
-#~ msgid "_Ethernet"
-#~ msgstr "_Ethernet"
-
-#~ msgid "Othe_r"
-#~ msgstr "_Iné"
-
-#~ msgid "_Background"
-#~ msgstr "Po_zadie"
-
-#~ msgid "_Used"
-#~ msgstr "_Použitá"
-
-#~ msgid "_Free"
-#~ msgstr "_Voľná"
-
-#~ msgid "Load"
-#~ msgstr "Zaťaženie"
-
-#~ msgid "_Average"
-#~ msgstr "_Priemer"
-
-#~ msgid "Harddisk"
-#~ msgstr "Pevný disk"
-
-#~ msgid "_Read"
-#~ msgstr "Čí_tanie"
-
-#~ msgid "_Write"
-#~ msgstr "_Zápis"
-
-#~ msgid "System Monitor Preferences"
-#~ msgstr "Nastavenie Systémového monitoru"
-
-#~ msgid "Swap Load"
-#~ msgstr "Zaťaženie odkladacieho súboru"
-
-#~ msgid "CD Player (Deprecated)"
-#~ msgstr "Prehrávač CD (Zastaralé)"
-
-#~ msgid "Alert you when new mail arrives"
-#~ msgstr "Upozorniť keď vám príde nová pošta"
-
-#~ msgid "Inbox Monitor (Deprecated)"
-#~ msgstr "Sledovanie doručenej pošty (Zastarané)"
-
-#, fuzzy
-#~ msgid "Factory for deprecating applets"
-#~ msgstr "Vytváracie rozhranie pre applet Pripojenie diskov"
-
-#, fuzzy
-#~ msgid "Null Applet Factory"
-#~ msgstr "Vytváracie rozhranie pre applet Gtik"
-
-#~ msgid "Monitor the quality of a wireless network link"
-#~ msgstr "Sledovať kvalitu bezdrôtového sieťového spojenia"
-
-#~ msgid "Wireless Link Monitor"
-#~ msgstr "Sledovanie bezdrôtového spojenia"
-
-#~ msgid "Some panel items are no longer available"
-#~ msgstr "Niektoré položky panela už nie sú viac dostupné"
-
-#~ msgid ""
-#~ "One or more panel items (also referred to as applets) are no longer "
-#~ "available in the GNOME desktop."
-#~ msgstr ""
-#~ "Jedna alebo viac položiek panela (tiež nazývané applety) nie sú viac "
-#~ "dostupné v Pracovnom prostredí GNOME."
-
-#~ msgid "These items will now be removed from your configuration:"
-#~ msgstr "Tieto položky budú teraž odstránené z vašej konfigurácie:"
-
-#~ msgid "You will not receive this message again."
-#~ msgstr "Nedostanete znova túto správu."
-
-#~ msgid "Create, view, and manage sticky notes on the desktop"
-#~ msgstr "Vytvorenie a správa poznámkových papierov na pracovnej ploche"
-
-#~ msgid "Sticky Notes"
-#~ msgstr "Poznámky"
-
-#~ msgid "Sticky Notes Applet Factory"
-#~ msgstr "Vytváracie rozhranie pre applet Poznámky"
-
-#~ msgid "_Delete Notes"
-#~ msgstr "_Odstrániť poznámky"
-
-#~ msgid "_Lock Notes"
-#~ msgstr "U_zamknúť poznámky"
-
-#~ msgid "_New Note"
-#~ msgstr "_Nová poznámka"
-
-#~ msgid "This note is locked."
-#~ msgstr "Táto poznámka je uzamknutá."
-
-#~ msgid "This note is unlocked."
-#~ msgstr "Táto poznámka je odomknutá."
-
-#~ msgid "    Font C_olor:"
-#~ msgstr "    F_arba písma:"
-
-#~ msgid "    Font Co_lor:"
-#~ msgstr "    Fa_rba písma:"
-
-#~ msgid "    Note C_olor:"
-#~ msgstr "    F_arba poznámky:"
-
-#~ msgid "    Note _Color:"
-#~ msgstr "    _Farba poznámky:"
-
-#~ msgid "    _Font:"
-#~ msgstr "    _Písmo:"
-
-#~ msgid "<b>Behavior</b>"
-#~ msgstr "<b>Chovanie</b>"
-
-#~ msgid "<b>Default Note Properties</b>"
-#~ msgstr "<b>Štandardné vlastnosti poznámok</b>"
-
-#~ msgid ""
-#~ "<b>Delete all sticky notes?</b>\n"
-#~ "\n"
-#~ "This cannot be undone."
-#~ msgstr ""
-#~ "<b>Odstrániť všetky poznámky?</b>\n"
-#~ "\n"
-#~ "Toto nie je možné odvolať."
-
-#~ msgid ""
-#~ "<b>Delete this sticky note?</b>\n"
-#~ "\n"
-#~ "This cannot be undone."
-#~ msgstr ""
-#~ "<b>Odstrániť túto poznámku?</b>\n"
-#~ "\n"
-#~ "Toto nie je možné odvolať."
-
-#~ msgid "<b>Properties</b>"
-#~ msgstr "<b>Vlastnosti</b>"
-
-#~ msgid "Choose a base color to use for all sticky notes"
-#~ msgstr "Vyberte základnú farbu pre všetky poznámky"
-
-#~ msgid "Choose a color for the note"
-#~ msgstr "Vyberte farbu pre poznámku"
-
-#~ msgid "Choose a font for the note"
-#~ msgstr "Vyberte písmo pre poznámku"
-
-#~ msgid "Choose a font to use for all sticky notes"
-#~ msgstr "Vyberte písmo pre všetky poznámky"
-
-#~ msgid "Choose if notes are visible on all workspaces"
-#~ msgstr "Vyberte, či sú poznámky viditeľné na všetkých plochách"
-
-#~ msgid "Choose if the default style is forced on all notes"
-#~ msgstr "Vyberte, či všetky poznámky majú používať štandardný štýl"
-
-#~ msgid "Close note"
-#~ msgstr "Zavrieť poznámku"
-
-#~ msgid "Force _default color and font on notes"
-#~ msgstr "Vynútiť š_tandardné písmo a farbu poznámok"
-
-#~ msgid "H_eight:"
-#~ msgstr "_Výška:"
-
-#~ msgid "Lock/Unlock note"
-#~ msgstr "Zamknúť/odomknúť poznámku"
-
-#~ msgid "Pick a color for the sticky note"
-#~ msgstr "Vyberte farbu pre poznámku"
-
-#~ msgid "Pick a default sticky note color"
-#~ msgstr "Vyberte štandardnú farbu pre poznámky"
-
-#~ msgid "Pick a default sticky note font"
-#~ msgstr "Vyberte štandardné písmo pre poznámky"
-
-#~ msgid "Pick a font for the sticky note"
-#~ msgstr "Vyberte písmo pre poznámku"
-
-#~ msgid "Resize note"
-#~ msgstr "Zmeniť veľkosť poznámky"
-
-#~ msgid "Specify a title for the note"
-#~ msgstr "Zadajte titulok poznámky"
-
-#~ msgid "Specify the default height (in pixels) of new notes"
-#~ msgstr "Zadajte štandardnú výšku (v bodoch) pre nové poznámky"
-
-#~ msgid "Specify the default width (in pixels) of new notes"
-#~ msgstr "Zadajte štandardnú šírku (v bodoch) pre nové poznámky"
-
-#~ msgid "Sticky Note"
-#~ msgstr "Poznámka"
-
-#~ msgid "Sticky Note Properties"
-#~ msgstr "Vlastnosti poznámky"
-
-#~ msgid "Sticky Notes Preferences"
-#~ msgstr "Nastavenie Poznámok"
-
-#~ msgid "Use co_lor from the system theme"
-#~ msgstr "Použiť _farbu zo systémovej témy"
-
-#~ msgid "Use default co_lor"
-#~ msgstr "Použiť š_tandardnú farbu"
-
-#~ msgid "Use default fo_nt"
-#~ msgstr "Použiť št_andardné písmo"
-
-#~ msgid "Use fo_nt from the system theme"
-#~ msgstr "Použiť _písmo zo systémovej témy"
-
-#~ msgid "_Delete All"
-#~ msgstr "_Odstrániť všetky"
-
-#~ msgid "_Delete Note..."
-#~ msgstr "O_dstrániť poznámku..."
-
-#~ msgid "_Lock Note"
-#~ msgstr "_Zamknúť poznámku"
-
-#~ msgid "_Put notes on all workspaces"
-#~ msgstr "_Umiestniť poznámky na všetky plochy"
-
-#~ msgid "_Title:"
-#~ msgstr "_Titulok:"
-
-#~ msgid "Autosave timeout in minutes"
-#~ msgstr "Čas pre automatické ukladanie"
-
-#~ msgid ""
-#~ "By default, sticky notes are given the current date as the title when "
-#~ "they are created. This format is used; anything that can be parsed by "
-#~ "strftime() is valid."
-#~ msgstr ""
-#~ "Štandardne obsahujú poznámky v titulku dátum vytvorenia. Ako formát sa dá "
-#~ "použiť text, ktorý dokáže spracovať funkcia strftime()."
-
-#~ msgid "Date format of note's title"
-#~ msgstr "Formát dátumu v titulku poznámky"
-
-#~ msgid "Default color for font"
-#~ msgstr "Štandardná farba pre písmo"
-
-#~ msgid "Default color for new notes"
-#~ msgstr "Štandardná farba pre nové poznámky"
-
-#~ msgid ""
-#~ "Default color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#30FF50\"."
-#~ msgstr ""
-#~ "Štandardná farba pre nové poznámky. Je to HTML hexadecimálne číslo, "
-#~ "napríklad \"#30FF50\"."
-
-#~ msgid ""
-#~ "Default font color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#000000\"."
-#~ msgstr ""
-#~ "Štandardná farba písma pre nové poznámky. Malo by byť v tvare HTML "
-#~ "hexadecimálneho čísla, napríklad \"#000000\"."
-
-#~ msgid "Default font for new notes"
-#~ msgstr "Štandardné písmo pre nové poznámky"
-
-#~ msgid ""
-#~ "Default font for new sticky notes. This should be a Pango Font Name, for "
-#~ "example \"Sans Italic 10\""
-#~ msgstr ""
-#~ "Štandardné písmo pre nové poznámky. Má to byť meno písma pre Pango, "
-#~ "napríklad \"Sans Italic 10\""
-
-#~ msgid "Default height for new notes"
-#~ msgstr "Štandardná výška pre nové poznámky"
-
-#~ msgid "Default height for new sticky notes in pixels."
-#~ msgstr "Štandardná výška pre nové poznámky v bodoch."
-
-#~ msgid "Default width for new notes"
-#~ msgstr "Štandardná šírka pre nové poznámky"
-
-#~ msgid "Default width for new sticky notes in pixels."
-#~ msgstr "Štandardná šírka pre nové poznámky v bodoch."
-
-#~ msgid "Empty notes are always deleted without confirmation"
-#~ msgstr "Prázdne poznámky sa vždy mažú bez potvrdenia"
-
-#~ msgid ""
-#~ "Every time the specified number of minutes pass, the sticky notes are "
-#~ "automatically saved."
-#~ msgstr ""
-#~ "Vždy, keď uplynie zadaný počet minút, poznámky sa automaticky uložia."
-
-#~ msgid ""
-#~ "If this option is disabled, a custom color can be used as the default "
-#~ "color for all sticky notes."
-#~ msgstr ""
-#~ "Ak je toto vypnuté, pre všetky poznámky použijú vlastnú štandardnú farbu."
-
-#~ msgid ""
-#~ "If this option is disabled, a custom font can be used as the default font "
-#~ "for all sticky notes."
-#~ msgstr ""
-#~ "Ak je toto vypnuté, pre všetky poznámky použijú vlastné štandardné písmo."
-
-#~ msgid ""
-#~ "If this option is enabled, the custom colors and fonts that have been "
-#~ "assigned to individual notes will be ignored."
-#~ msgstr ""
-#~ "Ak je toto zapnuté, farby a písma jednotlivých poznámok budú ignorované."
-
-#~ msgid "Specifies whether the sticky notes are locked (non-editable) or not."
-#~ msgstr "Určuje, či sú poznámky upraviteľné alebo nie."
-
-#~ msgid ""
-#~ "Specifies whether the sticky notes are visible on ALL workspaces on the "
-#~ "desktop, or not."
-#~ msgstr "Určuje, či sú poznámky viditeľné na všetkých plochách alebo nie."
-
-#~ msgid "Sticky notes' locked state"
-#~ msgstr "Zamknutie poznámok"
-
-#~ msgid "Sticky notes' workspace stickyness"
-#~ msgstr "Poznámky zostávajú na svojej pracovnej ploche"
-
-#~ msgid "Whether to ask for confirmation when deleting a note"
-#~ msgstr "Či sa pýtať na potvrdenie pri odstránení poznámky"
-
-#~ msgid "Whether to force the default color and font on all notes"
-#~ msgstr "Či vynútiť štandardnú farbu a písmo na všetkých poznámkach"
-
-#~ msgid "Whether to use the default system color"
-#~ msgstr "Či používať štandardné systémové farby"
-
-#~ msgid "Whether to use the default system font"
-#~ msgstr "Či používať štandardné systémové písmo"
-
-#~ msgid "%d note"
-#~ msgid_plural "%d notes"
-#~ msgstr[0] "%d poznámok"
-#~ msgstr[1] "%d poznámka"
-#~ msgstr[2] "%d poznámky"
-
-#~ msgid "Show sticky notes"
-#~ msgstr "Zobraziť poznámkové papieriky"
-
-#~ msgid "Sticky Notes for the GNOME Desktop Environment"
-#~ msgstr "Poznámkové papieriky pre pracovné prostredie GNOME"
-
-#~ msgid "Go to Trash"
-#~ msgstr "Prejsť do koša"
-
-#~ msgid "Trash"
-#~ msgstr "Kôš"
-
-#~ msgid "_Empty Trash"
-#~ msgstr "_Vyprázdniť kôš"
-
-#~ msgid "_Open"
-#~ msgstr "_Otvoriť"
-
-#~ msgid "Unable to find the Trash directory: %s"
-#~ msgstr "Nepodarilo sa nájsť priečinok koša: %s"
-
-#~ msgid "No Items in Trash"
-#~ msgstr "V koši nie sú žiadne položky"
-
-#~ msgid "%d Item in Trash"
-#~ msgid_plural "%d Items in Trash"
-#~ msgstr[0] "%d položiek v koši"
-#~ msgstr[1] "%d položka v koši"
-#~ msgstr[2] "%d položky v koši"
-
-#~ msgid "Removing item %s of %s"
-#~ msgstr "Odstraňovanie položky %s z %s"
-
-#~ msgid "<i>Removing: %s</i>"
-#~ msgstr "<i>Odstraňovanie: %s</i>"
-
-#~ msgid "Empty all of the items from the trash?"
-#~ msgstr "Vyprázdniť všetky položky z koša?"
-
-#, fuzzy
-#~ msgid ""
-#~ "If you choose to empty the trash, all items in it will be permanently "
-#~ "lost. Please note that you can also delete them separately."
-#~ msgstr "Ak vyprázdnite kôš, položky budú trvale odstránené."
-
-#~ msgid "Trash Applet"
-#~ msgstr "Applet koša"
-
-#~ msgid "Delete Immediately?"
-#~ msgstr "Odstrániť okamžite?"
-
-#~ msgid "Cannot move items to trash, do you want to delete them immediately?"
-#~ msgstr ""
-#~ "Nepodarilo sa presunúť položky do koša. Chcete ich okamžite odstrániť?"
-
-#~ msgid ""
-#~ "Cannot move some items to trash, do you want to delete these immediately?"
-#~ msgstr ""
-#~ "Nepodarilo sa presunúť niektoré položky do koša. Chcete ich okamžite "
-#~ "odstrániť?"
-
-#~ msgid ""
-#~ "Unable to move to trash:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Nepodarilo sa presunť do koša:\n"
-#~ "%s"
-
-#~ msgid "<b>From:</b>"
-#~ msgstr "<b>Od:</b>"
-
-#~ msgid "<big><b>Emptying the Trash</b></big>"
-#~ msgstr "<bib><b>Vyprázdňovanie koša</b></big>"
-
-#~ msgid "Emptying the Trash"
-#~ msgstr "Vyprázdňovanie kôša"
