@@ -1,8 +1,8 @@
-SUBDIRS = po po-locations libgweather doc data python icons
+SUBDIRS = po po-locations libgweather doc data icons
 
 ACLOCAL_AMFLAGS = -I m4
 
-DISTCHECK_CONFIGURE_FLAGS = --enable-gtk-doc
+DISTCHECK_CONFIGURE_FLAGS = --enable-gtk-doc --enable-introspection
 
 EXTRA_DIST = \
 	MAINTAINERS

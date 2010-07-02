@@ -17,6 +17,9 @@ weather
 <!-- ##### SECTION Stability_Level ##### -->
 
 
+<!-- ##### SECTION Image ##### -->
+
+
 <!-- ##### STRUCT WeatherLocation ##### -->
 <para>
 
@@ -541,6 +544,18 @@ weather
 @QUALIFIER_FREEZING: 
 @QUALIFIER_LAST: 
 
+<!-- ##### TYPEDEF WeatherMoonPhase ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### TYPEDEF WeatherMoonLatitude ##### -->
+<para>
+
+</para>
+
+
 <!-- ##### FUNCTION weather_info_get_value_update ##### -->
 <para>
 
@@ -678,6 +693,27 @@ weather
 
 @info: 
 @value: 
+@Returns: 
+
+
+<!-- ##### FUNCTION weather_info_get_value_moonphase ##### -->
+<para>
+
+</para>
+
+@info: 
+@value: 
+@lat: 
+@Returns: 
+
+
+<!-- ##### FUNCTION weather_info_get_upcoming_moonphases ##### -->
+<para>
+
+</para>
+
+@info: 
+@phases: 
 @Returns: 
 
 
