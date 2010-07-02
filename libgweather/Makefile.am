@@ -1,6 +1,6 @@
 lib_LTLIBRARIES = libgweather-3.la
 
-libgweatherincdir = $(includedir)/libgweather-3.0
+libgweatherincdir = $(includedir)/libgweather-3.0/libgweather
 gweather_old_headers = \
 	weather.h gweather-gconf.h gweather-prefs.h gweather-xml.h
 gweather_new_headers = \

@@ -9,6 +9,6 @@ Description: GWeather shared library
 Version: @VERSION@
 Requires: glib-2.0 gobject-2.0 gdk-pixbuf-2.0 gtk+-3.0 gconf-2.0
 Requires.private: libxml-2.0 libsoup-2.4
-Libs: -L${libdir} -lgweather
+Libs: -L${libdir} -lgweather-3
 Libs.private: -lm
-Cflags: -I${includedir}
+Cflags: -I${includedir}/libgweather-3.0
