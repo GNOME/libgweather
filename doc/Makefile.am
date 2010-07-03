@@ -4,7 +4,10 @@
 AUTOMAKE_OPTIONS = 1.6
 
 # The name of the module, e.g. 'glib'.
-DOC_MODULE=libgweather-3.0
+DOC_MODULE = libgweather
+
+# Uncomment for versioned docs and specify the version of the module, e.g. '2'.
+DOC_MODULE_VERSION = 3.0
 
 # Uncomment for versioned docs and specify the version of the module, e.g. '2'.
 #DOC_MODULE_VERSION=2
