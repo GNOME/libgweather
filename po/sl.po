@@ -1,19 +1,21 @@
+# Slovenian translations for libgwether.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the libgwether package.
 #
-# Urban Borstnik <urban@cmm.ki.si>, 2000.
+# Urban Borštnik <urban@cmm.ki.si>, 2000.
 # Nejc Novak <nejc.novak@guest.arnes.si>, 2002.
-# Andraz Tori <andraz.tori1@guest.arnes.si>, 2003.
+# Andraž Tori <andraz.tori1@guest.arnes.si>, 2003.
 # Matic Žgur <mr.zgur@gmail.com>, 2006.
-# Matej Urbančič <mateju@svn.gnome.org>, 2008 - 2009.
+# Matej Urbančič <mateju@svn.gnome.org>, 2008 - 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgwether\n"
+"Project-Id-Version: libgwether master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-applets&component=gweather\n"
 "POT-Creation-Date: 2009-09-13 20:41+0000\n"
-"PO-Revision-Date: 2009-09-14 13:25+0100\n"
+"PO-Revision-Date: 2010-07-06 21:38+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
-"Language-Team: Slovenian\n"
+"Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -214,7 +216,7 @@ msgstr "C"
 #: ../libgweather/gweather-prefs.c:141
 #: ../libgweather/gweather-prefs.c:151
 msgid "DEFAULT_SPEED_UNIT"
-msgstr "km/h"
+msgstr "m/s"
 
 #. TRANSLATOR: This is the default unit to use for atmospheric pressure.
 #. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
@@ -238,7 +240,7 @@ msgstr "Greenwiški srednji čas"
 
 #: ../libgweather/gweather.schemas.in.h:1
 msgid "A three-digit-long code for retrieving radar maps from weather.com, found from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr "Tri številćna koda za pridobivanje radarskih map s portala weather.com, kot je zapisano na http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+msgstr "Tri-številčna koda za pridobivanje radarskih slik s portala weather.com, kot je zapisano na http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
 msgid "A unique zone for the city, as found from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
@@ -246,7 +248,7 @@ msgstr "Edinstveno območje mesta kot je zapisano na http://git.gnome.org/cgit/l
 
 #: ../libgweather/gweather.schemas.in.h:8
 msgid "Determines whether the applet automatically updates its weather statistics or not."
-msgstr "Ali naj vstavek samodejno posodablja svoje statistične podatke o vremenu ali ne."
+msgstr "Ali naj se statistični podatki o vremenu posodabljajo samodejno ali ne."
 
 #: ../libgweather/gweather.schemas.in.h:9
 msgid "Display radar map"
@@ -258,19 +260,19 @@ msgstr "Enota razdalje"
 
 #: ../libgweather/gweather.schemas.in.h:11
 msgid "Fetch a radar map on each update."
-msgstr "Prenesi radarsko sliko ob vsaki posodobitvi"
+msgstr "Pridobi radarsko sliko med vsako posodobitvijo"
 
 #: ../libgweather/gweather.schemas.in.h:12
 msgid "If true, then retrieve a radar map from a location specified by the \"radar\" key."
-msgstr "Če je resnično, potem dobi radarsko sliko iz mesta navedenega v ključu \"radar\"."
+msgstr "Izbrana možnost omogoča, da bo radarska slika pridobljena iz mesta navedenega v ključu \"radar\"."
 
 #: ../libgweather/gweather.schemas.in.h:13
 msgid "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS[EW]."
-msgstr "Zemljepisna višina in širina vaše lokacije zapisana kot: DD-MM-SS[SJ) DD-MM-SS [VZ]"
+msgstr "Zemljepisna višina in širina vašega mesta je zapisana kot: ST-MM-SS[SJ) ST-MM-SS [VZ]"
 
 #: ../libgweather/gweather.schemas.in.h:14
 msgid "Location coordinates"
-msgstr "Koordinate lokacije"
+msgstr "Koordinate mesta"
 
 #: ../libgweather/gweather.schemas.in.h:15
 msgid "Nearby city"
@@ -278,7 +280,7 @@ msgstr "Bližnje mesto"
 
 #: ../libgweather/gweather.schemas.in.h:16
 msgid "Nearby major zone, such as a capital city, as found from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr "Bližnje večje območje, kot so glavna mesta, zapisana na http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+msgstr "Bližnje večje območje ali glavna mesta, zapisana na http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -286,7 +288,7 @@ msgstr "Ni več v uporabi"
 
 #: ../libgweather/gweather.schemas.in.h:18
 msgid "Pressure unit"
-msgstr "Enote pritiska"
+msgstr "Enota pritiska"
 
 #: ../libgweather/gweather.schemas.in.h:19
 msgid "Radar location"
@@ -294,19 +296,19 @@ msgstr "Položaj radarja"
 
 #: ../libgweather/gweather.schemas.in.h:20
 msgid "Speed unit"
-msgstr "Enote hitrosti"
+msgstr "Enota hitrosti"
 
 #: ../libgweather/gweather.schemas.in.h:21
 msgid "Temperature unit"
-msgstr "Enote temperature"
+msgstr "Enota temperature"
 
 #: ../libgweather/gweather.schemas.in.h:22
 msgid "The city that gweather displays information for."
-msgstr "Mesto, za katerega gweather prikazuje podatke."
+msgstr "Mesto, za katerega program prikazuje podatke."
 
 #: ../libgweather/gweather.schemas.in.h:23
 msgid "The custom url from where to retrieve a radar map."
-msgstr "Prilagojen URL iz kjer naj se naloži radarska slika"
+msgstr "Prilagojen naslov URL iz kjer naj se naloži radarska slika"
 
 #: ../libgweather/gweather.schemas.in.h:24
 msgid "The interval, in seconds, between automatic updates."
@@ -326,11 +328,11 @@ msgstr "Enota uporabljena za vidljivost."
 
 #: ../libgweather/gweather.schemas.in.h:28
 msgid "The unit to use for wind speed."
-msgstr "Enote, ki naj se uporabijo za hitrost vetra."
+msgstr "Enota uporabljena za hitrost vetra."
 
 #: ../libgweather/gweather.schemas.in.h:29
 msgid "Update interval"
-msgstr "Interval posodabljanja"
+msgstr "Časovni razmik posodabljanja"
 
 #: ../libgweather/gweather.schemas.in.h:30
 msgid "Update the data automatically"
@@ -338,7 +340,7 @@ msgstr "Samodejno posodobi podatke"
 
 #: ../libgweather/gweather.schemas.in.h:31
 msgid "Url for the radar map"
-msgstr "URL radarske slike"
+msgstr "Naslov URL radarske slike"
 
 #: ../libgweather/gweather.schemas.in.h:32
 msgid "Use custom url for the radar map"
@@ -377,11 +379,11 @@ msgstr "Neznano"
 #: ../libgweather/weather-metar.c:504
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
-msgstr "Ni mogoče dobiti podatkov METAR: %d %s.\n"
+msgstr "Ni mogoče pridobiti podatkov METAR: %d %s.\n"
 
 #: ../libgweather/weather-metar.c:548
 msgid "WeatherInfo missing location"
-msgstr "WatherInfo pogreša lokacijo"
+msgstr "Pogrešan je WatherInfo podatek mesta"
 
 #: ../libgweather/weather.c:230
 msgid "Variable"
@@ -506,7 +508,7 @@ msgstr "Močno pršenje"
 
 #: ../libgweather/weather.c:291
 msgid "Freezing drizzle"
-msgstr "Zmrzujoče pršenje"
+msgstr "Zmrznjeno pršenje"
 
 #. RAIN
 #: ../libgweather/weather.c:292
@@ -570,19 +572,19 @@ msgstr "Sneži v pasovih"
 #. SNOW_GRAINS
 #: ../libgweather/weather.c:294
 msgid "Snow grains"
-msgstr "Zrnat sneg"
+msgstr "Zrnato sneženje"
 
 #: ../libgweather/weather.c:294
 msgid "Light snow grains"
-msgstr "Rahlo zrnato sneži"
+msgstr "Rahlo zrnato sneženje"
 
 #: ../libgweather/weather.c:294
 msgid "Moderate snow grains"
-msgstr "Zmerno zrnato sneži"
+msgstr "Zmerno zrnato sneženje"
 
 #: ../libgweather/weather.c:294
 msgid "Heavy snow grains"
-msgstr "Močno zrnato sneži"
+msgstr "Močno zrnato sneženje"
 
 #. ICE_CRYSTALS
 #: ../libgweather/weather.c:295
@@ -643,7 +645,7 @@ msgstr "Ploha sodre"
 #. PRECIPITATION
 #: ../libgweather/weather.c:299
 msgid "Unknown precipitation"
-msgstr "Neznane padavine"
+msgstr "Nedoločene padavine"
 
 #. MIST
 #: ../libgweather/weather.c:300
@@ -776,7 +778,7 @@ msgstr "Prašni vrtinci v okolici"
 #.
 #: ../libgweather/weather.c:703
 msgid "%a, %b %d / %H:%M"
-msgstr "%a, %g %d / %H:%M"
+msgstr "%a, %d. %b. / %H:%M"
 
 #: ../libgweather/weather.c:718
 msgid "Unknown observation time"
@@ -797,7 +799,7 @@ msgstr "Neznan čas meritve"
 #: ../libgweather/weather.c:997
 #: ../libgweather/weather.c:1017
 msgid "Unknown"
-msgstr "Neznan"
+msgstr "Neznano"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
 #: ../libgweather/weather.c:754
@@ -871,7 +873,7 @@ msgstr "%.1f m/s"
 #: ../libgweather/weather.c:903
 #, c-format
 msgid "Beaufort force %.1f"
-msgstr "Hitrost vetra %.1f Baeufort(ov)"
+msgstr "Baeufortova sila vetra %.1f"
 
 #: ../libgweather/weather.c:928
 msgid "Calm"
@@ -929,13 +931,13 @@ msgstr "%.1f milj"
 #: ../libgweather/weather.c:1006
 #, c-format
 msgid "%.1f km"
-msgstr "%1f km"
+msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
 #: ../libgweather/weather.c:1010
 #, c-format
 msgid "%.0fm"
-msgstr "%.0fm"
+msgstr "%.0f m"
 
 #: ../libgweather/weather.c:1039
 #: ../libgweather/weather.c:1060
@@ -946,13 +948,3 @@ msgstr "%H:%M"
 #: ../libgweather/weather.c:1119
 msgid "Retrieval failed"
 msgstr "Prevzem spodletel"
-
-#~ msgid "%.1f ℉"
-#~ msgstr "%.1f ℉"
-#~ msgid "%d ℉"
-#~ msgstr "%d ℉"
-#~ msgid "%.1f ℃"
-#~ msgstr "%.1f ℃"
-#~ msgid "%d ℃"
-#~ msgstr "%d ℃"
-
