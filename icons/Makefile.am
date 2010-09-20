@@ -1,4 +1,3 @@
-
 public_icons = \
 	16x16_status_weather-clear-night-000.png \
 	16x16_status_weather-clear-night-010.png \
@@ -459,38 +458,41 @@ noinst_DATA = \
 	32x32_status_weather-few-clouds-night-350.svg \
 	moonshadow.pl
 
-EXTRA_DIST = \
-	$(public_icons) \
-	$(noinst_DATA)
-
-
 gtk_update_icon_cache = gtk-update-icon-cache -f -t
+
+install-data-local: install-icons
+uninstall-local: uninstall-icons
+
+install-data-hook: update-icon-cache
+uninstall-hook: update-icon-cache
 
 install-icons:
 	-for icon in $(public_icons); do \
 		ICON=`echo $$icon | sed -e 's:_:/:g'`; \
 		ICONDIR=`dirname $$ICON`; \
-		mkdir -p $(DESTDIR)$(datadir)/$(subdir)/gnome/$$ICONDIR; \
-		echo INSTALL $(DESTDIR)$(datadir)/$(subdir)/gnome/$$ICON; \
-		$(INSTALL_DATA) $(srcdir)/$$icon $(DESTDIR)$(datadir)/$(subdir)/gnome/$$ICON; \
+		mkdir -p $(DESTDIR)$(datadir)/icons/gnome/$$ICONDIR; \
+		echo INSTALL $(DESTDIR)$(datadir)/icons/gnome/$$ICON; \
+		$(INSTALL_DATA) $(srcdir)/$$icon $(DESTDIR)$(datadir)/icons/gnome/$$ICON; \
 	done;
 
 uninstall-icons:
 	-for icon in $(public_icons); do \
 		ICON=`echo $$icon | sed -e 's:_:/:g'`; \
-		echo rm -f $(DESTDIR)$(datadir)/$(subdir)/gnome/$$ICON; \
-		rm -f $(DESTDIR)$(datadir)/$(subdir)/gnome/$$ICON; \
+		echo rm -f $(DESTDIR)$(datadir)/icons/gnome/$$ICON; \
+		rm -f $(DESTDIR)$(datadir)/icons/gnome/$$ICON; \
 	done
 
 update-icon-cache:
 	@-if test -z "$(DESTDIR)"; then \
 		echo "Updating Gtk icon cache."; \
-		$(gtk_update_icon_cache) $(DESTDIR)$(datadir)/$(subdir)/gnome; \
+		$(gtk_update_icon_cache) $(DESTDIR)$(datadir)/icons/gnome; \
 	else \
-		echo "*** Icon cache not updated.  After (un)install, run this:"; \
-		echo "***   $(gtk_update_icon_cache) $(DESTDIR)$(datadir)/$(subdir)/gnome"; \
+		echo "*** Icon cache not updated. After (un)install, run this:"; \
+		echo "***   $(gtk_update_icon_cache) $(DESTDIR)$(datadir)/icons/gnome"; \
 	fi
 
-install-data-local: install-icons update-icon-cache
+EXTRA_DIST = \
+	$(public_icons) \
+	$(noinst_DATA)
 
-uninstall-local: uninstall-icons update-icon-cache
+-include $(top_srcdir)/git.mk

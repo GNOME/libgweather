@@ -1,12 +1,12 @@
-SUBDIRS = po po-locations libgweather doc data icons
+SUBDIRS = libgweather icons doc data po po-locations
 
 ACLOCAL_AMFLAGS = -I m4
+
+DISTCHECK_CONFIGURE_FLAGS = --enable-gtk-doc --enable-introspection
 
 EXTRA_DIST =		\
 	HACKING		\
 	MAINTAINERS
-
-DISTCHECK_CONFIGURE_FLAGS = --enable-gtk-doc --enable-introspection
 
 MAINTAINERCLEANFILES = \
 	$(srcdir)/INSTALL \
