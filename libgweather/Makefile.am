@@ -120,7 +120,7 @@ GWeather-3.0.gir: libgweather-3.la Makefile
 GWeather_3_0_gir_INCLUDES = GObject-2.0 Gtk-3.0
 GWeather_3_0_gir_CFLAGS = $(libgweather_3_la_CPPFLAGS) -DGWEATHER_I_KNOW_THIS_IS_UNSTABLE
 GWeather_3_0_gir_LIBS = libgweather-3.la
-GWeather_3_0_gir_SCANNERFLAGS = --pkg-export=gweather-3.0
+GWeather_3_0_gir_SCANNERFLAGS = --identifier-prefix=GWeather --symbol-prefix=gweather --pkg-export=gweather-3.0
 GWeather_3_0_gir_FILES = $(addprefix $(srcdir)/,$(introspection_sources))
 INTROSPECTION_GIRS += GWeather-3.0.gir
 
