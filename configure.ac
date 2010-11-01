@@ -227,7 +227,7 @@ AC_SUBST(GLADEDIR)
 ##################################################
 GTK_DOC_CHECK([1.9])
 
-GOBJECT_INTROSPECTION_CHECK([0.6.7])
+GOBJECT_INTROSPECTION_CHECK([0.9.5])
 
 dnl ***************************************************************************
 dnl *** Output Makefiles et al                                              ***
