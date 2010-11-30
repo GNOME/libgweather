@@ -65,14 +65,14 @@ libgweather_3_la_LDFLAGS = \
 
 test_metar_SOURCES = test_metar.c
 test_metar_CPPFLAGS = $(AM_CPPFLAGS) $(LIBSOUP_CFLAGS)
-test_metar_LDADD = libgweather-3.la
+test_metar_LDADD = libgweather-3.la $(GTK_LIBS)
 
 test_locations_SOURCES = test_locations.c
-test_locations_LDADD = libgweather-3.la
+test_locations_LDADD = libgweather-3.la $(GTK_LIBS)
 
 test_sun_moon_SOURCES = test_sun_moon.c
 test_sun_moon_CPPFLAGS = $(AM_CPPFLAGS) $(LIBSOUP_CFLAGS)
-test_sun_moon_LDADD = libgweather-3.la
+test_sun_moon_LDADD = libgweather-3.la $(GTK_LIBS)
 
 gweather-enum-types.h: $(gweather_new_headers)
 	$(AM_V_GEN)( cd $(srcdir) && $(GLIB_MKENUMS) --template gweather-enum-types.h.tmpl \
