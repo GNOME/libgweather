@@ -1,13 +1,16 @@
 # Uighur translation for libgweather.
 # Copyright (C) 2010 libgweather's COPYRIGHT HOLDER
 # This file is distributed under the same license as the libgweather package.
-# Gheyret Kenji <gheyret@yahoo.com>, 2010.
+# Gheyret Kenji<gheyret@yahoo.com>,2010.
+# Sahran <sahran.ug@gmail.com>, 2010.
+# Zeper <zeper@msn.com>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather gnome-2-30\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-applets&component=gweather\n"
-"POT-Creation-Date: 2010-11-13 21:47+0000\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"applets&component=gweather\n"
+"POT-Creation-Date: 2010-12-23 19:22+0000\n"
 "PO-Revision-Date: 2010-08-25 18:50+0000\n"
 "Last-Translator: Gheyret Kenji <gheyret@yahoo.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -29,7 +32,7 @@ msgstr ""
 #: ../libgweather/gweather-gconf.c:212 ../libgweather/gweather-gconf.c:213
 #: ../libgweather/gweather.schemas.in.h:5
 msgid "DEFAULT_LOCATION"
-msgstr ""
+msgstr "ئۈرۈمچى"
 
 #. TRANSLATOR: Change this to the code of your default location that
 #. * corresponds to the DEFAULT_LOCATION name you put above. This is
@@ -45,7 +48,7 @@ msgstr ""
 #: ../libgweather/gweather-gconf.c:232 ../libgweather/gweather-gconf.c:233
 #: ../libgweather/gweather.schemas.in.h:3
 msgid "DEFAULT_CODE"
-msgstr ""
+msgstr "ZWWW"
 
 #. TRANSLATOR: Change this to the zone of your default location that
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
@@ -61,7 +64,7 @@ msgstr ""
 #: ../libgweather/gweather-gconf.c:252 ../libgweather/gweather-gconf.c:253
 #: ../libgweather/gweather.schemas.in.h:7
 msgid "DEFAULT_ZONE"
-msgstr ""
+msgstr "Asia/Urumqi"
 
 #. TRANSLATOR: Change this to the radar of your default location that
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
@@ -78,7 +81,7 @@ msgstr ""
 #: ../libgweather/gweather-gconf.c:273 ../libgweather/gweather-gconf.c:274
 #: ../libgweather/gweather.schemas.in.h:6
 msgid "DEFAULT_RADAR"
-msgstr ""
+msgstr "DEFAULT_RADAR"
 
 #. TRANSLATOR: Change this to the coordinates of your default location
 #. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
@@ -95,7 +98,7 @@ msgstr ""
 #: ../libgweather/gweather-gconf.c:294 ../libgweather/gweather-gconf.c:295
 #: ../libgweather/gweather.schemas.in.h:4
 msgid "DEFAULT_COORDINATES"
-msgstr ""
+msgstr "87-46N 43-90E"
 
 #: ../libgweather/gweather-prefs.c:34 ../libgweather/gweather-prefs.c:45
 #: ../libgweather/gweather-prefs.c:60 ../libgweather/gweather-prefs.c:77
@@ -155,7 +158,7 @@ msgstr "خېكتوپاسكال"
 #. translators: millibars
 #: ../libgweather/gweather-prefs.c:66
 msgid "mb"
-msgstr "mb"
+msgstr "مىللىبار"
 
 #. translators: millimeters of mercury
 #: ../libgweather/gweather-prefs.c:68
@@ -191,14 +194,14 @@ msgstr "mi"
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
 #: ../libgweather/gweather-prefs.c:103 ../libgweather/gweather-prefs.c:111
 msgid "DEFAULT_TEMP_UNIT"
-msgstr ""
+msgstr "C"
 
 #. TRANSLATOR: This is the default unit to use for wind speed.
 #. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
 #. "mph" (miles per hour) and "knots"
 #: ../libgweather/gweather-prefs.c:141 ../libgweather/gweather-prefs.c:151
 msgid "DEFAULT_SPEED_UNIT"
-msgstr ""
+msgstr "km/h"
 
 #. TRANSLATOR: This is the default unit to use for atmospheric pressure.
 #. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
@@ -206,73 +209,84 @@ msgstr ""
 #. "inHg" (inches of mercury) and "atm" (atmosphere)
 #: ../libgweather/gweather-prefs.c:183 ../libgweather/gweather-prefs.c:194
 msgid "DEFAULT_PRESSURE_UNIT"
-msgstr ""
+msgstr "kPa"
 
 #. TRANSLATOR: This is the default unit to use for visibility distance.
 #. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
 #: ../libgweather/gweather-prefs.c:224 ../libgweather/gweather-prefs.c:233
 msgid "DEFAULT_DISTANCE_UNIT"
-msgstr ""
+msgstr "m"
 
 #: ../libgweather/gweather-timezone.c:314
 msgid "Greenwich Mean Time"
-msgstr ""
+msgstr "گىرىنۋىچ ۋاقتى"
 
 #: ../libgweather/gweather.schemas.in.h:1
 msgid ""
 "A three-digit-long code for retrieving radar maps from weather.com, found "
 "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
+"weather.com دىن رادار خەرىتىسىنى ئوقۇش ئۈچۈن ئىشلىتىلىدىغان 3 خانىلىق سان. "
+"تەپسىلاتى ئۈچۈن http://git.gnome.org/cgit/libgweather/plain/data/Locations."
+"xml.in گە قاراڭ."
 
 #: ../libgweather/gweather.schemas.in.h:2
 msgid ""
 "A unique zone for the city, as found from http://git.gnome.org/cgit/"
 "libgweather/plain/data/Locations.xml.in"
 msgstr ""
+"شەھەرنى ئېنىق پەرق قىلىشتا ئىشلىتىلىدىغان بەلۋاغ. تەپسىلاتى ئۈچۈن http://git."
+"gnome.org/cgit/libgweather/plain/data/Locations.xml.in گە قاراڭ."
 
 #: ../libgweather/gweather.schemas.in.h:8
 msgid ""
 "Determines whether the applet automatically updates its weather statistics "
 "or not."
-msgstr ""
+msgstr "قوللانچاق ھاۋارايى ئەھۋالىنى ئاپتوماتىك يېڭىلامدۇ يوق."
 
 #: ../libgweather/gweather.schemas.in.h:9
 msgid "Display radar map"
-msgstr ""
+msgstr "رادار خەرىتىسىنى كۆرسەت"
 
 #: ../libgweather/gweather.schemas.in.h:10
 msgid "Distance unit"
-msgstr ""
+msgstr "ئارىلىق بىرلىكى"
 
 #: ../libgweather/gweather.schemas.in.h:11
 msgid "Fetch a radar map on each update."
-msgstr ""
+msgstr "ھەر بىر يېڭىلىغاندا رادار خەرىتىسىنى ئوقۇيدۇ."
 
 #: ../libgweather/gweather.schemas.in.h:12
 msgid ""
 "If true, then retrieve a radar map from a location specified by the \"radar"
 "\" key."
 msgstr ""
+"ئەگەر true تاللانسا، «radar» دېگەن ئاچقۇچ كۆرسەتكەن يەردىن رادار خەرىتىسىنى "
+"ئوقۇيدۇ."
 
 #: ../libgweather/gweather.schemas.in.h:13
 msgid ""
 "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
 "[EW]."
 msgstr ""
+"سىز تۇرۇشلۇق ئورۇننىڭ مېرىدىئان ۋە پاراللېلىنىڭ ئىپادىلىنىش شەكلى DD-MM-SS"
+"[NS] DD-MM-SS[EW] "
 
 #: ../libgweather/gweather.schemas.in.h:14
 msgid "Location coordinates"
-msgstr ""
+msgstr "ئورۇن كوئوردېناتى"
 
 #: ../libgweather/gweather.schemas.in.h:15
 msgid "Nearby city"
-msgstr ""
+msgstr "قوشنا شەھەر"
 
 #: ../libgweather/gweather.schemas.in.h:16
 msgid ""
 "Nearby major zone, such as a capital city, as found from http://git.gnome."
 "org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
+"پايتەخت قاتارلىق مۇھىم شەھەرلەرنىڭ بەلۋېغى. تەپسىلاتى ئۈچۈن http://git.gnome."
+"org/cgit/libgweather/plain/data/Locations.xml.in گە قاراڭ."
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -280,11 +294,11 @@ msgstr "قايتا ئىشلەتمە"
 
 #: ../libgweather/gweather.schemas.in.h:18
 msgid "Pressure unit"
-msgstr ""
+msgstr "بېسىم بىرلىكى"
 
 #: ../libgweather/gweather.schemas.in.h:19
 msgid "Radar location"
-msgstr ""
+msgstr "رادار ئورنى"
 
 #: ../libgweather/gweather.schemas.in.h:20
 msgid "Speed unit"
@@ -296,71 +310,71 @@ msgstr "تېمپېراتۇرا بىرلىكى"
 
 #: ../libgweather/gweather.schemas.in.h:22
 msgid "The city that gweather displays information for."
-msgstr ""
+msgstr "gweather دا ئۇچۇرلىرى كۆرسىتىلىدىغان شەھەر."
 
 #: ../libgweather/gweather.schemas.in.h:23
 msgid "The custom url from where to retrieve a radar map."
-msgstr ""
+msgstr "رادار خەرىتىسىنى ئوقۇيدىغان ئىختىيارى url."
 
 #: ../libgweather/gweather.schemas.in.h:24
 msgid "The interval, in seconds, between automatic updates."
-msgstr ""
+msgstr "ئاپتوماتىك يېڭىلاش ئارىلىقى(سېكۇنت)."
 
 #: ../libgweather/gweather.schemas.in.h:25
 msgid "The unit to use for pressure."
-msgstr ""
+msgstr "بېسىم ئۈچۈن ئىشلىتىلىدىغان بىرلىك."
 
 #: ../libgweather/gweather.schemas.in.h:26
 msgid "The unit to use for temperature."
-msgstr ""
+msgstr "تېمپېراتۇرا ئۈچۈن ئىشلىتىلىدىغان بىرلىك."
 
 #: ../libgweather/gweather.schemas.in.h:27
 msgid "The unit to use for visibility."
-msgstr ""
+msgstr "كۆرۈش دەرىجىسى ئۈچۈن ئىشلىتىلىدىغان بىرلىك."
 
 #: ../libgweather/gweather.schemas.in.h:28
 msgid "The unit to use for wind speed."
-msgstr ""
+msgstr "شامال تېزلىكى ئۈچۈن ئىشلىتىلىدىغان بىرلىك"
 
 #: ../libgweather/gweather.schemas.in.h:29
 msgid "Update interval"
-msgstr ""
+msgstr "يېڭىلاش ئارىلىقى"
 
 #: ../libgweather/gweather.schemas.in.h:30
 msgid "Update the data automatically"
-msgstr ""
+msgstr "سانلىق مەلۇماتلارنى  ئاپتوماتىك يېڭىلايدۇ"
 
 #: ../libgweather/gweather.schemas.in.h:31
 msgid "Url for the radar map"
-msgstr ""
+msgstr "رادار خەرىتىسىنىڭ Url ئى"
 
 #: ../libgweather/gweather.schemas.in.h:32
 msgid "Use custom url for the radar map"
-msgstr ""
+msgstr "ئىختىيارىي رادار Url نى ئىشلەت"
 
 #: ../libgweather/gweather.schemas.in.h:33
 msgid "Use metric units"
-msgstr ""
+msgstr "مېتىر بىرلىكى ئىشلەت"
 
 #: ../libgweather/gweather.schemas.in.h:34
 msgid "Use metric units instead of english units."
-msgstr ""
+msgstr "ئىنگلىز بىرلىكلىرى ئورنىغا مېتىر بىرلىكلىرىنى ئىشلىتىدۇ."
 
 #: ../libgweather/gweather.schemas.in.h:35
 msgid "Weather for a city"
-msgstr ""
+msgstr "شەھەر ھاۋارايى"
 
 #: ../libgweather/gweather.schemas.in.h:36
 msgid "Weather location information"
-msgstr ""
+msgstr "ھاۋارايى ئورۇن ئۇچۇرى"
 
 #: ../libgweather/gweather.schemas.in.h:37
 msgid "Weather location information."
-msgstr ""
+msgstr "ھاۋارايى ئورۇن ئۇچۇرى."
 
 #: ../libgweather/gweather.schemas.in.h:38
 msgid "Zone location"
-msgstr ""
+msgstr "بەلۋاغ ئورنى"
 
 #: ../libgweather/timezone-menu.c:277
 msgctxt "timezone"
@@ -371,15 +385,15 @@ msgstr "نامەلۇم"
 #: ../libgweather/weather-metar.c:504
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
-msgstr ""
+msgstr "METAR سانلىق-مەلۇماتلىرىغا ئېرىشەلمىدى: %d %s .\n"
 
 #: ../libgweather/weather-metar.c:548
 msgid "WeatherInfo missing location"
-msgstr ""
+msgstr "ھاۋارايى ئۇچۇرى يوق ئورۇن"
 
 #: ../libgweather/weather.c:232
 msgid "Variable"
-msgstr "ئۆزگىرىشچان"
+msgstr "ئۆزگەرگۈچى"
 
 #: ../libgweather/weather.c:233
 msgid "North"
@@ -387,15 +401,15 @@ msgstr "شىمال"
 
 #: ../libgweather/weather.c:233
 msgid "North - NorthEast"
-msgstr ""
+msgstr "شىمال - شەرقىي شىمال"
 
 #: ../libgweather/weather.c:233
 msgid "Northeast"
-msgstr ""
+msgstr "شەرقىي شىمال"
 
 #: ../libgweather/weather.c:233
 msgid "East - NorthEast"
-msgstr ""
+msgstr "شەرق - شەرقىي شىمال"
 
 #: ../libgweather/weather.c:234
 msgid "East"
@@ -403,15 +417,15 @@ msgstr "شەرق"
 
 #: ../libgweather/weather.c:234
 msgid "East - Southeast"
-msgstr ""
+msgstr "شەرق - شەرقىي جەنۇب"
 
 #: ../libgweather/weather.c:234
 msgid "Southeast"
-msgstr ""
+msgstr "شەرقىي جەنۇب"
 
 #: ../libgweather/weather.c:234
 msgid "South - Southeast"
-msgstr ""
+msgstr "جەنۇب - شەرقىي جەنۇب"
 
 #: ../libgweather/weather.c:235
 msgid "South"
@@ -419,15 +433,15 @@ msgstr "جەنۇب"
 
 #: ../libgweather/weather.c:235
 msgid "South - Southwest"
-msgstr ""
+msgstr "جەنۇب - غەربىي جەنۇب"
 
 #: ../libgweather/weather.c:235
 msgid "Southwest"
-msgstr ""
+msgstr "غەربىي جەنۇب"
 
 #: ../libgweather/weather.c:235
 msgid "West - Southwest"
-msgstr ""
+msgstr "غەرب - غەربىي جەنۇب"
 
 #: ../libgweather/weather.c:236
 msgid "West"
@@ -435,15 +449,15 @@ msgstr "غەرب"
 
 #: ../libgweather/weather.c:236
 msgid "West - Northwest"
-msgstr ""
+msgstr "غەرب - غەربىي شىمال"
 
 #: ../libgweather/weather.c:236
 msgid "Northwest"
-msgstr ""
+msgstr "غەربىي شىمال"
 
 #: ../libgweather/weather.c:236
 msgid "North - Northwest"
-msgstr ""
+msgstr "شىمال - غەربىي شىمال"
 
 #: ../libgweather/weather.c:243 ../libgweather/weather.c:260
 #: ../libgweather/weather.c:332
@@ -452,19 +466,19 @@ msgstr "ئىناۋەتسىز"
 
 #: ../libgweather/weather.c:249
 msgid "Clear Sky"
-msgstr ""
+msgstr "ھاۋا ئوچۇق"
 
 #: ../libgweather/weather.c:250
 msgid "Broken clouds"
-msgstr ""
+msgstr "پارچە بۇلۇت"
 
 #: ../libgweather/weather.c:251
 msgid "Scattered clouds"
-msgstr ""
+msgstr "تارقاق بۇلۇت"
 
 #: ../libgweather/weather.c:252
 msgid "Few clouds"
-msgstr ""
+msgstr "نېپىز بۇلۇت"
 
 #: ../libgweather/weather.c:253
 msgid "Overcast"
@@ -476,7 +490,7 @@ msgstr "بۇلۇتلۇق"
 #. NONE
 #: ../libgweather/weather.c:292 ../libgweather/weather.c:294
 msgid "Thunderstorm"
-msgstr ""
+msgstr "گۈلدۈرماما"
 
 #. DRIZZLE
 #: ../libgweather/weather.c:293
@@ -485,19 +499,19 @@ msgstr "سىم-سىم يامغۇر"
 
 #: ../libgweather/weather.c:293
 msgid "Light drizzle"
-msgstr ""
+msgstr "ئۆتكۈنچە سىم-سىم يامغۇر"
 
 #: ../libgweather/weather.c:293
 msgid "Moderate drizzle"
-msgstr ""
+msgstr "ئوتتۇراھال سىم-سىم يامغۇر"
 
 #: ../libgweather/weather.c:293
 msgid "Heavy drizzle"
-msgstr ""
+msgstr "قاتتىق سىم-سىم يامغۇر"
 
 #: ../libgweather/weather.c:293
 msgid "Freezing drizzle"
-msgstr ""
+msgstr "سوغۇق سىم-سىم يامغۇر"
 
 #. RAIN
 #: ../libgweather/weather.c:294
@@ -506,23 +520,23 @@ msgstr "يامغۇر"
 
 #: ../libgweather/weather.c:294
 msgid "Light rain"
-msgstr ""
+msgstr "ئۆتكۈنچە يامغۇر"
 
 #: ../libgweather/weather.c:294
 msgid "Moderate rain"
-msgstr ""
+msgstr "ئوتتۇراھال يامغۇر"
 
 #: ../libgweather/weather.c:294
 msgid "Heavy rain"
-msgstr ""
+msgstr "قاتتىق يامغۇر"
 
 #: ../libgweather/weather.c:294
 msgid "Rain showers"
-msgstr ""
+msgstr "ئۆتكۈنچى يامغۇر"
 
 #: ../libgweather/weather.c:294
 msgid "Freezing rain"
-msgstr ""
+msgstr "سوغۇق يامغۇر"
 
 #. SNOW
 #: ../libgweather/weather.c:295
@@ -531,78 +545,78 @@ msgstr "قار"
 
 #: ../libgweather/weather.c:295
 msgid "Light snow"
-msgstr ""
+msgstr "بوش قار"
 
 #: ../libgweather/weather.c:295
 msgid "Moderate snow"
-msgstr ""
+msgstr "ئوتتۇراھال قار"
 
 #: ../libgweather/weather.c:295
 msgid "Heavy snow"
-msgstr ""
+msgstr "قاتتىق قار"
 
 #: ../libgweather/weather.c:295
 msgid "Snowstorm"
-msgstr ""
+msgstr "شىۋىرغان"
 
 #: ../libgweather/weather.c:295
 msgid "Blowing snowfall"
-msgstr ""
+msgstr "شاماللىق قار"
 
 #: ../libgweather/weather.c:295
 msgid "Snow showers"
-msgstr ""
+msgstr "ئۆتكۈنچى قار"
 
 #: ../libgweather/weather.c:295
 msgid "Drifting snow"
-msgstr ""
+msgstr "تۆۋەن ئۇچۇرتۇلغان قار"
 
 #. SNOW_GRAINS
 #: ../libgweather/weather.c:296
 msgid "Snow grains"
-msgstr ""
+msgstr "دانچە قار"
 
 #: ../libgweather/weather.c:296
 msgid "Light snow grains"
-msgstr ""
+msgstr "ئۇششاق دانچە قار"
 
 #: ../libgweather/weather.c:296
 msgid "Moderate snow grains"
-msgstr ""
+msgstr "ئوتتۇراھال دانچە قار"
 
 #: ../libgweather/weather.c:296
 msgid "Heavy snow grains"
-msgstr ""
+msgstr "چوڭ دانچە قار"
 
 #. ICE_CRYSTALS
 #: ../libgweather/weather.c:297
 msgid "Ice crystals"
-msgstr ""
+msgstr "مۇز كرىستالى"
 
 #. ICE_PELLETS
 #: ../libgweather/weather.c:298
 msgid "Ice pellets"
-msgstr ""
+msgstr "مۇز شارچىسى"
 
 #: ../libgweather/weather.c:298
 msgid "Few ice pellets"
-msgstr ""
+msgstr "كىچىك مۇز شارچىسى"
 
 #: ../libgweather/weather.c:298
 msgid "Moderate ice pellets"
-msgstr ""
+msgstr "ئوتتۇراھال مۇز شارچىسى"
 
 #: ../libgweather/weather.c:298
 msgid "Heavy ice pellets"
-msgstr ""
+msgstr "چوڭ مۇز شارچىسى"
 
 #: ../libgweather/weather.c:298
 msgid "Ice pellet storm"
-msgstr ""
+msgstr "شىۋىرغانلىق مۇز شارچىسى"
 
 #: ../libgweather/weather.c:298
 msgid "Showers of ice pellets"
-msgstr ""
+msgstr "مۇز شارچىسى يامغۇرى"
 
 #. HAIL
 #: ../libgweather/weather.c:299
@@ -611,34 +625,34 @@ msgstr "مۆلدۈر"
 
 #: ../libgweather/weather.c:299
 msgid "Hailstorm"
-msgstr ""
+msgstr "مۆلدۈر ئارىلاش بوران"
 
 #: ../libgweather/weather.c:299
 msgid "Hail showers"
-msgstr ""
+msgstr "ئۆتكۈنچى مۆلدۈر"
 
 #. SMALL_HAIL
 #: ../libgweather/weather.c:300
 msgid "Small hail"
-msgstr ""
+msgstr "ئۇششاق مۆلدۈر"
 
 #: ../libgweather/weather.c:300
 msgid "Small hailstorm"
-msgstr ""
+msgstr "ئۇششاق مۆلدۈر ئارىلاش بوران"
 
 #: ../libgweather/weather.c:300
 msgid "Showers of small hail"
-msgstr ""
+msgstr "ئۇششاق مۆلدۈر يامغۇرى"
 
 #. PRECIPITATION
 #: ../libgweather/weather.c:301
 msgid "Unknown precipitation"
-msgstr ""
+msgstr "نامەلۇم ئالدىن مەلۇمات"
 
 #. MIST
 #: ../libgweather/weather.c:302
 msgid "Mist"
-msgstr "Mist"
+msgstr "سۈزۈك تۇمان"
 
 #. FOG
 #: ../libgweather/weather.c:303
@@ -647,23 +661,23 @@ msgstr "تۇمان"
 
 #: ../libgweather/weather.c:303
 msgid "Fog in the vicinity"
-msgstr ""
+msgstr "يېقىن ئېتىراپتىكى تۇمان"
 
 #: ../libgweather/weather.c:303
 msgid "Shallow fog"
-msgstr ""
+msgstr "تېيىز تۇمان"
 
 #: ../libgweather/weather.c:303
 msgid "Patches of fog"
-msgstr ""
+msgstr "قىسمەن دائىرىلىك تۇمان"
 
 #: ../libgweather/weather.c:303
 msgid "Partial fog"
-msgstr ""
+msgstr "دائىرىلىك تۇمانلىق"
 
 #: ../libgweather/weather.c:303
 msgid "Freezing fog"
-msgstr ""
+msgstr "توڭ تۇمان"
 
 #. SMOKE
 #: ../libgweather/weather.c:304
@@ -673,30 +687,30 @@ msgstr "تۈتەك"
 #. VOLCANIC_ASH
 #: ../libgweather/weather.c:305
 msgid "Volcanic ash"
-msgstr ""
+msgstr "ۋولقان كۈلى"
 
 #. SAND
 #: ../libgweather/weather.c:306
 msgid "Sand"
-msgstr ""
+msgstr "قۇم"
 
 #: ../libgweather/weather.c:306
 msgid "Blowing sand"
-msgstr ""
+msgstr "شامالدا ئۇچقان قۇم"
 
 #: ../libgweather/weather.c:306
 msgid "Drifting sand"
-msgstr ""
+msgstr "ئاقما قۇم"
 
 #. HAZE
 #: ../libgweather/weather.c:307
 msgid "Haze"
-msgstr "تۇمان"
+msgstr "سۇس تۇمان"
 
 #. SPRAY
 #: ../libgweather/weather.c:308
 msgid "Blowing sprays"
-msgstr ""
+msgstr "شاماللىق تۇمان"
 
 #. DUST
 #: ../libgweather/weather.c:309
@@ -705,61 +719,61 @@ msgstr "چاڭ-توزان"
 
 #: ../libgweather/weather.c:309
 msgid "Blowing dust"
-msgstr ""
+msgstr "شاماللىق چاڭ-توزان"
 
 #: ../libgweather/weather.c:309
 msgid "Drifting dust"
-msgstr ""
+msgstr "لەيلىمە چاڭ-توزان"
 
 #. SQUALL
 #: ../libgweather/weather.c:310
 msgid "Squall"
-msgstr ""
+msgstr "قارا بوران"
 
 #. SANDSTORM
 #: ../libgweather/weather.c:311
 msgid "Sandstorm"
-msgstr ""
+msgstr "قۇم-بوران"
 
 #: ../libgweather/weather.c:311
 msgid "Sandstorm in the vicinity"
-msgstr ""
+msgstr "يېقىن ئېتىراپتىكى قۇم-بوران"
 
 #: ../libgweather/weather.c:311
 msgid "Heavy sandstorm"
-msgstr ""
+msgstr "قاتتىق قۇم-بوران"
 
 #. DUSTSTORM
 #: ../libgweather/weather.c:312
 msgid "Duststorm"
-msgstr ""
+msgstr "چاڭ-توزانلىق بوران"
 
 #: ../libgweather/weather.c:312
 msgid "Duststorm in the vicinity"
-msgstr ""
+msgstr "يېقىن ئېتىراپتىكى چاڭ-توزانلىق بوران"
 
 #: ../libgweather/weather.c:312
 msgid "Heavy duststorm"
-msgstr ""
+msgstr "قاتتىق چاڭ-توزانلىق بوران"
 
 #. FUNNEL_CLOUD
 #: ../libgweather/weather.c:313
 msgid "Funnel cloud"
-msgstr ""
+msgstr "سۈكەن بۇلۇت"
 
 #. TORNADO
 #: ../libgweather/weather.c:314
 msgid "Tornado"
-msgstr ""
+msgstr "قارا قۇيۇن"
 
 #. DUST_WHIRLS
 #: ../libgweather/weather.c:315
 msgid "Dust whirls"
-msgstr ""
+msgstr "قۇيۇن"
 
 #: ../libgweather/weather.c:315
 msgid "Dust whirls in the vicinity"
-msgstr ""
+msgstr "يېقىن ئېتىراپتىكى قۇيۇن"
 
 #. TRANSLATOR: this is a format string for strftime
 #. *             see `man 3 strftime` for more details
@@ -770,7 +784,7 @@ msgstr "%a، %b %d / %H:%M"
 
 #: ../libgweather/weather.c:725
 msgid "Unknown observation time"
-msgstr ""
+msgstr "نامەلۇم كۆزىتىش ۋاقتى"
 
 #: ../libgweather/weather.c:739 ../libgweather/weather.c:790
 #: ../libgweather/weather.c:804 ../libgweather/weather.c:817
@@ -854,11 +868,11 @@ msgstr "%.1f m/s"
 #: ../libgweather/weather.c:910
 #, c-format
 msgid "Beaufort force %.1f"
-msgstr ""
+msgstr "شامال كۈچى %.1f"
 
 #: ../libgweather/weather.c:935
 msgid "Calm"
-msgstr ""
+msgstr "تىنچ"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
 #: ../libgweather/weather.c:939
@@ -926,7 +940,7 @@ msgstr "%H:%M"
 
 #: ../libgweather/weather.c:1126
 msgid "Retrieval failed"
-msgstr ""
+msgstr "ئىزدەش مەغلۇپ بولدى"
 
 #~ msgid "Africa"
 #~ msgstr "ئافرىقا"
@@ -943,7 +957,7 @@ msgstr ""
 #~ msgstr "ئاتلانتىك ئوكيان"
 
 #~ msgid "Central and South America"
-#~ msgstr "ئوتتۇرا ۋە جەنۇبىي ئامەرىكا"
+#~ msgstr "ئوتتۇرا ۋە جەنۇبىي ئامېرىكا"
 
 #~ msgid "Europe"
 #~ msgstr "ياۋروپا"
@@ -952,7 +966,7 @@ msgstr ""
 #~ msgstr "ئوتتۇرا شەرق"
 
 #~ msgid "North America"
-#~ msgstr "شىمالىي ئامەرىكا"
+#~ msgstr "شىمالىي ئامېرىكا"
 
 #~ msgid "Afghanistan"
 #~ msgstr "ئافغانىستان"
@@ -1100,7 +1114,7 @@ msgstr ""
 #~ msgstr "كومورو"
 
 #~ msgid "Congo, Democratic Republic of the"
-#~ msgstr "دەموكىراتىك كوڭو"
+#~ msgstr "دېموكراتىك كونگو"
 
 #~ msgid "Congo, Republic of the"
 #~ msgstr "كونگو جۇمھۇرىيىتى"
@@ -1655,7 +1669,7 @@ msgstr ""
 #~ msgstr "ئامېرىكا قوشما شتاتلىرى سىرتىدىكى ئاراللار"
 
 #~ msgid "United States Virgin Islands"
-#~ msgstr "ئامېرىكىغا قاراشلىق ۋىرگىن تاقىم ئاراللىرى"
+#~ msgstr "ئامېرىكىغا قاراشلىق ۋىرجىن تاقىم ئاراللىرى"
 
 #~ msgid "Uruguay"
 #~ msgstr "ئۇرۇگۋاي"
@@ -1694,16 +1708,16 @@ msgstr ""
 #~ msgstr "ئالاند تاقىم ئاراللىرى"
 
 #~ msgid "Western Congo"
-#~ msgstr "غەربىي كوڭو"
+#~ msgstr "غەربىي كونگو"
 
 #~ msgid "Eastern Congo"
-#~ msgstr "شەرقىي كوڭو"
+#~ msgstr "شەرقىي كونگو"
 
 #~ msgid "Palmer Station (Chile Time)"
-#~ msgstr "پالمەر پونكىتى(چىلى ۋاقتى)"
+#~ msgstr "پالمېر پونكىتى(چىلى ۋاقتى)"
 
 #~ msgid "Rothera Research Station"
-#~ msgstr "روتەرا تەتقىقات پونكىتى"
+#~ msgstr "روتېرا تەتقىقات پونكىتى"
 
 #~ msgid "Showa Station"
 #~ msgstr "شوۋا پونكىتى"
@@ -1712,13 +1726,13 @@ msgstr ""
 #~ msgstr "ماۋسون پونكىتى"
 
 #~ msgid "Vostok Station"
-#~ msgstr "ۋوستول پونكىتى"
+#~ msgstr "ۋوستوك پونكىتى"
 
 #~ msgid "Davis Station"
-#~ msgstr "دەۋىس پونكىتى"
+#~ msgstr "داۋىس پونكىتى"
 
 #~ msgid "Casey Station (Western Australia Time)"
-#~ msgstr "كاسەي پونكىتى"
+#~ msgstr "كاسېي پونكىتى"
 
 #~ msgid "Dumont d'Urville Station"
 #~ msgstr "Dumont d'Urville پونكىتى"
@@ -1727,16 +1741,16 @@ msgstr ""
 #~ msgstr "ماك-مۇردو پونكىتى"
 
 #~ msgid "Eastern Kazakhstan"
-#~ msgstr "شەرقىي قاساقىستان"
+#~ msgstr "شەرقىي قازاقىستان"
 
 #~ msgid "Western Kazakhstan"
 #~ msgstr "غەربىي قازاقىستان"
 
 #~ msgid "Eastern Mongolia"
-#~ msgstr "شەرقىي موڭغولىيە"
+#~ msgstr "شەرقىي موڭغۇلىيە"
 
 #~ msgid "Western Mongolia"
-#~ msgstr "غەربىي موڭغولىيە"
+#~ msgstr "غەربىي موڭغۇلىيە"
 
 #~ msgid "Central Mongolia"
 #~ msgstr "ئوتتۇرا موڭغۇلىيە"
@@ -1745,10 +1759,10 @@ msgstr ""
 #~ msgstr "دانماركشاۋن"
 
 #~ msgid "Western Greenland"
-#~ msgstr "غەربىي گرەنلاند"
+#~ msgstr "غەربىي گىرېنلاند"
 
 #~ msgid "Eastern Greenland"
-#~ msgstr "شەرقىي گرەنلاند"
+#~ msgstr "شەرقىي گىرېنلاند"
 
 #~ msgid "Thule AFB"
 #~ msgstr "تۇلې AFB"
@@ -1763,13 +1777,13 @@ msgstr ""
 #~ msgstr "ئوتتۇرا غەربىي رايون ۋاقتى"
 
 #~ msgid "Central Time (South Australia)"
-#~ msgstr "ئوتتۇرا رايون ۋاقتى(غەربىي ئاۋىسترالىيە)"
+#~ msgstr "ئوتتۇرا رايون ۋاقتى(غەربىي ئاۋسترالىيە)"
 
 #~ msgid "Central Time (Yancowinna, NSW)"
-#~ msgstr "ئوتتۇرا رايون ۋاقتى(ياكوۋىننا، НСВ)"
+#~ msgstr "ئوتتۇرا رايون ۋاقتى(يانكوۋىننا، НСВ)"
 
 #~ msgid "Central Time (Northern Territory)"
-#~ msgstr "ئوتتۇرا رايون ۋاقتى(شىمالىي تەررىتورىيە)"
+#~ msgstr "ئوتتۇرا رايون ۋاقتى(شىمالىي تېررىتورىيە)"
 
 #~ msgid "Eastern Time (Tasmania)"
 #~ msgstr "شەرقىي رايون ۋاقتى(تاسمانىيە)"
@@ -1778,7 +1792,7 @@ msgstr ""
 #~ msgstr "شەرقىي رايون ۋاقتى(ۋىكتورىيە)"
 
 #~ msgid "Eastern Time (New South Wales)"
-#~ msgstr "شەرقىي رايون ۋاقتى(يەڭى جەنۇبىي ۋېيلىس)"
+#~ msgstr "شەرقىي رايون ۋاقتى(يېڭى جەنۇبىي ۋېيلىس)"
 
 #~ msgid "Eastern Time (Queensland)"
 #~ msgstr "شەرقىي رايون ۋاقتى(كىۋىنسلاند)"
@@ -1796,13 +1810,13 @@ msgstr ""
 #~ msgstr "گامبىيېر ئارىلى"
 
 #~ msgid "Western Indonesia Time"
-#~ msgstr "غەربىي ھىندونەزىيە ۋاقتى"
+#~ msgstr "غەربىي ھىندونېزىيە ۋاقتى"
 
 #~ msgid "Central Indonesia Time"
-#~ msgstr "ئوتتۇرا  ھىندونەزىيە ۋاقتى"
+#~ msgstr "ئوتتۇرا  ھىندونېزىيە ۋاقتى"
 
 #~ msgid "Eastern Indonesia Time"
-#~ msgstr "شەرقىي  ھىندونەزىيە ۋاقتى"
+#~ msgstr "شەرقىي  ھىندونېزىيە ۋاقتى"
 
 #~ msgid "Gilbert Islands"
 #~ msgstr "گىلبېرت ئارىلى"
@@ -1820,7 +1834,7 @@ msgstr ""
 #~ msgstr "ياپ/چۇك"
 
 #~ msgid "Mainland New Zealand"
-#~ msgstr "يەڭى زەلاندىيە"
+#~ msgstr "يېڭى زېلاندىيە"
 
 #~ msgid "Chatham Islands"
 #~ msgstr "چاتام تاقىم ئاراللىرى"
@@ -1889,7 +1903,7 @@ msgstr ""
 #~ msgstr "پاسكاليا ئارىلى"
 
 #~ msgid "Mainland Ecuador"
-#~ msgstr "ئەكۋاتور"
+#~ msgstr "ئېكۋاتور"
 
 #~ msgid "Galapagos Islands"
 #~ msgstr "گالاپاگوس تاقىم ئاراللىرى"
@@ -1952,7 +1966,7 @@ msgstr ""
 #~ msgstr "سېيتا ۋە مېلىلا"
 
 #~ msgid "Pacific Time"
-#~ msgstr "تىنچ ئويكان ۋاقتى"
+#~ msgstr "تىنچ ئوكيان ۋاقتى"
 
 #~ msgid "Mountain Time"
 #~ msgstr "تاغ ۋاقتى"
@@ -1985,25 +1999,25 @@ msgstr ""
 #~ msgstr "ھاۋاي-ئالىيۇشان ۋاقتى، يازلىق ۋاقىت يوق(ھاۋاي)"
 
 #~ msgid "Alaska Time"
-#~ msgstr "ئالىياسكا ۋاقتى"
+#~ msgstr "ئالياسكا ۋاقتى"
 
 #~ msgid "Mountain Time, no DST (Arizona)"
 #~ msgstr "تاغ ۋاقتى، يازلىق ۋاقىت يوق(ئارىزونا)"
 
 #~ msgid "Australian Capital Territory"
-#~ msgstr "ئاۋىسترالىيە پەيتەخت تەرىتورىيەسى"
+#~ msgstr "ئاۋسترالىيە پايتەخت تېررىتورىيىسى"
 
 #~ msgid "New South Wales"
-#~ msgstr "يەڭى جەنۇبىي ۋېيلىس"
+#~ msgstr "يېڭى جەنۇبىي ۋېيلىس"
 
 #~ msgid "Northern Territory"
-#~ msgstr "شىمالىي تەررىتورىيە"
+#~ msgstr "شىمالىي تېررىتورىيە"
 
 #~ msgid "Queensland"
 #~ msgstr "كىۋىنسلاند"
 
 #~ msgid "South Australia"
-#~ msgstr "جەنۇبىي ئاۋىسترالىيە"
+#~ msgstr "جەنۇبىي ئاۋسترالىيە"
 
 #~ msgid "Tasmania"
 #~ msgstr "تاسمانىيە"
@@ -2013,14 +2027,14 @@ msgstr ""
 #~ msgstr "ۋىكتورىيە"
 
 #~ msgid "Western Australia"
-#~ msgstr "غەربىي ئاۋىسترالىيە"
+#~ msgstr "غەربىي ئاۋسترالىيە"
 
 #~ msgctxt "State in Belgium"
 #~ msgid "Antwerp"
 #~ msgstr "ئانتۋېرپ"
 
 #~ msgid "Brussels, Flemish and Walloon Brabant"
-#~ msgstr "بىرۇيەسسىل، فىلامان ۋە ۋاللون-بىرابانت"
+#~ msgstr "بىريۇسسېل، فىلامان ۋە ۋاللون-بىرابانت"
 
 #~ msgid "East-Flanders"
 #~ msgstr "شەرقىي فىلاندەرس"
@@ -2144,7 +2158,7 @@ msgstr ""
 #~ msgstr "نيۇ-بىرانسىۋىك"
 
 #~ msgid "Newfoundland and Labrador"
-#~ msgstr "نېۋفۇندلاند ۋە لابرادور"
+#~ msgstr "نېۋفۇندلاند ۋە لابرادۇر"
 
 #~ msgid "Northwest Territories"
 #~ msgstr "غەربىي-شىمال تەرىتورىيىلىرى"
@@ -2170,10 +2184,10 @@ msgstr ""
 #~ msgstr "ساسكاچېۋان"
 
 #~ msgid "Yukon Territory"
-#~ msgstr "يۇكون تەرىتورىيەسى"
+#~ msgstr "يۇكون تېررىتورىيىسى"
 
 #~ msgid "Anhui"
-#~ msgstr "ئانخۇي"
+#~ msgstr "ئەنخۇي"
 
 #~ msgctxt "State in China"
 #~ msgid "Beijing"
@@ -2214,7 +2228,7 @@ msgstr ""
 #~ msgstr "خۇنەن"
 
 #~ msgid "Inner Mongolia"
-#~ msgstr "ئىچكى موڭغۇل ئاپتونۇم رايونى"
+#~ msgstr "ئىچكى موڭغۇل ئاپتونوم رايونى"
 
 #~ msgid "Jiangsu"
 #~ msgstr "جاڭسۇ"
@@ -2397,7 +2411,7 @@ msgstr ""
 #~ msgstr "غەربىي-شىمالىي ئەنگلىيە"
 
 #~ msgid "Northern Ireland"
-#~ msgstr "شىمالىي ئىرەلاندىيە"
+#~ msgstr "شىمالىي ئىرېلاندىيە"
 
 #~ msgid "Scotland"
 #~ msgstr "شوتلاندىيە"
@@ -4472,7 +4486,7 @@ msgstr ""
 #~ msgstr "فىلادېلفىيە"
 
 #~ msgid "Phoenix"
-#~ msgstr "فىنىكس"
+#~ msgstr "فېنىكس"
 
 #~ msgid "Pierre"
 #~ msgstr "پىئېر"
