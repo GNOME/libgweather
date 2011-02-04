@@ -210,12 +210,6 @@ if test -z "$ZONEINFO_DIR"; then
 fi
 AC_DEFINE_UNQUOTED(ZONEINFO_DIR, "$ZONEINFO_DIR", [zoneinfo directory])
 
-dnl ***************************************************************************
-dnl *** Honour aclocal flags                                                ***
-dnl ***************************************************************************
-ACLOCAL_AMFLAGS="\${ACLOCAL_FLAGS}"
-AC_SUBST(ACLOCAL_AMFLAGS)
-
 AC_SUBST(VERSION)
 AC_SUBST(PACKAGE)
 AC_SUBST(DATADIR)

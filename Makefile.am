@@ -1,6 +1,6 @@
 SUBDIRS = libgweather icons doc data po po-locations
 
-ACLOCAL_AMFLAGS = -I m4
+ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
 DISTCHECK_CONFIGURE_FLAGS = --enable-gtk-doc --enable-introspection
 
