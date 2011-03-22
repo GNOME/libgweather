@@ -47,8 +47,6 @@ void			gweather_gconf_free		(GWeatherGConf *ctx);
 
 GConfClient *		gweather_gconf_get_client	(GWeatherGConf *ctx);
 
-WeatherLocation *	gweather_gconf_get_location	(GWeatherGConf *ctx);
-
 gchar *			gweather_gconf_get_full_key	(GWeatherGConf *ctx,
 							 const gchar *key);
 

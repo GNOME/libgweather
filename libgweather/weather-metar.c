@@ -73,21 +73,24 @@ make_time (gint utcDate, gint utcHour, gint utcMin)
 }
 
 static void
-metar_tok_time (gchar *tokp, WeatherInfo *info)
+metar_tok_time (gchar *tokp, GWeatherInfo *info)
 {
     gint day, hr, min;
 
     sscanf (tokp, "%2u%2u%2u", &day, &hr, &min);
-    info->update = make_time (day, hr, min);
+    info->priv->update = make_time (day, hr, min);
 }
 
 static void
-metar_tok_wind (gchar *tokp, WeatherInfo *info)
+metar_tok_wind (gchar *tokp, GWeatherInfo *info)
 {
+    GWeatherInfoPrivate *priv;
     gchar sdir[4], sspd[4], sgust[4];
     gint dir, spd = -1;
     gchar *gustp;
     size_t glen;
+
+    priv = info->priv;
 
     strncpy (sdir, tokp, 3);
     sdir[3] = 0;
@@ -108,95 +111,101 @@ metar_tok_wind (gchar *tokp, WeatherInfo *info)
     }
 
     if (!strcmp (tokp, "MPS"))
-	info->windspeed = WINDSPEED_MS_TO_KNOTS ((WeatherWindSpeed)spd);
+	priv->windspeed = WINDSPEED_MS_TO_KNOTS ((GWeatherWindSpeed)spd);
     else
-	info->windspeed = (WeatherWindSpeed)spd;
+	priv->windspeed = (GWeatherWindSpeed)spd;
 
     if ((349 <= dir) || (dir <= 11))
-        info->wind = WIND_N;
+        priv->wind = WIND_N;
     else if ((12 <= dir) && (dir <= 33))
-        info->wind = WIND_NNE;
+        priv->wind = WIND_NNE;
     else if ((34 <= dir) && (dir <= 56))
-        info->wind = WIND_NE;
+        priv->wind = WIND_NE;
     else if ((57 <= dir) && (dir <= 78))
-        info->wind = WIND_ENE;
+        priv->wind = WIND_ENE;
     else if ((79 <= dir) && (dir <= 101))
-        info->wind = WIND_E;
+        priv->wind = WIND_E;
     else if ((102 <= dir) && (dir <= 123))
-        info->wind = WIND_ESE;
+        priv->wind = WIND_ESE;
     else if ((124 <= dir) && (dir <= 146))
-        info->wind = WIND_SE;
+        priv->wind = WIND_SE;
     else if ((147 <= dir) && (dir <= 168))
-        info->wind = WIND_SSE;
+        priv->wind = WIND_SSE;
     else if ((169 <= dir) && (dir <= 191))
-        info->wind = WIND_S;
+        priv->wind = WIND_S;
     else if ((192 <= dir) && (dir <= 213))
-        info->wind = WIND_SSW;
+        priv->wind = WIND_SSW;
     else if ((214 <= dir) && (dir <= 236))
-        info->wind = WIND_SW;
+        priv->wind = WIND_SW;
     else if ((237 <= dir) && (dir <= 258))
-        info->wind = WIND_WSW;
+        priv->wind = WIND_WSW;
     else if ((259 <= dir) && (dir <= 281))
-        info->wind = WIND_W;
+        priv->wind = WIND_W;
     else if ((282 <= dir) && (dir <= 303))
-        info->wind = WIND_WNW;
+        priv->wind = WIND_WNW;
     else if ((304 <= dir) && (dir <= 326))
-        info->wind = WIND_NW;
+        priv->wind = WIND_NW;
     else if ((327 <= dir) && (dir <= 348))
-        info->wind = WIND_NNW;
+        priv->wind = WIND_NNW;
 }
 
 static void
-metar_tok_vis (gchar *tokp, WeatherInfo *info)
+metar_tok_vis (gchar *tokp, GWeatherInfo *info)
 {
+    GWeatherInfoPrivate *priv;
     gchar *pfrac, *pend, *psp;
     gchar sval[6];
     gint num, den, val;
+
+    priv = info->priv;
 
     memset (sval, 0, sizeof (sval));
 
     if (!strcmp (tokp,"CAVOK")) {
         // "Ceiling And Visibility OK": visibility >= 10 KM
-        info->visibility=10000. / VISIBILITY_SM_TO_M (1.);
-        info->sky = SKY_CLEAR;
+        priv->visibility=10000. / VISIBILITY_SM_TO_M (1.);
+        priv->sky = SKY_CLEAR;
     } else if (0 != (pend = strstr (tokp, "SM"))) {
         // US observation: field ends with "SM"
         pfrac = strchr (tokp, '/');
         if (pfrac) {
 	    if (*tokp == 'M') {
-	        info->visibility = 0.001;
+	        priv->visibility = 0.001;
 	    } else {
 	        num = (*(pfrac - 1) - '0');
 		strncpy (sval, pfrac + 1, pend - pfrac - 1);
 		den = atoi (sval);
-		info->visibility =
-		    ((WeatherVisibility)num / ((WeatherVisibility)den));
+		priv->visibility =
+		    ((GWeatherVisibility)num / ((GWeatherVisibility)den));
 
 		psp = strchr (tokp, ' ');
 		if (psp) {
 		    *psp = '\0';
 		    val = atoi (tokp);
-		    info->visibility += (WeatherVisibility)val;
+		    priv->visibility += (GWeatherVisibility)val;
 		}
 	    }
 	} else {
 	    strncpy (sval, tokp, pend - tokp);
             val = atoi (sval);
-            info->visibility = (WeatherVisibility)val;
+            priv->visibility = (GWeatherVisibility)val;
 	}
     } else {
         // International observation: NNNN(DD NNNNDD)?
         // For now: use only the minimum visibility and ignore its direction
         strncpy (sval, tokp, strspn (tokp, CONST_DIGITS));
 	val = atoi (sval);
-	info->visibility = (WeatherVisibility)val / VISIBILITY_SM_TO_M (1.);
+	priv->visibility = (GWeatherVisibility)val / VISIBILITY_SM_TO_M (1.);
     }
 }
 
 static void
-metar_tok_cloud (gchar *tokp, WeatherInfo *info)
+metar_tok_cloud (gchar *tokp, GWeatherInfo *info)
 {
+    GWeatherInfoPrivate *priv;
     gchar stype[4], salt[4];
+
+    priv = info->priv;
 
     strncpy (stype, tokp, 3);
     stype[3] = 0;
@@ -206,25 +215,27 @@ metar_tok_cloud (gchar *tokp, WeatherInfo *info)
     }
 
     if (!strcmp (stype, "CLR")) {
-        info->sky = SKY_CLEAR;
+        priv->sky = SKY_CLEAR;
     } else if (!strcmp (stype, "SKC")) {
-        info->sky = SKY_CLEAR;
+        priv->sky = SKY_CLEAR;
     } else if (!strcmp (stype, "NSC")) {
-        info->sky = SKY_CLEAR;
+        priv->sky = SKY_CLEAR;
     } else if (!strcmp (stype, "BKN")) {
-        info->sky = SKY_BROKEN;
+        priv->sky = SKY_BROKEN;
     } else if (!strcmp (stype, "SCT")) {
-        info->sky = SKY_SCATTERED;
+        priv->sky = SKY_SCATTERED;
     } else if (!strcmp (stype, "FEW")) {
-        info->sky = SKY_FEW;
+        priv->sky = SKY_FEW;
     } else if (!strcmp (stype, "OVC")) {
-        info->sky = SKY_OVERCAST;
+        priv->sky = SKY_OVERCAST;
     }
 }
 
 static void
-metar_tok_pres (gchar *tokp, WeatherInfo *info)
+metar_tok_pres (gchar *tokp, GWeatherInfo *info)
 {
+    GWeatherInfoPrivate *priv = info->priv;
+
     if (*tokp == 'A') {
         gchar sintg[3], sfract[3];
         gint intg, fract;
@@ -237,7 +248,7 @@ metar_tok_pres (gchar *tokp, WeatherInfo *info)
         sfract[2] = 0;
         fract = atoi (sfract);
 
-        info->pressure = (WeatherPressure)intg + (((WeatherPressure)fract)/100.0);
+        priv->pressure = (GWeatherPressure)intg + (((GWeatherPressure)fract)/100.0);
     } else {  /* *tokp == 'Q' */
         gchar spres[5];
         gint pres;
@@ -246,35 +257,41 @@ metar_tok_pres (gchar *tokp, WeatherInfo *info)
         spres[4] = 0;
         pres = atoi (spres);
 
-        info->pressure = PRESSURE_MBAR_TO_INCH ((WeatherPressure)pres);
+        priv->pressure = PRESSURE_MBAR_TO_INCH ((GWeatherPressure)pres);
     }
 }
 
 static void
-metar_tok_temp (gchar *tokp, WeatherInfo *info)
+metar_tok_temp (gchar *tokp, GWeatherInfo *info)
 {
+    GWeatherInfoPrivate *priv;
     gchar *ptemp, *pdew, *psep;
+
+    priv = info->priv;
 
     psep = strchr (tokp, '/');
     *psep = 0;
     ptemp = tokp;
     pdew = psep + 1;
 
-    info->temp = (*ptemp == 'M') ? TEMP_C_TO_F (-atoi (ptemp + 1))
+    priv->temp = (*ptemp == 'M') ? TEMP_C_TO_F (-atoi (ptemp + 1))
 	: TEMP_C_TO_F (atoi (ptemp));
     if (*pdew) {
-	info->dew = (*pdew == 'M') ? TEMP_C_TO_F (-atoi (pdew + 1))
+	priv->dew = (*pdew == 'M') ? TEMP_C_TO_F (-atoi (pdew + 1))
 	    : TEMP_C_TO_F (atoi (pdew));
     } else {
-	info->dew = -1000.0;
+	priv->dew = -1000.0;
     }
 }
 
 static void
-metar_tok_cond (gchar *tokp, WeatherInfo *info)
+metar_tok_cond (gchar *tokp, GWeatherInfo *info)
 {
+    GWeatherInfoPrivate *priv;
     gchar squal[3], sphen[4];
     gchar *pphen;
+
+    priv = info->priv;
 
     if ((strlen (tokp) > 3) && ((*tokp == '+') || (*tokp == '-')))
         ++tokp;   /* FIX */
@@ -295,90 +312,90 @@ metar_tok_cond (gchar *tokp, WeatherInfo *info)
     sphen[sizeof (sphen)-1] = '\0';
 
     /* Defaults */
-    info->cond.qualifier = QUALIFIER_NONE;
-    info->cond.phenomenon = PHENOMENON_NONE;
-    info->cond.significant = FALSE;
+    priv->cond.qualifier = QUALIFIER_NONE;
+    priv->cond.phenomenon = PHENOMENON_NONE;
+    priv->cond.significant = FALSE;
 
     if (!strcmp (squal, "")) {
-        info->cond.qualifier = QUALIFIER_MODERATE;
+        priv->cond.qualifier = QUALIFIER_MODERATE;
     } else if (!strcmp (squal, "-")) {
-        info->cond.qualifier = QUALIFIER_LIGHT;
+        priv->cond.qualifier = QUALIFIER_LIGHT;
     } else if (!strcmp (squal, "+")) {
-        info->cond.qualifier = QUALIFIER_HEAVY;
+        priv->cond.qualifier = QUALIFIER_HEAVY;
     } else if (!strcmp (squal, "VC")) {
-        info->cond.qualifier = QUALIFIER_VICINITY;
+        priv->cond.qualifier = QUALIFIER_VICINITY;
     } else if (!strcmp (squal, "MI")) {
-        info->cond.qualifier = QUALIFIER_SHALLOW;
+        priv->cond.qualifier = QUALIFIER_SHALLOW;
     } else if (!strcmp (squal, "BC")) {
-        info->cond.qualifier = QUALIFIER_PATCHES;
+        priv->cond.qualifier = QUALIFIER_PATCHES;
     } else if (!strcmp (squal, "PR")) {
-        info->cond.qualifier = QUALIFIER_PARTIAL;
+        priv->cond.qualifier = QUALIFIER_PARTIAL;
     } else if (!strcmp (squal, "TS")) {
-        info->cond.qualifier = QUALIFIER_THUNDERSTORM;
+        priv->cond.qualifier = QUALIFIER_THUNDERSTORM;
     } else if (!strcmp (squal, "BL")) {
-        info->cond.qualifier = QUALIFIER_BLOWING;
+        priv->cond.qualifier = QUALIFIER_BLOWING;
     } else if (!strcmp (squal, "SH")) {
-        info->cond.qualifier = QUALIFIER_SHOWERS;
+        priv->cond.qualifier = QUALIFIER_SHOWERS;
     } else if (!strcmp (squal, "DR")) {
-        info->cond.qualifier = QUALIFIER_DRIFTING;
+        priv->cond.qualifier = QUALIFIER_DRIFTING;
     } else if (!strcmp (squal, "FZ")) {
-        info->cond.qualifier = QUALIFIER_FREEZING;
+        priv->cond.qualifier = QUALIFIER_FREEZING;
     } else {
         return;
     }
 
     if (!strcmp (sphen, "DZ")) {
-        info->cond.phenomenon = PHENOMENON_DRIZZLE;
+        priv->cond.phenomenon = PHENOMENON_DRIZZLE;
     } else if (!strcmp (sphen, "RA")) {
-        info->cond.phenomenon = PHENOMENON_RAIN;
+        priv->cond.phenomenon = PHENOMENON_RAIN;
     } else if (!strcmp (sphen, "SN")) {
-        info->cond.phenomenon = PHENOMENON_SNOW;
+        priv->cond.phenomenon = PHENOMENON_SNOW;
     } else if (!strcmp (sphen, "SG")) {
-        info->cond.phenomenon = PHENOMENON_SNOW_GRAINS;
+        priv->cond.phenomenon = PHENOMENON_SNOW_GRAINS;
     } else if (!strcmp (sphen, "IC")) {
-        info->cond.phenomenon = PHENOMENON_ICE_CRYSTALS;
+        priv->cond.phenomenon = PHENOMENON_ICE_CRYSTALS;
     } else if (!strcmp (sphen, "PE")) {
-        info->cond.phenomenon = PHENOMENON_ICE_PELLETS;
+        priv->cond.phenomenon = PHENOMENON_ICE_PELLETS;
     } else if (!strcmp (sphen, "GR")) {
-        info->cond.phenomenon = PHENOMENON_HAIL;
+        priv->cond.phenomenon = PHENOMENON_HAIL;
     } else if (!strcmp (sphen, "GS")) {
-        info->cond.phenomenon = PHENOMENON_SMALL_HAIL;
+        priv->cond.phenomenon = PHENOMENON_SMALL_HAIL;
     } else if (!strcmp (sphen, "UP")) {
-        info->cond.phenomenon = PHENOMENON_UNKNOWN_PRECIPITATION;
+        priv->cond.phenomenon = PHENOMENON_UNKNOWN_PRECIPITATION;
     } else if (!strcmp (sphen, "BR")) {
-        info->cond.phenomenon = PHENOMENON_MIST;
+        priv->cond.phenomenon = PHENOMENON_MIST;
     } else if (!strcmp (sphen, "FG")) {
-        info->cond.phenomenon = PHENOMENON_FOG;
+        priv->cond.phenomenon = PHENOMENON_FOG;
     } else if (!strcmp (sphen, "FU")) {
-        info->cond.phenomenon = PHENOMENON_SMOKE;
+        priv->cond.phenomenon = PHENOMENON_SMOKE;
     } else if (!strcmp (sphen, "VA")) {
-        info->cond.phenomenon = PHENOMENON_VOLCANIC_ASH;
+        priv->cond.phenomenon = PHENOMENON_VOLCANIC_ASH;
     } else if (!strcmp (sphen, "SA")) {
-        info->cond.phenomenon = PHENOMENON_SAND;
+        priv->cond.phenomenon = PHENOMENON_SAND;
     } else if (!strcmp (sphen, "HZ")) {
-        info->cond.phenomenon = PHENOMENON_HAZE;
+        priv->cond.phenomenon = PHENOMENON_HAZE;
     } else if (!strcmp (sphen, "PY")) {
-        info->cond.phenomenon = PHENOMENON_SPRAY;
+        priv->cond.phenomenon = PHENOMENON_SPRAY;
     } else if (!strcmp (sphen, "DU")) {
-        info->cond.phenomenon = PHENOMENON_DUST;
+        priv->cond.phenomenon = PHENOMENON_DUST;
     } else if (!strcmp (sphen, "SQ")) {
-        info->cond.phenomenon = PHENOMENON_SQUALL;
+        priv->cond.phenomenon = PHENOMENON_SQUALL;
     } else if (!strcmp (sphen, "SS")) {
-        info->cond.phenomenon = PHENOMENON_SANDSTORM;
+        priv->cond.phenomenon = PHENOMENON_SANDSTORM;
     } else if (!strcmp (sphen, "DS")) {
-        info->cond.phenomenon = PHENOMENON_DUSTSTORM;
+        priv->cond.phenomenon = PHENOMENON_DUSTSTORM;
     } else if (!strcmp (sphen, "PO")) {
-        info->cond.phenomenon = PHENOMENON_DUST_WHIRLS;
+        priv->cond.phenomenon = PHENOMENON_DUST_WHIRLS;
     } else if (!strcmp (sphen, "+FC")) {
-        info->cond.phenomenon = PHENOMENON_TORNADO;
+        priv->cond.phenomenon = PHENOMENON_TORNADO;
     } else if (!strcmp (sphen, "FC")) {
-        info->cond.phenomenon = PHENOMENON_FUNNEL_CLOUD;
+        priv->cond.phenomenon = PHENOMENON_FUNNEL_CLOUD;
     } else {
         return;
     }
 
-    if ((info->cond.qualifier != QUALIFIER_NONE) || (info->cond.phenomenon != PHENOMENON_NONE))
-        info->cond.significant = TRUE;
+    if ((priv->cond.qualifier != QUALIFIER_NONE) || (priv->cond.phenomenon != PHENOMENON_NONE))
+        priv->cond.significant = TRUE;
 }
 
 #define TIME_RE_STR  "([0-9]{6})Z"
@@ -399,7 +416,7 @@ metar_tok_cond (gchar *tokp, WeatherInfo *info)
 #define RE_SUFFIX ")( |$)"
 
 static regex_t metar_re[RE_NUM];
-static void (*metar_f[RE_NUM]) (gchar *tokp, WeatherInfo *info);
+static void (*metar_f[RE_NUM]) (gchar *tokp, GWeatherInfo *info);
 
 static void
 metar_init_re (void)
@@ -427,7 +444,7 @@ metar_init_re (void)
 }
 
 gboolean
-metar_parse (gchar *metar, WeatherInfo *info)
+metar_parse (gchar *metar, GWeatherInfo *info)
 {
     gchar *p;
     //gchar *rmk;
@@ -488,17 +505,20 @@ metar_parse (gchar *metar, WeatherInfo *info)
 static void
 metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 {
-    WeatherInfo *info = (WeatherInfo *)data;
+    GWeatherInfo *info = (GWeatherInfo *)data;
+    GWeatherInfoPrivate *priv;
     WeatherLocation *loc;
     const gchar *p, *eoln;
     gchar *searchkey, *metar;
     gboolean success = FALSE;
 
     g_return_if_fail (info != NULL);
+
+    priv = info->priv;
    
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
 	if (SOUP_STATUS_IS_TRANSPORT_ERROR (msg->status_code))
-	    info->network_error = TRUE;
+	    priv->network_error = TRUE;
 	else {
 	    /* Translators: %d is an error code, and %s the error string */
 	    g_warning (_("Failed to get METAR data: %d %s.\n"),
@@ -508,7 +528,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 	return;
     }
 
-    loc = info->location;
+    loc = priv->location;
 
     searchkey = g_strdup_printf ("\n%s", loc->code);
     p = strstr (msg->response_body->data, searchkey);
@@ -527,23 +547,27 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 	 * most likely it is a wifi hotspot login page. Call that a
 	 * network error.
 	 */
-	info->network_error = TRUE;
+	priv->network_error = TRUE;
     }
 
-    info->valid = success;
+    priv->valid = success;
     request_done (info, TRUE);
 }
 
 /* Read current conditions and fill in info structure */
 void
-metar_start_open (WeatherInfo *info)
+metar_start_open (GWeatherInfo *info)
 {
+    GWeatherInfoPrivate *priv;
     WeatherLocation *loc;
     SoupMessage *msg;
 
     g_return_if_fail (info != NULL);
-    info->valid = info->network_error = FALSE;
-    loc = info->location;
+
+    priv = info->priv;
+
+    priv->valid = priv->network_error = FALSE;
+    loc = priv->location;
     if (loc == NULL) {
 	g_warning (_("WeatherInfo missing location"));
 	return;
@@ -553,7 +577,7 @@ metar_start_open (WeatherInfo *info)
 	"GET", "http://weather.noaa.gov/cgi-bin/mgetmetar.pl",
 	"cccc", loc->code,
 	NULL);
-    soup_session_queue_message (info->session, msg, metar_finish, info);
+    soup_session_queue_message (priv->session, msg, metar_finish, info);
 
-    info->requests_pending++;
+    priv->requests_pending++;
 }

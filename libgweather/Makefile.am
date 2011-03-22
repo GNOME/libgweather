@@ -9,7 +9,7 @@ AM_CPPFLAGS = 			\
 AM_CFLAGS = $(WARN_CFLAGS)
 
 gweather_old_headers = \
-	weather.h gweather-gconf.h gweather-prefs.h gweather-xml.h
+	gweather-gconf.h gweather-prefs.h gweather-xml.h
 gweather_new_headers = \
 	gweather-location.h location-entry.h \
 	gweather-timezone.h timezone-menu.h

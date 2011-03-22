@@ -30,12 +30,12 @@
 #include "gweather-prefs.h"
 #include "weather-priv.h"
 
-
 /**
  * SECTION:gweather-prefs
  * @Title: gweather-prefs
  */
 
+WeatherLocation *       _gweather_gconf_get_location (GWeatherGConf *ctx);
 
 static GConfEnumStringPair temp_unit_enum_map [] = {
     { TEMP_UNIT_DEFAULT,    N_("Default") },
@@ -257,25 +257,25 @@ parse_distance_string (const gchar *gconf_str, GWeatherPrefs *prefs)
 }
 
 const char *
-gweather_prefs_temp_enum_to_string (TempUnit temp)
+gweather_prefs_temp_enum_to_string (GWeatherTemperatureUnit temp)
 {
     return gconf_enum_to_string (temp_unit_enum_map, temp);
 }
 
 const char *
-gweather_prefs_speed_enum_to_string (SpeedUnit speed)
+gweather_prefs_speed_enum_to_string (GWeatherSpeedUnit speed)
 {
     return gconf_enum_to_string (speed_unit_enum_map, speed);
 }
 
 const char *
-gweather_prefs_pressure_enum_to_string (PressureUnit pressure)
+gweather_prefs_pressure_enum_to_string (GWeatherPressureUnit pressure)
 {
     return gconf_enum_to_string (pressure_unit_enum_map, pressure);
 }
 
 const char *
-gweather_prefs_distance_enum_to_string (DistanceUnit distance)
+gweather_prefs_distance_enum_to_string (GWeatherDistanceUnit distance)
 {
     return gconf_enum_to_string (distance_unit_enum_map, distance);
 }
@@ -291,9 +291,9 @@ gweather_prefs_load (GWeatherPrefs *prefs, GWeatherGConf *ctx)
     g_return_if_fail (ctx != NULL);
 
     if (prefs->location) {
-	weather_location_free (prefs->location);
+	_weather_location_free (prefs->location);
     }
-    prefs->location = gweather_gconf_get_location (ctx);
+    prefs->location = _gweather_gconf_get_location (ctx);
 
     /* Assume we use unit defaults */
     prefs->use_temperature_default = TRUE;
@@ -343,7 +343,7 @@ gweather_prefs_load (GWeatherPrefs *prefs, GWeatherGConf *ctx)
     return;
 }
 
-TempUnit
+GWeatherTemperatureUnit
 gweather_prefs_parse_temperature (const char *str, gboolean *is_default)
 {
     GWeatherPrefs prefs;
@@ -356,7 +356,7 @@ gweather_prefs_parse_temperature (const char *str, gboolean *is_default)
     return prefs.temperature_unit;
 }
 
-SpeedUnit
+GWeatherSpeedUnit
 gweather_prefs_parse_speed (const char *str, gboolean *is_default)
 {
     GWeatherPrefs prefs;
@@ -378,25 +378,25 @@ get_translated_unit (int unit, GConfEnumStringPair *pairs, int min_value, int ma
 }
 
 const char *
-gweather_prefs_get_temp_display_name (TempUnit temp)
+gweather_prefs_get_temp_display_name (GWeatherTemperatureUnit temp)
 {
     return get_translated_unit (temp, temp_unit_enum_map, TEMP_UNIT_DEFAULT, TEMP_UNIT_FAHRENHEIT);
 }
 
 const char *
-gweather_prefs_get_speed_display_name (SpeedUnit speed)
+gweather_prefs_get_speed_display_name (GWeatherSpeedUnit speed)
 {
     return get_translated_unit (speed, speed_unit_enum_map, SPEED_UNIT_DEFAULT, SPEED_UNIT_BFT);
 }
 
 const char *
-gweather_prefs_get_pressure_display_name (PressureUnit pressure)
+gweather_prefs_get_pressure_display_name (GWeatherPressureUnit pressure)
 {
     return get_translated_unit (pressure, pressure_unit_enum_map, PRESSURE_UNIT_DEFAULT, PRESSURE_UNIT_ATM);
 }
 
 const char *
-gweather_prefs_get_distance_display_name (DistanceUnit distance)
+gweather_prefs_get_distance_display_name (GWeatherDistanceUnit distance)
 {
     return get_translated_unit (distance, distance_unit_enum_map, DISTANCE_UNIT_DEFAULT, DISTANCE_UNIT_MILES);
 }

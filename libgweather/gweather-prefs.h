@@ -36,41 +36,22 @@
 
 typedef struct _GWeatherPrefs GWeatherPrefs;
 
-struct _GWeatherPrefs {
-    WeatherLocation *location;
-    gint update_interval;  /* in seconds */
-    gboolean update_enabled;
-    gboolean detailed;
-    gboolean radar_enabled;
-    gboolean use_custom_radar_url;
-    gchar *radar;
+void	                gweather_prefs_load			(GWeatherPrefs *prefs,
+								 GWeatherGConf *ctx);
 
-    TempUnit     temperature_unit;
-    gboolean     use_temperature_default;
-    SpeedUnit    speed_unit;
-    gboolean     use_speed_default;
-    PressureUnit pressure_unit;
-    gboolean     use_pressure_default;
-    DistanceUnit distance_unit;
-    gboolean     use_distance_default;
-};
+const char *            gweather_prefs_temp_enum_to_string	(GWeatherTemperatureUnit temp);
+const char *            gweather_prefs_speed_enum_to_string	(GWeatherSpeedUnit speed);
+const char *            gweather_prefs_pressure_enum_to_string	(GWeatherPressureUnit pressure);
+const char *            gweather_prefs_distance_enum_to_string	(GWeatherDistanceUnit distance);
 
-void		gweather_prefs_load			(GWeatherPrefs *prefs,
-							 GWeatherGConf *ctx);
+GWeatherTemperatureUnit gweather_prefs_parse_temperature        (const char *str,
+								 gboolean   *is_default);
+GWeatherSpeedUnit       gweather_prefs_parse_speed              (const char *str,
+								 gboolean   *is_default);
 
-const char *	gweather_prefs_temp_enum_to_string	(TempUnit temp);
-const char *	gweather_prefs_speed_enum_to_string	(SpeedUnit speed);
-const char *	gweather_prefs_pressure_enum_to_string	(PressureUnit pressure);
-const char *	gweather_prefs_distance_enum_to_string	(DistanceUnit distance);
-
-TempUnit        gweather_prefs_parse_temperature        (const char *str,
-                                                         gboolean   *is_default);
-SpeedUnit       gweather_prefs_parse_speed              (const char *str,
-                                                         gboolean   *is_default);
-
-const char *	gweather_prefs_get_temp_display_name		(TempUnit temp);
-const char *	gweather_prefs_get_speed_display_name		(SpeedUnit speed);
-const char *	gweather_prefs_get_pressure_display_name	(PressureUnit pressure);
-const char *	gweather_prefs_get_distance_display_name	(DistanceUnit distance);
+const char *            gweather_prefs_get_temp_display_name		(GWeatherTemperatureUnit temp);
+const char *            gweather_prefs_get_speed_display_name		(GWeatherSpeedUnit speed);
+const char *            gweather_prefs_get_pressure_display_name	(GWeatherPressureUnit pressure);
+const char *            gweather_prefs_get_distance_display_name	(GWeatherDistanceUnit distance);
 
 #endif /* __GWEATHER_PREFS_H_ */

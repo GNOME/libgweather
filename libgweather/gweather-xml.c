@@ -85,7 +85,7 @@ gweather_xml_parse_node (GWeatherLocation *gloc,
 			    GWEATHER_XML_COL_LOC, name,
 			    -1);
 	if (children[0] && !children[1]) {
-	    wloc = gweather_location_to_weather_location (children[0], name);
+	    wloc = _weather_location_from_gweather_location (children[0], name);
 	    gtk_tree_store_set (store, &iter,
 				GWEATHER_XML_COL_POINTER, wloc,
 				-1);
@@ -101,7 +101,7 @@ gweather_xml_parse_node (GWeatherLocation *gloc,
 	parent_loc = gweather_location_get_parent (gloc);
 	if (parent_loc && gweather_location_get_level (parent_loc) == GWEATHER_LOCATION_CITY)
 	    name = gweather_location_get_name (parent_loc);
-	wloc = gweather_location_to_weather_location (gloc, name);
+	wloc = _weather_location_from_gweather_location (gloc, name);
 	gtk_tree_store_set (store, &iter,
 			    GWEATHER_XML_COL_POINTER, wloc,
 			    -1);
@@ -151,7 +151,7 @@ free_locations (GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpoin
 			    -1);
 
 	if (loc) {
-		weather_location_free (loc);
+		_weather_location_free (loc);
 		gtk_tree_store_set ((GtkTreeStore *)model, iter,
 			    GWEATHER_XML_COL_POINTER, NULL,
 			    -1);

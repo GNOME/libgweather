@@ -27,7 +27,9 @@ main (int argc, char **argv)
     GError* error = NULL;
     char buf[BUFLEN];
     int len;
-    WeatherInfo info;
+    GWeatherInfo *info;
+
+    g_type_init ();
 
     context = g_option_context_new ("- test libgweather metar parser");
     g_option_context_add_main_entries (context, entries, NULL);
@@ -54,19 +56,20 @@ main (int argc, char **argv)
 	}
 	printf ("\n%s\n", buf);
 
-	memset (&info, 0, sizeof (info));
-	info.valid = 1;
-	metar_parse (buf, &info);
-	weather_info_to_metric (&info);
+	/* a bit hackish... */
+	info = g_object_new (GWEATHER_TYPE_INFO, NULL);
+	info->priv->valid = 1;
+	metar_parse (buf, info);
+	gweather_info_to_metric (info);
 	printf ("Returned info:\n");
-	printf ("  update:   %s", ctime (&info.update));
-	printf ("  sky:      %s\n", weather_info_get_sky (&info));
-	printf ("  cond:     %s\n", weather_info_get_conditions (&info));
-	printf ("  temp:     %s\n", weather_info_get_temp (&info));
-	printf ("  dewp:     %s\n", weather_info_get_dew (&info));
-	printf ("  wind:     %s\n", weather_info_get_wind (&info));
-	printf ("  pressure: %s\n", weather_info_get_pressure (&info));
-	printf ("  vis:      %s\n", weather_info_get_visibility (&info));
+	printf ("  update:   %s", ctime (&info->priv->update));
+	printf ("  sky:      %s\n", gweather_info_get_sky (info));
+	printf ("  cond:     %s\n", gweather_info_get_conditions (info));
+	printf ("  temp:     %s\n", gweather_info_get_temp (info));
+	printf ("  dewp:     %s\n", gweather_info_get_dew (info));
+	printf ("  wind:     %s\n", gweather_info_get_wind (info));
+	printf ("  pressure: %s\n", gweather_info_get_pressure (info));
+	printf ("  vis:      %s\n", gweather_info_get_visibility (info));
 
 	// TODO: retrieve location's lat/lon to display sunrise/set times
     }

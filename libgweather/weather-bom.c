@@ -29,7 +29,7 @@
 static void
 bom_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 {
-    WeatherInfo *info = (WeatherInfo *)data;
+    GWeatherInfo *info = (GWeatherInfo *)data;
     char *p, *rp;
 
     g_return_if_fail (info != NULL);
@@ -45,33 +45,33 @@ bom_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     if (p != NULL) {
         rp = strstr (p, "The next routine forecast will be issued");
         if (rp == NULL)
-            info->forecast = g_strdup (p);
+            info->priv->forecast = g_strdup (p);
         else
-            info->forecast = g_strndup (p, rp - p);
+            info->priv->forecast = g_strndup (p, rp - p);
     }
 
-    if (info->forecast == NULL)
-        info->forecast = g_strdup (msg->response_body->data);
+    if (info->priv->forecast == NULL)
+        info->priv->forecast = g_strdup (msg->response_body->data);
 
-    g_print ("%s\n",  info->forecast);
+    g_print ("%s\n",  info->priv->forecast);
     request_done (info, TRUE);
 }
 
 void
-bom_start_open (WeatherInfo *info)
+bom_start_open (GWeatherInfo *info)
 {
     gchar *url;
     SoupMessage *msg;
     WeatherLocation *loc;
 
-    loc = info->location;
+    loc = info->priv->location;
 
     url = g_strdup_printf ("http://www.bom.gov.au/fwo/%s.txt",
 			   loc->zone + 1);
 
     msg = soup_message_new ("GET", url);
-    soup_session_queue_message (info->session, msg, bom_finish, info);
+    soup_session_queue_message (info->priv->session, msg, bom_finish, info);
     g_free (url);
 
-    info->requests_pending++;
+    info->priv->requests_pending++;
 }

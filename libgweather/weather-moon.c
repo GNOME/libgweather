@@ -50,19 +50,8 @@
 #define LUNAR_PROGRESSION	13.176358
 #define LUNAR_INCLINATION	DEGREES_TO_RADIANS(5.145396)
 
-/**
- * calc_moon:
- * @info:  WeatherInfo containing time_t of interest.  The
- *    values moonphase, moonlatitude and moonValid are updated
- *    on success.
- *
- * Returns: gboolean indicating success or failure.
- *    moonphase is expressed as degrees where '0' is a new moon,
- *    '90' is first quarter, etc.
- */
-
-gboolean
-calc_moon (WeatherInfo *info)
+static gboolean
+calc_moon_internal (time_t update, gdouble *moonphase, gdouble *moonlatitude)
 {
     time_t  t;
     gdouble ra_h;
@@ -81,7 +70,7 @@ calc_moon (WeatherInfo *info)
      * The comments refer to the enumerated steps to calculate the
      * position of the moon (section 65 of above reference)
      */
-    t = info->update;
+    t = update;
     ndays = EPOCH_TO_J2000(t) / 86400.;
     sunMeanAnom_d = fmod (MEAN_ECLIPTIC_LONGITUDE (ndays) - PERIGEE_LONGITUDE (ndays),
 			  360.);
@@ -126,15 +115,34 @@ calc_moon (WeatherInfo *info)
     /*
      * The phase is the angle from the sun's longitude to the moon's 
      */
-    info->moonphase =
-        fmod (15.*ra_h - RADIANS_TO_DEGREES (sunEclipLongitude (info->update)),
+    *moonphase =
+        fmod (15.*ra_h - RADIANS_TO_DEGREES (sunEclipLongitude (update)),
 	      360.);
-    if (info->moonphase < 0)
-        info->moonphase += 360;
-    info->moonlatitude = RADIANS_TO_DEGREES (decl_r);
-    info->moonValid = TRUE;
+    if (*moonphase < 0)
+        *moonphase += 360;
+    *moonlatitude = RADIANS_TO_DEGREES (decl_r);
 
     return TRUE;
+}
+
+/**
+ * calc_moon:
+ * @info:  WeatherInfo containing time_t of interest.  The
+ *    values moonphase, moonlatitude and moonValid are updated
+ *    on success.
+ *
+ * Returns: gboolean indicating success or failure.
+ *    moonphase is expressed as degrees where '0' is a new moon,
+ *    '90' is first quarter, etc.
+ */
+
+gboolean
+calc_moon (GWeatherInfo *info)
+{
+    GWeatherInfoPrivate *priv = info->priv;
+    return priv->moonValid = calc_moon_internal (priv->update,
+						 &priv->moonphase,
+						 &priv->moonlatitude);
 }
 
 
@@ -149,9 +157,12 @@ calc_moon (WeatherInfo *info)
  */
 
 gboolean
-calc_moon_phases (WeatherInfo *info, time_t *phases)
+calc_moon_phases (GWeatherInfo *info, time_t *phases)
 {
-    WeatherInfo temp;
+    GWeatherInfoPrivate *priv;
+    time_t      tmp_update;
+    gdouble     tmp_moonphase;
+    gdouble     tmp_moonlatitude;
     time_t      *ptime;
     int         idx;
     gdouble     advance;
@@ -159,21 +170,21 @@ calc_moon_phases (WeatherInfo *info, time_t *phases)
     time_t      dtime;
 
     g_return_val_if_fail (info != NULL &&
-			  (info->moonValid || calc_moon (info)),
+			  (info->priv->moonValid || calc_moon (info)),
 			  FALSE);
 
+    priv = info->priv;
     ptime = phases;
-    memset(&temp, 0, sizeof(WeatherInfo));
 
     for (idx = 0; idx < 4; idx++) {
-	temp.update = info->update;
-	temp.moonphase = info->moonphase;
+	tmp_update = priv->update;
+	tmp_moonphase = priv->moonphase;
 
 	/*
 	 * First estimate on how far the moon needs to advance
 	 * to get to the required phase
 	 */
-	advance = (idx * 90.) - info->moonphase;
+	advance = (idx * 90.) - priv->moonphase;
 	if (advance < 0.)
 	    advance += 360.;
 
@@ -182,16 +193,16 @@ calc_moon_phases (WeatherInfo *info, time_t *phases)
 	    dtime = advance / LUNAR_PROGRESSION * 86400.;
 	    if ((dtime > -10) && (dtime < 10))
 		break;
-	    temp.update += dtime;
-	    (void)calc_moon (&temp);
+	    tmp_update += dtime;
+	    (void)calc_moon_internal (tmp_update, &tmp_moonphase, &tmp_moonlatitude);
 
-	    if (idx == 0 && temp.moonphase > 180.) {
-		advance = 360. - temp.moonphase;
+	    if (idx == 0 && tmp_moonphase > 180.) {
+		advance = 360. - tmp_moonphase;
 	    } else {
-		advance = (idx * 90.) - temp.moonphase;
+		advance = (idx * 90.) - tmp_moonphase;
 	    }
 	}
-	*ptime++ = temp.update;
+	*ptime++ = tmp_update;
     }
 
     return TRUE;

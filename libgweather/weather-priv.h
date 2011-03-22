@@ -46,35 +46,53 @@ const char *gweather_dpgettext (const char *context, const char *str) G_GNUC_FOR
 
 #define WEATHER_LOCATION_CODE_LEN 4
 
-WeatherLocation *gweather_location_to_weather_location (GWeatherLocation *gloc,
-							const char *name);
+/* Why we have this in code?
+   (at least, it's not exposed in API anymore)
+*/
+typedef struct {
+    gchar *name;
+    gchar *code;
+    gchar *zone;
+    gchar *radar;
+    gchar *coordinates;
+    gdouble  latitude;
+    gdouble  longitude;
+    gchar *country_code;
+    gchar *tz_hint;
+} WeatherLocation;
+
+WeatherLocation *       _weather_location_from_gweather_location (GWeatherLocation *gloc, const gchar *name);
+
+WeatherLocation *	_weather_location_new 	(const gchar *trans_name,
+						 const gchar *code,
+						 const gchar *zone,
+						 const gchar *radar,
+						 const gchar *coordinates,
+						 const gchar *country_code,
+						 const gchar *tz_hint);
+WeatherLocation *	_weather_location_clone	(const WeatherLocation *location);
+void			_weather_location_free	(WeatherLocation *location);
+gboolean		_weather_location_equal	(const WeatherLocation *location1,
+						 const WeatherLocation *location2);
 
 /*
  * Weather information.
  */
 
-struct _WeatherConditions {
-    gboolean significant;
-    WeatherConditionPhenomenon phenomenon;
-    WeatherConditionQualifier qualifier;
-};
+typedef gdouble GWeatherTemperature;
+typedef gdouble GWeatherHumidity;
+typedef gdouble GWeatherWindSpeed;
+typedef gdouble GWeatherPressure;
+typedef gdouble GWeatherVisibility;
+typedef time_t GWeatherUpdate;
 
-typedef struct _WeatherConditions WeatherConditions;
+struct _GWeatherInfoPrivate {
+    GWeatherForecastType forecast_type;
 
-typedef gdouble WeatherTemperature;
-typedef gdouble WeatherHumidity;
-typedef gdouble WeatherWindSpeed;
-typedef gdouble WeatherPressure;
-typedef gdouble WeatherVisibility;
-typedef time_t WeatherUpdate;
-
-struct _WeatherInfo {
-    WeatherForecastType forecast_type;
-
-    TempUnit temperature_unit;
-    SpeedUnit speed_unit;
-    PressureUnit pressure_unit;
-    DistanceUnit distance_unit;
+    GWeatherTemperatureUnit temperature_unit;
+    GWeatherSpeedUnit speed_unit;
+    GWeatherPressureUnit pressure_unit;
+    GWeatherDistanceUnit distance_unit;
 
     gboolean valid;
     gboolean network_error;
@@ -85,21 +103,22 @@ struct _WeatherInfo {
     gboolean moonValid;
     gboolean tempMinMaxValid;
     WeatherLocation *location;
-    WeatherUpdate update;
-    WeatherSky sky;
-    WeatherConditions cond;
-    WeatherTemperature temp;
-    WeatherTemperature temp_min;
-    WeatherTemperature temp_max;
-    WeatherTemperature dew;
-    WeatherWindDirection wind;
-    WeatherWindSpeed windspeed;
-    WeatherPressure pressure;
-    WeatherVisibility visibility;
-    WeatherUpdate sunrise;
-    WeatherUpdate sunset;
-    WeatherMoonPhase moonphase;
-    WeatherMoonLatitude moonlatitude;
+    GWeatherLocation *glocation;
+    GWeatherUpdate update;
+    GWeatherSky sky;
+    GWeatherConditions cond;
+    GWeatherTemperature temp;
+    GWeatherTemperature temp_min;
+    GWeatherTemperature temp_max;
+    GWeatherTemperature dew;
+    GWeatherWindDirection wind;
+    GWeatherWindSpeed windspeed;
+    GWeatherPressure pressure;
+    GWeatherVisibility visibility;
+    GWeatherUpdate sunrise;
+    GWeatherUpdate sunset;
+    GWeatherMoonPhase moonphase;
+    GWeatherMoonLatitude moonlatitude;
     gchar *forecast;
     GSList *forecast_list; /* list of WeatherInfo* for the forecast, NULL if not available */
     gchar *radar_buffer;
@@ -108,18 +127,7 @@ struct _WeatherInfo {
     GdkPixbufAnimation *radar;
     SoupSession *session;
     gint requests_pending;
-
-    WeatherInfoFunc finish_cb;
-    gpointer cb_data;
 };
-
-/*
- * Enum -> string conversions.
- */
-
-const gchar *	weather_wind_direction_string	(WeatherWindDirection wind);
-const gchar *	weather_sky_string		(WeatherSky sky);
-const gchar *	weather_conditions_string	(WeatherConditions cond);
 
 /* Values common to the parsing source files */
 
@@ -165,17 +173,17 @@ const gchar *	weather_conditions_string	(WeatherConditions cond);
 #define SOL_PROGRESSION            (360./365.242191)
 #define PERIGEE_LONGITUDE(d)       (282.93768193 + (d)/36525.*0.32327364)
 
-void		metar_start_open	(WeatherInfo *info);
-void		iwin_start_open		(WeatherInfo *info);
-void		metoffice_start_open	(WeatherInfo *info);
-void		bom_start_open		(WeatherInfo *info);
-void		wx_start_open		(WeatherInfo *info);
+void		metar_start_open	(GWeatherInfo *info);
+void		iwin_start_open		(GWeatherInfo *info);
+void		metoffice_start_open	(GWeatherInfo *info);
+void		bom_start_open		(GWeatherInfo *info);
+void		wx_start_open		(GWeatherInfo *info);
 
 gboolean	metar_parse		(gchar *metar,
-					 WeatherInfo *info);
+					 GWeatherInfo *info);
 
-gboolean	requests_init		(WeatherInfo *info);
-void		request_done		(WeatherInfo *info,
+gboolean	requests_init		(GWeatherInfo *info);
+void		request_done		(GWeatherInfo *info,
 					 gboolean     ok);
 
 void		ecl2equ			(gdouble t,
@@ -184,12 +192,33 @@ void		ecl2equ			(gdouble t,
 					 gdouble *ra,
 					 gdouble *decl);
 gdouble		sunEclipLongitude	(time_t t);
-gboolean	calc_sun		(WeatherInfo *info);
-gboolean	calc_sun_time		(WeatherInfo *info, time_t t);
-gboolean	calc_moon		(WeatherInfo *info);
-gboolean	calc_moon_phases	(WeatherInfo *info, time_t *phases);
+gboolean	calc_sun		(GWeatherInfo *info);
+gboolean	calc_sun_time		(GWeatherInfo *info, time_t t);
+gboolean	calc_moon		(GWeatherInfo *info);
+gboolean	calc_moon_phases	(GWeatherInfo *info, time_t *phases);
 
-void		free_forecast_list	(WeatherInfo *info);
+void		free_forecast_list	(GWeatherInfo *info);
+
+GWeatherInfo   *_gweather_info_new_clone (GWeatherInfo *info);
+
+struct _GWeatherPrefs {
+    WeatherLocation *location;
+    gint update_interval;  /* in seconds */
+    gboolean update_enabled;
+    gboolean detailed;
+    gboolean radar_enabled;
+    gboolean use_custom_radar_url;
+    gchar *radar;
+
+    GWeatherTemperatureUnit temperature_unit;
+    gboolean use_temperature_default;
+    GWeatherSpeedUnit speed_unit;
+    gboolean use_speed_default;
+    GWeatherPressureUnit pressure_unit;
+    gboolean use_pressure_default;
+    GWeatherDistanceUnit distance_unit;
+    gboolean use_distance_default;
+};
 
 #endif /* __WEATHER_PRIV_H_ */
 

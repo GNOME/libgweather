@@ -27,7 +27,6 @@
 
 #include <glib.h>
 #include <libgweather/gweather-timezone.h>
-#include <libgweather/weather.h>
 
 G_BEGIN_DECLS
 
@@ -79,8 +78,6 @@ void                   gweather_location_free_timezones (GWeatherLocation  *loc,
 
 const char            *gweather_location_get_code       (GWeatherLocation  *loc);
 char                  *gweather_location_get_city_name  (GWeatherLocation  *loc);
-
-WeatherInfo           *gweather_location_get_weather    (GWeatherLocation  *loc);
 
 G_END_DECLS
 

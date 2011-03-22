@@ -193,7 +193,7 @@ gweather_gconf_get_string (GWeatherGConf  *ctx,
 
 
 WeatherLocation *
-gweather_gconf_get_location (GWeatherGConf *ctx)
+_gweather_gconf_get_location (GWeatherGConf *ctx)
 {
     WeatherLocation *location;
     gchar *name, *code, *zone, *radar, *coordinates;
@@ -302,7 +302,7 @@ gweather_gconf_get_location (GWeatherGConf *ctx)
 	    coordinates = g_strdup ("40-32N 080-13W");
     }
 
-    location = weather_location_new (name, code, zone, radar, coordinates,
+    location = _weather_location_new (name, code, zone, radar, coordinates,
 				     NULL, NULL);
 
     g_free (name);

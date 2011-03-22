@@ -150,7 +150,7 @@ met_parse (const gchar *meto)
 static void
 met_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 {
-    WeatherInfo *info = (WeatherInfo *)data;
+    GWeatherInfo *info = (GWeatherInfo *)data;
 
     g_return_if_fail (info != NULL);
 
@@ -161,23 +161,23 @@ met_finish (SoupSession *session, SoupMessage *msg, gpointer data)
         return;
     }
 
-    info->forecast = met_parse (msg->response_body->data);
+    info->priv->forecast = met_parse (msg->response_body->data);
     request_done (info, TRUE);
 }
 
 void
-metoffice_start_open (WeatherInfo *info)
+metoffice_start_open (GWeatherInfo *info)
 {
     gchar *url;
     SoupMessage *msg;
     WeatherLocation *loc;
 
-    loc = info->location;
+    loc = info->priv->location;
     url = g_strdup_printf ("http://www.metoffice.gov.uk/weather/uk/%s/%s_forecast_weather_noscript.html", loc->zone + 1, loc->zone + 1);
 
     msg = soup_message_new ("GET", url);
-    soup_session_queue_message (info->session, msg, met_finish, info);
+    soup_session_queue_message (info->priv->session, msg, met_finish, info);
     g_free (url);
    
-    info->requests_pending++;
+    info->priv->requests_pending++;
 }

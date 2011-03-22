@@ -748,8 +748,7 @@ gweather_location_get_city_name (GWeatherLocation *loc)
 }
 
 WeatherLocation *
-gweather_location_to_weather_location (GWeatherLocation *gloc,
-				       const char *name)
+_weather_location_from_gweather_location (GWeatherLocation *gloc, const gchar *name)
 {
     const char *code = NULL, *zone = NULL, *radar = NULL, *tz_hint = NULL;
     GWeatherLocation *l;
@@ -757,9 +756,6 @@ gweather_location_to_weather_location (GWeatherLocation *gloc,
     char *coords;
 
     g_return_val_if_fail (gloc != NULL, NULL);
-
-    if (!name)
-	name = gweather_location_get_name (gloc);
 
     if (gloc->level == GWEATHER_LOCATION_CITY && gloc->children)
 	l = gloc->children[0];
@@ -783,33 +779,10 @@ gweather_location_to_weather_location (GWeatherLocation *gloc,
 	l = l->parent;
     }
 
-    wloc = weather_location_new (name, code, zone, radar, coords,
-				 gweather_location_get_country (gloc),
-				 tz_hint);
+    wloc = _weather_location_new (name ? name : gweather_location_get_name (gloc),
+				  code, zone, radar, coords,
+				  gweather_location_get_country (gloc),
+				  tz_hint);
     g_free (coords);
     return wloc;
-}
-
-/**
- * gweather_location_get_weather:
- * @loc: a %GWeatherLocation
- *
- * Creates a #WeatherInfo corresponding to @loc; you can use
- * weather_info_update() to fill it in.
- *
- * Return value: (transfer full): a #WeatherInfo corresponding to
- * @loc.
- **/
-WeatherInfo *
-gweather_location_get_weather (GWeatherLocation *loc)
-{
-    WeatherLocation *wloc;
-    WeatherInfo *info;
-
-    g_return_val_if_fail (loc != NULL, NULL);
-
-    wloc = gweather_location_to_weather_location (loc, NULL);
-    info = weather_info_new (wloc, NULL, NULL, NULL);
-    weather_location_free (wloc);
-    return info;
 }
