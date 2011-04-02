@@ -2,7 +2,7 @@
 # Copyright © 2009 GNOME i18n Project for Vietnamese.
 # This file is distributed under the same license as the libgweather package.
 # T.M.Thanh <tmthanh@yahoo.com>, 2002-2003.
-# Nguyễn Thái Ngọc Duy <pclouds@vnlinux.org>, 2002-2004.
+# Nguyễn Thái Ngọc Duy <pclouds@vnlinux.org>, 2002-2004,2011.
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2009.
 #
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "applets&keywords=I18N+L10N&component=gweather\n"
 "POT-Creation-Date: 2011-03-18 22:10+0000\n"
-"PO-Revision-Date: 2009-02-07 17:35+0930\n"
+"PO-Revision-Date: 2011-04-02 11:35+0700\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr ""
 #: ../libgweather/gweather-gconf.c:212 ../libgweather/gweather-gconf.c:213
 #: ../libgweather/gweather.schemas.in.h:5
 msgid "DEFAULT_LOCATION"
-msgstr "T.P. Hồ Chí Minh"
+msgstr "Hà Nội"
 
 #. TRANSLATOR: Change this to the code of your default location that
 #. * corresponds to the DEFAULT_LOCATION name you put above. This is
@@ -50,7 +50,7 @@ msgstr "T.P. Hồ Chí Minh"
 #: ../libgweather/gweather-gconf.c:232 ../libgweather/gweather-gconf.c:233
 #: ../libgweather/gweather.schemas.in.h:3
 msgid "DEFAULT_CODE"
-msgstr "VVTS"
+msgstr "VVNB"
 
 #. TRANSLATOR: Change this to the zone of your default location that
 #. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
@@ -100,7 +100,7 @@ msgstr "DEFAULT_RADAR"
 #: ../libgweather/gweather-gconf.c:294 ../libgweather/gweather-gconf.c:295
 #: ../libgweather/gweather.schemas.in.h:4
 msgid "DEFAULT_COORDINATES"
-msgstr "10-49N 106-40E"
+msgstr "21.016667 105.800000"
 
 #: ../libgweather/gweather-prefs.c:34 ../libgweather/gweather-prefs.c:45
 #: ../libgweather/gweather-prefs.c:60 ../libgweather/gweather-prefs.c:77
@@ -135,7 +135,7 @@ msgstr "cây số/giờ"
 #. translators: miles per hour
 #: ../libgweather/gweather-prefs.c:51
 msgid "mph"
-msgstr "lý/giờ"
+msgstr "dặm/giờ"
 
 #. translators: knots (speed unit)
 #: ../libgweather/gweather-prefs.c:53
@@ -185,12 +185,12 @@ msgstr "m"
 #. translators: kilometers
 #: ../libgweather/gweather-prefs.c:81
 msgid "km"
-msgstr "cây số"
+msgstr "km"
 
 #. translators: miles
 #: ../libgweather/gweather-prefs.c:83
 msgid "mi"
-msgstr "lý"
+msgstr "dặm"
 
 #. TRANSLATOR: This is the default unit to use for temperature measurements.
 #. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
@@ -221,10 +221,9 @@ msgstr "km"
 
 #: ../libgweather/gweather-timezone.c:314
 msgid "Greenwich Mean Time"
-msgstr ""
+msgstr "Múi giờ Greenwich"
 
 #: ../libgweather/gweather.schemas.in.h:1
-#, fuzzy
 #| msgid ""
 #| "A three-digit-long code for retrieving radar maps from weather.com, found "
 #| "from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
@@ -232,11 +231,10 @@ msgid ""
 "A three-digit-long code for retrieving radar maps from weather.com, found "
 "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
-"Một mã ba chữ số để lấy bản đồ ra đa từ weather.com, sẵn sàng trong tập tin « "
-"http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in »"
+"Mã ba chữ số để lấy bản đồ ra đa từ weather.com từ tập tin http://git.gnome."
+"org/cgit/libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
-#, fuzzy
 #| msgid ""
 #| "A unique zone for the city, as found from http://svn.gnome.org/viewvc/"
 #| "libgweather/trunk/data/Locations.xml.in"
@@ -244,8 +242,8 @@ msgid ""
 "A unique zone for the city, as found from http://git.gnome.org/cgit/"
 "libgweather/plain/data/Locations.xml.in"
 msgstr ""
-"Một vùng duy nhất cho thành phố, sẵn sàng trong tập tin « http://svn.gnome."
-"org/viewvc/libgweather/trunk/data/Locations.xml.in »"
+"Vùng duy nhất cho thành phố trong tập tin http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:8
 msgid ""
@@ -259,7 +257,7 @@ msgstr "Hiện bản đồ ra đa"
 
 #: ../libgweather/gweather.schemas.in.h:10
 msgid "Distance unit"
-msgstr "Đơn vị tầm"
+msgstr "Đơn vị khoảng cách"
 
 #: ../libgweather/gweather.schemas.in.h:11
 msgid "Fetch a radar map on each update."
@@ -288,7 +286,6 @@ msgid "Nearby city"
 msgstr "Thành phố ở gần"
 
 #: ../libgweather/gweather.schemas.in.h:16
-#, fuzzy
 #| msgid ""
 #| "Nearby major zone, such as a capital city, as found from http://svn.gnome."
 #| "org/viewvc/libgweather/trunk/data/Locations.xml.in"
@@ -296,8 +293,8 @@ msgid ""
 "Nearby major zone, such as a capital city, as found from http://git.gnome."
 "org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
-"Vùng chính ở gần, v.d. một thủ đô, sẵn sàng trong tập tin « http://svn.gnome."
-"org/viewvc/libgweather/trunk/data/Locations.xml.in »"
+"Vùng chính ở gần, v.d. một thủ đô, trong tập tin http://git.gnome.org/cgit/"
+"libgweather/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -388,11 +385,10 @@ msgid "Zone location"
 msgstr "Thông tin vùng"
 
 #: ../libgweather/timezone-menu.c:277
-#, fuzzy
 #| msgid "Unknown"
 msgctxt "timezone"
 msgid "Unknown"
-msgstr "Chưa biết"
+msgstr "Không rõ"
 
 #. Translators: %d is an error code, and %s the error string
 #: ../libgweather/weather-metar.c:504
@@ -793,7 +789,7 @@ msgstr "Làn bụi cuốn trong vùng phụ cận"
 #.
 #: ../libgweather/weather.c:710
 msgid "%a, %b %d / %H:%M"
-msgstr "%a, %d %b / %H:%M"
+msgstr "%a, %H:%M %d %b"
 
 #: ../libgweather/weather.c:725
 msgid "Unknown observation time"
@@ -861,13 +857,13 @@ msgstr "%0.1f hải lý"
 #: ../libgweather/weather.c:896
 #, c-format
 msgid "%.1f mph"
-msgstr "%.1f lý/giờ"
+msgstr "%.1f dặm/giờ"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
 #: ../libgweather/weather.c:900
 #, c-format
 msgid "%.1f km/h"
-msgstr "%.1f cây số/giờ"
+msgstr "%.1f km/giờ"
 
 #. TRANSLATOR: This is the wind speed in meters per second
 #: ../libgweather/weather.c:904
@@ -898,7 +894,7 @@ msgstr "%s / %s"
 #: ../libgweather/weather.c:961
 #, c-format
 msgid "%.2f inHg"
-msgstr "%.2f insơHg"
+msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
 #: ../libgweather/weather.c:965
@@ -940,7 +936,7 @@ msgstr "%.1f lý"
 #: ../libgweather/weather.c:1013
 #, c-format
 msgid "%.1f km"
-msgstr "%.1f cây số"
+msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
 #: ../libgweather/weather.c:1017
