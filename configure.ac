@@ -91,9 +91,9 @@ PKG_CHECK_MODULES(LIBSOUP_GNOME,
 AC_SUBST(LIBSOUP_CFLAGS)
 AC_SUBST(LIBSOUP_LIBS)
 
-dnl -- check for gio (required) -----------------------------------------
-PKG_CHECK_MODULES(GIO, 
-		  [gio-2.0 >= $GLIB_REQUIRED])
+dnl -- check for glib and gio (required) -----------------------------------------
+PKG_CHECK_MODULES(GIO,
+		  [glib-2.0 >= $GLIB_REQUIRED gio-2.0 >= $GLIB_REQUIRED])
 
 dnl -- check for glib; redundant at this point, but sets $GLIB_MKENUMS
 AM_PATH_GLIB_2_0($GLIB_REQUIRED)

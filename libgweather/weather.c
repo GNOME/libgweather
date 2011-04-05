@@ -36,6 +36,7 @@
 
 #include <gtk/gtk.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <glib.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-weather.h"
@@ -585,120 +586,101 @@ gweather_info_get_location (GWeatherInfo *info)
     return info->priv->glocation;
 }
 
-const gchar *
+gchar *
 gweather_info_get_location_name (GWeatherInfo *info)
 {
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
 
     if (!info->priv->location)
 	return NULL;
-    return info->priv->location->name;
+    return g_strdup(info->priv->location->name);
 }
 
-const gchar *
+gchar *
 gweather_info_get_update (GWeatherInfo *info)
 {
-    static gchar buf[200];
-    char *utf8, *timeformat;
+    char *out;
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
 
     if (!info->priv->valid)
-        return "-";
+        return g_strdup ("-");
 
     if (info->priv->update != 0) {
-        struct tm tm;
-        localtime_r (&info->priv->update, &tm);
-	/* TRANSLATOR: this is a format string for strftime
-	 *             see `man 3 strftime` for more details
-	 */
-	timeformat = g_locale_from_utf8 (_("%a, %b %d / %H:%M"), -1,
-					 NULL, NULL, NULL);
-	if (!timeformat) {
-	    strcpy (buf, "???");
-	}
-	else if (strftime (buf, sizeof (buf), timeformat, &tm) <= 0) {
-	    strcpy (buf, "???");
-	}
-	g_free (timeformat);
+	GDateTime *now = g_date_time_new_from_unix_local (info->priv->update);
 
-	/* Convert to UTF-8 */
-	utf8 = g_locale_to_utf8 (buf, -1, NULL, NULL, NULL);
-	strcpy (buf, utf8);
-	g_free (utf8);
-    } else {
-        strncpy (buf, _("Unknown observation time"), sizeof (buf));
-	buf[sizeof (buf)-1] = '\0';
-    }
+	out = g_date_time_format (now, _("%a, %b %d / %H:%M"));
+	if (!out)
+	    out = g_strdup ("???");
 
-    return buf;
+	g_date_time_unref (now);
+    } else
+        out = g_strdup (_("Unknown observation time"));
+
+    return out;
 }
 
-const gchar *
+gchar *
 gweather_info_get_sky (GWeatherInfo *info)
 {
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
     if (!info->priv->valid)
-        return "-";
+        return g_strdup("-");
     if (info->priv->sky < 0)
-	return _("Unknown");
-    return gweather_sky_to_string (info->priv->sky);
+	return g_strdup(_("Unknown"));
+    return g_strdup(gweather_sky_to_string (info->priv->sky));
 }
 
-const gchar *
+gchar *
 gweather_info_get_conditions (GWeatherInfo *info)
 {
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
     if (!info->priv->valid)
-        return "-";
-    return gweather_conditions_to_string (&info->priv->cond);
+        return g_strdup("-");
+    return g_strdup(gweather_conditions_to_string (&info->priv->cond));
 }
 
-static const gchar *
+static gchar *
 temperature_string (gfloat temp_f, GWeatherTemperatureUnit to_unit, gboolean want_round)
 {
-    static gchar buf[100];
-
     switch (to_unit) {
     case GWEATHER_TEMP_UNIT_FAHRENHEIT:
 	if (!want_round) {
 	    /* TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN) */
-	    g_snprintf (buf, sizeof (buf), _("%.1f \302\260F"), temp_f);
+	    return g_strdup_printf (_("%.1f \302\260F"), temp_f);
 	} else {
 	    /* TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN) */
-	    g_snprintf (buf, sizeof (buf), _("%d \302\260F"), (int)floor (temp_f + 0.5));
+	    return g_strdup_printf (_("%d \302\260F"), (int)floor (temp_f + 0.5));
 	}
 	break;
     case GWEATHER_TEMP_UNIT_CENTIGRADE:
 	if (!want_round) {
 	    /* TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN) */
-	    g_snprintf (buf, sizeof (buf), _("%.1f \302\260C"), TEMP_F_TO_C (temp_f));
+	    return g_strdup_printf (_("%.1f \302\260C"), TEMP_F_TO_C (temp_f));
 	} else {
 	    /* TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN) */
-	    g_snprintf (buf, sizeof (buf), _("%d \302\260C"), (int)floor (TEMP_F_TO_C (temp_f) + 0.5));
+	    return g_strdup_printf (_("%d \302\260C"), (int)floor (TEMP_F_TO_C (temp_f) + 0.5));
 	}
 	break;
     case GWEATHER_TEMP_UNIT_KELVIN:
 	if (!want_round) {
 	    /* TRANSLATOR: This is the temperature in kelvin */
-	    g_snprintf (buf, sizeof (buf), _("%.1f K"), TEMP_F_TO_K (temp_f));
+	    return g_strdup_printf (_("%.1f K"), TEMP_F_TO_K (temp_f));
 	} else {
 	    /* TRANSLATOR: This is the temperature in kelvin */
-	    g_snprintf (buf, sizeof (buf), _("%d K"), (int)floor (TEMP_F_TO_K (temp_f)));
+	    return g_strdup_printf (_("%d K"), (int)floor (TEMP_F_TO_K (temp_f)));
 	}
 	break;
 
     case GWEATHER_TEMP_UNIT_INVALID:
     case GWEATHER_TEMP_UNIT_DEFAULT:
     default:
-	g_warning ("Conversion to illegal temperature unit: %d", to_unit);
-	return _("Unknown");
+	g_critical ("Conversion to illegal temperature unit: %d", to_unit);
+	return g_strdup(_("Unknown"));
     }
-
-    return buf;
 }
 
-const gchar *
+gchar *
 gweather_info_get_temp (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
@@ -707,14 +689,14 @@ gweather_info_get_temp (GWeatherInfo *info)
     priv = info->priv;
 
     if (!priv->valid)
-        return "-";
+        return g_strdup("-");
     if (priv->temp < -500.0)
-        return _("Unknown");
+        return g_strdup(_("Unknown"));
 
     return temperature_string (priv->temp, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
 
-const gchar *
+gchar *
 gweather_info_get_temp_min (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
@@ -723,14 +705,14 @@ gweather_info_get_temp_min (GWeatherInfo *info)
     priv = info->priv;
 
     if (!priv->valid || !priv->tempMinMaxValid)
-        return "-";
+        return g_strdup("-");
     if (priv->temp_min < -500.0)
-        return _("Unknown");
+        return g_strdup(_("Unknown"));
 
     return temperature_string (priv->temp_min, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
 
-const gchar *
+gchar *
 gweather_info_get_temp_max (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
@@ -739,14 +721,14 @@ gweather_info_get_temp_max (GWeatherInfo *info)
     priv = info->priv;
 
     if (!priv->valid || !priv->tempMinMaxValid)
-        return "-";
+        return g_strdup("-");
     if (priv->temp_max < -500.0)
-        return _("Unknown");
+        return g_strdup(_("Unknown"));
 
     return temperature_string (priv->temp_max, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
 
-const gchar *
+gchar *
 gweather_info_get_dew (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
@@ -755,36 +737,32 @@ gweather_info_get_dew (GWeatherInfo *info)
     priv = info->priv;
 
     if (!priv->valid)
-        return "-";
+        return g_strdup("-");
     if (priv->dew < -500.0)
-        return _("Unknown");
+        return g_strdup(_("Unknown"));
 
     return temperature_string (priv->dew, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
 
-const gchar *
+gchar *
 gweather_info_get_humidity (GWeatherInfo *info)
 {
-    /* FIXME: a static buffer, exposed outside the function? omg! */
-
-    static gchar buf[20];
     gdouble humidity;
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
 
     if (!info->priv->valid)
-        return "-";
+        return g_strdup("-");
 
     humidity = calc_humidity (info->priv->temp, info->priv->dew);
     if (humidity < 0.0)
-        return _("Unknown");
+        return g_strdup(_("Unknown"));
 
     /* TRANSLATOR: This is the humidity in percent */
-    g_snprintf (buf, sizeof (buf), _("%.f%%"), humidity);
-    return buf;
+    return g_strdup_printf(_("%.f%%"), humidity);
 }
 
-const gchar *
+gchar *
 gweather_info_get_apparent (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
@@ -794,176 +772,173 @@ gweather_info_get_apparent (GWeatherInfo *info)
     priv = info->priv;
 
     if (!priv->valid)
-        return "-";
+        return g_strdup("-");
 
     apparent = calc_apparent (info);
     if (apparent < -500.0)
-        return _("Unknown");
+        return g_strdup(_("Unknown"));
 
     return temperature_string (apparent, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
 
-static const gchar *
+static gchar *
 windspeed_string (gfloat knots, GWeatherSpeedUnit to_unit)
 {
-    static gchar buf[100];
-
     switch (to_unit) {
     case GWEATHER_SPEED_UNIT_KNOTS:
 	/* TRANSLATOR: This is the wind speed in knots */
-	g_snprintf (buf, sizeof (buf), _("%0.1f knots"), knots);
+	g_strdup_printf(_("%0.1f knots"), knots);
 	break;
     case GWEATHER_SPEED_UNIT_MPH:
 	/* TRANSLATOR: This is the wind speed in miles per hour */
-	g_snprintf (buf, sizeof (buf), _("%.1f mph"), WINDSPEED_KNOTS_TO_MPH (knots));
+	g_strdup_printf(_("%.1f mph"), WINDSPEED_KNOTS_TO_MPH (knots));
 	break;
     case GWEATHER_SPEED_UNIT_KPH:
 	/* TRANSLATOR: This is the wind speed in kilometers per hour */
-	g_snprintf (buf, sizeof (buf), _("%.1f km/h"), WINDSPEED_KNOTS_TO_KPH (knots));
+	g_strdup_printf(_("%.1f km/h"), WINDSPEED_KNOTS_TO_KPH (knots));
 	break;
     case GWEATHER_SPEED_UNIT_MS:
 	/* TRANSLATOR: This is the wind speed in meters per second */
-	g_snprintf (buf, sizeof (buf), _("%.1f m/s"), WINDSPEED_KNOTS_TO_MS (knots));
+	g_strdup_printf(_("%.1f m/s"), WINDSPEED_KNOTS_TO_MS (knots));
 	break;
     case GWEATHER_SPEED_UNIT_BFT:
 	/* TRANSLATOR: This is the wind speed as a Beaufort force factor
 	 * (commonly used in nautical wind estimation).
 	 */
-	g_snprintf (buf, sizeof (buf), _("Beaufort force %.1f"),
-		    WINDSPEED_KNOTS_TO_BFT (knots));
+	g_strdup_printf(_("Beaufort force %.1f"), WINDSPEED_KNOTS_TO_BFT (knots));
 	break;
     case GWEATHER_SPEED_UNIT_INVALID:
     case GWEATHER_SPEED_UNIT_DEFAULT:
     default:
-	g_warning ("Conversion to illegal speed unit: %d", to_unit);
-	return _("Unknown");
+	g_critical ("Conversion to illegal speed unit: %d", to_unit);
+	return g_strdup(_("Unknown"));
     }
 
-    return buf;
+    return NULL;
 }
 
-const gchar *
+gchar *
 gweather_info_get_wind (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
-    static gchar buf[200];
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
 
     priv = info->priv;
 
     if (!priv->valid)
-        return "-";
+        return g_strdup("-");
     if (priv->windspeed < 0.0 || priv->wind < 0)
-        return _("Unknown");
+        return g_strdup(_("Unknown"));
     if (priv->windspeed == 0.00) {
-        strncpy (buf, _("Calm"), sizeof (buf));
-	buf[sizeof (buf)-1] = '\0';
+        return g_strdup(_("Calm"));
     } else {
+	gchar *speed_string;
+	gchar *wind_string;
+
+	speed_string = windspeed_string (priv->windspeed, g_settings_get_enum (priv->settings, SPEED_UNIT));
+
         /* TRANSLATOR: This is 'wind direction' / 'wind speed' */
-        g_snprintf (buf, sizeof (buf), _("%s / %s"),
-		    gweather_wind_direction_to_string (priv->wind),
-		    windspeed_string (priv->windspeed, g_settings_get_enum (priv->settings, SPEED_UNIT)));
+        wind_string = g_strdup_printf (_("%s / %s"), gweather_wind_direction_to_string (priv->wind), speed_string);
+
+	g_free (speed_string);
+	return wind_string;
     }
-    return buf;
 }
 
-const gchar *
+gchar *
 gweather_info_get_pressure (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
-    static gchar buf[100];
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
 
     priv = info->priv;
 
     if (!priv->valid)
-        return "-";
+        return g_strdup("-");
     if (priv->pressure < 0.0)
-        return _("Unknown");
+        return g_strdup(_("Unknown"));
 
     switch (g_settings_get_enum (priv->settings, PRESSURE_UNIT)) {
     case GWEATHER_PRESSURE_UNIT_INCH_HG:
 	/* TRANSLATOR: This is pressure in inches of mercury */
-	g_snprintf (buf, sizeof (buf), _("%.2f inHg"), priv->pressure);
+	g_strdup_printf(_("%.2f inHg"), priv->pressure);
 	break;
     case GWEATHER_PRESSURE_UNIT_MM_HG:
 	/* TRANSLATOR: This is pressure in millimeters of mercury */
-	g_snprintf (buf, sizeof (buf), _("%.1f mmHg"), PRESSURE_INCH_TO_MM (priv->pressure));
+	g_strdup_printf(_("%.1f mmHg"), PRESSURE_INCH_TO_MM (priv->pressure));
 	break;
     case GWEATHER_PRESSURE_UNIT_KPA:
 	/* TRANSLATOR: This is pressure in kiloPascals */
-	g_snprintf (buf, sizeof (buf), _("%.2f kPa"), PRESSURE_INCH_TO_KPA (priv->pressure));
+	g_strdup_printf(_("%.2f kPa"), PRESSURE_INCH_TO_KPA (priv->pressure));
 	break;
     case GWEATHER_PRESSURE_UNIT_HPA:
 	/* TRANSLATOR: This is pressure in hectoPascals */
-	g_snprintf (buf, sizeof (buf), _("%.2f hPa"), PRESSURE_INCH_TO_HPA (priv->pressure));
+	g_strdup_printf(_("%.2f hPa"), PRESSURE_INCH_TO_HPA (priv->pressure));
 	break;
     case GWEATHER_PRESSURE_UNIT_MB:
 	/* TRANSLATOR: This is pressure in millibars */
-	g_snprintf (buf, sizeof (buf), _("%.2f mb"), PRESSURE_INCH_TO_MB (priv->pressure));
+	g_strdup_printf(_("%.2f mb"), PRESSURE_INCH_TO_MB (priv->pressure));
 	break;
     case GWEATHER_PRESSURE_UNIT_ATM:
 	/* TRANSLATOR: This is pressure in atmospheres */
-	g_snprintf (buf, sizeof (buf), _("%.3f atm"), PRESSURE_INCH_TO_ATM (priv->pressure));
+	g_strdup_printf(_("%.3f atm"), PRESSURE_INCH_TO_ATM (priv->pressure));
 	break;
 
     case GWEATHER_PRESSURE_UNIT_INVALID:
     case GWEATHER_PRESSURE_UNIT_DEFAULT:
     default:
-	g_warning ("Conversion to illegal pressure unit");
-	return _("Unknown");
+	g_critical ("Conversion to illegal pressure unit");
+	return g_strdup(_("Unknown"));
     }
 
-    return buf;
+    return NULL;
 }
 
-const gchar *
+gchar *
 gweather_info_get_visibility (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
-    static gchar buf[100];
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
-
     priv = info->priv;
 
     if (!priv->valid)
-        return "-";
+        return g_strdup ("-");
     if (priv->visibility < 0.0)
-        return _("Unknown");
+        return g_strdup (_("Unknown"));
 
     switch (g_settings_get_enum (priv->settings, DISTANCE_UNIT)) {
     case GWEATHER_DISTANCE_UNIT_MILES:
 	/* TRANSLATOR: This is the visibility in miles */
-	g_snprintf (buf, sizeof (buf), _("%.1f miles"), priv->visibility);
+	g_strdup_printf (_("%.1f miles"), priv->visibility);
 	break;
     case GWEATHER_DISTANCE_UNIT_KM:
 	/* TRANSLATOR: This is the visibility in kilometers */
-	g_snprintf (buf, sizeof (buf), _("%.1f km"), VISIBILITY_SM_TO_KM (priv->visibility));
+	g_strdup_printf (_("%.1f km"), VISIBILITY_SM_TO_KM (priv->visibility));
 	break;
     case GWEATHER_DISTANCE_UNIT_METERS:
 	/* TRANSLATOR: This is the visibility in meters */
-	g_snprintf (buf, sizeof (buf), _("%.0fm"), VISIBILITY_SM_TO_M (priv->visibility));
+	g_strdup_printf (_("%.0fm"), VISIBILITY_SM_TO_M (priv->visibility));
 	break;
 
     case GWEATHER_DISTANCE_UNIT_INVALID:
     case GWEATHER_DISTANCE_UNIT_DEFAULT:
     default:
-	g_warning ("Conversion to illegal visibility unit");
-	return _("Unknown");
+	g_critical ("Conversion to illegal visibility unit");
+	return g_strdup (_("Unknown"));
     }
 
-    return buf;
+    return NULL;
 }
 
-const gchar *
+gchar *
 gweather_info_get_sunrise (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
-    static gchar buf[200];
-    struct tm tm;
+    GDateTime *sunrise;
+    gchar *buf;
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
     g_return_val_if_fail (info->priv->location, NULL);
@@ -971,24 +946,28 @@ gweather_info_get_sunrise (GWeatherInfo *info)
     priv = info->priv;
 
     if (!priv->location->latlon_valid)
-        return "-";
+        return g_strdup ("-");
     if (!priv->valid)
-        return "-";
+        return g_strdup ("-");
     if (!calc_sun (info))
-        return "-";
+        return g_strdup ("-");
 
-    localtime_r (&priv->sunrise, &tm);
-    if (strftime (buf, sizeof (buf), _("%H:%M"), &tm) <= 0)
-        return "-";
+    sunrise = g_date_time_new_from_unix_local (priv->sunrise);
+
+    buf = g_date_time_format (sunrise, _("%H:%M"));
+    if (!buf)
+        buf = g_strdup ("-");
+
+    g_date_time_unref (sunrise);
     return buf;
 }
 
-const gchar *
+gchar *
 gweather_info_get_sunset (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
-    static gchar buf[200];
-    struct tm tm;
+    GDateTime *sunset;
+    gchar *buf;
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
     g_return_val_if_fail (info->priv->location, NULL);
@@ -996,23 +975,26 @@ gweather_info_get_sunset (GWeatherInfo *info)
     priv = info->priv;
 
     if (!priv->location->latlon_valid)
-        return "-";
+        return g_strdup ("-");
     if (!priv->valid)
-        return "-";
+        return g_strdup ("-");
     if (!calc_sun (info))
-        return "-";
+        return g_strdup ("-");
 
-    localtime_r (&priv->sunset, &tm);
-    if (strftime (buf, sizeof (buf), _("%H:%M"), &tm) <= 0)
-        return "-";
+    sunset = g_date_time_new_from_unix_local (priv->sunset);
+    buf = g_date_time_format (sunset, _("%H:%M"));
+    if (!buf)
+        buf = g_strdup ("-");
+
+    g_date_time_unref (sunset);
     return buf;
 }
 
-const gchar *
+gchar *
 gweather_info_get_forecast (GWeatherInfo *info)
 {
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
-    return info->priv->forecast;
+    return g_strdup (info->priv->forecast);
 }
 
 /**
@@ -1051,7 +1033,7 @@ gweather_info_get_radar (GWeatherInfo *info)
     return info->priv->radar;
 }
 
-const gchar *
+gchar *
 gweather_info_get_temp_summary (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
@@ -1061,7 +1043,7 @@ gweather_info_get_temp_summary (GWeatherInfo *info)
     priv = info->priv;
 
     if (!priv->valid || priv->temp < -500.0)
-        return "--";
+        return g_strdup ("--");
 
     return temperature_string (priv->temp, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), TRUE);
 }
@@ -1075,16 +1057,23 @@ gweather_info_get_temp_summary (GWeatherInfo *info)
 gchar *
 gweather_info_get_weather_summary (GWeatherInfo *info)
 {
-    const gchar *buf;
+    gchar *buf;
+    gchar *out;
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
 
     if (!info->priv->valid)
 	return g_strdup (_("Retrieval failed"));
     buf = gweather_info_get_conditions (info);
-    if (!strcmp (buf, "-"))
+    if (g_str_equal (buf, "-")) {
+	g_free (buf);
         buf = gweather_info_get_sky (info);
-    return g_strdup_printf ("%s: %s", gweather_info_get_location_name (info), buf);
+    }
+
+    out = g_strdup_printf ("%s: %s", gweather_info_get_location_name (info), buf);
+
+    g_free (buf);
+    return out;
 }
 
 const gchar *
