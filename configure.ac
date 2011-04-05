@@ -51,7 +51,8 @@ IT_PROG_INTLTOOL([0.40.6])
 PKG_PROG_PKG_CONFIG([0.19])
 
 AC_PROG_CC
-AC_PATH_PROG(GCONFTOOL, gconftool-2)
+
+GLIB_GSETTINGS
 
 AC_ARG_ENABLE(all-translations-in-one-xml,
         [AS_HELP_STRING([--enable-all-translations-in-one-xml],
@@ -90,10 +91,9 @@ PKG_CHECK_MODULES(LIBSOUP_GNOME,
 AC_SUBST(LIBSOUP_CFLAGS)
 AC_SUBST(LIBSOUP_LIBS)
 
-dnl -- check for gconf (required) -----------------------------------------
-PKG_CHECK_MODULES(GCONF, 
-		  [gconf-2.0 >= $GCONF_REQUIRED])
-AM_GCONF_SOURCE_2
+dnl -- check for gio (required) -----------------------------------------
+PKG_CHECK_MODULES(GIO, 
+		  [gio-2.0 >= $GLIB_REQUIRED])
 
 dnl -- check for glib; redundant at this point, but sets $GLIB_MKENUMS
 AM_PATH_GLIB_2_0($GLIB_REQUIRED)

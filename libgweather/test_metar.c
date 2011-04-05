@@ -60,7 +60,6 @@ main (int argc, char **argv)
 	info = g_object_new (GWEATHER_TYPE_INFO, NULL);
 	info->priv->valid = 1;
 	metar_parse (buf, info);
-	gweather_info_to_metric (info);
 	printf ("Returned info:\n");
 	printf ("  update:   %s", ctime (&info->priv->update));
 	printf ("  sky:      %s\n", gweather_info_get_sky (info));

@@ -34,6 +34,8 @@
 #include "parser.h"
 #include "weather-priv.h"
 
+static GHashTable *metar_code_cache;
+
 /**
  * SECTION:gweather-location
  * @Title: GWeatherLocation
@@ -125,38 +127,6 @@ parse_coordinates (const char *coordinates,
     return !*p;
 }
 
-static char *
-unparse_coordinates (double latitude, double longitude)
-{
-    int lat_d, lat_m, lat_s, lon_d, lon_m, lon_s;
-    char lat_dir, lon_dir;
-
-    latitude = latitude * 180.0 / M_PI;
-    longitude = longitude * 180.0 / M_PI;
-
-    if (latitude < 0.0) {
-	lat_dir = 'S';
-	latitude = -latitude;
-    } else
-	lat_dir = 'N';
-    if (longitude < 0.0) {
-	lon_dir = 'W';
-	longitude = -longitude;
-    } else
-	lon_dir = 'E';
-
-    lat_d = (int)latitude;
-    lat_m = (int)(latitude * 60.0) - lat_d * 60;
-    lat_s = (int)(latitude * 3600.0) - lat_d * 3600 - lat_m * 60;
-    lon_d = (int)longitude;
-    lon_m = (int)(longitude * 60.0) - lon_d * 60;
-    lon_s = (int)(longitude * 3600.0) - lon_d * 3600 - lon_m * 60;
-
-    return g_strdup_printf ("%02d-%02d-%02d%c %03d-%02d-%02d%c",
-			    lat_d, lat_m, lat_s, lat_dir,
-			    lon_d, lon_m, lon_s, lon_dir);
-}
-
 static GWeatherLocation *
 location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 		       GWeatherLocation *parent)
@@ -168,6 +138,7 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
     int tagtype, i;
 
     loc = g_slice_new0 (GWeatherLocation);
+    loc->latitude = loc->longitude = DBL_MAX;
     loc->parent = parent;
     loc->level = level;
     loc->ref_count = 1;
@@ -279,6 +250,11 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
     if (xmlTextReaderRead (parser->xml) != 1 && parent)
 	goto error_out;
 
+    if (level == GWEATHER_LOCATION_WEATHER_STATION) {
+	/* Cache weather stations by METAR code */
+	g_hash_table_replace (metar_code_cache, loc->station_code, gweather_location_ref (loc));
+    }
+
     if (children->len) {
 	if (level == GWEATHER_LOCATION_CITY)
 	    g_ptr_array_sort_with_data (children, sort_locations_by_distance, loc);
@@ -325,6 +301,9 @@ gweather_location_new_world (gboolean use_regions)
 {
     GWeatherParser *parser;
     GWeatherLocation *world;
+
+    if (!metar_code_cache)
+	metar_code_cache = g_hash_table_new_full (g_str_hash, g_str_equal, NULL, (GDestroyNotify) gweather_location_unref);
 
     parser = gweather_parser_new (use_regions);
     if (!parser)
@@ -751,9 +730,10 @@ WeatherLocation *
 _weather_location_from_gweather_location (GWeatherLocation *gloc, const gchar *name)
 {
     const char *code = NULL, *zone = NULL, *radar = NULL, *tz_hint = NULL;
+    gboolean latlon_valid = FALSE;
+    gdouble lat = DBL_MAX, lon = DBL_MAX;
     GWeatherLocation *l;
     WeatherLocation *wloc;
-    char *coords;
 
     g_return_val_if_fail (gloc != NULL, NULL);
 
@@ -762,12 +742,7 @@ _weather_location_from_gweather_location (GWeatherLocation *gloc, const gchar *n
     else
 	l = gloc;
 
-    if (l->latlon_valid)
-	coords = unparse_coordinates (l->latitude, l->longitude);
-    else
-	coords = NULL;
-
-    while (l && (!code || !zone || !radar || !tz_hint)) {
+    while (l && (!code || !zone || !radar || !tz_hint || !latlon_valid)) {
 	if (!code && l->station_code)
 	    code = l->station_code;
 	if (!zone && l->forecast_zone)
@@ -776,13 +751,27 @@ _weather_location_from_gweather_location (GWeatherLocation *gloc, const gchar *n
 	    radar = l->radar;
 	if (!tz_hint && l->tz_hint)
 	    tz_hint = l->tz_hint;
+	if (!latlon_valid && l->latlon_valid) {
+	    lat = l->latitude;
+	    lon = l->longitude;
+	    latlon_valid = TRUE;
+	}
 	l = l->parent;
     }
 
     wloc = _weather_location_new (name ? name : gweather_location_get_name (gloc),
-				  code, zone, radar, coords,
+				  code, zone, radar,
+				  latlon_valid, lat, lon,
 				  gweather_location_get_country (gloc),
 				  tz_hint);
-    g_free (coords);
     return wloc;
 }
+
+GWeatherLocation *
+gweather_location_find_by_station_code (const gchar *station_code) {
+    if (!metar_code_cache)
+	gweather_location_unref (gweather_location_new_world (FALSE));
+
+    return g_hash_table_lookup (metar_code_cache, station_code);
+}
+

@@ -177,6 +177,7 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
 
                         for (i = 0; i < 7;  i++) {
                             GWeatherInfo *nfo = _gweather_info_new_clone (master_info);
+			    nfo->priv->update = update_times[i];
 
                             if (nfo)
                                 res = g_slist_append (res, nfo);
@@ -238,44 +239,44 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
                                             const char *name;
                                             GWeatherConditionPhenomenon ph;
                                         } ph_list[] = {
-                                            { "Ice Crystals", PHENOMENON_ICE_CRYSTALS } ,
-                                            { "Volcanic Ash", PHENOMENON_VOLCANIC_ASH } ,
-                                            { "Blowing Sand", PHENOMENON_SANDSTORM } ,
-                                            { "Blowing Dust", PHENOMENON_DUSTSTORM } ,
-                                            { "Blowing Snow", PHENOMENON_FUNNEL_CLOUD } ,
-                                            { "Drizzle", PHENOMENON_DRIZZLE } ,
-                                            { "Rain", PHENOMENON_RAIN } ,
-                                            { "Snow", PHENOMENON_SNOW } ,
-                                            { "Fog", PHENOMENON_FOG } ,
-                                            { "Smoke", PHENOMENON_SMOKE } ,
-                                            { "Sand", PHENOMENON_SAND } ,
-                                            { "Haze", PHENOMENON_HAZE } ,
-                                            { "Dust", PHENOMENON_DUST } /*,
-                                            { "", PHENOMENON_SNOW_GRAINS } ,
-                                            { "", PHENOMENON_ICE_PELLETS } ,
-                                            { "", PHENOMENON_HAIL } ,
-                                            { "", PHENOMENON_SMALL_HAIL } ,
-                                            { "", PHENOMENON_UNKNOWN_PRECIPITATION } ,
-                                            { "", PHENOMENON_MIST } ,
-                                            { "", PHENOMENON_SPRAY } ,
-                                            { "", PHENOMENON_SQUALL } ,
-                                            { "", PHENOMENON_TORNADO } ,
-                                            { "", PHENOMENON_DUST_WHIRLS } */
+                                            { "Ice Crystals", GWEATHER_PHENOMENON_ICE_CRYSTALS } ,
+                                            { "Volcanic Ash", GWEATHER_PHENOMENON_VOLCANIC_ASH } ,
+                                            { "Blowing Sand", GWEATHER_PHENOMENON_SANDSTORM } ,
+                                            { "Blowing Dust", GWEATHER_PHENOMENON_DUSTSTORM } ,
+                                            { "Blowing Snow", GWEATHER_PHENOMENON_FUNNEL_CLOUD } ,
+                                            { "Drizzle", GWEATHER_PHENOMENON_DRIZZLE } ,
+                                            { "Rain", GWEATHER_PHENOMENON_RAIN } ,
+                                            { "Snow", GWEATHER_PHENOMENON_SNOW } ,
+                                            { "Fog", GWEATHER_PHENOMENON_FOG } ,
+                                            { "Smoke", GWEATHER_PHENOMENON_SMOKE } ,
+                                            { "Sand", GWEATHER_PHENOMENON_SAND } ,
+                                            { "Haze", GWEATHER_PHENOMENON_HAZE } ,
+                                            { "Dust", GWEATHER_PHENOMENON_DUST } /*,
+                                            { "", GWEATHER_PHENOMENON_SNOW_GRAINS } ,
+                                            { "", GWEATHER_PHENOMENON_ICE_PELLETS } ,
+                                            { "", GWEATHER_PHENOMENON_HAIL } ,
+                                            { "", GWEATHER_PHENOMENON_SMALL_HAIL } ,
+                                            { "", GWEATHER_PHENOMENON_UNKNOWN_PRECIPITATION } ,
+                                            { "", GWEATHER_PHENOMENON_MIST } ,
+                                            { "", GWEATHER_PHENOMENON_SPRAY } ,
+                                            { "", GWEATHER_PHENOMENON_SQUALL } ,
+                                            { "", GWEATHER_PHENOMENON_TORNADO } ,
+                                            { "", GWEATHER_PHENOMENON_DUST_WHIRLS } */
                                         };
                                         struct _sky_list {
                                             const char *name;
                                             GWeatherSky sky;
                                         } sky_list[] = {
-                                            { "Mostly Sunny", SKY_BROKEN } ,
-                                            { "Mostly Clear", SKY_BROKEN } ,
-                                            { "Partly Cloudy", SKY_SCATTERED } ,
-                                            { "Mostly Cloudy", SKY_FEW } ,
-                                            { "Sunny", SKY_CLEAR } ,
-                                            { "Clear", SKY_CLEAR } ,
-                                            { "Cloudy", SKY_OVERCAST } ,
-                                            { "Clouds", SKY_SCATTERED } ,
-                                            { "Rain", SKY_SCATTERED } ,
-                                            { "Snow", SKY_SCATTERED }
+                                            { "Mostly Sunny", GWEATHER_SKY_BROKEN } ,
+                                            { "Mostly Clear", GWEATHER_SKY_BROKEN } ,
+                                            { "Partly Cloudy", GWEATHER_SKY_SCATTERED } ,
+                                            { "Mostly Cloudy", GWEATHER_SKY_FEW } ,
+                                            { "Sunny", GWEATHER_SKY_CLEAR } ,
+                                            { "Clear", GWEATHER_SKY_CLEAR } ,
+                                            { "Cloudy", GWEATHER_SKY_OVERCAST } ,
+                                            { "Clouds", GWEATHER_SKY_SCATTERED } ,
+                                            { "Rain", GWEATHER_SKY_SCATTERED } ,
+                                            { "Snow", GWEATHER_SKY_SCATTERED }
                                         };
 
                                         priv->valid = TRUE;
@@ -284,6 +285,7 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
 
                                         for (i = 0; i < G_N_ELEMENTS (ph_list); i++) {
                                             if (strstr ((const char *)val, ph_list [i].name)) {
+						priv->cond.significant = TRUE;
                                                 priv->cond.phenomenon = ph_list [i].ph;
                                                 break;
                                             }
@@ -372,7 +374,7 @@ iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
     priv = info->priv;
 
-    if (priv->forecast_type == FORECAST_LIST)
+    if (priv->forecast_type == GWEATHER_FORECAST_LIST)
         priv->forecast_list = parseForecastXml (msg->response_body->data, info);
     else
         priv->forecast = formatWeatherMsg (g_strdup (msg->response_body->data));
@@ -395,7 +397,7 @@ iwin_start_open (GWeatherInfo *info)
     loc = priv->location;
     g_return_if_fail (loc != NULL);
 
-    if (loc->zone[0] == '-' && (priv->forecast_type != FORECAST_LIST || loc->coordinates == NULL))
+    if ((!loc->zone || loc->zone[0] == '-') && (priv->forecast_type != GWEATHER_FORECAST_LIST || !loc->latlon_valid))
         return;
 
     if (priv->forecast) {
@@ -405,9 +407,9 @@ iwin_start_open (GWeatherInfo *info)
 
     free_forecast_list (info);    
 
-    if (priv->forecast_type == FORECAST_LIST) {
+    if (priv->forecast_type == GWEATHER_FORECAST_LIST) {
         /* see the description here: http://www.weather.gov/forecasts/xml/ */
-        if (loc->coordinates != NULL) {
+        if (loc->latlon_valid) {
             struct tm tm;
             time_t now = time (NULL);
 

@@ -24,6 +24,7 @@
 #include <time.h>
 #include <libintl.h>
 #include <math.h>
+#include <gio/gio.h>
 #ifdef HAVE_LIBSOUP_GNOME
 #include <libsoup/soup-gnome.h>
 #else
@@ -54,7 +55,7 @@ typedef struct {
     gchar *code;
     gchar *zone;
     gchar *radar;
-    gchar *coordinates;
+    gboolean latlon_valid;
     gdouble  latitude;
     gdouble  longitude;
     gchar *country_code;
@@ -67,7 +68,9 @@ WeatherLocation *	_weather_location_new 	(const gchar *trans_name,
 						 const gchar *code,
 						 const gchar *zone,
 						 const gchar *radar,
-						 const gchar *coordinates,
+						 gboolean     latlon_valid,
+						 double       latitude,
+						 double       longitude,
 						 const gchar *country_code,
 						 const gchar *tz_hint);
 WeatherLocation *	_weather_location_clone	(const WeatherLocation *location);
@@ -89,10 +92,7 @@ typedef time_t GWeatherUpdate;
 struct _GWeatherInfoPrivate {
     GWeatherForecastType forecast_type;
 
-    GWeatherTemperatureUnit temperature_unit;
-    GWeatherSpeedUnit speed_unit;
-    GWeatherPressureUnit pressure_unit;
-    GWeatherDistanceUnit distance_unit;
+    GSettings *settings;
 
     gboolean valid;
     gboolean network_error;
@@ -120,7 +120,7 @@ struct _GWeatherInfoPrivate {
     GWeatherMoonPhase moonphase;
     GWeatherMoonLatitude moonlatitude;
     gchar *forecast;
-    GSList *forecast_list; /* list of WeatherInfo* for the forecast, NULL if not available */
+    GSList *forecast_list; /* list of GWeatherInfo* for the forecast, NULL if not available */
     gchar *radar_buffer;
     gchar *radar_url;
     GdkPixbufLoader *radar_loader;
@@ -200,25 +200,6 @@ gboolean	calc_moon_phases	(GWeatherInfo *info, time_t *phases);
 void		free_forecast_list	(GWeatherInfo *info);
 
 GWeatherInfo   *_gweather_info_new_clone (GWeatherInfo *info);
-
-struct _GWeatherPrefs {
-    WeatherLocation *location;
-    gint update_interval;  /* in seconds */
-    gboolean update_enabled;
-    gboolean detailed;
-    gboolean radar_enabled;
-    gboolean use_custom_radar_url;
-    gchar *radar;
-
-    GWeatherTemperatureUnit temperature_unit;
-    gboolean use_temperature_default;
-    GWeatherSpeedUnit speed_unit;
-    gboolean use_speed_default;
-    GWeatherPressureUnit pressure_unit;
-    gboolean use_pressure_default;
-    GWeatherDistanceUnit distance_unit;
-    gboolean use_distance_default;
-};
 
 #endif /* __WEATHER_PRIV_H_ */
 

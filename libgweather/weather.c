@@ -40,7 +40,6 @@
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "weather.h"
 #include "weather-priv.h"
-#include "gweather-prefs.h"
 #include "gweather-enum-types.h"
 
 #define MOON_PHASES 36
@@ -54,11 +53,17 @@
 
 static void _weather_internal_check (void);
 
+#define TEMPERATURE_UNIT "temperature-unit"
+#define DISTANCE_UNIT    "distance-unit"
+#define SPEED_UNIT       "speed-unit"
+#define PRESSURE_UNIT    "pressure-unit"
+#define RADAR_KEY        "radar"
+#define DEFAULT_LOCATION "default-location"
+
 enum {
     PROP_0,
     PROP_LOCATION,
     PROP_TYPE,
-    PROP_PREFS,
     PROP_LAST
 };
 
@@ -100,48 +105,12 @@ gweather_dpgettext (const char *context,
     return g_dpgettext2 (GETTEXT_PACKAGE, context, str);
 }
 
-/*
- * Convert string of the form "DD-MM-SSH" to radians
- * DD:degrees (to 3 digits), MM:minutes, SS:seconds H:hemisphere (NESW)
- * Return value is positive for N,E; negative for S,W.
- */
-static gdouble
-dmsh2rad (const gchar *latlon)
-{
-    char *p1, *p2;
-    int deg, min, sec, dir;
-    gdouble value;
-
-    if (latlon == NULL)
-	return DBL_MAX;
-    p1 = strchr (latlon, '-');
-    p2 = strrchr (latlon, '-');
-    if (p1 == NULL || p1 == latlon) {
-        return DBL_MAX;
-    } else if (p1 == p2) {
-	sscanf (latlon, "%d-%d", &deg, &min);
-	sec = 0;
-    } else if (p2 == 1 + p1) {
-	return DBL_MAX;
-    } else {
-	sscanf (latlon, "%d-%d-%d", &deg, &min, &sec);
-    }
-    if (deg > 180 || min >= 60 || sec >= 60)
-	return DBL_MAX;
-    value = (gdouble)((deg * 60 + min) * 60 + sec) * M_PI / 648000.;
-
-    dir = g_ascii_toupper (latlon[strlen (latlon) - 1]);
-    if (dir == 'W' || dir == 'S')
-	value = -value;
-    else if (dir != 'E' && dir != 'N' && (value != 0.0 || dir != '0'))
-	value = DBL_MAX;
-    return value;
-}
-
 WeatherLocation *
 _weather_location_new (const gchar *name, const gchar *code,
 		       const gchar *zone, const gchar *radar,
-		       const gchar *coordinates,
+		       gboolean     latlon_valid,
+		       double       latitude,
+		       double       longitude,
 		       const gchar *country_code,
 		       const gchar *tz_hint)
 {
@@ -161,28 +130,9 @@ _weather_location_new (const gchar *name, const gchar *code,
     if (radar)
         location->radar = g_strdup (radar);
 
-    if (coordinates)
-    {
-	char **pieces;
-
-	pieces = g_strsplit (coordinates, " ", -1);
-
-	if (g_strv_length (pieces) == 2)
-	{
-            location->coordinates = g_strdup (coordinates);
-            location->latitude = dmsh2rad (pieces[0]);
-	    location->longitude = dmsh2rad (pieces[1]);
-	}
-
-	g_strfreev (pieces);
-    }
-
-    if (!location->coordinates)
-    {
-        location->latitude = DBL_MAX;
-        location->longitude = DBL_MAX;
-    }
-
+    location->latlon_valid = latlon_valid;
+    location->latitude = latitude;
+    location->longitude = longitude;
     location->country_code = g_strdup (country_code);
     location->tz_hint = g_strdup (tz_hint);
 
@@ -208,14 +158,9 @@ _weather_location_clone (const WeatherLocation *location)
     if (location->radar)
 	clone->radar = g_strdup (location->radar);
 
-    if (location->coordinates) {
-	clone->coordinates = g_strdup (location->coordinates);
-	clone->latitude = location->latitude;
-	clone->longitude = location->longitude;
-    } else {
-	clone->latitude = DBL_MAX;
-	clone->longitude = DBL_MAX;
-    }
+    clone->latlon_valid = location->latlon_valid;
+    clone->latitude = location->latitude;
+    clone->longitude = location->longitude;
 
     return clone;
 }
@@ -228,7 +173,6 @@ _weather_location_free (WeatherLocation *location)
         g_free (location->code);
         g_free (location->zone);
         g_free (location->radar);
-        g_free (location->coordinates);
         g_free (location->country_code);
         g_free (location->tz_hint);
 
@@ -262,7 +206,7 @@ static const gchar *wind_direction_str[] = {
 const gchar *
 gweather_wind_direction_to_string (GWeatherWindDirection wind)
 {
-    if (wind <= WIND_INVALID || wind >= WIND_LAST)
+    if (wind <= GWEATHER_WIND_INVALID || wind >= GWEATHER_WIND_LAST)
 	return _("Invalid");
 
     return _(wind_direction_str[(int)wind]);
@@ -279,7 +223,7 @@ static const gchar *sky_str[] = {
 const gchar *
 gweather_sky_to_string (GWeatherSky sky)
 {
-    if (sky <= SKY_INVALID || sky >= SKY_LAST)
+    if (sky <= GWEATHER_SKY_INVALID || sky >= GWEATHER_SKY_LAST)
 	return _("Invalid");
 
     return _(sky_str[(int)sky]);
@@ -346,10 +290,10 @@ gweather_conditions_to_string (GWeatherConditions *cond)
     if (!cond->significant) {
 	return "-";
     } else {
-	if (cond->phenomenon > PHENOMENON_INVALID &&
-	    cond->phenomenon < PHENOMENON_LAST &&
-	    cond->qualifier > QUALIFIER_INVALID &&
-	    cond->qualifier < QUALIFIER_LAST)
+	if (cond->phenomenon > GWEATHER_PHENOMENON_INVALID &&
+	    cond->phenomenon < GWEATHER_PHENOMENON_LAST &&
+	    cond->qualifier > GWEATHER_QUALIFIER_INVALID &&
+	    cond->qualifier < GWEATHER_QUALIFIER_LAST)
 	    str = _(conditions_str[(int)cond->phenomenon][(int)cond->qualifier]);
 	else
 	    str = _("Invalid");
@@ -509,8 +453,8 @@ gweather_info_reset (GWeatherInfo *info)
     priv->update = 0;
     priv->sky = -1;
     priv->cond.significant = FALSE;
-    priv->cond.phenomenon = PHENOMENON_NONE;
-    priv->cond.qualifier = QUALIFIER_NONE;
+    priv->cond.phenomenon = GWEATHER_PHENOMENON_NONE;
+    priv->cond.qualifier = GWEATHER_QUALIFIER_NONE;
     priv->temp = -1000.0;
     priv->tempMinMaxValid = FALSE;
     priv->temp_min = -1000.0;
@@ -535,33 +479,18 @@ gweather_info_reset (GWeatherInfo *info)
 void
 gweather_info_init (GWeatherInfo *info)
 {
-    info->priv = G_TYPE_INSTANCE_GET_PRIVATE (info, GWEATHER_TYPE_INFO, GWeatherInfoPrivate);
-
-    gweather_info_reset (info);
-}
-
-void
-gweather_info_set_preferences (GWeatherInfo        *info,
-			       const GWeatherPrefs *prefs)
-{
     GWeatherInfoPrivate *priv;
 
-    g_return_if_fail (GWEATHER_IS_INFO (info));
-    g_return_if_fail (prefs != NULL);
+    priv = info->priv = G_TYPE_INSTANCE_GET_PRIVATE (info, GWEATHER_TYPE_INFO, GWeatherInfoPrivate);
 
-    priv = info->priv;
+    priv->settings = g_settings_new ("org.gnome.GWeather");
+    priv->radar_url = g_settings_get_string (priv->settings, RADAR_KEY);
+    if (g_strcmp0 (priv->radar_url, "") == 0) {
+	g_free (priv->radar_url);
+	priv->radar_url = NULL;
+    }
 
-    priv->temperature_unit = prefs->temperature_unit;
-    priv->speed_unit = prefs->speed_unit;
-    priv->pressure_unit = prefs->pressure_unit;
-    priv->distance_unit = prefs->distance_unit;
-
-    g_free (priv->radar_url);
-    priv->radar_url = prefs->use_custom_radar_url && prefs->radar ?
-	              g_strdup (prefs->radar) : NULL;
-
-    if (!priv->location)
-	priv->location = _weather_location_clone (prefs->location);
+    gweather_info_reset (info);
 }
 
 void
@@ -632,7 +561,7 @@ gweather_info_finalize (GObject *object)
         priv->radar = NULL;
     }
 
-    G_OBJECT_GET_CLASS (gweather_info_parent_class)->finalize (object);
+    G_OBJECT_CLASS (gweather_info_parent_class)->finalize (object);
 }
 
 gboolean
@@ -647,34 +576,6 @@ gweather_info_network_error (GWeatherInfo *info)
 {
     g_return_val_if_fail (GWEATHER_IS_INFO (info), FALSE);
     return info->priv->network_error;
-}
-
-void
-gweather_info_to_metric (GWeatherInfo *info)
-{
-    GWeatherInfoPrivate *priv;
-
-    g_return_if_fail (GWEATHER_IS_INFO (info));
-    priv = info->priv;
-
-    priv->temperature_unit = TEMP_UNIT_CENTIGRADE;
-    priv->speed_unit = SPEED_UNIT_MS;
-    priv->pressure_unit = PRESSURE_UNIT_HPA;
-    priv->distance_unit = DISTANCE_UNIT_METERS;
-}
-
-void
-gweather_info_to_imperial (GWeatherInfo *info)
-{
-    GWeatherInfoPrivate *priv;
-
-    g_return_if_fail (info != NULL);
-    priv = info->priv;
-
-    priv->temperature_unit = TEMP_UNIT_FAHRENHEIT;
-    priv->speed_unit = SPEED_UNIT_MPH;
-    priv->pressure_unit = PRESSURE_UNIT_INCH_HG;
-    priv->distance_unit = DISTANCE_UNIT_MILES;
 }
 
 const GWeatherLocation *
@@ -759,7 +660,7 @@ temperature_string (gfloat temp_f, GWeatherTemperatureUnit to_unit, gboolean wan
     static gchar buf[100];
 
     switch (to_unit) {
-    case TEMP_UNIT_FAHRENHEIT:
+    case GWEATHER_TEMP_UNIT_FAHRENHEIT:
 	if (!want_round) {
 	    /* TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN) */
 	    g_snprintf (buf, sizeof (buf), _("%.1f \302\260F"), temp_f);
@@ -768,7 +669,7 @@ temperature_string (gfloat temp_f, GWeatherTemperatureUnit to_unit, gboolean wan
 	    g_snprintf (buf, sizeof (buf), _("%d \302\260F"), (int)floor (temp_f + 0.5));
 	}
 	break;
-    case TEMP_UNIT_CENTIGRADE:
+    case GWEATHER_TEMP_UNIT_CENTIGRADE:
 	if (!want_round) {
 	    /* TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN) */
 	    g_snprintf (buf, sizeof (buf), _("%.1f \302\260C"), TEMP_F_TO_C (temp_f));
@@ -777,7 +678,7 @@ temperature_string (gfloat temp_f, GWeatherTemperatureUnit to_unit, gboolean wan
 	    g_snprintf (buf, sizeof (buf), _("%d \302\260C"), (int)floor (TEMP_F_TO_C (temp_f) + 0.5));
 	}
 	break;
-    case TEMP_UNIT_KELVIN:
+    case GWEATHER_TEMP_UNIT_KELVIN:
 	if (!want_round) {
 	    /* TRANSLATOR: This is the temperature in kelvin */
 	    g_snprintf (buf, sizeof (buf), _("%.1f K"), TEMP_F_TO_K (temp_f));
@@ -787,8 +688,8 @@ temperature_string (gfloat temp_f, GWeatherTemperatureUnit to_unit, gboolean wan
 	}
 	break;
 
-    case TEMP_UNIT_INVALID:
-    case TEMP_UNIT_DEFAULT:
+    case GWEATHER_TEMP_UNIT_INVALID:
+    case GWEATHER_TEMP_UNIT_DEFAULT:
     default:
 	g_warning ("Conversion to illegal temperature unit: %d", to_unit);
 	return _("Unknown");
@@ -800,53 +701,65 @@ temperature_string (gfloat temp_f, GWeatherTemperatureUnit to_unit, gboolean wan
 const gchar *
 gweather_info_get_temp (GWeatherInfo *info)
 {
-    g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
+    GWeatherInfoPrivate *priv;
 
-    if (!info->priv->valid)
+    g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
+    priv = info->priv;
+
+    if (!priv->valid)
         return "-";
-    if (info->priv->temp < -500.0)
+    if (priv->temp < -500.0)
         return _("Unknown");
 
-    return temperature_string (info->priv->temp, info->priv->temperature_unit, FALSE);
+    return temperature_string (priv->temp, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
 
 const gchar *
 gweather_info_get_temp_min (GWeatherInfo *info)
 {
-    g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
+    GWeatherInfoPrivate *priv;
 
-    if (!info->priv->valid || !info->priv->tempMinMaxValid)
+    g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
+    priv = info->priv;
+
+    if (!priv->valid || !priv->tempMinMaxValid)
         return "-";
-    if (info->priv->temp_min < -500.0)
+    if (priv->temp_min < -500.0)
         return _("Unknown");
 
-    return temperature_string (info->priv->temp_min, info->priv->temperature_unit, FALSE);
+    return temperature_string (priv->temp_min, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
 
 const gchar *
 gweather_info_get_temp_max (GWeatherInfo *info)
 {
-    g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
+    GWeatherInfoPrivate *priv;
 
-    if (!info->priv->valid || !info->priv->tempMinMaxValid)
+    g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
+    priv = info->priv;
+
+    if (!priv->valid || !priv->tempMinMaxValid)
         return "-";
-    if (info->priv->temp_max < -500.0)
+    if (priv->temp_max < -500.0)
         return _("Unknown");
 
-    return temperature_string (info->priv->temp_max, info->priv->temperature_unit, FALSE);
+    return temperature_string (priv->temp_max, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
 
 const gchar *
 gweather_info_get_dew (GWeatherInfo *info)
 {
-    g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
+    GWeatherInfoPrivate *priv;
 
-    if (!info->priv->valid)
+    g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
+    priv = info->priv;
+
+    if (!priv->valid)
         return "-";
-    if (info->priv->dew < -500.0)
+    if (priv->dew < -500.0)
         return _("Unknown");
 
-    return temperature_string (info->priv->dew, info->priv->temperature_unit, FALSE);
+    return temperature_string (priv->dew, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
 
 const gchar *
@@ -874,17 +787,20 @@ gweather_info_get_humidity (GWeatherInfo *info)
 const gchar *
 gweather_info_get_apparent (GWeatherInfo *info)
 {
+    GWeatherInfoPrivate *priv;
     gdouble apparent;
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
-    if (!info->priv->valid)
+    priv = info->priv;
+
+    if (!priv->valid)
         return "-";
 
     apparent = calc_apparent (info);
     if (apparent < -500.0)
         return _("Unknown");
 
-    return temperature_string (apparent, info->priv->temperature_unit, FALSE);
+    return temperature_string (apparent, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
 
 static const gchar *
@@ -893,31 +809,31 @@ windspeed_string (gfloat knots, GWeatherSpeedUnit to_unit)
     static gchar buf[100];
 
     switch (to_unit) {
-    case SPEED_UNIT_KNOTS:
+    case GWEATHER_SPEED_UNIT_KNOTS:
 	/* TRANSLATOR: This is the wind speed in knots */
 	g_snprintf (buf, sizeof (buf), _("%0.1f knots"), knots);
 	break;
-    case SPEED_UNIT_MPH:
+    case GWEATHER_SPEED_UNIT_MPH:
 	/* TRANSLATOR: This is the wind speed in miles per hour */
 	g_snprintf (buf, sizeof (buf), _("%.1f mph"), WINDSPEED_KNOTS_TO_MPH (knots));
 	break;
-    case SPEED_UNIT_KPH:
+    case GWEATHER_SPEED_UNIT_KPH:
 	/* TRANSLATOR: This is the wind speed in kilometers per hour */
 	g_snprintf (buf, sizeof (buf), _("%.1f km/h"), WINDSPEED_KNOTS_TO_KPH (knots));
 	break;
-    case SPEED_UNIT_MS:
+    case GWEATHER_SPEED_UNIT_MS:
 	/* TRANSLATOR: This is the wind speed in meters per second */
 	g_snprintf (buf, sizeof (buf), _("%.1f m/s"), WINDSPEED_KNOTS_TO_MS (knots));
 	break;
-    case SPEED_UNIT_BFT:
+    case GWEATHER_SPEED_UNIT_BFT:
 	/* TRANSLATOR: This is the wind speed as a Beaufort force factor
 	 * (commonly used in nautical wind estimation).
 	 */
 	g_snprintf (buf, sizeof (buf), _("Beaufort force %.1f"),
 		    WINDSPEED_KNOTS_TO_BFT (knots));
 	break;
-    case SPEED_UNIT_INVALID:
-    case SPEED_UNIT_DEFAULT:
+    case GWEATHER_SPEED_UNIT_INVALID:
+    case GWEATHER_SPEED_UNIT_DEFAULT:
     default:
 	g_warning ("Conversion to illegal speed unit: %d", to_unit);
 	return _("Unknown");
@@ -947,7 +863,7 @@ gweather_info_get_wind (GWeatherInfo *info)
         /* TRANSLATOR: This is 'wind direction' / 'wind speed' */
         g_snprintf (buf, sizeof (buf), _("%s / %s"),
 		    gweather_wind_direction_to_string (priv->wind),
-		    windspeed_string (priv->windspeed, priv->speed_unit));
+		    windspeed_string (priv->windspeed, g_settings_get_enum (priv->settings, SPEED_UNIT)));
     }
     return buf;
 }
@@ -967,36 +883,36 @@ gweather_info_get_pressure (GWeatherInfo *info)
     if (priv->pressure < 0.0)
         return _("Unknown");
 
-    switch (priv->pressure_unit) {
-    case PRESSURE_UNIT_INCH_HG:
+    switch (g_settings_get_enum (priv->settings, PRESSURE_UNIT)) {
+    case GWEATHER_PRESSURE_UNIT_INCH_HG:
 	/* TRANSLATOR: This is pressure in inches of mercury */
 	g_snprintf (buf, sizeof (buf), _("%.2f inHg"), priv->pressure);
 	break;
-    case PRESSURE_UNIT_MM_HG:
+    case GWEATHER_PRESSURE_UNIT_MM_HG:
 	/* TRANSLATOR: This is pressure in millimeters of mercury */
 	g_snprintf (buf, sizeof (buf), _("%.1f mmHg"), PRESSURE_INCH_TO_MM (priv->pressure));
 	break;
-    case PRESSURE_UNIT_KPA:
+    case GWEATHER_PRESSURE_UNIT_KPA:
 	/* TRANSLATOR: This is pressure in kiloPascals */
 	g_snprintf (buf, sizeof (buf), _("%.2f kPa"), PRESSURE_INCH_TO_KPA (priv->pressure));
 	break;
-    case PRESSURE_UNIT_HPA:
+    case GWEATHER_PRESSURE_UNIT_HPA:
 	/* TRANSLATOR: This is pressure in hectoPascals */
 	g_snprintf (buf, sizeof (buf), _("%.2f hPa"), PRESSURE_INCH_TO_HPA (priv->pressure));
 	break;
-    case PRESSURE_UNIT_MB:
+    case GWEATHER_PRESSURE_UNIT_MB:
 	/* TRANSLATOR: This is pressure in millibars */
 	g_snprintf (buf, sizeof (buf), _("%.2f mb"), PRESSURE_INCH_TO_MB (priv->pressure));
 	break;
-    case PRESSURE_UNIT_ATM:
+    case GWEATHER_PRESSURE_UNIT_ATM:
 	/* TRANSLATOR: This is pressure in atmospheres */
 	g_snprintf (buf, sizeof (buf), _("%.3f atm"), PRESSURE_INCH_TO_ATM (priv->pressure));
 	break;
 
-    case PRESSURE_UNIT_INVALID:
-    case PRESSURE_UNIT_DEFAULT:
+    case GWEATHER_PRESSURE_UNIT_INVALID:
+    case GWEATHER_PRESSURE_UNIT_DEFAULT:
     default:
-	g_warning ("Conversion to illegal pressure unit: %d", priv->pressure_unit);
+	g_warning ("Conversion to illegal pressure unit");
 	return _("Unknown");
     }
 
@@ -1018,24 +934,24 @@ gweather_info_get_visibility (GWeatherInfo *info)
     if (priv->visibility < 0.0)
         return _("Unknown");
 
-    switch (priv->distance_unit) {
-    case DISTANCE_UNIT_MILES:
+    switch (g_settings_get_enum (priv->settings, DISTANCE_UNIT)) {
+    case GWEATHER_DISTANCE_UNIT_MILES:
 	/* TRANSLATOR: This is the visibility in miles */
 	g_snprintf (buf, sizeof (buf), _("%.1f miles"), priv->visibility);
 	break;
-    case DISTANCE_UNIT_KM:
+    case GWEATHER_DISTANCE_UNIT_KM:
 	/* TRANSLATOR: This is the visibility in kilometers */
 	g_snprintf (buf, sizeof (buf), _("%.1f km"), VISIBILITY_SM_TO_KM (priv->visibility));
 	break;
-    case DISTANCE_UNIT_METERS:
+    case GWEATHER_DISTANCE_UNIT_METERS:
 	/* TRANSLATOR: This is the visibility in meters */
 	g_snprintf (buf, sizeof (buf), _("%.0fm"), VISIBILITY_SM_TO_M (priv->visibility));
 	break;
 
-    case DISTANCE_UNIT_INVALID:
-    case DISTANCE_UNIT_DEFAULT:
+    case GWEATHER_DISTANCE_UNIT_INVALID:
+    case GWEATHER_DISTANCE_UNIT_DEFAULT:
     default:
-	g_warning ("Conversion to illegal visibility unit: %d", priv->pressure_unit);
+	g_warning ("Conversion to illegal visibility unit");
 	return _("Unknown");
     }
 
@@ -1054,7 +970,7 @@ gweather_info_get_sunrise (GWeatherInfo *info)
 
     priv = info->priv;
 
-    if (!priv->location->coordinates)
+    if (!priv->location->latlon_valid)
         return "-";
     if (!priv->valid)
         return "-";
@@ -1079,7 +995,7 @@ gweather_info_get_sunset (GWeatherInfo *info)
 
     priv = info->priv;
 
-    if (!priv->location->coordinates)
+    if (!priv->location->latlon_valid)
         return "-";
     if (!priv->valid)
         return "-";
@@ -1147,7 +1063,7 @@ gweather_info_get_temp_summary (GWeatherInfo *info)
     if (!priv->valid || priv->temp < -500.0)
         return "--";
 
-    return temperature_string (priv->temp, priv->temperature_unit, TRUE);
+    return temperature_string (priv->temp, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), TRUE);
 }
 
 /**
@@ -1196,45 +1112,45 @@ gweather_info_get_icon_name (GWeatherInfo *info)
     sky = priv->sky;
 
     if (cond.significant) {
-	if (cond.phenomenon != PHENOMENON_NONE &&
-	    cond.qualifier == QUALIFIER_THUNDERSTORM)
+	if (cond.phenomenon != GWEATHER_PHENOMENON_NONE &&
+	    cond.qualifier == GWEATHER_QUALIFIER_THUNDERSTORM)
             return "weather-storm";
 
         switch (cond.phenomenon) {
-	case PHENOMENON_INVALID:
-	case PHENOMENON_LAST:
-	case PHENOMENON_NONE:
+	case GWEATHER_PHENOMENON_INVALID:
+	case GWEATHER_PHENOMENON_LAST:
+	case GWEATHER_PHENOMENON_NONE:
 	    break;
 
-	case PHENOMENON_DRIZZLE:
-	case PHENOMENON_RAIN:
-	case PHENOMENON_UNKNOWN_PRECIPITATION:
-	case PHENOMENON_HAIL:
-	case PHENOMENON_SMALL_HAIL:
+	case GWEATHER_PHENOMENON_DRIZZLE:
+	case GWEATHER_PHENOMENON_RAIN:
+	case GWEATHER_PHENOMENON_UNKNOWN_PRECIPITATION:
+	case GWEATHER_PHENOMENON_HAIL:
+	case GWEATHER_PHENOMENON_SMALL_HAIL:
 	    return "weather-showers";
 
-	case PHENOMENON_SNOW:
-	case PHENOMENON_SNOW_GRAINS:
-	case PHENOMENON_ICE_PELLETS:
-	case PHENOMENON_ICE_CRYSTALS:
+	case GWEATHER_PHENOMENON_SNOW:
+	case GWEATHER_PHENOMENON_SNOW_GRAINS:
+	case GWEATHER_PHENOMENON_ICE_PELLETS:
+	case GWEATHER_PHENOMENON_ICE_CRYSTALS:
 	    return "weather-snow";
 
-	case PHENOMENON_TORNADO:
-	case PHENOMENON_SQUALL:
+	case GWEATHER_PHENOMENON_TORNADO:
+	case GWEATHER_PHENOMENON_SQUALL:
 	    return "weather-storm";
 
-	case PHENOMENON_MIST:
-	case PHENOMENON_FOG:
-	case PHENOMENON_SMOKE:
-	case PHENOMENON_VOLCANIC_ASH:
-	case PHENOMENON_SAND:
-	case PHENOMENON_HAZE:
-	case PHENOMENON_SPRAY:
-	case PHENOMENON_DUST:
-	case PHENOMENON_SANDSTORM:
-	case PHENOMENON_DUSTSTORM:
-	case PHENOMENON_FUNNEL_CLOUD:
-	case PHENOMENON_DUST_WHIRLS:
+	case GWEATHER_PHENOMENON_MIST:
+	case GWEATHER_PHENOMENON_FOG:
+	case GWEATHER_PHENOMENON_SMOKE:
+	case GWEATHER_PHENOMENON_VOLCANIC_ASH:
+	case GWEATHER_PHENOMENON_SAND:
+	case GWEATHER_PHENOMENON_HAZE:
+	case GWEATHER_PHENOMENON_SPRAY:
+	case GWEATHER_PHENOMENON_DUST:
+	case GWEATHER_PHENOMENON_SANDSTORM:
+	case GWEATHER_PHENOMENON_DUSTSTORM:
+	case GWEATHER_PHENOMENON_FUNNEL_CLOUD:
+	case GWEATHER_PHENOMENON_DUST_WHIRLS:
 	    return "weather-fog";
         }
     }
@@ -1252,9 +1168,9 @@ gweather_info_get_icon_name (GWeatherInfo *info)
     }
 
     switch (sky) {
-    case SKY_INVALID:
-    case SKY_LAST:
-    case SKY_CLEAR:
+    case GWEATHER_SKY_INVALID:
+    case GWEATHER_SKY_LAST:
+    case GWEATHER_SKY_CLEAR:
 	if (daytime)
 	    return "weather-clear";
 	else {
@@ -1262,9 +1178,9 @@ gweather_info_get_icon_name (GWeatherInfo *info)
 	    break;
 	}
 
-    case SKY_BROKEN:
-    case SKY_SCATTERED:
-    case SKY_FEW:
+    case GWEATHER_SKY_BROKEN:
+    case GWEATHER_SKY_SCATTERED:
+    case GWEATHER_SKY_FEW:
 	if (daytime)
 	    return "weather-few-clouds";
 	else {
@@ -1272,7 +1188,7 @@ gweather_info_get_icon_name (GWeatherInfo *info)
 	    break;
 	}
 
-    case SKY_OVERCAST:
+    case GWEATHER_SKY_OVERCAST:
 	return "weather-overcast";
 
     default: /* unrecognized */
@@ -1316,7 +1232,7 @@ static gboolean
 temperature_value (gdouble temp_f,
 		   GWeatherTemperatureUnit to_unit,
 		   gdouble *value,
-		   GWeatherTemperatureUnit def_unit)
+		   GSettings *settings)
 {
     gboolean ok = TRUE;
 
@@ -1324,21 +1240,21 @@ temperature_value (gdouble temp_f,
     if (temp_f < -500.0)
 	return FALSE;
 
-    if (to_unit == TEMP_UNIT_DEFAULT)
-	    to_unit = def_unit;
+    if (to_unit == GWEATHER_TEMP_UNIT_DEFAULT)
+	    to_unit = g_settings_get_enum (settings, TEMPERATURE_UNIT);
 
     switch (to_unit) {
-        case TEMP_UNIT_FAHRENHEIT:
+        case GWEATHER_TEMP_UNIT_FAHRENHEIT:
 	    *value = temp_f;
 	    break;
-        case TEMP_UNIT_CENTIGRADE:
+        case GWEATHER_TEMP_UNIT_CENTIGRADE:
 	    *value = TEMP_F_TO_C (temp_f);
 	    break;
-        case TEMP_UNIT_KELVIN:
+        case GWEATHER_TEMP_UNIT_KELVIN:
 	    *value = TEMP_F_TO_K (temp_f);
 	    break;
-        case TEMP_UNIT_INVALID:
-        case TEMP_UNIT_DEFAULT:
+        case GWEATHER_TEMP_UNIT_INVALID:
+        case GWEATHER_TEMP_UNIT_DEFAULT:
 	default:
 	    ok = FALSE;
 	    break;
@@ -1348,7 +1264,10 @@ temperature_value (gdouble temp_f,
 }
 
 static gboolean
-speed_value (gdouble knots, GWeatherSpeedUnit to_unit, gdouble *value, GWeatherSpeedUnit def_unit)
+speed_value (gdouble            knots,
+	     GWeatherSpeedUnit  to_unit,
+	     gdouble           *value,
+	     GSettings         *settings)
 {
     gboolean ok = TRUE;
 
@@ -1357,27 +1276,27 @@ speed_value (gdouble knots, GWeatherSpeedUnit to_unit, gdouble *value, GWeatherS
     if (knots < 0.0)
 	return FALSE;
 
-    if (to_unit == SPEED_UNIT_DEFAULT)
-	    to_unit = def_unit;
+    if (to_unit == GWEATHER_SPEED_UNIT_DEFAULT)
+	    to_unit = g_settings_get_enum (settings, SPEED_UNIT);
 
     switch (to_unit) {
-        case SPEED_UNIT_KNOTS:
+        case GWEATHER_SPEED_UNIT_KNOTS:
             *value = knots;
 	    break;
-        case SPEED_UNIT_MPH:
+        case GWEATHER_SPEED_UNIT_MPH:
             *value = WINDSPEED_KNOTS_TO_MPH (knots);
 	    break;
-        case SPEED_UNIT_KPH:
+        case GWEATHER_SPEED_UNIT_KPH:
             *value = WINDSPEED_KNOTS_TO_KPH (knots);
 	    break;
-        case SPEED_UNIT_MS:
+        case GWEATHER_SPEED_UNIT_MS:
             *value = WINDSPEED_KNOTS_TO_MS (knots);
 	    break;
-	case SPEED_UNIT_BFT:
+	case GWEATHER_SPEED_UNIT_BFT:
 	    *value = WINDSPEED_KNOTS_TO_BFT (knots);
 	    break;
-        case SPEED_UNIT_INVALID:
-        case SPEED_UNIT_DEFAULT:
+        case GWEATHER_SPEED_UNIT_INVALID:
+        case GWEATHER_SPEED_UNIT_DEFAULT:
         default:
             ok = FALSE;
             break;
@@ -1387,7 +1306,10 @@ speed_value (gdouble knots, GWeatherSpeedUnit to_unit, gdouble *value, GWeatherS
 }
 
 static gboolean
-pressure_value (gdouble inHg, GWeatherPressureUnit to_unit, gdouble *value, GWeatherPressureUnit def_unit)
+pressure_value (gdouble               inHg,
+		GWeatherPressureUnit  to_unit,
+		gdouble              *value,
+		GSettings            *settings)
 {
     gboolean ok = TRUE;
 
@@ -1396,30 +1318,30 @@ pressure_value (gdouble inHg, GWeatherPressureUnit to_unit, gdouble *value, GWea
     if (inHg < 0.0)
 	return FALSE;
 
-    if (to_unit == PRESSURE_UNIT_DEFAULT)
-	    to_unit = def_unit;
+    if (to_unit == GWEATHER_PRESSURE_UNIT_DEFAULT)
+	    to_unit = g_settings_get_enum (settings, PRESSURE_UNIT);
 
     switch (to_unit) {
-        case PRESSURE_UNIT_INCH_HG:
+        case GWEATHER_PRESSURE_UNIT_INCH_HG:
             *value = inHg;
 	    break;
-        case PRESSURE_UNIT_MM_HG:
+        case GWEATHER_PRESSURE_UNIT_MM_HG:
             *value = PRESSURE_INCH_TO_MM (inHg);
 	    break;
-        case PRESSURE_UNIT_KPA:
+        case GWEATHER_PRESSURE_UNIT_KPA:
             *value = PRESSURE_INCH_TO_KPA (inHg);
 	    break;
-        case PRESSURE_UNIT_HPA:
+        case GWEATHER_PRESSURE_UNIT_HPA:
             *value = PRESSURE_INCH_TO_HPA (inHg);
 	    break;
-        case PRESSURE_UNIT_MB:
+        case GWEATHER_PRESSURE_UNIT_MB:
             *value = PRESSURE_INCH_TO_MB (inHg);
 	    break;
-        case PRESSURE_UNIT_ATM:
+        case GWEATHER_PRESSURE_UNIT_ATM:
             *value = PRESSURE_INCH_TO_ATM (inHg);
 	    break;
-        case PRESSURE_UNIT_INVALID:
-        case PRESSURE_UNIT_DEFAULT:
+        case GWEATHER_PRESSURE_UNIT_INVALID:
+        case GWEATHER_PRESSURE_UNIT_DEFAULT:
         default:
 	    ok = FALSE;
 	    break;
@@ -1429,7 +1351,10 @@ pressure_value (gdouble inHg, GWeatherPressureUnit to_unit, gdouble *value, GWea
 }
 
 static gboolean
-distance_value (gdouble miles, GWeatherDistanceUnit to_unit, gdouble *value, GWeatherDistanceUnit def_unit)
+distance_value (gdouble               miles,
+		GWeatherDistanceUnit  to_unit,
+		gdouble              *value,
+		GSettings            *settings)
 {
     gboolean ok = TRUE;
 
@@ -1438,21 +1363,21 @@ distance_value (gdouble miles, GWeatherDistanceUnit to_unit, gdouble *value, GWe
     if (miles < 0.0)
 	return FALSE;
 
-    if (to_unit == DISTANCE_UNIT_DEFAULT)
-	    to_unit = def_unit;
+    if (to_unit == GWEATHER_DISTANCE_UNIT_DEFAULT)
+	    to_unit = g_settings_get_enum (settings, DISTANCE_UNIT);
 
     switch (to_unit) {
-        case DISTANCE_UNIT_MILES:
+        case GWEATHER_DISTANCE_UNIT_MILES:
             *value = miles;
             break;
-        case DISTANCE_UNIT_KM:
+        case GWEATHER_DISTANCE_UNIT_KM:
             *value = VISIBILITY_SM_TO_KM (miles);
             break;
-        case DISTANCE_UNIT_METERS:
+        case GWEATHER_DISTANCE_UNIT_METERS:
             *value = VISIBILITY_SM_TO_M (miles);
             break;
-        case DISTANCE_UNIT_INVALID:
-        case DISTANCE_UNIT_DEFAULT:
+        case GWEATHER_DISTANCE_UNIT_INVALID:
+        case GWEATHER_DISTANCE_UNIT_DEFAULT:
         default:
 	    ok = FALSE;
 	    break;
@@ -1478,7 +1403,7 @@ gweather_info_get_value_sky (GWeatherInfo *info, GWeatherSky *sky)
     if (!info->priv->valid)
 	return FALSE;
 
-    if (info->priv->sky <= SKY_INVALID || info->priv->sky >= SKY_LAST)
+    if (info->priv->sky <= GWEATHER_SKY_INVALID || info->priv->sky >= GWEATHER_SKY_LAST)
 	return FALSE;
 
     *sky = info->priv->sky;
@@ -1512,10 +1437,10 @@ gweather_info_get_value_conditions (GWeatherInfo *info, GWeatherConditionPhenome
     if (!priv->cond.significant)
 	return FALSE;
 
-    if (!(priv->cond.phenomenon > PHENOMENON_INVALID &&
-	  priv->cond.phenomenon < PHENOMENON_LAST &&
-	  priv->cond.qualifier > QUALIFIER_INVALID &&
-	  priv->cond.qualifier < QUALIFIER_LAST))
+    if (!(priv->cond.phenomenon > GWEATHER_PHENOMENON_INVALID &&
+	  priv->cond.phenomenon < GWEATHER_PHENOMENON_LAST &&
+	  priv->cond.qualifier > GWEATHER_QUALIFIER_INVALID &&
+	  priv->cond.qualifier < GWEATHER_QUALIFIER_LAST))
         return FALSE;
 
     *phenomenon = priv->cond.phenomenon;
@@ -1541,7 +1466,7 @@ gweather_info_get_value_temp (GWeatherInfo *info, GWeatherTemperatureUnit unit, 
     if (!info->priv->valid)
 	return FALSE;
 
-    return temperature_value (info->priv->temp, unit, value, info->priv->temperature_unit);
+    return temperature_value (info->priv->temp, unit, value, info->priv->settings);
 }
 
 /**
@@ -1555,13 +1480,17 @@ gweather_info_get_value_temp (GWeatherInfo *info, GWeatherTemperatureUnit unit, 
 gboolean
 gweather_info_get_value_temp_min (GWeatherInfo *info, GWeatherTemperatureUnit unit, gdouble *value)
 {
+    GWeatherInfoPrivate *priv;
+
     g_return_val_if_fail (GWEATHER_IS_INFO (info), FALSE);
     g_return_val_if_fail (value != NULL, FALSE);
 
-    if (!info->priv->valid || !info->priv->tempMinMaxValid)
+    priv = info->priv;
+
+    if (!priv->valid || !priv->tempMinMaxValid)
 	return FALSE;
 
-    return temperature_value (info->priv->temp_min, unit, value, info->priv->temperature_unit);
+    return temperature_value (priv->temp_min, unit, value, priv->settings);
 }
 
 /**
@@ -1575,13 +1504,17 @@ gweather_info_get_value_temp_min (GWeatherInfo *info, GWeatherTemperatureUnit un
 gboolean
 gweather_info_get_value_temp_max (GWeatherInfo *info, GWeatherTemperatureUnit unit, gdouble *value)
 {
+    GWeatherInfoPrivate *priv;
+
     g_return_val_if_fail (GWEATHER_IS_INFO (info), FALSE);
     g_return_val_if_fail (value != NULL, FALSE);
 
-    if (!info->priv->valid || !info->priv->tempMinMaxValid)
+    priv = info->priv;
+
+    if (!priv->valid || !priv->tempMinMaxValid)
 	return FALSE;
 
-    return temperature_value (info->priv->temp_max, unit, value, info->priv->temperature_unit);
+    return temperature_value (priv->temp_max, unit, value, priv->settings);
 }
 
 /**
@@ -1601,7 +1534,7 @@ gweather_info_get_value_dew (GWeatherInfo *info, GWeatherTemperatureUnit unit, g
     if (!info->priv->valid)
 	return FALSE;
 
-    return temperature_value (info->priv->dew, unit, value, info->priv->temperature_unit);
+    return temperature_value (info->priv->dew, unit, value, info->priv->settings);
 }
 
 /**
@@ -1621,7 +1554,7 @@ gweather_info_get_value_apparent (GWeatherInfo *info, GWeatherTemperatureUnit un
     if (!info->priv->valid)
 	return FALSE;
 
-    return temperature_value (calc_apparent (info), unit, value, info->priv->temperature_unit);
+    return temperature_value (calc_apparent (info), unit, value, info->priv->settings);
 }
 
 /**
@@ -1740,10 +1673,10 @@ gweather_info_get_value_wind (GWeatherInfo *info,
     if (!priv->valid)
 	return FALSE;
 
-    if (priv->windspeed < 0.0 || priv->wind <= WIND_INVALID || priv->wind >= WIND_LAST)
+    if (priv->windspeed < 0.0 || priv->wind <= GWEATHER_WIND_INVALID || priv->wind >= GWEATHER_WIND_LAST)
         return FALSE;
 
-    res = speed_value (priv->windspeed, unit, speed, priv->speed_unit);
+    res = speed_value (priv->windspeed, unit, speed, priv->settings);
     *direction = priv->wind;
 
     return res;
@@ -1768,7 +1701,7 @@ gweather_info_get_value_pressure (GWeatherInfo *info,
     if (!info->priv->valid)
 	return FALSE;
 
-    return pressure_value (info->priv->pressure, unit, value, info->priv->pressure_unit);
+    return pressure_value (info->priv->pressure, unit, value, info->priv->settings);
 }
 
 /**
@@ -1790,7 +1723,7 @@ gweather_info_get_value_visibility (GWeatherInfo *info,
     if (!info->priv->valid)
 	return FALSE;
 
-    return distance_value (info->priv->visibility, unit, value, info->priv->distance_unit);
+    return distance_value (info->priv->visibility, unit, value, info->priv->settings);
 }
 
 /**
@@ -1815,10 +1748,68 @@ gweather_info_get_upcoming_moonphases (GWeatherInfo *info, time_t *phases)
 static void
 _weather_internal_check (void)
 {
-    g_assert (G_N_ELEMENTS (wind_direction_str) == WIND_LAST);
-    g_assert (G_N_ELEMENTS (sky_str) == SKY_LAST);
-    g_assert (G_N_ELEMENTS (conditions_str) == PHENOMENON_LAST);
-    g_assert (G_N_ELEMENTS (conditions_str[0]) == QUALIFIER_LAST);
+    g_assert (G_N_ELEMENTS (wind_direction_str) == GWEATHER_WIND_LAST);
+    g_assert (G_N_ELEMENTS (sky_str) == GWEATHER_SKY_LAST);
+    g_assert (G_N_ELEMENTS (conditions_str) == GWEATHER_PHENOMENON_LAST);
+    g_assert (G_N_ELEMENTS (conditions_str[0]) == GWEATHER_QUALIFIER_LAST);
+}
+
+static void
+gweather_info_set_location_internal (GWeatherInfo     *info,
+				     GWeatherLocation *location)
+{
+    GWeatherInfoPrivate *priv = info->priv;
+    GVariant *default_loc = NULL;
+    const gchar *name = NULL;
+    gboolean latlon_override = FALSE;
+    gdouble lat, lon;
+
+    if (priv->glocation)
+	gweather_location_unref (priv->glocation);
+    if (priv->location)
+	_weather_location_free (priv->location);
+
+    priv->glocation = location;
+    if (priv->glocation) {
+	gweather_location_ref (location);
+    } else {
+	GVariant *default_loc = g_settings_get_value (priv->settings, DEFAULT_LOCATION);
+	const gchar *station_code;
+
+	g_variant_get (default_loc, "(&s&sm(dd))", &name, &station_code, &latlon_override, &lat, &lon);
+
+	if (strcmp(name, "") == 0)
+	    name = NULL;
+
+	priv->glocation = gweather_location_find_by_station_code (station_code);
+    }
+
+    priv->location = _weather_location_from_gweather_location (priv->glocation, name);
+
+    if (latlon_override) {
+	priv->location->latitude = DEGREES_TO_RADIANS (lat);
+	priv->location->longitude = DEGREES_TO_RADIANS (lon);
+    }
+
+    if (default_loc)
+	g_variant_unref (default_loc);
+}
+
+/**
+ * gweather_info_set_location:
+ * @info: a #GWeatherInfo
+ * @location: (allow-none): a location for which weather is desired
+ *
+ * Changes @info to report weather for @location.
+ */
+void
+gweather_info_set_location (GWeatherInfo     *info,
+			    GWeatherLocation *location)
+{
+    g_return_if_fail (GWEATHER_IS_INFO (info));
+
+    gweather_info_set_location_internal (info, location);
+    gweather_info_update (info);
 }
 
 static void
@@ -1832,15 +1823,10 @@ gweather_info_set_property (GObject *object,
 
     switch (property_id) {
     case PROP_LOCATION:
-	priv->glocation = (GWeatherLocation *) g_value_dup_boxed (value);
-	if (priv->glocation)
-	    priv->location = _weather_location_from_gweather_location (priv->glocation, NULL);
-	break;
-    case PROP_PREFS:
-	gweather_info_set_preferences (self, (const GWeatherPrefs *) g_value_get_pointer (value));
+	gweather_info_set_location_internal (self, (GWeatherLocation*) g_value_get_boxed (value));
 	break;
     case PROP_TYPE:
-	priv->forecast_type = g_value_get_int (value);
+	priv->forecast_type = g_value_get_enum (value);
 	break;
     default:
 	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -1865,19 +1851,12 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 				G_PARAM_STATIC_STRINGS | G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY);
     g_object_class_install_property (gobject_class, PROP_LOCATION, pspec);
 
-    /* FIXME: make this a boxed */
-    pspec = g_param_spec_pointer ("preferences",
-				  "Preferences",
-				  "The preferences and defaults used by this info",
-				  G_PARAM_STATIC_STRINGS | G_PARAM_WRITABLE);
-    g_object_class_install_property (gobject_class, PROP_PREFS, pspec);
-
-    /* FIXME: glib-mkenums hangs when I add weather.h to the list of enums */
-    pspec = g_param_spec_int ("forecast-type",
-			      "Forecast type",
-			      "The type of forecast desired (list, zone or state)",
-			      0, 3, FORECAST_LIST,
-			      G_PARAM_STATIC_STRINGS | G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY);
+    pspec = g_param_spec_enum ("forecast-type",
+			       "Forecast type",
+			       "The type of forecast desired (list, zone or state)",
+			       GWEATHER_TYPE_FORECAST_TYPE,
+			       GWEATHER_FORECAST_LIST,
+			       G_PARAM_STATIC_STRINGS | G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY);
     g_object_class_install_property (gobject_class, PROP_TYPE, pspec);
 
     gweather_info_signals[SIGNAL_UPDATED] = g_signal_new ("updated",
@@ -1894,23 +1873,19 @@ gweather_info_class_init (GWeatherInfoClass *klass)
  * gweather_info_new:
  * @location: (allow-none): the desidered #GWeatherLocation (NULL for default)
  * @forecast_type: the type of forecast requested
- * @prefs: an object providing defaults for units, radars, etc.
  *
  * Returns: (transfer full): a new #GWeatherInfo
  */
 GWeatherInfo *
 gweather_info_new (GWeatherLocation    *location,
-		   GWeatherForecastType forecast_type,
-		   const GWeatherPrefs *prefs)
+		   GWeatherForecastType forecast_type)
 {
     GWeatherInfo *self;
 
-    g_return_val_if_fail (prefs != NULL, NULL);
-
     if (location != NULL)
-	self = g_object_new (GWEATHER_TYPE_INFO, "location", location, "forecast-type", forecast_type, "preferences", prefs, NULL);
+	self = g_object_new (GWEATHER_TYPE_INFO, "location", location, "forecast-type", forecast_type, NULL);
     else
-	self = g_object_new (GWEATHER_TYPE_INFO, "forecast-type", forecast_type, "preferences", prefs, NULL);
+	self = g_object_new (GWEATHER_TYPE_INFO, "forecast-type", forecast_type, NULL);
     gweather_info_update (self);
 
     return self;
@@ -1919,16 +1894,5 @@ gweather_info_new (GWeatherLocation    *location,
 GWeatherInfo *
 _gweather_info_new_clone (GWeatherInfo *other)
 {
-    GWeatherInfoPrivate *priv;
-    GWeatherPrefs prefs;
-
-    priv = other->priv;
-    prefs.temperature_unit = priv->temperature_unit;
-    prefs.speed_unit = priv->speed_unit;
-    prefs.distance_unit = priv->distance_unit;
-    prefs.pressure_unit = priv->pressure_unit;
-    prefs.use_custom_radar_url = priv->radar_url != NULL;
-    prefs.radar = priv->radar_url;
-
-    return g_object_new (GWEATHER_TYPE_INFO, "location", priv->glocation, "type", priv->forecast_type, "preferences", &prefs, NULL);
+    return g_object_new (GWEATHER_TYPE_INFO, "location", other->priv->glocation, "forecast-type", other->priv->forecast_type, NULL);
 }

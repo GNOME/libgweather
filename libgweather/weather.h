@@ -19,83 +19,16 @@
 #ifndef __WEATHER_H_
 #define __WEATHER_H_
 
-
 #ifndef GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #error "libgweather should only be used if you understand that it's subject to change, and is not supported as a fixed API/ABI or as part of the platform"
 #endif
 
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <libgweather/gweather-enums.h>
 #include <libgweather/gweather-location.h>
 
 G_BEGIN_DECLS
-
-/*
- * Weather prefs
- */
-
-typedef enum _GWeatherForecastType {
-    FORECAST_STATE,
-    FORECAST_ZONE,
-    FORECAST_LIST
-} GWeatherForecastType;
-
-typedef enum _GWeatherTempeatureUnit {
-    TEMP_UNIT_INVALID = 0,
-    TEMP_UNIT_DEFAULT,
-    TEMP_UNIT_KELVIN,
-    TEMP_UNIT_CENTIGRADE,
-    TEMP_UNIT_FAHRENHEIT
-} GWeatherTemperatureUnit;
-
-typedef enum _GWeatherSpeedUnit {
-    SPEED_UNIT_INVALID = 0,
-    SPEED_UNIT_DEFAULT,
-    SPEED_UNIT_MS,    /* metres per second */
-    SPEED_UNIT_KPH,   /* kilometres per hour */
-    SPEED_UNIT_MPH,   /* miles per hour */
-    SPEED_UNIT_KNOTS, /* Knots */
-    SPEED_UNIT_BFT    /* Beaufort scale */
-} GWeatherSpeedUnit;
-
-typedef enum _GWeatherPressureUnit {
-    PRESSURE_UNIT_INVALID = 0,
-    PRESSURE_UNIT_DEFAULT,
-    PRESSURE_UNIT_KPA,    /* kiloPascal */
-    PRESSURE_UNIT_HPA,    /* hectoPascal */
-    PRESSURE_UNIT_MB,     /* 1 millibars = 1 hectoPascal */
-    PRESSURE_UNIT_MM_HG,  /* millimeters of mecury */
-    PRESSURE_UNIT_INCH_HG, /* inches of mercury */
-    PRESSURE_UNIT_ATM     /* atmosphere */
-} GWeatherPressureUnit;
-
-typedef enum _GWeatherDistanceUnit {
-    DISTANCE_UNIT_INVALID = 0,
-    DISTANCE_UNIT_DEFAULT,
-    DISTANCE_UNIT_METERS,
-    DISTANCE_UNIT_KM,
-    DISTANCE_UNIT_MILES
-} GWeatherDistanceUnit;
-
-#if 0
-struct _GWeatherPrefs {
-    GWeatherForecastType type;
-
-    gboolean radar;
-    const char *radar_custom_url;
-
-    GWeatherTemperatureUnit temperature_unit;
-    GWeatherSpeedUnit speed_unit;
-    GWeatherPressureUnit pressure_unit;
-    GWeatherDistanceUnit distance_unit;
-};
-#endif
-
-typedef struct _GWeatherPrefs GWeatherPrefs;
-
-/*
- * Weather Info
- */
 
 typedef struct _GWeatherInfo GWeatherInfo;
 typedef struct _GWeatherInfoClass GWeatherInfoClass;
@@ -127,20 +60,16 @@ typedef void (*GWeatherInfoFunc) (GWeatherInfo *info, gpointer data);
 
 GType                    gweather_info_get_type            (void) G_GNUC_CONST;
 GWeatherInfo *           gweather_info_new                 (GWeatherLocation *location,
-							    GWeatherForecastType forecast_type,
-							    const GWeatherPrefs *prefs);
-void                     gweather_info_set_preferences     (GWeatherInfo *info,
-							    const GWeatherPrefs *prefs);
+							    GWeatherForecastType forecast_type);
 void                     gweather_info_update              (GWeatherInfo *info);
 void			 gweather_info_abort		   (GWeatherInfo *info);
 
 gboolean		 gweather_info_is_valid		   (GWeatherInfo *info);
 gboolean		 gweather_info_network_error	   (GWeatherInfo *info);
 
-void			 gweather_info_to_metric	   (GWeatherInfo *info);
-void			 gweather_info_to_imperial	   (GWeatherInfo *info);
-
 const GWeatherLocation * gweather_info_get_location	   (GWeatherInfo *info);
+void                     gweather_info_set_location        (GWeatherInfo *info,
+							    GWeatherLocation *location);
 const gchar *		 gweather_info_get_location_name   (GWeatherInfo *info);
 const gchar *		 gweather_info_get_update	   (GWeatherInfo *info);
 const gchar *		 gweather_info_get_sky		   (GWeatherInfo *info);
@@ -169,83 +98,83 @@ gint			 gweather_info_next_sun_event	   (GWeatherInfo *info);
 /* values retrieving functions */
 
 typedef enum _GWeatherWindDirection {
-    WIND_INVALID = -1,
-    WIND_VARIABLE,
-    WIND_N, WIND_NNE, WIND_NE, WIND_ENE,
-    WIND_E, WIND_ESE, WIND_SE, WIND_SSE,
-    WIND_S, WIND_SSW, WIND_SW, WIND_WSW,
-    WIND_W, WIND_WNW, WIND_NW, WIND_NNW,
-    WIND_LAST
+    GWEATHER_WIND_INVALID = -1,
+    GWEATHER_WIND_VARIABLE,
+    GWEATHER_WIND_N, GWEATHER_WIND_NNE, GWEATHER_WIND_NE, GWEATHER_WIND_ENE,
+    GWEATHER_WIND_E, GWEATHER_WIND_ESE, GWEATHER_WIND_SE, GWEATHER_WIND_SSE,
+    GWEATHER_WIND_S, GWEATHER_WIND_SSW, GWEATHER_WIND_SW, GWEATHER_WIND_WSW,
+    GWEATHER_WIND_W, GWEATHER_WIND_WNW, GWEATHER_WIND_NW, GWEATHER_WIND_NNW,
+    GWEATHER_WIND_LAST
 } GWeatherWindDirection;
 
 const gchar * gweather_wind_direction_to_string (GWeatherWindDirection wind);
 
 typedef enum _GWeatherSky {
-    SKY_INVALID = -1,
-    SKY_CLEAR,
-    SKY_BROKEN,
-    SKY_SCATTERED,
-    SKY_FEW,
-    SKY_OVERCAST,
-    SKY_LAST
+    GWEATHER_SKY_INVALID = -1,
+    GWEATHER_SKY_CLEAR,
+    GWEATHER_SKY_BROKEN,
+    GWEATHER_SKY_SCATTERED,
+    GWEATHER_SKY_FEW,
+    GWEATHER_SKY_OVERCAST,
+    GWEATHER_SKY_LAST
 } GWeatherSky;
 
 const gchar * gweather_sky_to_string (GWeatherSky sky);
 
 typedef enum _GWeatherConditionPhenomenon {
-    PHENOMENON_INVALID = -1,
+    GWEATHER_PHENOMENON_INVALID = -1,
 
-    PHENOMENON_NONE,
+    GWEATHER_PHENOMENON_NONE,
 
-    PHENOMENON_DRIZZLE,
-    PHENOMENON_RAIN,
-    PHENOMENON_SNOW,
-    PHENOMENON_SNOW_GRAINS,
-    PHENOMENON_ICE_CRYSTALS,
-    PHENOMENON_ICE_PELLETS,
-    PHENOMENON_HAIL,
-    PHENOMENON_SMALL_HAIL,
-    PHENOMENON_UNKNOWN_PRECIPITATION,
+    GWEATHER_PHENOMENON_DRIZZLE,
+    GWEATHER_PHENOMENON_RAIN,
+    GWEATHER_PHENOMENON_SNOW,
+    GWEATHER_PHENOMENON_SNOW_GRAINS,
+    GWEATHER_PHENOMENON_ICE_CRYSTALS,
+    GWEATHER_PHENOMENON_ICE_PELLETS,
+    GWEATHER_PHENOMENON_HAIL,
+    GWEATHER_PHENOMENON_SMALL_HAIL,
+    GWEATHER_PHENOMENON_UNKNOWN_PRECIPITATION,
 
-    PHENOMENON_MIST,
-    PHENOMENON_FOG,
-    PHENOMENON_SMOKE,
-    PHENOMENON_VOLCANIC_ASH,
-    PHENOMENON_SAND,
-    PHENOMENON_HAZE,
-    PHENOMENON_SPRAY,
-    PHENOMENON_DUST,
+    GWEATHER_PHENOMENON_MIST,
+    GWEATHER_PHENOMENON_FOG,
+    GWEATHER_PHENOMENON_SMOKE,
+    GWEATHER_PHENOMENON_VOLCANIC_ASH,
+    GWEATHER_PHENOMENON_SAND,
+    GWEATHER_PHENOMENON_HAZE,
+    GWEATHER_PHENOMENON_SPRAY,
+    GWEATHER_PHENOMENON_DUST,
 
-    PHENOMENON_SQUALL,
-    PHENOMENON_SANDSTORM,
-    PHENOMENON_DUSTSTORM,
-    PHENOMENON_FUNNEL_CLOUD,
-    PHENOMENON_TORNADO,
-    PHENOMENON_DUST_WHIRLS,
+    GWEATHER_PHENOMENON_SQUALL,
+    GWEATHER_PHENOMENON_SANDSTORM,
+    GWEATHER_PHENOMENON_DUSTSTORM,
+    GWEATHER_PHENOMENON_FUNNEL_CLOUD,
+    GWEATHER_PHENOMENON_TORNADO,
+    GWEATHER_PHENOMENON_DUST_WHIRLS,
 
-    PHENOMENON_LAST
+    GWEATHER_PHENOMENON_LAST
 } GWeatherConditionPhenomenon;
 
 typedef enum _GWeatherConditionQualifier {
-    QUALIFIER_INVALID = -1,
+    GWEATHER_QUALIFIER_INVALID = -1,
 
-    QUALIFIER_NONE,
+    GWEATHER_QUALIFIER_NONE,
 
-    QUALIFIER_VICINITY,
+    GWEATHER_QUALIFIER_VICINITY,
 
-    QUALIFIER_LIGHT,
-    QUALIFIER_MODERATE,
-    QUALIFIER_HEAVY,
-    QUALIFIER_SHALLOW,
-    QUALIFIER_PATCHES,
-    QUALIFIER_PARTIAL,
-    QUALIFIER_THUNDERSTORM,
-    QUALIFIER_BLOWING,
-    QUALIFIER_SHOWERS,
-    QUALIFIER_DRIFTING,
-    QUALIFIER_FREEZING,
+    GWEATHER_QUALIFIER_LIGHT,
+    GWEATHER_QUALIFIER_MODERATE,
+    GWEATHER_QUALIFIER_HEAVY,
+    GWEATHER_QUALIFIER_SHALLOW,
+    GWEATHER_QUALIFIER_PATCHES,
+    GWEATHER_QUALIFIER_PARTIAL,
+    GWEATHER_QUALIFIER_THUNDERSTORM,
+    GWEATHER_QUALIFIER_BLOWING,
+    GWEATHER_QUALIFIER_SHOWERS,
+    GWEATHER_QUALIFIER_DRIFTING,
+    GWEATHER_QUALIFIER_FREEZING,
 
-    QUALIFIER_LAST
+    GWEATHER_QUALIFIER_LAST
 } GWeatherConditionQualifier;
 
 typedef gdouble GWeatherMoonPhase;

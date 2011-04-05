@@ -9,10 +9,11 @@ AM_CPPFLAGS = 			\
 AM_CFLAGS = $(WARN_CFLAGS)
 
 gweather_old_headers = \
-	gweather-gconf.h gweather-prefs.h gweather-xml.h
+	gweather-xml.h
 gweather_new_headers = \
 	gweather-location.h location-entry.h \
-	gweather-timezone.h timezone-menu.h
+	gweather-timezone.h timezone-menu.h \
+	gweather-enums.h
 libgweatherincdir = $(includedir)/libgweather-3.0/libgweather
 libgweatherinc_HEADERS = \
 	$(gweather_old_headers)		\
@@ -27,8 +28,6 @@ libgweather_3_la_SOURCES = \
 	weather-bom.c weather-wx.c \
 	weather-sun.c weather-moon.c \
 	gweather-enum-types.c \
-	gweather-prefs.c gweather-prefs.h \
-	gweather-gconf.c gweather-gconf.h \
 	gweather-xml.c gweather-xml.h \
 	gweather-location.c gweather-location.h \
 	gweather-timezone.c gweather-timezone.h \
@@ -47,7 +46,7 @@ libgweather_3_la_CPPFLAGS = \
 	$(AM_CPPFLAGS)			\
 	$(LIBXML_CFLAGS)		\
 	$(LIBSOUP_CFLAGS)		\
-	$(GCONF_CFLAGS)			\
+	$(GIO_CFLAGS)			\
 	-DG_LOG_DOMAIN=\"GWeather\"	\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-DGWEATHER_XML_LOCATION_DIR=\""$(pkgdatadir)"\"
@@ -57,7 +56,7 @@ libgweather_3_la_LIBADD = \
 	$(GTK_LIBS)	\
 	$(LIBXML_LIBS)	\
 	$(LIBSOUP_LIBS)	\
-	$(GCONF_LIBS) \
+	$(GIO_LIBS) \
 	$(REGEX_LIBS)
 
 libgweather_3_la_LDFLAGS = \
@@ -91,10 +90,6 @@ BUILT_SOURCES = gweather-enum-types.c gweather-enum-types.h
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gweather-3.0.pc
 
-schemadir = @GCONF_SCHEMA_FILE_DIR@
-schema_in_files = gweather.schemas.in
-schema_DATA = $(schema_in_files:.schemas.in=.schemas)
-
 @INTLTOOL_SCHEMAS_RULE@
 
 EXTRA_DIST = gweather-3.0.pc.in gweather-3.0-uninstalled.pc.in $(schema_in_files)
@@ -114,7 +109,8 @@ introspection_sources = 	\
 	gweather-timezone.c gweather-timezone.h \
 	location-entry.c location-entry.h \
 	timezone-menu.c timezone-menu.h
-built_introspection_sources = gweather-enum-types.h
+
+built_introspection_sources = gweather-enum-types.h gweather-enums.h
 
 GWeather-3.0.gir: libgweather-3.la Makefile
 GWeather_3_0_gir_INCLUDES = GObject-2.0 Gtk-3.0
@@ -131,19 +127,6 @@ typelibdir = $(INTROSPECTION_TYPELIBDIR)
 typelib_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
 
 CLEANFILES += $(gir_DATA) $(typelib_DATA)
-endif
-
-if GCONF_SCHEMAS_INSTALL
-install-data-local:
-	if test -z "$(DESTDIR)" ; then \
-		for p in $(schema_DATA) ; do \
-			GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_builddir)/libgweather/$$p ; \
-		done \
-	fi
-uninstall-local:
-	for p in $(schema_DATA) ; do \
-		GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-uninstall-rule $(top_builddir)/libgweather/$$p ; \
-	done
 endif
 
 -include $(top_srcdir)/git.mk

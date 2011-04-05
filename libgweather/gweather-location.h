@@ -79,6 +79,8 @@ void                   gweather_location_free_timezones (GWeatherLocation  *loc,
 const char            *gweather_location_get_code       (GWeatherLocation  *loc);
 char                  *gweather_location_get_city_name  (GWeatherLocation  *loc);
 
+GWeatherLocation      *gweather_location_find_by_station_code (const gchar *code);
+
 G_END_DECLS
 
 #endif /* __GWEATHER_LOCATIONS_H__ */

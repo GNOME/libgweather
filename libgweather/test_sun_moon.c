@@ -52,8 +52,7 @@ main (int argc, char **argv)
 
     location.latitude = DEGREES_TO_RADIANS(latitude);
     location.longitude = DEGREES_TO_RADIANS(longitude);
-    /* any string will do here, just it cannot be NULL */
-    location.coordinates = "dummy";
+    location.latlon_valid = TRUE;
     info = g_object_new (GWEATHER_TYPE_INFO, NULL);
     info->priv->location = _weather_location_clone(&location);
     info->priv->valid = TRUE;

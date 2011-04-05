@@ -298,7 +298,7 @@ calc_sun2 (GWeatherInfo *info, time_t t)
 gboolean
 calc_sun_time (GWeatherInfo *info, time_t t)
 {
-    return info->priv->location->coordinates != NULL && calc_sun2 (info, t);
+    return info->priv->location->latlon_valid && calc_sun2 (info, t);
 }
 
 /**
