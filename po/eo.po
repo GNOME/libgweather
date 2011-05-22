@@ -1,23 +1,26 @@
-# Esperanto translation for libgweather
-# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# Esperanto translation for libgweather.
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010.
 # This file is distributed under the same license as the libgweather package.
-# Hendrik LÖNNGREN, 2009.
-# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2010.
+# Hendrik LÖNNGREN < >, 2009.
+# Michael MORONI < >, 2011.
+# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2010, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"applets&component=gweather\n"
-"POT-Creation-Date: 2010-04-18 08:26+0000\n"
-"PO-Revision-Date: 2010-06-05 22:38+0000\n"
+"applets&keywords=I18N+L10N&component=gweather\n"
+"POT-Creation-Date: 2011-04-24 20:23+0000\n"
+"PO-Revision-Date: 2011-05-22 10:47+0200\n"
 "Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
 "Language-Team: Esperanto <ubuntu-l10n-eo@lists.launchpad.net>\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-06-06 18:00+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-05-22 08:40+0000\n"
+"X-Generator: Launchpad (build 13085)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #. TRANSLATOR: Change this to the default location name,
 #. * used when you first start the Weather Applet. This is
@@ -29,7 +32,7 @@ msgstr ""
 #. *
 #. * If you do not require a DEFAULT_LOCATION, set this to
 #. * "DEFAULT_LOCATION".
-#. 
+#.
 #: ../libgweather/gweather-gconf.c:212 ../libgweather/gweather-gconf.c:213
 #: ../libgweather/gweather.schemas.in.h:5
 msgid "DEFAULT_LOCATION"
@@ -45,7 +48,7 @@ msgstr "DEFAULT_LOCATION"
 #. * the capital city, Athens.
 #. *
 #. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
-#. 
+#.
 #: ../libgweather/gweather-gconf.c:232 ../libgweather/gweather-gconf.c:233
 #: ../libgweather/gweather.schemas.in.h:3
 msgid "DEFAULT_CODE"
@@ -61,7 +64,7 @@ msgstr "DEFAULT_CODE"
 #. *
 #. * If your default location does not have a zone, set this to
 #. * "DEFAULT_ZONE".
-#. 
+#.
 #: ../libgweather/gweather-gconf.c:252 ../libgweather/gweather-gconf.c:253
 #: ../libgweather/gweather.schemas.in.h:7
 msgid "DEFAULT_ZONE"
@@ -78,7 +81,7 @@ msgstr "DEFAULT_ZONE"
 #. * If your default location does not have a radar, set this to " "
 #. * (or space).
 #. * If you do not have a default location, set this to DEFAULT_RADAR.
-#. 
+#.
 #: ../libgweather/gweather-gconf.c:273 ../libgweather/gweather-gconf.c:274
 #: ../libgweather/gweather.schemas.in.h:6
 msgid "DEFAULT_RADAR"
@@ -95,7 +98,7 @@ msgstr "DEFAULT_RADAR"
 #. * to " " (or space).
 #. * If you do not have a default location, set this to
 #. * DEFAULT_COORDINATES.
-#. 
+#.
 #: ../libgweather/gweather-gconf.c:294 ../libgweather/gweather-gconf.c:295
 #: ../libgweather/gweather.schemas.in.h:4
 msgid "DEFAULT_COORDINATES"
@@ -104,7 +107,7 @@ msgstr "DEFAULT_COORDINATES"
 #: ../libgweather/gweather-prefs.c:34 ../libgweather/gweather-prefs.c:45
 #: ../libgweather/gweather-prefs.c:60 ../libgweather/gweather-prefs.c:77
 msgid "Default"
-msgstr "Defaŭlto"
+msgstr "Defaŭlte"
 
 #. translators: Kelvin
 #: ../libgweather/gweather-prefs.c:36
@@ -218,7 +221,7 @@ msgstr "hPa"
 msgid "DEFAULT_DISTANCE_UNIT"
 msgstr "km"
 
-#: ../libgweather/gweather-timezone.c:322
+#: ../libgweather/gweather-timezone.c:314
 msgid "Greenwich Mean Time"
 msgstr "Meza Tempo de Grenviĉo"
 
@@ -227,12 +230,16 @@ msgid ""
 "A three-digit-long code for retrieving radar maps from weather.com, found "
 "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
+"3-cifera kodo por ricevi radarmapojn el weather.com, trovita en http://git."
+"gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:2
 msgid ""
-"A unique zone for the city, as found from "
-"http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+"A unique zone for the city, as found from http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
 msgstr ""
+"Unika loko por la urbo, kiel trovata en http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:8
 msgid ""
@@ -255,19 +262,19 @@ msgstr "Venigi radaran mapon je ĉiu ĝisdatigo."
 
 #: ../libgweather/gweather.schemas.in.h:12
 msgid ""
-"If true, then retrieve a radar map from a location specified by the "
-"\"radar\" key."
+"If true, then retrieve a radar map from a location specified by the \"radar"
+"\" key."
 msgstr ""
 "Se vera, tiam akiru radaran mapon de loko specifita per la \"radara\" "
 "ŝlosilo."
 
 #: ../libgweather/gweather.schemas.in.h:13
 msgid ""
-"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-"
-"SS[EW]."
+"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
+"[EW]."
 msgstr ""
-"Latitudo kaj longitudo de via pozicio esprimataj per GG-MM-SS[NS] GG-MM-"
-"SS[OrOk]."
+"Latitudo kaj longitudo de via pozicio esprimataj per GG-MM-SS[NS] GG-MM-SS"
+"[OrOk]."
 
 #: ../libgweather/gweather.schemas.in.h:14
 msgid "Location coordinates"
@@ -279,9 +286,11 @@ msgstr "Proksima urbo"
 
 #: ../libgweather/gweather.schemas.in.h:16
 msgid ""
-"Nearby major zone, such as a capital city, as found from "
-"http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+"Nearby major zone, such as a capital city, as found from http://git.gnome."
+"org/cgit/libgweather/plain/data/Locations.xml.in"
 msgstr ""
+"Apud grava loko, kiel ĉefurbo, kiel trovata en http://git.gnome.org/cgit/"
+"libgweather/plain/data/Locations.xml.in"
 
 #: ../libgweather/gweather.schemas.in.h:17
 msgid "Not used anymore"
@@ -305,7 +314,7 @@ msgstr "Temperatura unuo"
 
 #: ../libgweather/gweather.schemas.in.h:22
 msgid "The city that gweather displays information for."
-msgstr "La urbo pri kiu gweather montras informojn."
+msgstr "La urbo pri kiu \"gweather\" montras informojn."
 
 #: ../libgweather/gweather.schemas.in.h:23
 msgid "The custom url from where to retrieve a radar map."
@@ -388,7 +397,7 @@ msgstr "Veterinformo malhavanta pozicion"
 
 #: ../libgweather/weather.c:232
 msgid "Variable"
-msgstr "Variabla"
+msgstr "Variable"
 
 #: ../libgweather/weather.c:233
 msgid "North"
@@ -457,7 +466,7 @@ msgstr "Norda - Nordokcidenta"
 #: ../libgweather/weather.c:243 ../libgweather/weather.c:260
 #: ../libgweather/weather.c:332
 msgid "Invalid"
-msgstr "Nevalida"
+msgstr "Nevalide"
 
 #: ../libgweather/weather.c:249
 msgid "Clear Sky"
@@ -772,7 +781,7 @@ msgstr "Polvokirloj en la ĉirkaŭaĵo"
 
 #. TRANSLATOR: this is a format string for strftime
 #. *             see `man 3 strftime` for more details
-#. 
+#.
 #: ../libgweather/weather.c:710
 msgid "%a, %b %d / %H:%M"
 msgstr "%a, la %d-a de %b / %H:%M"
@@ -859,7 +868,7 @@ msgstr "%.1f m/s"
 
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
-#. 
+#.
 #: ../libgweather/weather.c:910
 #, c-format
 msgid "Beaufort force %.1f"
