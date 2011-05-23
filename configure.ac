@@ -1,4 +1,4 @@
-AC_INIT([libgweather],[3.0.2])
+AC_INIT([libgweather],[3.0.3])
 AC_PREREQ(2.62)
 
 AM_CONFIG_HEADER(config.h)
