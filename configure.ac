@@ -1,4 +1,4 @@
-AC_INIT([libgweather], [3.1.1],
+AC_INIT([libgweather], [3.1.3],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=libgweather])
 AC_PREREQ(2.62)
 
@@ -15,7 +15,7 @@ AC_CONFIG_MACRO_DIR([m4])
 #   change to C+1:0:0
 # - If the interface is the same as the previous version, change to C:R+1:A
 
-LT_VERSION=0:2:0
+LT_VERSION=0:3:0
 AC_SUBST(LT_VERSION)
 
 AC_CANONICAL_HOST
