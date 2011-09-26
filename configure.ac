@@ -1,4 +1,4 @@
-AC_INIT([libgweather], [3.1.4],
+AC_INIT([libgweather], [3.2.0],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=libgweather])
 AC_PREREQ(2.62)
 
