@@ -35,13 +35,14 @@
 #include "weather-priv.h"
 
 /**
- * GWeatherLocation:
+ * SECTION:gweather-location
+ * @Title: GWeatherLocation
  *
  * A #GWeatherLocation represents a "location" of some type known to
  * libgweather; anything from a single weather station to the entire
  * world. See #GWeatherLocationLevel for information about how the
- * hierarchy of locations works. 
- **/
+ * hierarchy of locations works.
+ */
 
 struct _GWeatherLocation {
     char *name, *sort_name;
