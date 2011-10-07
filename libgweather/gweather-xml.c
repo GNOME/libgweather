@@ -32,6 +32,13 @@
 #include "gweather-xml.h"
 #include "weather-priv.h"
 
+
+/**
+ * SECTION:gweather-xml
+ * @Title: gweather-xml
+ */
+
+
 static gboolean
 gweather_xml_parse_node (GWeatherLocation *gloc,
 			 GtkTreeStore *store, GtkTreeIter *parent)
