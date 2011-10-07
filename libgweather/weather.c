@@ -43,6 +43,13 @@
 
 #define MOON_PHASES 36
 
+
+/**
+ * SECTION:weather
+ * @Title: weather
+ */
+
+
 static void _weather_internal_check (void);
 
 
