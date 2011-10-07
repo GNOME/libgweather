@@ -30,7 +30,8 @@
 #include "weather-priv.h"
 
 /**
- * GWeatherTimezone:
+ * SECTION:gweather-timezone
+ * @Title: GWeatherTimezone
  *
  * A timezone.
  *
@@ -38,7 +39,8 @@
  * be created by calling gweather_location_new_world() to parse
  * Locations.xml, and then calling various #GWeatherLocation methods
  * to extract relevant timezones from the location hierarchy.
- **/
+ */
+
 struct _GWeatherTimezone {
     char *id, *name;
     int offset, dst_offset;
