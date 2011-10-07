@@ -58,8 +58,10 @@ GWeatherLocationLevel  gweather_location_get_level      (GWeatherLocation  *loc)
 GWeatherLocation      *gweather_location_get_parent     (GWeatherLocation  *loc);
 
 GWeatherLocation     **gweather_location_get_children   (GWeatherLocation  *loc);
+#ifndef GWEATHER_DISABLE_DEPRECATED
 void                   gweather_location_free_children  (GWeatherLocation  *loc,
 							 GWeatherLocation **children);
+#endif
 
 gboolean               gweather_location_has_coords     (GWeatherLocation  *loc);
 void                   gweather_location_get_coords     (GWeatherLocation  *loc,
