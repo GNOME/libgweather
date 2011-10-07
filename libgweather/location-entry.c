@@ -28,11 +28,12 @@
 #include <string.h>
 
 /**
- * GWeatherLocationEntry:
+ * SECTION:location-entry
+ * @Title: GWeatherLocationEntry
  *
  * A subclass of #GtkEntry that provides autocompletion on
  * #GWeatherLocation<!-- -->s
- **/
+ */
 
 G_DEFINE_TYPE (GWeatherLocationEntry, gweather_location_entry, GTK_TYPE_ENTRY)
 
