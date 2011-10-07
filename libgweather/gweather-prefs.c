@@ -30,6 +30,13 @@
 #include "gweather-prefs.h"
 #include "weather-priv.h"
 
+
+/**
+ * SECTION:gweather-prefs
+ * @Title: gweather-prefs
+ */
+
+
 static GConfEnumStringPair temp_unit_enum_map [] = {
     { TEMP_UNIT_DEFAULT,    N_("Default") },
     /* translators: Kelvin */
