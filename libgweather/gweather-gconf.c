@@ -33,6 +33,11 @@
 #include "gweather-gconf.h"
 #include "weather-priv.h"
 
+/**
+ * SECTION:gweather-gconf
+ * @Title: gweather-gconf
+ */
+
 struct _GWeatherGConf
 {
     GConfClient *gconf;
