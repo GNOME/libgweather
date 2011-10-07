@@ -180,7 +180,7 @@ AC_SUBST(GLADEDIR)
 ##################################################
 # Checks for gtk-doc and docbook-tools
 ##################################################
-GTK_DOC_CHECK([1.9])
+GTK_DOC_CHECK([1.11],[--flavour no-tmpl])
 
 GOBJECT_INTROSPECTION_CHECK([0.9.5])
 
