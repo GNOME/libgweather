@@ -89,11 +89,15 @@ met_reprocess (char *x, int len)
 	    }
 	}
 	if (*p == '<') {
-	    if (g_ascii_strncasecmp (p, "<BR>", 4) == 0) {
+	    if (g_ascii_strncasecmp (p, "</p>", 4) == 0) {
 		*o++ = '\n';
 		count = 0;
 	    }
-	    if (g_ascii_strncasecmp (p, "<B>", 3) == 0) {
+	    if (g_ascii_strncasecmp (p, "<h3>", 4) == 0) {
+		*o++ = '\n';
+		count = 0;
+	    }
+	    if (g_ascii_strncasecmp (p, "</h3>", 5) == 0) {
 		*o++ = '\n';
 		*o++ = '\n';
 		count = 0;
@@ -124,18 +128,18 @@ met_parse (const gchar *meto)
 {
     gchar *p;
     gchar *rp;
-    gchar *r = g_strdup ("Met Office Forecast\n");
+    gchar *r = g_strdup ("Met Office Forecast\n\n");
     gchar *t;
 
     g_return_val_if_fail (meto != NULL, r);
 
-    p = strstr (meto, "Summary: </b>");
+    p = strstr (meto, "Headline:</h3>");
     g_return_val_if_fail (p != NULL, r);
 
-    rp = strstr (p, "Text issued at:");
+    rp = strstr (p, "<a href=\"#startlist\"");
     g_return_val_if_fail (rp != NULL, r);
 
-    p += 13;
+    p += 14;
     /* p to rp is the text block we want but in HTML malformat */
     t = g_strconcat (r, met_reprocess (p, rp - p), NULL);
     g_free (r);
@@ -169,7 +173,7 @@ metoffice_start_open (WeatherInfo *info)
     WeatherLocation *loc;
 
     loc = info->location;
-    url = g_strdup_printf ("http://www.metoffice.gov.uk/weather/europe/uk/%s.html", loc->zone + 1);
+    url = g_strdup_printf ("http://www.metoffice.gov.uk/weather/uk/%s/%s_forecast_weather_noscript.html", loc->zone + 1, loc->zone + 1);
 
     msg = soup_message_new ("GET", url);
     soup_session_queue_message (info->session, msg, met_finish, info);
