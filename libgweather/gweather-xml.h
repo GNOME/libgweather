@@ -26,12 +26,14 @@
 
 enum
 {
-    GWEATHER_XML_COL_LOC = 0,
-    GWEATHER_XML_COL_POINTER,
+    GWEATHER_XML_COL_LOCATION_NAME = 0,
+    GWEATHER_XML_COL_METAR_CODE,
+    GWEATHER_XML_COL_LATLON_VALID,
+    GWEATHER_XML_COL_LATITUDE,
+    GWEATHER_XML_COL_LONGITUDE,
     GWEATHER_XML_NUM_COLUMNS
 };
 
 GtkTreeModel *gweather_xml_load_locations (void);
-void          gweather_xml_free_locations (GtkTreeModel *locations);
 
 #endif /* __GWEATHER_XML_H__ */

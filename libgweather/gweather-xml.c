@@ -71,7 +71,7 @@ gweather_xml_parse_node (GWeatherLocation *gloc,
 	/* Create a row with a name but no WeatherLocation */
 	gtk_tree_store_append (store, &iter, parent);
 	gtk_tree_store_set (store, &iter,
-			    GWEATHER_XML_COL_LOC, name,
+			    GWEATHER_XML_COL_LOCATION_NAME, name,
 			    -1);
 	break;
 
@@ -82,20 +82,24 @@ gweather_xml_parse_node (GWeatherLocation *gloc,
 	 */
 	gtk_tree_store_append (store, &iter, parent);
 	gtk_tree_store_set (store, &iter,
-			    GWEATHER_XML_COL_LOC, name,
+			    GWEATHER_XML_COL_LOCATION_NAME, name,
 			    -1);
 	if (children[0] && !children[1]) {
 	    wloc = _weather_location_from_gweather_location (children[0], name);
 	    gtk_tree_store_set (store, &iter,
-				GWEATHER_XML_COL_POINTER, wloc,
+				GWEATHER_XML_COL_METAR_CODE, wloc->code,
+				GWEATHER_XML_COL_LATLON_VALID, wloc->latlon_valid,
+				GWEATHER_XML_COL_LATITUDE, wloc->latitude,
+				GWEATHER_XML_COL_LONGITUDE, wloc->longitude,
 				-1);
+	    _weather_location_free (wloc);
 	}
 	break;
 
     case GWEATHER_LOCATION_WEATHER_STATION:
 	gtk_tree_store_append (store, &iter, parent);
 	gtk_tree_store_set (store, &iter,
-			    GWEATHER_XML_COL_LOC, name,
+			    GWEATHER_XML_COL_LOCATION_NAME, name,
 			    -1);
 
 	parent_loc = gweather_location_get_parent (gloc);
@@ -103,8 +107,13 @@ gweather_xml_parse_node (GWeatherLocation *gloc,
 	    name = gweather_location_get_name (parent_loc);
 	wloc = _weather_location_from_gweather_location (gloc, name);
 	gtk_tree_store_set (store, &iter,
-			    GWEATHER_XML_COL_POINTER, wloc,
+			    GWEATHER_XML_COL_METAR_CODE, wloc->code,
+			    GWEATHER_XML_COL_LATLON_VALID, wloc->latlon_valid,
+			    GWEATHER_XML_COL_LATITUDE, wloc->latitude,
+			    GWEATHER_XML_COL_LONGITUDE, wloc->longitude,
 			    -1);
+	_weather_location_free (wloc);
+
 	break;
     }
 
@@ -129,44 +138,14 @@ gweather_xml_load_locations (void)
     if (!world)
 	return NULL;
 
-    store = gtk_tree_store_new (2, G_TYPE_STRING, G_TYPE_POINTER);
+    store = gtk_tree_store_new (2, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_DOUBLE, G_TYPE_DOUBLE);
 
     if (!gweather_xml_parse_node (world, store, NULL)) {
-	gweather_xml_free_locations ((GtkTreeModel *)store);
+	g_object_unref (store);
 	store = NULL;
     }
 
     gweather_location_unref (world);
 
     return (GtkTreeModel *)store;
-}
-
-static gboolean
-free_locations (GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data)
-{
-	WeatherLocation *loc = NULL;
-
-	gtk_tree_model_get (model, iter,
-			    GWEATHER_XML_COL_POINTER, &loc,
-			    -1);
-
-	if (loc) {
-		_weather_location_free (loc);
-		gtk_tree_store_set ((GtkTreeStore *)model, iter,
-			    GWEATHER_XML_COL_POINTER, NULL,
-			    -1);
-	}
-
-	return FALSE;
-}
-
-/* Frees model returned from @gweather_xml_load_locations. It contains allocated
-   WeatherLocation-s, thus this takes care of the freeing of that memory. */
-void
-gweather_xml_free_locations (GtkTreeModel *locations)
-{
-	if (locations && GTK_IS_TREE_STORE (locations)) {
-		gtk_tree_model_foreach (locations, free_locations, NULL);
-		g_object_unref (locations);
-	}
 }
