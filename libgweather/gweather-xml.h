@@ -22,7 +22,7 @@
 #define __GWEATHER_XML_H__
 
 #include <gtk/gtk.h>
-#include <libgweather/weather.h>
+#include <libgweather/gweather-weather.h>
 
 enum
 {

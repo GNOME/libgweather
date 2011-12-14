@@ -23,7 +23,6 @@
 #include <string.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
-#include "weather.h"
 #include "weather-priv.h"
 
 static void

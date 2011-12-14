@@ -31,7 +31,7 @@
 #include <libsoup/soup.h>
 #endif
 
-#include "weather.h"
+#include "gweather-weather.h"
 #include "gweather-location.h"
 
 #ifdef _WIN32

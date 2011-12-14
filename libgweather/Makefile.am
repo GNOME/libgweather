@@ -18,12 +18,13 @@ libgweatherincdir = $(includedir)/libgweather-3.0/libgweather
 libgweatherinc_HEADERS = \
 	$(gweather_old_headers)		\
 	$(gweather_new_headers)		\
+	gweather-weather.h		\
 	gweather-enum-types.h
 
 noinst_HEADERS = weather-priv.h gweather-win32.h
 
 libgweather_3_la_SOURCES = \
-	weather.c weather.h weather-priv.h \
+	weather.c weather-priv.h \
 	weather-metar.c weather-iwin.c weather-met.c \
 	weather-bom.c weather-wx.c \
 	weather-sun.c weather-moon.c \
@@ -79,7 +80,7 @@ gweather-enum-types.h: $(gweather_new_headers)
 	&& mv gweather-enum-types.h.tmp gweather-enum-types.h \
 	|| rm -f gweather-enum-type.h.tmp
 
-gweather-enum-types.c: $(libgweatherinclude_HEADERS)
+gweather-enum-types.c: $(gweather_new_headers)
 	$(AM_V_GEN)( cd $(srcdir) && $(GLIB_MKENUMS) --template gweather-enum-types.c.tmpl \
 		$(gweather_new_headers) ) > gweather-enum-types.c.tmp \
 	&& mv gweather-enum-types.c.tmp gweather-enum-types.c \
@@ -104,7 +105,7 @@ INTROSPECTION_COMPILER_ARGS = --includedir=$(srcdir)
 
 if HAVE_INTROSPECTION
 introspection_sources = 	\
-	weather.c weather.h \
+	weather.c gweather-weather.h \
 	gweather-location.c gweather-location.h \
 	gweather-timezone.c gweather-timezone.h \
 	location-entry.c location-entry.h \
