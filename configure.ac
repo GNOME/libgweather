@@ -47,7 +47,6 @@ LT_PREREQ([2.2.6])
 LT_INIT([dlopen win32-dll disable-static])
 LT_LIB_M
 
-IT_PROG_INTLTOOL([0.50.0])
 PKG_PROG_PKG_CONFIG([0.19])
 
 AC_PROG_CC
@@ -99,12 +98,14 @@ dnl -- check for glib; redundant at this point, but sets $GLIB_MKENUMS
 AM_PATH_GLIB_2_0($GLIB_REQUIRED)
 
 dnl gettext
+IT_PROG_INTLTOOL([0.50.0])
+
+AM_GNU_GETTEXT_VERSION([0.18])
+AM_GNU_GETTEXT([external])
 
 GETTEXT_PACKAGE=libgweather-3.0
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Gettext Package])
-AM_GLIB_GNU_GETTEXT
-
 
 dnl ***************************************************************************
 dnl ***  REGEX                                                              ***
