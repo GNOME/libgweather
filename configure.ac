@@ -72,13 +72,9 @@ GNOME_COMPILE_WARNINGS([maximum])
 
 dnl -- Check for GTK+ 3.0 (required) ------------------------------------------
 PKG_CHECK_MODULES(GTK, gtk+-3.0 >= $GTK_REQUIRED)
-AC_SUBST(GTK_CFLAGS)
-AC_SUBST(GTK_LIBS)
 
 dnl -- Check for libxml (required) ------------------------------------------
 PKG_CHECK_MODULES(LIBXML, libxml-2.0 >= $LIBXML_REQUIRED)
-AC_SUBST(LIBXML_CFLAGS)
-AC_SUBST(LIBXML_LIBS)
 
 dnl -- check for libsoup (required) -----------------------------------------
 PKG_CHECK_MODULES(LIBSOUP_GNOME,
@@ -93,9 +89,6 @@ AC_SUBST(LIBSOUP_LIBS)
 dnl -- check for gconf (required) -----------------------------------------
 PKG_CHECK_MODULES(GCONF, 
 		  [gconf-2.0 >= $GCONF_REQUIRED])
-AC_SUBST(GCONF_CFLAGS)
-AC_SUBST(GCONF_LIBS)
-
 AM_GCONF_SOURCE_2
 
 dnl -- check for glib; redundant at this point, but sets $GLIB_MKENUMS
