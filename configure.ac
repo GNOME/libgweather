@@ -70,13 +70,8 @@ AC_SUBST(COMPRESS_EXT)
 
 GNOME_COMPILE_WARNINGS([maximum])
 
-if test "x$enable_maintainer_mode" = "xyes"; then
-	CFLAGS="$CFLAGS $DISABLE_DEPRECATED"
-fi
-
 dnl -- Check for GTK+ 3.0 (required) ------------------------------------------
 PKG_CHECK_MODULES(GTK, gtk+-3.0 >= $GTK_REQUIRED)
-GTK_CFLAGS="$GTK_CFLAGS -DGTK_DISABLE_SINGLE_INCLUDES"
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
 
@@ -105,7 +100,6 @@ AM_GCONF_SOURCE_2
 
 dnl -- check for glib; redundant at this point, but sets $GLIB_MKENUMS
 AM_PATH_GLIB_2_0($GLIB_REQUIRED)
-CFLAGS="$CFLAGS -DG_DISABLE_SINGLE_INCLUDES"
 
 dnl gettext
 
