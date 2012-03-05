@@ -2,7 +2,8 @@ AC_INIT([libgweather], [3.2.2],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=libgweather])
 AC_PREREQ(2.62)
 
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS([config.h])
+
 AM_INIT_AUTOMAKE([1.11 no-dist-gzip dist-xz tar-ustar])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 AC_CONFIG_MACRO_DIR([m4])
@@ -48,14 +49,14 @@ AC_PROG_CC
 AC_PATH_PROG(GCONFTOOL, gconftool-2)
 
 AC_ARG_ENABLE(all-translations-in-one-xml,
-        [AC_HELP_STRING([--enable-all-translations-in-one-xml],
+        [AS_HELP_STRING([--enable-all-translations-in-one-xml],
                         [Put all translations in a big Locations.xml file (slow to parse)])],
         [enable_big_xml=yes],
         [enable_big_xml=no])
 AM_CONDITIONAL(USE_ONE_BIG_XML, test "x$enable_big_xml" = "xyes")
 
 AC_ARG_ENABLE(locations-compression,
-        [AC_HELP_STRING([--enable-locations-compression],
+        [AS_HELP_STRING([--enable-locations-compression],
                         [Compress Locations.xml files])],
         [enable_locations_compression=yes],
         [enable_locations_compression=no])
@@ -142,10 +143,10 @@ dnl ***************************************************************************
 dnl *** _NL_MEASUREMENT_MEASUREMENT is an enum and not a define             ***
 dnl ***************************************************************************
 AC_MSG_CHECKING([for _NL_MEASUREMENT_MEASUREMENT])
-AC_TRY_LINK([#include <langinfo.h>], [
+AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <langinfo.h>]], [[
 char c;
 c = *((unsigned char *)  nl_langinfo(_NL_MEASUREMENT_MEASUREMENT));
-], gtk_ok=yes, gtk_ok=no)
+]])],[gtk_ok=yes],[gtk_ok=no])
 AC_MSG_RESULT($gtk_ok)
 if test "$gtk_ok" = "yes"; then
   AC_DEFINE([HAVE__NL_MEASUREMENT_MEASUREMENT], [1],
@@ -185,7 +186,7 @@ GOBJECT_INTROSPECTION_CHECK([0.9.5])
 dnl ***************************************************************************
 dnl *** Output Makefiles et al                                              ***
 dnl ***************************************************************************
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
 doc/Makefile
 po/Makefile.in
@@ -196,6 +197,7 @@ libgweather/gweather-3.0-uninstalled.pc
 data/Makefile
 icons/Makefile
 ])
+AC_OUTPUT
 
 if test "x$enable_big_xml" = "xyes"; then
 	LOCATIONS_XML_TRANSLATIONS="one big file"
