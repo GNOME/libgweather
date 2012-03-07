@@ -1,4 +1,4 @@
-AC_INIT([libgweather], [3.2.2],
+AC_INIT([libgweather], [3.4.0],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=libgweather])
 AC_PREREQ(2.62)
 
@@ -17,7 +17,7 @@ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 #   change to C+1:0:0
 # - If the interface is the same as the previous version, change to C:R+1:A
 
-LT_VERSION=0:4:0
+LT_VERSION=0:5:0
 AC_SUBST(LT_VERSION)
 
 AC_CANONICAL_HOST
