@@ -72,7 +72,7 @@ test_locations_LDADD = libgweather-3.la $(GTK_LIBS)
 
 test_sun_moon_SOURCES = test_sun_moon.c
 test_sun_moon_CPPFLAGS = $(AM_CPPFLAGS) $(LIBSOUP_CFLAGS)
-test_sun_moon_LDADD = libgweather-3.la $(GTK_LIBS)
+test_sun_moon_LDADD = libgweather-3.la $(GTK_LIBS) $(LIBM)
 
 gweather-enum-types.h: $(gweather_new_headers)
 	$(AM_V_GEN)( cd $(srcdir) && $(GLIB_MKENUMS) --template gweather-enum-types.h.tmpl \
