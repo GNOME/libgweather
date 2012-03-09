@@ -1,6 +1,9 @@
-AC_INIT([libgweather], [3.4.1],
-        [http://bugzilla.gnome.org/enter_bug.cgi?product=libgweather])
-AC_PREREQ(2.62)
+AC_INIT([libgweather],
+        [3.4.1],
+        [http://bugzilla.gnome.org/enter_bug.cgi?product=libgweather],
+        [libgweather],
+        [http://live.gnome.org/LibGWeather])
+AC_PREREQ([2.64])
 
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
