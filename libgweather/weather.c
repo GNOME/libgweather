@@ -47,8 +47,8 @@
 
 
 /**
- * SECTION:weather
- * @Title: weather
+ * SECTION:gweather-info
+ * @Title: GWeatherInfo
  */
 
 
