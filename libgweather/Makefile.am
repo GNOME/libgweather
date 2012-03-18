@@ -1,4 +1,7 @@
+# we need to build two libraries (one real and one static)
+# because we access private symbols from the tests
 lib_LTLIBRARIES = libgweather-3.la
+noinst_LTLIBRARIES = libgweather-internal-3.la
 noinst_PROGRAMS = test_metar test_locations test_sun_moon
 
 AM_CPPFLAGS = 			\
@@ -23,7 +26,7 @@ libgweatherinc_HEADERS = \
 
 noinst_HEADERS = weather-priv.h gweather-win32.h
 
-libgweather_3_la_SOURCES = \
+libgweather_internal_3_la_SOURCES = \
 	weather.c weather-priv.h \
 	weather-metar.c weather-iwin.c weather-met.c \
 	weather-bom.c weather-wx.c \
@@ -38,12 +41,12 @@ libgweather_3_la_SOURCES = \
 	parser.c parser.h
 
 if OS_WIN32
-libgweather_3_la_SOURCES += gweather-win32.c
+libgweather_internal_3_la_SOURCES += gweather-win32.c
 else
-EXTRA_libgweather_3_la_SOURCES = gweather-win32.c
+EXTRA_libgweather_internal_3_la_SOURCES = gweather-win32.c
 endif
 
-libgweather_3_la_CPPFLAGS = \
+libgweather_internal_3_la_CPPFLAGS = \
 	$(AM_CPPFLAGS)			\
 	$(LIBXML_CFLAGS)		\
 	$(LIBSOUP_CFLAGS)		\
@@ -52,27 +55,30 @@ libgweather_3_la_CPPFLAGS = \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-DGWEATHER_XML_LOCATION_DIR=\""$(pkgdatadir)"\"
 
-libgweather_3_la_LIBADD = \
-	-lm		\
+libgweather_internal_3_la_LIBADD = \
+	$(LIBM)		\
 	$(GTK_LIBS)	\
 	$(LIBXML_LIBS)	\
 	$(LIBSOUP_LIBS)	\
 	$(GIO_LIBS) \
 	$(REGEX_LIBS)
 
+libgweather_3_la_SOURCES = 
+libgweather_3_la_LIBADD = libgweather-internal-3.la
 libgweather_3_la_LDFLAGS = \
+	-export-symbols-regex "^gweather_(.*)" \
 	-version-info $(LT_VERSION) -no-undefined
 
 test_metar_SOURCES = test_metar.c
 test_metar_CPPFLAGS = $(AM_CPPFLAGS) $(LIBSOUP_CFLAGS)
-test_metar_LDADD = libgweather-3.la $(GTK_LIBS)
+test_metar_LDADD = libgweather-internal-3.la $(GTK_LIBS)
 
 test_locations_SOURCES = test_locations.c
-test_locations_LDADD = libgweather-3.la $(GTK_LIBS)
+test_locations_LDADD = libgweather-internal-3.la $(GTK_LIBS)
 
 test_sun_moon_SOURCES = test_sun_moon.c
 test_sun_moon_CPPFLAGS = $(AM_CPPFLAGS) $(LIBSOUP_CFLAGS)
-test_sun_moon_LDADD = libgweather-3.la $(GTK_LIBS) $(LIBM)
+test_sun_moon_LDADD = libgweather-internal-3.la $(GTK_LIBS)
 
 gweather-enum-types.h: $(gweather_new_headers)
 	$(AM_V_GEN)( cd $(srcdir) && $(GLIB_MKENUMS) --template gweather-enum-types.h.tmpl \
@@ -115,7 +121,7 @@ built_introspection_sources = gweather-enum-types.h gweather-enums.h
 
 GWeather-3.0.gir: libgweather-3.la Makefile
 GWeather_3_0_gir_INCLUDES = GObject-2.0 Gtk-3.0
-GWeather_3_0_gir_CFLAGS = $(libgweather_3_la_CPPFLAGS) -DGWEATHER_I_KNOW_THIS_IS_UNSTABLE
+GWeather_3_0_gir_CFLAGS = $(libgweather_internal_3_la_CPPFLAGS) -DGWEATHER_I_KNOW_THIS_IS_UNSTABLE
 GWeather_3_0_gir_LIBS = libgweather-3.la
 GWeather_3_0_gir_SCANNERFLAGS = --identifier-prefix=GWeather --symbol-prefix=gweather --pkg-export=gweather-3.0
 GWeather_3_0_gir_FILES = $(addprefix $(srcdir)/,$(introspection_sources)) $(addprefix $(builddir)/,$(built_introspection_sources))
