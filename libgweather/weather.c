@@ -787,26 +787,21 @@ windspeed_string (gfloat knots, GWeatherSpeedUnit to_unit)
     switch (to_unit) {
     case GWEATHER_SPEED_UNIT_KNOTS:
 	/* TRANSLATOR: This is the wind speed in knots */
-	g_strdup_printf(_("%0.1f knots"), knots);
-	break;
+	return g_strdup_printf(_("%0.1f knots"), knots);
     case GWEATHER_SPEED_UNIT_MPH:
 	/* TRANSLATOR: This is the wind speed in miles per hour */
-	g_strdup_printf(_("%.1f mph"), WINDSPEED_KNOTS_TO_MPH (knots));
-	break;
+	return g_strdup_printf(_("%.1f mph"), WINDSPEED_KNOTS_TO_MPH (knots));
     case GWEATHER_SPEED_UNIT_KPH:
 	/* TRANSLATOR: This is the wind speed in kilometers per hour */
-	g_strdup_printf(_("%.1f km/h"), WINDSPEED_KNOTS_TO_KPH (knots));
-	break;
+	return g_strdup_printf(_("%.1f km/h"), WINDSPEED_KNOTS_TO_KPH (knots));
     case GWEATHER_SPEED_UNIT_MS:
 	/* TRANSLATOR: This is the wind speed in meters per second */
-	g_strdup_printf(_("%.1f m/s"), WINDSPEED_KNOTS_TO_MS (knots));
-	break;
+	return g_strdup_printf(_("%.1f m/s"), WINDSPEED_KNOTS_TO_MS (knots));
     case GWEATHER_SPEED_UNIT_BFT:
 	/* TRANSLATOR: This is the wind speed as a Beaufort force factor
 	 * (commonly used in nautical wind estimation).
 	 */
-	g_strdup_printf(_("Beaufort force %.1f"), WINDSPEED_KNOTS_TO_BFT (knots));
-	break;
+	return g_strdup_printf(_("Beaufort force %.1f"), WINDSPEED_KNOTS_TO_BFT (knots));
     case GWEATHER_SPEED_UNIT_INVALID:
     case GWEATHER_SPEED_UNIT_DEFAULT:
     default:
@@ -863,28 +858,22 @@ gweather_info_get_pressure (GWeatherInfo *info)
     switch (g_settings_get_enum (priv->settings, PRESSURE_UNIT)) {
     case GWEATHER_PRESSURE_UNIT_INCH_HG:
 	/* TRANSLATOR: This is pressure in inches of mercury */
-	g_strdup_printf(_("%.2f inHg"), priv->pressure);
-	break;
+	return g_strdup_printf(_("%.2f inHg"), priv->pressure);
     case GWEATHER_PRESSURE_UNIT_MM_HG:
 	/* TRANSLATOR: This is pressure in millimeters of mercury */
-	g_strdup_printf(_("%.1f mmHg"), PRESSURE_INCH_TO_MM (priv->pressure));
-	break;
+	return g_strdup_printf(_("%.1f mmHg"), PRESSURE_INCH_TO_MM (priv->pressure));
     case GWEATHER_PRESSURE_UNIT_KPA:
 	/* TRANSLATOR: This is pressure in kiloPascals */
-	g_strdup_printf(_("%.2f kPa"), PRESSURE_INCH_TO_KPA (priv->pressure));
-	break;
+	return g_strdup_printf(_("%.2f kPa"), PRESSURE_INCH_TO_KPA (priv->pressure));
     case GWEATHER_PRESSURE_UNIT_HPA:
 	/* TRANSLATOR: This is pressure in hectoPascals */
-	g_strdup_printf(_("%.2f hPa"), PRESSURE_INCH_TO_HPA (priv->pressure));
-	break;
+	return g_strdup_printf(_("%.2f hPa"), PRESSURE_INCH_TO_HPA (priv->pressure));
     case GWEATHER_PRESSURE_UNIT_MB:
 	/* TRANSLATOR: This is pressure in millibars */
-	g_strdup_printf(_("%.2f mb"), PRESSURE_INCH_TO_MB (priv->pressure));
-	break;
+	return g_strdup_printf(_("%.2f mb"), PRESSURE_INCH_TO_MB (priv->pressure));
     case GWEATHER_PRESSURE_UNIT_ATM:
 	/* TRANSLATOR: This is pressure in atmospheres */
-	g_strdup_printf(_("%.3f atm"), PRESSURE_INCH_TO_ATM (priv->pressure));
-	break;
+	return g_strdup_printf(_("%.3f atm"), PRESSURE_INCH_TO_ATM (priv->pressure));
 
     case GWEATHER_PRESSURE_UNIT_INVALID:
     case GWEATHER_PRESSURE_UNIT_DEFAULT:
@@ -912,16 +901,13 @@ gweather_info_get_visibility (GWeatherInfo *info)
     switch (g_settings_get_enum (priv->settings, DISTANCE_UNIT)) {
     case GWEATHER_DISTANCE_UNIT_MILES:
 	/* TRANSLATOR: This is the visibility in miles */
-	g_strdup_printf (_("%.1f miles"), priv->visibility);
-	break;
+	return g_strdup_printf (_("%.1f miles"), priv->visibility);
     case GWEATHER_DISTANCE_UNIT_KM:
 	/* TRANSLATOR: This is the visibility in kilometers */
-	g_strdup_printf (_("%.1f km"), VISIBILITY_SM_TO_KM (priv->visibility));
-	break;
+	return g_strdup_printf (_("%.1f km"), VISIBILITY_SM_TO_KM (priv->visibility));
     case GWEATHER_DISTANCE_UNIT_METERS:
 	/* TRANSLATOR: This is the visibility in meters */
-	g_strdup_printf (_("%.0fm"), VISIBILITY_SM_TO_M (priv->visibility));
-	break;
+	return g_strdup_printf (_("%.0fm"), VISIBILITY_SM_TO_M (priv->visibility));
 
     case GWEATHER_DISTANCE_UNIT_INVALID:
     case GWEATHER_DISTANCE_UNIT_DEFAULT:
