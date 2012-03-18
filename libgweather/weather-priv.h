@@ -47,13 +47,11 @@ const char *gweather_dpgettext (const char *context, const char *str) G_GNUC_FOR
 
 #define WEATHER_LOCATION_CODE_LEN 4
 
-/* Why we have this in code?
-   (at least, it's not exposed in API anymore)
-*/
 typedef struct {
     gchar *name;
     gchar *code;
     gchar *zone;
+    gchar *yahoo_id;
     gchar *radar;
     gboolean latlon_valid;
     gdouble  latitude;
@@ -67,6 +65,7 @@ WeatherLocation *       _weather_location_from_gweather_location (GWeatherLocati
 WeatherLocation *	_weather_location_new 	(const gchar *trans_name,
 						 const gchar *code,
 						 const gchar *zone,
+						 const gchar *yahoo_id,
 						 const gchar *radar,
 						 gboolean     latlon_valid,
 						 double       latitude,
@@ -175,10 +174,11 @@ struct _GWeatherInfoPrivate {
 #define PERIGEE_LONGITUDE(d)       (282.93768193 + (d)/36525.*0.32327364)
 
 void		metar_start_open	(GWeatherInfo *info);
-void		iwin_start_open		(GWeatherInfo *info);
+gboolean	iwin_start_open		(GWeatherInfo *info);
 void		metoffice_start_open	(GWeatherInfo *info);
 void		bom_start_open		(GWeatherInfo *info);
 void		wx_start_open		(GWeatherInfo *info);
+void            yahoo_start_open        (GWeatherInfo *info);
 
 gboolean	metar_parse		(gchar *metar,
 					 GWeatherInfo *info);

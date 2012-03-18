@@ -29,7 +29,7 @@ noinst_HEADERS = weather-priv.h gweather-win32.h
 libgweather_internal_3_la_SOURCES = \
 	weather.c weather-priv.h \
 	weather-metar.c weather-iwin.c weather-met.c \
-	weather-bom.c weather-wx.c \
+	weather-bom.c weather-yahoo.c weather-wx.c \
 	weather-sun.c weather-moon.c \
 	gweather-enum-types.c \
 	gweather-xml.c gweather-xml.h \

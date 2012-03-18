@@ -109,7 +109,8 @@ gweather_dpgettext (const char *context,
 
 WeatherLocation *
 _weather_location_new (const gchar *name, const gchar *code,
-		       const gchar *zone, const gchar *radar,
+		       const gchar *zone, const gchar *yahoo_id,
+		       const gchar *radar,
 		       gboolean     latlon_valid,
 		       double       latitude,
 		       double       longitude,
@@ -131,6 +132,9 @@ _weather_location_new (const gchar *name, const gchar *code,
 
     if (radar)
         location->radar = g_strdup (radar);
+
+    if (yahoo_id)
+	location->yahoo_id = g_strdup (yahoo_id);
 
     location->latlon_valid = latlon_valid;
     location->latitude = latitude;
@@ -160,6 +164,9 @@ _weather_location_clone (const WeatherLocation *location)
     if (location->radar)
 	clone->radar = g_strdup (location->radar);
 
+    if (location->yahoo_id)
+	clone->yahoo_id = g_strdup (location->yahoo_id);
+
     clone->latlon_valid = location->latlon_valid;
     clone->latitude = location->latitude;
     clone->longitude = location->longitude;
@@ -174,6 +181,7 @@ _weather_location_free (WeatherLocation *location)
         g_free (location->name);
         g_free (location->code);
         g_free (location->zone);
+	g_free (location->yahoo_id);
         g_free (location->radar);
         g_free (location->country_code);
         g_free (location->tz_hint);
@@ -514,11 +522,17 @@ gweather_info_update (GWeatherInfo *info)
     }
 
     metar_start_open (info);
-    iwin_start_open (info);
 
     if (priv->radar) {
         wx_start_open (info);
     }
+
+    /* Try national forecast services first */
+    if (iwin_start_open (info))
+	return;
+
+    /* Try Yahoo! Weather next */
+    yahoo_start_open (info);
 }
 
 void

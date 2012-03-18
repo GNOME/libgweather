@@ -49,7 +49,7 @@ struct _GWeatherLocation {
     GWeatherLocation *parent, **children;
     GWeatherLocationLevel level;
     char *country_code, *tz_hint;
-    char *station_code, *forecast_zone, *radar;
+    char *station_code, *forecast_zone, *yahoo_id, *radar;
     double latitude, longitude;
     gboolean latlon_valid;
     GWeatherTimezone **zones;
@@ -196,6 +196,12 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 	    if (!value)
 		goto error_out;
 	    loc->forecast_zone = g_strdup (value);
+	    xmlFree (value);
+	} else if (!strcmp (tagname, "yahoo-woeid") && !loc->yahoo_id) {
+	    value = gweather_parser_get_value (parser);
+	    if (!value)
+		goto error_out;
+	    loc->yahoo_id = g_strdup (value);
 	    xmlFree (value);
 	} else if (!strcmp (tagname, "radar") && !loc->radar) {
 	    value = gweather_parser_get_value (parser);
@@ -730,7 +736,7 @@ gweather_location_get_city_name (GWeatherLocation *loc)
 WeatherLocation *
 _weather_location_from_gweather_location (GWeatherLocation *gloc, const gchar *name)
 {
-    const char *code = NULL, *zone = NULL, *radar = NULL, *tz_hint = NULL;
+    const char *code = NULL, *zone = NULL, *yahoo_id = NULL, *radar = NULL, *tz_hint = NULL;
     gboolean latlon_valid = FALSE;
     gdouble lat = DBL_MAX, lon = DBL_MAX;
     GWeatherLocation *l;
@@ -748,6 +754,8 @@ _weather_location_from_gweather_location (GWeatherLocation *gloc, const gchar *n
 	    code = l->station_code;
 	if (!zone && l->forecast_zone)
 	    zone = l->forecast_zone;
+	if (!yahoo_id && l->yahoo_id)
+	    yahoo_id = l->yahoo_id;
 	if (!radar && l->radar)
 	    radar = l->radar;
 	if (!tz_hint && l->tz_hint)
@@ -761,7 +769,7 @@ _weather_location_from_gweather_location (GWeatherLocation *gloc, const gchar *n
     }
 
     wloc = _weather_location_new (name ? name : gweather_location_get_name (gloc),
-				  code, zone, radar,
+				  code, zone, yahoo_id, radar,
 				  latlon_valid, lat, lon,
 				  gweather_location_get_country (gloc),
 				  tz_hint);
