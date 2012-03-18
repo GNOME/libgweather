@@ -196,12 +196,12 @@ gboolean gweather_info_get_value_sunset 	(GWeatherInfo *info, time_t *value);
 gboolean gweather_info_get_value_moonphase      (GWeatherInfo *info, GWeatherMoonPhase *value, GWeatherMoonLatitude *lat);
 gboolean gweather_info_get_upcoming_moonphases  (GWeatherInfo *info, time_t *phases);
 
+typedef struct _GWeatherConditions GWeatherConditions;
 struct _GWeatherConditions {
     gboolean significant;
     GWeatherConditionPhenomenon phenomenon;
     GWeatherConditionQualifier qualifier;
 };
-typedef struct _GWeatherConditions GWeatherConditions;
 
 const gchar * gweather_conditions_to_string (GWeatherConditions *conditions);
 
