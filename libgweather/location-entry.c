@@ -117,16 +117,18 @@ gweather_location_entry_class_init (GWeatherLocationEntryClass *location_entry_c
     /* properties */
     g_object_class_install_property (
 	object_class, PROP_TOP,
-	g_param_spec_pointer ("top",
-			      "Top Location",
-			      "The GWeatherLocation whose children will be used to fill in the entry",
-			      G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY));
+	g_param_spec_boxed ("top",
+			    "Top Location",
+			    "The GWeatherLocation whose children will be used to fill in the entry",
+			    GWEATHER_TYPE_LOCATION,
+			    G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY));
     g_object_class_install_property (
 	object_class, PROP_LOCATION,
-	g_param_spec_pointer ("location",
-			      "Location",
-			      "The selected GWeatherLocation",
-			      G_PARAM_READWRITE));
+	g_param_spec_boxed ("location",
+			    "Location",
+			    "The selected GWeatherLocation",
+			    GWEATHER_TYPE_LOCATION,
+			    G_PARAM_READWRITE));
 }
 
 static void
@@ -136,11 +138,11 @@ set_property (GObject *object, guint prop_id,
     switch (prop_id) {
     case PROP_TOP:
 	gweather_location_entry_build_model (GWEATHER_LOCATION_ENTRY (object),
-					     g_value_get_pointer (value));
+					     g_value_get_boxed (value));
 	break;
     case PROP_LOCATION:
 	gweather_location_entry_set_location (GWEATHER_LOCATION_ENTRY (object),
-					      g_value_get_pointer (value));
+					      g_value_get_boxed (value));
 	break;
     default:
 	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -156,7 +158,7 @@ get_property (GObject *object, guint prop_id,
 
     switch (prop_id) {
     case PROP_LOCATION:
-	g_value_set_pointer (value, entry->location);
+	g_value_set_boxed (value, entry->location);
 	break;
     default:
 	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
