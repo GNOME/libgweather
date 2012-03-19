@@ -63,6 +63,7 @@ static void _weather_internal_check (void);
 
 enum {
     PROP_0,
+    PROP_WORLD,
     PROP_LOCATION,
     PROP_TYPE,
     PROP_LAST
@@ -544,10 +545,11 @@ gweather_info_finalize (GObject *object)
     _weather_location_free (priv->location);
     priv->location = NULL;
 
-    if (priv->glocation) {
+    if (priv->glocation)
 	gweather_location_unref (priv->glocation);
-	priv->glocation = NULL;
-    }
+
+    if (priv->world)
+	gweather_location_unref (priv->world);
 
     g_free (priv->forecast);
     priv->forecast = NULL;
@@ -1535,7 +1537,7 @@ gweather_info_get_value_apparent (GWeatherInfo *info, GWeatherTemperatureUnit un
 /**
  * gweather_info_get_value_update:
  * @info: a #GWeatherInfo
- * @value: (out) (type gulong): the time @info was last updated
+ * @value: (out) (type glong): the time @info was last updated
  *
  * Returns: TRUE is @value is valid, FALSE otherwise.
  */
@@ -1744,6 +1746,9 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
     if (priv->location)
 	_weather_location_free (priv->location);
 
+    if (!priv->world)
+	priv->world = gweather_location_new_world (FALSE);
+
     priv->glocation = location;
     if (priv->glocation) {
 	gweather_location_ref (location);
@@ -1756,7 +1761,7 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
 	if (strcmp(name, "") == 0)
 	    name = NULL;
 
-	priv->glocation = gweather_location_find_by_station_code (station_code);
+	priv->glocation = gweather_location_find_by_station_code (priv->world, station_code);
     }
 
     priv->location = _weather_location_from_gweather_location (priv->glocation, name);
@@ -1797,6 +1802,9 @@ gweather_info_set_property (GObject *object,
     GWeatherInfoPrivate *priv = self->priv;
 
     switch (property_id) {
+    case PROP_WORLD:
+	priv->world = g_value_dup_boxed (value);
+	break;
     case PROP_LOCATION:
 	gweather_info_set_location_internal (self, (GWeatherLocation*) g_value_get_boxed (value));
 	break;
@@ -1818,6 +1826,13 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 
     gobject_class->finalize = gweather_info_finalize;
     gobject_class->set_property = gweather_info_set_property;
+
+    pspec = g_param_spec_boxed ("world",
+				"World",
+				"The hierarchy of locations containing the desired location",
+				GWEATHER_TYPE_LOCATION,
+				G_PARAM_STATIC_STRINGS | G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY);
+    g_object_class_install_property (gobject_class, PROP_WORLD, pspec);
 
     pspec = g_param_spec_boxed ("location",
 				"Location",

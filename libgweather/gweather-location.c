@@ -34,8 +34,6 @@
 #include "parser.h"
 #include "weather-priv.h"
 
-static GHashTable *metar_code_cache;
-
 /**
  * SECTION:gweather-location
  * @Title: GWeatherLocation
@@ -55,6 +53,7 @@ struct _GWeatherLocation {
     double latitude, longitude;
     gboolean latlon_valid;
     GWeatherTimezone **zones;
+    GHashTable *metar_code_cache;
 
     int ref_count;
 };
@@ -142,6 +141,8 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
     loc->parent = parent;
     loc->level = level;
     loc->ref_count = 1;
+    if (level == GWEATHER_LOCATION_WORLD)
+	loc->metar_code_cache = g_hash_table_ref (parser->metar_code_cache);
     children = g_ptr_array_new ();
 
     if (xmlTextReaderRead (parser->xml) != 1)
@@ -252,7 +253,7 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 
     if (level == GWEATHER_LOCATION_WEATHER_STATION) {
 	/* Cache weather stations by METAR code */
-	g_hash_table_replace (metar_code_cache, loc->station_code, gweather_location_ref (loc));
+	g_hash_table_replace (parser->metar_code_cache, loc->station_code, gweather_location_ref (loc));
     }
 
     if (children->len) {
@@ -301,9 +302,6 @@ gweather_location_new_world (gboolean use_regions)
 {
     GWeatherParser *parser;
     GWeatherLocation *world;
-
-    if (!metar_code_cache)
-	metar_code_cache = g_hash_table_new_full (g_str_hash, g_str_equal, NULL, (GDestroyNotify) gweather_location_unref);
 
     parser = gweather_parser_new (use_regions);
     if (!parser)
@@ -370,6 +368,9 @@ gweather_location_unref (GWeatherLocation *loc)
 	    gweather_timezone_unref (loc->zones[i]);
 	g_free (loc->zones);
     }
+
+    if (loc->metar_code_cache)
+	g_hash_table_unref (loc->metar_code_cache);
 
     g_slice_free (GWeatherLocation, loc);
 }
@@ -768,10 +769,8 @@ _weather_location_from_gweather_location (GWeatherLocation *gloc, const gchar *n
 }
 
 GWeatherLocation *
-gweather_location_find_by_station_code (const gchar *station_code) {
-    if (!metar_code_cache)
-	gweather_location_unref (gweather_location_new_world (FALSE));
-
-    return g_hash_table_lookup (metar_code_cache, station_code);
+gweather_location_find_by_station_code (GWeatherLocation *world,
+					const gchar      *station_code)
+{
+    return g_hash_table_lookup (world->metar_code_cache, station_code);
 }
-

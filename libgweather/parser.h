@@ -29,6 +29,7 @@ typedef struct {
     const char * const *locales;
     gboolean use_regions;
     time_t year_start, year_end;
+    GHashTable *metar_code_cache;
 } GWeatherParser;
 
 GWeatherParser *gweather_parser_new                 (gboolean        use_regions);
