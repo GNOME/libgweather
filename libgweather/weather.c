@@ -1864,6 +1864,10 @@ gweather_info_class_init (GWeatherInfoClass *klass)
  * @location: (allow-none): the desidered #GWeatherLocation (NULL for default)
  * @forecast_type: the type of forecast requested
  *
+ * Builds a new #GWeatherInfo that will provide weather information about
+ * @location. The returned info will not be ready until the ::updated signal
+ * is emitted.
+ *
  * Returns: (transfer full): a new #GWeatherInfo
  */
 GWeatherInfo *
@@ -1876,6 +1880,34 @@ gweather_info_new (GWeatherLocation    *location,
 	self = g_object_new (GWEATHER_TYPE_INFO, "location", location, "forecast-type", forecast_type, NULL);
     else
 	self = g_object_new (GWEATHER_TYPE_INFO, "forecast-type", forecast_type, NULL);
+    gweather_info_update (self);
+
+    return self;
+}
+
+/**
+ * gweather_info_new_for_world:
+ * @world: a #GWeatherLocation representing the whole world
+ * @location: (allow-none): the desidered #GWeatherLocation (NULL for default)
+ * @forecast_type: the type of forecast requested
+ *
+ * Similar to g_weather_info_new(), but also has a @world parameter, that allow controlling
+ * the hierarchy of #GWeatherLocation to which @location (or the default one taken from
+ * GSettings) belongs.
+ *
+ * Returns: (transfer full): a new #GWeatherInfo
+ */
+GWeatherInfo *
+gweather_info_new_for_world (GWeatherLocation    *world,
+			     GWeatherLocation    *location,
+			     GWeatherForecastType forecast_type)
+{
+    GWeatherInfo *self;
+
+    if (location != NULL)
+	self = g_object_new (GWEATHER_TYPE_INFO, "world", world, "location", location, "forecast-type", forecast_type, NULL);
+    else
+	self = g_object_new (GWEATHER_TYPE_INFO, "world", world, "forecast-type", forecast_type, NULL);
     gweather_info_update (self);
 
     return self;

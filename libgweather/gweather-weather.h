@@ -61,6 +61,9 @@ typedef void (*GWeatherInfoFunc) (GWeatherInfo *info, gpointer data);
 GType                    gweather_info_get_type            (void) G_GNUC_CONST;
 GWeatherInfo *           gweather_info_new                 (GWeatherLocation *location,
 							    GWeatherForecastType forecast_type);
+GWeatherInfo *           gweather_info_new_for_world       (GWeatherLocation *world,
+							    GWeatherLocation *location,
+							    GWeatherForecastType forecast_type);
 void                     gweather_info_update              (GWeatherInfo *info);
 void			 gweather_info_abort		   (GWeatherInfo *info);
 
