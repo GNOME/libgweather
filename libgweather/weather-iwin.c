@@ -408,22 +408,19 @@ iwin_start_open (GWeatherInfo *info)
 
     if (priv->forecast_type == GWEATHER_FORECAST_LIST) {
         /* see the description here: http://www.weather.gov/forecasts/xml/ */
-        if (loc->latlon_valid) {
-            struct tm tm;
-            time_t now = time (NULL);
+        struct tm tm;
+        time_t now;
+        gchar latstr[G_ASCII_DTOSTR_BUF_SIZE], lonstr[G_ASCII_DTOSTR_BUF_SIZE];
 
-            localtime_r (&now, &tm);
+        now = time (NULL);
+        localtime_r (&now, &tm);
 
-            url = g_strdup_printf ("http://www.weather.gov/forecasts/xml/sample_products/browser_interface/ndfdBrowserClientByDay.php?&lat=%.02f&lon=%.02f&format=24+hourly&startDate=%04d-%02d-%02d&numDays=7",
-                       RADIANS_TO_DEGREES (loc->latitude), RADIANS_TO_DEGREES (loc->longitude), 1900 + tm.tm_year, 1 + tm.tm_mon, tm.tm_mday);
+	g_ascii_dtostr (latstr, sizeof(latstr), RADIANS_TO_DEGREES (loc->latitude));
+	g_ascii_dtostr (lonstr, sizeof(lonstr), RADIANS_TO_DEGREES (loc->longitude));
+	url = g_strdup_printf ("http://www.weather.gov/forecasts/xml/sample_products/browser_interface/ndfdBrowserClientByDay.php?&lat=%s&lon=%s&format=24+hourly&startDate=%04d-%02d-%02d&numDays=7",
+			       latstr, lonstr, 1900 + tm.tm_year, 1 + tm.tm_mon, tm.tm_mday);
 
-            msg = soup_message_new ("GET", url);
-            g_free (url);
-            soup_session_queue_message (priv->session, msg, iwin_finish, info);
-
-            priv->requests_pending++;
-        }
-
+        priv->requests_pending++;
         return;
     }
 
