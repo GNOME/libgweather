@@ -47,7 +47,7 @@ LT_PREREQ([2.2.6])
 LT_INIT([dlopen win32-dll disable-static])
 LT_LIB_M
 
-IT_PROG_INTLTOOL([0.40.6])
+IT_PROG_INTLTOOL([0.50.0])
 PKG_PROG_PKG_CONFIG([0.19])
 
 AC_PROG_CC

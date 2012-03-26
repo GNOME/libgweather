@@ -68,19 +68,18 @@ gsettings_ENUM_NAMESPACE = org.gnome.GWeather
 gsettings_ENUM_FILES = $(top_srcdir)/libgweather/gweather-enums.h
 
 gsettings_SCHEMAS = org.gnome.GWeather.gschema.xml
-@INTLTOOL_XML_NOMERGE_RULE@
 @GSETTINGS_RULES@
 
 EXTRA_DIST =	\
 	$(libgweatherlocations_in_files)	\
 	$(libgweatherdtd_DATA)			\
+	$(gsettings_SCHEMAS)			\
 	check-timezones.sh			\
 	README					\
 	README.timezones
 
 CLEANFILES =	\
 	$(libgweatherlocations_DATA)		\
-	$(gsettings_SCHEMAS)			\
 	*.valid					\
 	$(LOCATIONS_STAMP)
 
