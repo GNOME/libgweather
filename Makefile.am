@@ -2,7 +2,7 @@ SUBDIRS = data libgweather icons doc po po-locations
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
-DISTCHECK_CONFIGURE_FLAGS = --enable-gtk-doc --enable-introspection
+AM_DISTCHECK_CONFIGURE_FLAGS = --enable-gtk-doc --enable-introspection
 
 EXTRA_DIST =		\
 	HACKING		\
