@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-13 01:07+0300\n"
-"PO-Revision-Date: 2012-04-13 01:08+0200\n"
+"POT-Creation-Date: 2012-04-22 11:26+0300\n"
+"PO-Revision-Date: 2012-04-22 11:27+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "Language: he\n"
@@ -595,6 +595,78 @@ msgstr "קבלת נתוני METAR נכשלה: ‏%d ‏%s.\n"
 msgid "WeatherInfo missing location"
 msgstr "ל־WeatherInfo חסר מיקום"
 
+#: ../data/org.gnome.GWeather.gschema.xml.h:1
+msgid "URL for the radar map"
+msgstr "URL for the radar map"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:2
+msgid "The custom URL from where to retrieve a radar map, or empty for disabling radar maps."
+msgstr "The custom URL from where to retrieve a radar map, or empty for disabling radar maps."
+
+#. TRANSLATORS: pick a temperature unit that should be used by default in your
+#. locale; values must be quoted
+#: ../data/org.gnome.GWeather.gschema.xml.h:5
+msgid "'fahrenheit'"
+msgstr "'fahrenheit'"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:6
+msgid "Temperature unit"
+msgstr "Temperature unit"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:7
+msgid "The unit of temperature used for showing weather. Valid values are 'kelvin', 'centigrade' and 'fahrenheit'."
+msgstr "The unit of temperature used for showing weather. Valid values are 'kelvin', 'centigrade' and 'fahrenheit'."
+
+#. TRANSLATORS: pick a default distance unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:10
+msgid "'miles'"
+msgstr "'miles'"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:11
+msgid "Distance unit"
+msgstr "Distance unit"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:12
+msgid "The unit of distance used for showing weather (for example for visibility or for distance of important events). Valid values are 'meters', 'km' and 'miles'."
+msgstr "The unit of distance used for showing weather (for example for visibility or for distance of important events). Valid values are 'meters', 'km' and 'miles'."
+
+#. TRANSLATORS: pick a default speed unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:15
+msgid "'knots'"
+msgstr "'knots'"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:16
+msgid "Speed unit"
+msgstr "Speed unit"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:17
+msgid "The unit of speed used for showing weather (for example for wind speed). Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), 'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+msgstr "The unit of speed used for showing weather (for example for wind speed). Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), 'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+
+#. TRANSLATORS: pick a default pressure unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:20
+msgid "'inch-hg'"
+msgstr "'inch-hg'"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:21
+msgid "Pressure unit"
+msgstr "Pressure unit"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:22
+msgid "The unit of pressure used for showing weather. Valid values are 'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+msgstr "The unit of pressure used for showing weather. Valid values are 'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:23
+msgid "Default location"
+msgstr "Default location"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:24
+msgid "The default location for the weather applet. The first field is the name that will be shown. If empty, it will be taken from the locations database. The second field is the METAR code for the default weather station. It must not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml file. The third field is a tuple of (latitude, longitude), to override the value taken from the database. This is only used for sunrise and moon phase calculations, not for weather forecast."
+msgstr "The default location for the weather applet. The first field is the name that will be shown. If empty, it will be taken from the locations database. The second field is the METAR code for the default weather station. It must not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml file. The third field is a tuple of (latitude, longitude), to override the value taken from the database. This is only used for sunrise and moon phase calculations, not for weather forecast."
+
 #~ msgid "DEFAULT_LOCATION"
 #~ msgstr "תל אביב"
 
@@ -622,8 +694,6 @@ msgstr "ל־WeatherInfo חסר מיקום"
 #~ msgstr "קילומטרים לשעה"
 #~ msgid "mph"
 #~ msgstr "מיילים לשעה"
-#~ msgid "knots"
-#~ msgstr "קשר"
 #~ msgid "Beaufort scale"
 #~ msgstr "סולם ביופורט"
 #~ msgid "kPa"
@@ -672,8 +742,6 @@ msgstr "ל־WeatherInfo חסר מיקום"
 #~ "statistics or not."
 #~ msgid "Display radar map"
 #~ msgstr "Display radar map"
-#~ msgid "Distance unit"
-#~ msgstr "Distance unit"
 #~ msgid "Fetch a radar map on each update."
 #~ msgstr "Fetch a radar map on each update."
 #~ msgid ""
@@ -700,18 +768,10 @@ msgstr "ל־WeatherInfo חסר מיקום"
 #~ "org/cgit/libgweather/plain/data/Locations.xml.in"
 #~ msgid "Not used anymore"
 #~ msgstr "Not used anymore"
-#~ msgid "Pressure unit"
-#~ msgstr "Pressure unit"
 #~ msgid "Radar location"
 #~ msgstr "Radar location"
-#~ msgid "Speed unit"
-#~ msgstr "Speed unit"
-#~ msgid "Temperature unit"
-#~ msgstr "Temperature unit"
 #~ msgid "The city that gweather displays information for."
 #~ msgstr "The city that gweather displays information for."
-#~ msgid "The custom url from where to retrieve a radar map."
-#~ msgstr "The custom url from where to retrieve a radar map."
 #~ msgid "The interval, in seconds, between automatic updates."
 #~ msgstr "The interval, in seconds, between automatic updates."
 #~ msgid "The unit to use for pressure."
@@ -726,8 +786,6 @@ msgstr "ל־WeatherInfo חסר מיקום"
 #~ msgstr "Update interval"
 #~ msgid "Update the data automatically"
 #~ msgstr "Update the data automatically"
-#~ msgid "Url for the radar map"
-#~ msgstr "Url for the radar map"
 #~ msgid "Use custom url for the radar map"
 #~ msgstr "Use custom url for the radar map"
 #~ msgid "Use metric units"
@@ -740,8 +798,6 @@ msgstr "ל־WeatherInfo חסר מיקום"
 #~ msgstr "Weather location information"
 #~ msgid "Weather location information."
 #~ msgstr "Weather location information."
-#~ msgid "Zone location"
-#~ msgstr "Zone location"
 #~ msgid "_About"
 #~ msgstr "_אודות"
 #~ msgid "_Help"
@@ -1428,8 +1484,6 @@ msgstr "ל־WeatherInfo חסר מיקום"
 #~ msgstr "קלוין"
 #~ msgid "Celsius"
 #~ msgstr "צלזיוס"
-#~ msgid "Fahrenheit"
-#~ msgstr "פרנהייט"
 #~ msgid "_Wind speed unit:"
 #~ msgstr "יחידת מהירות ה_רוח:"
 #~ msgid "_Pressure unit:"
@@ -1438,8 +1492,6 @@ msgstr "ל־WeatherInfo חסר מיקום"
 #~ msgstr "יחידת _ראות:"
 #~ msgid "meters"
 #~ msgstr "מטרים"
-#~ msgid "miles"
-#~ msgstr "מיילים"
 #~ msgid "Enable _radar map"
 #~ msgstr "אפשר מפת _ראדר"
 #~ msgid "Use _custom address for radar map"
