@@ -69,6 +69,7 @@ void                   gweather_location_get_coords     (GWeatherLocation  *loc,
 							 double            *longitude);
 double                 gweather_location_get_distance   (GWeatherLocation  *loc,
 							 GWeatherLocation  *loc2);
+GWeatherLocation      *gweather_location_find_nearest_city (double lat, double long_);
 
 const char            *gweather_location_get_country    (GWeatherLocation  *loc);
 

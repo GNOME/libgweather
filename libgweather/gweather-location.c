@@ -504,6 +504,85 @@ gweather_location_get_children (GWeatherLocation *loc)
 	return &no_children;
 }
 
+static void
+foreach_cities (GWeatherLocation *loc,
+		GFunc             callback,
+		gpointer          user_data)
+{
+    if (loc->level == GWEATHER_LOCATION_CITY) {
+	callback (loc, user_data);
+    } else if (loc->children) {
+	GWeatherLocation *child;
+	for (child = *loc->children; child != NULL; child++)
+	    foreach_cities (child, callback, user_data);
+    }
+}
+
+struct FindNearestCityData {
+    double latitude;
+    double longitude;
+    GWeatherLocation *location;
+    double distance;
+};
+
+static double
+location_distance (double lat1, double long1,
+		   double lat2, double long2)
+{
+    /* average radius of the earth in km */
+    static const double radius = 6372.795;
+
+    return acos (cos (lat1) * cos (lat2) * cos (long1 - long2) +
+		 sin (lat1) * sin (lat2)) * radius;
+}
+
+static void
+find_nearest_city (GWeatherLocation *location,
+		   gpointer          user_data) {
+    struct FindNearestCityData *data = user_data;
+
+    double distance = location_distance (location->latitude, location->longitude,
+					 data->latitude, data->longitude);
+
+    if (data->location == NULL || data->distance < distance) {
+	data->location = location;
+	data->distance = distance;
+    }
+}
+
+/**
+ * gweather_location_find_nearest_city:
+ * @loc: The parent location, which will be searched recursively
+ * @lat: Latitude, in degrees
+ * @long_: Longitude, in degrees
+ *
+ * Finds the nearest city to the passed latitude and
+ * longitude.
+ *
+ * Returns: (transfer full): the closest city
+ */
+GWeatherLocation *
+gweather_location_find_nearest_city (double lat, double long_)
+{
+   /* The data set really isn't too big. Don't concern ourselves
+     * with a proper nearest neighbors search. Instead, just do
+     * an O(n) search. */
+    GWeatherLocation *world = gweather_location_get_world ();
+    struct FindNearestCityData data;
+
+    lat = lat * M_PI / 180.0;
+    long_ = long_ * M_PI / 180.0;
+
+    data.latitude = lat;
+    data.longitude = long_;
+    data.location = NULL;
+    data.distance = 0.0;
+
+    foreach_cities (world, (GFunc) find_nearest_city, &data);
+
+    return gweather_location_ref (data.location);
+}
+
 /**
  * gweather_location_has_coords:
  * @loc: a #GWeatherLocation
@@ -553,17 +632,14 @@ gweather_location_get_coords (GWeatherLocation *loc,
 double
 gweather_location_get_distance (GWeatherLocation *loc, GWeatherLocation *loc2)
 {
-    /* average radius of the earth in km */
-    static const double radius = 6372.795;
-
     g_return_val_if_fail (loc != NULL, 0);
     g_return_val_if_fail (loc2 != NULL, 0);
 
     //g_return_val_if_fail (loc->latlon_valid, 0.0);
     //g_return_val_if_fail (loc2->latlon_valid, 0.0);
 
-    return acos (cos (loc->latitude) * cos (loc2->latitude) * cos (loc->longitude - loc2->longitude) +
-		 sin (loc->latitude) * sin (loc2->latitude)) * radius;
+    return location_distance (loc->latitude, loc->longitude,
+			      loc2->latitude, loc2->longitude);
 }
 
 /**
