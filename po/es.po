@@ -16,9 +16,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"applets&keywords=I18N+L10N&component=gweather\n"
-"POT-Creation-Date: 2012-03-09 17:58+0000\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgweather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-05-30 15:39+0000\n"
 "PO-Revision-Date: 2012-03-11 18:27+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
@@ -36,16 +36,6 @@ msgstr "Hora media de Greenwich"
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Desconocida"
-
-#. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:523
-#, c-format
-msgid "Failed to get METAR data: %d %s.\n"
-msgstr "Falló la obtención de los datos METAR: %d %s.\n"
-
-#: ../libgweather/weather-metar.c:571
-msgid "WeatherInfo missing location"
-msgstr "Zona no existente para WeatherInfo"
 
 #: ../libgweather/weather.c:200
 msgid "Variable"
@@ -118,7 +108,7 @@ msgstr "Norte - Noroeste"
 #: ../libgweather/weather.c:211 ../libgweather/weather.c:228
 #: ../libgweather/weather.c:300
 msgid "Invalid"
-msgstr "Inválido"
+msgstr "No válido"
 
 #: ../libgweather/weather.c:217
 msgid "Clear Sky"
@@ -595,13 +585,21 @@ msgstr "%H:%M"
 msgid "Retrieval failed"
 msgstr "Ha fallado la obtención"
 
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:1
-#| msgid "Url for the radar map"
+#. Translators: %d is an error code, and %s the error string
+#: ../libgweather/weather-metar.c:523
+#, c-format
+msgid "Failed to get METAR data: %d %s.\n"
+msgstr "Falló la obtención de los datos METAR: %d %s.\n"
+
+#: ../libgweather/weather-metar.c:571
+msgid "WeatherInfo missing location"
+msgstr "Zona no existente para WeatherInfo"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:1
 msgid "URL for the radar map"
 msgstr "URL para el mapa del radar"
 
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:2
-#| msgid "The custom url from where to retrieve a radar map."
+#: ../data/org.gnome.GWeather.gschema.xml.h:2
 msgid ""
 "The custom URL from where to retrieve a radar map, or empty for disabling "
 "radar maps."
@@ -611,15 +609,15 @@ msgstr ""
 
 #. TRANSLATORS: pick a temperature unit that should be used by default in your
 #. locale; values must be quoted
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:5
+#: ../data/org.gnome.GWeather.gschema.xml.h:5
 msgid "'fahrenheit'"
 msgstr "«centígrados»"
 
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:6
+#: ../data/org.gnome.GWeather.gschema.xml.h:6
 msgid "Temperature unit"
 msgstr "Unidad de temperatura"
 
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:7
+#: ../data/org.gnome.GWeather.gschema.xml.h:7
 msgid ""
 "The unit of temperature used for showing weather. Valid values are 'kelvin', "
 "'centigrade' and 'fahrenheit'."
@@ -629,15 +627,15 @@ msgstr ""
 
 #. TRANSLATORS: pick a default distance unit for your locale, see key description
 #. for valid values
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:10
+#: ../data/org.gnome.GWeather.gschema.xml.h:10
 msgid "'miles'"
 msgstr "«km»"
 
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:11
+#: ../data/org.gnome.GWeather.gschema.xml.h:11
 msgid "Distance unit"
 msgstr "Unidad de distancia"
 
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:12
+#: ../data/org.gnome.GWeather.gschema.xml.h:12
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or "
 "for distance of important events). Valid values are 'meters', 'km' and "
@@ -649,16 +647,15 @@ msgstr ""
 
 #. TRANSLATORS: pick a default speed unit for your locale, see key description
 #. for valid values
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:15
-#| msgid "knots"
+#: ../data/org.gnome.GWeather.gschema.xml.h:15
 msgid "'knots'"
 msgstr "«kmh»"
 
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:16
+#: ../data/org.gnome.GWeather.gschema.xml.h:16
 msgid "Speed unit"
 msgstr "Unidad de velocidad"
 
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:17
+#: ../data/org.gnome.GWeather.gschema.xml.h:17
 msgid ""
 "The unit of speed used for showing weather (for example for wind speed). "
 "Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
@@ -666,20 +663,20 @@ msgid ""
 msgstr ""
 "La unidad de velocidad usada para mostrar el tiempo (por ejemplo, para la "
 "velocidad del viento). Los valores posibles son «ms» (metros por segundo), "
-"«kph» (kilómetros por hora) , «mph» (millas por hora), «nudos» y "
-"«bft» (escala Beaufort)."
+"«kph» (kilómetros por hora) , «mph» (millas por hora), «nudos» y «bft» (escala "
+"Beaufort)."
 
 #. TRANSLATORS: pick a default pressure unit for your locale, see key description
 #. for valid values
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:20
+#: ../data/org.gnome.GWeather.gschema.xml.h:20
 msgid "'inch-hg'"
 msgstr "«mm-hg»"
 
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:21
+#: ../data/org.gnome.GWeather.gschema.xml.h:21
 msgid "Pressure unit"
 msgstr "Unidad de presión"
 
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:22
+#: ../data/org.gnome.GWeather.gschema.xml.h:22
 msgid ""
 "The unit of pressure used for showing weather. Valid values are "
 "'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
@@ -687,24 +684,16 @@ msgid ""
 "mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
 msgstr ""
 "La unidad de presión usada para mostrar el tiempo. Los valores posibles son "
-"«kpa» (kilopascales), «hpa» (hectopascales) , «mb» (milibares, "
-"matemáticamente equivalentes a 1 hpa, pero mostrados de diferente manera), "
-"«mm-hg» (milímetros de mercurio) y «inch-hg» (pulgadas de mercurio), "
+"«kpa» (kilopascales), «hpa» (hectopascales) , «mb» (milibares, matemáticamente "
+"equivalentes a 1 hpa, pero mostrados de diferente manera), «mm-"
+"hg» (milímetros de mercurio) y «inch-hg» (pulgadas de mercurio), "
 "«atm» (atmósferas)."
 
-#. TRANSLATORS: pick a default location to use in the weather applet. This should
-#. usually be the largest city or the capital of your country. If you're not picking
-#. a <location> in the database, don't forget to set name and coordinates.
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:26
-msgid "('', 'KNYC', nothing)"
-msgstr "('Madrid', 'LEMD', nada)"
-
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:27
-#| msgid "Zone location"
+#: ../data/org.gnome.GWeather.gschema.xml.h:23
 msgid "Default location"
 msgstr "Ubicación predeterminada"
 
-#: ../data/org.gnome.GWeather.gschema.xml.in.h:28
+#: ../data/org.gnome.GWeather.gschema.xml.h:24
 msgid ""
 "The default location for the weather applet. The first field is the name "
 "that will be shown. If empty, it will be taken from the locations database. "
@@ -722,6 +711,9 @@ msgstr ""
 "tupla de (latitud, longitud), para sobreescribir los valores obtenidos de la "
 "base de datos. Esto sólo se usa para calculas las fases de la luna, no para "
 "la previsión del tiempo"
+
+#~ msgid "('', 'KNYC', nothing)"
+#~ msgstr "('Madrid', 'LEMD', nada)"
 
 #~ msgid "DEFAULT_LOCATION"
 #~ msgstr "Madrid (Barajas)"
