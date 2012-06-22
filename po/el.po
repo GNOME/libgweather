@@ -45,480 +45,117 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather.HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-26 23:39+0200\n"
-"PO-Revision-Date: 2010-03-26 23:40+0200\n"
-"Last-Translator: Simos Xenitellis <simos.lists@googlemail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgweather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-03-27 19:56+0000\n"
+"PO-Revision-Date: 2012-06-22 13:33+0200\n"
+"Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek <team@lists.gnome.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
-# Another version: msgstr "ATHENS"
-#. TRANSLATOR: Change this to the default location name,
-#. * used when you first start the Weather Applet. This is
-#. * the common localised name that corresponds to
-#. * the location code (DEFAULT_CODE) you will put on the next message
-#. * For example, for the Greek locale, we set this to "Athens", the
-#. * capital city and we write it in Greek. It's important to translate
-#. * this name.
-#. *
-#. * If you do not require a DEFAULT_LOCATION, set this to
-#. * "DEFAULT_LOCATION".
-#.
-#: ../libgweather/gweather-gconf.c:212 ../libgweather/gweather-gconf.c:213
-#: ../libgweather/gweather.schemas.in.h:5
-msgid "DEFAULT_LOCATION"
-msgstr "Αθήνα"
-
-#. TRANSLATOR: Change this to the code of your default location that
-#. * corresponds to the DEFAULT_LOCATION name you put above. This is
-#. * normally a four-letter (ICAO) code and can be found in
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * NB. The web page is over 1.7MB in size.
-#. * Pick a default location like a capital city so that it would be ok
-#. * for more of your users. For example, for Greek, we use "LGAV" for
-#. * the capital city, Athens.
-#. *
-#. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
-#.
-#: ../libgweather/gweather-gconf.c:232 ../libgweather/gweather-gconf.c:233
-#: ../libgweather/gweather.schemas.in.h:3
-msgid "DEFAULT_CODE"
-msgstr "LGAV"
-
-#. TRANSLATOR: Change this to the zone of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have zones while the rest do not.
-#. * Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any zone you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a zone, set this to
-#. * "DEFAULT_ZONE".
-#.
-#: ../libgweather/gweather-gconf.c:252 ../libgweather/gweather-gconf.c:253
-#: ../libgweather/gweather.schemas.in.h:7
-msgid "DEFAULT_ZONE"
-msgstr "DEFAULT_ZONE"
-
-#. TRANSLATOR: Change this to the radar of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have radar names while the rest do
-#. * not. Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any radar you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a radar, set this to " "
-#. * (or space).
-#. * If you do not have a default location, set this to DEFAULT_RADAR.
-#.
-#: ../libgweather/gweather-gconf.c:273 ../libgweather/gweather-gconf.c:274
-#: ../libgweather/gweather.schemas.in.h:6
-msgid "DEFAULT_RADAR"
-msgstr " "
-
-#. TRANSLATOR: Change this to the coordinates of your default location
-#. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
-#. * above. Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any coordinates you put here must also be present in the
-#. * Locations.xml file.
-#. *
-#. * If your default location does not have known coordinates, set this
-#. * to " " (or space).
-#. * If you do not have a default location, set this to
-#. * DEFAULT_COORDINATES.
-#.
-#: ../libgweather/gweather-gconf.c:294 ../libgweather/gweather-gconf.c:295
-#: ../libgweather/gweather.schemas.in.h:4
-msgid "DEFAULT_COORDINATES"
-msgstr "37-56N 023-56E"
-
-#: ../libgweather/gweather-prefs.c:34 ../libgweather/gweather-prefs.c:45
-#: ../libgweather/gweather-prefs.c:60 ../libgweather/gweather-prefs.c:77
-msgid "Default"
-msgstr "Προεπιλογή"
-
-#. translators: Kelvin
-#: ../libgweather/gweather-prefs.c:36
-msgid "K"
-msgstr "K"
-
-#. translators: Celsius
-#: ../libgweather/gweather-prefs.c:38
-msgid "C"
-msgstr "C"
-
-#. translators: Fahrenheit
-#: ../libgweather/gweather-prefs.c:40
-msgid "F"
-msgstr "F"
-
-#. translators: meters per second
-#: ../libgweather/gweather-prefs.c:47
-msgid "m/s"
-msgstr "m/s"
-
-#. translators: kilometers per hour
-#: ../libgweather/gweather-prefs.c:49
-msgid "km/h"
-msgstr "km/h"
-
-#. translators: miles per hour
-#: ../libgweather/gweather-prefs.c:51
-msgid "mph"
-msgstr "mph"
-
-#. translators: knots (speed unit)
-#: ../libgweather/gweather-prefs.c:53
-msgid "knots"
-msgstr "κόμβοι"
-
-#. translators: wind speed
-#: ../libgweather/gweather-prefs.c:55
-msgid "Beaufort scale"
-msgstr "Κλίμακα Beaufort"
-
-#. translators: kilopascals
-#: ../libgweather/gweather-prefs.c:62
-msgid "kPa"
-msgstr "kPa"
-
-#. translators: hectopascals
-#: ../libgweather/gweather-prefs.c:64
-msgid "hPa"
-msgstr "hPa"
-
-#. translators: millibars
-#: ../libgweather/gweather-prefs.c:66
-msgid "mb"
-msgstr "mb"
-
-#. translators: millimeters of mercury
-#: ../libgweather/gweather-prefs.c:68
-msgid "mmHg"
-msgstr "mmHg"
-
-#. translators: inches of mercury
-#: ../libgweather/gweather-prefs.c:70
-msgid "inHg"
-msgstr "inHg"
-
-#. translators: atmosphere
-#: ../libgweather/gweather-prefs.c:72
-msgid "atm"
-msgstr "atm"
-
-#. translators: meters
-#: ../libgweather/gweather-prefs.c:79
-msgid "m"
-msgstr "m"
-
-#. translators: kilometers
-#: ../libgweather/gweather-prefs.c:81
-msgid "km"
-msgstr "km"
-
-#. translators: miles
-#: ../libgweather/gweather-prefs.c:83
-msgid "mi"
-msgstr "mi"
-
-#. TRANSLATOR: This is the default unit to use for temperature measurements.
-#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:103 ../libgweather/gweather-prefs.c:111
-msgid "DEFAULT_TEMP_UNIT"
-msgstr "C"
-
-#. TRANSLATOR: This is the default unit to use for wind speed.
-#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
-#. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:141 ../libgweather/gweather-prefs.c:151
-msgid "DEFAULT_SPEED_UNIT"
-msgstr "km/h"
-
-#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
-#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
-#. "mb" (millibars), "mmHg" (millimeters of mercury),
-#. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:183 ../libgweather/gweather-prefs.c:194
-msgid "DEFAULT_PRESSURE_UNIT"
-msgstr "mmHg"
-
-#. TRANSLATOR: This is the default unit to use for visibility distance.
-#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:224 ../libgweather/gweather-prefs.c:233
-msgid "DEFAULT_DISTANCE_UNIT"
-msgstr "km"
-
-#: ../libgweather/gweather-timezone.c:314
+#: ../libgweather/gweather-timezone.c:316
 msgid "Greenwich Mean Time"
 msgstr "Μέση ώρα γκρίνουιτς"
 
-#: ../libgweather/gweather.schemas.in.h:1
-msgid ""
-"A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Ένας τριψήφιος κωδικός για τη λήψη μετεορολογικών χαρτών από το weather.com. "
-"Βρίσκονται στο http://git.gnome.org/cgit/libgweather/plain/data/Locations."
-"xml.in"
-
-#: ../libgweather/gweather.schemas.in.h:2
-msgid ""
-"A unique zone for the city, as found from http://git.gnome.org/cgit/"
-"libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Μια μοναδική ζώνη για την πόλη, όπως εμφανίζεται στο http://git.gnome.org/"
-"cgit/libgweather/plain/data/Locations.xml.in"
-
-#: ../libgweather/gweather.schemas.in.h:8
-msgid ""
-"Determines whether the applet automatically updates its weather statistics "
-"or not."
-msgstr "Καθορίζει αν η μικροεφαρμογή ενημερώνει αυτόματα το καιρό ή όχι."
-
-#: ../libgweather/gweather.schemas.in.h:9
-msgid "Display radar map"
-msgstr "Προβολή χάρτη ραντάρ"
-
-#: ../libgweather/gweather.schemas.in.h:10
-msgid "Distance unit"
-msgstr "Μονάδα απόστασης"
-
-#: ../libgweather/gweather.schemas.in.h:11
-msgid "Fetch a radar map on each update."
-msgstr "Λήψη χάρτη ραντάρ σε κάθε ενημέρωση."
-
-#: ../libgweather/gweather.schemas.in.h:12
-msgid ""
-"If true, then retrieve a radar map from a location specified by the \"radar"
-"\" key."
-msgstr ""
-"Αν αληθές , τότε να γίνει λήψη χάρτη ραντάρ από την τοποθεσία που "
-"καθορίζεται από το κλειδί  \"ραντάρ\"."
-
-#: ../libgweather/gweather.schemas.in.h:13
-msgid ""
-"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-"[EW]."
-msgstr ""
-"Γεωγραφικό μήκος και πλάτος της τοποθεσίας σας σε DD-MM-SS[NS] DD-MM-SS[EW]."
-
-#: ../libgweather/gweather.schemas.in.h:14
-msgid "Location coordinates"
-msgstr "Συντεταγμένες τοποθεσίας"
-
-#: ../libgweather/gweather.schemas.in.h:15
-msgid "Nearby city"
-msgstr "Κοντινή πόλη"
-
-#: ../libgweather/gweather.schemas.in.h:16
-msgid ""
-"Nearby major zone, such as a capital city, as found from http://git.gnome."
-"org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Κοντινή γνωστή ζώνη, π.χ. πρωτεύουσα, όπως εμφανίζεται στο http://git.gnome."
-"org/cgit/libgweather/plain/data/Locations.xml.in"
-
-#: ../libgweather/gweather.schemas.in.h:17
-msgid "Not used anymore"
-msgstr "Δεν χρησιμοποιείται πια"
-
-#: ../libgweather/gweather.schemas.in.h:18
-msgid "Pressure unit"
-msgstr "Μονάδα πίεσης"
-
-#: ../libgweather/gweather.schemas.in.h:19
-msgid "Radar location"
-msgstr "Τοποθεσία ραντάρ"
-
-#: ../libgweather/gweather.schemas.in.h:20
-msgid "Speed unit"
-msgstr "Μονάδα ταχύτητας"
-
-#: ../libgweather/gweather.schemas.in.h:21
-msgid "Temperature unit"
-msgstr "Μονάδα θερμοκρασίας"
-
-#: ../libgweather/gweather.schemas.in.h:22
-msgid "The city that gweather displays information for."
-msgstr "Η πόλη για την οποία το gweather εμφανίζει πληροφορίες."
-
-#: ../libgweather/gweather.schemas.in.h:23
-msgid "The custom url from where to retrieve a radar map."
-msgstr "Χρήση προσαρμοσμένης διεύθυνσης για λήψη του χάρτη radar."
-
-#: ../libgweather/gweather.schemas.in.h:24
-msgid "The interval, in seconds, between automatic updates."
-msgstr "Το διάστημα, σε δευτερόλεπτα, μεταξύ των αυτόματων ενημερώσεων."
-
-#: ../libgweather/gweather.schemas.in.h:25
-msgid "The unit to use for pressure."
-msgstr "Η μονάδα μέτρησης πίεσης που θα χρησιμοποιείται."
-
-#: ../libgweather/gweather.schemas.in.h:26
-msgid "The unit to use for temperature."
-msgstr "Η μονάδα μέτρησης θερμοκρασίας που θα."
-
-#: ../libgweather/gweather.schemas.in.h:27
-msgid "The unit to use for visibility."
-msgstr "Η μονάδα μέτρησης ορατότητας που θα χρησιμοποιείται."
-
-#: ../libgweather/gweather.schemas.in.h:28
-msgid "The unit to use for wind speed."
-msgstr "Η μονάδα μέτρησης ταχύτητας ανέμου που θα χρησιμοποιείται."
-
-#: ../libgweather/gweather.schemas.in.h:29
-msgid "Update interval"
-msgstr "Διάστημα ανανέωσης"
-
-#: ../libgweather/gweather.schemas.in.h:30
-msgid "Update the data automatically"
-msgstr "Αυτόματη ενημέρωση των δεδομένων"
-
-#: ../libgweather/gweather.schemas.in.h:31
-msgid "Url for the radar map"
-msgstr "Διεύθυνση για το χάρτη ραντάρ"
-
-#: ../libgweather/gweather.schemas.in.h:32
-msgid "Use custom url for the radar map"
-msgstr "Χρήση προσαρμοσμένης διεύθυνσης για το χάρτη ραντάρ"
-
-#: ../libgweather/gweather.schemas.in.h:33
-msgid "Use metric units"
-msgstr "Χρήση μετρικού συστήματος"
-
-#: ../libgweather/gweather.schemas.in.h:34
-msgid "Use metric units instead of english units."
-msgstr "Χρήση μετρικού συστήματος αντί για βρετανικές μονάδες."
-
-#: ../libgweather/gweather.schemas.in.h:35
-msgid "Weather for a city"
-msgstr "Πρόγνωση καιρού για μια πόλη"
-
-#: ../libgweather/gweather.schemas.in.h:36
-msgid "Weather location information"
-msgstr "Πληροφορίες τοποθεσίας καιρού"
-
-#: ../libgweather/gweather.schemas.in.h:37
-msgid "Weather location information."
-msgstr "Πληροφορίες τοποθεσίας καιρού."
-
-#: ../libgweather/gweather.schemas.in.h:38
-msgid "Zone location"
-msgstr "Τοποθεσία ζώνης"
-
-#: ../libgweather/timezone-menu.c:277
+#: ../libgweather/timezone-menu.c:278
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Άγνωστη"
 
-#. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:504
-#, c-format
-msgid "Failed to get METAR data: %d %s.\n"
-msgstr "Αδύνατη η ανάγνωση πληροφοριών METAR: %d %s.\n"
-
-#: ../libgweather/weather-metar.c:548
-msgid "WeatherInfo missing location"
-msgstr "Το WeatherInfo δε διαθέτει την τοποθεσία"
-
-#: ../libgweather/weather.c:232
+#: ../libgweather/weather.c:200
 msgid "Variable"
 msgstr "Μεταβλητός"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:201
 msgid "North"
 msgstr "Βόρειος"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:201
 msgid "North - NorthEast"
 msgstr "Βόρειος - Βορειοανατολικός"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:201
 msgid "Northeast"
 msgstr "Βορειοανατολικός"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:201
 msgid "East - NorthEast"
 msgstr "Ανατολικός - Βορειοανατολικός"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:202
 msgid "East"
 msgstr "Ανατολικός"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:202
 msgid "East - Southeast"
 msgstr "Ανατολικός - Νοτιοανατολικός"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:202
 msgid "Southeast"
 msgstr "Νοτιοανατολικός"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:202
 msgid "South - Southeast"
 msgstr "Νότιος - Νοτιοανατολικός"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:203
 msgid "South"
 msgstr "Νότιος"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:203
 msgid "South - Southwest"
 msgstr "Νότιος - Νοτιοδυτικός"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:203
 msgid "Southwest"
 msgstr "Νοτιοδυτικός"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:203
 msgid "West - Southwest"
 msgstr "Δυτικός - Νοτιοδυτικός"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:204
 msgid "West"
 msgstr "Δυτικός"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:204
 msgid "West - Northwest"
 msgstr "Δυτικός - Βορειοδυτικός"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:204
 msgid "Northwest"
 msgstr "Βορειοδυτικός"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:204
 msgid "North - Northwest"
 msgstr "Βόρειος - Βορειοδυτικός"
 
-#: ../libgweather/weather.c:243 ../libgweather/weather.c:260
-#: ../libgweather/weather.c:332
+#: ../libgweather/weather.c:211
+#: ../libgweather/weather.c:228
+#: ../libgweather/weather.c:300
 msgid "Invalid"
 msgstr "Μη έγκυρο"
 
-#: ../libgweather/weather.c:249
+#: ../libgweather/weather.c:217
 msgid "Clear Sky"
 msgstr "Καθαρός Ουρανός"
 
-#: ../libgweather/weather.c:250
+#: ../libgweather/weather.c:218
 msgid "Broken clouds"
 msgstr "Μέτρια σύννεφα"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:219
 msgid "Scattered clouds"
 msgstr "Λίγα σύννεφα"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:220
 msgid "Few clouds"
 msgstr "Ελάχιστα σύννεφα"
 
-#: ../libgweather/weather.c:253
+#: ../libgweather/weather.c:221
 msgid "Overcast"
 msgstr "Πυκνά σύννεφα"
 
@@ -526,376 +163,381 @@ msgstr "Πυκνά σύννεφα"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:292 ../libgweather/weather.c:294
+#: ../libgweather/weather.c:260
+#: ../libgweather/weather.c:262
 msgid "Thunderstorm"
 msgstr "Καταιγίδα με κεραυνούς"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:261
 msgid "Drizzle"
 msgstr "Ψιχάλισμα"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:261
 msgid "Light drizzle"
 msgstr "Ελαφρύ ψιχάλισμα"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:261
 msgid "Moderate drizzle"
 msgstr "Μέτριο ψιχάλισμα"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:261
 msgid "Heavy drizzle"
 msgstr "Δυνατό ψιχάλισμα"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:261
 msgid "Freezing drizzle"
 msgstr "Παγωμένο ψιχάλισμα"
 
 #. RAIN
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:262
 msgid "Rain"
 msgstr "Βροχή"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:262
 msgid "Light rain"
 msgstr "Ελαφριά βροχή"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:262
 msgid "Moderate rain"
 msgstr "Μέτρια βροχή"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:262
 msgid "Heavy rain"
 msgstr "Δυνατή βροχή"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:262
 msgid "Rain showers"
 msgstr "Νεροποντές"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:262
 msgid "Freezing rain"
 msgstr "Παγωμένη βροχή"
 
 #. SNOW
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Snow"
 msgstr "Χιόνι"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Light snow"
 msgstr "Ελαφρά χιονόπτωση"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Moderate snow"
 msgstr "Μέτρια χιονόπτωση"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Heavy snow"
 msgstr "Έντονη χιονόπτωση"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Snowstorm"
 msgstr "Χιονοθύελλα"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Blowing snowfall"
 msgstr "Υψηλά αιωρούμενο χιόνι"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Snow showers"
 msgstr "Μπόρες χιονιού"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Drifting snow"
 msgstr "Χαμηλά αιωρούμενο χιόνι"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:264
 msgid "Snow grains"
 msgstr "Χιονόνερο"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:264
 msgid "Light snow grains"
 msgstr "Ελαφρύ χιονόνερο"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:264
 msgid "Moderate snow grains"
 msgstr "Μέτριο χιονόνερο"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:264
 msgid "Heavy snow grains"
 msgstr "Δυνατό χιονόνερο"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:265
 msgid "Ice crystals"
 msgstr "Κρύσταλλοι πάγου"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:266
 msgid "Ice pellets"
 msgstr "Σβόλοι πάγου"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:266
 msgid "Few ice pellets"
 msgstr "Λίγοι σβόλοι πάγου"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:266
 msgid "Moderate ice pellets"
 msgstr "Μέτριοι σβόλοι πάγου"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:266
 msgid "Heavy ice pellets"
 msgstr "Πολλοί σβόλοι πάγου"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:266
 msgid "Ice pellet storm"
 msgstr "Καταιγίδα σβόλων πάγου"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:266
 msgid "Showers of ice pellets"
 msgstr "Μπόρες σβόλων πάγου"
 
 #. HAIL
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:267
 msgid "Hail"
 msgstr "Χαλάζι"
 
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:267
 msgid "Hailstorm"
 msgstr "Καταιγίδα με χαλάζι"
 
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:267
 msgid "Hail showers"
 msgstr "Μπόρες με χαλάζι"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:268
 msgid "Small hail"
 msgstr "Μικρό χαλάζι"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:268
 msgid "Small hailstorm"
 msgstr "Καταιγίδα με μικρό χαλάζι"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:268
 msgid "Showers of small hail"
 msgstr "Μπόρες με μικρό χαλάζι"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:269
 msgid "Unknown precipitation"
 msgstr "Άγνωστη ένταση βροχόπτωσης"
 
 #. MIST
-#: ../libgweather/weather.c:302
+#: ../libgweather/weather.c:270
 msgid "Mist"
 msgstr "Καταχνιά"
 
 #. FOG
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:271
 msgid "Fog"
 msgstr "Ομίχλη"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:271
 msgid "Fog in the vicinity"
 msgstr "Ομίχλη στην περιοχή"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:271
 msgid "Shallow fog"
 msgstr "Ασθενής ομίχλη"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:271
 msgid "Patches of fog"
 msgstr "Ομίχλη κατά τόπους"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:271
 msgid "Partial fog"
 msgstr "Μερική ομίχλη"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:271
 msgid "Freezing fog"
 msgstr "Παγωμένη ομίχλη"
 
 #. SMOKE
-#: ../libgweather/weather.c:304
+#: ../libgweather/weather.c:272
 msgid "Smoke"
 msgstr "Καπνός"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:273
 msgid "Volcanic ash"
 msgstr "Ηφαιστιακή στάχτη"
 
 #. SAND
-#: ../libgweather/weather.c:306
+#: ../libgweather/weather.c:274
 msgid "Sand"
 msgstr "Άμμος"
 
-#: ../libgweather/weather.c:306
+#: ../libgweather/weather.c:274
 msgid "Blowing sand"
 msgstr "Υψηλά αιωρούμενη άμμος"
 
-#: ../libgweather/weather.c:306
+#: ../libgweather/weather.c:274
 msgid "Drifting sand"
 msgstr "Χαμηλά αιωρούμενη άμμος"
 
 #. HAZE
-#: ../libgweather/weather.c:307
+#: ../libgweather/weather.c:275
 msgid "Haze"
 msgstr "Αιωρούμενα σωματίδια"
 
 #. SPRAY
-#: ../libgweather/weather.c:308
+#: ../libgweather/weather.c:276
 msgid "Blowing sprays"
 msgstr "Υψηλά αιωρούμενο αλατόνερο"
 
 #. DUST
-#: ../libgweather/weather.c:309
+#: ../libgweather/weather.c:277
 msgid "Dust"
 msgstr "Σκόνη"
 
-#: ../libgweather/weather.c:309
+#: ../libgweather/weather.c:277
 msgid "Blowing dust"
 msgstr "Υψηλά αιωρούμενη σκόνη"
 
-#: ../libgweather/weather.c:309
+#: ../libgweather/weather.c:277
 msgid "Drifting dust"
 msgstr "Χαμηλά αιωρούμενη σκόνη"
 
 #. SQUALL
-#: ../libgweather/weather.c:310
+#: ../libgweather/weather.c:278
 msgid "Squall"
 msgstr "Μπουρίνι"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:279
 msgid "Sandstorm"
 msgstr "Αμμοθύελλα"
 
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:279
 msgid "Sandstorm in the vicinity"
 msgstr "Αμμοθύελλα στην περιοχή"
 
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:279
 msgid "Heavy sandstorm"
 msgstr "Δυνατή αμμοθύελλα"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:312
+#: ../libgweather/weather.c:280
 msgid "Duststorm"
 msgstr "Θύελλα σκόνης"
 
-#: ../libgweather/weather.c:312
+#: ../libgweather/weather.c:280
 msgid "Duststorm in the vicinity"
 msgstr "Θύελλα σκόνης στην περιοχή"
 
-#: ../libgweather/weather.c:312
+#: ../libgweather/weather.c:280
 msgid "Heavy duststorm"
 msgstr "Δυνατή θύελλα σκόνης"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:313
+#: ../libgweather/weather.c:281
 msgid "Funnel cloud"
 msgstr "Στρόβιλος"
 
 #. TORNADO
-#: ../libgweather/weather.c:314
+#: ../libgweather/weather.c:282
 msgid "Tornado"
 msgstr "Ανεμοστρόβιλος"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:315
+#: ../libgweather/weather.c:283
 msgid "Dust whirls"
 msgstr "Στρόβιλοι σκόνης"
 
-#: ../libgweather/weather.c:315
+#: ../libgweather/weather.c:283
 msgid "Dust whirls in the vicinity"
 msgstr "Στρόβιλοι σκόνης στην περιοχή"
 
-#. TRANSLATOR: this is a format string for strftime
-#. *             see `man 3 strftime` for more details
-#.
-#: ../libgweather/weather.c:710
+#: ../libgweather/weather.c:612
 msgid "%a, %b %d / %H:%M"
 msgstr "%a, %b %d / %H:%M"
 
-#: ../libgweather/weather.c:725
+#: ../libgweather/weather.c:618
 msgid "Unknown observation time"
 msgstr "Άγνωστη ώρα καταγραφής"
 
-#: ../libgweather/weather.c:739 ../libgweather/weather.c:790
-#: ../libgweather/weather.c:804 ../libgweather/weather.c:817
-#: ../libgweather/weather.c:830 ../libgweather/weather.c:843
-#: ../libgweather/weather.c:861 ../libgweather/weather.c:879
-#: ../libgweather/weather.c:917 ../libgweather/weather.c:933
-#: ../libgweather/weather.c:956 ../libgweather/weather.c:988
-#: ../libgweather/weather.c:1004 ../libgweather/weather.c:1024
+#: ../libgweather/weather.c:630
+#: ../libgweather/weather.c:679
+#: ../libgweather/weather.c:694
+#: ../libgweather/weather.c:710
+#: ../libgweather/weather.c:726
+#: ../libgweather/weather.c:742
+#: ../libgweather/weather.c:759
+#: ../libgweather/weather.c:779
+#: ../libgweather/weather.c:814
+#: ../libgweather/weather.c:832
+#: ../libgweather/weather.c:861
+#: ../libgweather/weather.c:893
+#: ../libgweather/weather.c:910
+#: ../libgweather/weather.c:930
 msgid "Unknown"
 msgstr "Άγνωστο"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:761
+#: ../libgweather/weather.c:650
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:764
+#: ../libgweather/weather.c:653
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:770
+#: ../libgweather/weather.c:659
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:773
+#: ../libgweather/weather.c:662
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:779
+#: ../libgweather/weather.c:668
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:782
+#: ../libgweather/weather.c:671
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:864
+#: ../libgweather/weather.c:762
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:892
+#: ../libgweather/weather.c:790
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f κόμβοι"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:896
+#: ../libgweather/weather.c:794
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:900
+#: ../libgweather/weather.c:798
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:904
+#: ../libgweather/weather.c:802
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -903,79 +545,167 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:910
+#: ../libgweather/weather.c:808
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Ισχύς Beaufort %.1f"
 
-#: ../libgweather/weather.c:935
+#: ../libgweather/weather.c:834
 msgid "Calm"
 msgstr "Άπνοια"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:939
+#: ../libgweather/weather.c:842
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:961
+#: ../libgweather/weather.c:866
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:965
+#: ../libgweather/weather.c:870
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:969
+#: ../libgweather/weather.c:874
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:973
+#: ../libgweather/weather.c:878
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:977
+#: ../libgweather/weather.c:882
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:981
+#: ../libgweather/weather.c:886
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:1009
+#: ../libgweather/weather.c:915
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f μίλια"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:1013
+#: ../libgweather/weather.c:919
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1017
+#: ../libgweather/weather.c:923
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:1046 ../libgweather/weather.c:1067
+#: ../libgweather/weather.c:957
+#: ../libgweather/weather.c:985
 msgid "%H:%M"
 msgstr "%H:%M"
 
-#: ../libgweather/weather.c:1126
+#: ../libgweather/weather.c:1066
 msgid "Retrieval failed"
 msgstr "Αποτυχία λήψης"
+
+#. Translators: %d is an error code, and %s the error string
+#: ../libgweather/weather-metar.c:523
+#, c-format
+msgid "Failed to get METAR data: %d %s.\n"
+msgstr "Αδύνατη η ανάγνωση πληροφοριών METAR: %d %s.\n"
+
+#: ../libgweather/weather-metar.c:571
+msgid "WeatherInfo missing location"
+msgstr "Το WeatherInfo δε διαθέτει την τοποθεσία"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:1
+#| msgid "Url for the radar map"
+msgid "URL for the radar map"
+msgstr "URL για το χάρτη ραντάρ"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:2
+#| msgid "The custom url from where to retrieve a radar map."
+msgid "The custom URL from where to retrieve a radar map, or empty for disabling radar maps."
+msgstr "Χρήση προσαρμοσμένου URL για λήψη του χάρτη radar."
+
+#. TRANSLATORS: pick a temperature unit that should be used by default in your
+#. locale; values must be quoted
+#: ../data/org.gnome.GWeather.gschema.xml.h:5
+msgid "'fahrenheit'"
+msgstr "'φάρεναϊτ'"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:6
+msgid "Temperature unit"
+msgstr "Μονάδα θερμοκρασίας"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:7
+msgid "The unit of temperature used for showing weather. Valid values are 'kelvin', 'centigrade' and 'fahrenheit'."
+msgstr "Η μονάδα της θερμοκρασίας που χρησιμοποιείται για την προβολή καιρού. Έγκυρες τιμές είναι οι 'kelvin', 'centigrade' και 'fahrenheit'."
+
+#. TRANSLATORS: pick a default distance unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:10
+msgid "'miles'"
+msgstr "'μίλια'"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:11
+msgid "Distance unit"
+msgstr "Μονάδα απόστασης"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:12
+msgid "The unit of distance used for showing weather (for example for visibility or for distance of important events). Valid values are 'meters', 'km' and 'miles'."
+msgstr "Η μονάδα της απόστασης που χρησιμοποιείται για την προβολή καιρού (για παράδειγμα για την ορατότητα ή την απόσταση σημαντικών εκδηλώσεων).Έγκρυες τιμές είναι 'meters', 'km' και 'miles'."
+
+#. TRANSLATORS: pick a default speed unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:15
+#| msgid "knots"
+msgid "'knots'"
+msgstr "'κόμβοι'"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:16
+msgid "Speed unit"
+msgstr "Μονάδα ταχύτητας"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:17
+msgid "The unit of speed used for showing weather (for example for wind speed). Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), 'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+msgstr "Η μονάδα της ταχύτητας που χρησιμοποιείται για την προβολή καιρού (για παράδειγμα για την ταχύτητα του ανέμου). Έγκυρες τιμές είναι οι 'ms' (μέτρα ανά δευτερόλεπτο), 'kph' (χιλιόμετρα ανά ώρα), 'mph' (μίλια ανά ώρα), 'knots' και 'bft' (κλίμακα Beaufort)."
+
+#. TRANSLATORS: pick a default pressure unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:20
+msgid "'inch-hg'"
+msgstr "'inch-hg'"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:21
+msgid "Pressure unit"
+msgstr "Μονάδα πίεσης"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:22
+msgid "The unit of pressure used for showing weather. Valid values are 'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+msgstr "Η μονάδα της πίεσης που χρησιμοποιείται για την προβολή καιρού. Έγκυρες τιμές είναι οι kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (μίλιμπαρ, μαθηματικά ισοδυναμεί με 1 hPa, αλλά εμφανίζεται με διαφορετικό τρόπο), 'mm-hg' (χιλιοστά του υδραργύρου), 'inch-hg' (ίντσες του υδραργύρου), 'atm' (ατμόσφαιρες)."
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:23
+#| msgid "Zone location"
+msgid "Default location"
+msgstr "Προεπιλεγμένη τοποθεσία "
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:24
+msgid "The default location for the weather applet. The first field is the name that will be shown. If empty, it will be taken from the locations database. The second field is the METAR code for the default weather station. It must not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml file. The third field is a tuple of (latitude, longitude), to override the value taken from the database. This is only used for sunrise and moon phase calculations, not for weather forecast."
+msgstr "Η προεπιλεγμένη τοποθεσία για την μικροεφαρμογή του καιρού. Το πρώτο πεδίο είναι το όνομα που θα εμφανίζεται. Αν είναι κενό, τότε θα ληφθεί από τη βάση δεδομένων των τοποθεσιών. Το δεύτερο πεδίο είναι ο κωδικός METAR για τον προεπιλεγμένο μετεωρολογικο σταθμό. Δεν πρέπει να είναι κενός και πρέπει να αντιστοιχεί σε μια &lt;code&gt; ετικέτα στο αρχείο Locations.xml. Το τρίτο πεδίο είναι μια πλειάδα (γεωγραφικό πλάτος,μήκος) για να αντικαταστήσει την τιμή που λαμβάνεται από τη βάση δεδομένων. Αυτό χρησιμοποιείται μόνο για την ανατολή του ηλίου και τον υπολογισμό φάσεων της σελήνης, και όχι για την πρόγνωση του καιρού."
+
