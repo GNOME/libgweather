@@ -1,8 +1,30 @@
 =============
+Version 3.5.1
+=============
+
+  libgweather
+
+        * Various introspection updates and fixes (Giovanni Campagna)
+	* GWeatherLocation is now a boxed type and used
+	  as such through out the library (Giovanni Campagna)
+	* Each GWeatherLocation is now strongly associated
+	  with world level location, and this is reflected
+	  in GWeatherInfo (Giovanni Campagna)
+	* Fixed retrieving US weather for non US locales
+	  (Giovanni Campagna)
+	* Applied symbol filtering to avoid exposing non
+	  public API (Giovanni Campagna)
+
+  Translators
+
+	* Greek (Tom Tryfonidis)
+	* Telugu (Sasi Bhushan Boddepalli)
+
+=============
 Version 3.5.0
 =============
 
-  libgeather
+  libgweather
 
         * Port to GSettings (Giovanni Campagna)
 
