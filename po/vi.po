@@ -2,7 +2,7 @@
 # Copyright © 2009 GNOME i18n Project for Vietnamese.
 # This file is distributed under the same license as the libgweather package.
 # T.M.Thanh <tmthanh@yahoo.com>, 2002-2003.
-# Nguyễn Thái Ngọc Duy <pclouds@vnlinux.org>, 2002-2004,2011.
+# Nguyễn Thái Ngọc Duy <pclouds@vnlinux.org>, 2002-2004,2011-2012.
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2009.
 #
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-03-27 19:56+0000\n"
-"PO-Revision-Date: 2012-07-02 15:17+0700\n"
+"PO-Revision-Date: 2012-07-02 15:25+0700\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -589,24 +589,22 @@ msgid "WeatherInfo missing location"
 msgstr "WeatherInfo (thông tin thời tiết) thiếu địa điểm"
 
 #: ../data/org.gnome.GWeather.gschema.xml.h:1
-#, fuzzy
 #| msgid "Url for the radar map"
 msgid "URL for the radar map"
-msgstr "Địa chỉ Mạng cho bản đồ ra đa"
+msgstr "URL cho bản đồ ra đa"
 
 #: ../data/org.gnome.GWeather.gschema.xml.h:2
-#, fuzzy
 #| msgid "The custom url from where to retrieve a radar map."
 msgid ""
 "The custom URL from where to retrieve a radar map, or empty for disabling "
 "radar maps."
-msgstr "Địa chỉ Mạng tự chọn nơi gọi bản đồ ra đa."
+msgstr "URL tự chọn nơi gọi bản đồ ra đa, hoặc rỗng để tắt bản đồ rada."
 
 #. TRANSLATORS: pick a temperature unit that should be used by default in your
 #. locale; values must be quoted
 #: ../data/org.gnome.GWeather.gschema.xml.h:5
 msgid "'fahrenheit'"
-msgstr ""
+msgstr "'fahrenheit'"
 
 #: ../data/org.gnome.GWeather.gschema.xml.h:6
 msgid "Temperature unit"
@@ -617,12 +615,14 @@ msgid ""
 "The unit of temperature used for showing weather. Valid values are 'kelvin', "
 "'centigrade' and 'fahrenheit'."
 msgstr ""
+"Đơn vị nhiệt độ thời tiết. Giá trị hợp lệ là 'kelvin', 'centigrade' và "
+"'fahrenheit'."
 
 #. TRANSLATORS: pick a default distance unit for your locale, see key description
 #. for valid values
 #: ../data/org.gnome.GWeather.gschema.xml.h:10
 msgid "'miles'"
-msgstr ""
+msgstr "'dặm'"
 
 #: ../data/org.gnome.GWeather.gschema.xml.h:11
 msgid "Distance unit"
@@ -634,14 +634,15 @@ msgid ""
 "for distance of important events). Valid values are 'meters', 'km' and "
 "'miles'."
 msgstr ""
+"Đơn vị khoảng cách cho thời tiết (ví dụ tầm nhìn hoặc khoảng cách các sự "
+"kiện quan trọng). Giá trị hợp lệ là 'meters' (mét), 'km' và 'miles' (dặm)"
 
 #. TRANSLATORS: pick a default speed unit for your locale, see key description
 #. for valid values
 #: ../data/org.gnome.GWeather.gschema.xml.h:15
-#, fuzzy
 #| msgid "knots"
 msgid "'knots'"
-msgstr "hải lý"
+msgstr "'hải lý'"
 
 #: ../data/org.gnome.GWeather.gschema.xml.h:16
 msgid "Speed unit"
@@ -653,12 +654,15 @@ msgid ""
 "Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
 "'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
 msgstr ""
+"Đơn vị tốc độ cho thời tiết (ví dụ tốc độ gió). Giá trị hợp lệ là 'ms' (số "
+"mét một giờ), 'kph' (số kilômét một giờ), 'mph' (số dặm một giờ), "
+"'knots' (hải lý) và 'bft' (thước đo Beaufort)."
 
 #. TRANSLATORS: pick a default pressure unit for your locale, see key description
 #. for valid values
 #: ../data/org.gnome.GWeather.gschema.xml.h:20
 msgid "'inch-hg'"
-msgstr ""
+msgstr "'inch-hg'"
 
 #: ../data/org.gnome.GWeather.gschema.xml.h:21
 msgid "Pressure unit"
@@ -671,12 +675,15 @@ msgid ""
 "equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
 "mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
 msgstr ""
+"Đơn vị áp suất cho thời tiết. Giá trị hợp lệ là 'kpa' (kilô-pascal), "
+"'hpa' (hécto-pascal), 'mb' (milibar, về mặt toán học tương đương 1 hPa nhưng "
+"hiện khác), 'mm-hg' (milimét thuỷ ngân), 'inch-hg' (inch thuỷ ngân), "
+"'atm' (atmosphere)."
 
 #: ../data/org.gnome.GWeather.gschema.xml.h:23
-#, fuzzy
 #| msgid "Zone location"
 msgid "Default location"
-msgstr "Thông tin vùng"
+msgstr "Vị trí mặc định"
 
 #: ../data/org.gnome.GWeather.gschema.xml.h:24
 msgid ""
@@ -688,6 +695,12 @@ msgid ""
 "value taken from the database. This is only used for sunrise and moon phase "
 "calculations, not for weather forecast."
 msgstr ""
+"Vị trí mặc định cho tiểu dụng thời tiết. Trường đầu tiên là tên sẽ hiện. Nếu "
+"rỗng, lấy từ cơ sở dữ liệu cục bộ. Trường thứ hai là mã METAR cho trạm thời "
+"tiết mặc định, không được phép rỗng và phải tương ứng với thẻ &lt;code&gt; "
+"trong tập tin Locations.xml. Trường thứ ba là toạ độ (kinh độ, vĩ độ) để ghi "
+"đè giá trị từ cơ sở dữ liệu, chỉ dùng cho tính toán mặt trời mọc và các chu "
+"kỳ mặt trăng, không dùng để dự báo thời tiết."
 
 #~ msgid "DEFAULT_LOCATION"
 #~ msgstr "Hà Nội"
