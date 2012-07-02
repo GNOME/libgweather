@@ -8,10 +8,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather 2.25.5\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"applets&keywords=I18N+L10N&component=gweather\n"
-"POT-Creation-Date: 2011-03-18 22:10+0000\n"
-"PO-Revision-Date: 2011-04-02 11:35+0700\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgweather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-03-27 19:56+0000\n"
+"PO-Revision-Date: 2012-07-02 15:17+0700\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -20,476 +20,105 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: LocFactoryEditor 1.8\n"
 
-#. TRANSLATOR: Change this to the default location name,
-#. * used when you first start the Weather Applet. This is
-#. * the common localised name that corresponds to
-#. * the location code (DEFAULT_CODE) you will put on the next message
-#. * For example, for the Greek locale, we set this to "Athens", the
-#. * capital city and we write it in Greek. It's important to translate
-#. * this name.
-#. *
-#. * If you do not require a DEFAULT_LOCATION, set this to
-#. * "DEFAULT_LOCATION".
-#.
-#: ../libgweather/gweather-gconf.c:212 ../libgweather/gweather-gconf.c:213
-#: ../libgweather/gweather.schemas.in.h:5
-msgid "DEFAULT_LOCATION"
-msgstr "Hà Nội"
-
-#. TRANSLATOR: Change this to the code of your default location that
-#. * corresponds to the DEFAULT_LOCATION name you put above. This is
-#. * normally a four-letter (ICAO) code and can be found in
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * NB. The web page is over 1.7MB in size.
-#. * Pick a default location like a capital city so that it would be ok
-#. * for more of your users. For example, for Greek, we use "LGAV" for
-#. * the capital city, Athens.
-#. *
-#. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
-#.
-#: ../libgweather/gweather-gconf.c:232 ../libgweather/gweather-gconf.c:233
-#: ../libgweather/gweather.schemas.in.h:3
-msgid "DEFAULT_CODE"
-msgstr "VVNB"
-
-#. TRANSLATOR: Change this to the zone of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have zones while the rest do not.
-#. * Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any zone you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a zone, set this to
-#. * "DEFAULT_ZONE".
-#.
-#: ../libgweather/gweather-gconf.c:252 ../libgweather/gweather-gconf.c:253
-#: ../libgweather/gweather.schemas.in.h:7
-msgid "DEFAULT_ZONE"
-msgstr "DEFAULT_ZONE"
-
-#. TRANSLATOR: Change this to the radar of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have radar names while the rest do
-#. * not. Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any radar you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a radar, set this to " "
-#. * (or space).
-#. * If you do not have a default location, set this to DEFAULT_RADAR.
-#.
-#: ../libgweather/gweather-gconf.c:273 ../libgweather/gweather-gconf.c:274
-#: ../libgweather/gweather.schemas.in.h:6
-msgid "DEFAULT_RADAR"
-msgstr "DEFAULT_RADAR"
-
-#. TRANSLATOR: Change this to the coordinates of your default location
-#. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
-#. * above. Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any coordinates you put here must also be present in the
-#. * Locations.xml file.
-#. *
-#. * If your default location does not have known coordinates, set this
-#. * to " " (or space).
-#. * If you do not have a default location, set this to
-#. * DEFAULT_COORDINATES.
-#.
-#: ../libgweather/gweather-gconf.c:294 ../libgweather/gweather-gconf.c:295
-#: ../libgweather/gweather.schemas.in.h:4
-msgid "DEFAULT_COORDINATES"
-msgstr "21.016667 105.800000"
-
-#: ../libgweather/gweather-prefs.c:34 ../libgweather/gweather-prefs.c:45
-#: ../libgweather/gweather-prefs.c:60 ../libgweather/gweather-prefs.c:77
-msgid "Default"
-msgstr "Mặc định"
-
-#. translators: Kelvin
-#: ../libgweather/gweather-prefs.c:36
-msgid "K"
-msgstr "K"
-
-#. translators: Celsius
-#: ../libgweather/gweather-prefs.c:38
-msgid "C"
-msgstr "C"
-
-#. translators: Fahrenheit
-#: ../libgweather/gweather-prefs.c:40
-msgid "F"
-msgstr "F"
-
-#. translators: meters per second
-#: ../libgweather/gweather-prefs.c:47
-msgid "m/s"
-msgstr "mét/giây"
-
-#. translators: kilometers per hour
-#: ../libgweather/gweather-prefs.c:49
-msgid "km/h"
-msgstr "cây số/giờ"
-
-#. translators: miles per hour
-#: ../libgweather/gweather-prefs.c:51
-msgid "mph"
-msgstr "dặm/giờ"
-
-#. translators: knots (speed unit)
-#: ../libgweather/gweather-prefs.c:53
-msgid "knots"
-msgstr "hải lý"
-
-#. translators: wind speed
-#: ../libgweather/gweather-prefs.c:55
-msgid "Beaufort scale"
-msgstr "Tỷ lệ Beaufort"
-
-#. translators: kilopascals
-#: ../libgweather/gweather-prefs.c:62
-msgid "kPa"
-msgstr "kPa"
-
-#. translators: hectopascals
-#: ../libgweather/gweather-prefs.c:64
-msgid "hPa"
-msgstr "hPa"
-
-#. translators: millibars
-#: ../libgweather/gweather-prefs.c:66
-msgid "mb"
-msgstr "mb"
-
-#. translators: millimeters of mercury
-#: ../libgweather/gweather-prefs.c:68
-msgid "mmHg"
-msgstr "mmHg"
-
-#. translators: inches of mercury
-#: ../libgweather/gweather-prefs.c:70
-msgid "inHg"
-msgstr "inHg"
-
-#. translators: atmosphere
-#: ../libgweather/gweather-prefs.c:72
-msgid "atm"
-msgstr "atm"
-
-#. translators: meters
-#: ../libgweather/gweather-prefs.c:79
-msgid "m"
-msgstr "m"
-
-#. translators: kilometers
-#: ../libgweather/gweather-prefs.c:81
-msgid "km"
-msgstr "km"
-
-#. translators: miles
-#: ../libgweather/gweather-prefs.c:83
-msgid "mi"
-msgstr "dặm"
-
-#. TRANSLATOR: This is the default unit to use for temperature measurements.
-#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:103 ../libgweather/gweather-prefs.c:111
-msgid "DEFAULT_TEMP_UNIT"
-msgstr "C"
-
-#. TRANSLATOR: This is the default unit to use for wind speed.
-#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
-#. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:141 ../libgweather/gweather-prefs.c:151
-msgid "DEFAULT_SPEED_UNIT"
-msgstr "kh/h"
-
-#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
-#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
-#. "mb" (millibars), "mmHg" (millimeters of mercury),
-#. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:183 ../libgweather/gweather-prefs.c:194
-msgid "DEFAULT_PRESSURE_UNIT"
-msgstr "mb"
-
-#. TRANSLATOR: This is the default unit to use for visibility distance.
-#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:224 ../libgweather/gweather-prefs.c:233
-msgid "DEFAULT_DISTANCE_UNIT"
-msgstr "km"
-
-#: ../libgweather/gweather-timezone.c:314
+#: ../libgweather/gweather-timezone.c:316
 msgid "Greenwich Mean Time"
 msgstr "Múi giờ Greenwich"
 
-#: ../libgweather/gweather.schemas.in.h:1
-#| msgid ""
-#| "A three-digit-long code for retrieving radar maps from weather.com, found "
-#| "from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
-msgid ""
-"A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Mã ba chữ số để lấy bản đồ ra đa từ weather.com từ tập tin http://git.gnome."
-"org/cgit/libgweather/plain/data/Locations.xml.in"
-
-#: ../libgweather/gweather.schemas.in.h:2
-#| msgid ""
-#| "A unique zone for the city, as found from http://svn.gnome.org/viewvc/"
-#| "libgweather/trunk/data/Locations.xml.in"
-msgid ""
-"A unique zone for the city, as found from http://git.gnome.org/cgit/"
-"libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Vùng duy nhất cho thành phố trong tập tin http://git.gnome.org/cgit/"
-"libgweather/plain/data/Locations.xml.in"
-
-#: ../libgweather/gweather.schemas.in.h:8
-msgid ""
-"Determines whether the applet automatically updates its weather statistics "
-"or not."
-msgstr "Xác định tiểu dụng tự động cập nhật thống kê thời tiết hay không."
-
-#: ../libgweather/gweather.schemas.in.h:9
-msgid "Display radar map"
-msgstr "Hiện bản đồ ra đa"
-
-#: ../libgweather/gweather.schemas.in.h:10
-msgid "Distance unit"
-msgstr "Đơn vị khoảng cách"
-
-#: ../libgweather/gweather.schemas.in.h:11
-msgid "Fetch a radar map on each update."
-msgstr "Gọi bản đồ ra đa mỗi lần cập nhật."
-
-#: ../libgweather/gweather.schemas.in.h:12
-msgid ""
-"If true, then retrieve a radar map from a location specified by the \"radar"
-"\" key."
-msgstr ""
-"Nếu thật (true), thì gọi bản đồ ra đa từ địa điểm xác định bởi khóa \"radar"
-"\"."
-
-#: ../libgweather/gweather.schemas.in.h:13
-msgid ""
-"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-"[EW]."
-msgstr "10-49N 106-40E"
-
-#: ../libgweather/gweather.schemas.in.h:14
-msgid "Location coordinates"
-msgstr "Toạ độ địa điểm"
-
-#: ../libgweather/gweather.schemas.in.h:15
-msgid "Nearby city"
-msgstr "Thành phố ở gần"
-
-#: ../libgweather/gweather.schemas.in.h:16
-#| msgid ""
-#| "Nearby major zone, such as a capital city, as found from http://svn.gnome."
-#| "org/viewvc/libgweather/trunk/data/Locations.xml.in"
-msgid ""
-"Nearby major zone, such as a capital city, as found from http://git.gnome."
-"org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Vùng chính ở gần, v.d. một thủ đô, trong tập tin http://git.gnome.org/cgit/"
-"libgweather/data/Locations.xml.in"
-
-#: ../libgweather/gweather.schemas.in.h:17
-msgid "Not used anymore"
-msgstr "Không còn dùng nữa"
-
-#: ../libgweather/gweather.schemas.in.h:18
-msgid "Pressure unit"
-msgstr "Đơn vị áp suất"
-
-#: ../libgweather/gweather.schemas.in.h:19
-msgid "Radar location"
-msgstr "Địa điểm ra đa"
-
-#: ../libgweather/gweather.schemas.in.h:20
-msgid "Speed unit"
-msgstr "Đơn vị tốc độ"
-
-#: ../libgweather/gweather.schemas.in.h:21
-msgid "Temperature unit"
-msgstr "Đơn vị nhiệt độ"
-
-#: ../libgweather/gweather.schemas.in.h:22
-msgid "The city that gweather displays information for."
-msgstr "Thành phố cho đó gweather hiển thị thông tin."
-
-#: ../libgweather/gweather.schemas.in.h:23
-msgid "The custom url from where to retrieve a radar map."
-msgstr "Địa chỉ Mạng tự chọn nơi gọi bản đồ ra đa."
-
-#: ../libgweather/gweather.schemas.in.h:24
-msgid "The interval, in seconds, between automatic updates."
-msgstr "Thời khoảng (theo giây) giữa hai lần cập nhật tự động."
-
-#: ../libgweather/gweather.schemas.in.h:25
-msgid "The unit to use for pressure."
-msgstr "Đơn vị cần dùng cho áp suất."
-
-#: ../libgweather/gweather.schemas.in.h:26
-msgid "The unit to use for temperature."
-msgstr "Đơn vị cần dùng cho nhiệt độ."
-
-#: ../libgweather/gweather.schemas.in.h:27
-msgid "The unit to use for visibility."
-msgstr "Đơn vị cần dùng cho tầm nhìn."
-
-#: ../libgweather/gweather.schemas.in.h:28
-msgid "The unit to use for wind speed."
-msgstr "Đơn vị cần dùng cho tốc độ gió."
-
-#: ../libgweather/gweather.schemas.in.h:29
-msgid "Update interval"
-msgstr "Khoảng cập nhật"
-
-#: ../libgweather/gweather.schemas.in.h:30
-msgid "Update the data automatically"
-msgstr "Tự động cập nhật dữ liệu"
-
-#: ../libgweather/gweather.schemas.in.h:31
-msgid "Url for the radar map"
-msgstr "Địa chỉ Mạng cho bản đồ ra đa"
-
-#: ../libgweather/gweather.schemas.in.h:32
-msgid "Use custom url for the radar map"
-msgstr "Dùng địa chỉ Mạng tự chọn cho bản đồ ra đa"
-
-#: ../libgweather/gweather.schemas.in.h:33
-msgid "Use metric units"
-msgstr "Dùng đơn vị mét"
-
-#: ../libgweather/gweather.schemas.in.h:34
-msgid "Use metric units instead of english units."
-msgstr "Dùng đơn vị mét thay vị đơn vị Anh."
-
-#: ../libgweather/gweather.schemas.in.h:35
-msgid "Weather for a city"
-msgstr "Thời tiết dành cho thành phố"
-
-#: ../libgweather/gweather.schemas.in.h:36
-msgid "Weather location information"
-msgstr "Thông tin địa điểm thời tiết"
-
-#: ../libgweather/gweather.schemas.in.h:37
-msgid "Weather location information."
-msgstr "Thông tin địa điểm thời tiết."
-
-#: ../libgweather/gweather.schemas.in.h:38
-msgid "Zone location"
-msgstr "Thông tin vùng"
-
-#: ../libgweather/timezone-menu.c:277
-#| msgid "Unknown"
+#: ../libgweather/timezone-menu.c:278
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Không rõ"
 
-#. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:504
-#, c-format
-msgid "Failed to get METAR data: %d %s.\n"
-msgstr "Lỗi lấy dữ liệu METAR: %d %s.\n"
-
-#: ../libgweather/weather-metar.c:548
-msgid "WeatherInfo missing location"
-msgstr "WeatherInfo (thông tin thời tiết) thiếu địa điểm"
-
-#: ../libgweather/weather.c:232
+#: ../libgweather/weather.c:200
 msgid "Variable"
 msgstr "Biến"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:201
 msgid "North"
 msgstr "Bắc"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:201
 msgid "North - NorthEast"
 msgstr "Bắc - Đông Bắc"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:201
 msgid "Northeast"
 msgstr "Đông Bắc"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:201
 msgid "East - NorthEast"
 msgstr "Đông - Bắc Đông"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:202
 msgid "East"
 msgstr "Đông"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:202
 msgid "East - Southeast"
 msgstr "Đông - Nam Đông"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:202
 msgid "Southeast"
 msgstr "Nam Đông"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:202
 msgid "South - Southeast"
 msgstr "Nam - Nam Đông"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:203
 msgid "South"
 msgstr "Nam"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:203
 msgid "South - Southwest"
 msgstr "Nam - Nam Tây"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:203
 msgid "Southwest"
 msgstr "Nam Tây"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:203
 msgid "West - Southwest"
 msgstr "Tây - Nam Tây"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:204
 msgid "West"
 msgstr "Tây"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:204
 msgid "West - Northwest"
 msgstr "Tây - Bắc Tây"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:204
 msgid "Northwest"
 msgstr "Bắc Tây"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:204
 msgid "North - Northwest"
 msgstr "Bắc - Bắc Tây"
 
-#: ../libgweather/weather.c:243 ../libgweather/weather.c:260
-#: ../libgweather/weather.c:332
+#: ../libgweather/weather.c:211 ../libgweather/weather.c:228
+#: ../libgweather/weather.c:300
 msgid "Invalid"
 msgstr "Không hợp lệ"
 
-#: ../libgweather/weather.c:249
+#: ../libgweather/weather.c:217
 msgid "Clear Sky"
 msgstr "Trời trong"
 
-#: ../libgweather/weather.c:250
+#: ../libgweather/weather.c:218
 msgid "Broken clouds"
 msgstr "Mây thất thường"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:219
 msgid "Scattered clouds"
 msgstr "Nhiều mây rải rác"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:220
 msgid "Few clouds"
 msgstr "Ít mây"
 
-#: ../libgweather/weather.c:253
+#: ../libgweather/weather.c:221
 msgid "Overcast"
 msgstr "U ám"
 
@@ -497,376 +126,373 @@ msgstr "U ám"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:292 ../libgweather/weather.c:294
+#: ../libgweather/weather.c:260 ../libgweather/weather.c:262
 msgid "Thunderstorm"
 msgstr "Bão kèm sấm"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:261
 msgid "Drizzle"
 msgstr "Mưa phùn"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:261
 msgid "Light drizzle"
 msgstr "Mưa phùn nhẹ"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:261
 msgid "Moderate drizzle"
 msgstr "Mưa phùn vừa"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:261
 msgid "Heavy drizzle"
 msgstr "Mưa phùn nhiều"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:261
 msgid "Freezing drizzle"
 msgstr "Mưa phùn kèm gió buốt"
 
 #. RAIN
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:262
 msgid "Rain"
 msgstr "Mưa"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:262
 msgid "Light rain"
 msgstr "Mưa nhẹ"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:262
 msgid "Moderate rain"
 msgstr "Mưa vừa"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:262
 msgid "Heavy rain"
 msgstr "Mưa to"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:262
 msgid "Rain showers"
 msgstr "Mưa rào"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:262
 msgid "Freezing rain"
 msgstr "Mưa kèm gió buốt"
 
 #. SNOW
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Snow"
 msgstr "Tuyết"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Light snow"
 msgstr "Tuyết nhẹ"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Moderate snow"
 msgstr "Tuyết vừa"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Heavy snow"
 msgstr "Tuyết nhiều"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Snowstorm"
 msgstr "Bão tuyết"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Blowing snowfall"
 msgstr "Bão tuyết kèm gió mạnh"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Snow showers"
 msgstr "Mưa tuyết"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:263
 msgid "Drifting snow"
 msgstr "Tuyết kèm gió xoáy"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:264
 msgid "Snow grains"
 msgstr "Hoa tuyết"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:264
 msgid "Light snow grains"
 msgstr "Hoa tuyết nhẹ"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:264
 msgid "Moderate snow grains"
 msgstr "Hoa tuyết vừa"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:264
 msgid "Heavy snow grains"
 msgstr "Hoa tuyết nhiều"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:265
 msgid "Ice crystals"
 msgstr "Hạt băng"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:266
 msgid "Ice pellets"
 msgstr "Mảnh băng"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:266
 msgid "Few ice pellets"
 msgstr "Ít mảnh băng"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:266
 msgid "Moderate ice pellets"
 msgstr "Mảnh băng vừa"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:266
 msgid "Heavy ice pellets"
 msgstr "Nhiều mảnh băng"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:266
 msgid "Ice pellet storm"
 msgstr "Mảnh băng kèm giông"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:266
 msgid "Showers of ice pellets"
 msgstr "Mảnh băng kèm mưa"
 
 #. HAIL
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:267
 msgid "Hail"
 msgstr "Mưa đá"
 
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:267
 msgid "Hailstorm"
 msgstr "Mưa đá kèm giông"
 
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:267
 msgid "Hail showers"
 msgstr "Mưa đá thất thường"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:268
 msgid "Small hail"
 msgstr "Mưa đá-nhỏ"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:268
 msgid "Small hailstorm"
 msgstr "Mưa đá-nhỏ kèm giông"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:268
 msgid "Showers of small hail"
 msgstr "Mưa đá-nhỏ thất thường"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:269
 msgid "Unknown precipitation"
 msgstr "Mưa rào không xác định"
 
 #. MIST
-#: ../libgweather/weather.c:302
+#: ../libgweather/weather.c:270
 msgid "Mist"
 msgstr "Mù"
 
 #. FOG
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:271
 msgid "Fog"
 msgstr "Sương mù"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:271
 msgid "Fog in the vicinity"
 msgstr "Sương mù trong vùng phụ cận"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:271
 msgid "Shallow fog"
 msgstr "Sương mù loáng thoáng"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:271
 msgid "Patches of fog"
 msgstr "Sương mù trên vá víu"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:271
 msgid "Partial fog"
 msgstr "Sương mù rải rác"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:271
 msgid "Freezing fog"
 msgstr "Sương mù kèm gió buốt"
 
 #. SMOKE
-#: ../libgweather/weather.c:304
+#: ../libgweather/weather.c:272
 msgid "Smoke"
 msgstr "Sương"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:273
 msgid "Volcanic ash"
 msgstr "Tro núi lửa"
 
 #. SAND
-#: ../libgweather/weather.c:306
+#: ../libgweather/weather.c:274
 msgid "Sand"
 msgstr "Cát bay"
 
-#: ../libgweather/weather.c:306
+#: ../libgweather/weather.c:274
 msgid "Blowing sand"
 msgstr "Cát bay kèm gió"
 
-#: ../libgweather/weather.c:306
+#: ../libgweather/weather.c:274
 msgid "Drifting sand"
 msgstr "Cát bay kèm gió xoáy"
 
 #. HAZE
-#: ../libgweather/weather.c:307
+#: ../libgweather/weather.c:275
 msgid "Haze"
 msgstr "Khói mù"
 
 #. SPRAY
-#: ../libgweather/weather.c:308
+#: ../libgweather/weather.c:276
 msgid "Blowing sprays"
 msgstr "Bụi nước kèm gió"
 
 #. DUST
-#: ../libgweather/weather.c:309
+#: ../libgweather/weather.c:277
 msgid "Dust"
 msgstr "Bụi"
 
-#: ../libgweather/weather.c:309
+#: ../libgweather/weather.c:277
 msgid "Blowing dust"
 msgstr "Bụi kèm gió"
 
-#: ../libgweather/weather.c:309
+#: ../libgweather/weather.c:277
 msgid "Drifting dust"
 msgstr "Bụi kèm gió xoáy"
 
 #. SQUALL
-#: ../libgweather/weather.c:310
+#: ../libgweather/weather.c:278
 msgid "Squall"
 msgstr "Cơn"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:279
 msgid "Sandstorm"
 msgstr "Bão cát"
 
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:279
 msgid "Sandstorm in the vicinity"
 msgstr "Bão cát trong vùng phụ cận"
 
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:279
 msgid "Heavy sandstorm"
 msgstr "Bão cát dữ dội"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:312
+#: ../libgweather/weather.c:280
 msgid "Duststorm"
 msgstr "Bão bụi"
 
-#: ../libgweather/weather.c:312
+#: ../libgweather/weather.c:280
 msgid "Duststorm in the vicinity"
 msgstr "Bão bụi trong vùng phụ cận"
 
-#: ../libgweather/weather.c:312
+#: ../libgweather/weather.c:280
 msgid "Heavy duststorm"
 msgstr "Bão bụi nặng"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:313
+#: ../libgweather/weather.c:281
 msgid "Funnel cloud"
 msgstr "Mây ống"
 
 #. TORNADO
-#: ../libgweather/weather.c:314
+#: ../libgweather/weather.c:282
 msgid "Tornado"
 msgstr "Bão táp"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:315
+#: ../libgweather/weather.c:283
 msgid "Dust whirls"
 msgstr "Làn bụi cuốn"
 
-#: ../libgweather/weather.c:315
+#: ../libgweather/weather.c:283
 msgid "Dust whirls in the vicinity"
 msgstr "Làn bụi cuốn trong vùng phụ cận"
 
-#. TRANSLATOR: this is a format string for strftime
-#. *             see `man 3 strftime` for more details
-#.
-#: ../libgweather/weather.c:710
+#: ../libgweather/weather.c:612
 msgid "%a, %b %d / %H:%M"
 msgstr "%a, %H:%M %d %b"
 
-#: ../libgweather/weather.c:725
+#: ../libgweather/weather.c:618
 msgid "Unknown observation time"
 msgstr "Thời điểm quan sát không xác định"
 
-#: ../libgweather/weather.c:739 ../libgweather/weather.c:790
-#: ../libgweather/weather.c:804 ../libgweather/weather.c:817
-#: ../libgweather/weather.c:830 ../libgweather/weather.c:843
-#: ../libgweather/weather.c:861 ../libgweather/weather.c:879
-#: ../libgweather/weather.c:917 ../libgweather/weather.c:933
-#: ../libgweather/weather.c:956 ../libgweather/weather.c:988
-#: ../libgweather/weather.c:1004 ../libgweather/weather.c:1024
+#: ../libgweather/weather.c:630 ../libgweather/weather.c:679
+#: ../libgweather/weather.c:694 ../libgweather/weather.c:710
+#: ../libgweather/weather.c:726 ../libgweather/weather.c:742
+#: ../libgweather/weather.c:759 ../libgweather/weather.c:779
+#: ../libgweather/weather.c:814 ../libgweather/weather.c:832
+#: ../libgweather/weather.c:861 ../libgweather/weather.c:893
+#: ../libgweather/weather.c:910 ../libgweather/weather.c:930
 msgid "Unknown"
 msgstr "Chưa biết"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:761
+#: ../libgweather/weather.c:650
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:764
+#: ../libgweather/weather.c:653
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:770
+#: ../libgweather/weather.c:659
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:773
+#: ../libgweather/weather.c:662
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:779
+#: ../libgweather/weather.c:668
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:782
+#: ../libgweather/weather.c:671
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:864
+#: ../libgweather/weather.c:762
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:892
+#: ../libgweather/weather.c:790
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f hải lý"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:896
+#: ../libgweather/weather.c:794
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f dặm/giờ"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:900
+#: ../libgweather/weather.c:798
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/giờ"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:904
+#: ../libgweather/weather.c:802
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f mét/giây"
@@ -874,80 +500,377 @@ msgstr "%.1f mét/giây"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:910
+#: ../libgweather/weather.c:808
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Beaufort force %.1f"
 
-#: ../libgweather/weather.c:935
+#: ../libgweather/weather.c:834
 msgid "Calm"
 msgstr "Ôn hòa"
 
 # Variable: do not translate/ biến: đừng dịch
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:939
+#: ../libgweather/weather.c:842
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:961
+#: ../libgweather/weather.c:866
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:965
+#: ../libgweather/weather.c:870
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:969
+#: ../libgweather/weather.c:874
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:973
+#: ../libgweather/weather.c:878
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:977
+#: ../libgweather/weather.c:882
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:981
+#: ../libgweather/weather.c:886
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:1009
+#: ../libgweather/weather.c:915
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f lý"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:1013
+#: ../libgweather/weather.c:919
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1017
+#: ../libgweather/weather.c:923
 #, c-format
 msgid "%.0fm"
 msgstr "%.0f mét"
 
-#: ../libgweather/weather.c:1046 ../libgweather/weather.c:1067
+#: ../libgweather/weather.c:957 ../libgweather/weather.c:985
 msgid "%H:%M"
 msgstr "%H:%M"
 
-#: ../libgweather/weather.c:1126
+#: ../libgweather/weather.c:1066
 msgid "Retrieval failed"
 msgstr "Không gọi được"
+
+#. Translators: %d is an error code, and %s the error string
+#: ../libgweather/weather-metar.c:523
+#, c-format
+msgid "Failed to get METAR data: %d %s.\n"
+msgstr "Lỗi lấy dữ liệu METAR: %d %s.\n"
+
+#: ../libgweather/weather-metar.c:571
+msgid "WeatherInfo missing location"
+msgstr "WeatherInfo (thông tin thời tiết) thiếu địa điểm"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:1
+#, fuzzy
+#| msgid "Url for the radar map"
+msgid "URL for the radar map"
+msgstr "Địa chỉ Mạng cho bản đồ ra đa"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:2
+#, fuzzy
+#| msgid "The custom url from where to retrieve a radar map."
+msgid ""
+"The custom URL from where to retrieve a radar map, or empty for disabling "
+"radar maps."
+msgstr "Địa chỉ Mạng tự chọn nơi gọi bản đồ ra đa."
+
+#. TRANSLATORS: pick a temperature unit that should be used by default in your
+#. locale; values must be quoted
+#: ../data/org.gnome.GWeather.gschema.xml.h:5
+msgid "'fahrenheit'"
+msgstr ""
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:6
+msgid "Temperature unit"
+msgstr "Đơn vị nhiệt độ"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:7
+msgid ""
+"The unit of temperature used for showing weather. Valid values are 'kelvin', "
+"'centigrade' and 'fahrenheit'."
+msgstr ""
+
+#. TRANSLATORS: pick a default distance unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:10
+msgid "'miles'"
+msgstr ""
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:11
+msgid "Distance unit"
+msgstr "Đơn vị khoảng cách"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:12
+msgid ""
+"The unit of distance used for showing weather (for example for visibility or "
+"for distance of important events). Valid values are 'meters', 'km' and "
+"'miles'."
+msgstr ""
+
+#. TRANSLATORS: pick a default speed unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:15
+#, fuzzy
+#| msgid "knots"
+msgid "'knots'"
+msgstr "hải lý"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:16
+msgid "Speed unit"
+msgstr "Đơn vị tốc độ"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:17
+msgid ""
+"The unit of speed used for showing weather (for example for wind speed). "
+"Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
+"'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+msgstr ""
+
+#. TRANSLATORS: pick a default pressure unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:20
+msgid "'inch-hg'"
+msgstr ""
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:21
+msgid "Pressure unit"
+msgstr "Đơn vị áp suất"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:22
+msgid ""
+"The unit of pressure used for showing weather. Valid values are "
+"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
+"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
+"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+msgstr ""
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:23
+#, fuzzy
+#| msgid "Zone location"
+msgid "Default location"
+msgstr "Thông tin vùng"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:24
+msgid ""
+"The default location for the weather applet. The first field is the name "
+"that will be shown. If empty, it will be taken from the locations database. "
+"The second field is the METAR code for the default weather station. It must "
+"not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml "
+"file. The third field is a tuple of (latitude, longitude), to override the "
+"value taken from the database. This is only used for sunrise and moon phase "
+"calculations, not for weather forecast."
+msgstr ""
+
+#~ msgid "DEFAULT_LOCATION"
+#~ msgstr "Hà Nội"
+
+#~ msgid "DEFAULT_CODE"
+#~ msgstr "VVNB"
+
+#~ msgid "DEFAULT_ZONE"
+#~ msgstr "DEFAULT_ZONE"
+
+#~ msgid "DEFAULT_RADAR"
+#~ msgstr "DEFAULT_RADAR"
+
+#~ msgid "DEFAULT_COORDINATES"
+#~ msgstr "21.016667 105.800000"
+
+#~ msgid "Default"
+#~ msgstr "Mặc định"
+
+#~ msgid "K"
+#~ msgstr "K"
+
+#~ msgid "C"
+#~ msgstr "C"
+
+#~ msgid "F"
+#~ msgstr "F"
+
+#~ msgid "m/s"
+#~ msgstr "mét/giây"
+
+#~ msgid "km/h"
+#~ msgstr "cây số/giờ"
+
+#~ msgid "mph"
+#~ msgstr "dặm/giờ"
+
+#~ msgid "Beaufort scale"
+#~ msgstr "Tỷ lệ Beaufort"
+
+#~ msgid "kPa"
+#~ msgstr "kPa"
+
+#~ msgid "hPa"
+#~ msgstr "hPa"
+
+#~ msgid "mb"
+#~ msgstr "mb"
+
+#~ msgid "mmHg"
+#~ msgstr "mmHg"
+
+#~ msgid "inHg"
+#~ msgstr "inHg"
+
+#~ msgid "atm"
+#~ msgstr "atm"
+
+#~ msgid "m"
+#~ msgstr "m"
+
+#~ msgid "km"
+#~ msgstr "km"
+
+#~ msgid "mi"
+#~ msgstr "dặm"
+
+#~ msgid "DEFAULT_TEMP_UNIT"
+#~ msgstr "C"
+
+#~ msgid "DEFAULT_SPEED_UNIT"
+#~ msgstr "kh/h"
+
+#~ msgid "DEFAULT_PRESSURE_UNIT"
+#~ msgstr "mb"
+
+#~ msgid "DEFAULT_DISTANCE_UNIT"
+#~ msgstr "km"
+
+#~| msgid ""
+#~| "A three-digit-long code for retrieving radar maps from weather.com, "
+#~| "found from http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations."
+#~| "xml.in"
+#~ msgid ""
+#~ "A three-digit-long code for retrieving radar maps from weather.com, found "
+#~ "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "Mã ba chữ số để lấy bản đồ ra đa từ weather.com từ tập tin http://git."
+#~ "gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+
+#~| msgid ""
+#~| "A unique zone for the city, as found from http://svn.gnome.org/viewvc/"
+#~| "libgweather/trunk/data/Locations.xml.in"
+#~ msgid ""
+#~ "A unique zone for the city, as found from http://git.gnome.org/cgit/"
+#~ "libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "Vùng duy nhất cho thành phố trong tập tin http://git.gnome.org/cgit/"
+#~ "libgweather/plain/data/Locations.xml.in"
+
+#~ msgid ""
+#~ "Determines whether the applet automatically updates its weather "
+#~ "statistics or not."
+#~ msgstr "Xác định tiểu dụng tự động cập nhật thống kê thời tiết hay không."
+
+#~ msgid "Display radar map"
+#~ msgstr "Hiện bản đồ ra đa"
+
+#~ msgid "Fetch a radar map on each update."
+#~ msgstr "Gọi bản đồ ra đa mỗi lần cập nhật."
+
+#~ msgid ""
+#~ "If true, then retrieve a radar map from a location specified by the "
+#~ "\"radar\" key."
+#~ msgstr ""
+#~ "Nếu thật (true), thì gọi bản đồ ra đa từ địa điểm xác định bởi khóa "
+#~ "\"radar\"."
+
+#~ msgid ""
+#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
+#~ "[EW]."
+#~ msgstr "10-49N 106-40E"
+
+#~ msgid "Location coordinates"
+#~ msgstr "Toạ độ địa điểm"
+
+#~ msgid "Nearby city"
+#~ msgstr "Thành phố ở gần"
+
+#~| msgid ""
+#~| "Nearby major zone, such as a capital city, as found from http://svn."
+#~| "gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in"
+#~ msgid ""
+#~ "Nearby major zone, such as a capital city, as found from http://git.gnome."
+#~ "org/cgit/libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "Vùng chính ở gần, v.d. một thủ đô, trong tập tin http://git.gnome.org/"
+#~ "cgit/libgweather/data/Locations.xml.in"
+
+#~ msgid "Not used anymore"
+#~ msgstr "Không còn dùng nữa"
+
+#~ msgid "Radar location"
+#~ msgstr "Địa điểm ra đa"
+
+#~ msgid "The city that gweather displays information for."
+#~ msgstr "Thành phố cho đó gweather hiển thị thông tin."
+
+#~ msgid "The interval, in seconds, between automatic updates."
+#~ msgstr "Thời khoảng (theo giây) giữa hai lần cập nhật tự động."
+
+#~ msgid "The unit to use for pressure."
+#~ msgstr "Đơn vị cần dùng cho áp suất."
+
+#~ msgid "The unit to use for temperature."
+#~ msgstr "Đơn vị cần dùng cho nhiệt độ."
+
+#~ msgid "The unit to use for visibility."
+#~ msgstr "Đơn vị cần dùng cho tầm nhìn."
+
+#~ msgid "The unit to use for wind speed."
+#~ msgstr "Đơn vị cần dùng cho tốc độ gió."
+
+#~ msgid "Update interval"
+#~ msgstr "Khoảng cập nhật"
+
+#~ msgid "Update the data automatically"
+#~ msgstr "Tự động cập nhật dữ liệu"
+
+#~ msgid "Use custom url for the radar map"
+#~ msgstr "Dùng địa chỉ Mạng tự chọn cho bản đồ ra đa"
+
+#~ msgid "Use metric units"
+#~ msgstr "Dùng đơn vị mét"
+
+#~ msgid "Use metric units instead of english units."
+#~ msgstr "Dùng đơn vị mét thay vị đơn vị Anh."
+
+#~ msgid "Weather for a city"
+#~ msgstr "Thời tiết dành cho thành phố"
+
+#~ msgid "Weather location information"
+#~ msgstr "Thông tin địa điểm thời tiết"
+
+#~ msgid "Weather location information."
+#~ msgstr "Thông tin địa điểm thời tiết."
