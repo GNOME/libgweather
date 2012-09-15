@@ -13,474 +13,117 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-25 18:38+0800\n"
-"PO-Revision-Date: 2010-07-25 18:48+0800\n"
-"Last-Translator: Aron Xu <happyaron.xu@gmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgweather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-08-28 05:54+0000\n"
+"PO-Revision-Date: 2012-08-28 21:52+0800\n"
+"Last-Translator: tuhaihe <1132321739qq@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#. TRANSLATOR: Change this to the default location name,
-#. * used when you first start the Weather Applet. This is
-#. * the common localised name that corresponds to
-#. * the location code (DEFAULT_CODE) you will put on the next message
-#. * For example, for the Greek locale, we set this to "Athens", the
-#. * capital city and we write it in Greek. It's important to translate
-#. * this name.
-#. *
-#. * If you do not require a DEFAULT_LOCATION, set this to
-#. * "DEFAULT_LOCATION".
-#.
-#: ../libgweather/gweather-gconf.c:212 ../libgweather/gweather-gconf.c:213
-#: ../libgweather/gweather.schemas.in.h:5
-msgid "DEFAULT_LOCATION"
-msgstr "北京"
-
-#. TRANSLATOR: Change this to the code of your default location that
-#. * corresponds to the DEFAULT_LOCATION name you put above. This is
-#. * normally a four-letter (ICAO) code and can be found in
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * NB. The web page is over 1.7MB in size.
-#. * Pick a default location like a capital city so that it would be ok
-#. * for more of your users. For example, for Greek, we use "LGAV" for
-#. * the capital city, Athens.
-#. *
-#. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
-#.
-#: ../libgweather/gweather-gconf.c:232 ../libgweather/gweather-gconf.c:233
-#: ../libgweather/gweather.schemas.in.h:3
-msgid "DEFAULT_CODE"
-msgstr "ZBAA"
-
-#. TRANSLATOR: Change this to the zone of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have zones while the rest do not.
-#. * Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any zone you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a zone, set this to
-#. * "DEFAULT_ZONE".
-#.
-#: ../libgweather/gweather-gconf.c:252 ../libgweather/gweather-gconf.c:253
-#: ../libgweather/gweather.schemas.in.h:7
-msgid "DEFAULT_ZONE"
-msgstr "------"
-
-#. TRANSLATOR: Change this to the radar of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have radar names while the rest do
-#. * not. Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any radar you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a radar, set this to " "
-#. * (or space).
-#. * If you do not have a default location, set this to DEFAULT_RADAR.
-#.
-#: ../libgweather/gweather-gconf.c:273 ../libgweather/gweather-gconf.c:274
-#: ../libgweather/gweather.schemas.in.h:6
-msgid "DEFAULT_RADAR"
-msgstr "---"
-
-#. TRANSLATOR: Change this to the coordinates of your default location
-#. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
-#. * above. Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any coordinates you put here must also be present in the
-#. * Locations.xml file.
-#. *
-#. * If your default location does not have known coordinates, set this
-#. * to " " (or space).
-#. * If you do not have a default location, set this to
-#. * DEFAULT_COORDINATES.
-#.
-#: ../libgweather/gweather-gconf.c:294 ../libgweather/gweather-gconf.c:295
-#: ../libgweather/gweather.schemas.in.h:4
-msgid "DEFAULT_COORDINATES"
-msgstr "39-54N 116-28E"
-
-#: ../libgweather/gweather-prefs.c:34 ../libgweather/gweather-prefs.c:45
-#: ../libgweather/gweather-prefs.c:60 ../libgweather/gweather-prefs.c:77
-msgid "Default"
-msgstr "默认值"
-
-#. translators: Kelvin
-#: ../libgweather/gweather-prefs.c:36
-msgid "K"
-msgstr "K"
-
-#. translators: Celsius
-#: ../libgweather/gweather-prefs.c:38
-msgid "C"
-msgstr "C"
-
-#. translators: Fahrenheit
-#: ../libgweather/gweather-prefs.c:40
-msgid "F"
-msgstr "F"
-
-#. translators: meters per second
-#: ../libgweather/gweather-prefs.c:47
-msgid "m/s"
-msgstr "米/秒"
-
-#. translators: kilometers per hour
-#: ../libgweather/gweather-prefs.c:49
-msgid "km/h"
-msgstr "千米/小时"
-
-#. translators: miles per hour
-#: ../libgweather/gweather-prefs.c:51
-msgid "mph"
-msgstr "英里/小时"
-
-#. translators: knots (speed unit)
-#: ../libgweather/gweather-prefs.c:53
-msgid "knots"
-msgstr "节"
-
-#. translators: wind speed
-#: ../libgweather/gweather-prefs.c:55
-msgid "Beaufort scale"
-msgstr "蒲福级"
-
-#. translators: kilopascals
-#: ../libgweather/gweather-prefs.c:62
-msgid "kPa"
-msgstr "千帕"
-
-#. translators: hectopascals
-#: ../libgweather/gweather-prefs.c:64
-msgid "hPa"
-msgstr "百帕"
-
-#. translators: millibars
-#: ../libgweather/gweather-prefs.c:66
-msgid "mb"
-msgstr "毫巴"
-
-#. translators: millimeters of mercury
-#: ../libgweather/gweather-prefs.c:68
-msgid "mmHg"
-msgstr "毫米汞柱"
-
-#. translators: inches of mercury
-#: ../libgweather/gweather-prefs.c:70
-msgid "inHg"
-msgstr "英尺汞柱"
-
-#. translators: atmosphere
-#: ../libgweather/gweather-prefs.c:72
-msgid "atm"
-msgstr "大气压"
-
-#. translators: meters
-#: ../libgweather/gweather-prefs.c:79
-msgid "m"
-msgstr "米"
-
-#. translators: kilometers
-#: ../libgweather/gweather-prefs.c:81
-msgid "km"
-msgstr "千米"
-
-#. translators: miles
-#: ../libgweather/gweather-prefs.c:83
-msgid "mi"
-msgstr "英里"
-
-#. TRANSLATOR: This is the default unit to use for temperature measurements.
-#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:103 ../libgweather/gweather-prefs.c:111
-msgid "DEFAULT_TEMP_UNIT"
-msgstr "C"
-
-#. TRANSLATOR: This is the default unit to use for wind speed.
-#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
-#. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:141 ../libgweather/gweather-prefs.c:151
-msgid "DEFAULT_SPEED_UNIT"
-msgstr "千米/小时"
-
-#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
-#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
-#. "mb" (millibars), "mmHg" (millimeters of mercury),
-#. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:183 ../libgweather/gweather-prefs.c:194
-msgid "DEFAULT_PRESSURE_UNIT"
-msgstr "hPa"
-
-#. TRANSLATOR: This is the default unit to use for visibility distance.
-#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:224 ../libgweather/gweather-prefs.c:233
-msgid "DEFAULT_DISTANCE_UNIT"
-msgstr "km"
-
-#: ../libgweather/gweather-timezone.c:314
+#: ../libgweather/gweather-timezone.c:316
 msgid "Greenwich Mean Time"
 msgstr "格林尼治标准时间(GMT)"
 
-#: ../libgweather/gweather.schemas.in.h:1
-msgid ""
-"A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"从 weather.com 获取雷达地图的三位数代码，您可以在 http://git.gnome.org/cgit/"
-"libgweather/plain/data/Locations.xml.in 找到"
-
-#: ../libgweather/gweather.schemas.in.h:2
-msgid ""
-"A unique zone for the city, as found from http://git.gnome.org/cgit/"
-"libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"城市的唯一区域，您可以在 http://git.gnome.org/cgit/libgweather/plain/data/"
-"Locations.xml.in 找到"
-
-#: ../libgweather/gweather.schemas.in.h:8
-msgid ""
-"Determines whether the applet automatically updates its weather statistics "
-"or not."
-msgstr "决定小程序是否自动更新天气统计。"
-
-#: ../libgweather/gweather.schemas.in.h:9
-msgid "Display radar map"
-msgstr "显示雷达图"
-
-#: ../libgweather/gweather.schemas.in.h:10
-msgid "Distance unit"
-msgstr "距离单位"
-
-#: ../libgweather/gweather.schemas.in.h:11
-msgid "Fetch a radar map on each update."
-msgstr "每次更新时取回雷达图。"
-
-#: ../libgweather/gweather.schemas.in.h:12
-msgid ""
-"If true, then retrieve a radar map from a location specified by the \"radar"
-"\" key."
-msgstr "如果为 true，则从“radar”键中指定的位置取回雷达图。"
-
-#: ../libgweather/gweather.schemas.in.h:13
-msgid ""
-"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-"[EW]."
-msgstr "您所在位置的经纬度，格式为“度-分-秒[NS] 度-分-秒[EW]”"
-
-#: ../libgweather/gweather.schemas.in.h:14
-msgid "Location coordinates"
-msgstr "位置坐标"
-
-#: ../libgweather/gweather.schemas.in.h:15
-msgid "Nearby city"
-msgstr "临近城市"
-
-#: ../libgweather/gweather.schemas.in.h:16
-msgid ""
-"Nearby major zone, such as a capital city, as found from http://git.gnome."
-"org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"临近的主要区域，比如首都或省会城市，您可以在 http://git.gnome.org/cgit/"
-"libgweather/plain/data/Locations.xml.in 找到"
-
-#: ../libgweather/gweather.schemas.in.h:17
-msgid "Not used anymore"
-msgstr "不再使用"
-
-#: ../libgweather/gweather.schemas.in.h:18
-msgid "Pressure unit"
-msgstr "气压单位"
-
-#: ../libgweather/gweather.schemas.in.h:19
-msgid "Radar location"
-msgstr "雷达位置"
-
-#: ../libgweather/gweather.schemas.in.h:20
-msgid "Speed unit"
-msgstr "速度单位"
-
-#: ../libgweather/gweather.schemas.in.h:21
-msgid "Temperature unit"
-msgstr "温度单位"
-
-#: ../libgweather/gweather.schemas.in.h:22
-msgid "The city that gweather displays information for."
-msgstr "gweather 显示信息的城市。"
-
-#: ../libgweather/gweather.schemas.in.h:23
-msgid "The custom url from where to retrieve a radar map."
-msgstr "收取雷达图的自定义 URL。"
-
-#: ../libgweather/gweather.schemas.in.h:24
-msgid "The interval, in seconds, between automatic updates."
-msgstr "自动更新的间隔，以秒计。"
-
-#: ../libgweather/gweather.schemas.in.h:25
-msgid "The unit to use for pressure."
-msgstr "要使用的压力单位。"
-
-#: ../libgweather/gweather.schemas.in.h:26
-msgid "The unit to use for temperature."
-msgstr "要使用的压力单位。"
-
-#: ../libgweather/gweather.schemas.in.h:27
-msgid "The unit to use for visibility."
-msgstr "要使用的能见度单位。"
-
-#: ../libgweather/gweather.schemas.in.h:28
-msgid "The unit to use for wind speed."
-msgstr "要使用的风速单位。"
-
-#: ../libgweather/gweather.schemas.in.h:29
-msgid "Update interval"
-msgstr "更新间隔"
-
-#: ../libgweather/gweather.schemas.in.h:30
-msgid "Update the data automatically"
-msgstr "自动更新数据"
-
-#: ../libgweather/gweather.schemas.in.h:31
-msgid "Url for the radar map"
-msgstr "雷达图的 URL"
-
-#: ../libgweather/gweather.schemas.in.h:32
-msgid "Use custom url for the radar map"
-msgstr "对雷达图使用自定义地址"
-
-#: ../libgweather/gweather.schemas.in.h:33
-msgid "Use metric units"
-msgstr "使用公制单位"
-
-#: ../libgweather/gweather.schemas.in.h:34
-msgid "Use metric units instead of english units."
-msgstr "使用公制单位，而不是英制单位。"
-
-#: ../libgweather/gweather.schemas.in.h:35
-msgid "Weather for a city"
-msgstr "城市天气"
-
-#: ../libgweather/gweather.schemas.in.h:36
-msgid "Weather location information"
-msgstr "天气位置信息"
-
-#: ../libgweather/gweather.schemas.in.h:37
-msgid "Weather location information."
-msgstr "天气位置信息。"
-
-#: ../libgweather/gweather.schemas.in.h:38
-msgid "Zone location"
-msgstr "区域位置"
-
-#: ../libgweather/timezone-menu.c:277
+#: ../libgweather/timezone-menu.c:278
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "未知"
 
-#. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:504
-#, c-format
-msgid "Failed to get METAR data: %d %s.\n"
-msgstr "获取 METAR 数据失败：%d %s。\n"
-
-#: ../libgweather/weather-metar.c:548
-msgid "WeatherInfo missing location"
-msgstr "天气信息缺少位置"
-
-#: ../libgweather/weather.c:232
+#: ../libgweather/weather.c:201
 msgid "Variable"
 msgstr "变量"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:202
 msgid "North"
 msgstr "北"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:202
 msgid "North - NorthEast"
 msgstr "东北偏北"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:202
 msgid "Northeast"
 msgstr "东北"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:202
 msgid "East - NorthEast"
 msgstr "东北偏东"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:203
 msgid "East"
 msgstr "东"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:203
 msgid "East - Southeast"
 msgstr "东南偏东"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:203
 msgid "Southeast"
 msgstr "东南"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:203
 msgid "South - Southeast"
 msgstr "东南偏南"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:204
 msgid "South"
 msgstr "南"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:204
 msgid "South - Southwest"
 msgstr "西南偏南"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:204
 msgid "Southwest"
 msgstr "西南"
 
-#: ../libgweather/weather.c:235
+#: ../libgweather/weather.c:204
 msgid "West - Southwest"
 msgstr "西南偏西"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:205
 msgid "West"
 msgstr "西"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:205
 msgid "West - Northwest"
 msgstr "西北偏西"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:205
 msgid "Northwest"
 msgstr "西北"
 
-#: ../libgweather/weather.c:236
+#: ../libgweather/weather.c:205
 msgid "North - Northwest"
 msgstr "西北偏北"
 
-#: ../libgweather/weather.c:243 ../libgweather/weather.c:260
-#: ../libgweather/weather.c:332
+#: ../libgweather/weather.c:212 ../libgweather/weather.c:229
+#: ../libgweather/weather.c:301
 msgid "Invalid"
 msgstr "无效"
 
-#: ../libgweather/weather.c:249
+#: ../libgweather/weather.c:218
 msgid "Clear Sky"
 msgstr "晴朗"
 
-#: ../libgweather/weather.c:250
+#: ../libgweather/weather.c:219
 msgid "Broken clouds"
 msgstr "碎云"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:220
 msgid "Scattered clouds"
 msgstr "散云"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/weather.c:221
 msgid "Few clouds"
 msgstr "薄云"
 
-#: ../libgweather/weather.c:253
+#: ../libgweather/weather.c:222
 msgid "Overcast"
 msgstr "阴天"
 
@@ -488,376 +131,373 @@ msgstr "阴天"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:292 ../libgweather/weather.c:294
+#: ../libgweather/weather.c:261 ../libgweather/weather.c:263
 msgid "Thunderstorm"
 msgstr "雷暴"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:262
 msgid "Drizzle"
 msgstr "细雨"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:262
 msgid "Light drizzle"
 msgstr "小细雨"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:262
 msgid "Moderate drizzle"
 msgstr "中细雨"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:262
 msgid "Heavy drizzle"
 msgstr "大细雨"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:262
 msgid "Freezing drizzle"
 msgstr "冻细雨"
 
 #. RAIN
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:263
 msgid "Rain"
 msgstr "雨"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:263
 msgid "Light rain"
 msgstr "小雨"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:263
 msgid "Moderate rain"
 msgstr "中雨"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:263
 msgid "Heavy rain"
 msgstr "大雨"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:263
 msgid "Rain showers"
 msgstr "阵雨"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:263
 msgid "Freezing rain"
 msgstr "冻雨"
 
 #. SNOW
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:264
 msgid "Snow"
 msgstr "雪"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:264
 msgid "Light snow"
 msgstr "小雪"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:264
 msgid "Moderate snow"
 msgstr "中雪"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:264
 msgid "Heavy snow"
 msgstr "大雪"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:264
 msgid "Snowstorm"
 msgstr "暴雪"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:264
 msgid "Blowing snowfall"
 msgstr "风雪"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:264
 msgid "Snow showers"
 msgstr "阵雪"
 
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:264
 msgid "Drifting snow"
 msgstr "飘雪"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:265
 msgid "Snow grains"
 msgstr "粒雪"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:265
 msgid "Light snow grains"
 msgstr "小粒雪"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:265
 msgid "Moderate snow grains"
 msgstr "中粒雪"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:265
 msgid "Heavy snow grains"
 msgstr "大粒雪"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:266
 msgid "Ice crystals"
 msgstr "冰晶"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:267
 msgid "Ice pellets"
 msgstr "冰丸"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:267
 msgid "Few ice pellets"
 msgstr "小冰丸"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:267
 msgid "Moderate ice pellets"
 msgstr "中冰丸"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:267
 msgid "Heavy ice pellets"
 msgstr "大冰丸"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:267
 msgid "Ice pellet storm"
 msgstr "暴冰丸"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:267
 msgid "Showers of ice pellets"
 msgstr "阵冰丸"
 
 #. HAIL
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:268
 msgid "Hail"
 msgstr "雹"
 
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:268
 msgid "Hailstorm"
 msgstr "雹暴"
 
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:268
 msgid "Hail showers"
 msgstr "阵雹"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:269
 msgid "Small hail"
 msgstr "小雹"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:269
 msgid "Small hailstorm"
 msgstr "小雹暴"
 
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:269
 msgid "Showers of small hail"
 msgstr "小阵雹"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:270
 msgid "Unknown precipitation"
 msgstr "未知预测"
 
 #. MIST
-#: ../libgweather/weather.c:302
+#: ../libgweather/weather.c:271
 msgid "Mist"
 msgstr "细雾"
 
 #. FOG
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:272
 msgid "Fog"
 msgstr "雾"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:272
 msgid "Fog in the vicinity"
 msgstr "临近有雾"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:272
 msgid "Shallow fog"
 msgstr "浅雾"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:272
 msgid "Patches of fog"
 msgstr "局部地区有雾"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:272
 msgid "Partial fog"
 msgstr "部分有雾"
 
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:272
 msgid "Freezing fog"
 msgstr "冻雾"
 
 #. SMOKE
-#: ../libgweather/weather.c:304
+#: ../libgweather/weather.c:273
 msgid "Smoke"
 msgstr "烟"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:274
 msgid "Volcanic ash"
 msgstr "火山灰"
 
 #. SAND
-#: ../libgweather/weather.c:306
+#: ../libgweather/weather.c:275
 msgid "Sand"
 msgstr "沙"
 
-#: ../libgweather/weather.c:306
+#: ../libgweather/weather.c:275
 msgid "Blowing sand"
 msgstr "高吹沙"
 
-#: ../libgweather/weather.c:306
+#: ../libgweather/weather.c:275
 msgid "Drifting sand"
 msgstr "流砂"
 
 #. HAZE
-#: ../libgweather/weather.c:307
+#: ../libgweather/weather.c:276
 msgid "Haze"
 msgstr "霾"
 
 #. SPRAY
-#: ../libgweather/weather.c:308
+#: ../libgweather/weather.c:277
 msgid "Blowing sprays"
 msgstr "有风冰雾"
 
 #. DUST
-#: ../libgweather/weather.c:309
+#: ../libgweather/weather.c:278
 msgid "Dust"
 msgstr "粉尘"
 
-#: ../libgweather/weather.c:309
+#: ../libgweather/weather.c:278
 msgid "Blowing dust"
 msgstr "有风粉尘"
 
-#: ../libgweather/weather.c:309
+#: ../libgweather/weather.c:278
 msgid "Drifting dust"
 msgstr "微风粉尘"
 
 #. SQUALL
-#: ../libgweather/weather.c:310
+#: ../libgweather/weather.c:279
 msgid "Squall"
 msgstr "暴风"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:280
 msgid "Sandstorm"
 msgstr "沙暴"
 
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:280
 msgid "Sandstorm in the vicinity"
 msgstr "临近有沙暴"
 
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:280
 msgid "Heavy sandstorm"
 msgstr "大沙暴"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:312
+#: ../libgweather/weather.c:281
 msgid "Duststorm"
 msgstr "尘暴"
 
-#: ../libgweather/weather.c:312
+#: ../libgweather/weather.c:281
 msgid "Duststorm in the vicinity"
 msgstr "临近有尘暴"
 
-#: ../libgweather/weather.c:312
+#: ../libgweather/weather.c:281
 msgid "Heavy duststorm"
 msgstr "大尘暴"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:313
+#: ../libgweather/weather.c:282
 msgid "Funnel cloud"
 msgstr "漏斗云"
 
 #. TORNADO
-#: ../libgweather/weather.c:314
+#: ../libgweather/weather.c:283
 msgid "Tornado"
 msgstr "龙卷风"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:315
+#: ../libgweather/weather.c:284
 msgid "Dust whirls"
 msgstr "尘卷风"
 
-#: ../libgweather/weather.c:315
+#: ../libgweather/weather.c:284
 msgid "Dust whirls in the vicinity"
 msgstr "邻近有尘卷风"
 
-#. TRANSLATOR: this is a format string for strftime
-#. *             see `man 3 strftime` for more details
-#.
-#: ../libgweather/weather.c:710
+#: ../libgweather/weather.c:614
 msgid "%a, %b %d / %H:%M"
 msgstr "%-m月%-d日%A %H:%M"
 
-#: ../libgweather/weather.c:725
+#: ../libgweather/weather.c:620
 msgid "Unknown observation time"
 msgstr "未知的观测时间"
 
-#: ../libgweather/weather.c:739 ../libgweather/weather.c:790
-#: ../libgweather/weather.c:804 ../libgweather/weather.c:817
-#: ../libgweather/weather.c:830 ../libgweather/weather.c:843
-#: ../libgweather/weather.c:861 ../libgweather/weather.c:879
-#: ../libgweather/weather.c:917 ../libgweather/weather.c:933
-#: ../libgweather/weather.c:956 ../libgweather/weather.c:988
-#: ../libgweather/weather.c:1004 ../libgweather/weather.c:1024
+#: ../libgweather/weather.c:632 ../libgweather/weather.c:681
+#: ../libgweather/weather.c:696 ../libgweather/weather.c:712
+#: ../libgweather/weather.c:728 ../libgweather/weather.c:744
+#: ../libgweather/weather.c:761 ../libgweather/weather.c:781
+#: ../libgweather/weather.c:811 ../libgweather/weather.c:829
+#: ../libgweather/weather.c:858 ../libgweather/weather.c:884
+#: ../libgweather/weather.c:901 ../libgweather/weather.c:918
 msgid "Unknown"
 msgstr "未知"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:761
+#: ../libgweather/weather.c:652
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:764
+#: ../libgweather/weather.c:655
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:770
+#: ../libgweather/weather.c:661
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:773
+#: ../libgweather/weather.c:664
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:779
+#: ../libgweather/weather.c:670
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:782
+#: ../libgweather/weather.c:673
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:864
+#: ../libgweather/weather.c:764
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:892
+#: ../libgweather/weather.c:792
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f 节"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:896
+#: ../libgweather/weather.c:795
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f 英里/小时"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:900
+#: ../libgweather/weather.c:798
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f 千米/小时"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:904
+#: ../libgweather/weather.c:801
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f 米/秒"
@@ -865,80 +505,367 @@ msgstr "%.1f 米/秒"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:910
+#: ../libgweather/weather.c:806
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "蒲福级 %1.f"
 
-#: ../libgweather/weather.c:935
+#: ../libgweather/weather.c:831
 msgid "Calm"
 msgstr "平静"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:939
+#: ../libgweather/weather.c:839
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:961
+#: ../libgweather/weather.c:863
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f 英寸汞柱"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:965
+#: ../libgweather/weather.c:866
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f 毫米汞柱"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:969
+#: ../libgweather/weather.c:869
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f 千帕"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:973
+#: ../libgweather/weather.c:872
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f 百帕"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:977
+#: ../libgweather/weather.c:875
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f 毫巴"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:981
+#: ../libgweather/weather.c:878
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f 大气压"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:1009
+#: ../libgweather/weather.c:906
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f 英里"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:1013
+#: ../libgweather/weather.c:909
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f 千米"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1017
+#: ../libgweather/weather.c:912
 #, c-format
 msgid "%.0fm"
 msgstr "%.0f 米"
 
-#: ../libgweather/weather.c:1046 ../libgweather/weather.c:1067
+#: ../libgweather/weather.c:945 ../libgweather/weather.c:973
 msgid "%H:%M"
 msgstr "%H:%M"
 
-#: ../libgweather/weather.c:1126
+#: ../libgweather/weather.c:1054
 msgid "Retrieval failed"
 msgstr "获取失败"
 
+#. Translators: %d is an error code, and %s the error string
+#: ../libgweather/weather-metar.c:523
+#, c-format
+msgid "Failed to get METAR data: %d %s.\n"
+msgstr "获取 METAR 数据失败：%d %s。\n"
+
+#: ../libgweather/weather-metar.c:571
+msgid "WeatherInfo missing location"
+msgstr "天气信息缺少位置"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:1
+msgid "URL for the radar map"
+msgstr "雷达图 URL"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:2
+msgid ""
+"The custom URL from where to retrieve a radar map, or empty for disabling "
+"radar maps."
+msgstr "获取雷达图的自定义 URL，如果为空则禁用雷达图。"
+
+#. TRANSLATORS: pick a temperature unit that should be used by default in your
+#. locale; values must be quoted
+#: ../data/org.gnome.GWeather.gschema.xml.h:5
+msgid "'fahrenheit'"
+msgstr "“华氏度”"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:6
+msgid "Temperature unit"
+msgstr "温度单位"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:7
+msgid ""
+"The unit of temperature used for showing weather. Valid values are 'kelvin', "
+"'centigrade' and 'fahrenheit'."
+msgstr "用来显示天气的温度单位。有效值有“开氏度”、“摄氏度”和“华氏度”。"
+
+#. TRANSLATORS: pick a default distance unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:10
+msgid "'miles'"
+msgstr "“英里”"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:11
+msgid "Distance unit"
+msgstr "距离单位"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:12
+msgid ""
+"The unit of distance used for showing weather (for example for visibility or "
+"for distance of important events). Valid values are 'meters', 'km' and "
+"'miles'."
+msgstr ""
+"用于显示天气的距离单位(如能见度或重要天气事件的距离)。有效值有“米”、“千"
+"米”和“英里”。"
+
+#. TRANSLATORS: pick a default speed unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:15
+msgid "'knots'"
+msgstr "“节”"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:16
+msgid "Speed unit"
+msgstr "速度单位"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:17
+msgid ""
+"The unit of speed used for showing weather (for example for wind speed). "
+"Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
+"'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+msgstr ""
+"用于显示天气的速度单位(如风速)。有效值有“米/秒”、“千米/小时”、“英里/小"
+"时”、“节”和“蒲福级”。"
+
+#. TRANSLATORS: pick a default pressure unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:20
+msgid "'inch-hg'"
+msgstr "“英寸-汞柱”"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:21
+msgid "Pressure unit"
+msgstr "气压单位"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:22
+msgid ""
+"The unit of pressure used for showing weather. Valid values are "
+"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
+"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
+"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+msgstr ""
+"用于显示天气气压的单位。有效值有“千帕”、“百帕”、“毫巴(数学上等同于 1 百帕，但"
+"显示有差异)”、“毫米汞柱”、“英寸汞柱”和“大气压”。"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:23
+msgid "Default location"
+msgstr "默认位置"
+
+# 不知道  &lt;code&gt; 是否保留原样，查找的资料无法确定。
+#: ../data/org.gnome.GWeather.gschema.xml.h:24
+msgid ""
+"The default location for the weather applet. The first field is the name "
+"that will be shown. If empty, it will be taken from the locations database. "
+"The second field is the METAR code for the default weather station. It must "
+"not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml "
+"file. The third field is a tuple of (latitude, longitude), to override the "
+"value taken from the database. This is only used for sunrise and moon phase "
+"calculations, not for weather forecast."
+msgstr ""
+"天气小应用显示的默认位置。第一个字段是将显示的名称。如果为空，将从位置数据库"
+"中提取。第二字段是默认气象台的 METAR 代码。此处不能为空且必须与 Locations."
+"xml 文件中的 &lt;code&gt; 标记相对应。第三字段是一数组(纬度, 经度)，它将覆盖"
+"从数据库中提取的数据。该字段仅用来进行日出、日落和月相计算，不用来预报天气。"
+
+#~ msgid "DEFAULT_LOCATION"
+#~ msgstr "北京"
+
+#~ msgid "DEFAULT_CODE"
+#~ msgstr "ZBAA"
+
+#~ msgid "DEFAULT_ZONE"
+#~ msgstr "------"
+
+#~ msgid "DEFAULT_RADAR"
+#~ msgstr "---"
+
+#~ msgid "DEFAULT_COORDINATES"
+#~ msgstr "39-54N 116-28E"
+
+#~ msgid "Default"
+#~ msgstr "默认值"
+
+#~ msgid "K"
+#~ msgstr "K"
+
+#~ msgid "C"
+#~ msgstr "C"
+
+#~ msgid "F"
+#~ msgstr "F"
+
+#~ msgid "m/s"
+#~ msgstr "米/秒"
+
+#~ msgid "km/h"
+#~ msgstr "千米/小时"
+
+#~ msgid "mph"
+#~ msgstr "英里/小时"
+
+#~ msgid "Beaufort scale"
+#~ msgstr "蒲福级"
+
+#~ msgid "kPa"
+#~ msgstr "千帕"
+
+#~ msgid "hPa"
+#~ msgstr "百帕"
+
+#~ msgid "mb"
+#~ msgstr "毫巴"
+
+#~ msgid "mmHg"
+#~ msgstr "毫米汞柱"
+
+#~ msgid "inHg"
+#~ msgstr "英尺汞柱"
+
+#~ msgid "atm"
+#~ msgstr "大气压"
+
+#~ msgid "m"
+#~ msgstr "米"
+
+#~ msgid "km"
+#~ msgstr "千米"
+
+#~ msgid "mi"
+#~ msgstr "英里"
+
+#~ msgid "DEFAULT_TEMP_UNIT"
+#~ msgstr "C"
+
+#~ msgid "DEFAULT_SPEED_UNIT"
+#~ msgstr "千米/小时"
+
+#~ msgid "DEFAULT_PRESSURE_UNIT"
+#~ msgstr "hPa"
+
+#~ msgid "DEFAULT_DISTANCE_UNIT"
+#~ msgstr "km"
+
+#~ msgid ""
+#~ "A three-digit-long code for retrieving radar maps from weather.com, found "
+#~ "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "从 weather.com 获取雷达地图的三位数代码，您可以在 http://git.gnome.org/"
+#~ "cgit/libgweather/plain/data/Locations.xml.in 找到"
+
+#~ msgid ""
+#~ "A unique zone for the city, as found from http://git.gnome.org/cgit/"
+#~ "libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "城市的唯一区域，您可以在 http://git.gnome.org/cgit/libgweather/plain/data/"
+#~ "Locations.xml.in 找到"
+
+#~ msgid ""
+#~ "Determines whether the applet automatically updates its weather "
+#~ "statistics or not."
+#~ msgstr "决定小程序是否自动更新天气统计。"
+
+#~ msgid "Display radar map"
+#~ msgstr "显示雷达图"
+
+#~ msgid "Fetch a radar map on each update."
+#~ msgstr "每次更新时取回雷达图。"
+
+#~ msgid ""
+#~ "If true, then retrieve a radar map from a location specified by the "
+#~ "\"radar\" key."
+#~ msgstr "如果为 true，则从“radar”键中指定的位置取回雷达图。"
+
+#~ msgid ""
+#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
+#~ "[EW]."
+#~ msgstr "您所在位置的经纬度，格式为“度-分-秒[NS] 度-分-秒[EW]”"
+
+#~ msgid "Location coordinates"
+#~ msgstr "位置坐标"
+
+#~ msgid "Nearby city"
+#~ msgstr "临近城市"
+
+#~ msgid ""
+#~ "Nearby major zone, such as a capital city, as found from http://git.gnome."
+#~ "org/cgit/libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "临近的主要区域，比如首都或省会城市，您可以在 http://git.gnome.org/cgit/"
+#~ "libgweather/plain/data/Locations.xml.in 找到"
+
+#~ msgid "Not used anymore"
+#~ msgstr "不再使用"
+
+#~ msgid "Radar location"
+#~ msgstr "雷达位置"
+
+#~ msgid "The city that gweather displays information for."
+#~ msgstr "gweather 显示信息的城市。"
+
+#~ msgid "The interval, in seconds, between automatic updates."
+#~ msgstr "自动更新的间隔，以秒计。"
+
+#~ msgid "The unit to use for pressure."
+#~ msgstr "要使用的压力单位。"
+
+#~ msgid "The unit to use for temperature."
+#~ msgstr "要使用的压力单位。"
+
+#~ msgid "The unit to use for visibility."
+#~ msgstr "要使用的能见度单位。"
+
+#~ msgid "The unit to use for wind speed."
+#~ msgstr "要使用的风速单位。"
+
+#~ msgid "Update interval"
+#~ msgstr "更新间隔"
+
+#~ msgid "Update the data automatically"
+#~ msgstr "自动更新数据"
+
+#~ msgid "Use custom url for the radar map"
+#~ msgstr "对雷达图使用自定义地址"
+
+#~ msgid "Use metric units"
+#~ msgstr "使用公制单位"
+
+#~ msgid "Use metric units instead of english units."
+#~ msgstr "使用公制单位，而不是英制单位。"
+
+#~ msgid "Weather for a city"
+#~ msgstr "城市天气"
+
+#~ msgid "Weather location information"
+#~ msgstr "天气位置信息"
+
+#~ msgid "Weather location information."
+#~ msgstr "天气位置信息。"
