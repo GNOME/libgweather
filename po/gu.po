@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
 "cgi?product=libgweather&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-09-17 11:38+0000\n"
-"PO-Revision-Date: 2012-09-20 17:18+0530\n"
+"PO-Revision-Date: 2012-09-21 11:30+0530\n"
 "Last-Translator: \n"
 "Language-Team: gu_IN <kde-i18n-doc@kde.org>\n"
 "Language: \n"
@@ -318,7 +318,7 @@ msgstr "નાનાં કરાનો વરસાદ"
 #. PRECIPITATION
 #: ../libgweather/weather.c:270
 msgid "Unknown precipitation"
-msgstr ""
+msgstr "અજ્ઞાત રીતે આકાશમાંથી કરા, બરફ કે બીજી રૂપે પડતો વરસાદ"
 
 #. MIST
 #: ../libgweather/weather.c:271
@@ -671,6 +671,9 @@ msgid ""
 "for distance of important events). Valid values are 'meters', 'km' and "
 "'miles'."
 msgstr ""
+"હવામાનને બતાવવા માટે વાપરેલ અંતરનો એકમ (ઉદાહરણ તરીકે મહત્વની ઘટનાઓનાં અંતર "
+"માટે અથવા દૃશ્યતા માટે). માન્ય કિંમતો 'meters', 'km' અને "
+"'miles' છે."
 
 #. TRANSLATORS: pick a default speed unit for your locale, see key description
 #. for valid values
@@ -688,6 +691,9 @@ msgid ""
 "Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
 "'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
 msgstr ""
+"હવામાનને બતાવવા માટે વાપરેલ ઝડપનાં એકમ (ઉદાહરણ તરીકે પવન ઝડપ માટે). માન્ય "
+"કિંમતો 'ms' (meters per second), 'kph' (કલાક પ્રતિ કિલોમિટર), "
+"'mph' (કલાક પ્રતિ માઇલ્સ), 'knots' અને 'bft' (પવનગતિમાપક) છે."
 
 #. TRANSLATORS: pick a default pressure unit for your locale, see key description
 #. for valid values
@@ -706,6 +712,10 @@ msgid ""
 "equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
 "mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
 msgstr ""
+"હવામાન બતાવવા માટે વાપરેલ દબાણનો એકમ. માન્ય કિંમતો 'kpa' (kilopascal), 'hpa' "
+"(hectopascal), 'mb' (millibar, ગાણિતીક રીતે 1 hPa જેટલુ છે પરંતુ અલગ રીતે "
+"બતાવેલ છે), 'mm-hg' (પારાનું મિલિમિટર), 'inch-hg' (પારાનું ઇન્ચ), 'atm' "
+"(વાતાવરણ) છે."
 
 #: ../data/org.gnome.GWeather.gschema.xml.h:23
 #| msgid "Delta Junction"
@@ -722,6 +732,12 @@ msgid ""
 "value taken from the database. This is only used for sunrise and moon phase "
 "calculations, not for weather forecast."
 msgstr ""
+"હવામાન એપલેટ માટે મૂળભૂત સ્થાન. પ્રથમ ક્ષેત્ર નામ છે કે જે બતાવેલ હશે. જો "
+"ખાલી હોય તો, તે ડેટાબેઝ સ્થાનમાંથી લઇ લીધેલ હશે. બીજુ ક્ષેત્ર એ મૂળભૂત "
+"હવામાન સ્ટેશન માટે METAR કોડ છે. તે ખાલી ન હોવુ જ જોઇએ અને તે Locations.xml "
+"ફાઇલમાં &lt;code&gt; ટૅગ સાથે સંકળાયેલ જ હોવુ જોઇએ. ત્રીજુ ક્ષેત્ર "
+"ડેટાબેઝમાંથી લીધેલ કિંમત ઉપર લખવા માટે (અક્ષાંક્ષ રેખાંશ) નું ટપલ છે. આ ફક્ત "
+"સૂર્યોદય અને ચંદ્ર તબક્કાની ગણતરી માટે વપરાય છે, હવામાન આગાહી માટે નહિં"
 
 #~ msgid "Africa"
 #~ msgstr "આફ્રિકા"
