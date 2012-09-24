@@ -14,11 +14,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"applets&component=gweather\n"
-"POT-Creation-Date: 2010-12-23 19:22+0000\n"
-"PO-Revision-Date: 2010-12-29 17:38+0300\n"
-"Last-Translator: Mattias Põldaru <mahfiaz gmail com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgweather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-09-22 17:35+0000\n"
+"PO-Revision-Date: 2012-09-23 18:14+0300\n"
+"Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
@@ -26,309 +26,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. TRANSLATOR: Change this to the default location name,
-#. * used when you first start the Weather Applet. This is
-#. * the common localised name that corresponds to
-#. * the location code (DEFAULT_CODE) you will put on the next message
-#. * For example, for the Greek locale, we set this to "Athens", the
-#. * capital city and we write it in Greek. It's important to translate
-#. * this name.
-#. *
-#. * If you do not require a DEFAULT_LOCATION, set this to
-#. * "DEFAULT_LOCATION".
-#.
-msgid "DEFAULT_LOCATION"
-msgstr "Tallinn"
-
-#. TRANSLATOR: Change this to the code of your default location that
-#. * corresponds to the DEFAULT_LOCATION name you put above. This is
-#. * normally a four-letter (ICAO) code and can be found in
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * NB. The web page is over 1.7MB in size.
-#. * Pick a default location like a capital city so that it would be ok
-#. * for more of your users. For example, for Greek, we use "LGAV" for
-#. * the capital city, Athens.
-#. *
-#. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
-#.
-msgid "DEFAULT_CODE"
-msgstr "EETN"
-
-#. TRANSLATOR: Change this to the zone of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have zones while the rest do not.
-#. * Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any zone you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a zone, set this to
-#. * "DEFAULT_ZONE".
-#.
-msgid "DEFAULT_ZONE"
-msgstr "Europe/Tallinn"
-
-#. TRANSLATOR: Change this to the radar of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have radar names while the rest do
-#. * not. Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any radar you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a radar, set this to " "
-#. * (or space).
-#. * If you do not have a default location, set this to DEFAULT_RADAR.
-#.
-msgid "DEFAULT_RADAR"
-msgstr "\" \""
-
-#. TRANSLATOR: Change this to the coordinates of your default location
-#. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
-#. * above. Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any coordinates you put here must also be present in the
-#. * Locations.xml file.
-#. *
-#. * If your default location does not have known coordinates, set this
-#. * to " " (or space).
-#. * If you do not have a default location, set this to
-#. * DEFAULT_COORDINATES.
-#.
-msgid "DEFAULT_COORDINATES"
-msgstr "59-24N 024-49E"
-
-msgid "Default"
-msgstr "Vaikimisi"
-
-#. translators: Kelvin
-msgid "K"
-msgstr "K"
-
-#. translators: Celsius
-msgid "C"
-msgstr "C"
-
-#. translators: Fahrenheit
-msgid "F"
-msgstr "F"
-
-#. translators: meters per second
-msgid "m/s"
-msgstr "m/s"
-
-#. translators: kilometers per hour
-msgid "km/h"
-msgstr "km/t"
-
-#. translators: miles per hour
-msgid "mph"
-msgstr "miili tunnis"
-
-#. translators: knots (speed unit)
-msgid "knots"
-msgstr "sõlme"
-
-#. translators: wind speed
-msgid "Beaufort scale"
-msgstr "palli"
-
-#. translators: kilopascals
-msgid "kPa"
-msgstr "kPa"
-
-#. translators: hectopascals
-msgid "hPa"
-msgstr "hPa"
-
-#. translators: millibars
-msgid "mb"
-msgstr "mbar"
-
-#. translators: millimeters of mercury
-msgid "mmHg"
-msgstr "mm Hg"
-
-#. translators: inches of mercury
-msgid "inHg"
-msgstr "tolli Hg"
-
-#. translators: atmosphere
-msgid "atm"
-msgstr "atm"
-
-#. translators: meters
-msgid "m"
-msgstr "m"
-
-#. translators: kilometers
-msgid "km"
-msgstr "km"
-
-#. translators: miles
-msgid "mi"
-msgstr "miili"
-
-#. TRANSLATOR: This is the default unit to use for temperature measurements.
-#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-msgid "DEFAULT_TEMP_UNIT"
-msgstr "C"
-
-#. TRANSLATOR: This is the default unit to use for wind speed.
-#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
-#. "mph" (miles per hour) and "knots"
-msgid "DEFAULT_SPEED_UNIT"
-msgstr "m/s"
-
-#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
-#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
-#. "mb" (millibars), "mmHg" (millimeters of mercury),
-#. "inHg" (inches of mercury) and "atm" (atmosphere)
-msgid "DEFAULT_PRESSURE_UNIT"
-msgstr "mmHg"
-
-#. TRANSLATOR: This is the default unit to use for visibility distance.
-#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-msgid "DEFAULT_DISTANCE_UNIT"
-msgstr "km"
-
 msgid "Greenwich Mean Time"
 msgstr "Greenwichi ajavöönd"
-
-msgid ""
-"A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Kolmekohaline number radarikaardi vastuvõtmiseks weather.com saidist. "
-"Numbrid leiab aadressilt http://git.gnome.org/cgit/libgweather/plain/data/"
-"Locations.xml.in"
-
-msgid ""
-"A unique zone for the city, as found from http://git.gnome.org/cgit/"
-"libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Unikaalne piirkond linna jaoks, nagu on näidatud aadressil http://git.gnome."
-"org/cgit/libgweather/plain/data/Locations.xml.in"
-
-msgid ""
-"Determines whether the applet automatically updates its weather statistics "
-"or not."
-msgstr ""
-"Selle abil määratakse, kas rakend uuendab ilmastatistikat automaatselt või "
-"mitte."
-
-msgid "Display radar map"
-msgstr "Näita _radarikaarti"
-
-msgid "Distance unit"
-msgstr "Kaugusühik"
-
-msgid "Fetch a radar map on each update."
-msgstr "Radarikaardi hankimine iga uuenduse korral."
-
-msgid ""
-"If true, then retrieve a radar map from a location specified by the \"radar"
-"\" key."
-msgstr ""
-"Kui märgitud, siis võetakse radarikaart \"radar\" võtmega määratud asukohast."
-
-msgid ""
-"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-"[EW]."
-msgstr ""
-"Sinu asukoha laius- ja pikkuskraad väljendatuna DD-MM-SS[NS] DD-MM-SS[EW] "
-"vormingus"
-
-msgid "Location coordinates"
-msgstr "Asukoha koordinaadid"
-
-msgid "Nearby city"
-msgstr "Lähim linn"
-
-msgid ""
-"Nearby major zone, such as a capital city, as found from http://git.gnome."
-"org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Lähim tähtsam piirkond (näiteks pealinn), nagu on näidatud aadressil http://"
-"git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-
-msgid "Not used anymore"
-msgstr "Enam ei kasutata"
-
-msgid "Pressure unit"
-msgstr "Rõhuühik"
-
-msgid "Radar location"
-msgstr "Radari asukoht"
-
-msgid "Speed unit"
-msgstr "Kiirusühik"
-
-msgid "Temperature unit"
-msgstr "Temperatuuriühik"
-
-msgid "The city that gweather displays information for."
-msgstr "Linn, mille kohta gweather andmeid kuvab."
-
-msgid "The custom url from where to retrieve a radar map."
-msgstr "Kohandatud url radarikaardi hankimiseks."
-
-msgid "The interval, in seconds, between automatic updates."
-msgstr "Vahemik sekundites automaatsete uuenduste vahel."
-
-msgid "The unit to use for pressure."
-msgstr "Rõhuühik."
-
-msgid "The unit to use for temperature."
-msgstr "Temperatuuriühik."
-
-msgid "The unit to use for visibility."
-msgstr "Nähavusühik."
-
-msgid "The unit to use for wind speed."
-msgstr "Tuulekiiruse ühik."
-
-msgid "Update interval"
-msgstr "Uuendamise intervall:"
-
-msgid "Update the data automatically"
-msgstr "Andmete automaatne uuendamine"
-
-msgid "Url for the radar map"
-msgstr "Radarikaardi url"
-
-msgid "Use custom url for the radar map"
-msgstr "Kasuta radarikaardi jaoks oma aadressi"
-
-msgid "Use metric units"
-msgstr "Kasuta meetermõõdustikku"
-
-msgid "Use metric units instead of english units."
-msgstr "Kasuta meetermõõdustikku inglise mõõdustiku asemel"
-
-msgid "Weather for a city"
-msgstr "Ilm linna jaoks"
-
-msgid "Weather location information"
-msgstr "Ilmaasukoha andmed"
-
-msgid "Weather location information."
-msgstr "Ilmaasukoha andmed."
-
-msgid "Zone location"
-msgstr "Tsooni asukoht"
 
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Teadmata"
-
-#. Translators: %d is an error code, and %s the error string
-#, c-format
-msgid "Failed to get METAR data: %d %s.\n"
-msgstr "METAR-andmeid pole võimalik hankida: %d %s.\n"
-
-msgid "WeatherInfo missing location"
-msgstr "Ilmaennustuse puuduv asukoht"
 
 msgid "Variable"
 msgstr "Muutlik"
@@ -626,9 +329,6 @@ msgstr "Tolmupöörised"
 msgid "Dust whirls in the vicinity"
 msgstr "Tolmupöörised läheduses"
 
-#. TRANSLATOR: this is a format string for strftime
-#. *             see `man 3 strftime` for more details
-#.
 msgid "%a, %b %d / %H:%M"
 msgstr "%A. %e %B / %H:%M"
 
@@ -758,3 +458,108 @@ msgstr "%H:%M"
 
 msgid "Retrieval failed"
 msgstr "Tõrge uuendamisel"
+
+#. Translators: %d is an error code, and %s the error string
+#, c-format
+msgid "Failed to get METAR data: %d %s.\n"
+msgstr "METAR-andmeid pole võimalik hankida: %d %s.\n"
+
+msgid "WeatherInfo missing location"
+msgstr "Ilmaennustuse puuduv asukoht"
+
+msgid "URL for the radar map"
+msgstr "Radarikaardi URL"
+
+msgid ""
+"The custom URL from where to retrieve a radar map, or empty for disabling "
+"radar maps."
+msgstr ""
+"Kohandatud URL radarikaardi hankimiseks, radarikaardi väljalülitamiseks võid "
+"jätta tühjaks."
+
+#. TRANSLATORS: pick a temperature unit that should be used by default in your
+#. locale; values must be quoted
+msgid "'fahrenheit'"
+msgstr "'centigrade'"
+
+msgid "Temperature unit"
+msgstr "Temperatuuriühik"
+
+msgid ""
+"The unit of temperature used for showing weather. Valid values are 'kelvin', "
+"'centigrade' and 'fahrenheit'."
+msgstr ""
+"Temperatuuriühik ilmaandmete kuvamisel. Sobivad väärtused on 'kelvin', "
+"'centigrade' (Celsiuse skaala) ja 'fahrenheit'."
+
+#. TRANSLATORS: pick a default distance unit for your locale, see key description
+#. for valid values
+msgid "'miles'"
+msgstr "'km'"
+
+msgid "Distance unit"
+msgstr "Kaugusühik"
+
+msgid ""
+"The unit of distance used for showing weather (for example for visibility or "
+"for distance of important events). Valid values are 'meters', 'km' and "
+"'miles'."
+msgstr ""
+"Kaugusühik ilmaandmete kuvamisel (näiteks nähtavus või oluliste sündmuste "
+"kaugus). Sobivad väärtused on 'meters' (meetrid), 'km' (kilomeetrid) ja "
+"'miles' (miilid)."
+
+#. TRANSLATORS: pick a default speed unit for your locale, see key description
+#. for valid values
+msgid "'knots'"
+msgstr "'ms'"
+
+msgid "Speed unit"
+msgstr "Kiirusühik"
+
+msgid ""
+"The unit of speed used for showing weather (for example for wind speed). "
+"Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
+"'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+msgstr ""
+"Kiiruse ühik ilmaandmete kuvamisel (näiteks tuule kiirus). Sobivad väärtused "
+"on 'ms' (meetrit sekundis), 'kph' (kilomeetrit tunnis), 'mph' (miili "
+"tunnis), 'knots' (sõlme) ja 'bft' (Beauforti skaala)."
+
+#. TRANSLATORS: pick a default pressure unit for your locale, see key description
+#. for valid values
+msgid "'inch-hg'"
+msgstr "'mm-hg'"
+
+msgid "Pressure unit"
+msgstr "Rõhuühik"
+
+msgid ""
+"The unit of pressure used for showing weather. Valid values are "
+"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
+"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
+"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+msgstr ""
+"Rõhuühik ilmaandmete kuvamisel. Sobivad väärtused on 'kpa' (kilopaskalit), "
+"'hpa' (hektopaskalit), 'mb' (millibarid, matemaatiliselt sama kui 1 hPa, aga "
+"kuvatakse teisiti), 'mm-hg' (millimeetrit elavhõbeda sammast), 'inch-"
+"hg' (tolli elavhõbedasammast), 'atm' (atmosfääri)."
+
+msgid "Default location"
+msgstr "Vaikimisi asukoht"
+
+msgid ""
+"The default location for the weather applet. The first field is the name "
+"that will be shown. If empty, it will be taken from the locations database. "
+"The second field is the METAR code for the default weather station. It must "
+"not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml "
+"file. The third field is a tuple of (latitude, longitude), to override the "
+"value taken from the database. This is only used for sunrise and moon phase "
+"calculations, not for weather forecast."
+msgstr ""
+"Vaikimisi asukoht ilmarakendi jaoks. Esimene väli on kuvatav nimi. Kui see "
+"on tühi, võetakse see asukohtade andmebaasist. Teine väli on vaikimisi "
+"ilmajaama METAR kood. See ei tohi olla tühi ning peab vastama &lt;code&gt; "
+"sildile Locations.xml failis. Kolmas väli on tuple, (laius- ja pikkuskraad), "
+"mis kirjutab üle andmebaasist pärit asukoha. Seda kasutatakse ainult "
+"päikesetõusu ja kuufaaside arvutamisel, mitte ilma ennustamiseks."
