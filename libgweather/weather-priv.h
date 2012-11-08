@@ -44,6 +44,19 @@ const char *gweather_dpgettext (const char *context, const char *str) G_GNUC_FOR
 #define C_(context, str) (gweather_dpgettext (context, str))
 #define N_(str) (str)
 
+struct _GWeatherLocation {
+    char *name, *sort_name;
+    GWeatherLocation *parent, **children;
+    GWeatherLocationLevel level;
+    char *country_code, *tz_hint;
+    char *station_code, *forecast_zone, *yahoo_id, *radar;
+    double latitude, longitude;
+    gboolean latlon_valid;
+    GWeatherTimezone **zones;
+    GHashTable *metar_code_cache;
+
+    int ref_count;
+};
 
 #define WEATHER_LOCATION_CODE_LEN 4
 
@@ -179,6 +192,7 @@ void		metoffice_start_open	(GWeatherInfo *info);
 void		bom_start_open		(GWeatherInfo *info);
 void		wx_start_open		(GWeatherInfo *info);
 void            yahoo_start_open        (GWeatherInfo *info);
+gboolean        yrno_start_open         (GWeatherInfo *info);
 
 gboolean	metar_parse		(gchar *metar,
 					 GWeatherInfo *info);

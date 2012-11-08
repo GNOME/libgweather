@@ -44,20 +44,6 @@
  * hierarchy of locations works.
  */
 
-struct _GWeatherLocation {
-    char *name, *sort_name;
-    GWeatherLocation *parent, **children;
-    GWeatherLocationLevel level;
-    char *country_code, *tz_hint;
-    char *station_code, *forecast_zone, *yahoo_id, *radar;
-    double latitude, longitude;
-    gboolean latlon_valid;
-    GWeatherTimezone **zones;
-    GHashTable *metar_code_cache;
-
-    int ref_count;
-};
-
 /**
  * GWeatherLocationLevel:
  * @GWEATHER_LOCATION_WORLD: A location representing the entire world.

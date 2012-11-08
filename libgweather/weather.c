@@ -531,6 +531,10 @@ gweather_info_update (GWeatherInfo *info)
     if (iwin_start_open (info))
 	return;
 
+    /* Try yr.no next */
+    if (yrno_start_open (info))
+	return;
+
     /* Try Yahoo! Weather next */
     yahoo_start_open (info);
 }
