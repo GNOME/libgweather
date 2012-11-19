@@ -30,8 +30,6 @@ main (int argc, char **argv)
 	{ NULL }
     };
 
-    g_type_init ();
-
     memset(&location, 0, sizeof(WeatherLocation));
 
     context = g_option_context_new ("- test libgweather sun/moon calculations");

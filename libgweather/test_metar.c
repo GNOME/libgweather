@@ -29,8 +29,6 @@ main (int argc, char **argv)
     int len;
     GWeatherInfo *info;
 
-    g_type_init ();
-
     context = g_option_context_new ("- test libgweather metar parser");
     g_option_context_add_main_entries (context, entries, NULL);
     g_option_context_parse (context, &argc, &argv, &error);
