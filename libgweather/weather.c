@@ -450,9 +450,11 @@ gweather_info_reset (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv = info->priv;
 
-    if (priv->forecast)
-	g_free (priv->forecast);
+    g_free (priv->forecast);
     priv->forecast = NULL;
+
+    g_free (priv->forecast_attribution);
+    priv->forecast_attribution = NULL;
 
     free_forecast_list (info);
 
@@ -1046,6 +1048,26 @@ gweather_info_get_radar (GWeatherInfo *info)
 {
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
     return info->priv->radar;
+}
+
+/**
+ * gweather_info_get_attribution:
+ * @info: a #GWeatherInfo
+ *
+ * Some weather services require the application showing the
+ * data to include an attribution text, possibly including links
+ * to the service website.
+ * This must be shown prominently toghether with the data.
+ *
+ * Returns: (transfer none): the required attribution text, in Pango
+ *          markup form, or %NULL if not required
+ */
+const gchar *
+gweather_info_get_attribution (GWeatherInfo *info)
+{
+    g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
+
+    return info->priv->forecast_attribution;
 }
 
 gchar *

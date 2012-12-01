@@ -233,6 +233,36 @@ make_info_from_node (GWeatherInfo *master_info,
     return info;
 }
 
+static char *
+make_attribution_from_node (xmlNodePtr node)
+{
+    xmlChar *url;
+    xmlChar *text;
+    char *res;
+
+    url = xmlGetProp (node, XC("url"));
+    text = xmlGetProp (node, XC("text"));
+
+    /* Small hack to avoid linking the entire label, and to have
+       This is still compliant with the guidelines, as far as I
+       understand it.
+       The label is a legal attribution and cannot be translated.
+    */
+    if (strcmp ((char*) text,
+		"Weather forecast from yr.no, delivered by the"
+		" Norwegian Meteorological Institute and the NRK") == 0)
+	res = g_strdup_printf ("Weather forecast from yr.no, delivered by"
+			       " the <a href=\"%s\">Norwegian Meteorological"
+			       " Institude and the NRK</a>", url);
+    else
+	res = g_strdup_printf ("<a href=\"%s\">%s</a>", url, text);
+
+    xmlFree (url);
+    xmlFree (text);
+
+    return res;
+}
+
 static void
 parse_forecast_xml (GWeatherInfo    *master_info,
 		    SoupMessageBody *body)
@@ -250,7 +280,7 @@ parse_forecast_xml (GWeatherInfo    *master_info,
 	return;
 
     xpath_ctx = xmlXPathNewContext (doc);
-xpath_result = xmlXPathEval (XC("/weatherdata/forecast/tabular/time"), xpath_ctx);
+    xpath_result = xmlXPathEval (XC("/weatherdata/forecast/tabular/time"), xpath_ctx);
 
     if (!xpath_result || xpath_result->type != XPATH_NODESET)
 	goto out;
@@ -266,6 +296,12 @@ xpath_result = xmlXPathEval (XC("/weatherdata/forecast/tabular/time"), xpath_ctx
     }
 
     xmlXPathFreeObject (xpath_result);
+
+    xpath_result = xmlXPathEval (XC("/weatherdata/credit/link"), xpath_ctx);
+    if (!xpath_result || xpath_result->type != XPATH_NODESET)
+	goto out;
+
+    priv->forecast_attribution = make_attribution_from_node (xpath_result->nodesetval->nodeTab[0]);
 
  out:
     xmlXPathFreeContext (xpath_ctx);

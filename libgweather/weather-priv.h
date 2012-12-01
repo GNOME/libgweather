@@ -135,6 +135,7 @@ struct _GWeatherInfoPrivate {
     GWeatherMoonLatitude moonlatitude;
     gchar *forecast;
     GSList *forecast_list; /* list of GWeatherInfo* for the forecast, NULL if not available */
+    gchar *forecast_attribution;
     gchar *radar_buffer;
     gchar *radar_url;
     GdkPixbufLoader *radar_loader;

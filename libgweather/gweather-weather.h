@@ -113,6 +113,7 @@ gchar * 		 gweather_info_get_sunset	   (GWeatherInfo *info);
 gchar * 		 gweather_info_get_forecast	   (GWeatherInfo *info);
 GSList *		 gweather_info_get_forecast_list   (GWeatherInfo *info);
 GdkPixbufAnimation *	 gweather_info_get_radar	   (GWeatherInfo *info);
+const gchar             *gweather_info_get_attribution     (GWeatherInfo *info);
 
 gchar * 		 gweather_info_get_temp_summary	   (GWeatherInfo *info);
 gchar *			 gweather_info_get_weather_summary (GWeatherInfo *info);
