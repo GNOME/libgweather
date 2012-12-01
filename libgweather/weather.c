@@ -327,7 +327,7 @@ requests_init (GWeatherInfo *info)
 void request_done (GWeatherInfo *info, gboolean ok)
 {
     if (ok) {
-	(void) calc_sun (info);
+	calc_sun_time (info, info->priv->update);
 	info->priv->moonValid = info->priv->valid && calc_moon (info);
     }
     if (!--info->priv->requests_pending)
@@ -1187,7 +1187,7 @@ gweather_info_get_icon_name (GWeatherInfo *info)
     else if (priv->polarNight)
 	daytime = FALSE;
     else {
-	current_time = time (NULL);
+	current_time = priv->update;
 	daytime =
 	    ( !priv->sunriseValid || (current_time >= priv->sunrise) ) &&
 	    ( !priv->sunsetValid || (current_time < priv->sunset) );

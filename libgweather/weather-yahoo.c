@@ -201,6 +201,9 @@ make_info_from_node (GWeatherInfo *master_info,
 	priv->valid = FALSE;
     xmlFree (val);
 
+    /* Calculate sun to get the right icon */
+    calc_sun_time (info, info->priv->update);
+
     return info;
 }
 
