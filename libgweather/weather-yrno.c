@@ -41,27 +41,26 @@
 
 static struct {
     GWeatherSky sky;
-    GWeatherConditionPhenomenon phenomenon;
-    GWeatherConditionQualifier qualifier;
+    GWeatherConditions condition;
 } symbols[] = {
-    { GWEATHER_SKY_CLEAR, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE },
-    { GWEATHER_SKY_BROKEN, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE },
-    { GWEATHER_SKY_SCATTERED, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE },
-    { GWEATHER_SKY_OVERCAST, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE },
-    { GWEATHER_SKY_BROKEN, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_SHOWERS },
-    { GWEATHER_SKY_BROKEN, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM },
-    { GWEATHER_SKY_BROKEN, GWEATHER_PHENOMENON_ICE_PELLETS, GWEATHER_QUALIFIER_SHOWERS },
-    { GWEATHER_SKY_OVERCAST, GWEATHER_PHENOMENON_SNOW, GWEATHER_QUALIFIER_SHOWERS },
-    { GWEATHER_SKY_OVERCAST, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_NONE },
-    { GWEATHER_SKY_OVERCAST, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_HEAVY },
-    { GWEATHER_SKY_OVERCAST, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM },
-    { GWEATHER_SKY_OVERCAST, GWEATHER_PHENOMENON_ICE_PELLETS, GWEATHER_QUALIFIER_NONE },
-    { GWEATHER_SKY_OVERCAST, GWEATHER_PHENOMENON_SNOW, GWEATHER_QUALIFIER_NONE },
-    { GWEATHER_SKY_OVERCAST, GWEATHER_PHENOMENON_SNOW, GWEATHER_QUALIFIER_THUNDERSTORM },
-    { GWEATHER_SKY_CLEAR, GWEATHER_PHENOMENON_FOG, GWEATHER_QUALIFIER_NONE },
-    { GWEATHER_SKY_BROKEN, GWEATHER_PHENOMENON_ICE_PELLETS, GWEATHER_QUALIFIER_THUNDERSTORM },
-    { GWEATHER_SKY_OVERCAST, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_HEAVY },
-    { GWEATHER_SKY_OVERCAST, GWEATHER_PHENOMENON_ICE_PELLETS, GWEATHER_QUALIFIER_HEAVY }
+    { GWEATHER_SKY_CLEAR,     { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } },
+    { GWEATHER_SKY_BROKEN,    { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } },
+    { GWEATHER_SKY_SCATTERED, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } },
+    { GWEATHER_SKY_OVERCAST,  { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } },
+    { GWEATHER_SKY_BROKEN,    { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_SHOWERS } },
+    { GWEATHER_SKY_BROKEN,    { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } },
+    { GWEATHER_SKY_BROKEN,    { TRUE, GWEATHER_PHENOMENON_ICE_PELLETS, GWEATHER_QUALIFIER_SHOWERS } },
+    { GWEATHER_SKY_OVERCAST,  { TRUE, GWEATHER_PHENOMENON_SNOW, GWEATHER_QUALIFIER_SHOWERS } },
+    { GWEATHER_SKY_OVERCAST,  { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_NONE } },
+    { GWEATHER_SKY_OVERCAST,  { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_HEAVY } },
+    { GWEATHER_SKY_OVERCAST,  { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } },
+    { GWEATHER_SKY_OVERCAST,  { TRUE, GWEATHER_PHENOMENON_ICE_PELLETS, GWEATHER_QUALIFIER_NONE } },
+    { GWEATHER_SKY_OVERCAST,  { TRUE, GWEATHER_PHENOMENON_SNOW, GWEATHER_QUALIFIER_NONE } },
+    { GWEATHER_SKY_OVERCAST,  { TRUE, GWEATHER_PHENOMENON_SNOW, GWEATHER_QUALIFIER_THUNDERSTORM } },
+    { GWEATHER_SKY_CLEAR,     { TRUE, GWEATHER_PHENOMENON_FOG, GWEATHER_QUALIFIER_NONE } },
+    { GWEATHER_SKY_BROKEN,    { TRUE, GWEATHER_PHENOMENON_ICE_PELLETS, GWEATHER_QUALIFIER_THUNDERSTORM } },
+    { GWEATHER_SKY_OVERCAST,  { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_HEAVY } },
+    { GWEATHER_SKY_OVERCAST,  { TRUE, GWEATHER_PHENOMENON_ICE_PELLETS, GWEATHER_QUALIFIER_HEAVY } }
 };
 
 static struct {
@@ -93,11 +92,16 @@ date_to_time_t (const xmlChar *str, const char * tzid)
     GTimeZone *tz;
     GDateTime *dt;
     time_t rval;
+    char *after;
 
-    if (!strptime ((const char*) str, "%Y-%m-%dT%T", &time)) {
+    after = strptime ((const char*) str, "%Y-%m-%dT%T", &time);
+    if (after == NULL) {
 	g_warning ("Cannot parse date string \"%s\"", str);
 	return 0;
     }
+
+    if (*after == 'Z')
+	tzid = "UTC";
 
     tz = g_time_zone_new (tzid);
     dt = g_date_time_new (tz,
@@ -126,12 +130,11 @@ read_symbol (GWeatherInfo *info,
 
     val = xmlGetProp (node, XC("number"));
 
-    symbol = strtol ((char*) val, NULL, 0);
+    symbol = strtol ((char*) val, NULL, 0) - 1;
     if (symbol >= 0 && symbol < G_N_ELEMENTS (symbols)) {
 	priv->valid = TRUE;
 	priv->sky = symbols[symbol].sky;
-	priv->cond.phenomenon = symbols[symbol].phenomenon;
-	priv->cond.qualifier = symbols[symbol].qualifier;
+	priv->cond = symbols[symbol].condition;
     }
 }
 
@@ -143,6 +146,10 @@ read_wind_direction (GWeatherInfo *info,
     int i;
 
     val = xmlGetProp (node, XC("code"));
+    if (val == NULL)
+	val = xmlGetProp (node, XC("name"));
+    if (val == NULL)
+	return;
 
     for (i = 0; i < G_N_ELEMENTS (wind_directions); i++) {
 	if (strcmp ((char*) val, wind_directions[i].name) == 0) {
@@ -160,6 +167,8 @@ read_wind_speed (GWeatherInfo *info,
     double mps;
 
     val = xmlGetProp (node, XC("mps"));
+    if (val == NULL)
+	return;
 
     mps = g_ascii_strtod ((char*) val, NULL);
     info->priv->windspeed = WINDSPEED_MS_TO_KNOTS (mps);
@@ -173,6 +182,8 @@ read_temperature (GWeatherInfo *info,
     double celsius;
 
     val = xmlGetProp (node, XC("value"));
+    if (val == NULL)
+	return;
 
     celsius = g_ascii_strtod ((char*) val, NULL);
     info->priv->temp = TEMP_C_TO_F (celsius);
@@ -186,6 +197,8 @@ read_pressure (GWeatherInfo *info,
     double hpa;
 
     val = xmlGetProp (node, XC("value"));
+    if (val == NULL)
+	return;
 
     hpa = g_ascii_strtod ((char*) val, NULL);
     info->priv->pressure = PRESSURE_MBAR_TO_INCH (hpa);
@@ -207,14 +220,25 @@ read_child_node (GWeatherInfo *info,
 	read_pressure (info, node);
 }
 
-static GWeatherInfo *
-make_info_from_node (GWeatherInfo *master_info,
+static inline void
+fill_info_from_node (GWeatherInfo *info,
 		     xmlNodePtr    node)
+{
+    xmlNodePtr child;
+
+    for (child = node->children; child != NULL; child = child->next) {
+	if (child->type == XML_ELEMENT_NODE)
+	    read_child_node (info, child);
+    }
+}
+
+static GWeatherInfo *
+make_info_from_node_old (GWeatherInfo *master_info,
+			 xmlNodePtr    node)
 {
     GWeatherInfo *info;
     GWeatherInfoPrivate *priv;
     xmlChar *val;
-    xmlNodePtr child;
 
     g_return_val_if_fail (node->type == XML_ELEMENT_NODE, NULL);
 
@@ -225,10 +249,10 @@ make_info_from_node (GWeatherInfo *master_info,
     priv->update = date_to_time_t (val, info->priv->location->tz_hint);
     xmlFree (val);
 
-    for (child = node->children; child != NULL; child = child->next) {
-	if (child->type == XML_ELEMENT_NODE)
-	    read_child_node (info, child);
-    }
+    fill_info_from_node (info, node);
+
+    /* Calculate sun to get the right icon */
+    calc_sun_time (info, info->priv->update);
 
     return info;
 }
@@ -264,8 +288,8 @@ make_attribution_from_node (xmlNodePtr node)
 }
 
 static void
-parse_forecast_xml (GWeatherInfo    *master_info,
-		    SoupMessageBody *body)
+parse_forecast_xml_old (GWeatherInfo    *master_info,
+			SoupMessageBody *body)
 {
     GWeatherInfoPrivate *priv;
     xmlDocPtr doc;
@@ -290,7 +314,7 @@ parse_forecast_xml (GWeatherInfo    *master_info,
 	GWeatherInfo *info;
 
 	node = xpath_result->nodesetval->nodeTab[i];
-	info = make_info_from_node (master_info, node);
+	info = make_info_from_node_old (master_info, node);
 
 	priv->forecast_list = g_slist_append (priv->forecast_list, info);
     }
@@ -304,14 +328,108 @@ parse_forecast_xml (GWeatherInfo    *master_info,
     priv->forecast_attribution = make_attribution_from_node (xpath_result->nodesetval->nodeTab[0]);
 
  out:
+    if (xpath_result)
+	xmlXPathFreeObject (xpath_result);
+    xmlXPathFreeContext (xpath_ctx);
+    xmlFreeDoc (doc);
+}
+
+
+
+static void
+parse_forecast_xml_new (GWeatherInfo    *master_info,
+			SoupMessageBody *body)
+{
+    GWeatherInfoPrivate *priv;
+    xmlDocPtr doc;
+    xmlXPathContextPtr xpath_ctx;
+    xmlXPathObjectPtr xpath_result;
+    int i;
+
+    priv = master_info->priv;
+
+    doc = xmlParseMemory (body->data, body->length);
+    if (!doc)
+	return;
+
+    xpath_ctx = xmlXPathNewContext (doc);
+    xpath_result = xmlXPathEval (XC("/weatherdata/product/time"), xpath_ctx);
+
+    if (!xpath_result || xpath_result->type != XPATH_NODESET)
+	goto out;
+
+    for (i = 0; i < xpath_result->nodesetval->nodeNr; i++) {
+	xmlNodePtr node;
+	GWeatherInfo *info;
+	xmlChar *val;
+	time_t from_time, to_time;
+	xmlNode *location;
+
+	node = xpath_result->nodesetval->nodeTab[i];
+
+	val = xmlGetProp (node, XC("from"));
+	from_time = date_to_time_t (val, priv->location->tz_hint);
+	xmlFree (val);
+
+	val = xmlGetProp (node, XC("to"));
+	to_time = date_to_time_t (val, priv->location->tz_hint);
+	xmlFree (val);
+
+	/* New API has forecast in a list of "master" elements
+	   with details (indicated by from==to) and "slave" elements
+	   that hold only precipitation and symbol. For our purpose,
+	   the master element is enough, except that we actually
+	   want that symbol. So pick the symbol from the next element.
+	   Additionally, compared to the old API the new API has one
+	   <location> element inside each <time> element.
+	*/
+	if (from_time == to_time) {
+	    info = _gweather_info_new_clone (master_info);
+	    info->priv->update = from_time;
+
+	    for (location = node->children;
+		 location && location->type != XML_ELEMENT_NODE;
+		 location = location->next);
+	    if (location)
+		fill_info_from_node (info, location);
+
+	    if (i < xpath_result->nodesetval->nodeNr - 1) {
+		i++;
+		node = xpath_result->nodesetval->nodeTab[i];
+
+		for (location = node->children;
+		     location && location->type != XML_ELEMENT_NODE;
+		     location = location->next);
+		if (location)
+		    fill_info_from_node (info, location);
+	    }
+
+	    /* Calculate sun to get the right icon */
+	    calc_sun_time (info, info->priv->update);
+
+	    priv->forecast_list = g_slist_append (priv->forecast_list, info);
+	}
+    }
+
+    xmlXPathFreeObject (xpath_result);
+
+    /* The new (documented but not advertised) API is less strict in the
+       format of the attribution, and just requires a generic CC-BY compatible
+       attribution with a link to their service.
+
+       That's very nice of them!
+    */
+    priv->forecast_attribution = g_strdup(_("Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological Institute</a>"));
+
+ out:
     xmlXPathFreeContext (xpath_ctx);
     xmlFreeDoc (doc);
 }
 
 static void
-yrno_finish (SoupSession *session,
-	      SoupMessage *msg,
-	      gpointer     user_data)
+yrno_finish_old (SoupSession *session,
+		 SoupMessage *msg,
+		 gpointer     user_data)
 {
     GWeatherInfo *info = GWEATHER_INFO (user_data);
 
@@ -323,13 +441,13 @@ yrno_finish (SoupSession *session,
 	return;
     }
 
-    parse_forecast_xml (info, msg->response_body);
+    parse_forecast_xml_old (info, msg->response_body);
 
     request_done (info, TRUE);
 }
 
-gboolean
-yrno_start_open (GWeatherInfo *info)
+static gboolean
+yrno_start_open_old (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
     gchar *url;
@@ -362,11 +480,73 @@ yrno_start_open (GWeatherInfo *info)
     url = g_strdup_printf("http://yr.no/place/%s/%s/%s/forecast.xml", country, adm_division, city_name);
 
     message = soup_message_new ("GET", url);
-    soup_session_queue_message (priv->session, message, yrno_finish, info);
+    soup_session_queue_message (priv->session, message, yrno_finish_old, info);
 
     priv->requests_pending++;
 
     g_free (url);
 
     return TRUE;
+}
+
+static void
+yrno_finish_new (SoupSession *session,
+		 SoupMessage *msg,
+		 gpointer     user_data)
+{
+    GWeatherInfo *info = GWEATHER_INFO (user_data);
+
+    if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
+	/* forecast data is not really interesting anyway ;) */
+	g_message ("Failed to get Yr.no forecast data: %d %s\n",
+		   msg->status_code, msg->reason_phrase);
+	request_done (info, FALSE);
+	return;
+    }
+
+    parse_forecast_xml_new (info, msg->response_body);
+
+    request_done (info, TRUE);
+}
+
+static gboolean
+yrno_start_open_new (GWeatherInfo *info)
+{
+    GWeatherInfoPrivate *priv;
+    gchar *url;
+    SoupMessage *message;
+    WeatherLocation *loc;
+    gchar latstr[G_ASCII_DTOSTR_BUF_SIZE], lonstr[G_ASCII_DTOSTR_BUF_SIZE];
+
+    priv = info->priv;
+    loc = priv->location;
+
+    if (loc == NULL || !loc->latlon_valid ||
+	priv->forecast_type != GWEATHER_FORECAST_LIST)
+	return FALSE;
+
+    /* see the description here: http://api.yr.no/weatherapi/ */
+
+    g_ascii_dtostr (latstr, sizeof(latstr), RADIANS_TO_DEGREES (loc->latitude));
+    g_ascii_dtostr (lonstr, sizeof(lonstr), RADIANS_TO_DEGREES (loc->longitude));
+
+    url = g_strdup_printf("http://api.yr.no/weatherapi/locationforecast/1.8/?lat=%s;lon=%s", latstr, lonstr);
+
+    message = soup_message_new ("GET", url);
+    soup_session_queue_message (priv->session, message, yrno_finish_new, info);
+
+    priv->requests_pending++;
+
+    g_free (url);
+
+    return TRUE;
+}
+
+gboolean
+yrno_start_open (GWeatherInfo *info)
+{
+    if (yrno_start_open_new (info))
+	return TRUE;
+
+    return yrno_start_open_old (info);
 }
