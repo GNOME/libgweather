@@ -30,6 +30,24 @@
 
 G_BEGIN_DECLS
 
+/**
+ * GWeatherProvider:
+ * @GWEATHER_PROVIDER_NONE: no provider, no weather information available
+ * @GWEATHER_PROVIDER_METAR: METAR office, providing current conditions worldwide
+ * @GWEATHER_PROVIDER_IWIN: US weather office, providing 7 days of forecast
+ * @GWEATHER_PROVIDER_YAHOO: Yahoo Weather Service, worldwide but non commercial only
+ * @GWEATHER_PROVIDER_YR_NO: Yr.no service, worldwide but requires attribution
+ * @GWEATHER_PROVIDER_ALL: enable all available providers
+ */
+typedef enum { /*< flags, underscore_name=gweather_provider >*/
+    GWEATHER_PROVIDER_NONE = 0,
+    GWEATHER_PROVIDER_METAR = 1,
+    GWEATHER_PROVIDER_IWIN = 1 << 2,
+    GWEATHER_PROVIDER_YAHOO = 1 << 3,
+    GWEATHER_PROVIDER_YR_NO = 1 << 4,
+    GWEATHER_PROVIDER_ALL = 31
+} GWeatherProvider;
+
 typedef struct _GWeatherInfo GWeatherInfo;
 typedef struct _GWeatherInfoClass GWeatherInfoClass;
 typedef struct _GWeatherInfoPrivate GWeatherInfoPrivate;
@@ -67,6 +85,10 @@ GWeatherInfo *           gweather_info_new_for_world       (GWeatherLocation *wo
 void                     gweather_info_update              (GWeatherInfo *info);
 void			 gweather_info_abort		   (GWeatherInfo *info);
 
+GWeatherProvider         gweather_info_get_enabled_providers (GWeatherInfo        *info);
+void                     gweather_info_set_enabled_providers (GWeatherInfo        *info,
+							      GWeatherProvider     providers);
+
 gboolean		 gweather_info_is_valid		   (GWeatherInfo *info);
 gboolean		 gweather_info_network_error	   (GWeatherInfo *info);
 
@@ -100,19 +122,31 @@ gint			 gweather_info_next_sun_event	   (GWeatherInfo *info);
 
 /* values retrieving functions */
 
-typedef enum _GWeatherWindDirection {
+typedef enum { /*< underscore_name=gweather_wind_direction >*/
     GWEATHER_WIND_INVALID = -1,
     GWEATHER_WIND_VARIABLE,
-    GWEATHER_WIND_N, GWEATHER_WIND_NNE, GWEATHER_WIND_NE, GWEATHER_WIND_ENE,
-    GWEATHER_WIND_E, GWEATHER_WIND_ESE, GWEATHER_WIND_SE, GWEATHER_WIND_SSE,
-    GWEATHER_WIND_S, GWEATHER_WIND_SSW, GWEATHER_WIND_SW, GWEATHER_WIND_WSW,
-    GWEATHER_WIND_W, GWEATHER_WIND_WNW, GWEATHER_WIND_NW, GWEATHER_WIND_NNW,
+    GWEATHER_WIND_N,
+    GWEATHER_WIND_NNE,
+    GWEATHER_WIND_NE,
+    GWEATHER_WIND_ENE,
+    GWEATHER_WIND_E,
+    GWEATHER_WIND_ESE,
+    GWEATHER_WIND_SE,
+    GWEATHER_WIND_SSE,
+    GWEATHER_WIND_S,
+    GWEATHER_WIND_SSW,
+    GWEATHER_WIND_SW,
+    GWEATHER_WIND_WSW,
+    GWEATHER_WIND_W,
+    GWEATHER_WIND_WNW,
+    GWEATHER_WIND_NW,
+    GWEATHER_WIND_NNW,
     GWEATHER_WIND_LAST
 } GWeatherWindDirection;
 
 const gchar * gweather_wind_direction_to_string (GWeatherWindDirection wind);
 
-typedef enum _GWeatherSky {
+typedef enum { /*< underscore_name=gweather_sky >*/
     GWEATHER_SKY_INVALID = -1,
     GWEATHER_SKY_CLEAR,
     GWEATHER_SKY_BROKEN,
@@ -124,7 +158,7 @@ typedef enum _GWeatherSky {
 
 const gchar * gweather_sky_to_string (GWeatherSky sky);
 
-typedef enum _GWeatherConditionPhenomenon {
+typedef enum { /*< underscore_name=gweather_phenomenon >*/
     GWEATHER_PHENOMENON_INVALID = -1,
 
     GWEATHER_PHENOMENON_NONE,
@@ -158,7 +192,7 @@ typedef enum _GWeatherConditionPhenomenon {
     GWEATHER_PHENOMENON_LAST
 } GWeatherConditionPhenomenon;
 
-typedef enum _GWeatherConditionQualifier {
+typedef enum { /*< underscore_name=gweather_qualifier >*/
     GWEATHER_QUALIFIER_INVALID = -1,
 
     GWEATHER_QUALIFIER_NONE,

@@ -16,12 +16,11 @@ gweather_old_headers = \
 gweather_new_headers = \
 	gweather-location.h location-entry.h \
 	gweather-timezone.h timezone-menu.h \
-	gweather-enums.h
+	gweather-weather.h gweather-enums.h
 libgweatherincdir = $(includedir)/libgweather-3.0/libgweather
 libgweatherinc_HEADERS = \
 	$(gweather_old_headers)		\
 	$(gweather_new_headers)		\
-	gweather-weather.h		\
 	gweather-enum-types.h
 
 noinst_HEADERS = weather-priv.h gweather-win32.h

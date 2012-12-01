@@ -66,6 +66,7 @@ enum {
     PROP_WORLD,
     PROP_LOCATION,
     PROP_TYPE,
+    PROP_ENABLED_PROVIDERS,
     PROP_LAST
 };
 
@@ -507,6 +508,7 @@ void
 gweather_info_update (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv = info->priv;
+    gboolean ok;
 
     /* Update in progress */
     if (!requests_init (info))
@@ -521,22 +523,29 @@ gweather_info_update (GWeatherInfo *info)
 #endif
     }
 
-    metar_start_open (info);
+    if (priv->providers & GWEATHER_PROVIDER_METAR)
+	metar_start_open (info);
 
     if (priv->radar) {
         wx_start_open (info);
     }
 
+    ok = FALSE;
     /* Try national forecast services first */
-    if (iwin_start_open (info))
+    if (priv->providers & GWEATHER_PROVIDER_IWIN)
+	ok = iwin_start_open (info);
+    if (ok)
 	return;
 
     /* Try yr.no next */
-    if (yrno_start_open (info))
+    if (priv->providers & GWEATHER_PROVIDER_YR_NO)
+	ok = yrno_start_open (info);
+    if (ok)
 	return;
 
     /* Try Yahoo! Weather next */
-    yahoo_start_open (info);
+    if (priv->providers & GWEATHER_PROVIDER_YAHOO)
+	yahoo_start_open (info);
 }
 
 void
@@ -1810,6 +1819,32 @@ gweather_info_set_location (GWeatherInfo     *info,
     gweather_info_update (info);
 }
 
+GWeatherProvider
+gweather_info_get_enabled_providers (GWeatherInfo *info)
+{
+    g_return_val_if_fail (GWEATHER_IS_INFO (info),
+			  GWEATHER_PROVIDER_NONE);
+
+    return info->priv->providers;
+}
+
+void
+gweather_info_set_enabled_providers (GWeatherInfo     *info,
+				     GWeatherProvider  providers)
+{
+    g_return_if_fail (GWEATHER_IS_INFO (info));
+
+    if (info->priv->providers == providers)
+	return;
+
+    info->priv->providers = providers;
+
+    gweather_info_abort (info);
+    gweather_info_update (info);
+    g_object_notify (G_OBJECT (info), "enabled-providers");
+}
+
+
 static void
 gweather_info_set_property (GObject *object,
 			    guint property_id,
@@ -1829,6 +1864,37 @@ gweather_info_set_property (GObject *object,
     case PROP_TYPE:
 	priv->forecast_type = g_value_get_enum (value);
 	break;
+    case PROP_ENABLED_PROVIDERS:
+	gweather_info_set_enabled_providers (self, g_value_get_flags (value));
+	break;
+
+    default:
+	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+    }
+}
+
+static void
+gweather_info_get_property (GObject    *object,
+			    guint       property_id,
+			    GValue     *value,
+			    GParamSpec *pspec)
+{
+    GWeatherInfo *self = GWEATHER_INFO (object);
+    GWeatherInfoPrivate *priv = self->priv;
+
+    switch (property_id) {
+    case PROP_WORLD:
+	g_value_set_boxed (value, priv->world);
+	break;
+    case PROP_LOCATION:
+	g_value_set_boxed (value, priv->glocation);
+	break;
+    case PROP_TYPE:
+	g_value_set_enum (value, priv->forecast_type);
+	break;
+    case PROP_ENABLED_PROVIDERS:
+	g_value_set_flags (value, priv->providers);
+	break;
     default:
 	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
     }
@@ -1844,19 +1910,20 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 
     gobject_class->finalize = gweather_info_finalize;
     gobject_class->set_property = gweather_info_set_property;
+    gobject_class->get_property = gweather_info_get_property;
 
     pspec = g_param_spec_boxed ("world",
 				"World",
 				"The hierarchy of locations containing the desired location",
 				GWEATHER_TYPE_LOCATION,
-				G_PARAM_STATIC_STRINGS | G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY);
+				G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
     g_object_class_install_property (gobject_class, PROP_WORLD, pspec);
 
     pspec = g_param_spec_boxed ("location",
 				"Location",
 				"The location this info represents",
 				GWEATHER_TYPE_LOCATION,
-				G_PARAM_STATIC_STRINGS | G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY);
+				G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
     g_object_class_install_property (gobject_class, PROP_LOCATION, pspec);
 
     pspec = g_param_spec_enum ("forecast-type",
@@ -1864,8 +1931,16 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 			       "The type of forecast desired (list, zone or state)",
 			       GWEATHER_TYPE_FORECAST_TYPE,
 			       GWEATHER_FORECAST_LIST,
-			       G_PARAM_STATIC_STRINGS | G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY);
+			       G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
     g_object_class_install_property (gobject_class, PROP_TYPE, pspec);
+
+    pspec = g_param_spec_flags ("enabled-providers",
+				"Enabled providers",
+				"A bitmask of enabled weather service providers",
+				GWEATHER_TYPE_PROVIDER,
+				GWEATHER_PROVIDER_METAR | GWEATHER_PROVIDER_IWIN,
+				G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
+    g_object_class_install_property (gobject_class, PROP_ENABLED_PROVIDERS, pspec);
 
     gweather_info_signals[SIGNAL_UPDATED] = g_signal_new ("updated",
 							  GWEATHER_TYPE_INFO,

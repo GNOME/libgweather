@@ -103,6 +103,7 @@ typedef time_t GWeatherUpdate;
 
 struct _GWeatherInfoPrivate {
     GWeatherForecastType forecast_type;
+    GWeatherProvider providers;
 
     GSettings *settings;
 
