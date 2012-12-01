@@ -205,9 +205,13 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 		g_ptr_array_add (children, child);
 	    else {
 		if (child->children) {
-		    for (i = 0; child->children[i]; i++)
-			g_ptr_array_add (children, gweather_location_ref (child->children[i]));
+		    for (i = 0; child->children[i]; i++) {
+			/* Correct back pointers */
+			child->children[i]->parent = loc;
+			g_ptr_array_add (children, child->children[i]);
+		    }
 		}
+		child->children = NULL;
 		gweather_location_unref (child);
 	    }
 	} else if (!strcmp (tagname, "country")) {
@@ -773,4 +777,16 @@ gweather_location_find_by_station_code (GWeatherLocation *world,
 					const gchar      *station_code)
 {
     return g_hash_table_lookup (world->metar_code_cache, station_code);
+}
+
+GWeatherLocation *
+gweather_location_ref_world (GWeatherLocation *loc)
+{
+    while (loc &&
+	   loc->level != GWEATHER_LOCATION_WORLD)
+	loc = loc->parent;
+
+    if (loc)
+	gweather_location_ref (loc);
+    return loc;
 }

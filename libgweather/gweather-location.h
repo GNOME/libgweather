@@ -82,6 +82,8 @@ char                  *gweather_location_get_city_name  (GWeatherLocation  *loc)
 GWeatherLocation      *gweather_location_find_by_station_code (GWeatherLocation *world,
 							       const gchar *code);
 
+GWeatherLocation      *gweather_location_ref_world      (GWeatherLocation  *loc);
+
 G_END_DECLS
 
 #endif /* __GWEATHER_LOCATIONS_H__ */

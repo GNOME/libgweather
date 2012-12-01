@@ -1795,6 +1795,9 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
     if (priv->location)
 	_weather_location_free (priv->location);
 
+    if (!priv->world && location)
+	priv->world = gweather_location_ref_world (location);
+
     if (!priv->world)
 	priv->world = gweather_location_new_world (FALSE);
 
