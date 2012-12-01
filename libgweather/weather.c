@@ -539,15 +539,15 @@ gweather_info_update (GWeatherInfo *info)
     if (ok)
 	return;
 
-    /* Try yr.no next */
-    if (priv->providers & GWEATHER_PROVIDER_YR_NO)
-	ok = yrno_start_open (info);
+    /* Try Yahoo! Weather next */
+    if (priv->providers & GWEATHER_PROVIDER_YAHOO)
+	ok = yahoo_start_open (info);
     if (ok)
 	return;
 
-    /* Try Yahoo! Weather next */
-    if (priv->providers & GWEATHER_PROVIDER_YAHOO)
-	yahoo_start_open (info);
+    /* Try yr.no next */
+    if (priv->providers & GWEATHER_PROVIDER_YR_NO)
+	yrno_start_open (info);
 }
 
 void

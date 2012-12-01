@@ -193,7 +193,7 @@ gboolean	iwin_start_open		(GWeatherInfo *info);
 void		metoffice_start_open	(GWeatherInfo *info);
 void		bom_start_open		(GWeatherInfo *info);
 void		wx_start_open		(GWeatherInfo *info);
-void            yahoo_start_open        (GWeatherInfo *info);
+gboolean        yahoo_start_open        (GWeatherInfo *info);
 gboolean        yrno_start_open         (GWeatherInfo *info);
 
 gboolean	metar_parse		(gchar *metar,

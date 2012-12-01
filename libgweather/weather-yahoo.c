@@ -264,7 +264,7 @@ yahoo_finish (SoupSession *session,
     request_done (info, TRUE);
 }
 
-void
+gboolean
 yahoo_start_open (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
@@ -276,13 +276,14 @@ yahoo_start_open (GWeatherInfo *info)
     loc = priv->location;
 
     if (!loc || !loc->yahoo_id)
-	return;
+	return FALSE;
 
     /* Yahoo! Weather only supports forecast list
        (and really, the other types only make sense with national
        weather offices that cannot return structured data)
     */
     if (!priv->forecast_type != GWEATHER_FORECAST_LIST)
+	return FALSE;
 
     /* u=f means that the values are in imperial system (which is what
        weather.c expects). They're converted to user preferences before
@@ -296,4 +297,6 @@ yahoo_start_open (GWeatherInfo *info)
     priv->requests_pending++;
 
     g_free (url);
+
+    return TRUE;
 }
