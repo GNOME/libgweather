@@ -1,63 +1,63 @@
 <schemalist gettext-domain="libgweather-3.0">
   <schema id="org.gnome.GWeather" path="/org/gnome/GWeather/">
     <key name="radar" type="s">
-      <default>''</default>
-      <summary>URL for the radar map</summary>
-      <description>
+      <_default>''</_default>
+      <_summary>URL for the radar map</_summary>
+      <_description>
 	The custom URL from where to retrieve a radar map, or empty
 	for disabling radar maps.
-      </description>
+      </_description>
     </key>
     <key name="temperature-unit" enum="org.gnome.GWeather.GWeatherTemperatureUnit">
       <!-- TRANSLATORS: pick a temperature unit that should be used by default in your
       locale; values must be quoted -->
-      <default l10n="messages">'fahrenheit'</default>
-      <summary>Temperature unit</summary>
-      <description>
+      <_default l10n="messages">'fahrenheit'</_default>
+      <_summary>Temperature unit</_summary>
+      <_description>
 	The unit of temperature used for showing weather. Valid values are 'kelvin',
 	'centigrade' and 'fahrenheit'.
-      </description>
+      </_description>
     </key>
     <key name="distance-unit" enum="org.gnome.GWeather.GWeatherDistanceUnit">
       <!-- TRANSLATORS: pick a default distance unit for your locale, see key description
       for valid values -->
-      <default l10n="messages">'miles'</default>
-      <summary>Distance unit</summary>
-      <description>
+      <_default l10n="messages">'miles'</_default>
+      <_summary>Distance unit</_summary>
+      <_description>
 	The unit of distance used for showing weather (for example for visibility or for
 	distance of important events). Valid values are 'meters', 'km' and 'miles'.
-      </description>
+      </_description>
     </key>
     <key name="speed-unit" enum="org.gnome.GWeather.GWeatherSpeedUnit">
       <!-- TRANSLATORS: pick a default speed unit for your locale, see key description
       for valid values -->
-      <default l10n="messages">'knots'</default>
-      <summary>Speed unit</summary>
-      <description>
+      <_default l10n="messages">'knots'</_default>
+      <_summary>Speed unit</_summary>
+      <_description>
 	The unit of speed used for showing weather (for example for wind speed). Valid
 	values are 'ms' (meters per second), 'kph' (kilometers per hour), 'mph' (miles
 	per hour), 'knots' and 'bft' (Beaufort scale).
-      </description>
+      </_description>
     </key>
     <key name="pressure-unit" enum="org.gnome.GWeather.GWeatherPressureUnit">
       <!-- TRANSLATORS: pick a default pressure unit for your locale, see key description
       for valid values -->
-      <default l10n="messages">'inch-hg'</default>
-      <summary>Pressure unit</summary>
-      <description>
+      <_default l10n="messages">'inch-hg'</_default>
+      <_summary>Pressure unit</_summary>
+      <_description>
 	The unit of pressure used for showing weather. Valid values are 'kpa' (kilopascal),
 	'hpa' (hectopascal), 'mb' (millibar, mathematically equivalent to 1 hPa but shown
 	differently), 'mm-hg' (millimiters of mercury), 'inch-hg' (inches of mercury), 'atm'
 	(atmospheres).
-      </description>
+      </_description>
     </key>
     <key name="default-location" type="(ssm(dd))">
-      <!-- TRANSLATORS: pick a default location to use in the weather applet. This should
+      <!-- TRANSLATORS: pick a _default location to use in the weather applet. This should
       usually be the largest city or the capital of your country. If you're not picking
       a <location> in the database, don't forget to set name and coordinates. -->
-      <default>('', 'KNYC', nothing)</default>
-      <summary>Default location</summary>
-      <description>
+      <_default>('', 'KNYC', nothing)</_default>
+      <_summary>Default location</_summary>
+      <_description>
 	The default location for the weather applet. The first field is the name that will
 	be shown. If empty, it will be taken from the locations database.
 	The second field is the METAR code for the default weather station. It must not be
@@ -65,7 +65,7 @@
 	The third field is a tuple of (latitude, longitude), to override the value taken
 	from the database. This is only used for sunrise and moon phase calculations, not
 	for weather forecast.
-      </description>
+      </_description>
     </key>
   </schema>
 </schemalist>

@@ -64,23 +64,15 @@ check:
 	xmllint --valid --noout $(top_srcdir)/data/Locations.xml.in
 	$(srcdir)/check-timezones.sh $(srcdir)/Locations.xml.in
 
-gsettings_ENUM_NAMESPACE = org.gnome.GWeather
-gsettings_ENUM_FILES = $(top_srcdir)/libgweather/gweather-enums.h
-
-gsettings_SCHEMAS = org.gnome.GWeather.gschema.xml
-@GSETTINGS_RULES@
-
 EXTRA_DIST =	\
 	$(libgweatherlocations_in_files)	\
 	$(libgweatherdtd_DATA)			\
-	$(gsettings_SCHEMAS)			\
 	check-timezones.sh			\
 	README					\
 	README.timezones
 
 CLEANFILES =	\
 	$(libgweatherlocations_DATA)		\
-	*.valid					\
 	$(LOCATIONS_STAMP)
 
 -include $(top_srcdir)/git.mk
