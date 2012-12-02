@@ -1036,9 +1036,6 @@ gweather_info_get_icon_name (GWeatherInfo *info)
 
     priv = info->priv;
 
-    if (!priv->valid)
-        return NULL;
-
     _gweather_info_ensure_sun (info);
     _gweather_info_ensure_moon (info);
 
@@ -1527,7 +1524,7 @@ gweather_info_get_value_sunrise (GWeatherInfo *info, time_t *value)
 
     _gweather_info_ensure_sun (info);
 
-    if (!info->priv->valid || !info->priv->sunriseValid)
+    if (!info->priv->sunriseValid)
 	return FALSE;
 
     *value = info->priv->sunrise;
@@ -1550,7 +1547,7 @@ gweather_info_get_value_sunset (GWeatherInfo *info, time_t *value)
 
     _gweather_info_ensure_sun (info);
 
-    if (!info->priv->valid || !info->priv->sunsetValid)
+    if (!info->priv->sunsetValid)
 	return FALSE;
 
     *value = info->priv->sunset;
@@ -1577,7 +1574,7 @@ gweather_info_get_value_moonphase (GWeatherInfo      *info,
 
     _gweather_info_ensure_moon (info);
 
-    if (!info->priv->valid || !info->priv->moonValid)
+    if (!info->priv->moonValid)
 	return FALSE;
 
     *value = info->priv->moonphase;
