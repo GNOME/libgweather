@@ -970,6 +970,11 @@ gweather_location_format_one_deserialize (GWeatherLocation *world,
     GList *candidates, *l;
     GWeatherLocation *found;
 
+    /* This one instead is a critical, because format is specified in
+       the containing variant */
+    g_return_val_if_fail (g_variant_is_of_type (variant,
+						G_VARIANT_TYPE ("(ssbm(dd)m(dd))")), NULL);
+
     g_variant_get (variant, "(&s&sbm(dd)m(dd))", &name, &station_code, &is_city,
 		   &latlon_valid, &latitude, &longitude,
 		   &parent_latlon_valid, &parent_latitude, &parent_longitude);
@@ -1050,6 +1055,14 @@ gweather_location_deserialize (GWeatherLocation *world,
     GVariant *v;
     GWeatherLocation *loc;
     int format;
+
+    g_return_val_if_fail (world != NULL, NULL);
+    g_return_val_if_fail (serialized != NULL, NULL);
+
+    /* This is not a critical error, because the serialization format
+       is not public, so apps can't check this before calling */
+    if (!g_variant_is_of_type (serialized, G_VARIANT_TYPE ("(uv)")))
+	return NULL;
 
     g_variant_get (serialized, "(uv)", &format, &v);
 
