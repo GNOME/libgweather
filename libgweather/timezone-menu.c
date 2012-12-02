@@ -29,7 +29,7 @@
 #include <string.h>
 
 /**
- * SECTION:timezone-menu
+ * SECTION:gtimezonemenu
  * @Title: GWeatherTimezoneMenu
  *
  * A #GtkComboBox subclass for choosing a #GWeatherTimezone

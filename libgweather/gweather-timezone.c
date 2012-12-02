@@ -30,7 +30,7 @@
 #include "weather-priv.h"
 
 /**
- * SECTION:gweather-timezone
+ * SECTION:gweathertimezone
  * @Title: GWeatherTimezone
  *
  * A timezone.
@@ -361,7 +361,7 @@ gweather_timezone_get_tzid (GWeatherTimezone *zone)
  * @zone: a #GWeatherTimezone
  *
  * Gets @zone's standard offset from UTC, in minutes. Eg, a value of
- * %120 would indicate "GMT+2".
+ * 120 would indicate "GMT+2".
  *
  * Return value: @zone's standard offset, in minutes
  **/
@@ -392,7 +392,7 @@ gweather_timezone_has_dst (GWeatherTimezone *zone)
  * @zone: a #GWeatherTimezone
  *
  * Gets @zone's daylight/summer time offset from UTC, in minutes. Eg,
- * a value of %120 would indicate "GMT+2". This is only meaningful if
+ * a value of 120 would indicate "GMT+2". This is only meaningful if
  * gweather_timezone_has_dst() returns %TRUE.
  *
  * Return value: @zone's daylight/summer time offset, in minutes

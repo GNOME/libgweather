@@ -831,7 +831,7 @@ gweather_location_ref_world (GWeatherLocation *loc)
 }
 
 /**
- * gweather_location_equals:
+ * gweather_location_equal:
  * @one: a #GWeatherLocation
  * @two: another #GWeatherLocation
  *

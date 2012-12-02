@@ -29,7 +29,7 @@
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "weather-priv.h"
 
-/**
+/*
  *  Humans don't deal well with .MONDAY...SUNNY AND BLAH BLAH.TUESDAY...THEN THIS AND THAT.WEDNESDAY...RAINY BLAH BLAH.
  *  This function makes it easier to read.
  */

@@ -29,7 +29,7 @@
 #include "weather-priv.h"
 
 /**
- * SECTION:location-entry
+ * SECTION:gweatherlocationentry
  * @Title: GWeatherLocationEntry
  *
  * A subclass of #GtkEntry that provides autocompletion on

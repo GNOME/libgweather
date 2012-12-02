@@ -47,12 +47,17 @@
 
 
 /**
- * SECTION:gweather-info
+ * SECTION:gweatherinfo
  * @Title: GWeatherInfo
+ *
+ * #GWeatherInfo provides a handy way to access weather conditions
+ * and forecasts from a #GWeatherLocation, aggregating multiple
+ * different web services.
+ *
+ * It includes also astronomical data such as sunrise times and
+ * moon phases.
  */
 
-
-static void _weather_internal_check (void);
 
 #define TEMPERATURE_UNIT "temperature-unit"
 #define DISTANCE_UNIT    "distance-unit"
@@ -1869,7 +1874,7 @@ gweather_info_class_init (GWeatherInfoClass *klass)
  * @forecast_type: the type of forecast requested
  *
  * Builds a new #GWeatherInfo that will provide weather information about
- * @location. The returned info will not be ready until the ::updated signal
+ * @location. The returned info will not be ready until the #GWeatherInfo::updated signal
  * is emitted.
  *
  * Returns: (transfer full): a new #GWeatherInfo
@@ -1895,7 +1900,7 @@ gweather_info_new (GWeatherLocation    *location,
  * @location: (allow-none): the desidered #GWeatherLocation (NULL for default)
  * @forecast_type: the type of forecast requested
  *
- * Similar to g_weather_info_new(), but also has a @world parameter, that allow controlling
+ * Similar to gweather_info_new(), but also has a @world parameter, that allow controlling
  * the hierarchy of #GWeatherLocation to which @location (or the default one taken from
  * GSettings) belongs.
  *
