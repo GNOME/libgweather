@@ -1018,13 +1018,46 @@ gweather_info_get_weather_summary (GWeatherInfo *info)
     return out;
 }
 
+/**
+ * gweather_info_is_daytime:
+ * @info: a #GWeatherInfo
+ *
+ * Returns whether it is daytime (that is, if the sun is visible)
+ * or not at the location and the point of time referred by @info.
+ * This is mostly equivalent to comparing the return value
+ * of gweather_info_get_value_sunrise() and
+ * gweather_info_get_value_sunset(), but it accounts also
+ * for midnight sun and polar night, for locations within
+ * the Artic and Antartic circles.
+ */
+gboolean
+gweather_info_is_daytime (GWeatherInfo *info)
+{
+    GWeatherInfoPrivate *priv;
+    time_t current_time;
+
+    g_return_val_if_fail (GWEATHER_IS_INFO (info), FALSE);
+
+    priv = info->priv;
+
+    _gweather_info_ensure_sun (info);
+
+    if (priv->polarNight)
+	return FALSE;
+    if (priv->midnightSun)
+	return TRUE;
+
+    current_time = priv->current_time;
+    return ( !priv->sunriseValid || (current_time >= priv->sunrise) ) &&
+	( !priv->sunsetValid || (current_time < priv->sunset) );
+}
+
 const gchar *
 gweather_info_get_icon_name (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
     GWeatherConditions   cond;
     GWeatherSky          sky;
-    time_t               current_time;
     gboolean             daytime;
     gchar*               icon;
     static gchar         icon_buffer[32];
@@ -1086,17 +1119,7 @@ gweather_info_get_icon_name (GWeatherInfo *info)
         }
     }
 
-    if (priv->midnightSun ||
-	(!priv->sunriseValid && !priv->sunsetValid))
-	daytime = TRUE;
-    else if (priv->polarNight)
-	daytime = FALSE;
-    else {
-	current_time = priv->current_time;
-	daytime =
-	    ( !priv->sunriseValid || (current_time >= priv->sunrise) ) &&
-	    ( !priv->sunsetValid || (current_time < priv->sunset) );
-    }
+    daytime = gweather_info_is_daytime (info);
 
     switch (sky) {
     case GWEATHER_SKY_INVALID:

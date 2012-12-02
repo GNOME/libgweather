@@ -119,6 +119,8 @@ gchar *			 gweather_info_get_weather_summary (GWeatherInfo *info);
 const gchar *		 gweather_info_get_icon_name	   (GWeatherInfo *info);
 gint			 gweather_info_next_sun_event	   (GWeatherInfo *info);
 
+gboolean                 gweather_info_is_daytime          (GWeatherInfo *info);
+
 /* values retrieving functions */
 
 typedef enum { /*< underscore_name=gweather_wind_direction >*/

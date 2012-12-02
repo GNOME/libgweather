@@ -68,6 +68,7 @@ main (int argc, char **argv)
 	    fabs(latitude), (latitude >= 0. ? 'N' : 'S'),
 	    fabs(longitude), (longitude >= 0. ? 'E' : 'W'),
 	    asctime(gmtime(&priv->current_time)));
+    printf("daytime:   %s\n", gweather_info_is_daytime(info) ? "yes" : "no");
     printf("sunrise:   %s",
 	   (priv->sunriseValid ? ctime(&priv->sunrise) : "(invalid)\n"));
     printf("sunset:    %s",
