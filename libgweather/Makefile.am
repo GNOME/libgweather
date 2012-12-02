@@ -11,15 +11,12 @@ AM_CPPFLAGS = 			\
 
 AM_CFLAGS = $(WARN_CFLAGS)
 
-gweather_old_headers = \
-	gweather-xml.h
 gweather_new_headers = \
 	gweather-location.h location-entry.h \
 	gweather-timezone.h timezone-menu.h \
 	gweather-weather.h gweather-enums.h
 libgweatherincdir = $(includedir)/libgweather-3.0/libgweather
 libgweatherinc_HEADERS = \
-	$(gweather_old_headers)		\
 	$(gweather_new_headers)		\
 	gweather-enum-types.h
 
@@ -32,7 +29,6 @@ libgweather_internal_3_la_SOURCES = \
 	weather-yrno.c \
 	weather-sun.c weather-moon.c \
 	gweather-enum-types.c \
-	gweather-xml.c gweather-xml.h \
 	gweather-location.c gweather-location.h \
 	gweather-timezone.c gweather-timezone.h \
 	gweather-win32.h \
