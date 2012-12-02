@@ -745,23 +745,21 @@ gweather_location_get_city_name (GWeatherLocation *loc)
 	return NULL;
 }
 
-WeatherLocation *
-_weather_location_from_gweather_location (GWeatherLocation *gloc, const gchar *name)
+void
+_gweather_location_update_weather_location (GWeatherLocation *gloc,
+					    WeatherLocation  *loc)
 {
-    const char *code = NULL, *zone = NULL, *yahoo_id = NULL, *radar = NULL, *tz_hint = NULL;
+    const char *code = NULL, *zone = NULL, *yahoo_id = NULL, *radar = NULL, *tz_hint = NULL, *country = NULL;
     gboolean latlon_valid = FALSE;
     gdouble lat = DBL_MAX, lon = DBL_MAX;
     GWeatherLocation *l;
-    WeatherLocation *wloc;
-
-    g_return_val_if_fail (gloc != NULL, NULL);
 
     if (gloc->level == GWEATHER_LOCATION_CITY && gloc->children)
 	l = gloc->children[0];
     else
 	l = gloc;
 
-    while (l && (!code || !zone || !radar || !tz_hint || !latlon_valid)) {
+    while (l && (!code || !zone || !radar || !tz_hint || !latlon_valid || !country)) {
 	if (!code && l->station_code)
 	    code = l->station_code;
 	if (!zone && l->forecast_zone)
@@ -772,6 +770,8 @@ _weather_location_from_gweather_location (GWeatherLocation *gloc, const gchar *n
 	    radar = l->radar;
 	if (!tz_hint && l->tz_hint)
 	    tz_hint = l->tz_hint;
+	if (!country && l->country_code)
+	    country = l->country_code;
 	if (!latlon_valid && l->latlon_valid) {
 	    lat = l->latitude;
 	    lon = l->longitude;
@@ -780,12 +780,17 @@ _weather_location_from_gweather_location (GWeatherLocation *gloc, const gchar *n
 	l = l->parent;
     }
 
-    wloc = _weather_location_new (name ? name : gweather_location_get_name (gloc),
-				  code, zone, yahoo_id, radar,
-				  latlon_valid, lat, lon,
-				  gweather_location_get_country (gloc),
-				  tz_hint);
-    return wloc;
+    loc->name = g_strdup (gweather_location_get_name (gloc)),
+    loc->code = g_strdup (code);
+    loc->zone = g_strdup (zone);
+    loc->yahoo_id = g_strdup (yahoo_id);
+    loc->radar = g_strdup (radar);
+    loc->country_code = g_strdup (country);
+    loc->tz_hint = g_strdup (tz_hint);
+
+    loc->latlon_valid = latlon_valid;
+    loc->latitude = lat;
+    loc->longitude = lon;
 }
 
 /**

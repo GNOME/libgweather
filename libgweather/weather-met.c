@@ -171,7 +171,7 @@ metoffice_start_open (GWeatherInfo *info)
     SoupMessage *msg;
     WeatherLocation *loc;
 
-    loc = info->priv->location;
+    loc = &info->priv->location;
     url = g_strdup_printf ("http://www.metoffice.gov.uk/weather/uk/%s/%s_forecast_weather_noscript.html", loc->zone + 1, loc->zone + 1);
 
     msg = soup_message_new ("GET", url);

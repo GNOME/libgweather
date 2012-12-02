@@ -393,7 +393,7 @@ iwin_start_open (GWeatherInfo *info)
     g_return_val_if_fail (info != NULL, FALSE);
 
     priv = info->priv;
-    loc = priv->location;
+    loc = &priv->location;
     g_return_val_if_fail (loc != NULL, FALSE);
 
     /* No zone (or -) means no weather information from national offices */

@@ -11,14 +11,13 @@ int
 main (int argc, char **argv)
 {
     GWeatherInfo   *info;
+    GWeatherInfoPrivate *priv;
     GOptionContext* context;
     GError*         error = NULL;
     gdouble         latitude, longitude;
-    WeatherLocation location;
     gchar*          gtime = NULL;
     GDate           gdate;
     struct tm       tm;
-    gboolean        bmoon;
     time_t          phases[4];
     const GOptionEntry entries[] = {
 	{ "latitude", 0, 0, G_OPTION_ARG_DOUBLE, &latitude,
@@ -29,8 +28,6 @@ main (int argc, char **argv)
 	  "time in seconds from Unix epoch", NULL },
 	{ NULL }
     };
-
-    memset(&location, 0, sizeof(WeatherLocation));
 
     context = g_option_context_new ("- test libgweather sun/moon calculations");
     g_option_context_add_main_entries (context, entries, NULL);
@@ -48,12 +45,12 @@ main (int argc, char **argv)
 	return -1;
     }
 
-    location.latitude = DEGREES_TO_RADIANS(latitude);
-    location.longitude = DEGREES_TO_RADIANS(longitude);
-    location.latlon_valid = TRUE;
     info = g_object_new (GWEATHER_TYPE_INFO, NULL);
-    info->priv->location = _weather_location_clone(&location);
-    info->priv->valid = TRUE;
+    priv = info->priv;
+    priv->location.latitude = DEGREES_TO_RADIANS(latitude);
+    priv->location.longitude = DEGREES_TO_RADIANS(longitude);
+    priv->location.latlon_valid = TRUE;
+    priv->valid = TRUE;
 
     if (gtime != NULL) {
 	//	printf(" gtime=%s\n", gtime);
@@ -72,14 +69,14 @@ main (int argc, char **argv)
 	    fabs(longitude), (longitude >= 0. ? 'E' : 'W'),
 	    asctime(gmtime(&priv->current_time)));
     printf("sunrise:   %s",
-	   (info->priv->sunriseValid ? ctime(&info->priv->sunrise) : "(invalid)\n"));
+	   (priv->sunriseValid ? ctime(&priv->sunrise) : "(invalid)\n"));
     printf("sunset:    %s",
-	   (info->priv->sunsetValid ? ctime(&info->priv->sunset)  : "(invalid)\n"));
-    if (bmoon) {
-	printf("moonphase: %g\n", info->priv->moonphase);
-	printf("moonlat:   %g\n", info->priv->moonlatitude);
+	   (priv->sunsetValid ? ctime(&priv->sunset)  : "(invalid)\n"));
+    if (priv->moonValid) {
+	printf("moonphase: %g\n", priv->moonphase);
+	printf("moonlat:   %g\n", priv->moonlatitude);
 
-	if (calc_moon_phases(info, phases)) {
+	if (gweather_info_get_upcoming_moonphases(info, phases)) {
 	    printf("    New:   %s", asctime(gmtime(&phases[0])));
 	    printf("    1stQ:  %s", asctime(gmtime(&phases[1])));
 	    printf("    Full:  %s", asctime(gmtime(&phases[2])));

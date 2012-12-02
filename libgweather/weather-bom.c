@@ -63,7 +63,7 @@ bom_start_open (GWeatherInfo *info)
     SoupMessage *msg;
     WeatherLocation *loc;
 
-    loc = info->priv->location;
+    loc = &info->priv->location;
 
     url = g_strdup_printf ("http://www.bom.gov.au/fwo/%s.txt",
 			   loc->zone + 1);

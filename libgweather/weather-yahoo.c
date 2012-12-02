@@ -273,9 +273,9 @@ yahoo_start_open (GWeatherInfo *info)
     SoupMessage *message;
 
     priv = info->priv;
-    loc = priv->location;
+    loc = &priv->location;
 
-    if (!loc || !loc->yahoo_id)
+    if (!loc->yahoo_id)
 	return FALSE;
 
     /* Yahoo! Weather only supports forecast list

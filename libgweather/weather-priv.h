@@ -73,22 +73,14 @@ typedef struct {
     gchar *tz_hint;
 } WeatherLocation;
 
-WeatherLocation *       _weather_location_from_gweather_location (GWeatherLocation *gloc, const gchar *name);
+GWeatherLocation *_gweather_location_new_detached (GWeatherLocation *nearest_station,
+						   const char       *name,
+						   gboolean          latlon_valid,
+						   gdouble           latitude,
+						   gdouble           longitude);
 
-WeatherLocation *	_weather_location_new 	(const gchar *trans_name,
-						 const gchar *code,
-						 const gchar *zone,
-						 const gchar *yahoo_id,
-						 const gchar *radar,
-						 gboolean     latlon_valid,
-						 double       latitude,
-						 double       longitude,
-						 const gchar *country_code,
-						 const gchar *tz_hint);
-WeatherLocation *	_weather_location_clone	(const WeatherLocation *location);
-void			_weather_location_free	(WeatherLocation *location);
-gboolean		_weather_location_equal	(const WeatherLocation *location1,
-						 const WeatherLocation *location2);
+void              _gweather_location_update_weather_location (GWeatherLocation *gloc,
+							      WeatherLocation  *loc);
 
 /*
  * Weather information.
@@ -115,7 +107,7 @@ struct _GWeatherInfoPrivate {
     gboolean polarNight;
     gboolean moonValid;
     gboolean tempMinMaxValid;
-    WeatherLocation *location;
+    WeatherLocation location;
     GWeatherLocation *world;
     GWeatherLocation *glocation;
     GWeatherUpdate update;

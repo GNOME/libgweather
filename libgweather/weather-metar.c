@@ -527,7 +527,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 	return;
     }
 
-    loc = priv->location;
+    loc = &priv->location;
 
     searchkey = g_strdup_printf ("\n%s", loc->code);
     p = strstr (msg->response_body->data, searchkey);
@@ -566,11 +566,7 @@ metar_start_open (GWeatherInfo *info)
     priv = info->priv;
 
     priv->valid = priv->network_error = FALSE;
-    loc = priv->location;
-    if (loc == NULL) {
-	g_warning (_("WeatherInfo missing location"));
-	return;
-    }
+    loc = &priv->location;
 
     msg = soup_form_request_new (
 	"GET", "http://weather.noaa.gov/cgi-bin/mgetmetar.pl",

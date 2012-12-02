@@ -365,11 +365,11 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 	node = xpath_result->nodesetval->nodeTab[i];
 
 	val = xmlGetProp (node, XC("from"));
-	from_time = date_to_time_t (val, priv->location->tz_hint);
+	from_time = date_to_time_t (val, priv->location.tz_hint);
 	xmlFree (val);
 
 	val = xmlGetProp (node, XC("to"));
-	to_time = date_to_time_t (val, priv->location->tz_hint);
+	to_time = date_to_time_t (val, priv->location.tz_hint);
 	xmlFree (val);
 
 	/* New API has forecast in a list of "master" elements
@@ -513,9 +513,9 @@ yrno_start_open_new (GWeatherInfo *info)
     gchar latstr[G_ASCII_DTOSTR_BUF_SIZE], lonstr[G_ASCII_DTOSTR_BUF_SIZE];
 
     priv = info->priv;
-    loc = priv->location;
+    loc = &priv->location;
 
-    if (loc == NULL || !loc->latlon_valid ||
+    if (!loc->latlon_valid ||
 	priv->forecast_type != GWEATHER_FORECAST_LIST)
 	return FALSE;
 

@@ -108,102 +108,16 @@ gweather_dpgettext (const char *context,
     return g_dpgettext2 (GETTEXT_PACKAGE, context, str);
 }
 
-WeatherLocation *
-_weather_location_new (const gchar *name, const gchar *code,
-		       const gchar *zone, const gchar *yahoo_id,
-		       const gchar *radar,
-		       gboolean     latlon_valid,
-		       double       latitude,
-		       double       longitude,
-		       const gchar *country_code,
-		       const gchar *tz_hint)
-{
-    WeatherLocation *location;
-
-    _weather_internal_check ();
-
-    location = g_slice_new0 (WeatherLocation);
-
-    /* name and metar code must be set */
-    location->name = g_strdup (name);
-    location->code = g_strdup (code);
-
-    if (zone)
-        location->zone = g_strdup (zone);
-
-    if (radar)
-        location->radar = g_strdup (radar);
-
-    if (yahoo_id)
-	location->yahoo_id = g_strdup (yahoo_id);
-
-    location->latlon_valid = latlon_valid;
-    location->latitude = latitude;
-    location->longitude = longitude;
-    location->country_code = g_strdup (country_code);
-    location->tz_hint = g_strdup (tz_hint);
-
-    return location;
-}
-
-WeatherLocation *
-_weather_location_clone (const WeatherLocation *location)
-{
-    WeatherLocation *clone;
-
-    g_return_val_if_fail (location != NULL, NULL);
-
-    clone = g_slice_new0 (WeatherLocation);
-
-    clone->name = g_strdup (location->name);
-    clone->country_code = g_strdup (location->country_code);
-    clone->tz_hint = g_strdup (location->tz_hint);
-
-    if (location->zone)
-	clone->zone = g_strdup (location->zone);
-
-    if (location->radar)
-	clone->radar = g_strdup (location->radar);
-
-    if (location->yahoo_id)
-	clone->yahoo_id = g_strdup (location->yahoo_id);
-
-    clone->latlon_valid = location->latlon_valid;
-    clone->latitude = location->latitude;
-    clone->longitude = location->longitude;
-
-    return clone;
-}
-
-void
+static void
 _weather_location_free (WeatherLocation *location)
 {
-    if (location) {
-        g_free (location->name);
-        g_free (location->code);
-        g_free (location->zone);
-	g_free (location->yahoo_id);
-        g_free (location->radar);
-        g_free (location->country_code);
-        g_free (location->tz_hint);
-
-        g_slice_free (WeatherLocation, location);
-    }
-}
-
-gboolean
-_weather_location_equal (const WeatherLocation *location1, const WeatherLocation *location2)
-{
-    /* if something is NULL, then it's TRUE if and only if both are NULL) */
-    if (location1 == NULL || location2 == NULL)
-        return (location1 == location2);
-    if (!location1->code || !location2->code)
-        return (location1->code == location2->code);
-    if (!location1->name || !location2->name)
-        return (location1->name == location2->name);
-
-    return ((strcmp (location1->code, location2->code) == 0) &&
-	    (strcmp (location1->name, location2->name) == 0));
+    g_free (location->name);
+    g_free (location->code);
+    g_free (location->zone);
+    g_free (location->yahoo_id);
+    g_free (location->radar);
+    g_free (location->country_code);
+    g_free (location->tz_hint);
 }
 
 static const gchar *wind_direction_str[] = {
@@ -572,8 +486,7 @@ gweather_info_finalize (GObject *object)
     if (priv->session)
 	g_object_unref (priv->session);
 
-    _weather_location_free (priv->location);
-    priv->location = NULL;
+    _weather_location_free (&priv->location);
 
     if (priv->glocation)
 	gweather_location_unref (priv->glocation);
@@ -623,9 +536,7 @@ gweather_info_get_location_name (GWeatherInfo *info)
 {
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
 
-    if (!info->priv->location)
-	return NULL;
-    return g_strdup(info->priv->location->name);
+    return g_strdup(info->priv->location.name);
 }
 
 gchar *
@@ -1228,7 +1139,7 @@ gweather_info_get_icon_name (GWeatherInfo *info)
 	if (phase == MOON_PHASES) {
 	    phase = 0;
 	} else if (phase > 0 &&
-		   (RADIANS_TO_DEGREES(priv->location->latitude)
+		   (RADIANS_TO_DEGREES(priv->location.latitude)
 		    < moonLat)) {
 	    /*
 	     * Locations south of the moon's latitude will see the moon in the
@@ -1768,8 +1679,7 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
 
     if (priv->glocation)
 	gweather_location_unref (priv->glocation);
-    if (priv->location)
-	_weather_location_free (priv->location);
+    _weather_location_free (&priv->location);
 
     if (!priv->world && location)
 	priv->world = gweather_location_ref_world (location);
@@ -1792,11 +1702,17 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
 	priv->glocation = gweather_location_find_by_station_code (priv->world, station_code);
     }
 
-    priv->location = _weather_location_from_gweather_location (priv->glocation, name);
+    _gweather_location_update_weather_location (priv->glocation,
+						&priv->location);
+    if (name) {
+	g_free (priv->location.name);
+	priv->location.name = g_strdup (name);
+    }
 
     if (latlon_override) {
-	priv->location->latitude = DEGREES_TO_RADIANS (lat);
-	priv->location->longitude = DEGREES_TO_RADIANS (lon);
+	priv->location.latlon_valid = TRUE;
+	priv->location.latitude = DEGREES_TO_RADIANS (lat);
+	priv->location.longitude = DEGREES_TO_RADIANS (lon);
     }
 
     if (default_loc)
