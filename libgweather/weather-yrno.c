@@ -246,13 +246,10 @@ make_info_from_node_old (GWeatherInfo *master_info,
     priv = info->priv;
 
     val = xmlGetProp (node, XC("from"));
-    priv->update = date_to_time_t (val, info->priv->location->tz_hint);
+    priv->current_time = priv->update = date_to_time_t (val, info->priv->location.tz_hint);
     xmlFree (val);
 
     fill_info_from_node (info, node);
-
-    /* Calculate sun to get the right icon */
-    calc_sun_time (info, info->priv->update);
 
     return info;
 }
@@ -385,7 +382,7 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 	*/
 	if (from_time == to_time) {
 	    info = _gweather_info_new_clone (master_info);
-	    info->priv->update = from_time;
+	    info->priv->current_time = info->priv->update = from_time;
 
 	    for (location = node->children;
 		 location && location->type != XML_ELEMENT_NODE;
@@ -403,9 +400,6 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 		if (location)
 		    fill_info_from_node (info, location);
 	    }
-
-	    /* Calculate sun to get the right icon */
-	    calc_sun_time (info, info->priv->update);
 
 	    priv->forecast_list = g_slist_append (priv->forecast_list, info);
 	}

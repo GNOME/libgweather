@@ -174,7 +174,7 @@ make_info_from_node (GWeatherInfo *master_info,
     priv = info->priv;
 
     val = xmlGetProp (node, XC("date"));
-    priv->update = date_to_time_t (val);
+    priv->current_time = priv->update = date_to_time_t (val);
     xmlFree (val);
 
     val = xmlGetProp (node, XC("high"));
@@ -200,9 +200,6 @@ make_info_from_node (GWeatherInfo *master_info,
     } else
 	priv->valid = FALSE;
     xmlFree (val);
-
-    /* Calculate sun to get the right icon */
-    calc_sun_time (info, info->priv->update);
 
     return info;
 }

@@ -464,6 +464,7 @@ gweather_info_reset (GWeatherInfo *info)
     }
 
     priv->update = 0;
+    priv->current_time = time(NULL);
     priv->sky = -1;
     priv->cond.significant = FALSE;
     priv->cond.phenomenon = GWEATHER_PHENOMENON_NONE;
@@ -958,15 +959,12 @@ gweather_info_get_sunrise (GWeatherInfo *info)
     gchar *buf;
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
-    g_return_val_if_fail (info->priv->location, NULL);
 
     priv = info->priv;
 
-    if (!priv->location->latlon_valid)
-        return g_strdup ("-");
-    if (!priv->valid)
-        return g_strdup ("-");
-    if (!calc_sun (info))
+    _gweather_info_ensure_sun (info);
+
+    if (!priv->valid || !priv->sunriseValid)
         return g_strdup ("-");
 
     sunrise = g_date_time_new_from_unix_local (priv->sunrise);
@@ -987,15 +985,12 @@ gweather_info_get_sunset (GWeatherInfo *info)
     gchar *buf;
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
-    g_return_val_if_fail (info->priv->location, NULL);
 
     priv = info->priv;
 
-    if (!priv->location->latlon_valid)
-        return g_strdup ("-");
-    if (!priv->valid)
-        return g_strdup ("-");
-    if (!calc_sun (info))
+    _gweather_info_ensure_sun (info);
+
+    if (!priv->valid || !priv->sunsetValid)
         return g_strdup ("-");
 
     sunset = g_date_time_new_from_unix_local (priv->sunset);
@@ -1134,6 +1129,9 @@ gweather_info_get_icon_name (GWeatherInfo *info)
     if (!priv->valid)
         return NULL;
 
+    _gweather_info_ensure_sun (info);
+    _gweather_info_ensure_moon (info);
+
     cond = priv->cond;
     sky = priv->sky;
 
@@ -1187,7 +1185,7 @@ gweather_info_get_icon_name (GWeatherInfo *info)
     else if (priv->polarNight)
 	daytime = FALSE;
     else {
-	current_time = priv->update;
+	current_time = priv->current_time;
 	daytime =
 	    ( !priv->sunriseValid || (current_time >= priv->sunrise) ) &&
 	    ( !priv->sunsetValid || (current_time < priv->sunset) );
@@ -1617,6 +1615,8 @@ gweather_info_get_value_sunrise (GWeatherInfo *info, time_t *value)
     g_return_val_if_fail (GWEATHER_IS_INFO (info), FALSE);
     g_return_val_if_fail (value != NULL, FALSE);
 
+    _gweather_info_ensure_sun (info);
+
     if (!info->priv->valid || !info->priv->sunriseValid)
 	return FALSE;
 
@@ -1637,6 +1637,8 @@ gweather_info_get_value_sunset (GWeatherInfo *info, time_t *value)
 {
     g_return_val_if_fail (GWEATHER_IS_INFO (info), FALSE);
     g_return_val_if_fail (value != NULL, FALSE);
+
+    _gweather_info_ensure_sun (info);
 
     if (!info->priv->valid || !info->priv->sunsetValid)
 	return FALSE;
@@ -1662,6 +1664,8 @@ gweather_info_get_value_moonphase (GWeatherInfo      *info,
     g_return_val_if_fail (GWEATHER_IS_INFO (info), FALSE);
     g_return_val_if_fail (value != NULL, FALSE);
     g_return_val_if_fail (lat != NULL, FALSE);
+
+    _gweather_info_ensure_moon (info);
 
     if (!info->priv->valid || !info->priv->moonValid)
 	return FALSE;
@@ -1750,34 +1754,6 @@ gweather_info_get_value_visibility (GWeatherInfo *info,
 	return FALSE;
 
     return distance_value (info->priv->visibility, unit, value, info->priv->settings);
-}
-
-/**
- * weather_info_get_upcoming_moonphases:
- * @info: a #GWeatherInfo containing the time_t of interest
- * @phases: (out) (array fixed-size=4) (element-type gulong): An array of four
- *    time_t values that will hold the returned values.
- *    The values are estimates of the time of the next new, quarter, full and
- *    three-quarter moons.
- *
- * Returns: gboolean indicating success or failure
- */
-gboolean
-gweather_info_get_upcoming_moonphases (GWeatherInfo *info, time_t *phases)
-{
-    g_return_val_if_fail (GWEATHER_IS_INFO (info), FALSE);
-    g_return_val_if_fail (phases != NULL, FALSE);
-
-    return calc_moon_phases(info, phases);
-}
-
-static void
-_weather_internal_check (void)
-{
-    g_assert (G_N_ELEMENTS (wind_direction_str) == GWEATHER_WIND_LAST);
-    g_assert (G_N_ELEMENTS (sky_str) == GWEATHER_SKY_LAST);
-    g_assert (G_N_ELEMENTS (conditions_str) == GWEATHER_PHENOMENON_LAST);
-    g_assert (G_N_ELEMENTS (conditions_str[0]) == GWEATHER_QUALIFIER_LAST);
 }
 
 static void

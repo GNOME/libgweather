@@ -50,6 +50,16 @@
 #define LUNAR_PROGRESSION	13.176358
 #define LUNAR_INCLINATION	DEGREES_TO_RADIANS(5.145396)
 
+/*
+ * calc_moon_internal:
+ * @info:  WeatherInfo containing time_t of interest.  The
+ *    values moonphase, moonlatitude and moonValid are updated
+ *    on success.
+ *
+ * Returns: gboolean indicating success or failure.
+ *    moonphase is expressed as degrees where '0' is a new moon,
+ *    '90' is first quarter, etc.
+ */
 static gboolean
 calc_moon_internal (time_t update, gdouble *moonphase, gdouble *moonlatitude)
 {
@@ -125,28 +135,20 @@ calc_moon_internal (time_t update, gdouble *moonphase, gdouble *moonlatitude)
     return TRUE;
 }
 
-/**
- * calc_moon:
- * @info:  WeatherInfo containing time_t of interest.  The
- *    values moonphase, moonlatitude and moonValid are updated
- *    on success.
- *
- * Returns: gboolean indicating success or failure.
- *    moonphase is expressed as degrees where '0' is a new moon,
- *    '90' is first quarter, etc.
- */
-
-gboolean
-calc_moon (GWeatherInfo *info)
+void
+_gweather_info_ensure_moon (GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv = info->priv;
-    return priv->moonValid = calc_moon_internal (priv->update,
-						 &priv->moonphase,
-						 &priv->moonlatitude);
+    GWeatherInfoPrivate *priv;
+
+    priv = info->priv;
+
+    if (!priv->moonValid)
+	priv->moonValid = calc_moon_internal (priv->current_time,
+					      &priv->moonphase,
+					      &priv->moonlatitude);
 }
 
-
-/**
+/*
  * calc_moon_phases:
  * @info:   WeatherInfo containing the time_t of interest
  * @phases: An array of four time_t values that will hold the returned values.
@@ -155,8 +157,7 @@ calc_moon (GWeatherInfo *info)
  *
  * Returns: gboolean indicating success or failure
  */
-
-gboolean
+static gboolean
 calc_moon_phases (GWeatherInfo *info, time_t *phases)
 {
     GWeatherInfoPrivate *priv;
@@ -169,15 +170,13 @@ calc_moon_phases (GWeatherInfo *info, time_t *phases)
     int         iter;
     time_t      dtime;
 
-    g_return_val_if_fail (info != NULL &&
-			  (info->priv->moonValid || calc_moon (info)),
-			  FALSE);
+    _gweather_info_ensure_moon (info);
 
     priv = info->priv;
     ptime = phases;
 
     for (idx = 0; idx < 4; idx++) {
-	tmp_update = priv->update;
+	tmp_update = priv->current_time;
 	tmp_moonphase = priv->moonphase;
 
 	/*
@@ -206,4 +205,23 @@ calc_moon_phases (GWeatherInfo *info, time_t *phases)
     }
 
     return TRUE;
+}
+
+/**
+ * gweather_info_get_upcoming_moonphases:
+ * @info: a #GWeatherInfo containing the time_t of interest
+ * @phases: (out) (array fixed-size=4) (element-type gulong): An array of four
+ *    time_t values that will hold the returned values.
+ *    The values are estimates of the time of the next new, quarter, full and
+ *    three-quarter moons.
+ *
+ * Returns: gboolean indicating success or failure
+ */
+gboolean
+gweather_info_get_upcoming_moonphases (GWeatherInfo *info, time_t *phases)
+{
+    g_return_val_if_fail (GWEATHER_IS_INFO (info), FALSE);
+    g_return_val_if_fail (phases != NULL, FALSE);
+
+    return calc_moon_phases(info, phases);
 }

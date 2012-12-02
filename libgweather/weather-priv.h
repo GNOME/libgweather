@@ -119,6 +119,7 @@ struct _GWeatherInfoPrivate {
     GWeatherLocation *world;
     GWeatherLocation *glocation;
     GWeatherUpdate update;
+    GWeatherUpdate current_time;
     GWeatherSky sky;
     GWeatherConditions cond;
     GWeatherTemperature temp;
@@ -209,20 +210,13 @@ void		ecl2equ			(gdouble t,
 					 gdouble *ra,
 					 gdouble *decl);
 gdouble		sunEclipLongitude	(time_t t);
-gboolean	calc_sun		(GWeatherInfo *info);
-gboolean	calc_sun_time		(GWeatherInfo *info, time_t t);
-gboolean	calc_moon		(GWeatherInfo *info);
-gboolean	calc_moon_phases	(GWeatherInfo *info, time_t *phases);
 
-void		free_forecast_list	(GWeatherInfo *info);
+void            _gweather_info_ensure_sun  (GWeatherInfo *info);
+void            _gweather_info_ensure_moon (GWeatherInfo *info);
 
-GWeatherInfo   *_gweather_info_new_clone (GWeatherInfo *info);
+void		free_forecast_list	  (GWeatherInfo *info);
 
-GWeatherLocation *_gweather_location_new_detached (GWeatherLocation *nearest_station,
-						   const char       *name,
-						   gboolean          latlon_valid,
-						   gdouble           latitude,
-						   gdouble           longitude);
+GWeatherInfo   *_gweather_info_new_clone  (GWeatherInfo *info);
 
 #endif /* __WEATHER_PRIV_H_ */
 

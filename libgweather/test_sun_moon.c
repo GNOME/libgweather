@@ -59,18 +59,18 @@ main (int argc, char **argv)
 	//	printf(" gtime=%s\n", gtime);
 	g_date_set_parse(&gdate, gtime);
 	g_date_to_struct_tm(&gdate, &tm);
-	info->priv->update = mktime(&tm);
+	priv->current_time = mktime(&tm);
     } else {
-	info->priv->update = time(NULL);
+	priv->current_time = time(NULL);
     }
 
-    calc_sun_time(info, info->priv->update);
-    bmoon = calc_moon(info);
+    _gweather_info_ensure_sun (info);
+    _gweather_info_ensure_moon (info);
 
     printf ("  Latitude %7.3f %c  Longitude %7.3f %c for %s  All times UTC\n",
 	    fabs(latitude), (latitude >= 0. ? 'N' : 'S'),
 	    fabs(longitude), (longitude >= 0. ? 'E' : 'W'),
-	    asctime(gmtime(&info->priv->update)));
+	    asctime(gmtime(&priv->current_time)));
     printf("sunrise:   %s",
 	   (info->priv->sunriseValid ? ctime(&info->priv->sunrise) : "(invalid)\n"));
     printf("sunset:    %s",

@@ -159,11 +159,11 @@ t0 (time_t date)
 
 
 static gboolean
-calc_sun2 (GWeatherInfo *info, time_t t)
+calc_sun (GWeatherInfo *info, time_t t)
 {
-    GWeatherInfoPrivate *priv = info->priv;
-    gdouble obsLat = priv->location->latitude;
-    gdouble obsLon = priv->location->longitude;
+    GWeatherInfoPrivate *priv;
+    gdouble obsLat;
+    gdouble obsLon;
     time_t gm_midn;
     time_t lcl_midn;
     gdouble gm_hoff, lambda;
@@ -176,8 +176,9 @@ calc_sun2 (GWeatherInfo *info, time_t t)
     gdouble x, u, dt;
 
     /* Approximate preceding local midnight at observer's longitude */
-    obsLat = priv->location->latitude;
-    obsLon = priv->location->longitude;
+    priv = info->priv;
+    obsLat = priv->location.latitude;
+    obsLon = priv->location.longitude;
     gm_midn = t - (t % 86400);
     gm_hoff = floor ((RADIANS_TO_DEGREES (obsLon) + 7.5) / 15.);
     lcl_midn = gm_midn - 3600. * gm_hoff;
@@ -187,7 +188,7 @@ calc_sun2 (GWeatherInfo *info, time_t t)
         lcl_midn -= 86400;
 
     lambda = sunEclipLongitude (lcl_midn);
-    
+
     /*
      * Calculate equitorial coordinates of sun at previous
      * and next local midnights
@@ -196,7 +197,7 @@ calc_sun2 (GWeatherInfo *info, time_t t)
     ecl2equ (lcl_midn + 86400.,
 	     lambda + DEGREES_TO_RADIANS(SOL_PROGRESSION), 0.,
 	     &ra2, &decl2);
-    
+
     /*
      * If the observer is within the Arctic or Antarctic Circles then
      * the sun may be above or below the horizon for the full day.
@@ -246,7 +247,7 @@ calc_sun2 (GWeatherInfo *info, time_t t)
         set1  += 24.;
         set2  += 24.;
     }
-   
+
     /*
      * Interpolate between the two to get a rise and set time
      * based on the sun's position at local noon (step 8)
@@ -262,7 +263,7 @@ calc_sun2 (GWeatherInfo *info, time_t t)
     x = DEGREES_TO_RADIANS(0.830725);
     u = acos ( sin(obsLat) / cos(decl2) );
     dt = RADIANS_TO_HOURS ( asin ( sin(x) / sin(u) ) / cos(decl2) );
-   
+
     /*
      * Subtract the correction value from sunrise and add to sunset,
      * then (step 11) convert sideral times to UT
@@ -286,34 +287,16 @@ calc_sun2 (GWeatherInfo *info, time_t t)
     return (priv->sunriseValid || priv->sunsetValid);
 }
 
-
-/**
- * calc_sun_time:
- * @info: #WeatherInfo structure containing the observer's latitude
- * and longitude in radians, fills in the sunrise and sunset times.
- * @t: time_t
- *
- * Returns: gboolean indicating if the results are valid.
- */
-gboolean
-calc_sun_time (GWeatherInfo *info, time_t t)
+void
+_gweather_info_ensure_sun (GWeatherInfo *info)
 {
-    return info->priv->location->latlon_valid && calc_sun2 (info, t);
-}
+    GWeatherInfoPrivate *priv;
 
-/**
- * calc_sun:
- * @info: #WeatherInfo structure containing the observer's latitude
- * and longitude in radians, fills in the sunrise and sunset times.
- *
- * Returns: gboolean indicating if the results are valid.
- */
-gboolean
-calc_sun (GWeatherInfo *info)
-{
-    return calc_sun_time(info, time(NULL));
-}
+    priv = info->priv;
 
+    if (!priv->sunriseValid && !priv->sunsetValid)
+	calc_sun (info, priv->current_time);
+}
 
 /**
  * weather_info_next_sun_event:
@@ -336,8 +319,7 @@ gweather_info_next_sun_event (GWeatherInfo *info)
 
     g_return_val_if_fail (info != NULL, -1);
 
-    if (!calc_sun (info))
-	return -1;
+    _gweather_info_ensure_sun (info);
 
     /* Determine when the next local midnight occurs */
     (void) localtime_r (&now, &ltm);

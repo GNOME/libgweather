@@ -176,8 +176,7 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
 
                         for (i = 0; i < 7;  i++) {
                             GWeatherInfo *nfo = _gweather_info_new_clone (master_info);
-			    nfo->priv->update = update_times[i];
-			    calc_sun_time (nfo, nfo->priv->update);
+			    nfo->priv->current_time = nfo->priv->update = update_times[i];
 
                             if (nfo)
                                 res = g_slist_append (res, nfo);
