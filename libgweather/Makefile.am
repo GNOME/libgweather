@@ -20,8 +20,6 @@ libgweatherinc_HEADERS = \
 	$(gweather_new_headers)		\
 	gweather-enum-types.h
 
-noinst_HEADERS = weather-priv.h gweather-win32.h
-
 libgweather_internal_3_la_SOURCES = \
 	weather.c weather-priv.h \
 	weather-metar.c weather-iwin.c weather-met.c \
@@ -31,16 +29,9 @@ libgweather_internal_3_la_SOURCES = \
 	gweather-enum-types.c \
 	gweather-location.c gweather-location.h \
 	gweather-timezone.c gweather-timezone.h \
-	gweather-win32.h \
 	location-entry.c location-entry.h \
 	timezone-menu.c timezone-menu.h \
 	parser.c parser.h
-
-if OS_WIN32
-libgweather_internal_3_la_SOURCES += gweather-win32.c
-else
-EXTRA_libgweather_internal_3_la_SOURCES = gweather-win32.c
-endif
 
 libgweather_internal_3_la_CPPFLAGS = \
 	$(AM_CPPFLAGS)			\

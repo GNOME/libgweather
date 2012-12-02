@@ -23,19 +23,6 @@ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 LT_VERSION=2:0:1
 AC_SUBST(LT_VERSION)
 
-AC_CANONICAL_HOST
-AC_MSG_CHECKING([for Win32])
-case "$host" in
-  *-*-mingw*)
-    gweather_native_win32="yes"
-    ;;
-  *)
-    gweather_native_win32="no"
-    ;;
-esac
-AC_MSG_RESULT([$gweather_native_win32])
-AM_CONDITIONAL(OS_WIN32, [test "$gweather_native_win32" = "yes"])
-
 GTK_REQUIRED=2.90.0
 GLIB_REQUIRED=2.35.1
 LIBSOUP_REQUIRED=2.4.0
@@ -43,7 +30,7 @@ LIBSOUP_GNOME_REQUIRED=2.25.1
 LIBXML_REQUIRED=2.6.0
 
 LT_PREREQ([2.2.6])
-LT_INIT([dlopen win32-dll disable-static])
+LT_INIT([disable-static])
 LT_LIB_M
 
 PKG_PROG_PKG_CONFIG([0.19])
