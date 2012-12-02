@@ -431,13 +431,12 @@ yrno_finish_old (SoupSession *session,
 	/* forecast data is not really interesting anyway ;) */
 	g_message ("Failed to get Yr.no forecast data: %d %s\n",
 		   msg->status_code, msg->reason_phrase);
-	request_done (info, FALSE);
+	_gweather_info_request_done (info);
 	return;
     }
 
     parse_forecast_xml_old (info, msg->response_body);
-
-    request_done (info, TRUE);
+    _gweather_info_request_done (info);
 }
 
 static gboolean
@@ -494,13 +493,13 @@ yrno_finish_new (SoupSession *session,
 	/* forecast data is not really interesting anyway ;) */
 	g_message ("Failed to get Yr.no forecast data: %d %s\n",
 		   msg->status_code, msg->reason_phrase);
-	request_done (info, FALSE);
+	_gweather_info_request_done (info);
 	return;
     }
 
     parse_forecast_xml_new (info, msg->response_body);
 
-    request_done (info, TRUE);
+    _gweather_info_request_done (info);
 }
 
 static gboolean

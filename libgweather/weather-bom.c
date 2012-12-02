@@ -36,7 +36,7 @@ bom_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
         g_warning ("Failed to get BOM forecast data: %d %s.\n",
 		   msg->status_code, msg->reason_phrase);
-        request_done (info, FALSE);
+        _gweather_info_request_done (info);
 	return;
     }
 
@@ -53,7 +53,7 @@ bom_finish (SoupSession *session, SoupMessage *msg, gpointer data)
         info->priv->forecast = g_strdup (msg->response_body->data);
 
     g_print ("%s\n",  info->priv->forecast);
-    request_done (info, TRUE);
+    _gweather_info_request_done (info);
 }
 
 void

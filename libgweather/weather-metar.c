@@ -523,7 +523,8 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 	    g_warning (_("Failed to get METAR data: %d %s.\n"),
 		       msg->status_code, msg->reason_phrase);
 	}
-	request_done (info, FALSE);
+
+	_gweather_info_request_done (info);
 	return;
     }
 
@@ -550,7 +551,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     }
 
     priv->valid = success;
-    request_done (info, TRUE);
+    _gweather_info_request_done (info);
 }
 
 /* Read current conditions and fill in info structure */

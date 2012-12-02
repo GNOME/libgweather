@@ -192,9 +192,7 @@ gboolean        yrno_start_open         (GWeatherInfo *info);
 gboolean	metar_parse		(gchar *metar,
 					 GWeatherInfo *info);
 
-gboolean	requests_init		(GWeatherInfo *info);
-void		request_done		(GWeatherInfo *info,
-					 gboolean     ok);
+void		_gweather_info_request_done (GWeatherInfo *info);
 
 void		ecl2equ			(gdouble t,
 					 gdouble eclipLon,

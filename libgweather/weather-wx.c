@@ -37,7 +37,7 @@ wx_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 	g_warning ("Failed to get radar map image: %d %s.\n",
 		   msg->status_code, msg->reason_phrase);
 	g_object_unref (priv->radar_loader);
-	request_done (info, FALSE);
+	_gweather_info_request_done (info);
 	return;
     }
 
@@ -51,7 +51,7 @@ wx_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     }
     g_object_unref (priv->radar_loader);
 
-    request_done (info, TRUE);
+    _gweather_info_request_done (info);
 }
 
 static void

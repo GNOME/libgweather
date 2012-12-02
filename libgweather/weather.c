@@ -226,10 +226,7 @@ gweather_conditions_to_string (GWeatherConditions *cond)
     }
 }
 
-/* Locals turned global to facilitate asynchronous HTTP requests */
-
-
-gboolean
+static gboolean
 requests_init (GWeatherInfo *info)
 {
     if (info->priv->requests_pending)
@@ -238,12 +235,9 @@ requests_init (GWeatherInfo *info)
     return TRUE;
 }
 
-void request_done (GWeatherInfo *info, gboolean ok)
+void
+_gweather_info_request_done (GWeatherInfo *info)
 {
-    if (ok) {
-	calc_sun_time (info, info->priv->update);
-	info->priv->moonValid = info->priv->valid && calc_moon (info);
-    }
     if (!--info->priv->requests_pending)
         g_signal_emit (info, gweather_info_signals[SIGNAL_UPDATED], 0);
 }

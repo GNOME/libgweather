@@ -156,12 +156,12 @@ met_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
 	g_warning ("Failed to get Met Office forecast data: %d %s.\n",
 		   msg->status_code, msg->reason_phrase);
-        request_done (info, FALSE);
+        _gweather_info_request_done (info);
         return;
     }
 
     info->priv->forecast = met_parse (msg->response_body->data);
-    request_done (info, TRUE);
+    _gweather_info_request_done (info);
 }
 
 void

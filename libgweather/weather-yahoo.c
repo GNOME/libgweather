@@ -255,13 +255,12 @@ yahoo_finish (SoupSession *session,
 	/* forecast data is not really interesting anyway ;) */
 	g_warning ("Failed to get Yahoo! Weather forecast data: %d %s\n",
 		   msg->status_code, msg->reason_phrase);
-	request_done (info, FALSE);
+	_gweather_info_request_done (info);
 	return;
     }
 
     parse_forecast_xml (info, msg->response_body);
-
-    request_done (info, TRUE);
+    _gweather_info_request_done (info);
 }
 
 gboolean

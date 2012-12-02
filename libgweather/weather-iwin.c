@@ -367,7 +367,7 @@ iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
         /* forecast data is not really interesting anyway ;) */
         g_warning ("Failed to get IWIN forecast data: %d %s\n",
                    msg->status_code, msg->reason_phrase);
-        request_done (info, FALSE);
+        _gweather_info_request_done (info);
         return;
     }
 
@@ -378,7 +378,7 @@ iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     else
         priv->forecast = formatWeatherMsg (g_strdup (msg->response_body->data));
 
-    request_done (info, TRUE);
+    _gweather_info_request_done (info);
 }
 
 /* Get forecast into newly alloc'ed string */
