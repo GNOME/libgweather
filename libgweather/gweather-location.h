@@ -41,7 +41,8 @@ typedef enum { /*< underscore_name=gweather_location_level >*/
     /* ADM2 = second-order division = county, etc */
     GWEATHER_LOCATION_ADM2,
     GWEATHER_LOCATION_CITY,
-    GWEATHER_LOCATION_WEATHER_STATION
+    GWEATHER_LOCATION_WEATHER_STATION,
+    GWEATHER_LOCATION_DETACHED
 } GWeatherLocationLevel;
 
 GType gweather_location_get_type (void);
@@ -80,9 +81,16 @@ const char            *gweather_location_get_code       (GWeatherLocation  *loc)
 char                  *gweather_location_get_city_name  (GWeatherLocation  *loc);
 
 GWeatherLocation      *gweather_location_find_by_station_code (GWeatherLocation *world,
-							       const gchar *code);
+							       const gchar      *station_code);
 
 GWeatherLocation      *gweather_location_ref_world      (GWeatherLocation  *loc);
+
+gboolean               gweather_location_equal          (GWeatherLocation  *one,
+							 GWeatherLocation  *two);
+
+GVariant              *gweather_location_serialize      (GWeatherLocation  *loc);
+GWeatherLocation      *gweather_location_deserialize    (GWeatherLocation  *world,
+							 GVariant          *serialized);
 
 G_END_DECLS
 

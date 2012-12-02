@@ -153,6 +153,12 @@ gweather_parser_get_localized_value (GWeatherParser *parser)
     return name;
 }
 
+static void
+gweather_location_list_free (gpointer list)
+{
+    g_list_free_full (list, (GDestroyNotify) gweather_location_unref);
+}
+
 GWeatherParser *
 gweather_parser_new (gboolean use_regions)
 {
@@ -247,7 +253,7 @@ gweather_parser_new (gboolean use_regions)
     tm.tm_year++;
     parser->year_end = mktime (&tm);
 
-    parser->metar_code_cache = g_hash_table_new_full (g_str_hash, g_str_equal, NULL, (GDestroyNotify) gweather_location_unref);
+    parser->metar_code_cache = g_hash_table_new_full (g_str_hash, g_str_equal, NULL, gweather_location_list_free);
 
     return parser;
 

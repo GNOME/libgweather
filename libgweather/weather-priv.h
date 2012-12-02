@@ -218,5 +218,11 @@ void		free_forecast_list	(GWeatherInfo *info);
 
 GWeatherInfo   *_gweather_info_new_clone (GWeatherInfo *info);
 
+GWeatherLocation *_gweather_location_new_detached (GWeatherLocation *nearest_station,
+						   const char       *name,
+						   gboolean          latlon_valid,
+						   gdouble           latitude,
+						   gdouble           longitude);
+
 #endif /* __WEATHER_PRIV_H_ */
 

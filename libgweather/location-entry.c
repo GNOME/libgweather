@@ -22,10 +22,11 @@
 #include <config.h>
 #endif
 
+#include <string.h>
+
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "location-entry.h"
-
-#include <string.h>
+#include "weather-priv.h"
 
 /**
  * SECTION:location-entry
@@ -175,13 +176,15 @@ entry_changed (GWeatherLocationEntry *entry)
 static void
 set_location_internal (GWeatherLocationEntry *entry,
 		       GtkTreeModel          *model,
-		       GtkTreeIter           *iter)
+		       GtkTreeIter           *iter,
+		       GWeatherLocation      *loc)
 {
-    GWeatherLocation *loc;
     char *name;
 
     if (entry->location)
 	gweather_location_unref (entry->location);
+
+    g_assert (iter == NULL || loc == NULL);
 
     if (iter) {
 	gtk_tree_model_get (model, iter,
@@ -192,6 +195,10 @@ set_location_internal (GWeatherLocationEntry *entry,
 	gtk_entry_set_text (GTK_ENTRY (entry), name);
 	entry->custom_text = FALSE;
 	g_free (name);
+    } else if (loc) {
+	entry->location = gweather_location_ref (loc);
+	gtk_entry_set_text (GTK_ENTRY (entry), loc->name);
+	entry->custom_text = TRUE;
     } else {
 	entry->location = NULL;
 	gtk_entry_set_text (GTK_ENTRY (entry), "");
@@ -210,6 +217,8 @@ set_location_internal (GWeatherLocationEntry *entry,
  *
  * Sets @entry's location to @loc, and updates the text of the
  * entry accordingly.
+ * Note that if the database contains a location that compares
+ * equal to @loc, that will be chosen in place of @loc.
  **/
 void
 gweather_location_entry_set_location (GWeatherLocationEntry *entry,
@@ -230,13 +239,13 @@ gweather_location_entry_set_location (GWeatherLocationEntry *entry,
 	gtk_tree_model_get (model, &iter,
 			    GWEATHER_LOCATION_ENTRY_COL_LOCATION, &cmploc,
 			    -1);
-	if (loc == cmploc) {
-	    set_location_internal (entry, model, &iter);
+	if (gweather_location_equal (loc, cmploc)) {
+	    set_location_internal (entry, model, &iter, NULL);
 	    return;
 	}
     } while (gtk_tree_model_iter_next (model, &iter));
 
-    set_location_internal (entry, model, NULL);
+    set_location_internal (entry, model, NULL, loc);
 }
 
 /**
@@ -330,11 +339,11 @@ gweather_location_entry_set_city (GWeatherLocationEntry *entry,
 	    g_free (cmpname);
 	}
 
-	set_location_internal (entry, model, &iter);
+	set_location_internal (entry, model, &iter, NULL);
 	return TRUE;
     } while (gtk_tree_model_iter_next (model, &iter));
 
-    set_location_internal (entry, model, NULL);
+    set_location_internal (entry, model, NULL, NULL);
 
     return FALSE;
 }
@@ -413,29 +422,11 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 		g_free (display_name);
 		g_free (compare_name);
 	    }
-	} else if (children[0]) {
-	    /* Else there's only one location. This is a mix of the
-	     * city-with-multiple-location case above and the
-	     * location-with-no-city case below.
-	     */
-	    display_name = g_strdup_printf ("%s, %s",
-					    gweather_location_get_name (loc),
-					    parent_display_name);
-	    compare_name = g_strdup_printf ("%s, %s",
-					    gweather_location_get_sort_name (loc),
-					    parent_compare_name);
 
-	    gtk_tree_store_append (store, &iter, NULL);
-	    gtk_tree_store_set (store, &iter,
-				GWEATHER_LOCATION_ENTRY_COL_LOCATION, children[0],
-				GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
-				GWEATHER_LOCATION_ENTRY_COL_COMPARE_NAME, compare_name,
-				-1);
-
-	    g_free (display_name);
-	    g_free (compare_name);
+	    break;
 	}
-	break;
+
+	/* fall through */
 
     case GWEATHER_LOCATION_WEATHER_STATION:
 	/* <location> with no parent <city>, or <city> with a single
@@ -458,6 +449,9 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	g_free (display_name);
 	g_free (compare_name);
 	break;
+
+    case GWEATHER_LOCATION_DETACHED:
+	g_assert_not_reached ();
     }
 
     gweather_location_free_children (loc, children);
@@ -569,7 +563,7 @@ match_selected (GtkEntryCompletion *completion,
 		GtkTreeIter        *iter,
 		gpointer            entry)
 {
-    set_location_internal (entry, model, iter);
+    set_location_internal (entry, model, iter, NULL);
     return TRUE;
 }
 

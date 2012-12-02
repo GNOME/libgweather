@@ -34,6 +34,9 @@
 #include "parser.h"
 #include "weather-priv.h"
 
+/* This is the precision of coordinates in the database */
+#define EPSILON 0.000001
+
 /**
  * SECTION:gweather-location
  * @Title: GWeatherLocation
@@ -60,6 +63,10 @@
  * @GWEATHER_LOCATION_CITY: A location representing a city
  * @GWEATHER_LOCATION_WEATHER_STATION: A location representing a
  * weather station.
+ * @GWEATHER_LOCATION_DETACHED: A location that is detached from the
+ * database, for example because it was loaded from external storage
+ * and could not be fully recovered. The parent of this location is
+ * the nearest weather station.
  *
  * The size/scope of a particular #GWeatherLocation.
  *
@@ -69,6 +76,9 @@
  * or may not be divided into "adm2"s. A city will have at least one,
  * and possibly several, weather stations inside it. Weather stations
  * will never appear outside of cities.
+ *
+ * Building a database with gweather_location_new_world() will never
+ * create detached instances, but deserializing might.
  **/
 
 static int
@@ -255,7 +265,12 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 
     if (level == GWEATHER_LOCATION_WEATHER_STATION) {
 	/* Cache weather stations by METAR code */
-	g_hash_table_replace (parser->metar_code_cache, loc->station_code, gweather_location_ref (loc));
+	GList *a, *b;
+
+	a = g_hash_table_lookup (parser->metar_code_cache, loc->station_code);
+	b = g_list_append (a, gweather_location_ref (loc));
+	if (b != a)
+	    g_hash_table_replace (parser->metar_code_cache, loc->station_code, b);
     }
 
     if (children->len) {
@@ -706,9 +721,9 @@ gweather_location_get_code (GWeatherLocation *loc)
  * gweather_location_get_city_name:
  * @loc: a #GWeatherLocation
  *
- * For a %GWEATHER_LOCATION_CITY location, this is equivalent to
- * gweather_location_get_name(). For a
- * %GWEATHER_LOCATION_WEATHER_STATION location, it is equivalent to
+ * For a %GWEATHER_LOCATION_CITY or %GWEATHER_LOCATION_DETACHED location,
+ * this is equivalent to gweather_location_get_name().
+ * For a %GWEATHER_LOCATION_WEATHER_STATION location, it is equivalent to
  * calling gweather_location_get_name() on the location's parent. For
  * other locations it will return %NULL.
  *
@@ -719,7 +734,8 @@ gweather_location_get_city_name (GWeatherLocation *loc)
 {
     g_return_val_if_fail (loc != NULL, NULL);
 
-    if (loc->level == GWEATHER_LOCATION_CITY)
+    if (loc->level == GWEATHER_LOCATION_CITY ||
+	loc->level == GWEATHER_LOCATION_DETACHED)
 	return g_strdup (loc->name);
     else if (loc->level == GWEATHER_LOCATION_WEATHER_STATION &&
 	     loc->parent &&
@@ -772,11 +788,29 @@ _weather_location_from_gweather_location (GWeatherLocation *gloc, const gchar *n
     return wloc;
 }
 
+/**
+ * gweather_location_find_by_station_code:
+ * @world: a #GWeatherLocation at the world level
+ * @station_code: a 4 letter METAR code
+ *
+ * Retrieves the weather station identifier by @station_code.
+ * Note that multiple instances of the same weather station can exist
+ * in the database, and this function will return any of them, so this
+ * not usually what you want.
+ *
+ * See gweather_location_deserialize() to recover a stored #GWeatherLocation.
+ *
+ * Returns: a weather station level #GWeatherLocation for @station_code,
+ *          or %NULL if none exists in the database.
+ */
 GWeatherLocation *
 gweather_location_find_by_station_code (GWeatherLocation *world,
 					const gchar      *station_code)
 {
-    return g_hash_table_lookup (world->metar_code_cache, station_code);
+    GList *l;
+
+    l = g_hash_table_lookup (world->metar_code_cache, station_code);
+    return l ? l->data : NULL;
 }
 
 GWeatherLocation *
@@ -788,5 +822,237 @@ gweather_location_ref_world (GWeatherLocation *loc)
 
     if (loc)
 	gweather_location_ref (loc);
+    return loc;
+}
+
+/**
+ * gweather_location_equals:
+ * @one: a #GWeatherLocation
+ * @two: another #GWeatherLocation
+ *
+ * Compares two #GWeatherLocation and sees if they represent the same
+ * place.
+ * It is only legal to call this for cities, weather stations or
+ * detached locations.
+ * Note that this function only checks for geographical characteristics,
+ * such as coordinates and METAR code. It is still possible that the two
+ * locations belong to different worlds (in which case care must be
+ * taken when passing them GWeatherLocationEntry and GWeatherInfo), or
+ * if one is them is detached it could have a custom name.
+ *
+ * Returns: %TRUE if the two locations represent the same place as
+ *          far as libgweather can tell, and %FALSE otherwise.
+ */
+gboolean
+gweather_location_equal (GWeatherLocation *one,
+			 GWeatherLocation *two)
+{
+    int level;
+
+    if (one == two)
+	return TRUE;
+
+    if (one->level != two->level &&
+	one->level != GWEATHER_LOCATION_DETACHED &&
+	two->level != GWEATHER_LOCATION_DETACHED)
+	return FALSE;
+
+    level = one->level;
+    if (level == GWEATHER_LOCATION_DETACHED)
+	level = two->level;
+
+    if (level == GWEATHER_LOCATION_COUNTRY)
+	return g_strcmp0 (one->country_code, two->country_code);
+
+    if (level == GWEATHER_LOCATION_ADM1 ||
+	level == GWEATHER_LOCATION_ADM2) {
+	if (g_strcmp0 (one->sort_name, two->sort_name) != 0)
+	    return FALSE;
+
+	return one->parent && two->parent &&
+	    gweather_location_equal (one->parent, two->parent);
+    }
+
+    if (g_strcmp0 (one->station_code, two->station_code) != 0)
+	return FALSE;
+
+    if (one->level != GWEATHER_LOCATION_DETACHED &&
+	two->level != GWEATHER_LOCATION_DETACHED &&
+	!gweather_location_equal (one->parent, two->parent))
+	return FALSE;
+
+    return ABS(one->latitude - two->latitude) < EPSILON &&
+	ABS(one->longitude - two->longitude) < EPSILON;
+}
+
+/* ------------------- serialization ------------------------------- */
+
+#define FORMAT 1
+
+static GVariant *
+gweather_location_format_one_serialize (GWeatherLocation *location)
+{
+    const char *name;
+    gboolean is_city;
+
+    name = location->name;
+
+    /* Normalize location to be a weather station or detached */
+    if (location->level == GWEATHER_LOCATION_CITY) {
+	location = location->children[0];
+	is_city = TRUE;
+    } else {
+	is_city = FALSE;
+    }
+
+    return g_variant_new ("(ssbm(dd)m(dd))",
+			  name, location->station_code, is_city,
+			  location->latlon_valid,
+			  location->latitude,
+			  location->longitude,
+			  location->parent && location->parent->latlon_valid,
+			  location->parent ? location->parent->latitude : 0.0d,
+			  location->parent ? location->parent->longitude : 0.0d);
+}
+
+GWeatherLocation *
+_gweather_location_new_detached (GWeatherLocation *nearest_station,
+				 const char       *name,
+				 gboolean          latlon_valid,
+				 gdouble           latitude,
+				 gdouble           longitude)
+{
+    GWeatherLocation *self;
+    char *normalized;
+
+    self = g_slice_new0 (GWeatherLocation);
+    self->level = GWEATHER_LOCATION_DETACHED;
+    self->name = g_strdup (name);
+
+    normalized = g_utf8_normalize (name, -1, G_NORMALIZE_ALL);
+    self->sort_name = g_utf8_casefold (normalized, -1);
+    g_free (normalized);
+
+    self->parent = nearest_station;
+    self->children = NULL;
+
+    if (nearest_station)
+	self->station_code = g_strdup (nearest_station->station_code);
+
+    g_assert (nearest_station || latlon_valid);
+
+    if (latlon_valid) {
+	self->latlon_valid = TRUE;
+	self->latitude = latitude;
+	self->longitude = longitude;
+    } else {
+	self->latlon_valid = nearest_station->latlon_valid;
+	self->latitude = nearest_station->latitude;
+	self->longitude = nearest_station->longitude;
+    }
+
+    return self;
+}
+
+static GWeatherLocation *
+gweather_location_format_one_deserialize (GWeatherLocation *world,
+					  GVariant         *variant)
+{
+    const char *name;
+    const char *station_code;
+    gboolean is_city, latlon_valid, parent_latlon_valid;
+    gdouble latitude, longitude, parent_latitude, parent_longitude;
+    GList *candidates, *l;
+    GWeatherLocation *found;
+
+    g_variant_get (variant, "(&s&sbm(dd)m(dd))", &name, &station_code, &is_city,
+		   &latlon_valid, &latitude, &longitude,
+		   &parent_latlon_valid, &parent_latitude, &parent_longitude);
+
+    /* First find the list of candidate locations */
+    candidates = g_hash_table_lookup (world->metar_code_cache, station_code);
+
+    /* If we don't have coordinates, fallback immediately to making up
+     * a location
+     */
+    if (!latlon_valid)
+	return candidates ? _gweather_location_new_detached (candidates->data, name, FALSE, 0, 0) : NULL;
+
+    found = NULL;
+
+    /* First try weather stations directly. */
+    for (l = candidates; l; l = l->next) {
+	GWeatherLocation *ws, *city;
+
+	ws = l->data;
+
+	if (!ws->latlon_valid ||
+	    ABS(ws->latitude - latitude) >= EPSILON ||
+	    ABS(ws->longitude - longitude) >= EPSILON)
+	    /* Not what we're looking for... */
+	    continue;
+
+	/* If we can't check for the latitude and longitude
+	   of the parent, we just assume we found what we needed
+	*/
+	if ((!parent_latlon_valid || !ws->parent || !ws->parent->latlon_valid) ||
+	    (ABS(parent_latitude - ws->parent->latitude) < EPSILON &&
+	     ABS(parent_longitude - ws->parent->longitude) < EPSILON)) {
+
+	    /* Found! Now check which one we want (ws or city) and the name... */
+	    if (is_city)
+		city = ws->parent;
+	    else
+		city = ws;
+
+	    if (city == NULL) {
+		/* Oops! There is no city for this weather station! */
+		continue;
+	    }
+
+	    if (g_strcmp0 (name, city->name) == 0)
+		found = gweather_location_ref (city);
+	    else
+		found = _gweather_location_new_detached (city, name, FALSE, 0, 0);
+
+	    break;
+	}
+    }
+
+    if (found)
+	return found;
+
+    /* No weather station matches the serialized data, let's pick
+       one at random from the station code list */
+    if (candidates)
+	return _gweather_location_new_detached (candidates->data,
+						name, TRUE, latitude, longitude);
+    else
+	return NULL;
+}
+
+GVariant *
+gweather_location_serialize (GWeatherLocation *location)
+{
+    return g_variant_new ("(uv)", FORMAT,
+			  gweather_location_format_one_serialize (location));
+}
+
+GWeatherLocation *
+gweather_location_deserialize (GWeatherLocation *world,
+			       GVariant         *serialized)
+{
+    GVariant *v;
+    GWeatherLocation *loc;
+    int format;
+
+    g_variant_get (serialized, "(uv)", &format, &v);
+
+    if (format == FORMAT)
+	loc = gweather_location_format_one_deserialize (world, v);
+    else
+	loc = NULL;
+
+    g_variant_unref (v);
     return loc;
 }
