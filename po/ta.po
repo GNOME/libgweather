@@ -8,22 +8,23 @@
 # Felix <ifelix@redhat.com>, 2006.
 # drtvasudevan <agnihot3@gmail.com>, 2006.
 # I felix <ifelix@redhat.com>, 2007.
-# Dr.T.Vasudevan <agnihot3@gmail.com>, 2007, 2008, 2009.
+# Dr.T.Vasudevan <agnihot3@gmail.com>, 2007, 2008, 2009, 2012.
 # I. Felix <ifelix@redhat.com>, 2008, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather.master.ta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-02 15:12+0530\n"
-"PO-Revision-Date: 2009-08-25 16:48+0530\n"
-"Last-Translator: I. Felix <ifelix@redhat.com>\n"
-"Language-Team: Tamil <fedora-trans-ta@redhat.com>\n"
+"POT-Creation-Date: 2012-12-09 16:35+0530\n"
+"PO-Revision-Date: 2012-12-09 17:31+0530\n"
+"Last-Translator: Dr.T.Vasudevan <drtvasudevan@gmail.com>\n"
+"Language-Team: Tamil <gnome-tamil-translation@googlegroups.com>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\\n\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -598,6 +599,121 @@ msgstr "METAR தரவை பெற முடியவில்லை: %d %s.\n
 msgid "WeatherInfo missing location"
 msgstr "தட்பவெப்பத் தகவல் இல்லாத இடம்"
 
+#: ../data/org.gnome.GWeather.gschema.xml.h:1
+msgid "URL for the radar map"
+msgstr "ராடார் வரைபடத்திற்கான யூஆர்எல்"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:2
+msgid ""
+"The custom URL from where to retrieve a radar map, or empty for disabling "
+"radar maps."
+msgstr ""
+"ரேடார் வரைப்படம் பெற அல்லது ரேடார் வரைபடங்களை செயலிழக்க தனிப் பயன் யுஆர்எல்."
+
+#. TRANSLATORS: pick a temperature unit that should be used by default in your
+#. locale; values must be quoted
+#: ../data/org.gnome.GWeather.gschema.xml.h:5
+msgid "'fahrenheit'"
+msgstr "'பாரன்ஹீட்'"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:6
+msgid "Temperature unit"
+msgstr "வெப்பநிலை அலகு"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:7
+msgid ""
+"The unit of temperature used for showing weather. Valid values are 'kelvin', "
+"'centigrade' and 'fahrenheit'."
+msgstr ""
+"வானிலையை காட்ட வெப்பத்துக்கு அலகு.  செல்லுபடியாகும் மதிப்புகள் 'கெல்வின்', "
+"'சென்டிக்ரேட்', 'பாரன்ஹீட்'."
+
+#. TRANSLATORS: pick a default distance unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:10
+msgid "'miles'"
+msgstr "'மைல்கள்'"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:11
+msgid "Distance unit"
+msgstr "தொலைவு அலகு"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:12
+msgid ""
+"The unit of distance used for showing weather (for example for visibility or "
+"for distance of important events). Valid values are 'meters', 'km' and "
+"'miles'."
+msgstr ""
+"வானிலையை காட்ட தூரத்துக்கு அலகு (உதாரணமாக வான்ட் தெளிவு அலல்து முக்கிய "
+"நிகழ்வுகளுக்கு தூரம்). செல்லுபடியாகும் மதிப்புகள் 'மீட்டர்', 'கிலோமீட்டர்', "
+"'மைல்கள்'."
+
+#. TRANSLATORS: pick a default speed unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:15
+msgid "'knots'"
+msgstr "'கடல்மைல்கள்'"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:16
+msgid "Speed unit"
+msgstr "வேகம் அலகு"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:17
+msgid ""
+"The unit of speed used for showing weather (for example for wind speed). "
+"Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
+"'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+msgstr ""
+"வானிலையை காட்ட வேகத்துக்கு அலகு (உதாரணமாக காற்றின் வேகம்). "
+"செல்லுபடியாகும் மதிப்புகள் 'ms' (செகண்டுக்கு மீட்டர்), 'kph' (மணிக்கு "
+"கிலோமீட்டர்), "
+"'mph' (மணிக்கு மைல்கள்), 'knots' மற்றும் 'bft' (ப்யூபோர்ட் அலகு)."
+
+#. TRANSLATORS: pick a default pressure unit for your locale, see key description
+#. for valid values
+#: ../data/org.gnome.GWeather.gschema.xml.h:20
+msgid "'inch-hg'"
+msgstr "'inch-hg'"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:21
+msgid "Pressure unit"
+msgstr "அழுத்தம் அலகு"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:22
+msgid ""
+"The unit of pressure used for showing weather. Valid values are "
+"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
+"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
+"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+msgstr ""
+"வானிலையை காட்ட அழுத்தத்துக்கு அலகு. செல்லுபடியாகும் மதிப்புகள் 'kpa' "
+"(கிலோபாஸ்கல்), 'hpa' (ஹெக்டாபாஸ்கல்), 'mb' (மில்லிபார், கணிதத்தில் 1 hPa க்கு "
+"சமம், ஆனால் வித்தியாசமாக காட்டப்படுகிறது), 'mm-hg' (மில்லிமீட்டர் மெர்குரி), "
+"'inch-hg' (இஞ்சஸ் மெர்குரி), 'atm' (அட்மாஸ்பியர்)."
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:23
+msgid "Default location"
+msgstr "முன்னிருப்பு இடம்"
+
+#: ../data/org.gnome.GWeather.gschema.xml.h:24
+msgid ""
+"The default location for the weather applet. The first field is the name "
+"that will be shown. If empty, it will be taken from the locations database. "
+"The second field is the METAR code for the default weather station. It must "
+"not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml "
+"file. The third field is a tuple of (latitude, longitude), to override the "
+"value taken from the database. This is only used for sunrise and moon phase "
+"calculations, not for weather forecast."
+msgstr ""
+"காலநிலை குறுநிலுக்கு முன்னிருப்பு இடம். முதல் புலம் காட்டப்படும் இடத்தின் "
+"பெயர். காலியாக இருந்தால் அது தரவுத்தளத்தில் இருந்து எடுத்துக்கொள்ளப்படும். "
+"இரண்டாம் புலம் முன்னிருப்பு வானிலை மையத்தின் மெடார் குறீயீடு. அது காலியாக "
+"இருக்கக்கூடாது. லொகேஷன்ஸ்.எக்ஸ்எம்எல் கோப்பில் அது ஒரு &lt;code&gt; க்கு "
+"இணைக்கப்பட வேன்டும். மூன்றாவது புலம் அட்சய ரேகை, தீர்க்க ரேகை, கொண்ட ஒரு "
+"டுயூபுல். இது தரவுத்தள மதிப்பை வன்மாற்றம் செய்யக்கூடும். இது சூரியன் "
+"உதிக்கும் நேரம், சந்திர கலை ஆகியவற்றை கணக்கிடவே பயன்படும். வானிலை "
+"முன்னறிவிப்புக்கு அல்ல."
+
 #~ msgid "DEFAULT_LOCATION"
 #~ msgstr "சென்னை"
 
@@ -633,9 +749,6 @@ msgstr "தட்பவெப்பத் தகவல் இல்லாத இ
 
 #~ msgid "mph"
 #~ msgstr "mph"
-
-#~ msgid "knots"
-#~ msgstr "நாட்ஸ்"
 
 #~ msgid "Beaufort scale"
 #~ msgstr "Beaufort அளவு"
@@ -704,9 +817,6 @@ msgstr "தட்பவெப்பத் தகவல் இல்லாத இ
 #~ msgid "Display radar map"
 #~ msgstr "ராடார் வரைபடத்தை காட்டு"
 
-#~ msgid "Distance unit"
-#~ msgstr "தொலைவு அலகு"
-
 #~ msgid "Fetch a radar map on each update."
 #~ msgstr "ஒவ்வொரு மேலேற்றத்தின் போதும் ரேடார் வரைப்படத்தை அமை."
 
@@ -738,23 +848,11 @@ msgstr "தட்பவெப்பத் தகவல் இல்லாத இ
 #~ msgid "Not used anymore"
 #~ msgstr "உபயோகிக்கத்தில் இல்லை"
 
-#~ msgid "Pressure unit"
-#~ msgstr "அழுத்தம் அலகு"
-
 #~ msgid "Radar location"
 #~ msgstr "ராடார் இடம்"
 
-#~ msgid "Speed unit"
-#~ msgstr "வேகம் அலகு"
-
-#~ msgid "Temperature unit"
-#~ msgstr "வெப்பநிலை அலகு"
-
 #~ msgid "The city that gweather displays information for."
 #~ msgstr "ஜிவெதர் தட்ப வெப்பத்தை காட்டும் நகரம்"
-
-#~ msgid "The custom url from where to retrieve a radar map."
-#~ msgstr "ரேடார் வரைப்படம் பெறப்படும் தனிப் பயன் யுஆர்எல்."
 
 #~ msgid "The interval, in seconds, between automatic updates."
 #~ msgstr "தானாக இற்றைபடுத்தலின் இடைவேளை நொடிகளில்"
@@ -777,9 +875,6 @@ msgstr "தட்பவெப்பத் தகவல் இல்லாத இ
 #~ msgid "Update the data automatically"
 #~ msgstr "தகவலை தானாக இற்றைபடுத்து"
 
-#~ msgid "Url for the radar map"
-#~ msgstr "ராடார் வரைபடத்திற்கான வலைமனை"
-
 #~ msgid "Use custom url for the radar map"
 #~ msgstr "ராடார் வரைபடத்திற்கு தனிப்பயன் முகவரியைப் பயன்படுத்து"
 
@@ -797,6 +892,3 @@ msgstr "தட்பவெப்பத் தகவல் இல்லாத இ
 
 #~ msgid "Weather location information."
 #~ msgstr "தட்பவெட்ப இடத்தின் தகவல்."
-
-#~ msgid "Zone location"
-#~ msgstr "மண்டலத்தின் இடம்"
