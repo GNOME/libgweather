@@ -1,4 +1,23 @@
 =============
+Version 3.7.3
+=============
+
+* Two new backends for GWeatherInfo: Yahoo! Weather
+  and Yr.no.
+  Work has started to include Yahoo location data (WOEID) in
+  the offline database.
+* GWeatherInfo backends can now be enabled and
+  disabled individually from the application side.
+* GWeatherXML was removed from the public API. No users
+  of it are known, however the soname was bumped.
+* GWeatherLocation is now serializable to GVariant for
+  storage in GSettings.
+* GWeatherInfo no longer requires network access for
+  astronomical data.
+* Unmaintained Windows support was removed.
+* Translation updates
+
+=============
 Version 3.7.2
 =============
 
