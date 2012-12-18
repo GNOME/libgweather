@@ -25,11 +25,7 @@
 #include <libintl.h>
 #include <math.h>
 #include <gio/gio.h>
-#ifdef HAVE_LIBSOUP_GNOME
-#include <libsoup/soup-gnome.h>
-#else
 #include <libsoup/soup.h>
-#endif
 
 #include "gweather-weather.h"
 #include "gweather-location.h"

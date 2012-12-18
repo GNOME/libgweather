@@ -25,8 +25,7 @@ AC_SUBST(LT_VERSION)
 
 GTK_REQUIRED=2.90.0
 GLIB_REQUIRED=2.35.1
-LIBSOUP_REQUIRED=2.4.0
-LIBSOUP_GNOME_REQUIRED=2.25.1
+LIBSOUP_REQUIRED=2.34.0
 LIBXML_REQUIRED=2.6.0
 
 LT_PREREQ([2.2.6])
@@ -68,14 +67,7 @@ dnl -- Check for libxml (required) ------------------------------------------
 PKG_CHECK_MODULES(LIBXML, libxml-2.0 >= $LIBXML_REQUIRED)
 
 dnl -- check for libsoup (required) -----------------------------------------
-PKG_CHECK_MODULES(LIBSOUP_GNOME,
-		  [libsoup-gnome-2.4 >= $LIBSOUP_GNOME_REQUIRED],
-		  [LIBSOUP_CFLAGS="$LIBSOUP_GNOME_CFLAGS"
-		   LIBSOUP_LIBS="$LIBSOUP_GNOME_LIBS"
-		   AC_DEFINE(HAVE_LIBSOUP_GNOME, 1, [Have libsoup-gnome])],
-		  [PKG_CHECK_MODULES(LIBSOUP, [libsoup-2.4 >= $LIBSOUP_REQUIRED])])
-AC_SUBST(LIBSOUP_CFLAGS)
-AC_SUBST(LIBSOUP_LIBS)
+PKG_CHECK_MODULES(LIBSOUP, [libsoup-2.4 >= $LIBSOUP_REQUIRED])
 
 dnl -- check for glib and gio (required) -----------------------------------------
 PKG_CHECK_MODULES(GIO,

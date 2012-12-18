@@ -434,9 +434,7 @@ gweather_info_update (GWeatherInfo *info)
 
     if (!priv->session) {
 	priv->session = soup_session_async_new ();
-#ifdef HAVE_LIBSOUP_GNOME
-	soup_session_add_feature_by_type (priv->session, SOUP_TYPE_PROXY_RESOLVER_GNOME);
-#endif
+	soup_session_add_feature_by_type (priv->session, SOUP_TYPE_PROXY_RESOLVER_DEFAULT);
     }
 
     if (priv->providers & GWEATHER_PROVIDER_METAR)
