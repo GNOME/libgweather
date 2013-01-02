@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #
 # locations_diff.py
 #
@@ -27,7 +27,7 @@ except:
 old_locations = old_dom.getElementsByTagName ('location')
 new_locations = new_dom.getElementsByTagName ('location')
 
-print 'There are %i new locations' % (len (new_locations) - len (old_locations))
+print('There are %i new locations' % (len (new_locations) - len (old_locations)))
 
 old_locations_dict = {}
 new_locations_dict = {}
@@ -46,14 +46,14 @@ for location in new_locations:
 			location_name = node.childNodes[0].nodeValue
 		elif node.nodeType == 1 and node.tagName == 'code':
 			location_code = node.childNodes[0].nodeValue
-	if not old_locations_dict.has_key (location_code):
-		print 'New Location %s - %s' % (location_code, location_name)
+	if location_code not in old_locations_dict:
+		print('New Location %s - %s' % (location_code, location_name))
 	elif old_locations_dict[location_code] != location_name:
-		print 'Location %s changed name %s => %s' % (location_code,
-			old_locations_dict[location_code], location_name)
+		print('Location %s changed name %s => %s' % (location_code,
+			old_locations_dict[location_code], location_name))
 	new_locations_dict[location_code] = location_name
 
-for location in old_locations_dict.keys():
-	if not new_locations_dict.has_key (location):
-		print 'Location Removed %s - %s' % (location,
-			old_locations_dict[location])
+for location in list(old_locations_dict.keys()):
+	if location not in new_locations_dict:
+		print('Location Removed %s - %s' % (location,
+			old_locations_dict[location]))

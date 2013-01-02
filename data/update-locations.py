@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 import codecs
@@ -8,12 +8,10 @@ import os
 import re
 import sqlite3
 import sys
-import urllib
+import urllib.request, urllib.parse, urllib.error
 from xml.dom import minidom
 from xml.sax import saxutils
-
-# Magic incantation to tell python to let us output UTF-8
-sys.stdout = codecs.getwriter(locale.getpreferredencoding())(sys.stdout)
+from functools import reduce
 
 # The database...
 db = sqlite3.connect('locationdb.sqlite')
@@ -80,7 +78,7 @@ def printComment(indent, comment, keep_newlines=False):
     prefix = '%s<!-- ' % indent
     width = 72 - len(prefix)
     if len(comment) < width and comment.find('\n') == -1:
-        print '%s<!-- %s -->' % (indent, comment)
+        print('%s<!-- %s -->' % (indent, comment))
         return
 
     while len(comment) > width or comment.find('\n') != -1:
@@ -91,13 +89,13 @@ def printComment(indent, comment, keep_newlines=False):
                 brk == comment.find(' ')
                 if brk == -1:
                     break
-        print '%s%s' % (prefix, comment[:brk])
+        print('%s%s' % (prefix, comment[:brk]))
         prefix = '%s     ' % indent
         brk += 1
         comment = comment[brk:]
     if len(comment):
-        print '%s%s' % (prefix, comment)
-    print '%s  -->' % indent
+        print('%s%s' % (prefix, comment))
+    print('%s  -->' % indent)
 
 # other helpers
 def getFipsCodes(node, container):
@@ -137,10 +135,10 @@ class Timezones:
         self.zones = [Timezone(z) for z in getChildrenByName(node, 'timezone')]
 
     def print_xml(self, indent):
-        print '%s<timezones>' % indent
+        print('%s<timezones>' % indent)
         for zone in self.zones:
             zone.print_xml(indent + '  ')
-        print '%s</timezones>' % indent
+        print('%s</timezones>' % indent)
 
 class Timezone:
     def __init__(self, node):
@@ -152,7 +150,7 @@ class Timezone:
 
     def print_xml(self, indent):
         if self.name is not None or len(self.obsoletes):
-            print '%s<timezone id="%s">' % (indent, self.id)
+            print('%s<timezone id="%s">' % (indent, self.id))
             if self.comment is not None:
                 printComment(indent + '  ', self.comment)
             if self.name is not None:
@@ -160,12 +158,12 @@ class Timezone:
                     msgctxt=' msgctxt="Timezone"'
                 else:
                     msgctxt=''
-                print '%s  <_name%s>%s</_name>' % (indent, msgctxt, self.name)
+                print('%s  <_name%s>%s</_name>' % (indent, msgctxt, self.name))
             for obs in self.obsoletes:
-                print '%s  <obsoletes>%s</obsoletes>' % (indent, obs)
-            print '%s</timezone>' % indent
+                print('%s  <obsoletes>%s</obsoletes>' % (indent, obs))
+            print('%s</timezone>' % indent)
         else:
-            print '%s<timezone id="%s" />' % (indent, self.id)
+            print('%s<timezone id="%s" />' % (indent, self.id))
 
 class LocBase:
     def __init__(self, parent, arg):
@@ -204,22 +202,22 @@ class LocBase:
 
     def print_xml(self, indent):
         if self.iso_code is not None:
-            print '%s  <iso-code>%s</iso-code>' % (indent, self.iso_code)
+            print('%s  <iso-code>%s</iso-code>' % (indent, self.iso_code))
         if self.fips_codes is not None:
             for value in self.fips_codes:
-                print '%s  <fips-code>%s</fips-code>' % (indent, value)
+                print('%s  <fips-code>%s</fips-code>' % (indent, value))
         if self.pref_lang is not None:
-            print '%s  <pref-lang>%s</pref-lang>' % (indent, self.pref_lang)
+            print('%s  <pref-lang>%s</pref-lang>' % (indent, self.pref_lang))
         if self.timezones is not None:
             self.timezones.print_xml(indent + '  ')
         if self.tz_hint is not None:
-            print '%s  <tz-hint>%s</tz-hint>' % (indent, self.tz_hint)
+            print('%s  <tz-hint>%s</tz-hint>' % (indent, self.tz_hint))
         if self.zone is not None:
-            print '%s  <zone>%s</zone>' % (indent, self.zone)
+            print('%s  <zone>%s</zone>' % (indent, self.zone))
         if self.radar is not None:
-            print '%s  <radar>%s</radar>' % (indent, self.radar)
+            print('%s  <radar>%s</radar>' % (indent, self.radar))
         if self.coordinates is not None:
-            print '%s  <coordinates>%s</coordinates>' % (indent, self.coordinates)
+            print('%s  <coordinates>%s</coordinates>' % (indent, self.coordinates))
         for item in self.contents:
             item.print_xml(indent + '  ')
 
@@ -243,7 +241,7 @@ class LocBase:
         else:
             msgctxt = ''
 
-        print '%s  <_name%s>%s</_name>' % (indent, msgctxt, saxutils.escape(self.name))
+        print('%s  <_name%s>%s</_name>' % (indent, msgctxt, saxutils.escape(self.name)))
 
     def station_prefixes(self):
         return reduce(set.__or__, [x.station_prefixes() for x in self.contents], set())
@@ -253,12 +251,12 @@ class Region(LocBase):
         LocBase.__init__(self, None, elt)
 
     def print_xml(self, indent):
-        print '%s<region>' % indent
+        print('%s<region>' % indent)
         if self.comment is not None:
             printComment(indent + '  ', self.comment)
         self.print_name(indent)
         LocBase.print_xml(self, indent)
-        print '%s</region>' % indent
+        print('%s</region>' % indent)
 
 class Country(LocBase):
     def __init__(self, elt):
@@ -280,7 +278,7 @@ class Country(LocBase):
             self.in_name = self.name
 
     def print_xml(self, indent):
-        print '%s<country>' % indent
+        print('%s<country>' % indent)
         if self.comment is not None:
             printComment(indent + '  ', self.comment)
         self.print_name(indent)
@@ -304,7 +302,7 @@ class Country(LocBase):
                 comment += ', %s' % city.name
             printComment(indent + '  ', comment, True)
         LocBase.print_xml(self, indent)
-        print '%s</country>' % indent
+        print('%s</country>' % indent)
 
 class State(LocBase):
     def __init__(self, parent, elt):
@@ -313,12 +311,12 @@ class State(LocBase):
             self.comment = 'A state/province/territory in %s' % self.parent.name
 
     def print_xml(self, indent):
-        print '%s<state>' % indent
+        print('%s<state>' % indent)
         if self.comment is not None:
             printComment(indent + '  ', self.comment)
         self.print_name(indent)
         LocBase.print_xml(self, indent)
-        print '%s</state>' % indent
+        print('%s</state>' % indent)
 
 class City(LocBase):
     def __init__(self, arg):
@@ -361,7 +359,7 @@ class City(LocBase):
             else:
                 self.comment = 'A city in %s' % self.parent.in_name
 
-        print '%s<city>' % indent
+        print('%s<city>' % indent)
         comment = self.comment or ''
         if len(self.name_comment):
             if len(comment):
@@ -373,10 +371,10 @@ class City(LocBase):
         if len(comment):
             printComment(indent + '  ', comment, True)
         self.print_name(indent)
-        print '%s  <coordinates>%s</coordinates>' % (indent, self.coordinates)
+        print('%s  <coordinates>%s</coordinates>' % (indent, self.coordinates))
         for item in self.contents:
             item.print_xml(indent + '  ', self)
-        print '%s</city>' % indent
+        print('%s</city>' % indent)
 
 class Location(LocBase):
     def __init__(self, arg):
@@ -395,7 +393,7 @@ class Location(LocBase):
                 self.comment = station_comments[self.code]
 
     def print_xml(self, indent, city=None):
-        print '%s<location>' % indent
+        print('%s<location>' % indent)
         name = self.name
         if city is not None:
             if name.startswith("%s, " % city.name):
@@ -408,10 +406,10 @@ class Location(LocBase):
                 name = name[:-len(city.name) - 2]
         #if self.comment is not None:
         #    print '%s  <!-- %s -->' % (indent, self.comment)
-        print '%s  <name>%s</name>' % (indent, saxutils.escape(name))
-        print '%s  <code>%s</code>' % (indent, self.code)
+        print('%s  <name>%s</name>' % (indent, saxutils.escape(name)))
+        print('%s  <code>%s</code>' % (indent, self.code))
         LocBase.print_xml(self, indent)
-        print '%s</location>' % indent
+        print('%s</location>' % indent)
 
     def station_prefixes(self):
         return set([self.code[:2]])
@@ -664,7 +662,7 @@ def dist_from_station(city, station, cmpcity):
     return dist
 
 observations_url = os.getenv('OBSERVATIONS_URL') or 'http://gnome.org/~danw/observations.txt'
-observations = urllib.urlopen(observations_url)
+observations = urllib.request.urlopen(observations_url)
 recent = [obs.rstrip() for obs in observations.readlines()]
 observations.close()
 
@@ -775,7 +773,7 @@ for id in cities:
             if city.country_code != "" and city.country_code in fips_codes:
                 city.parent = fips_codes[city.country_code]
             else:
-                print "Could not find container for city %s in %s" % (city.name, city.country_code);
+                print("Could not find container for city %s in %s" % (city.name, city.country_code));
                 continue
     city.parent.contents.append(city)
 
@@ -831,9 +829,9 @@ for country_code in fips_codes:
 for code in fips_codes:
     fips_codes[code].contents.sort()
 
-print '<?xml version="1.0" encoding="utf-8"?>'
-print '<!DOCTYPE gweather SYSTEM "locations.dtd">'
-print '<gweather format="1.0">'
+print('<?xml version="1.0" encoding="utf-8"?>')
+print('<!DOCTYPE gweather SYSTEM "locations.dtd">')
+print('<gweather format="1.0">')
 for region in regions:
     region.contents.sort()
     region.print_xml('  ')
@@ -842,4 +840,4 @@ if len(recent):
     for station_code in recent:
         comment += '%s ' % station_code
     printComment('', comment, True)
-print '</gweather>'
+print('</gweather>')
