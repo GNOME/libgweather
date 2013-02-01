@@ -1044,6 +1044,9 @@ gweather_location_format_one_deserialize (GWeatherLocation *world,
 GVariant *
 gweather_location_serialize (GWeatherLocation *location)
 {
+    g_return_val_if_fail (location != NULL, NULL);
+    g_return_val_if_fail (location->level >= GWEATHER_LOCATION_CITY, NULL);
+
     return g_variant_new ("(uv)", FORMAT,
 			  gweather_location_format_one_serialize (location));
 }
