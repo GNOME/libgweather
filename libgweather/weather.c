@@ -137,7 +137,7 @@ const gchar *
 gweather_wind_direction_to_string (GWeatherWindDirection wind)
 {
     if (wind <= GWEATHER_WIND_INVALID || wind >= GWEATHER_WIND_LAST)
-	return _("Invalid");
+	return C_("wind direction", "Invalid");
 
     return _(wind_direction_str[(int)wind]);
 }
@@ -154,7 +154,7 @@ const gchar *
 gweather_sky_to_string (GWeatherSky sky)
 {
     if (sky <= GWEATHER_SKY_INVALID || sky >= GWEATHER_SKY_LAST)
-	return _("Invalid");
+	return C_("sky conditions", "Invalid");
 
     return _(sky_str[(int)sky]);
 }
@@ -226,7 +226,7 @@ gweather_conditions_to_string (GWeatherConditions *cond)
 	    cond->qualifier < GWEATHER_QUALIFIER_LAST)
 	    str = _(conditions_str[(int)cond->phenomenon][(int)cond->qualifier]);
 	else
-	    str = _("Invalid");
+	    str = C_("sky conditions", "Invalid");
 	return (strlen (str) > 0) ? str : "-";
     }
 }
@@ -567,7 +567,7 @@ gweather_info_get_sky (GWeatherInfo *info)
     if (!info->priv->valid)
         return g_strdup("-");
     if (info->priv->sky < 0)
-	return g_strdup(_("Unknown"));
+	return g_strdup(C_("sky conditions", "Unknown"));
     return g_strdup(gweather_sky_to_string (info->priv->sky));
 }
 
@@ -616,7 +616,7 @@ temperature_string (gfloat temp_f, GWeatherTemperatureUnit to_unit, gboolean wan
     case GWEATHER_TEMP_UNIT_DEFAULT:
     default:
 	g_critical ("Conversion to illegal temperature unit: %d", to_unit);
-	return g_strdup(_("Unknown"));
+	return g_strdup(C_("temperature unit", "Unknown"));
     }
 }
 
@@ -631,7 +631,7 @@ gweather_info_get_temp (GWeatherInfo *info)
     if (!priv->valid)
         return g_strdup("-");
     if (priv->temp < -500.0)
-        return g_strdup(_("Unknown"));
+        return g_strdup(C_("temperature", "Unknown"));
 
     return temperature_string (priv->temp, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
@@ -647,7 +647,7 @@ gweather_info_get_temp_min (GWeatherInfo *info)
     if (!priv->valid || !priv->tempMinMaxValid)
         return g_strdup("-");
     if (priv->temp_min < -500.0)
-        return g_strdup(_("Unknown"));
+        return g_strdup(C_("temperature", "Unknown"));
 
     return temperature_string (priv->temp_min, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
@@ -663,7 +663,7 @@ gweather_info_get_temp_max (GWeatherInfo *info)
     if (!priv->valid || !priv->tempMinMaxValid)
         return g_strdup("-");
     if (priv->temp_max < -500.0)
-        return g_strdup(_("Unknown"));
+        return g_strdup(C_("temperature", "Unknown"));
 
     return temperature_string (priv->temp_max, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
@@ -679,7 +679,7 @@ gweather_info_get_dew (GWeatherInfo *info)
     if (!priv->valid)
         return g_strdup("-");
     if (priv->dew < -500.0)
-        return g_strdup(_("Unknown"));
+        return g_strdup(C_("dew", "Unknown"));
 
     return temperature_string (priv->dew, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
@@ -696,7 +696,7 @@ gweather_info_get_humidity (GWeatherInfo *info)
 
     humidity = calc_humidity (info->priv->temp, info->priv->dew);
     if (humidity < 0.0)
-        return g_strdup(_("Unknown"));
+        return g_strdup(C_("humidity", "Unknown"));
 
     /* TRANSLATOR: This is the humidity in percent */
     return g_strdup_printf(_("%.f%%"), humidity);
@@ -716,7 +716,7 @@ gweather_info_get_apparent (GWeatherInfo *info)
 
     apparent = calc_apparent (info);
     if (apparent < -500.0)
-        return g_strdup(_("Unknown"));
+        return g_strdup(C_("temperature", "Unknown"));
 
     return temperature_string (apparent, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
@@ -746,7 +746,7 @@ windspeed_string (gfloat knots, GWeatherSpeedUnit to_unit)
     case GWEATHER_SPEED_UNIT_DEFAULT:
     default:
 	g_critical ("Conversion to illegal speed unit: %d", to_unit);
-	return g_strdup(_("Unknown"));
+	return g_strdup(C_("speed unit", "Unknown"));
     }
 
     return NULL;
@@ -764,7 +764,7 @@ gweather_info_get_wind (GWeatherInfo *info)
     if (!priv->valid)
         return g_strdup("-");
     if (priv->windspeed < 0.0 || priv->wind < 0)
-        return g_strdup(_("Unknown"));
+        return g_strdup(C_("wind speed", "Unknown"));
     if (priv->windspeed == 0.00) {
         return g_strdup(_("Calm"));
     } else {
@@ -793,7 +793,7 @@ gweather_info_get_pressure (GWeatherInfo *info)
     if (!priv->valid)
         return g_strdup("-");
     if (priv->pressure < 0.0)
-        return g_strdup(_("Unknown"));
+        return g_strdup(C_("pressure", "Unknown"));
 
     switch (g_settings_get_enum (priv->settings, PRESSURE_UNIT)) {
     case GWEATHER_PRESSURE_UNIT_INCH_HG:
@@ -819,7 +819,7 @@ gweather_info_get_pressure (GWeatherInfo *info)
     case GWEATHER_PRESSURE_UNIT_DEFAULT:
     default:
 	g_critical ("Conversion to illegal pressure unit");
-	return g_strdup(_("Unknown"));
+	return g_strdup(C_("pressure unit", "Unknown"));
     }
 
     return NULL;
@@ -836,7 +836,7 @@ gweather_info_get_visibility (GWeatherInfo *info)
     if (!priv->valid)
         return g_strdup ("-");
     if (priv->visibility < 0.0)
-        return g_strdup (_("Unknown"));
+        return g_strdup (C_("visibility", "Unknown"));
 
     switch (g_settings_get_enum (priv->settings, DISTANCE_UNIT)) {
     case GWEATHER_DISTANCE_UNIT_MILES:
@@ -853,7 +853,7 @@ gweather_info_get_visibility (GWeatherInfo *info)
     case GWEATHER_DISTANCE_UNIT_DEFAULT:
     default:
 	g_critical ("Conversion to illegal visibility unit");
-	return g_strdup (_("Unknown"));
+	return g_strdup (C_("visibility unit", "Unknown"));
     }
 
     return NULL;
