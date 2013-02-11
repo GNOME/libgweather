@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-25 16:42+0100\n"
-"PO-Revision-Date: 2013-01-25 16:43+0100\n"
+"POT-Creation-Date: 2013-02-11 21:16+0100\n"
+"PO-Revision-Date: 2013-02-11 21:23+0100\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -97,8 +97,8 @@ msgstr "Nord-Ovest"
 msgid "North - Northwest"
 msgstr "Nord / Nord-Ovest"
 
-#: ../libgweather/weather.c:140 ../libgweather/weather.c:157
-#: ../libgweather/weather.c:229
+#: ../libgweather/weather.c:140
+msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Non valido"
 
@@ -121,6 +121,11 @@ msgstr "Nuvole rade"
 #: ../libgweather/weather.c:150
 msgid "Overcast"
 msgstr "Coperto"
+
+#: ../libgweather/weather.c:157 ../libgweather/weather.c:229
+msgctxt "sky conditions"
+msgid "Invalid"
+msgstr "Non valido"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
@@ -421,13 +426,8 @@ msgstr "%a, %d %b alle %k.%M"
 msgid "Unknown observation time"
 msgstr "Ora di osservazione sconosciuta"
 
-#: ../libgweather/weather.c:570 ../libgweather/weather.c:619
-#: ../libgweather/weather.c:634 ../libgweather/weather.c:650
-#: ../libgweather/weather.c:666 ../libgweather/weather.c:682
-#: ../libgweather/weather.c:699 ../libgweather/weather.c:719
-#: ../libgweather/weather.c:749 ../libgweather/weather.c:767
-#: ../libgweather/weather.c:796 ../libgweather/weather.c:822
-#: ../libgweather/weather.c:839 ../libgweather/weather.c:856
+#: ../libgweather/weather.c:570
+msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Sconosciuta"
 
@@ -467,6 +467,27 @@ msgstr "%.1f K"
 msgid "%d K"
 msgstr "%d K"
 
+#: ../libgweather/weather.c:619
+msgctxt "temperature unit"
+msgid "Unknown"
+msgstr "Sconosciuta"
+
+#: ../libgweather/weather.c:634 ../libgweather/weather.c:650
+#: ../libgweather/weather.c:666 ../libgweather/weather.c:719
+msgctxt "temperature"
+msgid "Unknown"
+msgstr "Sconosciuta"
+
+#: ../libgweather/weather.c:682
+msgctxt "dew"
+msgid "Unknown"
+msgstr "Sconosciuta"
+
+#: ../libgweather/weather.c:699
+msgctxt "humidity"
+msgid "Unknown"
+msgstr "Sconosciuta"
+
 #. TRANSLATOR: This is the humidity in percent
 #: ../libgweather/weather.c:702
 #, c-format
@@ -505,6 +526,16 @@ msgstr "%.1f m/s"
 msgid "Beaufort force %.1f"
 msgstr "Forza %.1f Beaufort"
 
+#: ../libgweather/weather.c:749
+msgctxt "speed unit"
+msgid "Unknown"
+msgstr "Sconosciuta"
+
+#: ../libgweather/weather.c:767
+msgctxt "wind speed"
+msgid "Unknown"
+msgstr "Sconosciuta"
+
 #: ../libgweather/weather.c:769
 msgid "Calm"
 msgstr "Calma"
@@ -514,6 +545,11 @@ msgstr "Calma"
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
+
+#: ../libgweather/weather.c:796
+msgctxt "pressure"
+msgid "Unknown"
+msgstr "Sconosciuta"
 
 #. TRANSLATOR: This is pressure in inches of mercury
 #: ../libgweather/weather.c:801
@@ -551,6 +587,16 @@ msgstr "%.2f mb"
 msgid "%.3f atm"
 msgstr "%.3f atmosfere"
 
+#: ../libgweather/weather.c:822
+msgctxt "pressure unit"
+msgid "Unknown"
+msgstr "Sconosciuta"
+
+#: ../libgweather/weather.c:839
+msgctxt "visibility"
+msgid "Unknown"
+msgstr "Sconosciuta"
+
 #. TRANSLATOR: This is the visibility in miles
 #: ../libgweather/weather.c:844
 #, c-format
@@ -568,6 +614,11 @@ msgstr "%.1f km"
 #, c-format
 msgid "%.0fm"
 msgstr "%.0f m"
+
+#: ../libgweather/weather.c:856
+msgctxt "visibility unit"
+msgid "Unknown"
+msgstr "Sconosciuta"
 
 #: ../libgweather/weather.c:880 ../libgweather/weather.c:905
 msgid "%H:%M"
