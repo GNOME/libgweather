@@ -1,5 +1,5 @@
 # Serbian translation of gnome-applets
-# Courtesy of Prevod.org team (http://prevod.org/) -- 2003, 2004, 2005, 2006.
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2003—2013.
 # This file is distributed under the same license as the gnome-applets package.
 # Maintainer: Danilo Šegan <danilo@gnome.org>
 # Reviewed on 2005-09-03 by: Igor Nestorović <igor@prevod.org>
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-applets\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgwe"
 "ather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-12-02 19:08+0000\n"
-"PO-Revision-Date: 2013-01-19 11:50+0200\n"
+"POT-Creation-Date: 2013-02-10 16:19+0000\n"
+"PO-Revision-Date: 2013-02-15 21:53+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -98,8 +98,9 @@ msgstr "Severozapadni"
 msgid "North - Northwest"
 msgstr "Severno-severozapadni"
 
-#: ../libgweather/weather.c:140 ../libgweather/weather.c:157
-#: ../libgweather/weather.c:229
+#: ../libgweather/weather.c:140
+#| msgid "Invalid"
+msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Neispravno"
 
@@ -122,6 +123,12 @@ msgstr "Mestimično oblačno"
 #: ../libgweather/weather.c:150
 msgid "Overcast"
 msgstr "Oblačno"
+
+#: ../libgweather/weather.c:157 ../libgweather/weather.c:229
+#| msgid "Invalid"
+msgctxt "sky conditions"
+msgid "Invalid"
+msgstr "Neispravno"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
@@ -421,87 +428,108 @@ msgstr "Kovitlaci prašine"
 msgid "Dust whirls in the vicinity"
 msgstr "Kovitlaci prašine u blizini"
 
-#: ../libgweather/weather.c:554
+#: ../libgweather/weather.c:552
 msgid "%a, %b %d / %H:%M"
 msgstr "%a, %b %d / %H:%M"
 
-#: ../libgweather/weather.c:560
+#: ../libgweather/weather.c:558
 msgid "Unknown observation time"
 msgstr "Nepoznato vreme posmatranja"
 
-#: ../libgweather/weather.c:572 ../libgweather/weather.c:621
-#: ../libgweather/weather.c:636 ../libgweather/weather.c:652
-#: ../libgweather/weather.c:668 ../libgweather/weather.c:684
-#: ../libgweather/weather.c:701 ../libgweather/weather.c:721
-#: ../libgweather/weather.c:751 ../libgweather/weather.c:769
-#: ../libgweather/weather.c:798 ../libgweather/weather.c:824
-#: ../libgweather/weather.c:841 ../libgweather/weather.c:858
+#: ../libgweather/weather.c:570
+#| msgid "Unknown"
+msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Nepoznato"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:592
+#: ../libgweather/weather.c:590
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:595
+#: ../libgweather/weather.c:593
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:601
+#: ../libgweather/weather.c:599
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:604
+#: ../libgweather/weather.c:602
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:610
+#: ../libgweather/weather.c:608
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:613
+#: ../libgweather/weather.c:611
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
+#: ../libgweather/weather.c:619
+#| msgid "Unknown"
+msgctxt "temperature unit"
+msgid "Unknown"
+msgstr "Nepoznato"
+
+#: ../libgweather/weather.c:634 ../libgweather/weather.c:650
+#: ../libgweather/weather.c:666 ../libgweather/weather.c:719
+#| msgid "Unknown"
+msgctxt "temperature"
+msgid "Unknown"
+msgstr "Nepoznato"
+
+#: ../libgweather/weather.c:682
+#| msgid "Unknown"
+msgctxt "dew"
+msgid "Unknown"
+msgstr "Nepoznato"
+
+#: ../libgweather/weather.c:699
+#| msgid "Unknown"
+msgctxt "humidity"
+msgid "Unknown"
+msgstr "Nepoznato"
+
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:704
+#: ../libgweather/weather.c:702
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 # bug: plural-forms
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:732
+#: ../libgweather/weather.c:730
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f čvora"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:735
+#: ../libgweather/weather.c:733
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:738
+#: ../libgweather/weather.c:736
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:741
+#: ../libgweather/weather.c:739
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -509,81 +537,117 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:746
+#: ../libgweather/weather.c:744
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Snaga po Boforu %.1f"
 
-#: ../libgweather/weather.c:771
+#: ../libgweather/weather.c:749
+#| msgid "Unknown"
+msgctxt "speed unit"
+msgid "Unknown"
+msgstr "Nepoznato"
+
+#: ../libgweather/weather.c:767
+#| msgid "Unknown"
+msgctxt "wind speed"
+msgid "Unknown"
+msgstr "Nepoznato"
+
+#: ../libgweather/weather.c:769
 msgid "Calm"
 msgstr "Mirno"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:779
+#: ../libgweather/weather.c:777
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
+#: ../libgweather/weather.c:796
+#| msgid "Unknown"
+msgctxt "pressure"
+msgid "Unknown"
+msgstr "Nepoznato"
+
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:803
+#: ../libgweather/weather.c:801
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:806
+#: ../libgweather/weather.c:804
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:809
+#: ../libgweather/weather.c:807
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:812
+#: ../libgweather/weather.c:810
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:815
+#: ../libgweather/weather.c:813
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:818
+#: ../libgweather/weather.c:816
 #, c-format
 msgid "%.3f atm"
 msgstr "%.1f atmosfera"
 
+#: ../libgweather/weather.c:822
+#| msgid "Unknown"
+msgctxt "pressure unit"
+msgid "Unknown"
+msgstr "Nepoznato"
+
+#: ../libgweather/weather.c:839
+#| msgid "Unknown"
+msgctxt "visibility"
+msgid "Unknown"
+msgstr "Nepoznato"
+
 # bug: plural-forms
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:846
+#: ../libgweather/weather.c:844
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f milja"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:849
+#: ../libgweather/weather.c:847
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:852
+#: ../libgweather/weather.c:850
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:882 ../libgweather/weather.c:907
+#: ../libgweather/weather.c:856
+#| msgid "Unknown"
+msgctxt "visibility unit"
+msgid "Unknown"
+msgstr "Nepoznato"
+
+#: ../libgweather/weather.c:880 ../libgweather/weather.c:905
 msgid "%H:%M"
 msgstr "%H:%M"
 
-#: ../libgweather/weather.c:1008
+#: ../libgweather/weather.c:1006
 msgid "Retrieval failed"
 msgstr "Nije uspelo dobavljanje podataka"
 
