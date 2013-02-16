@@ -12,9 +12,11 @@ AM_CPPFLAGS = 			\
 AM_CFLAGS = $(WARN_CFLAGS)
 
 gweather_new_headers = \
+	gweather.h \
 	gweather-location.h location-entry.h \
 	gweather-timezone.h timezone-menu.h \
 	gweather-weather.h gweather-enums.h
+
 libgweatherincdir = $(includedir)/libgweather-3.0/libgweather
 libgweatherinc_HEADERS = \
 	$(gweather_new_headers)		\
@@ -93,7 +95,7 @@ CLEANFILES = $(schema_DATA) $(noinst_PROGRAMS) $(BUILT_SOURCES)
 # Introspection
 -include $(INTROSPECTION_MAKEFILE)
 INTROSPECTION_GIRS =
-INTROSPECTION_SCANNER_ARGS = --warn-all --add-include-path=$(srcdir)
+INTROSPECTION_SCANNER_ARGS = --warn-all --add-include-path=$(srcdir) --c-include=libgweather/gweather.h
 INTROSPECTION_COMPILER_ARGS = --includedir=$(srcdir)
 
 if HAVE_INTROSPECTION
