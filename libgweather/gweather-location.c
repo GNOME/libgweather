@@ -1041,6 +1041,12 @@ gweather_location_format_one_deserialize (GWeatherLocation *world,
 	return NULL;
 }
 
+/**
+ * gweather_location_serialize:
+ * @location: a #GWeatherLocation
+ *
+ * Returns: (transfer none):
+ */
 GVariant *
 gweather_location_serialize (GWeatherLocation *location)
 {
