@@ -872,7 +872,7 @@ gweather_info_get_sunrise (GWeatherInfo *info)
 
     _gweather_info_ensure_sun (info);
 
-    if (!priv->valid || !priv->sunriseValid)
+    if (!priv->sunriseValid)
         return g_strdup ("-");
 
     sunrise = g_date_time_new_from_unix_local (priv->sunrise);
@@ -898,7 +898,7 @@ gweather_info_get_sunset (GWeatherInfo *info)
 
     _gweather_info_ensure_sun (info);
 
-    if (!priv->valid || !priv->sunsetValid)
+    if (!priv->sunsetValid)
         return g_strdup ("-");
 
     sunset = g_date_time_new_from_unix_local (priv->sunset);
