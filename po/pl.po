@@ -10,14 +10,14 @@
 # Zbigniew Braniecki <gandalf@aviary.pl>, 2007.
 # Stanisław Małolepszy <smalolepszy@aviary.pl>, 2007.
 # Tomasz Dominikowski <dominikowski@gmail.com>, 2008-2009.
-# Piotr Drąg <piotrdrag@gmail.com>, 2010-2012.
-# Aviary.pl <gnomepl@aviary.pl>, 2007-2012.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2013.
+# Aviary.pl <gnomepl@aviary.pl>, 2007-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-16 02:51+0100\n"
-"PO-Revision-Date: 2012-12-16 02:52+0100\n"
+"POT-Creation-Date: 2013-02-17 20:18+0100\n"
+"PO-Revision-Date: 2013-02-17 20:19+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -106,8 +106,8 @@ msgstr "Północny zachód"
 msgid "North - Northwest"
 msgstr "Północ - północny zachód"
 
-#: ../libgweather/weather.c:140 ../libgweather/weather.c:157
-#: ../libgweather/weather.c:229
+#: ../libgweather/weather.c:140
+msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Niewłaściwy"
 
@@ -130,6 +130,11 @@ msgstr "Mało pochmurne"
 #: ../libgweather/weather.c:150
 msgid "Overcast"
 msgstr "Pochmurno"
+
+#: ../libgweather/weather.c:157 ../libgweather/weather.c:229
+msgctxt "sky conditions"
+msgid "Invalid"
+msgstr "Niewłaściwe"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
@@ -422,86 +427,102 @@ msgstr "Tumany kurzu"
 msgid "Dust whirls in the vicinity"
 msgstr "Tumany kurzu w pobliżu"
 
-#: ../libgweather/weather.c:554
+#: ../libgweather/weather.c:552
 msgid "%a, %b %d / %H:%M"
 msgstr "%a %e %b, %H:%M"
 
-#: ../libgweather/weather.c:560
+#: ../libgweather/weather.c:558
 msgid "Unknown observation time"
 msgstr "Nieznany czas obserwacji"
 
-#: ../libgweather/weather.c:572 ../libgweather/weather.c:621
-#: ../libgweather/weather.c:636 ../libgweather/weather.c:652
-#: ../libgweather/weather.c:668 ../libgweather/weather.c:684
-#: ../libgweather/weather.c:701 ../libgweather/weather.c:721
-#: ../libgweather/weather.c:751 ../libgweather/weather.c:769
-#: ../libgweather/weather.c:798 ../libgweather/weather.c:824
-#: ../libgweather/weather.c:841 ../libgweather/weather.c:858
+#: ../libgweather/weather.c:570
+msgctxt "sky conditions"
 msgid "Unknown"
-msgstr "Nieznany"
+msgstr "Nieznane"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:592
+#: ../libgweather/weather.c:590
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:595
+#: ../libgweather/weather.c:593
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:601
+#: ../libgweather/weather.c:599
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:604
+#: ../libgweather/weather.c:602
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:610
+#: ../libgweather/weather.c:608
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:613
+#: ../libgweather/weather.c:611
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
+#: ../libgweather/weather.c:619
+msgctxt "temperature unit"
+msgid "Unknown"
+msgstr "Nieznana"
+
+#: ../libgweather/weather.c:634 ../libgweather/weather.c:650
+#: ../libgweather/weather.c:666 ../libgweather/weather.c:719
+msgctxt "temperature"
+msgid "Unknown"
+msgstr "Nieznana"
+
+#: ../libgweather/weather.c:682
+msgctxt "dew"
+msgid "Unknown"
+msgstr "Nieznane"
+
+#: ../libgweather/weather.c:699
+msgctxt "humidity"
+msgid "Unknown"
+msgstr "Nieznana"
+
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:704
+#: ../libgweather/weather.c:702
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:732
+#: ../libgweather/weather.c:730
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f węzłów"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:735
+#: ../libgweather/weather.c:733
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:738
+#: ../libgweather/weather.c:736
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:741
+#: ../libgweather/weather.c:739
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -509,80 +530,110 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:746
+#: ../libgweather/weather.c:744
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "%.1f w skali Beauforta"
 
-#: ../libgweather/weather.c:771
+#: ../libgweather/weather.c:749
+msgctxt "speed unit"
+msgid "Unknown"
+msgstr "Nieznana"
+
+#: ../libgweather/weather.c:767
+msgctxt "wind speed"
+msgid "Unknown"
+msgstr "Nieznana"
+
+#: ../libgweather/weather.c:769
 msgid "Calm"
 msgstr "Spokojny"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:779
+#: ../libgweather/weather.c:777
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
+#: ../libgweather/weather.c:796
+msgctxt "pressure"
+msgid "Unknown"
+msgstr "Nieznane"
+
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:803
+#: ../libgweather/weather.c:801
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:806
+#: ../libgweather/weather.c:804
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:809
+#: ../libgweather/weather.c:807
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:812
+#: ../libgweather/weather.c:810
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:815
+#: ../libgweather/weather.c:813
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:818
+#: ../libgweather/weather.c:816
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
+#: ../libgweather/weather.c:822
+msgctxt "pressure unit"
+msgid "Unknown"
+msgstr "Nieznana"
+
+#: ../libgweather/weather.c:839
+msgctxt "visibility"
+msgid "Unknown"
+msgstr "Nieznana"
+
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:846
+#: ../libgweather/weather.c:844
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f mil"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:849
+#: ../libgweather/weather.c:847
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:852
+#: ../libgweather/weather.c:850
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:882 ../libgweather/weather.c:907
+#: ../libgweather/weather.c:856
+msgctxt "visibility unit"
+msgid "Unknown"
+msgstr "Nieznana"
+
+#: ../libgweather/weather.c:880 ../libgweather/weather.c:905
 msgid "%H:%M"
 msgstr "%H:%M"
 
-#: ../libgweather/weather.c:1008
+#: ../libgweather/weather.c:1006
 msgid "Retrieval failed"
 msgstr "Pobranie się nie powiodło"
 
