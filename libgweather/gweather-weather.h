@@ -117,6 +117,7 @@ gchar * 		 gweather_info_get_temp_summary	   (GWeatherInfo *info);
 gchar *			 gweather_info_get_weather_summary (GWeatherInfo *info);
 
 const gchar *		 gweather_info_get_icon_name	   (GWeatherInfo *info);
+const gchar *		 gweather_info_get_symbolic_icon_name	   (GWeatherInfo *info);
 gint			 gweather_info_next_sun_event	   (GWeatherInfo *info);
 
 gboolean                 gweather_info_is_daytime          (GWeatherInfo *info);

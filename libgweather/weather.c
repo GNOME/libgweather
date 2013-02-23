@@ -1180,6 +1180,95 @@ gweather_info_get_icon_name (GWeatherInfo *info)
     return icon_buffer;
 }
 
+const gchar *
+gweather_info_get_symbolic_icon_name (GWeatherInfo *info)
+{
+    GWeatherInfoPrivate *priv;
+    GWeatherConditions   cond;
+    GWeatherSky          sky;
+    gboolean             daytime;
+
+    g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
+
+    priv = info->priv;
+
+    _gweather_info_ensure_sun (info);
+    _gweather_info_ensure_moon (info);
+
+    cond = priv->cond;
+    sky = priv->sky;
+
+    if (cond.significant) {
+	if (cond.phenomenon != GWEATHER_PHENOMENON_NONE &&
+	    cond.qualifier == GWEATHER_QUALIFIER_THUNDERSTORM)
+            return "weather-storm-symbolic";
+
+        switch (cond.phenomenon) {
+	case GWEATHER_PHENOMENON_INVALID:
+	case GWEATHER_PHENOMENON_LAST:
+	case GWEATHER_PHENOMENON_NONE:
+	    break;
+
+	case GWEATHER_PHENOMENON_DRIZZLE:
+	case GWEATHER_PHENOMENON_RAIN:
+	case GWEATHER_PHENOMENON_UNKNOWN_PRECIPITATION:
+	case GWEATHER_PHENOMENON_HAIL:
+	case GWEATHER_PHENOMENON_SMALL_HAIL:
+	    return "weather-showers-symbolic";
+
+	case GWEATHER_PHENOMENON_SNOW:
+	case GWEATHER_PHENOMENON_SNOW_GRAINS:
+	case GWEATHER_PHENOMENON_ICE_PELLETS:
+	case GWEATHER_PHENOMENON_ICE_CRYSTALS:
+	    return "weather-snow-symbolic";
+
+	case GWEATHER_PHENOMENON_TORNADO:
+	case GWEATHER_PHENOMENON_SQUALL:
+	    return "weather-storm-symbolic";
+
+	case GWEATHER_PHENOMENON_MIST:
+	case GWEATHER_PHENOMENON_FOG:
+	case GWEATHER_PHENOMENON_SMOKE:
+	case GWEATHER_PHENOMENON_VOLCANIC_ASH:
+	case GWEATHER_PHENOMENON_SAND:
+	case GWEATHER_PHENOMENON_HAZE:
+	case GWEATHER_PHENOMENON_SPRAY:
+	case GWEATHER_PHENOMENON_DUST:
+	case GWEATHER_PHENOMENON_SANDSTORM:
+	case GWEATHER_PHENOMENON_DUSTSTORM:
+	case GWEATHER_PHENOMENON_FUNNEL_CLOUD:
+	case GWEATHER_PHENOMENON_DUST_WHIRLS:
+	    return "weather-fog-symbolic";
+        }
+    }
+
+    daytime = gweather_info_is_daytime (info);
+
+    switch (sky) {
+    case GWEATHER_SKY_INVALID:
+    case GWEATHER_SKY_LAST:
+    case GWEATHER_SKY_CLEAR:
+	if (daytime)
+	    return "weather-clear-symbolic";
+	else
+	    return "weather-clear-night-symbolic";
+
+    case GWEATHER_SKY_BROKEN:
+    case GWEATHER_SKY_SCATTERED:
+    case GWEATHER_SKY_FEW:
+	if (daytime)
+	    return "weather-few-clouds-symbolic";
+	else
+	    return "weather-few-clouds-night-symbolic";
+
+    case GWEATHER_SKY_OVERCAST:
+	return "weather-overcast-symbolic";
+
+    default: /* unrecognized */
+	return NULL;
+    }
+}
+
 static gboolean
 temperature_value (gdouble temp_f,
 		   GWeatherTemperatureUnit to_unit,
