@@ -1857,7 +1857,7 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 				"Location",
 				"The location this info represents",
 				GWEATHER_TYPE_LOCATION,
-				G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
+				G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
     g_object_class_install_property (gobject_class, PROP_LOCATION, pspec);
 
     pspec = g_param_spec_enum ("forecast-type",
