@@ -3,865 +3,516 @@
 #
 # Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2004, 2005.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2004, 2006, 2007, 2008, 2009, 2010.
-# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-applets&component=gweather\n"
-"POT-Creation-Date: 2009-08-27 15:11+0000\n"
-"PO-Revision-Date: 2010-03-24 10:50+0100\n"
-"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-01 10:28+0100\n"
+"PO-Revision-Date: 2013-02-28 22:35+0100\n"
+"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.0\n"
 
-#. TRANSLATOR: Change this to the default location name,
-#. * used when you first start the Weather Applet. This is
-#. * the common localised name that corresponds to
-#. * the location code (DEFAULT_CODE) you will put on the next message
-#. * For example, for the Greek locale, we set this to "Athens", the
-#. * capital city and we write it in Greek. It's important to translate
-#. * this name.
-#. *
-#. * If you do not require a DEFAULT_LOCATION, set this to
-#. * "DEFAULT_LOCATION".
-#.
-#: ../libgweather/gweather-gconf.c:212 ../libgweather/gweather-gconf.c:213
-#: ../libgweather/gweather.schemas.in.h:5
-msgid "DEFAULT_LOCATION"
-msgstr "Donostia"
-
-#. TRANSLATOR: Change this to the code of your default location that
-#. * corresponds to the DEFAULT_LOCATION name you put above. This is
-#. * normally a four-letter (ICAO) code and can be found in
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * NB. The web page is over 1.7MB in size.
-#. * Pick a default location like a capital city so that it would be ok
-#. * for more of your users. For example, for Greek, we use "LGAV" for
-#. * the capital city, Athens.
-#. *
-#. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
-#.
-#: ../libgweather/gweather-gconf.c:232 ../libgweather/gweather-gconf.c:233
-#: ../libgweather/gweather.schemas.in.h:3
-msgid "DEFAULT_CODE"
-msgstr "LESO"
-
-#. TRANSLATOR: Change this to the zone of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have zones while the rest do not.
-#. * Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any zone you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a zone, set this to
-#. * "DEFAULT_ZONE".
-#.
-#: ../libgweather/gweather-gconf.c:252 ../libgweather/gweather-gconf.c:253
-#: ../libgweather/gweather.schemas.in.h:7
-msgid "DEFAULT_ZONE"
-msgstr "DEFAULT_ZONE"
-
-#. TRANSLATOR: Change this to the radar of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have radar names while the rest do
-#. * not. Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any radar you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a radar, set this to " "
-#. * (or space).
-#. * If you do not have a default location, set this to DEFAULT_RADAR.
-#.
-#: ../libgweather/gweather-gconf.c:273 ../libgweather/gweather-gconf.c:274
-#: ../libgweather/gweather.schemas.in.h:6
-msgid "DEFAULT_RADAR"
-msgstr "DEFAULT_RADAR"
-
-#. TRANSLATOR: Change this to the coordinates of your default location
-#. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
-#. * above. Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any coordinates you put here must also be present in the
-#. * Locations.xml file.
-#. *
-#. * If your default location does not have known coordinates, set this
-#. * to " " (or space).
-#. * If you do not have a default location, set this to
-#. * DEFAULT_COORDINATES.
-#.
-#: ../libgweather/gweather-gconf.c:294 ../libgweather/gweather-gconf.c:295
-#: ../libgweather/gweather.schemas.in.h:4
-msgid "DEFAULT_COORDINATES"
-msgstr "43-21N 001-48W"
-
-#: ../libgweather/gweather-prefs.c:34 ../libgweather/gweather-prefs.c:45
-#: ../libgweather/gweather-prefs.c:60 ../libgweather/gweather-prefs.c:77
-msgid "Default"
-msgstr "Lehenetsia"
-
-#. translators: Kelvin
-#: ../libgweather/gweather-prefs.c:36
-msgid "K"
-msgstr "K"
-
-#. translators: Celsius
-#: ../libgweather/gweather-prefs.c:38
-msgid "C"
-msgstr "C"
-
-#. translators: Fahrenheit
-#: ../libgweather/gweather-prefs.c:40
-msgid "F"
-msgstr "F"
-
-#. translators: meters per second
-#: ../libgweather/gweather-prefs.c:47
-msgid "m/s"
-msgstr "m/s"
-
-#. translators: kilometers per hour
-#: ../libgweather/gweather-prefs.c:49
-msgid "km/h"
-msgstr "km/o"
-
-#. translators: miles per hour
-#: ../libgweather/gweather-prefs.c:51
-msgid "mph"
-msgstr "m/o"
-
-#. translators: knots (speed unit)
-#: ../libgweather/gweather-prefs.c:53
-msgid "knots"
-msgstr "korapilo"
-
-#. translators: wind speed
-#: ../libgweather/gweather-prefs.c:55
-msgid "Beaufort scale"
-msgstr "Beaufort eskala"
-
-#. translators: kilopascals
-#: ../libgweather/gweather-prefs.c:62
-msgid "kPa"
-msgstr "kPa"
-
-#. translators: hectopascals
-#: ../libgweather/gweather-prefs.c:64
-msgid "hPa"
-msgstr "hPa"
-
-#. translators: millibars
-#: ../libgweather/gweather-prefs.c:66
-msgid "mb"
-msgstr "mb"
-
-#. translators: millimeters of mercury
-#: ../libgweather/gweather-prefs.c:68
-msgid "mmHg"
-msgstr "mmHg"
-
-#. translators: inches of mercury
-#: ../libgweather/gweather-prefs.c:70
-msgid "inHg"
-msgstr "inHg"
-
-#. translators: atmosphere
-#: ../libgweather/gweather-prefs.c:72
-msgid "atm"
-msgstr "atm"
-
-#. translators: meters
-#: ../libgweather/gweather-prefs.c:79
-msgid "m"
-msgstr "m"
-
-#. translators: kilometers
-#: ../libgweather/gweather-prefs.c:81
-msgid "km"
-msgstr "km"
-
-#. translators: miles
-#: ../libgweather/gweather-prefs.c:83
-msgid "mi"
-msgstr "mi"
-
-#. TRANSLATOR: This is the default unit to use for temperature measurements.
-#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:103 ../libgweather/gweather-prefs.c:111
-msgid "DEFAULT_TEMP_UNIT"
-msgstr "C"
-
-#. TRANSLATOR: This is the default unit to use for wind speed.
-#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
-#. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:141 ../libgweather/gweather-prefs.c:151
-msgid "DEFAULT_SPEED_UNIT"
-msgstr "km/h"
-
-#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
-#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
-#. "mb" (millibars), "mmHg" (millimeters of mercury),
-#. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:183 ../libgweather/gweather-prefs.c:194
-msgid "DEFAULT_PRESSURE_UNIT"
-msgstr "mb"
-
-#. TRANSLATOR: This is the default unit to use for visibility distance.
-#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:224 ../libgweather/gweather-prefs.c:233
-msgid "DEFAULT_DISTANCE_UNIT"
-msgstr "m"
-
-#: ../libgweather/gweather-timezone.c:314
+#: ../libgweather/gweather-timezone.c:316
 msgid "Greenwich Mean Time"
 msgstr "Greenwich Meridianoko Ordua"
 
-#: ../libgweather/gweather.schemas.in.h:1
-msgid ""
-"A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Hiru digitu luzerako kodea radar-mapak eskuratzeko weather.com gunetik, "
-"honako fitxategian aurkitzen den bezala: http://git.gnome.org/cgit/"
-"libgweather/plain/data/Locations.xml.in"
-
-#: ../libgweather/gweather.schemas.in.h:2
-msgid ""
-"A unique zone for the city, as found from http://git.gnome.org/cgit/"
-"libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Hiriarentzako zona bakarra, honako fitxategian aurkitzen den bezala: http://"
-"git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-
-#: ../libgweather/gweather.schemas.in.h:8
-msgid ""
-"Determines whether the applet automatically updates its weather statistics "
-"or not."
-msgstr ""
-"Applet-ak eguraldiaren estatistikak automatikoki eguneratuko dituen ala ez "
-"zehazten du."
-
-#: ../libgweather/gweather.schemas.in.h:9
-msgid "Display radar map"
-msgstr "Erakutsi radar-mapa"
-
-#: ../libgweather/gweather.schemas.in.h:10
-msgid "Distance unit"
-msgstr "Distantzia-unitateak"
-
-#: ../libgweather/gweather.schemas.in.h:11
-msgid "Fetch a radar map on each update."
-msgstr "Hartu radar-mapa bat eguneratze bakoitzean."
-
-#: ../libgweather/gweather.schemas.in.h:12
-msgid ""
-"If true, then retrieve a radar map from a location specified by the \"radar"
-"\" key."
-msgstr ""
-"Egiazkoa bada, radar-mapa bat eskuratuko du \"radarra\" gakoan zehaztutako "
-"lekutik."
-
-#: ../libgweather/gweather.schemas.in.h:13
-msgid ""
-"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-"[EW]."
-msgstr ""
-"Kokalekuaren latitudea eta longitudea honako moduan adieraziz: DD-MM-SS[NS] "
-"DD-MM-SS[EW]"
-
-#: ../libgweather/gweather.schemas.in.h:14
-msgid "Location coordinates"
-msgstr "Kokalekuaren koordenatuak"
-
-#: ../libgweather/gweather.schemas.in.h:15
-msgid "Nearby city"
-msgstr "Gertuko hiria"
-
-#: ../libgweather/gweather.schemas.in.h:16
-msgid ""
-"Nearby major zone, such as a capital city, as found from http://git.gnome."
-"org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Gertuko zona nagusia, hiriburu bat bezalakoa, honako fitxategian aurkitzen "
-"den bezala: http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml."
-"in "
-
-#: ../libgweather/gweather.schemas.in.h:17
-msgid "Not used anymore"
-msgstr "Orain ez da erabiltzen"
-
-#: ../libgweather/gweather.schemas.in.h:18
-msgid "Pressure unit"
-msgstr "Presio-unitateak:"
-
-#: ../libgweather/gweather.schemas.in.h:19
-msgid "Radar location"
-msgstr "Radar kokalekua"
-
-#: ../libgweather/gweather.schemas.in.h:20
-msgid "Speed unit"
-msgstr "Abiadura-unitateak"
-
-#: ../libgweather/gweather.schemas.in.h:21
-msgid "Temperature unit"
-msgstr "Tenperatura-unitateak"
-
-#: ../libgweather/gweather.schemas.in.h:22
-msgid "The city that gweather displays information for."
-msgstr "Hiria, dagokion informazioa gweather-ek bistaratzeko."
-
-#: ../libgweather/gweather.schemas.in.h:23
-msgid "The custom url from where to retrieve a radar map."
-msgstr "Radar-mapa hartzeko URL pertsonalizatua."
-
-#: ../libgweather/gweather.schemas.in.h:24
-msgid "The interval, in seconds, between automatic updates."
-msgstr "Eguneratze automatikoak egiteko denbora-bitartea (segundotan)."
-
-#: ../libgweather/gweather.schemas.in.h:25
-msgid "The unit to use for pressure."
-msgstr "Erabiliko den presio-unitatea."
-
-#: ../libgweather/gweather.schemas.in.h:26
-msgid "The unit to use for temperature."
-msgstr "Erabiliko den tenperatura-unitatea."
-
-#: ../libgweather/gweather.schemas.in.h:27
-msgid "The unit to use for visibility."
-msgstr "Erabiliko den ikusgaitasun-unitatea."
-
-#: ../libgweather/gweather.schemas.in.h:28
-msgid "The unit to use for wind speed."
-msgstr "Erabiliko den haize-abiadura."
-
-#: ../libgweather/gweather.schemas.in.h:29
-msgid "Update interval"
-msgstr "Eguneratze-maiztasuna"
-
-#: ../libgweather/gweather.schemas.in.h:30
-msgid "Update the data automatically"
-msgstr "Eguneratu datuak automatikoki"
-
-#: ../libgweather/gweather.schemas.in.h:31
-msgid "Url for the radar map"
-msgstr "Radar-maparen URLa"
-
-#: ../libgweather/gweather.schemas.in.h:32
-msgid "Use custom url for the radar map"
-msgstr "Erabili URL pertsonalizatua radar-mapa hartzeko"
-
-#: ../libgweather/gweather.schemas.in.h:33
-msgid "Use metric units"
-msgstr "Erabili sistema metrikoa"
-
-#: ../libgweather/gweather.schemas.in.h:34
-msgid "Use metric units instead of english units."
-msgstr "Erabili sistema metrikoa unitate ingelesen ordez."
-
-#: ../libgweather/gweather.schemas.in.h:35
-msgid "Weather for a city"
-msgstr "Hiriaren eguraldia"
-
-#: ../libgweather/gweather.schemas.in.h:36
-msgid "Weather location information"
-msgstr "Leku bateko eguraldiaren informazioa"
-
-#: ../libgweather/gweather.schemas.in.h:37
-msgid "Weather location information."
-msgstr "Leku bateko eguraldiaren informazioa."
-
-#: ../libgweather/gweather.schemas.in.h:38
-msgid "Zone location"
-msgstr "Zonaren lekua"
-
-#: ../libgweather/timezone-menu.c:277
-#| msgid "Unknown"
+#: ../libgweather/timezone-menu.c:278
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Ezezaguna"
 
-#. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:504
-#, c-format
-msgid "Failed to get METAR data: %d %s.\n"
-msgstr "Huts egin du METAR datuak hartzean: %d: %s\n"
-
-#: ../libgweather/weather-metar.c:548
-msgid "WeatherInfo missing location"
-msgstr "WeatherInfo-n kokalekua falta da"
-
-#: ../libgweather/weather.c:230
+#: ../libgweather/weather.c:129
 msgid "Variable"
 msgstr "Aldakorra"
 
-#: ../libgweather/weather.c:231
+#: ../libgweather/weather.c:130
 msgid "North"
 msgstr "Iparraldea"
 
-#: ../libgweather/weather.c:231
+#: ../libgweather/weather.c:130
 msgid "North - NorthEast"
 msgstr "Iparraldea - Ipar-ekialdea"
 
-#: ../libgweather/weather.c:231
+#: ../libgweather/weather.c:130
 msgid "Northeast"
 msgstr "Ipar-ekialdea"
 
-#: ../libgweather/weather.c:231
+#: ../libgweather/weather.c:130
 msgid "East - NorthEast"
 msgstr "Ekialdea - Ipar-ekialdea"
 
-#: ../libgweather/weather.c:232
+#: ../libgweather/weather.c:131
 msgid "East"
 msgstr "Ekialdea"
 
-#: ../libgweather/weather.c:232
+#: ../libgweather/weather.c:131
 msgid "East - Southeast"
 msgstr "Ekialdea - Hego-ekialdea"
 
-#: ../libgweather/weather.c:232
+#: ../libgweather/weather.c:131
 msgid "Southeast"
 msgstr "Hego-ekialdea"
 
-#: ../libgweather/weather.c:232
+#: ../libgweather/weather.c:131
 msgid "South - Southeast"
 msgstr "Hegoaldea - Hego-ekialdea"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:132
 msgid "South"
 msgstr "Hegoaldea"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:132
 msgid "South - Southwest"
 msgstr "Hegoaldea - Hego-mendebaldea"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:132
 msgid "Southwest"
 msgstr "Hego-mendebaldea"
 
-#: ../libgweather/weather.c:233
+#: ../libgweather/weather.c:132
 msgid "West - Southwest"
 msgstr "Mendebaldea - Hego-mendebaldea"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:133
 msgid "West"
 msgstr "Mendebaldea"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:133
 msgid "West - Northwest"
 msgstr "Mendebaldea - Ipar-mendebaldea"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:133
 msgid "Northwest"
 msgstr "Ipar-mendebaldea"
 
-#: ../libgweather/weather.c:234
+#: ../libgweather/weather.c:133
 msgid "North - Northwest"
 msgstr "Iparraldea - Ipar-mendebaldea"
 
-#: ../libgweather/weather.c:241 ../libgweather/weather.c:258
-#: ../libgweather/weather.c:330
+#: ../libgweather/weather.c:140
+msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Baliogabea"
 
-#: ../libgweather/weather.c:247
+#: ../libgweather/weather.c:146
 msgid "Clear Sky"
 msgstr "Oskarbi"
 
-#: ../libgweather/weather.c:248
+#: ../libgweather/weather.c:147
 msgid "Broken clouds"
 msgstr "Hodeiak eta ostarteak"
 
-#: ../libgweather/weather.c:249
+#: ../libgweather/weather.c:148
 msgid "Scattered clouds"
 msgstr "Hodei bakanak"
 
-#: ../libgweather/weather.c:250
+#: ../libgweather/weather.c:149
 msgid "Few clouds"
 msgstr "Hodei gutxi"
 
-#: ../libgweather/weather.c:251
+#: ../libgweather/weather.c:150
 msgid "Overcast"
 msgstr "Zeru estalia"
+
+#: ../libgweather/weather.c:157 ../libgweather/weather.c:229
+msgctxt "sky conditions"
+msgid "Invalid"
+msgstr "Baliogabea"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:290 ../libgweather/weather.c:292
+#: ../libgweather/weather.c:189 ../libgweather/weather.c:191
 msgid "Thunderstorm"
 msgstr "Trumoi-ekaitza"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:190
 msgid "Drizzle"
 msgstr "Zirimiria"
 
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:190
 msgid "Light drizzle"
 msgstr "Zirimiri arina"
 
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:190
 msgid "Moderate drizzle"
 msgstr "Zirimiri moderatua"
 
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:190
 msgid "Heavy drizzle"
 msgstr "Zirimiri ugaria"
 
-#: ../libgweather/weather.c:291
+#: ../libgweather/weather.c:190
 msgid "Freezing drizzle"
 msgstr "Zirimiri izoztua"
 
 #. RAIN
-#: ../libgweather/weather.c:292
+#: ../libgweather/weather.c:191
 msgid "Rain"
 msgstr "Euria"
 
-#: ../libgweather/weather.c:292
+#: ../libgweather/weather.c:191
 msgid "Light rain"
 msgstr "Euri arina"
 
-#: ../libgweather/weather.c:292
+#: ../libgweather/weather.c:191
 msgid "Moderate rain"
 msgstr "Euri moderatua"
 
-#: ../libgweather/weather.c:292
+#: ../libgweather/weather.c:191
 msgid "Heavy rain"
 msgstr "Euri ugaria"
 
-#: ../libgweather/weather.c:292
+#: ../libgweather/weather.c:191
 msgid "Rain showers"
 msgstr "Euri-zaparradak"
 
-#: ../libgweather/weather.c:292
+#: ../libgweather/weather.c:191
 msgid "Freezing rain"
 msgstr "Euri izoztua"
 
 #. SNOW
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:192
 msgid "Snow"
 msgstr "Elurra"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:192
 msgid "Light snow"
 msgstr "Elur arina"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:192
 msgid "Moderate snow"
 msgstr "Elur moderatua"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:192
 msgid "Heavy snow"
 msgstr "Elur ugaria"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:192
 msgid "Snowstorm"
 msgstr "Elur-ekaitza"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:192
 msgid "Blowing snowfall"
 msgstr "Elur-jasa haizetsua"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:192
 msgid "Snow showers"
 msgstr "Elur-zaparradak"
 
-#: ../libgweather/weather.c:293
+#: ../libgweather/weather.c:192
 msgid "Drifting snow"
 msgstr "Elurra han-hemenka"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:193
 msgid "Snow grains"
 msgstr "Elur-birrina"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:193
 msgid "Light snow grains"
 msgstr "Elur-birrin arina"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:193
 msgid "Moderate snow grains"
 msgstr "Elur-birrin moderatua"
 
-#: ../libgweather/weather.c:294
+#: ../libgweather/weather.c:193
 msgid "Heavy snow grains"
 msgstr "Elur-birrin ugaria"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:295
+#: ../libgweather/weather.c:194
 msgid "Ice crystals"
 msgstr "Izotz-kristalak"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:195
 msgid "Ice pellets"
 msgstr "Izotz-pikortak"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:195
 msgid "Few ice pellets"
 msgstr "Izotz-pikorta bakan batzuk"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:195
 msgid "Moderate ice pellets"
 msgstr "Izotz-pikorta moderatuak"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:195
 msgid "Heavy ice pellets"
 msgstr "Izotz-pikorta ugariak"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:195
 msgid "Ice pellet storm"
 msgstr "Izotz-pikortazko ekaitza"
 
-#: ../libgweather/weather.c:296
+#: ../libgweather/weather.c:195
 msgid "Showers of ice pellets"
 msgstr "Izotz-pikortazko zaparradak"
 
 #. HAIL
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:196
 msgid "Hail"
 msgstr "Kazkabarra"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:196
 msgid "Hailstorm"
 msgstr "Kazkabar-ekaitza"
 
-#: ../libgweather/weather.c:297
+#: ../libgweather/weather.c:196
 msgid "Hail showers"
 msgstr "Kazkabar-zaparradak"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:197
 msgid "Small hail"
 msgstr "Kazkabar txikia"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:197
 msgid "Small hailstorm"
 msgstr "Kazkabar txikiko ekaitza"
 
-#: ../libgweather/weather.c:298
+#: ../libgweather/weather.c:197
 msgid "Showers of small hail"
 msgstr "Kazkabar txikiko zaparradak"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:299
+#: ../libgweather/weather.c:198
 msgid "Unknown precipitation"
 msgstr "Prezipitazio ezezaguna"
 
 #. MIST
-#: ../libgweather/weather.c:300
+#: ../libgweather/weather.c:199
 msgid "Mist"
 msgstr "Lainobera"
 
 #. FOG
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:200
 msgid "Fog"
 msgstr "Lainoa"
 
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:200
 msgid "Fog in the vicinity"
 msgstr "Lainoa inguruan"
 
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:200
 msgid "Shallow fog"
 msgstr "Laino oso itxia"
 
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:200
 msgid "Patches of fog"
 msgstr "Laino-guneak"
 
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:200
 msgid "Partial fog"
 msgstr "Lainoa tarteka"
 
-#: ../libgweather/weather.c:301
+#: ../libgweather/weather.c:200
 msgid "Freezing fog"
 msgstr "Laino izoztua"
 
 #. SMOKE
-#: ../libgweather/weather.c:302
+#: ../libgweather/weather.c:201
 msgid "Smoke"
 msgstr "Kea"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:303
+#: ../libgweather/weather.c:202
 msgid "Volcanic ash"
 msgstr "Errauts bolkanikoa"
 
 #. SAND
-#: ../libgweather/weather.c:304
+#: ../libgweather/weather.c:203
 msgid "Sand"
 msgstr "Harea"
 
-#: ../libgweather/weather.c:304
+#: ../libgweather/weather.c:203
 msgid "Blowing sand"
 msgstr "Harea haizetsua"
 
-#: ../libgweather/weather.c:304
+#: ../libgweather/weather.c:203
 msgid "Drifting sand"
 msgstr "Harea han-hemenka"
 
 #. HAZE
-#: ../libgweather/weather.c:305
+#: ../libgweather/weather.c:204
 msgid "Haze"
 msgstr "Gandua"
 
 #. SPRAY
-#: ../libgweather/weather.c:306
+#: ../libgweather/weather.c:205
 msgid "Blowing sprays"
 msgstr "Zipriztin haizetsuak"
 
 #. DUST
-#: ../libgweather/weather.c:307
+#: ../libgweather/weather.c:206
 msgid "Dust"
 msgstr "Hautsa"
 
-#: ../libgweather/weather.c:307
+#: ../libgweather/weather.c:206
 msgid "Blowing dust"
 msgstr "Hauts haizetsua"
 
-#: ../libgweather/weather.c:307
+#: ../libgweather/weather.c:206
 msgid "Drifting dust"
 msgstr "Hautsa han-hemenka"
 
 #. SQUALL
-#: ../libgweather/weather.c:308
+#: ../libgweather/weather.c:207
 msgid "Squall"
 msgstr "Haize-erauntsia"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:309
+#: ../libgweather/weather.c:208
 msgid "Sandstorm"
 msgstr "Harea-ekaitza"
 
-#: ../libgweather/weather.c:309
+#: ../libgweather/weather.c:208
 msgid "Sandstorm in the vicinity"
 msgstr "Harea-ekaitza inguruan"
 
-#: ../libgweather/weather.c:309
+#: ../libgweather/weather.c:208
 msgid "Heavy sandstorm"
 msgstr "Harea-ekaitz indartsua"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:310
+#: ../libgweather/weather.c:209
 msgid "Duststorm"
 msgstr "Hauts-ekaitza"
 
-#: ../libgweather/weather.c:310
+#: ../libgweather/weather.c:209
 msgid "Duststorm in the vicinity"
 msgstr "Hauts-ekaitza inguruan"
 
-#: ../libgweather/weather.c:310
+#: ../libgweather/weather.c:209
 msgid "Heavy duststorm"
 msgstr "Hauts-ekaitz indartsua"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:311
+#: ../libgweather/weather.c:210
 msgid "Funnel cloud"
 msgstr "Tragarroia"
 
 #. TORNADO
-#: ../libgweather/weather.c:312
+#: ../libgweather/weather.c:211
 msgid "Tornado"
 msgstr "Tornadoa"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:313
+#: ../libgweather/weather.c:212
 msgid "Dust whirls"
 msgstr "Hauts-zurrunbiloak"
 
-#: ../libgweather/weather.c:313
+#: ../libgweather/weather.c:212
 msgid "Dust whirls in the vicinity"
 msgstr "Hauts-zurrunbiloak inguruan"
 
-#. TRANSLATOR: this is a format string for strftime
-#. *             see `man 3 strftime` for more details
-#.
-#: ../libgweather/weather.c:703
+#: ../libgweather/weather.c:552
 msgid "%a, %b %d / %H:%M"
 msgstr "%a, %b %d / %H:%M"
 
-#: ../libgweather/weather.c:718
+#: ../libgweather/weather.c:558
 msgid "Unknown observation time"
 msgstr "Behaketa-ordu ezezaguna"
 
-#: ../libgweather/weather.c:732 ../libgweather/weather.c:783
-#: ../libgweather/weather.c:797 ../libgweather/weather.c:810
-#: ../libgweather/weather.c:823 ../libgweather/weather.c:836
-#: ../libgweather/weather.c:854 ../libgweather/weather.c:872
-#: ../libgweather/weather.c:910 ../libgweather/weather.c:926
-#: ../libgweather/weather.c:949 ../libgweather/weather.c:981
-#: ../libgweather/weather.c:997 ../libgweather/weather.c:1017
+#: ../libgweather/weather.c:570
+msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Ezezaguna"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:754
+#: ../libgweather/weather.c:590
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f° F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:757
+#: ../libgweather/weather.c:593
 #, c-format
 msgid "%d °F"
 msgstr "%d° F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:763
+#: ../libgweather/weather.c:599
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f° C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:766
+#: ../libgweather/weather.c:602
 #, c-format
 msgid "%d °C"
 msgstr "%d° C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:772
+#: ../libgweather/weather.c:608
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f° K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:775
+#: ../libgweather/weather.c:611
 #, c-format
 msgid "%d K"
 msgstr "%d° K"
 
+#: ../libgweather/weather.c:619
+msgctxt "temperature unit"
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+#: ../libgweather/weather.c:634 ../libgweather/weather.c:650
+#: ../libgweather/weather.c:666 ../libgweather/weather.c:719
+msgctxt "temperature"
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+#: ../libgweather/weather.c:682
+msgctxt "dew"
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+#: ../libgweather/weather.c:699
+msgctxt "humidity"
+msgid "Unknown"
+msgstr "Ezezaguna"
+
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:857
+#: ../libgweather/weather.c:702
 #, c-format
 msgid "%.f%%"
 msgstr "%%%.f"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:885
+#: ../libgweather/weather.c:730
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f korapilo"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:889
+#: ../libgweather/weather.c:733
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f m/o"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:893
+#: ../libgweather/weather.c:736
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/o"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:897
+#: ../libgweather/weather.c:739
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -869,80 +520,427 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:903
+#: ../libgweather/weather.c:744
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Beaufort indarra: %.1f"
 
-#: ../libgweather/weather.c:928
+#: ../libgweather/weather.c:749
+msgctxt "speed unit"
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+#: ../libgweather/weather.c:767
+msgctxt "wind speed"
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+#: ../libgweather/weather.c:769
 msgid "Calm"
 msgstr "Barealdia"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:932
+#: ../libgweather/weather.c:777
 #, c-format
 msgid "%s / %s"
 msgstr "%s/%s"
 
+#: ../libgweather/weather.c:796
+msgctxt "pressure"
+msgid "Unknown"
+msgstr "Ezezaguna"
+
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:954
+#: ../libgweather/weather.c:801
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:958
+#: ../libgweather/weather.c:804
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:962
+#: ../libgweather/weather.c:807
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:966
+#: ../libgweather/weather.c:810
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:970
+#: ../libgweather/weather.c:813
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:974
+#: ../libgweather/weather.c:816
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
+#: ../libgweather/weather.c:822
+msgctxt "pressure unit"
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+#: ../libgweather/weather.c:839
+msgctxt "visibility"
+msgid "Unknown"
+msgstr "Ezezaguna"
+
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:1002
+#: ../libgweather/weather.c:844
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f milia"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:1006
+#: ../libgweather/weather.c:847
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1010
+#: ../libgweather/weather.c:850
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:1039 ../libgweather/weather.c:1060
+#: ../libgweather/weather.c:856
+msgctxt "visibility unit"
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+#: ../libgweather/weather.c:880 ../libgweather/weather.c:905
 msgid "%H:%M"
 msgstr "%H:%M"
 
-#: ../libgweather/weather.c:1119
+#: ../libgweather/weather.c:1006
 msgid "Retrieval failed"
 msgstr "Eskuratzeak huts egin du"
 
+#. Translators: %d is an error code, and %s the error string
+#: ../libgweather/weather-metar.c:523
+#, c-format
+msgid "Failed to get METAR data: %d %s.\n"
+msgstr "Huts egin du METAR datuak hartzean: %d: %s\n"
+
+#. The new (documented but not advertised) API is less strict in the
+#. format of the attribution, and just requires a generic CC-BY compatible
+#. attribution with a link to their service.
+#.
+#. That's very nice of them!
+#.
+#: ../libgweather/weather-yrno.c:416
+msgid ""
+"Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
+"Institute</a>"
+msgstr ""
+"Eguraldiaren datuak <a href=\"http://yr.no/\">Norvegiako Institutu "
+"Meteorologiko</a>tik"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:1
+msgid "URL for the radar map"
+msgstr "Radar-maparen URLa"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:2
+msgid ""
+"The custom URL from where to retrieve a radar map, or empty for disabling "
+"radar maps."
+msgstr ""
+"Radar-mapa hartzeko URL pertsonalizatua, edo hutsa radar-mapak desgaitzeko."
+
+#. TRANSLATORS: pick a temperature unit that should be used by default in your
+#. locale; values must be quoted
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
+msgid "'fahrenheit'"
+msgstr "'centigrade'"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
+msgid "Temperature unit"
+msgstr "Tenperatura-unitatea"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
+msgid ""
+"The unit of temperature used for showing weather. Valid values are 'kelvin', "
+"'centigrade' and 'fahrenheit'."
+msgstr ""
+"Eguraldia erakusteko erabiltzen den tenperatuaren unitatea. Balio "
+"erabilgarriak: 'kelvin', 'centigrade' eta 'fahrenheit'."
+
+#. TRANSLATORS: pick a default distance unit for your locale, see key description
+#. for valid values
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
+msgid "'miles'"
+msgstr "'meters'"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
+msgid "Distance unit"
+msgstr "Distantzia-unitatea"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
+msgid ""
+"The unit of distance used for showing weather (for example for visibility or "
+"for distance of important events). Valid values are 'meters', 'km' and "
+"'miles'."
+msgstr ""
+"Eguraldia erakustean erabiltzen den distantziaren unitatea (adibidez, "
+"ikusgaitasuna edo gertaera garrantzitsurako distantzia). Balio "
+"erabilgarriak: 'meters', 'km' eta 'miles'."
+
+#. TRANSLATORS: pick a default speed unit for your locale, see key description
+#. for valid values
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:15
+msgid "'knots'"
+msgstr "'knots'"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:16
+msgid "Speed unit"
+msgstr "Abiadura-unitatea"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:17
+msgid ""
+"The unit of speed used for showing weather (for example for wind speed). "
+"Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
+"'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+msgstr ""
+"Eguraldia erakustean erabiliko den abiadura-unitatea (adibidez, haizearen "
+"abiadura). Balio erabilgarriak: 'ms' (metro segundoko), 'kph' (kilometro "
+"orduko), 'knots' (korapilo) eta 'bft' (Beaufort eskala)."
+
+#. TRANSLATORS: pick a default pressure unit for your locale, see key description
+#. for valid values
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:20
+msgid "'inch-hg'"
+msgstr "mb"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:21
+msgid "Pressure unit"
+msgstr "Presio-unitatea"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:22
+msgid ""
+"The unit of pressure used for showing weather. Valid values are "
+"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
+"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
+"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+msgstr ""
+"Eguraldia erakustean erabiliko den presioaren unitatea. Balio erabilgarriak: "
+"'kpa' (kilopascal), 'hpa' (hektopascal), 'mb' (milibarra, matematikoki 1 hPa-"
+"ren baliokidea baina modu desberdinean erakutsita), 'mm-hg' (milimetro "
+"merkurio), 'inch-hg' (hazbete merkurio), 'atm' (atmosfera)."
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:23
+msgid "Default location"
+msgstr "Kokaleku lehenetsia"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:24
+msgid ""
+"The default location for the weather applet. The first field is the name "
+"that will be shown. If empty, it will be taken from the locations database. "
+"The second field is the METAR code for the default weather station. It must "
+"not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml "
+"file. The third field is a tuple of (latitude, longitude), to override the "
+"value taken from the database. This is only used for sunrise and moon phase "
+"calculations, not for weather forecast."
+msgstr ""
+"Eguraldia miniaplikazioaren kokaleku lehenetsia. Aurreneko eremua erakutsiko "
+"den izena da. Hutsik egonez gero, kokalekuen datu-basetik hartuko da. "
+"Bigarren eremua eguraldi-estazio lehenetsiaren METAR kodea da. Ezin da "
+"hutsik egon, eta Locations.xml fitxategiko &lt;code&gt; etiketari egokitu "
+"beharko zaio. Hirugarren eremua (latitudea, longitudea) tupla bat da datu-"
+"basetik hartutako balioa gainidazteko. Eguzki noiz irten eta ilargiaren "
+"faseak kalkulatzeko bakarrik erabiltzen da, ez eguraldia aurrikusteko."
+
+#~ msgid "DEFAULT_LOCATION"
+#~ msgstr "Donostia"
+
+#~ msgid "DEFAULT_CODE"
+#~ msgstr "LESO"
+
+#~ msgid "DEFAULT_ZONE"
+#~ msgstr "DEFAULT_ZONE"
+
+#~ msgid "DEFAULT_RADAR"
+#~ msgstr "DEFAULT_RADAR"
+
+#~ msgid "DEFAULT_COORDINATES"
+#~ msgstr "43-21N 001-48W"
+
+#~ msgid "Default"
+#~ msgstr "Lehenetsia"
+
+#~ msgid "K"
+#~ msgstr "K"
+
+#~ msgid "C"
+#~ msgstr "C"
+
+#~ msgid "F"
+#~ msgstr "F"
+
+#~ msgid "m/s"
+#~ msgstr "m/s"
+
+#~ msgid "km/h"
+#~ msgstr "km/o"
+
+#~ msgid "mph"
+#~ msgstr "m/o"
+
+#~ msgid "Beaufort scale"
+#~ msgstr "Beaufort eskala"
+
+#~ msgid "kPa"
+#~ msgstr "kPa"
+
+#~ msgid "hPa"
+#~ msgstr "hPa"
+
+#~ msgid "mb"
+#~ msgstr "mb"
+
+#~ msgid "mmHg"
+#~ msgstr "mmHg"
+
+#~ msgid "inHg"
+#~ msgstr "inHg"
+
+#~ msgid "atm"
+#~ msgstr "atm"
+
+#~ msgid "m"
+#~ msgstr "m"
+
+#~ msgid "km"
+#~ msgstr "km"
+
+#~ msgid "mi"
+#~ msgstr "mi"
+
+#~ msgid "DEFAULT_TEMP_UNIT"
+#~ msgstr "C"
+
+#~ msgid "DEFAULT_SPEED_UNIT"
+#~ msgstr "km/h"
+
+#~ msgid "DEFAULT_PRESSURE_UNIT"
+#~ msgstr "mb"
+
+#~ msgid "DEFAULT_DISTANCE_UNIT"
+#~ msgstr "m"
+
+#~ msgid ""
+#~ "A three-digit-long code for retrieving radar maps from weather.com, found "
+#~ "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "Hiru digitu luzerako kodea radar-mapak eskuratzeko weather.com gunetik, "
+#~ "honako fitxategian aurkitzen den bezala: http://git.gnome.org/cgit/"
+#~ "libgweather/plain/data/Locations.xml.in"
+
+#~ msgid ""
+#~ "A unique zone for the city, as found from http://git.gnome.org/cgit/"
+#~ "libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "Hiriarentzako zona bakarra, honako fitxategian aurkitzen den bezala: "
+#~ "http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+
+#~ msgid ""
+#~ "Determines whether the applet automatically updates its weather "
+#~ "statistics or not."
+#~ msgstr ""
+#~ "Applet-ak eguraldiaren estatistikak automatikoki eguneratuko dituen ala "
+#~ "ez zehazten du."
+
+#~ msgid "Display radar map"
+#~ msgstr "Erakutsi radar-mapa"
+
+#~ msgid "Fetch a radar map on each update."
+#~ msgstr "Hartu radar-mapa bat eguneratze bakoitzean."
+
+#~ msgid ""
+#~ "If true, then retrieve a radar map from a location specified by the "
+#~ "\"radar\" key."
+#~ msgstr ""
+#~ "Egiazkoa bada, radar-mapa bat eskuratuko du \"radarra\" gakoan "
+#~ "zehaztutako lekutik."
+
+#~ msgid ""
+#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
+#~ "[EW]."
+#~ msgstr ""
+#~ "Kokalekuaren latitudea eta longitudea honako moduan adieraziz: DD-MM-SS"
+#~ "[NS] DD-MM-SS[EW]"
+
+#~ msgid "Location coordinates"
+#~ msgstr "Kokalekuaren koordenatuak"
+
+#~ msgid "Nearby city"
+#~ msgstr "Gertuko hiria"
+
+#~ msgid ""
+#~ "Nearby major zone, such as a capital city, as found from http://git.gnome."
+#~ "org/cgit/libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "Gertuko zona nagusia, hiriburu bat bezalakoa, honako fitxategian "
+#~ "aurkitzen den bezala: http://git.gnome.org/cgit/libgweather/plain/data/"
+#~ "Locations.xml.in "
+
+#~ msgid "Not used anymore"
+#~ msgstr "Orain ez da erabiltzen"
+
+#~ msgid "Radar location"
+#~ msgstr "Radar kokalekua"
+
+#~ msgid "The city that gweather displays information for."
+#~ msgstr "Hiria, dagokion informazioa gweather-ek bistaratzeko."
+
+#~ msgid "The interval, in seconds, between automatic updates."
+#~ msgstr "Eguneratze automatikoak egiteko denbora-bitartea (segundotan)."
+
+#~ msgid "The unit to use for pressure."
+#~ msgstr "Erabiliko den presio-unitatea."
+
+#~ msgid "The unit to use for temperature."
+#~ msgstr "Erabiliko den tenperatura-unitatea."
+
+#~ msgid "The unit to use for visibility."
+#~ msgstr "Erabiliko den ikusgaitasun-unitatea."
+
+#~ msgid "The unit to use for wind speed."
+#~ msgstr "Erabiliko den haize-abiadura."
+
+#~ msgid "Update interval"
+#~ msgstr "Eguneratze-maiztasuna"
+
+#~ msgid "Update the data automatically"
+#~ msgstr "Eguneratu datuak automatikoki"
+
+#~ msgid "Use custom url for the radar map"
+#~ msgstr "Erabili URL pertsonalizatua radar-mapa hartzeko"
+
+#~ msgid "Use metric units"
+#~ msgstr "Erabili sistema metrikoa"
+
+#~ msgid "Use metric units instead of english units."
+#~ msgstr "Erabili sistema metrikoa unitate ingelesen ordez."
+
+#~ msgid "Weather for a city"
+#~ msgstr "Hiriaren eguraldia"
+
+#~ msgid "Weather location information"
+#~ msgstr "Leku bateko eguraldiaren informazioa"
+
+#~ msgid "Weather location information."
+#~ msgstr "Leku bateko eguraldiaren informazioa."
+
+#~ msgid "WeatherInfo missing location"
+#~ msgstr "WeatherInfo-n kokalekua falta da"
