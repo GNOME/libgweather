@@ -549,7 +549,7 @@ gweather_info_get_update (GWeatherInfo *info)
     if (info->priv->update != 0) {
 	GDateTime *now = g_date_time_new_from_unix_local (info->priv->update);
 
-	out = g_date_time_format (now, _("%a, %b %d / %H:%M"));
+	out = g_date_time_format (now, _("%a, %b %d / %H∶%M"));
 	if (!out)
 	    out = g_strdup ("???");
 
@@ -877,7 +877,7 @@ gweather_info_get_sunrise (GWeatherInfo *info)
 
     sunrise = g_date_time_new_from_unix_local (priv->sunrise);
 
-    buf = g_date_time_format (sunrise, _("%H:%M"));
+    buf = g_date_time_format (sunrise, _("%H∶%M"));
     if (!buf)
         buf = g_strdup ("-");
 
@@ -902,7 +902,7 @@ gweather_info_get_sunset (GWeatherInfo *info)
         return g_strdup ("-");
 
     sunset = g_date_time_new_from_unix_local (priv->sunset);
-    buf = g_date_time_format (sunset, _("%H:%M"));
+    buf = g_date_time_format (sunset, _("%H∶%M"));
     if (!buf)
         buf = g_strdup ("-");
 
