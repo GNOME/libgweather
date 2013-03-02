@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-10 16:19+0000\n"
-"PO-Revision-Date: 2013-02-22 22:47+0200\n"
+"POT-Creation-Date: 2013-03-02 14:28+0000\n"
+"PO-Revision-Date: 2013-03-02 23:34+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -105,7 +105,6 @@ msgid "North - Northwest"
 msgstr "Šiaurės - Šiaurės Vakarų"
 
 #: ../libgweather/weather.c:140
-#| msgid "Invalid"
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Netinkama"
@@ -131,7 +130,6 @@ msgid "Overcast"
 msgstr "Debesuota"
 
 #: ../libgweather/weather.c:157 ../libgweather/weather.c:229
-#| msgid "Invalid"
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "Netinkama"
@@ -428,7 +426,8 @@ msgid "Dust whirls in the vicinity"
 msgstr "Kaimynystėje dulkių sūkuriai"
 
 #: ../libgweather/weather.c:552
-msgid "%a, %b %d / %H:%M"
+#| msgid "%a, %b %d / %H:%M"
+msgid "%a, %b %d / %H∶%M"
 msgstr "%a, %b %d / %H:%M"
 
 #: ../libgweather/weather.c:558
@@ -436,7 +435,6 @@ msgid "Unknown observation time"
 msgstr "Nežinomas stebėjimo laikas"
 
 #: ../libgweather/weather.c:570
-#| msgid "Unknown"
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Nežinoma"
@@ -478,26 +476,22 @@ msgid "%d K"
 msgstr "%d K"
 
 #: ../libgweather/weather.c:619
-#| msgid "Unknown"
 msgctxt "temperature unit"
 msgid "Unknown"
 msgstr "Nežinoma"
 
 #: ../libgweather/weather.c:634 ../libgweather/weather.c:650
 #: ../libgweather/weather.c:666 ../libgweather/weather.c:719
-#| msgid "Unknown"
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Nežinoma"
 
 #: ../libgweather/weather.c:682
-#| msgid "Unknown"
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Nežinoma"
 
 #: ../libgweather/weather.c:699
-#| msgid "Unknown"
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Nežinoma"
@@ -541,13 +535,11 @@ msgid "Beaufort force %.1f"
 msgstr "Boforto jėga %.1f"
 
 #: ../libgweather/weather.c:749
-#| msgid "Unknown"
 msgctxt "speed unit"
 msgid "Unknown"
 msgstr "Nežinoma"
 
 #: ../libgweather/weather.c:767
-#| msgid "Unknown"
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Nežinoma"
@@ -563,7 +555,6 @@ msgid "%s / %s"
 msgstr "%s / %s"
 
 #: ../libgweather/weather.c:796
-#| msgid "Unknown"
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Nežinoma"
@@ -605,13 +596,11 @@ msgid "%.3f atm"
 msgstr "%.3f atm"
 
 #: ../libgweather/weather.c:822
-#| msgid "Unknown"
 msgctxt "pressure unit"
 msgid "Unknown"
 msgstr "Nežinoma"
 
 #: ../libgweather/weather.c:839
-#| msgid "Unknown"
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Nežinoma"
@@ -635,14 +624,13 @@ msgid "%.0fm"
 msgstr "%.0fm"
 
 #: ../libgweather/weather.c:856
-#| msgid "Unknown"
 msgctxt "visibility unit"
 msgid "Unknown"
 msgstr "Nežinoma"
 
 #: ../libgweather/weather.c:880 ../libgweather/weather.c:905
-msgid "%H:%M"
-msgstr "%H:%M"
+msgid "%H∶%M"
+msgstr "%H∶%M"
 
 #: ../libgweather/weather.c:1006
 msgid "Retrieval failed"
