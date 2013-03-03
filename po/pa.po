@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gnome-applets.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-10 16:19+0000\n"
-"PO-Revision-Date: 2013-02-22 03:23+0000\n"
+"POT-Creation-Date: 2013-03-02 14:28+0000\n"
+"PO-Revision-Date: 2013-03-03 07:09+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
 "Language: pa\n"
@@ -102,7 +102,6 @@ msgid "North - Northwest"
 msgstr "ਉੱਤਰ - ਉੱਤਰ ਪੱਛਮ"
 
 #: ../libgweather/weather.c:140
-#| msgid "Invalid"
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "ਗਲਤ"
@@ -128,7 +127,6 @@ msgid "Overcast"
 msgstr "ਬੱਦਲਵਾਈ"
 
 #: ../libgweather/weather.c:157 ../libgweather/weather.c:229
-#| msgid "Invalid"
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "ਗਲਤ"
@@ -425,7 +423,8 @@ msgid "Dust whirls in the vicinity"
 msgstr "ਦਿੱਖ ਵਿੱਚ ਘੱਟੇ ਦੇ ਵਾਵਰੋਲੇ"
 
 #: ../libgweather/weather.c:552
-msgid "%a, %b %d / %H:%M"
+#| msgid "%a, %b %d / %H:%M"
+msgid "%a, %b %d / %H∶%M"
 msgstr "%a, %d %b / %H:%M"
 
 #: ../libgweather/weather.c:558
@@ -434,7 +433,6 @@ msgstr "ਅਣਜਾਣ ਜਾਣਕਾਰੀ ਟਾਈਮ"
 
 # gnome-session/gsm-client-row.c:43
 #: ../libgweather/weather.c:570
-#| msgid "Unknown"
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
@@ -477,7 +475,6 @@ msgstr "%d K"
 
 # gnome-session/gsm-client-row.c:43
 #: ../libgweather/weather.c:619
-#| msgid "Unknown"
 msgctxt "temperature unit"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
@@ -485,21 +482,18 @@ msgstr "ਅਣਜਾਣ"
 # gnome-session/gsm-client-row.c:43
 #: ../libgweather/weather.c:634 ../libgweather/weather.c:650
 #: ../libgweather/weather.c:666 ../libgweather/weather.c:719
-#| msgid "Unknown"
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
 
 # gnome-session/gsm-client-row.c:43
 #: ../libgweather/weather.c:682
-#| msgid "Unknown"
 msgctxt "dew"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
 
 # gnome-session/gsm-client-row.c:43
 #: ../libgweather/weather.c:699
-#| msgid "Unknown"
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
@@ -544,14 +538,12 @@ msgstr "Beaufort ਬਲ %.1f"
 
 # gnome-session/gsm-client-row.c:43
 #: ../libgweather/weather.c:749
-#| msgid "Unknown"
 msgctxt "speed unit"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
 
 # gnome-session/gsm-client-row.c:43
 #: ../libgweather/weather.c:767
-#| msgid "Unknown"
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
@@ -568,7 +560,6 @@ msgstr "%s / %s"
 
 # gnome-session/gsm-client-row.c:43
 #: ../libgweather/weather.c:796
-#| msgid "Unknown"
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
@@ -611,14 +602,12 @@ msgstr "%.3f atm"
 
 # gnome-session/gsm-client-row.c:43
 #: ../libgweather/weather.c:822
-#| msgid "Unknown"
 msgctxt "pressure unit"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
 
 # gnome-session/gsm-client-row.c:43
 #: ../libgweather/weather.c:839
-#| msgid "Unknown"
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
@@ -643,14 +632,13 @@ msgstr "%.0fm"
 
 # gnome-session/gsm-client-row.c:43
 #: ../libgweather/weather.c:856
-#| msgid "Unknown"
 msgctxt "visibility unit"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
 
 #: ../libgweather/weather.c:880 ../libgweather/weather.c:905
-msgid "%H:%M"
-msgstr "%H:%M"
+msgid "%H∶%M"
+msgstr "%H∶%M"
 
 #: ../libgweather/weather.c:1006
 msgid "Retrieval failed"
@@ -792,6 +780,9 @@ msgstr ""
 "ਅਣਡਿੱਠਾ ਕਰੇ। ਇਹ ਕੇਵਲ ਸੂਰਜ-ਚੜ੍ਹਨ ਅਤੇ ਚੰਦ ਕਲਾਵਾਂ ਕੱਢਣ ਲਈ ਹੀ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਨਾ "
 "ਕਿ ਮੌਸਮ ਦੀ "
 "ਭਵਿੱਖਬਾਣੀ ਕਰਨੀ ਲਈ।"
+
+#~ msgid "%H:%M"
+#~ msgstr "%H:%M"
 
 #~ msgid "WeatherInfo missing location"
 #~ msgstr "ਮੌਸਮ-ਜਾਣਕਾਰੀ ਟਿਕਾਣਾ ਉਪਲੱਬਧ ਨਹੀਂ"
