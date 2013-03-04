@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: libgweather.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-10 16:19+0000\n"
-"PO-Revision-Date: 2013-02-11 13:49+0100\n"
+"POT-Creation-Date: 2013-03-02 14:28+0000\n"
+"PO-Revision-Date: 2013-03-04 13:58+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -107,7 +107,6 @@ msgid "North - Northwest"
 msgstr "Norte - Noroeste"
 
 #: ../libgweather/weather.c:140
-#| msgid "Invalid"
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "No válida"
@@ -133,7 +132,6 @@ msgid "Overcast"
 msgstr "Cubierto de nubes"
 
 #: ../libgweather/weather.c:157 ../libgweather/weather.c:229
-#| msgid "Invalid"
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "No válida"
@@ -430,15 +428,15 @@ msgid "Dust whirls in the vicinity"
 msgstr "Remolino de polvo en los alrededores"
 
 #: ../libgweather/weather.c:552
-msgid "%a, %b %d / %H:%M"
-msgstr "%a %d de %b / %H:%M"
+#| msgid "%a, %b %d / %H:%M"
+msgid "%a, %b %d / %H∶%M"
+msgstr "%a, %b %d / %H∶%M"
 
 #: ../libgweather/weather.c:558
 msgid "Unknown observation time"
 msgstr "Hora de observación desconocida"
 
 #: ../libgweather/weather.c:570
-#| msgid "Unknown"
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Desconocida"
@@ -480,26 +478,22 @@ msgid "%d K"
 msgstr "%d K"
 
 #: ../libgweather/weather.c:619
-#| msgid "Unknown"
 msgctxt "temperature unit"
 msgid "Unknown"
 msgstr "Desconocida"
 
 #: ../libgweather/weather.c:634 ../libgweather/weather.c:650
 #: ../libgweather/weather.c:666 ../libgweather/weather.c:719
-#| msgid "Unknown"
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Desconocida"
 
 #: ../libgweather/weather.c:682
-#| msgid "Unknown"
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Desconocido"
 
 #: ../libgweather/weather.c:699
-#| msgid "Unknown"
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Desconocida"
@@ -543,13 +537,11 @@ msgid "Beaufort force %.1f"
 msgstr "Fuerza Beaufort %.1f"
 
 #: ../libgweather/weather.c:749
-#| msgid "Unknown"
 msgctxt "speed unit"
 msgid "Unknown"
 msgstr "Desconocida"
 
 #: ../libgweather/weather.c:767
-#| msgid "Unknown"
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Desconocida"
@@ -565,7 +557,6 @@ msgid "%s / %s"
 msgstr "%s / %s"
 
 #: ../libgweather/weather.c:796
-#| msgid "Unknown"
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Desconocida"
@@ -607,13 +598,11 @@ msgid "%.3f atm"
 msgstr "%.3f atm"
 
 #: ../libgweather/weather.c:822
-#| msgid "Unknown"
 msgctxt "pressure unit"
 msgid "Unknown"
 msgstr "Desconocida"
 
 #: ../libgweather/weather.c:839
-#| msgid "Unknown"
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Desconocida"
@@ -637,14 +626,13 @@ msgid "%.0fm"
 msgstr "%.0fm"
 
 #: ../libgweather/weather.c:856
-#| msgid "Unknown"
 msgctxt "visibility unit"
 msgid "Unknown"
 msgstr "Desconocida"
 
 #: ../libgweather/weather.c:880 ../libgweather/weather.c:905
-msgid "%H:%M"
-msgstr "%H:%M"
+msgid "%H∶%M"
+msgstr "%H∶%M"
 
 #: ../libgweather/weather.c:1006
 msgid "Retrieval failed"
@@ -786,6 +774,9 @@ msgstr ""
 "tupla de (latitud, longitud), para sobreescribir los valores obtenidos de la "
 "base de datos. Esto sólo se usa para calculas las fases de la luna, no para "
 "la previsión del tiempo"
+
+#~ msgid "%H:%M"
+#~ msgstr "%H:%M"
 
 #~ msgid "WeatherInfo missing location"
 #~ msgstr "Zona no existente para WeatherInfo"
