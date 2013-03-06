@@ -420,6 +420,59 @@ gweather_info_init (GWeatherInfo *info)
     gweather_info_reset (info);
 }
 
+static SoupCache *
+get_cache (void)
+{
+    SoupCache *cache;
+    char *filename;
+
+    filename = g_build_filename (g_get_user_cache_dir (),
+				 "libgweather", NULL);
+
+    if (g_mkdir_with_parents (filename, 0700) < 0) {
+	g_free (filename);
+	return NULL;
+    }
+
+    cache = soup_cache_new (filename, SOUP_CACHE_SINGLE_USER);
+
+    g_free (filename);
+    return cache;
+}
+
+static void
+dump_and_unref_cache (SoupCache *cache)
+{
+    soup_cache_dump (cache);
+    g_object_unref (cache);
+}
+
+static SoupSession *
+ref_session (void)
+{
+    static SoupSession *session;
+    SoupCache *cache;
+
+    if (session != NULL)
+	return g_object_ref (session);
+
+    session = soup_session_async_new ();
+    soup_session_add_feature_by_type (session, SOUP_TYPE_PROXY_RESOLVER_DEFAULT);
+    soup_session_add_feature_by_type (session, SOUP_TYPE_CONTENT_DECODER);
+
+    cache = get_cache ();
+    soup_session_add_feature (session, SOUP_SESSION_FEATURE (cache));
+    g_object_set_data_full (G_OBJECT (session), "libgweather-cache", g_object_ref (cache),
+			    (GDestroyNotify) dump_and_unref_cache);
+
+    soup_cache_load (cache);
+    g_object_unref (cache);
+
+    g_object_add_weak_pointer (G_OBJECT (session), (void**) &session);
+
+    return session;
+}
+
 void
 gweather_info_update (GWeatherInfo *info)
 {
@@ -432,10 +485,8 @@ gweather_info_update (GWeatherInfo *info)
 
     gweather_info_reset (info);
 
-    if (!priv->session) {
-	priv->session = soup_session_async_new ();
-	soup_session_add_feature_by_type (priv->session, SOUP_TYPE_PROXY_RESOLVER_DEFAULT);
-    }
+    if (!priv->session)
+	priv->session = ref_session ();
 
     if (priv->providers & GWEATHER_PROVIDER_METAR)
 	metar_start_open (info);
