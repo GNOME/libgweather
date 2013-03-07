@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgweather gnome-2-30\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-10 16:19+0000\n"
-"PO-Revision-Date: 2013-02-13 19:47+0900\n"
+"POT-Creation-Date: 2013-03-04 21:50+0000\n"
+"PO-Revision-Date: 2013-03-07 20:34+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
@@ -96,7 +96,6 @@ msgid "North - Northwest"
 msgstr "شىمال - غەربىي شىمال"
 
 #: ../libgweather/weather.c:140
-#| msgid "Invalid"
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "ئىناۋەتسىز"
@@ -122,7 +121,6 @@ msgid "Overcast"
 msgstr "بۇلۇتلۇق"
 
 #: ../libgweather/weather.c:157 ../libgweather/weather.c:229
-#| msgid "Invalid"
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "ئىناۋەتسىز"
@@ -419,7 +417,8 @@ msgid "Dust whirls in the vicinity"
 msgstr "يېقىن ئېتىراپتىكى قۇيۇن"
 
 #: ../libgweather/weather.c:552
-msgid "%a, %b %d / %H:%M"
+#| msgid "%a, %b %d / %H:%M"
+msgid "%a, %b %d / %H∶%M"
 msgstr "%a، %b %d / %H:%M"
 
 #: ../libgweather/weather.c:558
@@ -427,7 +426,6 @@ msgid "Unknown observation time"
 msgstr "نامەلۇم كۆزىتىش ۋاقتى"
 
 #: ../libgweather/weather.c:570
-#| msgid "Unknown"
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "نامەلۇم"
@@ -469,26 +467,22 @@ msgid "%d K"
 msgstr "%d K"
 
 #: ../libgweather/weather.c:619
-#| msgid "Unknown"
 msgctxt "temperature unit"
 msgid "Unknown"
 msgstr "نامەلۇم"
 
 #: ../libgweather/weather.c:634 ../libgweather/weather.c:650
 #: ../libgweather/weather.c:666 ../libgweather/weather.c:719
-#| msgid "Unknown"
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "نامەلۇم"
 
 #: ../libgweather/weather.c:682
-#| msgid "Unknown"
 msgctxt "dew"
 msgid "Unknown"
 msgstr "نامەلۇم"
 
 #: ../libgweather/weather.c:699
-#| msgid "Unknown"
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "نامەلۇم"
@@ -532,13 +526,11 @@ msgid "Beaufort force %.1f"
 msgstr "شامال كۈچى %.1f"
 
 #: ../libgweather/weather.c:749
-#| msgid "Unknown"
 msgctxt "speed unit"
 msgid "Unknown"
 msgstr "نامەلۇم"
 
 #: ../libgweather/weather.c:767
-#| msgid "Unknown"
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "نامەلۇم"
@@ -554,7 +546,6 @@ msgid "%s / %s"
 msgstr "%s / %s"
 
 #: ../libgweather/weather.c:796
-#| msgid "Unknown"
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "نامەلۇم"
@@ -596,13 +587,11 @@ msgid "%.3f atm"
 msgstr "%.3f atm"
 
 #: ../libgweather/weather.c:822
-#| msgid "Unknown"
 msgctxt "pressure unit"
 msgid "Unknown"
 msgstr "نامەلۇم"
 
 #: ../libgweather/weather.c:839
-#| msgid "Unknown"
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "نامەلۇم"
@@ -626,13 +615,12 @@ msgid "%.0fm"
 msgstr "%.0fm"
 
 #: ../libgweather/weather.c:856
-#| msgid "Unknown"
 msgctxt "visibility unit"
 msgid "Unknown"
 msgstr "نامەلۇم"
 
 #: ../libgweather/weather.c:880 ../libgweather/weather.c:905
-msgid "%H:%M"
+msgid "%H∶%M"
 msgstr "%H:%M"
 
 #: ../libgweather/weather.c:1006
@@ -749,6 +737,9 @@ msgid ""
 "value taken from the database. This is only used for sunrise and moon phase "
 "calculations, not for weather forecast."
 msgstr "ھاۋارايى قوللانچىقىدا ئىشلىتىدىغان كۆڭۈلدىكى ئورۇن. ئەڭ دەسلەپكى سوز بۆلىكى بولسا، كۆرسىتىدىغان  ئاتىدۇر. بۇ سوز بۆلىكى بوش بولسا، سانداندىن ئورۇن ئاتىنى ئالىدۇ. ئىككىنچى سوز بۆلىكى بولسا، تەكشۈرۈلگەن ئورۇننىڭ  METAR كودى. بۇ سوز بۆلىكى Locations.xml دىكى &lt;code&gt; بىلەن باغلانغان بولۇشى كېرەك. ئۈچىنچى سوز بۆلىكى بولسا، (كەڭلىك ۋە ئۇزۇنلۇق) نىڭ بىرىكمىسى بولۇپ، ساندان ئالغان قىممەتنى قاپلىۋېتىدۇ. بۇ پەقەتلا كۈننىڭ چىقىشى ۋە ئاينىڭ فازىسىنى ھېسابلاشقىلا ئىشلىتىلىدۇ، ھاۋارايى مەلۇماتىدا ئىشلىتىلمەيدۇ."
+
+#~ msgid "%H:%M"
+#~ msgstr "%H:%M"
 
 #~ msgid "DEFAULT_LOCATION"
 #~ msgstr "ئۈرۈمچى"
