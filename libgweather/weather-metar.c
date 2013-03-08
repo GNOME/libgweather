@@ -353,7 +353,7 @@ metar_tok_cond (gchar *tokp, GWeatherInfo *info)
         priv->cond.phenomenon = GWEATHER_PHENOMENON_SNOW_GRAINS;
     } else if (!strcmp (sphen, "IC")) {
         priv->cond.phenomenon = GWEATHER_PHENOMENON_ICE_CRYSTALS;
-    } else if (!strcmp (sphen, "PE")) {
+    } else if (!strcmp (sphen, "PL")) {
         priv->cond.phenomenon = GWEATHER_PHENOMENON_ICE_PELLETS;
     } else if (!strcmp (sphen, "GR")) {
         priv->cond.phenomenon = GWEATHER_PHENOMENON_HAIL;
