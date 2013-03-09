@@ -333,6 +333,33 @@ parse_forecast_xml_old (GWeatherInfo    *master_info,
     xmlFreeDoc (doc);
 }
 
+static char *
+build_yrno_url_geonames (GWeatherLocation *glocation,
+			 const char       *append)
+{
+    const char *country = NULL;
+    const char *adm_division = NULL;
+    const char *city_name = NULL;
+
+    while (glocation) {
+	if (glocation->level == GWEATHER_LOCATION_CITY)
+	    city_name = glocation->name;
+	if (glocation->level == GWEATHER_LOCATION_ADM1 ||
+	    glocation->level == GWEATHER_LOCATION_ADM2)
+	    adm_division = glocation->name;
+	if (glocation->level == GWEATHER_LOCATION_COUNTRY)
+	    country = glocation->name;
+	glocation = glocation->parent;
+    }
+
+    if (city_name == NULL || country == NULL)
+	return NULL;
+
+    if (adm_division != NULL)
+	return g_strdup_printf("http://yr.no/place/%s/%s/%s/%s", country, adm_division, city_name, append);
+    else
+	return g_strdup_printf("http://yr.no/place/%s/%s/%s", country, city_name, append);
+}
 
 
 static void
@@ -343,6 +370,7 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
     xmlDocPtr doc;
     xmlXPathContextPtr xpath_ctx;
     xmlXPathObjectPtr xpath_result;
+    char *attribution_url;
     int i;
 
     priv = master_info->priv;
@@ -415,7 +443,11 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 
        That's very nice of them!
     */
-    priv->forecast_attribution = g_strdup(_("Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological Institute</a>"));
+    attribution_url = build_yrno_url_geonames (priv->glocation, "");
+    if (attribution_url == NULL)
+	attribution_url = g_strdup ("http://yr.no/");
+    priv->forecast_attribution = g_strdup_printf(_("Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</a>"), attribution_url);
+    g_free (attribution_url);
 
  out:
     xmlXPathFreeContext (xpath_ctx);
@@ -447,32 +479,15 @@ yrno_start_open_old (GWeatherInfo *info)
     GWeatherInfoPrivate *priv;
     gchar *url;
     SoupMessage *message;
-    const char *country = NULL;
-    const char *adm_division = NULL;
-    char *city_name = NULL;
-    GWeatherLocation *glocation;
 
     priv = info->priv;
 
     if (priv->forecast_type != GWEATHER_FORECAST_LIST)
 	return FALSE;
 
-    glocation = priv->glocation;
-    while (glocation) {
-	if (glocation->level == GWEATHER_LOCATION_CITY)
-	    city_name = glocation->name;
-	if (glocation->level == GWEATHER_LOCATION_ADM1 ||
-	    glocation->level == GWEATHER_LOCATION_ADM2)
-	    adm_division = glocation->name;
-	if (glocation->level == GWEATHER_LOCATION_COUNTRY)
-	    country = glocation->name;
-	glocation = glocation->parent;
-    }
-
-    if (city_name == NULL || adm_division == NULL || country == NULL)
+    url = build_yrno_url_geonames (priv->glocation, "forecast.xml");
+    if (url == NULL)
 	return FALSE;
-
-    url = g_strdup_printf("http://yr.no/place/%s/%s/%s/forecast.xml", country, adm_division, city_name);
 
     message = soup_message_new ("GET", url);
     soup_session_queue_message (priv->session, message, yrno_finish_old, info);
