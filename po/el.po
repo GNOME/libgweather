@@ -44,8 +44,8 @@ msgstr ""
 "Project-Id-Version: libgweather.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgwe"
 "ather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-10 16:19+0000\n"
-"PO-Revision-Date: 2013-02-28 10:19+0300\n"
+"POT-Creation-Date: 2013-03-04 21:50+0000\n"
+"PO-Revision-Date: 2013-03-09 16:13+0300\n"
 "Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
@@ -134,7 +134,6 @@ msgid "North - Northwest"
 msgstr "Βόρειος - Βορειοδυτικός"
 
 #: ../libgweather/weather.c:140
-#| msgid "Invalid"
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Άκυρη"
@@ -160,7 +159,6 @@ msgid "Overcast"
 msgstr "Πυκνά σύννεφα"
 
 #: ../libgweather/weather.c:157 ../libgweather/weather.c:229
-#| msgid "Invalid"
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "Άκυρες"
@@ -457,15 +455,15 @@ msgid "Dust whirls in the vicinity"
 msgstr "Στρόβιλοι σκόνης στην περιοχή"
 
 #: ../libgweather/weather.c:552
-msgid "%a, %b %d / %H:%M"
-msgstr "%a, %b %d / %H:%M"
+#| msgid "%a, %b %d / %H:%M"
+msgid "%a, %b %d / %H∶%M"
+msgstr "%a, %b %d / %H∶%M"
 
 #: ../libgweather/weather.c:558
 msgid "Unknown observation time"
 msgstr "Άγνωστη ώρα καταγραφής"
 
 #: ../libgweather/weather.c:570
-#| msgid "Unknown"
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Άγνωστες"
@@ -507,26 +505,22 @@ msgid "%d K"
 msgstr "%d K"
 
 #: ../libgweather/weather.c:619
-#| msgid "Unknown"
 msgctxt "temperature unit"
 msgid "Unknown"
 msgstr "Άγνωστη"
 
 #: ../libgweather/weather.c:634 ../libgweather/weather.c:650
 #: ../libgweather/weather.c:666 ../libgweather/weather.c:719
-#| msgid "Unknown"
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Άγνωστη"
 
 #: ../libgweather/weather.c:682
-#| msgid "Unknown"
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Άγνωστη"
 
 #: ../libgweather/weather.c:699
-#| msgid "Unknown"
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Άγνωστη"
@@ -570,13 +564,11 @@ msgid "Beaufort force %.1f"
 msgstr "Ισχύς Μποφόρ %.1f"
 
 #: ../libgweather/weather.c:749
-#| msgid "Unknown"
 msgctxt "speed unit"
 msgid "Unknown"
 msgstr "Άγνωστη"
 
 #: ../libgweather/weather.c:767
-#| msgid "Unknown"
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Άγνωστη"
@@ -592,7 +584,6 @@ msgid "%s / %s"
 msgstr "%s / %s"
 
 #: ../libgweather/weather.c:796
-#| msgid "Unknown"
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Άγνωστη"
@@ -634,13 +625,11 @@ msgid "%.3f atm"
 msgstr "%.3f atm"
 
 #: ../libgweather/weather.c:822
-#| msgid "Unknown"
 msgctxt "pressure unit"
 msgid "Unknown"
 msgstr "Άγνωστη"
 
 #: ../libgweather/weather.c:839
-#| msgid "Unknown"
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Άγνωστη"
@@ -664,14 +653,13 @@ msgid "%.0fm"
 msgstr "%.0fm"
 
 #: ../libgweather/weather.c:856
-#| msgid "Unknown"
 msgctxt "visibility unit"
 msgid "Unknown"
 msgstr "Άγνωστη"
 
 #: ../libgweather/weather.c:880 ../libgweather/weather.c:905
-msgid "%H:%M"
-msgstr "%H:%M"
+msgid "%H∶%M"
+msgstr "%H∶%M"
 
 #: ../libgweather/weather.c:1006
 msgid "Retrieval failed"
@@ -770,7 +758,7 @@ msgstr ""
 #. for valid values
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:20
 msgid "'inch-hg'"
-msgstr "'inch-hg'"
+msgstr "'ίντσες-hg'"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:21
 msgid "Pressure unit"
@@ -786,8 +774,8 @@ msgstr ""
 "Η μονάδα της πίεσης που χρησιμοποιείται για την προβολή καιρού. Έγκυρες "
 "τιμές είναι οι 'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (μίλιμπαρ, "
 "μαθηματικά ισοδυναμεί με 1 hPa, αλλά εμφανίζεται με διαφορετικό τρόπο), 'mm-"
-"hg' (χιλιοστά του υδραργύρου), 'inch-hg' (ίντσες του υδραργύρου), 'atm' "
-"(ατμόσφαιρες)."
+"hg' (χιλιοστά του υδραργύρου), 'inch-hg' (ίντσες του υδραργύρου), "
+"'atm' (ατμόσφαιρες)."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:23
 msgid "Default location"
@@ -812,6 +800,9 @@ msgstr ""
 "τιμή που λαμβάνεται από τη βάση δεδομένων. Αυτό χρησιμοποιείται μόνο για την "
 "ανατολή του ηλίου και τον υπολογισμό φάσεων της σελήνης, και όχι για την "
 "πρόγνωση του καιρού."
+
+#~ msgid "%H:%M"
+#~ msgstr "%H:%M"
 
 #~ msgid "WeatherInfo missing location"
 #~ msgstr "Το WeatherInfo δε διαθέτει την τοποθεσία"
