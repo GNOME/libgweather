@@ -10,14 +10,15 @@
 # Tõivo Leedjärv <toivo@linux.ee>, 2002.
 # Priit Laes <amd@store20.com>, 2004-2006.
 # Ivar Smolin <okul@linux.ee>, 2005-2008.
+# Mattias Põldaru <mahfiaz@gmail.com>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-22 17:35+0000\n"
-"PO-Revision-Date: 2012-09-23 18:14+0300\n"
+"POT-Creation-Date: 2013-03-12 06:52+0000\n"
+"PO-Revision-Date: 2013-03-12 22:45+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "Language: et\n"
@@ -84,6 +85,7 @@ msgstr "Loodest"
 msgid "North - Northwest"
 msgstr "Põhjast - loodest"
 
+msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Vigane"
 
@@ -101,6 +103,10 @@ msgstr "Vähene pilvisus"
 
 msgid "Overcast"
 msgstr "Lauspilves"
+
+msgctxt "sky conditions"
+msgid "Invalid"
+msgstr "Vigane"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
@@ -329,12 +335,13 @@ msgstr "Tolmupöörised"
 msgid "Dust whirls in the vicinity"
 msgstr "Tolmupöörised läheduses"
 
-msgid "%a, %b %d / %H:%M"
-msgstr "%A. %e %B / %H:%M"
+msgid "%a, %b %d / %H∶%M"
+msgstr "%a, %b. %B / %H:%M"
 
 msgid "Unknown observation time"
 msgstr "Vaatlusaeg teadmata"
 
+msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Teadmata"
 
@@ -368,6 +375,22 @@ msgstr "%.1f K"
 msgid "%d K"
 msgstr "%d K"
 
+msgctxt "temperature unit"
+msgid "Unknown"
+msgstr "Teadmata"
+
+msgctxt "temperature"
+msgid "Unknown"
+msgstr "Teadmata"
+
+msgctxt "dew"
+msgid "Unknown"
+msgstr "Teadmata"
+
+msgctxt "humidity"
+msgid "Unknown"
+msgstr "Teadmata"
+
 #. TRANSLATOR: This is the humidity in percent
 #, c-format
 msgid "%.f%%"
@@ -400,6 +423,14 @@ msgstr "%.1f m/s"
 msgid "Beaufort force %.1f"
 msgstr "%.1f palli"
 
+msgctxt "speed unit"
+msgid "Unknown"
+msgstr "Teadmata"
+
+msgctxt "wind speed"
+msgid "Unknown"
+msgstr "Teadmata"
+
 msgid "Calm"
 msgstr "Tuulevaikus"
 
@@ -407,6 +438,10 @@ msgstr "Tuulevaikus"
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
+
+msgctxt "pressure"
+msgid "Unknown"
+msgstr "Teadmata"
 
 #. TRANSLATOR: This is pressure in inches of mercury
 #, c-format
@@ -438,6 +473,14 @@ msgstr "%.2f mb"
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
+msgctxt "pressure unit"
+msgid "Unknown"
+msgstr "Teadmata"
+
+msgctxt "visibility"
+msgid "Unknown"
+msgstr "Teadmata"
+
 #. TRANSLATOR: This is the visibility in miles
 #, c-format
 msgid "%.1f miles"
@@ -453,8 +496,12 @@ msgstr "%.1f km"
 msgid "%.0fm"
 msgstr "%.0f m"
 
-msgid "%H:%M"
-msgstr "%H:%M"
+msgctxt "visibility unit"
+msgid "Unknown"
+msgstr "Teadmata"
+
+msgid "%H∶%M"
+msgstr "%H∶%M"
 
 msgid "Retrieval failed"
 msgstr "Tõrge uuendamisel"
@@ -464,8 +511,17 @@ msgstr "Tõrge uuendamisel"
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "METAR-andmeid pole võimalik hankida: %d %s.\n"
 
-msgid "WeatherInfo missing location"
-msgstr "Ilmaennustuse puuduv asukoht"
+#. The new (documented but not advertised) API is less strict in the
+#. format of the attribution, and just requires a generic CC-BY compatible
+#. attribution with a link to their service.
+#.
+#. That's very nice of them!
+#.
+msgid ""
+"Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
+"Institute</a>"
+msgstr ""
+"Ilmaandmed <a href=\"http://yr.no/\">Norra Meteoroloogia Instituudist</a>"
 
 msgid "URL for the radar map"
 msgstr "Radarikaardi URL"
