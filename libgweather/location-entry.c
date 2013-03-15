@@ -36,6 +36,13 @@
  * #GWeatherLocation<!-- -->s
  */
 
+struct _GWeatherLocationEntryPrivate {
+    GtkTreeModel     *filter_model;
+    GWeatherLocation *location;
+    GWeatherLocation *top;
+    gboolean          custom_text;
+};
+
 G_DEFINE_TYPE (GWeatherLocationEntry, gweather_location_entry, GTK_TYPE_ENTRY)
 
 enum {
@@ -53,6 +60,11 @@ static void set_property (GObject *object, guint prop_id,
 			  const GValue *value, GParamSpec *pspec);
 static void get_property (GObject *object, guint prop_id,
 			  GValue *value, GParamSpec *pspec);
+
+static void set_location_internal (GWeatherLocationEntry *entry,
+				   GtkTreeModel          *model,
+				   GtkTreeIter           *iter,
+				   GWeatherLocation      *loc);
 
 enum
 {
@@ -72,9 +84,28 @@ static gboolean match_selected (GtkEntryCompletion *completion,
 static void     entry_changed (GWeatherLocationEntry *entry);
 
 static void
+hack_filter_model_data_func (GtkCellLayout   *layout,
+			     GtkCellRenderer *renderer,
+			     GtkTreeModel    *model,
+			     GtkTreeIter     *iter,
+			     gpointer         data)
+{
+    GWeatherLocationEntry *self;
+    GWeatherLocationEntryPrivate *priv;
+
+    self = GWEATHER_LOCATION_ENTRY (gtk_entry_completion_get_entry (GTK_ENTRY_COMPLETION (layout)));
+    priv = self->priv;
+
+    priv->filter_model = model;
+}
+
+static void
 gweather_location_entry_init (GWeatherLocationEntry *entry)
 {
     GtkEntryCompletion *completion;
+    GWeatherLocationEntryPrivate *priv;
+
+    priv = entry->priv = G_TYPE_INSTANCE_GET_PRIVATE (entry, GWEATHER_TYPE_LOCATION_ENTRY, GWeatherLocationEntryPrivate);
 
     completion = gtk_entry_completion_new ();
 
@@ -82,13 +113,30 @@ gweather_location_entry_init (GWeatherLocationEntry *entry)
     gtk_entry_completion_set_text_column (completion, GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME);
     gtk_entry_completion_set_match_func (completion, matcher, NULL, NULL);
 
-    g_signal_connect (completion, "match_selected",
+    /* Giant Hack!
+       We want to grab the filter model used internally by GtkEntryCompletion.
+       We know that it is "leaked" by a few functions and signals, such
+       as the CellDataFunc in GtkCellLayout. So we set that in a way that
+       when it gets called, it sets the filter model where we can access it.
+    */
+    {
+	GList *renderers;
+
+	renderers = gtk_cell_layout_get_cells (GTK_CELL_LAYOUT (completion));
+	gtk_cell_layout_set_cell_data_func (GTK_CELL_LAYOUT (completion),
+					    renderers->data,
+					    hack_filter_model_data_func, NULL, NULL);
+
+	g_list_free (renderers);
+    }
+
+    g_signal_connect (completion, "match-selected",
 		      G_CALLBACK (match_selected), entry);
 
     gtk_entry_set_completion (GTK_ENTRY (entry), completion);
     g_object_unref (completion);
 
-    entry->custom_text = FALSE;
+    priv->custom_text = FALSE;
     g_signal_connect (entry, "changed",
 		      G_CALLBACK (entry_changed), NULL);
 }
@@ -96,24 +144,59 @@ gweather_location_entry_init (GWeatherLocationEntry *entry)
 static void
 finalize (GObject *object)
 {
-    GWeatherLocationEntry *entry = GWEATHER_LOCATION_ENTRY (object);
+    GWeatherLocationEntry *entry;
+    GWeatherLocationEntryPrivate *priv;
 
-    if (entry->location)
-	gweather_location_unref (entry->location);
-    if (entry->top)
-	gweather_location_unref (entry->top);
+    entry = GWEATHER_LOCATION_ENTRY (object);
+    priv = entry->priv;
+
+    if (priv->location)
+	gweather_location_unref (priv->location);
+    if (priv->top)
+	gweather_location_unref (priv->top);
 
     G_OBJECT_CLASS (gweather_location_entry_parent_class)->finalize (object);
+}
+
+static void
+gweather_location_entry_activate (GtkEntry *entry)
+{
+    GWeatherLocationEntry *self;
+    GWeatherLocationEntryPrivate *priv;
+    GtkEntryCompletion *completion;
+
+    self = GWEATHER_LOCATION_ENTRY (entry);
+    priv = self->priv;
+
+    completion = gtk_entry_get_completion (entry);
+    gtk_entry_completion_complete (completion);
+
+    if (priv->custom_text &&
+	gtk_tree_model_iter_n_children (priv->filter_model, NULL) == 1) {
+	GtkTreeIter iter, real_iter;
+
+	gtk_tree_model_get_iter_first (priv->filter_model, &iter);
+	gtk_tree_model_filter_convert_iter_to_child_iter (GTK_TREE_MODEL_FILTER (priv->filter_model),
+							  &real_iter, &iter);
+
+	set_location_internal (self, gtk_entry_completion_get_model (completion),
+			       &real_iter, NULL);
+    }
+
+    GTK_ENTRY_CLASS (gweather_location_entry_parent_class)->activate (entry);
 }
 
 static void
 gweather_location_entry_class_init (GWeatherLocationEntryClass *location_entry_class)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (location_entry_class);
+    GtkEntryClass *entry_class = GTK_ENTRY_CLASS (location_entry_class);
 
     object_class->finalize = finalize;
     object_class->set_property = set_property;
     object_class->get_property = get_property;
+
+    entry_class->activate = gweather_location_entry_activate;
 
     /* properties */
     g_object_class_install_property (
@@ -130,6 +213,8 @@ gweather_location_entry_class_init (GWeatherLocationEntryClass *location_entry_c
 			    "The selected GWeatherLocation",
 			    GWEATHER_TYPE_LOCATION,
 			    G_PARAM_READWRITE));
+
+    g_type_class_add_private (location_entry_class, sizeof (GWeatherLocationEntryPrivate));
 }
 
 static void
@@ -159,7 +244,7 @@ get_property (GObject *object, guint prop_id,
 
     switch (prop_id) {
     case PROP_LOCATION:
-	g_value_set_boxed (value, entry->location);
+	g_value_set_boxed (value, entry->priv->location);
 	break;
     default:
 	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -170,7 +255,7 @@ get_property (GObject *object, guint prop_id,
 static void
 entry_changed (GWeatherLocationEntry *entry)
 {
-    entry->custom_text = TRUE;
+    entry->priv->custom_text = TRUE;
 }
 
 static void
@@ -179,10 +264,13 @@ set_location_internal (GWeatherLocationEntry *entry,
 		       GtkTreeIter           *iter,
 		       GWeatherLocation      *loc)
 {
+    GWeatherLocationEntryPrivate *priv;
     char *name;
 
-    if (entry->location)
-	gweather_location_unref (entry->location);
+    priv = entry->priv;
+
+    if (priv->location)
+	gweather_location_unref (priv->location);
 
     g_assert (iter == NULL || loc == NULL);
 
@@ -191,21 +279,21 @@ set_location_internal (GWeatherLocationEntry *entry,
 			    GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, &name,
 			    GWEATHER_LOCATION_ENTRY_COL_LOCATION, &loc,
 			    -1);
-	entry->location = gweather_location_ref (loc);
+	priv->location = gweather_location_ref (loc);
 	gtk_entry_set_text (GTK_ENTRY (entry), name);
-	entry->custom_text = FALSE;
+	priv->custom_text = FALSE;
 	g_free (name);
     } else if (loc) {
-	entry->location = gweather_location_ref (loc);
+	priv->location = gweather_location_ref (loc);
 	gtk_entry_set_text (GTK_ENTRY (entry), loc->name);
-	entry->custom_text = TRUE;
+	priv->custom_text = TRUE;
     } else {
-	entry->location = NULL;
+	priv->location = NULL;
 	gtk_entry_set_text (GTK_ENTRY (entry), "");
-	entry->custom_text = TRUE;
+	priv->custom_text = TRUE;
     }
 
-    gtk_editable_select_region (GTK_EDITABLE (entry), 0, -1);
+    gtk_editable_set_position (GTK_EDITABLE (entry), -1);
     g_object_notify (G_OBJECT (entry), "location");
 }
 
@@ -264,8 +352,8 @@ gweather_location_entry_get_location (GWeatherLocationEntry *entry)
 {
     g_return_val_if_fail (GWEATHER_IS_LOCATION_ENTRY (entry), NULL);
 
-    if (entry->location)
-	return gweather_location_ref (entry->location);
+    if (entry->priv->location)
+	return gweather_location_ref (entry->priv->location);
     else
 	return NULL;
 }
@@ -286,7 +374,7 @@ gweather_location_entry_has_custom_text (GWeatherLocationEntry *entry)
 {
     g_return_val_if_fail (GWEATHER_IS_LOCATION_ENTRY (entry), FALSE);
 
-    return entry->custom_text;
+    return entry->priv->custom_text;
 }
 
 /**
@@ -463,7 +551,7 @@ gweather_location_entry_build_model (GWeatherLocationEntry *entry,
 {
     GtkTreeStore *store = NULL;
 
-    entry->top = gweather_location_ref (top);
+    entry->priv->top = gweather_location_ref (top);
 
     store = gtk_tree_store_new (4, G_TYPE_STRING, G_TYPE_POINTER, G_TYPE_STRING, G_TYPE_STRING);
     fill_location_entry_model (store, top, NULL, NULL);
