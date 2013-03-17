@@ -82,6 +82,7 @@ GWeatherInfo *           gweather_info_new_for_world       (GWeatherLocation *wo
 							    GWeatherForecastType forecast_type);
 void                     gweather_info_update              (GWeatherInfo *info);
 void			 gweather_info_abort		   (GWeatherInfo *info);
+void                     gweather_info_store_cache         (void);
 
 GWeatherProvider         gweather_info_get_enabled_providers (GWeatherInfo        *info);
 void                     gweather_info_set_enabled_providers (GWeatherInfo        *info,

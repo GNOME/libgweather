@@ -447,11 +447,15 @@ dump_and_unref_cache (SoupCache *cache)
     g_object_unref (cache);
 }
 
+static SoupSession *static_session;
+
 static SoupSession *
 ref_session (void)
 {
-    static SoupSession *session;
+    SoupSession *session;
     SoupCache *cache;
+
+    session = static_session;
 
     if (session != NULL)
 	return g_object_ref (session);
@@ -468,9 +472,32 @@ ref_session (void)
     soup_cache_load (cache);
     g_object_unref (cache);
 
-    g_object_add_weak_pointer (G_OBJECT (session), (void**) &session);
+    static_session = session;
+    g_object_add_weak_pointer (G_OBJECT (session), (void**) &static_session);
 
     return session;
+}
+
+/**
+ * gweather_info_store_cache:
+ *
+ * Ensures that any data cached from the network is stored to disk.
+ * Calling this is not necessary, as the cache will be saved when
+ * the last reference to a #GWeatherInfo will be dropped.
+ * On the other hand, it must be called if there is any chance that
+ * the application will be closed without unreffing all objects, such
+ * as when using a language binding that employs a GC.
+ */
+void
+gweather_info_store_cache (void)
+{
+    SoupCache *cache;
+
+    if (static_session == NULL)
+	return;
+
+    cache = g_object_get_data (G_OBJECT (static_session), "libgweather-cache");
+    soup_cache_dump (cache);
 }
 
 void
