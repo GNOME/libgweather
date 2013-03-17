@@ -500,6 +500,17 @@ gweather_info_store_cache (void)
     soup_cache_dump (cache);
 }
 
+/**
+ * gweather_info_update:
+ * @info: a #GWeatherInfo
+ *
+ * Requests a reload of weather conditions and forecast data from
+ * enabled network services.
+ * This call does no synchronous IO: rather, the result is delivered
+ * by emitting the #GWeatherInfo::updated signal.
+ * Note that if no network services are enabled, the signal will not
+ * be emitted. See #GWeatherInfo:enabled-providers for details.
+ */
 void
 gweather_info_update (GWeatherInfo *info)
 {
@@ -1098,13 +1109,13 @@ gweather_info_get_weather_summary (GWeatherInfo *info)
  * gweather_info_is_daytime:
  * @info: a #GWeatherInfo
  *
- * Returns whether it is daytime (that is, if the sun is visible)
- * or not at the location and the point of time referred by @info.
- * This is mostly equivalent to comparing the return value
- * of gweather_info_get_value_sunrise() and
- * gweather_info_get_value_sunset(), but it accounts also
- * for midnight sun and polar night, for locations within
- * the Artic and Antartic circles.
+ * Returns: Whether it is daytime (that is, if the sun is visible)
+ *   or not at the location and the point of time referred by @info.
+ *   This is mostly equivalent to comparing the return value
+ *   of gweather_info_get_value_sunrise() and
+ *   gweather_info_get_value_sunset(), but it accounts also
+ *   for midnight sun and polar night, for locations within
+ *   the Artic and Antartic circles.
  */
 gboolean
 gweather_info_is_daytime (GWeatherInfo *info)
@@ -2043,6 +2054,14 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 				G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
     g_object_class_install_property (gobject_class, PROP_ENABLED_PROVIDERS, pspec);
 
+    /**
+     * GWeatherInfo::updated:
+     * @object: the emitter of the signal.
+     *
+     * This signal is emitted after the initial fetch of the weather
+     * data from upstream services, and after every successful call
+     * to @gweather_info_update().
+     */
     gweather_info_signals[SIGNAL_UPDATED] = g_signal_new ("updated",
 							  GWEATHER_TYPE_INFO,
 							  G_SIGNAL_RUN_FIRST,
@@ -2059,8 +2078,10 @@ gweather_info_class_init (GWeatherInfoClass *klass)
  * @forecast_type: the type of forecast requested
  *
  * Builds a new #GWeatherInfo that will provide weather information about
- * @location. The returned info will not be ready until the #GWeatherInfo::updated signal
- * is emitted.
+ * @location.
+ * Note that, as compared to g_object_new(), this will call gweather_info_update()
+ * on the resulting info, which will not be ready until the #GWeatherInfo::updated
+ * signal is emitted.
  *
  * Returns: (transfer full): a new #GWeatherInfo
  */

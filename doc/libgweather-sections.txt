@@ -4,11 +4,11 @@
 <FILE>gweathertimezonemenu</FILE>
 <TITLE>GWeatherTimezoneMenu</TITLE>
 GWeatherTimezoneMenu
-GWeatherTimezoneMenuClass
 gweather_timezone_menu_new
 gweather_timezone_menu_set_tzid
 gweather_timezone_menu_get_tzid
 <SUBSECTION Standard>
+GWeatherTimezoneMenuClass
 GWEATHER_TIMEZONE_MENU
 GWEATHER_IS_TIMEZONE_MENU
 GWEATHER_TYPE_TIMEZONE_MENU
@@ -22,13 +22,13 @@ GWEATHER_TIMEZONE_MENU_GET_CLASS
 <FILE>gweatherlocationentry</FILE>
 <TITLE>GWeatherLocationEntry</TITLE>
 GWeatherLocationEntry
-GWeatherLocationEntryClass
 gweather_location_entry_new
 gweather_location_entry_set_location
 gweather_location_entry_get_location
 gweather_location_entry_has_custom_text
 gweather_location_entry_set_city
 <SUBSECTION Standard>
+GWeatherLocationEntryClass
 GWEATHER_LOCATION_ENTRY
 GWEATHER_IS_LOCATION_ENTRY
 GWEATHER_TYPE_LOCATION_ENTRY
@@ -36,6 +36,7 @@ gweather_location_entry_get_type
 GWEATHER_LOCATION_ENTRY_CLASS
 GWEATHER_IS_LOCATION_ENTRY_CLASS
 GWEATHER_LOCATION_ENTRY_GET_CLASS
+GWeatherLocationEntryPrivate
 </SECTION>
 
 <SECTION>
@@ -104,6 +105,7 @@ gweather_info_update
 gweather_info_abort
 gweather_info_is_valid
 gweather_info_network_error
+gweather_info_store_cache
 gweather_info_get_location
 gweather_info_set_location
 gweather_info_get_forecast_list
@@ -117,6 +119,7 @@ gweather_info_get_attribution
 <SUBSECTION>
 gweather_info_get_location_name
 gweather_info_get_icon_name
+gweather_info_get_symbolic_icon_name
 gweather_info_get_weather_summary
 gweather_info_get_temp_summary
 gweather_info_get_update
@@ -169,6 +172,7 @@ gweather_info_get_value_sunset
 gweather_info_next_sun_event
 gweather_info_get_value_moonphase
 gweather_info_get_upcoming_moonphases
+gweather_info_is_daytime
 </SECTION>
 
 <SECTION>

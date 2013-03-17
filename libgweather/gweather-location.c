@@ -38,7 +38,7 @@
 #define EPSILON 0.000001
 
 /**
- * SECTION:gweather-location
+ * SECTION:gweatherlocation
  * @Title: GWeatherLocation
  *
  * A #GWeatherLocation represents a "location" of some type known to
@@ -1043,20 +1043,43 @@ gweather_location_format_one_deserialize (GWeatherLocation *world,
 
 /**
  * gweather_location_serialize:
- * @location: a #GWeatherLocation
+ * @loc: a city, weather station or detached #GWeatherLocation
  *
- * Returns: (transfer none):
+ * Transforms a #GWeatherLocation into a #GVariant, in a way that
+ * calling gweather_location_deserialize() will hold an equivalent
+ * #GWeatherLocation.
+ * The resulting variant can then be stored into GSettings or on disk.
+ * This call is only valid for cities, weather stations and detached
+ * locations.
+ * The format of the resulting #GVariant is private to libgweather,
+ * and it is subject to change. You should use the "v" format in GSettings,
+ * to ensure maximum compatibility with future versions of the library.
+ *
+ * Returns: (transfer none): the serialization of @location.
  */
 GVariant *
-gweather_location_serialize (GWeatherLocation *location)
+gweather_location_serialize (GWeatherLocation *loc)
 {
-    g_return_val_if_fail (location != NULL, NULL);
-    g_return_val_if_fail (location->level >= GWEATHER_LOCATION_CITY, NULL);
+    g_return_val_if_fail (loc != NULL, NULL);
+    g_return_val_if_fail (loc->level >= GWEATHER_LOCATION_CITY, NULL);
 
     return g_variant_new ("(uv)", FORMAT,
-			  gweather_location_format_one_serialize (location));
+			  gweather_location_format_one_serialize (loc));
 }
 
+/**
+ * gweather_location_deserialize:
+ * @world: a world-level #GWeatherLocation
+ * @serialized: the #GVariant representing the #GWeatherLocation
+ *
+ * This call undoes the effect of gweather_location_serialize(), that
+ * is, it turns a #GVariant into a #GWeatherLocation. The conversion
+ * happens in the context of @world (i.e, for a city or weather station,
+ * the resulting location will be attached to a administrative division,
+ * country and region as appropriate).
+ *
+ * Returns: (transfer full): the deserialized location.
+ */
 GWeatherLocation *
 gweather_location_deserialize (GWeatherLocation *world,
 			       GVariant         *serialized)
