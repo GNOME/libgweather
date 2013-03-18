@@ -283,10 +283,57 @@ metar_tok_temp (gchar *tokp, GWeatherInfo *info)
     }
 }
 
+/* How "important" are the conditions to be reported to the user.
+   Indexed by GWeatherConditionPhenomenon */
+static const int importance_scale[] = {
+    0, /* invalid */
+    0, /* none */
+    20, /* drizzle */
+    30, /* rain */
+    35, /* snow */
+    35, /* snow grains */
+    35, /* ice crystals */
+    35, /* ice pellets */
+    35, /* hail */
+    35, /* small hail */
+    20, /* unknown precipitation */
+    10, /* mist */
+    15, /* fog */
+    15, /* smoke */
+    18, /* volcanic ash */
+    18, /* sand */
+    15, /* haze */
+    15, /* spray */
+    15, /* dust */
+    40, /* squall */
+    50, /* sandstorm */
+    50, /* duststorm */
+    70, /* funnel cloud */
+    70, /* tornado */
+    50, /* dust whirls */
+};
+
+static gboolean
+condition_more_important (GWeatherConditions *which,
+			  GWeatherConditions *than)
+{
+    if (!than->significant)
+	return TRUE;
+    if (!which->significant)
+	return FALSE;
+
+    if (importance_scale[than->phenomenon] <
+	importance_scale[which->phenomenon])
+	return TRUE;
+
+    return FALSE;
+}
+
 static void
 metar_tok_cond (gchar *tokp, GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
+    GWeatherConditions new_cond;
     gchar squal[3], sphen[4];
     gchar *pphen;
 
@@ -311,90 +358,93 @@ metar_tok_cond (gchar *tokp, GWeatherInfo *info)
     sphen[sizeof (sphen)-1] = '\0';
 
     /* Defaults */
-    priv->cond.qualifier = GWEATHER_QUALIFIER_NONE;
-    priv->cond.phenomenon = GWEATHER_PHENOMENON_NONE;
-    priv->cond.significant = FALSE;
+    new_cond.qualifier = GWEATHER_QUALIFIER_NONE;
+    new_cond.phenomenon = GWEATHER_PHENOMENON_NONE;
+    new_cond.significant = FALSE;
 
     if (!strcmp (squal, "")) {
-        priv->cond.qualifier = GWEATHER_QUALIFIER_MODERATE;
+        new_cond.qualifier = GWEATHER_QUALIFIER_MODERATE;
     } else if (!strcmp (squal, "-")) {
-        priv->cond.qualifier = GWEATHER_QUALIFIER_LIGHT;
+        new_cond.qualifier = GWEATHER_QUALIFIER_LIGHT;
     } else if (!strcmp (squal, "+")) {
-        priv->cond.qualifier = GWEATHER_QUALIFIER_HEAVY;
+        new_cond.qualifier = GWEATHER_QUALIFIER_HEAVY;
     } else if (!strcmp (squal, "VC")) {
-        priv->cond.qualifier = GWEATHER_QUALIFIER_VICINITY;
+        new_cond.qualifier = GWEATHER_QUALIFIER_VICINITY;
     } else if (!strcmp (squal, "MI")) {
-        priv->cond.qualifier = GWEATHER_QUALIFIER_SHALLOW;
+        new_cond.qualifier = GWEATHER_QUALIFIER_SHALLOW;
     } else if (!strcmp (squal, "BC")) {
-        priv->cond.qualifier = GWEATHER_QUALIFIER_PATCHES;
+        new_cond.qualifier = GWEATHER_QUALIFIER_PATCHES;
     } else if (!strcmp (squal, "PR")) {
-        priv->cond.qualifier = GWEATHER_QUALIFIER_PARTIAL;
+        new_cond.qualifier = GWEATHER_QUALIFIER_PARTIAL;
     } else if (!strcmp (squal, "TS")) {
-        priv->cond.qualifier = GWEATHER_QUALIFIER_THUNDERSTORM;
+        new_cond.qualifier = GWEATHER_QUALIFIER_THUNDERSTORM;
     } else if (!strcmp (squal, "BL")) {
-        priv->cond.qualifier = GWEATHER_QUALIFIER_BLOWING;
+        new_cond.qualifier = GWEATHER_QUALIFIER_BLOWING;
     } else if (!strcmp (squal, "SH")) {
-        priv->cond.qualifier = GWEATHER_QUALIFIER_SHOWERS;
+        new_cond.qualifier = GWEATHER_QUALIFIER_SHOWERS;
     } else if (!strcmp (squal, "DR")) {
-        priv->cond.qualifier = GWEATHER_QUALIFIER_DRIFTING;
+        new_cond.qualifier = GWEATHER_QUALIFIER_DRIFTING;
     } else if (!strcmp (squal, "FZ")) {
-        priv->cond.qualifier = GWEATHER_QUALIFIER_FREEZING;
+        new_cond.qualifier = GWEATHER_QUALIFIER_FREEZING;
     } else {
         return;
     }
 
     if (!strcmp (sphen, "DZ")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_DRIZZLE;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_DRIZZLE;
     } else if (!strcmp (sphen, "RA")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_RAIN;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_RAIN;
     } else if (!strcmp (sphen, "SN")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_SNOW;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_SNOW;
     } else if (!strcmp (sphen, "SG")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_SNOW_GRAINS;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_SNOW_GRAINS;
     } else if (!strcmp (sphen, "IC")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_ICE_CRYSTALS;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_ICE_CRYSTALS;
     } else if (!strcmp (sphen, "PL")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_ICE_PELLETS;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_ICE_PELLETS;
     } else if (!strcmp (sphen, "GR")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_HAIL;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_HAIL;
     } else if (!strcmp (sphen, "GS")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_SMALL_HAIL;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_SMALL_HAIL;
     } else if (!strcmp (sphen, "UP")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_UNKNOWN_PRECIPITATION;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_UNKNOWN_PRECIPITATION;
     } else if (!strcmp (sphen, "BR")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_MIST;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_MIST;
     } else if (!strcmp (sphen, "FG")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_FOG;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_FOG;
     } else if (!strcmp (sphen, "FU")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_SMOKE;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_SMOKE;
     } else if (!strcmp (sphen, "VA")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_VOLCANIC_ASH;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_VOLCANIC_ASH;
     } else if (!strcmp (sphen, "SA")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_SAND;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_SAND;
     } else if (!strcmp (sphen, "HZ")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_HAZE;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_HAZE;
     } else if (!strcmp (sphen, "PY")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_SPRAY;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_SPRAY;
     } else if (!strcmp (sphen, "DU")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_DUST;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_DUST;
     } else if (!strcmp (sphen, "SQ")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_SQUALL;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_SQUALL;
     } else if (!strcmp (sphen, "SS")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_SANDSTORM;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_SANDSTORM;
     } else if (!strcmp (sphen, "DS")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_DUSTSTORM;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_DUSTSTORM;
     } else if (!strcmp (sphen, "PO")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_DUST_WHIRLS;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_DUST_WHIRLS;
     } else if (!strcmp (sphen, "+FC")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_TORNADO;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_TORNADO;
     } else if (!strcmp (sphen, "FC")) {
-        priv->cond.phenomenon = GWEATHER_PHENOMENON_FUNNEL_CLOUD;
+        new_cond.phenomenon = GWEATHER_PHENOMENON_FUNNEL_CLOUD;
     } else {
         return;
     }
 
-    if ((priv->cond.qualifier != GWEATHER_QUALIFIER_NONE) || (priv->cond.phenomenon != GWEATHER_PHENOMENON_NONE))
-        priv->cond.significant = TRUE;
+    if ((new_cond.qualifier != GWEATHER_QUALIFIER_NONE) || (new_cond.phenomenon != GWEATHER_PHENOMENON_NONE))
+        new_cond.significant = TRUE;
+
+    if (condition_more_important (&new_cond, &priv->cond))
+	priv->cond = new_cond;
 }
 
 #define TIME_RE_STR  "([0-9]{6})Z"
