@@ -26,13 +26,9 @@
 #include <string.h>
 #include <ctype.h>
 #include <math.h>
-
-#ifdef HAVE_VALUES_H
-#include <values.h>
-#endif
-
 #include <time.h>
 #include <unistd.h>
+#include <langinfo.h>
 
 #include <gtk/gtk.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
@@ -669,9 +665,39 @@ gweather_info_get_conditions (GWeatherInfo *info)
     return g_strdup(gweather_conditions_to_string (&info->priv->cond));
 }
 
+static gboolean
+is_locale_metric (void)
+{
+    const char *fmt;
+    fmt = nl_langinfo (_NL_MEASUREMENT_MEASUREMENT);
+
+    if (fmt && *fmt == 2)
+	return FALSE;
+    else
+	return TRUE;
+}
+
+static GWeatherTemperatureUnit
+temperature_unit_to_real (GWeatherTemperatureUnit unit)
+{
+    if (G_UNLIKELY (unit == GWEATHER_TEMP_UNIT_INVALID)) {
+	g_critical("Conversion to invalid temperature unit");
+	unit = GWEATHER_TEMP_UNIT_DEFAULT;
+    }
+
+    if (unit == GWEATHER_TEMP_UNIT_DEFAULT)
+	return is_locale_metric() ?
+	    GWEATHER_TEMP_UNIT_CENTIGRADE :
+	    GWEATHER_TEMP_UNIT_FAHRENHEIT;
+
+    return unit;
+}
+
 static gchar *
 temperature_string (gfloat temp_f, GWeatherTemperatureUnit to_unit, gboolean want_round)
 {
+    to_unit = temperature_unit_to_real (to_unit);
+
     switch (to_unit) {
     case GWEATHER_TEMP_UNIT_FAHRENHEIT:
 	if (!want_round) {
@@ -703,10 +729,10 @@ temperature_string (gfloat temp_f, GWeatherTemperatureUnit to_unit, gboolean wan
 
     case GWEATHER_TEMP_UNIT_INVALID:
     case GWEATHER_TEMP_UNIT_DEFAULT:
-    default:
-	g_critical ("Conversion to illegal temperature unit: %d", to_unit);
-	return g_strdup(C_("temperature unit", "Unknown"));
+	g_assert_not_reached ();
     }
+
+    return NULL;
 }
 
 gchar *
@@ -810,9 +836,27 @@ gweather_info_get_apparent (GWeatherInfo *info)
     return temperature_string (apparent, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
 }
 
+static GWeatherSpeedUnit
+speed_unit_to_real (GWeatherSpeedUnit unit)
+{
+    if (G_UNLIKELY (unit == GWEATHER_SPEED_UNIT_INVALID)) {
+	g_critical("Conversion to invalid speed unit");
+	unit = GWEATHER_SPEED_UNIT_DEFAULT;
+    }
+
+    if (unit == GWEATHER_SPEED_UNIT_DEFAULT)
+	return is_locale_metric() ?
+	    GWEATHER_SPEED_UNIT_KPH :
+	    GWEATHER_SPEED_UNIT_KNOTS;
+
+    return unit;
+}
+
 static gchar *
 windspeed_string (gfloat knots, GWeatherSpeedUnit to_unit)
 {
+    to_unit = speed_unit_to_real (to_unit);
+
     switch (to_unit) {
     case GWEATHER_SPEED_UNIT_KNOTS:
 	/* TRANSLATOR: This is the wind speed in knots */
@@ -833,9 +877,7 @@ windspeed_string (gfloat knots, GWeatherSpeedUnit to_unit)
 	return g_strdup_printf(_("Beaufort force %.1f"), WINDSPEED_KNOTS_TO_BFT (knots));
     case GWEATHER_SPEED_UNIT_INVALID:
     case GWEATHER_SPEED_UNIT_DEFAULT:
-    default:
-	g_critical ("Conversion to illegal speed unit: %d", to_unit);
-	return g_strdup(C_("speed unit", "Unknown"));
+	g_assert_not_reached ();
     }
 
     return NULL;
@@ -870,10 +912,27 @@ gweather_info_get_wind (GWeatherInfo *info)
     }
 }
 
+static GWeatherPressureUnit
+pressure_unit_to_real (GWeatherPressureUnit unit)
+{
+    if (G_UNLIKELY (unit == GWEATHER_PRESSURE_UNIT_INVALID)) {
+	g_critical("Conversion to invalid pressure unit");
+	unit = GWEATHER_PRESSURE_UNIT_DEFAULT;
+    }
+
+    if (unit == GWEATHER_PRESSURE_UNIT_DEFAULT)
+	return is_locale_metric() ?
+	    GWEATHER_PRESSURE_UNIT_MM_HG :
+	    GWEATHER_PRESSURE_UNIT_INCH_HG;
+
+    return unit;
+}
+
 gchar *
 gweather_info_get_pressure (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
+    GWeatherPressureUnit unit;
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
 
@@ -884,7 +943,8 @@ gweather_info_get_pressure (GWeatherInfo *info)
     if (priv->pressure < 0.0)
         return g_strdup(C_("pressure", "Unknown"));
 
-    switch (g_settings_get_enum (priv->settings, PRESSURE_UNIT)) {
+    unit = pressure_unit_to_real (g_settings_get_enum (priv->settings, PRESSURE_UNIT));
+    switch (unit) {
     case GWEATHER_PRESSURE_UNIT_INCH_HG:
 	/* TRANSLATOR: This is pressure in inches of mercury */
 	return g_strdup_printf(_("%.2f inHg"), priv->pressure);
@@ -906,18 +966,33 @@ gweather_info_get_pressure (GWeatherInfo *info)
 
     case GWEATHER_PRESSURE_UNIT_INVALID:
     case GWEATHER_PRESSURE_UNIT_DEFAULT:
-    default:
-	g_critical ("Conversion to illegal pressure unit");
-	return g_strdup(C_("pressure unit", "Unknown"));
+	g_assert_not_reached ();
     }
 
     return NULL;
+}
+
+static GWeatherDistanceUnit
+distance_unit_to_real (GWeatherDistanceUnit unit)
+{
+    if (G_UNLIKELY (unit == GWEATHER_DISTANCE_UNIT_INVALID)) {
+	g_critical("Conversion to invalid distance unit");
+	unit = GWEATHER_DISTANCE_UNIT_DEFAULT;
+    }
+
+    if (unit == GWEATHER_DISTANCE_UNIT_DEFAULT)
+	return is_locale_metric() ?
+	    GWEATHER_DISTANCE_UNIT_METERS :
+	    GWEATHER_DISTANCE_UNIT_MILES;
+
+    return unit;
 }
 
 gchar *
 gweather_info_get_visibility (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
+    GWeatherDistanceUnit unit;
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
     priv = info->priv;
@@ -927,7 +1002,8 @@ gweather_info_get_visibility (GWeatherInfo *info)
     if (priv->visibility < 0.0)
         return g_strdup (C_("visibility", "Unknown"));
 
-    switch (g_settings_get_enum (priv->settings, DISTANCE_UNIT)) {
+    unit = distance_unit_to_real (g_settings_get_enum (priv->settings, DISTANCE_UNIT));
+    switch (unit) {
     case GWEATHER_DISTANCE_UNIT_MILES:
 	/* TRANSLATOR: This is the visibility in miles */
 	return g_strdup_printf (_("%.1f miles"), priv->visibility);
@@ -940,9 +1016,7 @@ gweather_info_get_visibility (GWeatherInfo *info)
 
     case GWEATHER_DISTANCE_UNIT_INVALID:
     case GWEATHER_DISTANCE_UNIT_DEFAULT:
-    default:
-	g_critical ("Conversion to illegal visibility unit");
-	return g_strdup (C_("visibility unit", "Unknown"));
+	g_assert_not_reached ();
     }
 
     return NULL;
@@ -1372,6 +1446,7 @@ temperature_value (gdouble temp_f,
 
     if (to_unit == GWEATHER_TEMP_UNIT_DEFAULT)
 	    to_unit = g_settings_get_enum (settings, TEMPERATURE_UNIT);
+    to_unit = temperature_unit_to_real (to_unit);
 
     switch (to_unit) {
         case GWEATHER_TEMP_UNIT_FAHRENHEIT:
@@ -1385,9 +1460,7 @@ temperature_value (gdouble temp_f,
 	    break;
         case GWEATHER_TEMP_UNIT_INVALID:
         case GWEATHER_TEMP_UNIT_DEFAULT:
-	default:
-	    ok = FALSE;
-	    break;
+	    g_assert_not_reached ();
     }
 
     return ok;
@@ -1408,6 +1481,7 @@ speed_value (gdouble            knots,
 
     if (to_unit == GWEATHER_SPEED_UNIT_DEFAULT)
 	    to_unit = g_settings_get_enum (settings, SPEED_UNIT);
+    to_unit = speed_unit_to_real (to_unit);
 
     switch (to_unit) {
         case GWEATHER_SPEED_UNIT_KNOTS:
@@ -1427,9 +1501,7 @@ speed_value (gdouble            knots,
 	    break;
         case GWEATHER_SPEED_UNIT_INVALID:
         case GWEATHER_SPEED_UNIT_DEFAULT:
-        default:
-            ok = FALSE;
-            break;
+	    g_assert_not_reached ();
     }
 
     return ok;
@@ -1450,6 +1522,7 @@ pressure_value (gdouble               inHg,
 
     if (to_unit == GWEATHER_PRESSURE_UNIT_DEFAULT)
 	    to_unit = g_settings_get_enum (settings, PRESSURE_UNIT);
+    to_unit = pressure_unit_to_real (to_unit);
 
     switch (to_unit) {
         case GWEATHER_PRESSURE_UNIT_INCH_HG:
@@ -1472,9 +1545,7 @@ pressure_value (gdouble               inHg,
 	    break;
         case GWEATHER_PRESSURE_UNIT_INVALID:
         case GWEATHER_PRESSURE_UNIT_DEFAULT:
-        default:
-	    ok = FALSE;
-	    break;
+	    g_assert_not_reached ();
     }
 
     return ok;
@@ -1495,6 +1566,7 @@ distance_value (gdouble               miles,
 
     if (to_unit == GWEATHER_DISTANCE_UNIT_DEFAULT)
 	    to_unit = g_settings_get_enum (settings, DISTANCE_UNIT);
+    to_unit = distance_unit_to_real (to_unit);
 
     switch (to_unit) {
         case GWEATHER_DISTANCE_UNIT_MILES:
@@ -1508,9 +1580,7 @@ distance_value (gdouble               miles,
             break;
         case GWEATHER_DISTANCE_UNIT_INVALID:
         case GWEATHER_DISTANCE_UNIT_DEFAULT:
-        default:
-	    ok = FALSE;
-	    break;
+	    g_assert_not_reached ();
     }
 
     return ok;
