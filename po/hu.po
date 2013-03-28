@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: libgweather master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-04 21:56+0000\n"
-"PO-Revision-Date: 2013-03-15 12:10+0100\n"
+"POT-Creation-Date: 2013-03-26 14:29+0000\n"
+"PO-Revision-Date: 2013-03-28 09:58+0100\n"
 "Last-Translator: Balázs Úr <urbalazs at gmail dot com>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -104,7 +104,6 @@ msgid "North - Northwest"
 msgstr "Észak - északnyugat"
 
 #: ../libgweather/weather.c:140
-#| msgid "Invalid"
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Érvénytelen"
@@ -130,7 +129,6 @@ msgid "Overcast"
 msgstr "Borús"
 
 #: ../libgweather/weather.c:157 ../libgweather/weather.c:229
-#| msgid "Invalid"
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "Érvénytelen"
@@ -242,32 +240,36 @@ msgstr "Sűrű hóesés"
 #. ICE_CRYSTALS
 #: ../libgweather/weather.c:194
 msgid "Ice crystals"
-msgstr "Jég"
+msgstr "Jégkristályok"
 
 #. ICE_PELLETS
 #: ../libgweather/weather.c:195
-msgid "Ice pellets"
-msgstr "Jégdara"
+msgid "Sleet"
+msgstr "Ónos eső"
 
 #: ../libgweather/weather.c:195
-msgid "Few ice pellets"
-msgstr "Enyhe jégdarahullás"
+msgid "Little sleet"
+msgstr "Kis ónos eső"
 
 #: ../libgweather/weather.c:195
-msgid "Moderate ice pellets"
-msgstr "Mérsékelt jégdarahullás"
+#| msgid "Moderate snow"
+msgid "Moderate sleet"
+msgstr "Mérsékelt ónos eső"
 
 #: ../libgweather/weather.c:195
-msgid "Heavy ice pellets"
-msgstr "Heves jégdarahullás"
+#| msgid "Heavy snow"
+msgid "Heavy sleet"
+msgstr "Erős ónos eső"
 
 #: ../libgweather/weather.c:195
-msgid "Ice pellet storm"
-msgstr "Jégdaravihar"
+#| msgid "Ice pellet storm"
+msgid "Sleet storm"
+msgstr "Ónos eső vihar"
 
 #: ../libgweather/weather.c:195
-msgid "Showers of ice pellets"
-msgstr "Zuhogó jégdara"
+#| msgid "Showers of ice pellets"
+msgid "Showers of sleet"
+msgstr "Zuhogó ónos eső"
 
 #. HAIL
 #: ../libgweather/weather.c:196
@@ -426,108 +428,102 @@ msgstr "Portölcsérek"
 msgid "Dust whirls in the vicinity"
 msgstr "Poros forgószél a közelben"
 
-#: ../libgweather/weather.c:552
-#| msgid "%a, %b %d / %H:%M"
+#: ../libgweather/weather.c:641
 msgid "%a, %b %d / %H∶%M"
 msgstr "%b. %d., %a. / %H.%M"
 
-#: ../libgweather/weather.c:558
+#: ../libgweather/weather.c:647
 msgid "Unknown observation time"
 msgstr "Ismeretlen észlelési idő"
 
-#: ../libgweather/weather.c:570
-#| msgid "Unknown"
+#: ../libgweather/weather.c:659
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:590
+#: ../libgweather/weather.c:679
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:593
+#: ../libgweather/weather.c:682
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:599
+#: ../libgweather/weather.c:688
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:602
+#: ../libgweather/weather.c:691
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:608
+#: ../libgweather/weather.c:697
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:611
+#: ../libgweather/weather.c:700
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: ../libgweather/weather.c:619
-#| msgid "Unknown"
+#: ../libgweather/weather.c:708
 msgctxt "temperature unit"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: ../libgweather/weather.c:634 ../libgweather/weather.c:650
-#: ../libgweather/weather.c:666 ../libgweather/weather.c:719
-#| msgid "Unknown"
+#: ../libgweather/weather.c:723 ../libgweather/weather.c:739
+#: ../libgweather/weather.c:755 ../libgweather/weather.c:808
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: ../libgweather/weather.c:682
-#| msgid "Unknown"
+#: ../libgweather/weather.c:771
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: ../libgweather/weather.c:699
-#| msgid "Unknown"
+#: ../libgweather/weather.c:788
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:702
+#: ../libgweather/weather.c:791
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:730
+#: ../libgweather/weather.c:819
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f csomó"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:733
+#: ../libgweather/weather.c:822
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:736
+#: ../libgweather/weather.c:825
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:739
+#: ../libgweather/weather.c:828
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -535,138 +531,127 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:744
+#: ../libgweather/weather.c:833
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Beaufort erősség: %.1f"
 
-#: ../libgweather/weather.c:749
-#| msgid "Unknown"
+#: ../libgweather/weather.c:838
 msgctxt "speed unit"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: ../libgweather/weather.c:767
-#| msgid "Unknown"
+#: ../libgweather/weather.c:856
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: ../libgweather/weather.c:769
+#: ../libgweather/weather.c:858
 msgid "Calm"
 msgstr "Szélcsend"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:777
+#: ../libgweather/weather.c:866
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/weather.c:796
-#| msgid "Unknown"
+#: ../libgweather/weather.c:885
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:801
+#: ../libgweather/weather.c:890
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:804
+#: ../libgweather/weather.c:893
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:807
+#: ../libgweather/weather.c:896
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:810
+#: ../libgweather/weather.c:899
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:813
+#: ../libgweather/weather.c:902
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:816
+#: ../libgweather/weather.c:905
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#: ../libgweather/weather.c:822
-#| msgid "Unknown"
+#: ../libgweather/weather.c:911
 msgctxt "pressure unit"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: ../libgweather/weather.c:839
-#| msgid "Unknown"
+#: ../libgweather/weather.c:928
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:844
+#: ../libgweather/weather.c:933
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f mérföld"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:847
+#: ../libgweather/weather.c:936
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:850
+#: ../libgweather/weather.c:939
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:856
-#| msgid "Unknown"
+#: ../libgweather/weather.c:945
 msgctxt "visibility unit"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: ../libgweather/weather.c:880 ../libgweather/weather.c:905
+#: ../libgweather/weather.c:969 ../libgweather/weather.c:994
 msgid "%H∶%M"
 msgstr "%H.%M"
 
-#: ../libgweather/weather.c:1006
+#: ../libgweather/weather.c:1095
 msgid "Retrieval failed"
 msgstr "Letöltés sikertelen"
 
 #. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:523
+#: ../libgweather/weather-metar.c:573
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "Nem sikerült lekérni a METAR adatokat: %d %s.\n"
 
-#. The new (documented but not advertised) API is less strict in the
-#. format of the attribution, and just requires a generic CC-BY compatible
-#. attribution with a link to their service.
-#.
-#. That's very nice of them!
-#.
-#: ../libgweather/weather-yrno.c:416
+#: ../libgweather/weather-yrno.c:449
+#, c-format
+#| msgid ""
+#| "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
+#| "Institute</a>"
 msgid ""
-"Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
-"Institute</a>"
-msgstr ""
-"Időjárási adatok a <a href=\"http://yr.no/\">Norvég Meteorológiai Intézettől<"
-"/a>"
+"Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</a>"
+msgstr "Időjárási adatok a <a href=\"%s\">Norvég Meteorológiai Intézettől</a>"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:1
 msgid "URL for the radar map"
@@ -780,6 +765,18 @@ msgstr ""
 "a (szélesség, hosszúság) párt tartalmazza, az adatbázisból származó érték "
 "felülbírálásához. Ez csak a napkelte és a holdfázisok számításához "
 "használatos, az időjárási előrejelzéshez nem."
+
+#~ msgid "Ice pellets"
+#~ msgstr "Jégdara"
+
+#~ msgid "Few ice pellets"
+#~ msgstr "Enyhe jégdarahullás"
+
+#~ msgid "Moderate ice pellets"
+#~ msgstr "Mérsékelt jégdarahullás"
+
+#~ msgid "Heavy ice pellets"
+#~ msgstr "Heves jégdarahullás"
 
 #~ msgid "%H:%M"
 #~ msgstr "%H.%M"
