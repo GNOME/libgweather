@@ -2,14 +2,15 @@
 # Copyright (C) 1999, 2004, 2006, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
 #
 # Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2004, 2005.
-# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2004, 2006, 2007, 2008, 2009, 2010.
-# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007, 2013.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2004, 2006, 2007, 2008, 2009, 2010.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-01 10:28+0100\n"
-"PO-Revision-Date: 2013-02-28 22:35+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgweather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-04-02 20:17+0000\n"
+"PO-Revision-Date: 2013-04-04 22:26+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "Language: eu\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.4\n"
 
 #: ../libgweather/gweather-timezone.c:316
 msgid "Greenwich Mean Time"
@@ -418,8 +419,8 @@ msgid "Dust whirls in the vicinity"
 msgstr "Hauts-zurrunbiloak inguruan"
 
 #: ../libgweather/weather.c:552
-msgid "%a, %b %d / %H:%M"
-msgstr "%a, %b %d / %H:%M"
+msgid "%a, %b %d / %H∶%M"
+msgstr "%a, %b %d / %H∶%M"
 
 #: ../libgweather/weather.c:558
 msgid "Unknown observation time"
@@ -620,15 +621,15 @@ msgid "Unknown"
 msgstr "Ezezaguna"
 
 #: ../libgweather/weather.c:880 ../libgweather/weather.c:905
-msgid "%H:%M"
-msgstr "%H:%M"
+msgid "%H∶%M"
+msgstr "%H∶%M"
 
 #: ../libgweather/weather.c:1006
 msgid "Retrieval failed"
 msgstr "Eskuratzeak huts egin du"
 
 #. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:523
+#: ../libgweather/weather-metar.c:573
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "Huts egin du METAR datuak hartzean: %d: %s\n"
@@ -639,7 +640,7 @@ msgstr "Huts egin du METAR datuak hartzean: %d: %s\n"
 #.
 #. That's very nice of them!
 #.
-#: ../libgweather/weather-yrno.c:416
+#: ../libgweather/weather-yrno.c:418
 msgid ""
 "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
 "Institute</a>"
@@ -759,6 +760,9 @@ msgstr ""
 "beharko zaio. Hirugarren eremua (latitudea, longitudea) tupla bat da datu-"
 "basetik hartutako balioa gainidazteko. Eguzki noiz irten eta ilargiaren "
 "faseak kalkulatzeko bakarrik erabiltzen da, ez eguraldia aurrikusteko."
+
+#~ msgid "%H:%M"
+#~ msgstr "%H:%M"
 
 #~ msgid "DEFAULT_LOCATION"
 #~ msgstr "Donostia"
