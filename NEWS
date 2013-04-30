@@ -1,3 +1,33 @@
+=============
+Version 3.9.1
+=============
+
+* Miscellaneuous fixes to the METAR, Yahoo
+  and yr.no backends
+* GWeatherLocationEntry will autocomplete when pressing
+  enter (if activates-default is true)
+* GWeatherInfo now enables automatic disk caching
+  of network request and gzip encoding (where available)
+* New API added to flush the cache to disk, only
+  for language bindings with a GC (ie JS). C, Vala or Python
+  apps get this for free
+* Default measure units are now derived from LC_MEASUREMENTS,
+  not LC_MESSAGES, thus respecting the configuration in the
+  Region & Language control center panel.
+* Lots of translation updates
+
+=============
+Version 3.8.1
+=============
+
+* Translation updates
+
+=============
+Version 3.8.0
+=============
+
+* Translation updates
+
 ==============
 Version 3.7.90
 ==============
