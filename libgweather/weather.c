@@ -399,6 +399,21 @@ gweather_info_reset (GWeatherInfo *info)
     priv->radar = NULL;
 }
 
+static void
+settings_changed_cb (GSettings    *settings,
+		     const char   *key,
+		     GWeatherInfo *info)
+{
+    GWeatherInfoPrivate *priv = info->priv;
+
+    /* Only emit the signal if no network requests are pending.
+       Otherwise just wait for the update that will happen at
+       the end
+    */
+    if (priv->requests_pending == 0)
+        g_signal_emit (info, gweather_info_signals[SIGNAL_UPDATED], 0);
+}
+
 void
 gweather_info_init (GWeatherInfo *info)
 {
@@ -407,6 +422,10 @@ gweather_info_init (GWeatherInfo *info)
     priv = info->priv = G_TYPE_INSTANCE_GET_PRIVATE (info, GWEATHER_TYPE_INFO, GWeatherInfoPrivate);
 
     priv->settings = g_settings_new ("org.gnome.GWeather");
+
+    g_signal_connect_object (priv->settings, "changed",
+			     G_CALLBACK (settings_changed_cb), info, 0);
+
     priv->radar_url = g_settings_get_string (priv->settings, RADAR_KEY);
     if (g_strcmp0 (priv->radar_url, "") == 0) {
 	g_free (priv->radar_url);
