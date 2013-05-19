@@ -1969,7 +1969,7 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
 	priv->world = gweather_location_ref_world (location);
 
     if (!priv->world)
-	priv->world = gweather_location_new_world (FALSE);
+	priv->world = gweather_location_new_world (TRUE);
 
     priv->glocation = location;
     if (priv->glocation) {
@@ -2117,7 +2117,7 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 				"World",
 				"The hierarchy of locations containing the desired location",
 				GWEATHER_TYPE_LOCATION,
-				G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
+				G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_DEPRECATED);
     g_object_class_install_property (gobject_class, PROP_WORLD, pspec);
 
     pspec = g_param_spec_boxed ("location",
@@ -2200,6 +2200,9 @@ gweather_info_new (GWeatherLocation    *location,
  * GSettings) belongs.
  *
  * Returns: (transfer full): a new #GWeatherInfo
+ *
+ * Deprecated: there is only one world-level #GWeatherLocation at any time, so
+ *             this is the same as gweather_info_new().
  */
 GWeatherInfo *
 gweather_info_new_for_world (GWeatherLocation    *world,

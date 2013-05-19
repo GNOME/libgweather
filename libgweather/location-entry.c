@@ -277,9 +277,8 @@ set_location_internal (GWeatherLocationEntry *entry,
     if (iter) {
 	gtk_tree_model_get (model, iter,
 			    GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, &name,
-			    GWEATHER_LOCATION_ENTRY_COL_LOCATION, &loc,
+			    GWEATHER_LOCATION_ENTRY_COL_LOCATION, &priv->location,
 			    -1);
-	priv->location = gweather_location_ref (loc);
 	gtk_entry_set_text (GTK_ENTRY (entry), name);
 	priv->custom_text = FALSE;
 	g_free (name);
@@ -329,8 +328,11 @@ gweather_location_entry_set_location (GWeatherLocationEntry *entry,
 			    -1);
 	if (gweather_location_equal (loc, cmploc)) {
 	    set_location_internal (entry, model, &iter, NULL);
+	    gweather_location_unref (cmploc);
 	    return;
 	}
+
+	gweather_location_unref (cmploc);
     } while (gtk_tree_model_iter_next (model, &iter));
 
     set_location_internal (entry, model, NULL, loc);
@@ -415,12 +417,15 @@ gweather_location_entry_set_city (GWeatherLocationEntry *entry,
 			    -1);
 
 	cmpcode = gweather_location_get_code (cmploc);
-	if (!cmpcode || strcmp (cmpcode, code) != 0)
+	if (!cmpcode || strcmp (cmpcode, code) != 0) {
+	    gweather_location_unref (cmploc);
 	    continue;
+	}
 
 	if (city_name) {
 	    cmpname = gweather_location_get_city_name (cmploc);
 	    if (!cmpname || strcmp (cmpname, city_name) != 0) {
+		gweather_location_unref (cmploc);
 		g_free (cmpname);
 		continue;
 	    }
@@ -428,6 +433,7 @@ gweather_location_entry_set_city (GWeatherLocationEntry *entry,
 	}
 
 	set_location_internal (entry, model, &iter, NULL);
+	gweather_location_unref (cmploc);
 	return TRUE;
     } while (gtk_tree_model_iter_next (model, &iter));
 
@@ -551,10 +557,13 @@ gweather_location_entry_build_model (GWeatherLocationEntry *entry,
 {
     GtkTreeStore *store = NULL;
 
-    entry->priv->top = gweather_location_ref (top);
+    if (top)
+	entry->priv->top = gweather_location_ref (top);
+    else
+	entry->priv->top = gweather_location_new_world (TRUE);
 
-    store = gtk_tree_store_new (4, G_TYPE_STRING, G_TYPE_POINTER, G_TYPE_STRING, G_TYPE_STRING);
-    fill_location_entry_model (store, top, NULL, NULL);
+    store = gtk_tree_store_new (4, G_TYPE_STRING, GWEATHER_TYPE_LOCATION, G_TYPE_STRING, G_TYPE_STRING);
+    fill_location_entry_model (store, entry->priv->top, NULL, NULL);
     gtk_entry_completion_set_model (gtk_entry_get_completion (GTK_ENTRY (entry)),
 				    GTK_TREE_MODEL (store));
     g_object_unref (store);
@@ -603,20 +612,13 @@ matcher (GtkEntryCompletion *completion, const char *key,
 	 GtkTreeIter *iter, gpointer user_data)
 {
     char *name, *name_mem;
-    GWeatherLocation *loc;
     gboolean is_first_word = TRUE, match;
     int len;
 
     gtk_tree_model_get (gtk_entry_completion_get_model (completion), iter,
 			GWEATHER_LOCATION_ENTRY_COL_COMPARE_NAME, &name_mem,
-			GWEATHER_LOCATION_ENTRY_COL_LOCATION, &loc,
 			-1);
     name = name_mem;
-
-    if (!loc) {
-	g_free (name_mem);
-	return FALSE;
-    }
 
     /* All but the last word in KEY must match a full word from NAME,
      * in order (but possibly skipping some words from NAME).

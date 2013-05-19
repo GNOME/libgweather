@@ -102,10 +102,11 @@ gweather_timezone_menu_class_init (GWeatherTimezoneMenuClass *timezone_menu_clas
     /* properties */
     g_object_class_install_property (
 	object_class, PROP_TOP,
-	g_param_spec_pointer ("top",
-			      "Top Location",
-			      "The GWeatherLocation whose children will be used to fill in the menu",
-			      G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY));
+	g_param_spec_boxed ("top",
+			    "Top Location",
+			    "The GWeatherLocation whose children will be used to fill in the menu",
+			    GWEATHER_TYPE_LOCATION,
+			    G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY));
     g_object_class_install_property (
 	object_class, PROP_TZID,
 	g_param_spec_string ("tzid",
@@ -123,7 +124,7 @@ set_property (GObject *object, guint prop_id,
 
     switch (prop_id) {
     case PROP_TOP:
-	model = gweather_timezone_model_new (g_value_get_pointer (value));
+	model = gweather_timezone_model_new (g_value_get_boxed (value));
 	gtk_combo_box_set_model (GTK_COMBO_BOX (object), model);
 	g_object_unref (model);
 	gtk_combo_box_set_active (GTK_COMBO_BOX (object), 0);
@@ -174,9 +175,6 @@ changed (GtkComboBox *combo)
 			GWEATHER_TIMEZONE_MENU_ZONE, &menu->zone,
 			-1);
 
-    if (menu->zone)
-	gweather_timezone_ref (menu->zone);
-
     g_object_notify (G_OBJECT (combo), "tzid");
 }
 
@@ -223,7 +221,7 @@ insert_location (GtkTreeStore *store, GWeatherTimezone *zone, const char *loc_na
     gtk_tree_store_append (store, &iter, parent);
     gtk_tree_store_set (store, &iter,
                         GWEATHER_TIMEZONE_MENU_NAME, name,
-                        GWEATHER_TIMEZONE_MENU_ZONE, gweather_timezone_ref (zone),
+                        GWEATHER_TIMEZONE_MENU_ZONE, zone,
                         -1);
     g_free (name);
     g_free (offset);
@@ -240,7 +238,6 @@ insert_locations (GtkTreeStore *store, GWeatherLocation *loc)
 	children = gweather_location_get_children (loc);
 	for (i = 0; children[i]; i++)
 	    insert_locations (store, children[i]);
-	gweather_location_free_children (loc, children);
     } else {
 	GWeatherTimezone **zones;
 	GtkTreeIter iter;
@@ -271,8 +268,9 @@ gweather_timezone_model_new (GWeatherLocation *top)
     GtkTreeIter iter;
     char *unknown;
     GWeatherTimezone *utc;
+    GWeatherLocation *world;
 
-    store = gtk_tree_store_new (2, G_TYPE_STRING, G_TYPE_POINTER);
+    store = gtk_tree_store_new (2, G_TYPE_STRING, GWEATHER_TYPE_TIMEZONE);
     model = GTK_TREE_MODEL (store);
 
     unknown = g_markup_printf_escaped ("<i>%s</i>", C_("timezone", "Unknown"));
@@ -293,7 +291,14 @@ gweather_timezone_model_new (GWeatherLocation *top)
 
     g_free (unknown);
 
-    insert_locations (store, top);
+    if (top)
+	world = gweather_location_ref (top);
+    else
+	world = gweather_location_new_world (TRUE);
+
+    insert_locations (store, world);
+
+    gweather_location_unref (world);
 
     return model;
 }
@@ -354,6 +359,7 @@ check_tzid (GtkTreeModel *model, GtkTreePath *path,
 {
     SetTimezoneData *tzd = data;
     GWeatherTimezone *zone;
+    gboolean ok;
 
     gtk_tree_model_get (model, iter,
 			GWEATHER_TIMEZONE_MENU_ZONE, &zone,
@@ -363,9 +369,12 @@ check_tzid (GtkTreeModel *model, GtkTreePath *path,
 
     if (!strcmp (gweather_timezone_get_tzid (zone), tzd->tzid)) {
 	gtk_combo_box_set_active_iter (tzd->combo, iter);
-	return TRUE;
+	ok = TRUE;
     } else
-	return FALSE;
+	ok = FALSE;
+
+    gweather_timezone_unref (zone);
+    return ok;
 }
 
 /**
