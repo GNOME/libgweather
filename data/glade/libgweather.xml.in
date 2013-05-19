@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glade-catalog version="3.0" name="libgweather" library="gweather-3" domain="libgweather-3.0" depends="gtk+" book="libgweather-3.0">
+  <glade-widget-classes>
+    <glade-widget-class name="GWeatherLocationEntry" _title="Location Entry" generic-name="locentry" get-type-function="gweather_location_entry_get_type">
+      <!-- There are no editable properties, because GtkBuilder can't handle boxed types -->
+    </glade-widget-class>
+
+    <glade-widget-class name="GWeatherTimezoneMenu" _title="Timezone Menu" generic-name="tzmenu" get-type-function="gweather_timezone_menu_get_type">
+      <properties>
+        <property id="tzid" _name="Timezone" />
+      </properties>
+    </glade-widget-class>
+  </glade-widget-classes>
+
+  <glade-widget-group name="GWeather" _title="GWeather">
+    <glade-widget-class-ref name="GWeatherLocationEntry" />
+    <glade-widget-class-ref name="GWeatherTimezoneMenu" />
+  </glade-widget-group>
+</glade-catalog>

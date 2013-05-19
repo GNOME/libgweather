@@ -146,7 +146,41 @@ AC_SUBST(VERSION)
 AC_SUBST(PACKAGE)
 AC_SUBST(DATADIR)
 AC_SUBST(LIBDIR)
-AC_SUBST(GLADEDIR)
+
+dnl ***************************************************************************
+dnl *** Glade                                                               ***
+dnl ***************************************************************************
+
+AC_ARG_ENABLE([glade-catalog],
+	[AS_HELP_STRING([--enable-glade-catalog],
+		[Install a glade catalog file [default=auto]])],
+	[enable_glade_catalog=$enableval],
+	[enable_glade_catalog=auto])
+
+if test "x$enable_glade_catalog" = "xno"; then
+  found_glade_catalog="no (disabled, use --enable-glade-catalog to enable)"
+else
+  AC_MSG_CHECKING([for Glade.])
+
+  PKG_CHECK_EXISTS([gladeui-2.0],
+			 [found_glade_catalog=yes],
+			 [found_glade_catalog=no])
+fi
+
+if test "x$enable_glade_catalog" = "xyes" -a "x$found_glade_catalog" = "xno"; then
+  AC_MSG_ERROR([You need to have gladeui-2.0 installed to build libgweather with glade enabled])
+fi
+AC_MSG_RESULT([$found_glade_catalog])
+
+if test "x$found_glade_catalog" = "xyes"; then
+  AC_MSG_CHECKING([for Glade catalog dir])
+  GLADE_DATA_DIR=`$PKG_CONFIG --variable=datadir gladeui-2.0 2>&AS_MESSAGE_LOG_FD`
+  GLADE_CATALOG_DIR=`$PKG_CONFIG --variable=catalogdir gladeui-2.0 2>&AS_MESSAGE_LOG_FD | sed -e "s#^$GLADE_DATA_DIR#$datadir#"`
+  AC_MSG_RESULT([$GLADE_CATALOG_DIR])
+  AC_SUBST(GLADE_CATALOG_DIR)
+fi
+
+AM_CONDITIONAL([ENABLE_GLADE_CATALOG],[test "x$found_glade_catalog" = "xyes"])
 
 ##################################################
 # Checks for gtk-doc and docbook-tools
@@ -167,6 +201,7 @@ libgweather/Makefile
 libgweather/gweather-3.0.pc
 libgweather/gweather-3.0-uninstalled.pc
 data/Makefile
+data/glade/Makefile
 icons/Makefile
 schemas/Makefile
 ])

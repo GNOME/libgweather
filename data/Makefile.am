@@ -1,3 +1,10 @@
+
+SUBDIRS =
+
+if ENABLE_GLADE_CATALOG
+SUBDIRS += glade
+endif
+
 libgweatherdtddir = $(pkgdatadir)
 libgweatherdtd_DATA = locations.dtd
 
