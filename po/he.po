@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-07 11:26+0300\n"
-"PO-Revision-Date: 2013-03-28 14:01+0200\n"
+"POT-Creation-Date: 2013-05-24 11:36+0300\n"
+"PO-Revision-Date: 2013-05-24 11:37+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "Language: he\n"
@@ -18,11 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../data/glade/libgweather.xml.in.h:1
+msgid "Location Entry"
+msgstr "רשומת מיקום"
+
+#: ../data/glade/libgweather.xml.in.h:2
+msgid "Timezone Menu"
+msgstr "תפריט אזור זמן"
+
+#: ../data/glade/libgweather.xml.in.h:3
+msgid "Timezone"
+msgstr "אזור זמן"
+
+#: ../data/glade/libgweather.xml.in.h:4
+msgid "GWeather"
+msgstr "GWeather"
+
 #: ../libgweather/gweather-timezone.c:316
 msgid "Greenwich Mean Time"
 msgstr "שעון גריניץ׳"
 
-#: ../libgweather/timezone-menu.c:278
+#: ../libgweather/timezone-menu.c:276
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "לא ידוע"
@@ -120,7 +136,8 @@ msgstr "מעט עננים"
 msgid "Overcast"
 msgstr "מעונן"
 
-#: ../libgweather/weather.c:153 ../libgweather/weather.c:225
+#: ../libgweather/weather.c:153
+#: ../libgweather/weather.c:225
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "שגוי"
@@ -129,7 +146,8 @@ msgstr "שגוי"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:185 ../libgweather/weather.c:187
+#: ../libgweather/weather.c:185
+#: ../libgweather/weather.c:187
 msgid "Thunderstorm"
 msgstr "סופות רעמים"
 
@@ -416,97 +434,99 @@ msgstr "מערבולת אבק"
 msgid "Dust whirls in the vicinity"
 msgstr "מערבולת אבק בסביבה"
 
-#: ../libgweather/weather.c:637
+#: ../libgweather/weather.c:656
 msgid "%a, %b %d / %H∶%M"
 msgstr "ה־%b ב%a %d / %H∶%M"
 
-#: ../libgweather/weather.c:643
+#: ../libgweather/weather.c:662
 msgid "Unknown observation time"
 msgstr "זמן תצפית לא ידוע"
 
-#: ../libgweather/weather.c:655
+#: ../libgweather/weather.c:674
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "לא ידוע"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:705
+#: ../libgweather/weather.c:724
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:708
+#: ../libgweather/weather.c:727
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:714
+#: ../libgweather/weather.c:733
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:717
+#: ../libgweather/weather.c:736
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:723
+#: ../libgweather/weather.c:742
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:726
+#: ../libgweather/weather.c:745
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: ../libgweather/weather.c:749 ../libgweather/weather.c:765
-#: ../libgweather/weather.c:781 ../libgweather/weather.c:834
+#: ../libgweather/weather.c:768
+#: ../libgweather/weather.c:784
+#: ../libgweather/weather.c:800
+#: ../libgweather/weather.c:853
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "לא ידוע"
 
-#: ../libgweather/weather.c:797
+#: ../libgweather/weather.c:816
 msgctxt "dew"
 msgid "Unknown"
 msgstr "לא ידוע"
 
-#: ../libgweather/weather.c:814
+#: ../libgweather/weather.c:833
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "לא ידוע"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:817
+#: ../libgweather/weather.c:836
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:863
+#: ../libgweather/weather.c:882
 #, c-format
 msgid "%0.1f knots"
 msgstr "‏%0.1f קשר"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:866
+#: ../libgweather/weather.c:885
 #, c-format
 msgid "%.1f mph"
 msgstr "‏%.1f מיילים לשעה"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:869
+#: ../libgweather/weather.c:888
 #, c-format
 msgid "%.1f km/h"
 msgstr "‏%.1f קילומטרים לשעה"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:872
+#: ../libgweather/weather.c:891
 #, c-format
 msgid "%.1f m/s"
 msgstr "‏%.1f מטרים לשנייה"
@@ -514,95 +534,96 @@ msgstr "‏%.1f מטרים לשנייה"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:877
+#: ../libgweather/weather.c:896
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "‏%.1f כוח ביופורט"
 
-#: ../libgweather/weather.c:898
+#: ../libgweather/weather.c:917
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "לא ידוע"
 
-#: ../libgweather/weather.c:900
+#: ../libgweather/weather.c:919
 msgid "Calm"
 msgstr "רגוע"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:908
+#: ../libgweather/weather.c:927
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/weather.c:944
+#: ../libgweather/weather.c:963
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "לא ידוע"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:950
+#: ../libgweather/weather.c:969
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:953
+#: ../libgweather/weather.c:972
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:956
+#: ../libgweather/weather.c:975
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:959
+#: ../libgweather/weather.c:978
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:962
+#: ../libgweather/weather.c:981
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:965
+#: ../libgweather/weather.c:984
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f אטמוספירה"
 
-#: ../libgweather/weather.c:1003
+#: ../libgweather/weather.c:1022
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "לא ידוע"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:1009
+#: ../libgweather/weather.c:1028
 #, c-format
 msgid "%.1f miles"
 msgstr "‏%.1f מיילים"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:1012
+#: ../libgweather/weather.c:1031
 #, c-format
 msgid "%.1f km"
 msgstr "‏%.1f קילומטרים"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1015
+#: ../libgweather/weather.c:1034
 #, c-format
 msgid "%.0fm"
 msgstr "‏‏%.0f מטרים"
 
-#: ../libgweather/weather.c:1043 ../libgweather/weather.c:1068
+#: ../libgweather/weather.c:1062
+#: ../libgweather/weather.c:1087
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
-#: ../libgweather/weather.c:1169
+#: ../libgweather/weather.c:1188
 msgid "Retrieval failed"
 msgstr "קבלה נכשלה"
 
@@ -614,8 +635,7 @@ msgstr "קבלת נתוני METAR נכשלה: ‏%d ‏%s.\n"
 
 #: ../libgweather/weather-yrno.c:449
 #, c-format
-msgid ""
-"Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</a>"
+msgid "Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</a>"
 msgstr "נתוני מזג אוויר מ<a href=\"%s\">המכון המטאורולוגי הנורבגי</a>"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:1
@@ -623,104 +643,63 @@ msgid "URL for the radar map"
 msgstr "URL for the radar map"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:2
-msgid ""
-"The custom URL from where to retrieve a radar map, or empty for disabling "
-"radar maps."
-msgstr ""
-"The custom URL from where to retrieve a radar map, or empty for disabling "
-"radar maps."
+msgid "The custom URL from where to retrieve a radar map, or empty for disabling radar maps."
+msgstr "The custom URL from where to retrieve a radar map, or empty for disabling radar maps."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:3
 msgid "Temperature unit"
 msgstr "Temperature unit"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:4
-msgid ""
-"The unit of temperature used for showing weather. Valid values are 'kelvin', "
-"'centigrade' and 'fahrenheit'."
-msgstr ""
-"The unit of temperature used for showing weather. Valid values are 'kelvin', "
-"'centigrade' and 'fahrenheit'."
+msgid "The unit of temperature used for showing weather. Valid values are 'kelvin', 'centigrade' and 'fahrenheit'."
+msgstr "The unit of temperature used for showing weather. Valid values are 'kelvin', 'centigrade' and 'fahrenheit'."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:5
 msgid "Distance unit"
 msgstr "Distance unit"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:6
-msgid ""
-"The unit of distance used for showing weather (for example for visibility or "
-"for distance of important events). Valid values are 'meters', 'km' and "
-"'miles'."
-msgstr ""
-"The unit of distance used for showing weather (for example for visibility or "
-"for distance of important events). Valid values are 'meters', 'km' and "
-"'miles'."
+msgid "The unit of distance used for showing weather (for example for visibility or for distance of important events). Valid values are 'meters', 'km' and 'miles'."
+msgstr "The unit of distance used for showing weather (for example for visibility or for distance of important events). Valid values are 'meters', 'km' and 'miles'."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:7
 msgid "Speed unit"
 msgstr "Speed unit"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:8
-msgid ""
-"The unit of speed used for showing weather (for example for wind speed). "
-"Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
-"'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
-msgstr ""
-"The unit of speed used for showing weather (for example for wind speed). "
-"Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
-"'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+msgid "The unit of speed used for showing weather (for example for wind speed). Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), 'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+msgstr "The unit of speed used for showing weather (for example for wind speed). Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), 'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:9
 msgid "Pressure unit"
 msgstr "Pressure unit"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:10
-msgid ""
-"The unit of pressure used for showing weather. Valid values are "
-"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
-"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
-"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
-msgstr ""
-"The unit of pressure used for showing weather. Valid values are "
-"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
-"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
-"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+msgid "The unit of pressure used for showing weather. Valid values are 'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+msgstr "The unit of pressure used for showing weather. Valid values are 'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:11
 msgid "Default location"
 msgstr "Default location"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:12
-msgid ""
-"The default location for the weather applet. The first field is the name "
-"that will be shown. If empty, it will be taken from the locations database. "
-"The second field is the METAR code for the default weather station. It must "
-"not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml "
-"file. The third field is a tuple of (latitude, longitude), to override the "
-"value taken from the database. This is only used for sunrise and moon phase "
-"calculations, not for weather forecast."
-msgstr ""
-"The default location for the weather applet. The first field is the name "
-"that will be shown. If empty, it will be taken from the locations database. "
-"The second field is the METAR code for the default weather station. It must "
-"not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml "
-"file. The third field is a tuple of (latitude, longitude), to override the "
-"value taken from the database. This is only used for sunrise and moon phase "
-"calculations, not for weather forecast."
+msgid "The default location for the weather applet. The first field is the name that will be shown. If empty, it will be taken from the locations database. The second field is the METAR code for the default weather station. It must not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml file. The third field is a tuple of (latitude, longitude), to override the value taken from the database. This is only used for sunrise and moon phase calculations, not for weather forecast."
+msgstr "The default location for the weather applet. The first field is the name that will be shown. If empty, it will be taken from the locations database. The second field is the METAR code for the default weather station. It must not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml file. The third field is a tuple of (latitude, longitude), to override the value taken from the database. This is only used for sunrise and moon phase calculations, not for weather forecast."
 
 #~ msgctxt "temperature unit"
+
 #~ msgid "Unknown"
 #~ msgstr "לא ידוע"
-
 #~ msgctxt "speed unit"
+
 #~ msgid "Unknown"
 #~ msgstr "לא ידוע"
-
 #~ msgctxt "pressure unit"
+
 #~ msgid "Unknown"
 #~ msgstr "לא ידוע"
-
 #~ msgctxt "visibility unit"
+
 #~ msgid "Unknown"
 #~ msgstr "לא ידוע"
 
@@ -760,209 +739,149 @@ msgstr ""
 # that is Tel Aviv
 #~ msgid "DEFAULT_CODE"
 #~ msgstr "LLSD"
-
 #~ msgid "DEFAULT_ZONE"
 #~ msgstr "DEFAULT_ZONE"
-
 #~ msgid "DEFAULT_RADAR"
 #~ msgstr "DEFAULT_RADAR"
-
 # that is Tel Aviv
 #~ msgid "DEFAULT_COORDINATES"
 #~ msgstr "32-06-53N 034-46-56E"
-
 #~ msgid "Default"
 #~ msgstr "ברירת המחדל"
-
 #~ msgid "K"
 #~ msgstr "K"
-
 #~ msgid "C"
 #~ msgstr "C"
-
 #~ msgid "F"
 #~ msgstr "F"
-
 #~ msgid "m/s"
 #~ msgstr "מטרים לשנייה"
-
 #~ msgid "km/h"
 #~ msgstr "קילומטרים לשעה"
-
 #~ msgid "mph"
 #~ msgstr "מיילים לשעה"
-
 #~ msgid "Beaufort scale"
 #~ msgstr "סולם ביופורט"
-
 #~ msgid "kPa"
 #~ msgstr "kPa"
-
 #~ msgid "hPa"
 #~ msgstr "hPa"
-
 #~ msgid "mb"
 #~ msgstr "mb"
-
 #~ msgid "mmHg"
 #~ msgstr "mmHg"
-
 #~ msgid "inHg"
 #~ msgstr "inHg"
-
 #~ msgid "atm"
 #~ msgstr "אטמוספירה"
-
 #~ msgid "m"
 #~ msgstr "מטרים"
-
 #~ msgid "km"
 #~ msgstr "קילומטרים"
-
 #~ msgid "mi"
 #~ msgstr "מיילים"
-
 #~ msgid "DEFAULT_TEMP_UNIT"
 #~ msgstr "C"
-
 #~ msgid "DEFAULT_SPEED_UNIT"
 #~ msgstr "km/h"
-
 #~ msgid "DEFAULT_PRESSURE_UNIT"
 #~ msgstr "kPa"
-
 #~ msgid "DEFAULT_DISTANCE_UNIT"
 #~ msgstr "km"
-
 #~ msgid ""
 #~ "A three-digit-long code for retrieving radar maps from weather.com, found "
 #~ "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 #~ msgstr ""
 #~ "A three-digit-long code for retrieving radar maps from weather.com, found "
 #~ "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-
 #~ msgid ""
 #~ "A unique zone for the city, as found from http://git.gnome.org/cgit/"
 #~ "libgweather/plain/data/Locations.xml.in"
 #~ msgstr ""
 #~ "A unique zone for the city, as found from http://git.gnome.org/cgit/"
 #~ "libgweather/plain/data/Locations.xml.in"
-
 #~ msgid ""
 #~ "Determines whether the applet automatically updates its weather "
 #~ "statistics or not."
 #~ msgstr ""
 #~ "Determines whether the applet automatically updates its weather "
 #~ "statistics or not."
-
 #~ msgid "Display radar map"
 #~ msgstr "Display radar map"
-
 #~ msgid "Fetch a radar map on each update."
 #~ msgstr "Fetch a radar map on each update."
-
 #~ msgid ""
 #~ "If true, then retrieve a radar map from a location specified by the "
 #~ "\"radar\" key."
 #~ msgstr ""
 #~ "If true, then retrieve a radar map from a location specified by the "
 #~ "\"radar\" key."
-
 #~ msgid ""
 #~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
 #~ "[EW]."
 #~ msgstr ""
 #~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
 #~ "[EW]."
-
 #~ msgid "Location coordinates"
 #~ msgstr "Location coordinates"
-
 #~ msgid "Nearby city"
 #~ msgstr "Nearby city"
-
 #~ msgid ""
 #~ "Nearby major zone, such as a capital city, as found from http://git.gnome."
 #~ "org/cgit/libgweather/plain/data/Locations.xml.in"
 #~ msgstr ""
 #~ "Nearby major zone, such as a capital city, as found from http://git.gnome."
 #~ "org/cgit/libgweather/plain/data/Locations.xml.in"
-
 #~ msgid "Not used anymore"
 #~ msgstr "Not used anymore"
-
 #~ msgid "Radar location"
 #~ msgstr "Radar location"
-
 #~ msgid "The city that gweather displays information for."
 #~ msgstr "The city that gweather displays information for."
-
 #~ msgid "The interval, in seconds, between automatic updates."
 #~ msgstr "The interval, in seconds, between automatic updates."
-
 #~ msgid "The unit to use for pressure."
 #~ msgstr "The unit to use for pressure."
-
 #~ msgid "The unit to use for temperature."
 #~ msgstr "The unit to use for temperature."
-
 #~ msgid "The unit to use for visibility."
 #~ msgstr "The unit to use for visibility."
-
 #~ msgid "The unit to use for wind speed."
 #~ msgstr "The unit to use for wind speed."
-
 #~ msgid "Update interval"
 #~ msgstr "Update interval"
-
 #~ msgid "Update the data automatically"
 #~ msgstr "Update the data automatically"
-
 #~ msgid "Use custom url for the radar map"
 #~ msgstr "Use custom url for the radar map"
-
 #~ msgid "Use metric units"
 #~ msgstr "Use metric units"
-
 #~ msgid "Use metric units instead of english units."
 #~ msgstr "Use metric units instead of english units."
-
 #~ msgid "Weather for a city"
 #~ msgstr "Weather for a city"
-
 #~ msgid "Weather location information"
 #~ msgstr "Weather location information"
-
 #~ msgid "Weather location information."
 #~ msgstr "Weather location information."
-
 #~ msgid "_About"
 #~ msgstr "_אודות"
-
 #~ msgid "_Help"
 #~ msgstr "_עזרה"
-
 #~ msgid "_Keyboard Accessibility Preferences"
 #~ msgstr "העדפות מחליף פריסות _לוח-מקשים"
-
 #~ msgid "AccessX Status Applet Factory"
 #~ msgstr "יצרן יישומון מצב AccessX"
-
 #~ msgid "Keyboard Accessibility Status"
 #~ msgstr "מצב נגישות מקלדת"
-
 #~ msgid "Keyboard Accessibility Status Applet Factory"
 #~ msgstr "יצרן יישומון מצב נגישות מקלדת"
-
 #~ msgid "Shows the status of keyboard accessibility features"
 #~ msgstr "מציג את המצב של תכונות נגישות המקלדת"
-
 #~ msgid "AccessX Status"
 #~ msgstr "מצב AccessX"
-
 #~ msgid "Shows the state of AccessX features such as latched modifiers"
 #~ msgstr "הצג את מצב תכונות AccessX כמו משנים נעולים"
-
 #~ msgid "translator-credits"
 #~ msgstr ""
 #~ "גיל אשר <dolfin@rpg.org.il>\n"
@@ -970,172 +889,124 @@ msgstr ""
 #~ "\n"
 #~ "פרוייקט תרגום GNOME לעברית:\n"
 #~ "‏http://gnome-il.berlios.de"
-
 #~ msgid "There was an error launching the help viewer: %s"
 #~ msgstr "ארעה שגיאה בהפעלת מציג העזרה: %s"
-
 #~ msgid "There was an error launching the keyboard preferences dialog: %s"
 #~ msgstr "ארעה שגיאה בהפעלת תיבת דו-שיח אפשרויות המקלדת: %s"
-
 #~ msgid "a"
 #~ msgstr "א"
-
 #~ msgid "Shows keyboard status when accessibility features are used."
 #~ msgstr "מציג את מצב המקלדת כאשר אפשרויות הנגישות מופעלות"
-
 #~ msgid "XKB Extension is not enabled"
 #~ msgstr "תוסף XKB לא מופעל"
-
 #~ msgid "Unknown error"
 #~ msgstr "שגיאה לא ידועה"
-
 #~ msgid "Error: %s"
 #~ msgstr "שגיאה: %s"
-
 #~ msgid "Displays current state of keyboard accessibility features"
 #~ msgstr "מציג את המצב הנוכחי של תכונות נגישות המקלדת"
-
 #~ msgid "Battery Charge Monitor"
 #~ msgstr "צג טעינת סוללה"
-
 #~ msgid "Battstat Factory"
 #~ msgstr "יצרן מצב סוללה"
-
 #~ msgid "Monitor a laptop's remaining power"
 #~ msgstr "מציג את העצמה הנותרת למחשב נישא"
-
 #~ msgid "_Preferences"
 #~ msgstr "_העדפות"
-
 #~ msgid "0 for no label, 1 for percentage and 2 for time remaining"
 #~ msgstr "0 for no label, 1 for percentage and 2 for time remaining"
-
 #~ msgid "Beep for warnings"
 #~ msgstr "Beep for warnings"
-
 #~ msgid "Beep when displaying a warning"
 #~ msgstr "Beep when displaying a warning"
-
 #~ msgid "Drain from top"
 #~ msgstr "Drain from top"
-
 #~ msgid "Full Battery Notification"
 #~ msgstr "Full Battery Notification"
-
 #~ msgid "Low Battery Notification"
 #~ msgstr "Low Battery Notification"
-
 #~ msgid "Notify user when the battery is full"
 #~ msgstr "Notify user when the battery is full"
-
 #~ msgid "Notify user when the battery is low"
 #~ msgstr "Notify user when the battery is low"
-
 #~ msgid "Red value level"
 #~ msgstr "Red value level"
-
 #~ msgid ""
 #~ "Show the battery meter draining from the top of the battery. Only "
 #~ "implemented for traditional battery view."
 #~ msgstr ""
 #~ "Show the battery meter draining from the top of the battery. Only "
 #~ "implemented for traditional battery view."
-
 #~ msgid "Show the horizontal battery"
 #~ msgstr "Show the horizontal battery"
-
 #~ msgid "Show the time/percent label"
 #~ msgstr "Show the time/percent label"
-
 #~ msgid "Show the traditional, horizontal battery on the panel"
 #~ msgstr "Show the traditional, horizontal battery on the panel"
-
 #~ msgid "Show the upright, smaller battery on the panel"
 #~ msgstr "Show the upright, smaller battery on the panel"
-
 #~ msgid ""
 #~ "The battery level below which the battery is displayed as red. Also the "
 #~ "value at which the low battery warning is displayed."
 #~ msgstr ""
 #~ "The battery level below which the battery is displayed as red. Also the "
 #~ "value at which the low battery warning is displayed."
-
 #~ msgid "Upright (small) battery"
 #~ msgstr "Upright (small) battery"
-
 #~ msgid ""
 #~ "Use the value defined in red_value as a time remaining to show the "
 #~ "warning dialog rather than a percentage"
 #~ msgstr ""
 #~ "Use the value defined in red_value as a time remaining to show the "
 #~ "warning dialog rather than a percentage"
-
 #~ msgid "Warn on low time rather than low percentage"
 #~ msgstr "Warn on low time rather than low percentage"
-
 #~ msgid "System is running on AC power"
 #~ msgstr "המערכת פועלת על כוח חשמל"
-
 #~ msgid "System is running on battery power"
 #~ msgstr "המערכת פועלת על כוח סוללה"
-
 #~ msgid "Battery charged (%d%%)"
 #~ msgstr "סוללה טעונה (%d%%)"
-
 #~ msgid "Unknown time (%d%%) remaining"
 #~ msgstr "זמן לא ידוע (%d%%) נשאר"
-
 #~ msgid "Unknown time (%d%%) until charged"
 #~ msgstr "זמן לא ידוע (%d%%) עד לטעינה מלאה"
-
 #~ msgid "%d minute (%d%%) remaining"
 #~ msgid_plural "%d minutes (%d%%) remaining"
 #~ msgstr[0] "‏%d דקות (%d%%) נשארו"
 #~ msgstr[1] "‏%d דקות (%d%%) נשארו"
-
 #~ msgid "%d minute until charged (%d%%)"
 #~ msgid_plural "%d minutes until charged (%d%%)"
 #~ msgstr[0] "‏‏%d דקות עד לטעינה מלאה (%d%%)"
 #~ msgstr[1] "‏‏%d דקות עד לטעינה מלאה (%d%%)"
-
 #~ msgid "%d hour (%d%%) remaining"
 #~ msgid_plural "%d hours (%d%%) remaining"
 #~ msgstr[0] "‏%d שעות (%d%%) נשארו"
 #~ msgstr[1] "‏%d שעות (%d%%) נשארו"
-
 #~ msgid "%d hour until charged (%d%%)"
 #~ msgid_plural "%d hours until charged (%d%%)"
 #~ msgstr[0] "‏%d שעות עד לטעינה מלאה (%d%%)"
 #~ msgstr[1] "‏%d שעות עד לטעינה מלאה (%d%%)"
-
 #~ msgid "%d %s %d %s (%d%%) remaining"
 #~ msgstr "‏‏%d %s ו %d %s (%d%%) נשארו"
-
 #~ msgid "hour"
 #~ msgid_plural "hours"
 #~ msgstr[0] "שעות"
 #~ msgstr[1] "שעות"
-
 #~ msgid "minute"
 #~ msgid_plural "minutes"
 #~ msgstr[0] "דקות"
 #~ msgstr[1] "דקות"
-
 #~ msgid "%d %s %d %s until charged (%d%%)"
 #~ msgstr "‏%d %s ו %d %s עד לטעינה מלאה (%d%%)"
-
 #~ msgid "Battery Monitor"
 #~ msgstr "צג טעינת סוללה"
-
 #~ msgid "Your battery is now fully recharged"
 #~ msgstr "הסוללה נטענה טעינה מלאה"
-
 #~ msgid "Battery Notice"
 #~ msgstr "התרעת סוללה"
-
 #~ msgid "You have %d%% of your total battery capacity remaining."
 #~ msgstr "נשארו לך %d%% מסך כל קיבולת הסוללה."
-
 #~ msgid ""
 #~ "You have %d minute of battery power remaining (%d%% of the total "
 #~ "capacity)."
@@ -1144,7 +1015,6 @@ msgstr ""
 #~ "capacity)."
 #~ msgstr[0] "נשארה %d דקה של עצמת סוללה (%d%% מהקיבולת)."
 #~ msgstr[1] "נשארו %d דקות של עצמת סוללה (%d%% מהקיבולת)."
-
 #~ msgid ""
 #~ "To avoid losing your work:\n"
 #~ " • plug your laptop into external power, or\n"
@@ -1153,7 +1023,6 @@ msgstr ""
 #~ "על מנת שלא לאבד את העבודה שלך:\n"
 #~ " • חבר את הנייד למקור עצמה חיצוני, או\n"
 #~ " • שמור את המסמכים הפתוחים וכבה את הנייד."
-
 #~ msgid ""
 #~ "To avoid losing your work:\n"
 #~ " • suspend your laptop to save power,\n"
@@ -1164,187 +1033,130 @@ msgstr ""
 #~ " • השהה את הנייד שלך כדי לשמור על העצמה,\n"
 #~ " • חבר את הנייד למקור עצמה חיצוני, או\n"
 #~ " • שמור את המסמכים הפתוחים וכבה את הנייד."
-
 #~ msgid "Your battery is running low"
 #~ msgstr "הסוללה שלך כמעט ריקה"
-
 #~ msgid "No battery present"
 #~ msgstr "סוללה לא נמצאת"
-
 #~ msgid "Battery status unknown"
 #~ msgstr "מצב הסוללה לא ידוע"
-
 #~ msgid "N/A"
 #~ msgstr "לא זמין"
-
 #~ msgid "There was an error displaying help: %s"
 #~ msgstr "ארעה שגיאה בהצגת העזרה: %s"
-
 #~ msgid "This utility shows the status of your laptop battery."
 #~ msgstr "תוכנית שירות זו מציגה את מצב סוללת המחשב הנישא שלך."
-
 #~ msgid "HAL backend enabled."
 #~ msgstr "תשתית HAL מופעלת."
-
 #~ msgid "Legacy (non-HAL) backend enabled."
 #~ msgstr "תשתית ישנה (לא HAL) מופעלת."
-
 #~ msgid "<b>Appearance</b>"
 #~ msgstr "<b>מראה</b>"
-
 #~ msgid "<b>Notifications</b>"
 #~ msgstr "‏<b>הודעות</b>"
-
 #~ msgid "<small>(shows single image for status and charge)</small>"
 #~ msgstr "<small>(מציג תמונה אחת למצב וטעינה)</small>"
-
 #~ msgid "<small>(two images: one for status, one for charge)</small>"
 #~ msgstr "<small>(שתי תמונות: אחת למצב, ואחת לטעינה)</small>"
-
 #~ msgid "Battery Charge Monitor Preferences"
 #~ msgstr "העדפות צג טעינת הסוללה"
-
 #~ msgid "Show _percentage remaining"
 #~ msgstr "הצג א_חוזים שנשארו"
-
 #~ msgid "Show _time remaining"
 #~ msgstr "הצג את ה_זמן שנשאר"
-
 #~ msgid "_Compact view"
 #~ msgstr "תצוגה _מצומצמת"
-
 #~ msgid "_Expanded view"
 #~ msgstr "תצוגה _נרחבת"
-
 #~ msgid "_Notify when battery is fully recharged"
 #~ msgstr "ה_תרע כאשר הסוללה טעונה לחלוטין"
-
 #~ msgid "_Show time/percentage:"
 #~ msgstr "ה_צג תווית אחוז/זמן"
-
 #~ msgid "_Warn when battery charge drops to:"
 #~ msgstr "ה_תרע כאשר טעינת הסוללה יורדת ל:"
-
 #~ msgid "Percent"
 #~ msgstr "אחוזים"
-
 #~ msgid "Minutes Remaining"
 #~ msgstr "דקות נשארו"
-
 #~ msgid "Battery Status Utility"
 #~ msgstr "תוכנית שירות מצב סוללה"
-
 #~ msgid "Battery fully re-charged"
 #~ msgstr "סוללה נטענה מחדש לגמרי"
-
 #~ msgid "Battery power low"
 #~ msgstr "עוצמת סוללה נמוכה"
-
 #~ msgid "Character Palette"
 #~ msgstr "פלטת תווים"
-
 #~ msgid "Charpicker Applet Factory"
 #~ msgstr "יצרן יישומון בוחר תווים"
-
 #~ msgid "Insert characters"
 #~ msgstr "הכנס תווים"
-
 #~ msgid "Available palettes"
 #~ msgstr "פלטות זמינות"
-
 #~ msgid "Insert \"%s\""
 #~ msgstr "הכנס \"%s\""
-
 #~ msgid "Insert special character"
 #~ msgstr "הכנס תו מיוחד"
-
 #~ msgid "insert special character %s"
 #~ msgstr "הכנס תו מיוחד %s"
-
 #~ msgid ""
 #~ "Gnome Panel applet for selecting strange characters that are not on my "
 #~ "keyboard. Released under GNU General Public Licence."
 #~ msgstr ""
 #~ "יישומון ללוח GNOME לבחירת תווים מוזרים שאינם על המקלדת שלי. מופץ תחת "
 #~ "הרישיון הציבורי הכללי של GNU."
-
 #~ msgid "Characters shown on applet startup"
 #~ msgstr "Characters shown on applet startup"
-
 #~ msgid "DEPRECATED - Characters shown on applet startup"
 #~ msgstr "DEPRECATED - Characters shown on applet startup"
-
 #~ msgid "List of available palettes"
 #~ msgstr "List of available palettes"
-
 #~ msgid "List of strings containing the available palettes"
 #~ msgstr "List of strings containing the available palettes"
-
 #~ msgid ""
 #~ "The string that the user had selected when the applet was last used. This "
 #~ "string will be displayed when the user starts the applet."
 #~ msgstr ""
 #~ "The string that the user had selected when the applet was last used. This "
 #~ "string will be displayed when the user starts the applet."
-
 #~ msgid "_Edit"
 #~ msgstr "_עריכה"
-
 #~ msgid "_Palette:"
 #~ msgstr "_פלטה:"
-
 #~ msgid "Palette entry"
 #~ msgstr "ערך פלטה"
-
 #~ msgid "Modify a palette by adding or removing characters"
 #~ msgstr "שנה פלטה באמצעות הוספת או הסרת תווים"
-
 #~ msgid "Add Palette"
 #~ msgstr "הוסף פלטה"
-
 #~ msgid "Edit Palette"
 #~ msgstr "ערוך פלטה"
-
 #~ msgid "Palettes list"
 #~ msgstr "רשימת פלטות"
-
 #~ msgid "_Palettes:"
 #~ msgstr "_פלטות:"
-
 #~ msgid "Add button"
 #~ msgstr "הוסף כפתור"
-
 #~ msgid "Click to add a new palette"
 #~ msgstr "לחץ כדי להוסיף פלטה חדשה"
-
 #~ msgid "Edit button"
 #~ msgstr "ערוך כפתור"
-
 #~ msgid "Click to edit the selected palette"
 #~ msgstr "לחץ כדי לערוך את הפלטה שנבחרה"
-
 #~ msgid "Delete button"
 #~ msgstr "מחק כפתור"
-
 #~ msgid "Click to delete the selected palette"
 #~ msgstr "לחץ כדי למחוק את הפלטה שנבחרה"
-
 #~ msgid "Character Palette Preferences"
 #~ msgstr "העדפות פלטת התווים"
-
 #~ msgid "CPU Frequency Scaling Monitor"
 #~ msgstr "מנטר התאמת תדירות המעבד"
-
 #~ msgid "Monitor the CPU Frequency Scaling"
 #~ msgstr "נטר את התאמת תדירות המעבד"
-
 #~ msgid ""
 #~ "A 0 value means to show cpu frequency, 1 to show frequency and units, and "
 #~ "2 to show percentage instead of frequency."
 #~ msgstr ""
 #~ "A 0 value means to show cpu frequency, 1 to show frequency and units, and "
 #~ "2 to show percentage instead of frequency."
-
 #~ msgid ""
 #~ "A 0 value means to show the applet in graphic mode (pixmap only), 1 to "
 #~ "show the applet in text mode (not to show the pixmap) and 2 to show the "
@@ -1353,461 +1165,308 @@ msgstr ""
 #~ "A 0 value means to show the applet in graphic mode (pixmap only), 1 to "
 #~ "show the applet in text mode (not to show the pixmap) and 2 to show the "
 #~ "applet in graphic and text mode."
-
 #~ msgid "CPU to Monitor"
 #~ msgstr "CPU to Monitor"
-
 #~ msgid "Mode to show cpu usage"
 #~ msgstr "Mode to show cpu usage"
-
 #~ msgid ""
 #~ "Set the CPU to monitor. In a single processor system you don't have to "
 #~ "change it."
 #~ msgstr ""
 #~ "Set the CPU to monitor. In a single processor system you don't have to "
 #~ "change it."
-
 #~ msgid "The type of text to display (if the text is enabled)."
 #~ msgstr "The type of text to display (if the text is enabled)."
-
 #~ msgid "    "
 #~ msgstr "    "
-
 #~ msgid "<b>Display Settings</b>"
 #~ msgstr "‏<b>אפשרויות תצוגה</b>"
-
 #~ msgid "<b>Monitor Settings</b>"
 #~ msgstr "‏<b>אפשרויות מסך</b>"
-
 #~ msgid "CPU Frequency Monitor Preferences"
 #~ msgstr "העדפות צג תדירות המעבד"
-
 #~ msgid "Show CPU frequency as _frequency"
 #~ msgstr "הצג את תדירות המעבד כ_תדירות"
-
 #~ msgid "Show CPU frequency as _percentage"
 #~ msgstr "הצג את תדירות המעבד כ_אחוזים"
-
 #~ msgid "Show frequency _units"
 #~ msgstr "הצג י_חידות תדירות"
-
 #~ msgid "_Appearance:"
 #~ msgstr "_מראה: "
-
 #~ msgid "_Monitored CPU:"
 #~ msgstr "מעבדים _מוצגים:"
-
 #~ msgid "Could not open help document"
 #~ msgstr "לא ניתן לפתוח את מסמך העזרה"
-
 #~ msgid "This utility shows the current CPU Frequency Scaling."
 #~ msgstr "תוכנית שירות זו מציגה את תדירות המעבד הנוכחית."
-
 #~ msgid "This utility shows the current CPU Frequency"
 #~ msgstr "תוכנית שירות זו מציגה את תדירות המעבד הנוכחית."
-
 #~ msgid "Graphic"
 #~ msgstr "גרפי"
-
 #~ msgid "Text"
 #~ msgstr "טקסט"
-
 #~ msgid "Graphic and Text"
 #~ msgstr "גרפי וטקסט"
-
 #~ msgid "Frequency Scaling Unsupported"
 #~ msgstr "שינוי תדירות לא נתמך"
-
 #~ msgid "CPU frequency scaling unsupported"
 #~ msgstr "שינוי תדירות המעבד לא נתמך"
-
 #~ msgid "Disk Mounter"
 #~ msgstr "מעגן דיסקים"
-
 #~ msgid "Drive Mount Applet Factory"
 #~ msgstr "יצרן יישומון מעגן דיסקים"
-
 #~ msgid "Factory for drive mount applet"
 #~ msgstr "יצרן ליישומון מעגן הדיסקים"
-
 #~ msgid "Mount local disks and devices"
 #~ msgstr "מעגן דיסקים מקומיים והתקנים"
-
 #~ msgid "(mounted)"
 #~ msgstr "(מעוגן)"
-
 #~ msgid "(not mounted)"
 #~ msgstr "(לא מעוגן)"
-
 #~ msgid "(not connected)"
 #~ msgstr "(לא מחובר)"
-
 #~ msgid "Cannot execute '%s'"
 #~ msgstr "אין אפשרות להריץ '%s'"
-
 #~ msgid "Mount Error"
 #~ msgstr "שגיאת עיגון"
-
 #~ msgid "Unmount Error"
 #~ msgstr "שגיאת הסרת עיגון"
-
 #~ msgid "Eject Error"
 #~ msgstr "שגיאת הוצאה"
-
 #~ msgid "Error"
 #~ msgstr "שגיאה"
-
 #~ msgid "_Play DVD"
 #~ msgstr "_נגן תקליטור"
-
 #~ msgid "_Play CD"
 #~ msgstr "_נגן תקליטור"
-
 #~ msgid "_Open %s"
 #~ msgstr "_פתח %s"
-
 #~ msgid "_Mount %s"
 #~ msgstr "_עגן %s"
-
 #~ msgid "Un_mount %s"
 #~ msgstr "_בטל עיגון %s"
-
 #~ msgid "_Eject %s"
 #~ msgstr "_הוצא %s"
-
 #~ msgid "Applet for mounting and unmounting block volumes."
 #~ msgstr "יישומון ללעיגון כרכים."
-
 #~ msgid "Interval timeout to check mount point status"
 #~ msgstr "Interval timeout to check mount point status"
-
 #~ msgid "Time in seconds between status updates"
 #~ msgstr "Time in seconds between status updates"
-
 #~ msgid "A set of eyeballs for your panel"
 #~ msgstr "ערכת עיניים ללוח שלך"
-
 #~ msgid "Geyes"
 #~ msgstr "‏Geyes"
-
 #~ msgid "Geyes Applet Factory"
 #~ msgstr "יצרן יישומון Geyes"
-
 #~ msgid "A goofy little xeyes clone for the GNOME panel."
 #~ msgstr "העתק xeyes קטן ונחמד ללוח GNOME."
-
 #~ msgid "The eyes look in the direction of the mouse pointer"
 #~ msgstr "העיניים מסתכלות על הכיוון של מצביע העכבר"
-
 #~ msgid "Directory in which the theme is located"
 #~ msgstr "Directory in which the theme is located"
-
 #~ msgid "Can not launch the eyes applet."
 #~ msgstr "לא ניתן להפעיל את יישומון העיניים"
-
 #~ msgid "There was a fatal error while trying to load the theme."
 #~ msgstr "ארעה שגיאה בזמן טעינת ערכת הנושא."
-
 #~ msgid "Geyes Preferences"
 #~ msgstr "העדפות Geyes"
-
 #~ msgid "Themes"
 #~ msgstr "ערכות נושא"
-
 #~ msgid "_Select a theme:"
 #~ msgstr "_בחר ערכת נושא:"
-
 #~ msgid "Alt+Control changes layout."
 #~ msgstr "‏Alt+Ctrl משנה את הפריסה"
-
 #~ msgid "Alt+Shift changes layout."
 #~ msgstr "‏Alt+Shift משנה את הפריסה"
-
 #~ msgid "Arabic keymap"
 #~ msgstr "מפת מקלדת ערבית"
-
 #~ msgid "Armenian"
 #~ msgstr "ארמנית"
-
 #~ msgid "Basque"
 #~ msgstr "בסקית"
-
 #~ msgid "Belgian"
 #~ msgstr "בלגית"
-
 #~ msgid "Both Alt keys together change layout."
 #~ msgstr "שני מקשי הAlt משנים פריסה."
-
 #~ msgid "Both Ctrl keys together change layout."
 #~ msgstr "שני מקשי הCtrl משנים פריסה."
-
 #~ msgid "Both Shift keys together change layout."
 #~ msgstr "שני מקשי הShift משנים פריסה."
-
 #~ msgid "Brazil Portuguese keymap"
 #~ msgstr "מפת מקלדת פורטוגזית-ברזילאית"
-
 #~ msgid "Bulgarian keymap"
 #~ msgstr "מפת מקלדת בולגרית"
-
 #~ msgid "CapsLock key changes layout."
 #~ msgstr "המקש CapsLock משנה את הפריסה"
-
 #~ msgid "Control+Shift changes layout."
 #~ msgstr "‏Control+Shift משנים פריסה."
-
 #~ msgid "Czech keymap"
 #~ msgstr "מפת מקלדת צ'כית"
-
 #~ msgid "Danish keymap"
 #~ msgstr "מפת מקלדת דנית"
-
 #~ msgid "Dutch keymap"
 #~ msgstr "מפת מקלדת הולנדית"
-
 #~ msgid "English keymap"
 #~ msgstr "מפת מקלדת אנגלית"
-
 #~ msgid "Estonian keymap"
 #~ msgstr "מפת מקלדת אסטונית"
-
 #~ msgid "Finnish keymap"
 #~ msgstr "מפת מקלדת פינית"
-
 #~ msgid "French Swiss"
 #~ msgstr "צרפתית-שוויצרית"
-
 #~ msgid "French Swiss keymap"
 #~ msgstr "מפת מקלדת צרפתית-שוויצרית"
-
 #~ msgid "French keymap"
 #~ msgstr "מפת מקלדת צרפתית"
-
 #~ msgid "French-Canadian 105-key"
 #~ msgstr "צרפתית-קנדית 105 מקשים"
-
 #~ msgid "GB 102-key"
 #~ msgstr "‏GB 102 מקשים"
-
 #~ msgid "GB 105-key"
 #~ msgstr "‏GB 105 מקשים"
-
 #~ msgid "Generic Keyboard"
 #~ msgstr "מקלדת כללית"
-
 #~ msgid "Georgian Latin"
 #~ msgstr "גורגיאני"
-
 #~ msgid "German"
 #~ msgstr "גרמנית"
-
 #~ msgid "German keymap"
 #~ msgstr "מפת מקלדת גרמנית"
-
 #~ msgid "Greek keymap"
 #~ msgstr "מפת מקלדת יוונית"
-
 #~ msgid "Hebrew keymap"
 #~ msgstr "מפת מקלדת עברית"
-
 #~ msgid "Hungarian latin1"
 #~ msgstr "הונגרית latin1"
-
 #~ msgid "Icelandic keymap"
 #~ msgstr "מפת מקלדת איסלנדית"
-
 #~ msgid "Italian keymap"
 #~ msgstr "מפת מקלדת איטלקית"
-
 #~ msgid "Japanese keymap"
 #~ msgstr "מפת מקלדת יפנית"
-
 #~ msgid "Left Alt key changes layout."
 #~ msgstr "מקש Alt שמאלי משנה פריסה."
-
 #~ msgid "Left Ctrl key changes group."
 #~ msgstr "מקש Ctrl שמאלי משנה פריסה."
-
 #~ msgid "Left Shift key changes group."
 #~ msgstr "מקש Shift שמאלי משנה פריסה."
-
 #~ msgid "Left Win-key changes layout."
 #~ msgstr "מקש Win שמאלי משנה פריסה."
-
 #~ msgid "Macedonian"
 #~ msgstr "מקדונית"
-
 #~ msgid "Menu key changes layout."
 #~ msgstr "מקש תפריט משנה פריסה."
-
 #~ msgid "Mongolian keymap"
 #~ msgstr "מפת מקלדת מונגולית"
-
 #~ msgid "Norwegian"
 #~ msgstr "נורווגית"
-
 #~ msgid "Polish"
 #~ msgstr "פולנית"
-
 #~ msgid "Portugal"
 #~ msgstr "פורטוגל"
-
 #~ msgid "Portuguese keymap"
 #~ msgstr "מפת מקלדת פורטוגזית"
-
 #~ msgid "Right Alt key changes layout."
 #~ msgstr "מקש Alt ימני משנה פריסה."
-
 #~ msgid "Right Ctrl key changes group."
 #~ msgstr "מקש Ctrl ימני משנה פריסה."
-
 #~ msgid "Right Shift key changes group."
 #~ msgstr "מקש Shift ימני משנה פריסה."
-
 #~ msgid "Right Win-key changes layout."
 #~ msgstr "מקש Win ימני משנה פריסה."
-
 #~ msgid "Russian keymap"
 #~ msgstr "מפת מקשים רוסית"
-
 #~ msgid "Serbian keymap"
 #~ msgstr "מפת מקשים סרבית"
-
 #~ msgid "Shift+CapsLock changes layout."
 #~ msgstr "‏Shift+Capslock משנים פריסה."
-
 #~ msgid "Slovak keymap"
 #~ msgstr "מפת מקשים סלובקית"
-
 #~ msgid "Slovenian"
 #~ msgstr "סלובנית"
-
 #~ msgid "Slovenian keymap"
 #~ msgstr "מפת מקשים סלובנית"
-
 #~ msgid "Spanish keymap"
 #~ msgstr "מפת מקשים ספרדית"
-
 #~ msgid "Swedish"
 #~ msgstr "שוודית"
-
 #~ msgid "Swedish keymap"
 #~ msgstr "מפת מקשים שוודית"
-
 #~ msgid "Swiss keymap"
 #~ msgstr "מפת מקשים שוויצרית"
-
 #~ msgid "Thai"
 #~ msgstr "תאי"
-
 #~ msgid "Turkish \"F\" keyboard"
 #~ msgstr "מקלדת \"F\" טורקית"
-
 #~ msgid "Turkish \"Q\" keyboard"
 #~ msgstr "מקלדת \"Q\" טורקית"
-
 #~ msgid "Turkish keymap"
 #~ msgstr "מפת מקשים טורקית"
-
 #~ msgid "UK 105-key"
 #~ msgstr "‏UK 105 מקשים"
-
 #~ msgid "UK PC/AT keyboard"
 #~ msgstr "מקלדת UK PC/AT"
-
 #~ msgid "US 101-key keyboard"
 #~ msgstr "מקלדת US 101 מקשים"
-
 #~ msgid "US 105-key keyboard (with windows keys)"
 #~ msgstr "מקלדת US 105 מקשים (עם מקשי windows)"
-
 #~ msgid "US 84-key"
 #~ msgstr "‏US 84 מקשים"
-
 #~ msgid "US DEC 450"
 #~ msgstr "US DEC 450"
-
 #~ msgid "US IBM RS/6000"
 #~ msgstr "US IBM RS/6000"
-
 #~ msgid "US International"
 #~ msgstr "‏US בין לאומי"
-
 #~ msgid "US Macintosh"
 #~ msgstr "‏US מקינטוש"
-
 #~ msgid "US PC/AT 101 keyboard"
 #~ msgstr "מקלדת US PC/AT 101 מקשים"
-
 #~ msgid "US Silicon Graphics 101-key"
 #~ msgstr "‏US Silicon Graphics 101 מקשים"
-
 #~ msgid "US Sun type5"
 #~ msgstr "US Sun type5"
-
 #~ msgid "Keyboard _Preferences"
 #~ msgstr "העדפות מקלדת"
-
 #~ msgid "Show Current _Layout"
 #~ msgstr "הצג את ה_פריסה הנוכחית"
-
 #~ msgid "_Groups"
 #~ msgstr "_קבוצות"
-
 #~ msgid "Keyboard Indicator"
 #~ msgstr "מחוון מקלדת"
-
 #~ msgid "Keyboard applet factory"
 #~ msgstr "יצרן יישומון מקלדת"
-
 #~ msgid "Keyboard layout indicator"
 #~ msgstr "מחוון פריסת מקלדת"
-
 #~ msgid "Keyboard Layout \"%s\""
 #~ msgstr "פריסת מקלדת \"%s\""
-
 #~ msgid "Copyright (c) Sergey V. Udaltsov 1999-2004"
 #~ msgstr "Copyright (c) Sergey V. Udaltsov 1999-2004"
-
 #~ msgid "Keyboard layout indicator applet for GNOME"
 #~ msgstr "יישומון מחוון פריסת מקלדת עבור GNOME"
-
 #~ msgid "Keyboard Indicator (%s)"
 #~ msgstr "מחוון מקלדת (%s)"
-
 #~ msgid "Keyboard Layout"
 #~ msgstr "פריסת מקלדת"
-
 #~ msgid "_Details"
 #~ msgstr "_פרטים"
-
 #~ msgid "_Update"
 #~ msgstr "_עדכן"
-
 #~ msgid "Factory for creating the weather applet."
 #~ msgstr "יצרן ליצירת יישומון מזג-האויר."
-
 #~ msgid "Gweather Applet Factory"
 #~ msgstr "יצרן יישומון Gweather"
-
 #~ msgid "Monitor the current weather conditions, and forecasts"
 #~ msgstr "מציג את תנאי מזג-האויר הנוכחיים, ותחזיות"
-
 #~ msgid "Weather Report"
 #~ msgstr "דיווח מזג-אויר"
-
 #~ msgid "© 1999-2005 by S. Papadimitriou and others"
 #~ msgstr "‏© 1999-2005 by S. Papadimitriou and others"
-
 #~ msgid "A panel application for monitoring local weather conditions."
 #~ msgstr "ישומון לתצוגת תנאי מזג-אויר מקומיים."
-
-#~ msgid "GNOME Weather"
-#~ msgstr "מזג-האויר GNOME"
-
 #~ msgid "Weather Forecast"
 #~ msgstr "תחזית מזג האויר"
-
 #~ msgid ""
 #~ "City: %s\n"
 #~ "Sky: %s\n"
@@ -1816,188 +1475,125 @@ msgstr ""
 #~ "עיר: %s\n"
 #~ "שמיים: %s\n"
 #~ "טמפרטורה: %s"
-
 #~ msgid "Updating..."
 #~ msgstr "מעדכן..."
-
 #~ msgid "Details"
 #~ msgstr "פרטים"
-
 #~ msgid "City:"
 #~ msgstr "עיר:"
-
 #~ msgid "Last update:"
 #~ msgstr "עדכון אחרון:"
-
 #~ msgid "Conditions:"
 #~ msgstr "תנאים:"
-
 #~ msgid "Sky:"
 #~ msgstr "שמיים:"
-
 #~ msgid "Temperature:"
 #~ msgstr "טמפרטורה:"
-
 #~ msgid "Feels like:"
 #~ msgstr "מרגיש כמו:"
-
 #~ msgid "Dew point:"
 #~ msgstr "נקודת העיבוי:"
-
 #~ msgid "Relative humidity:"
 #~ msgstr "לחות יחסית:"
-
 #~ msgid "Wind:"
 #~ msgstr "רוח:"
-
 #~ msgid "Pressure:"
 #~ msgstr "לחץ אויר:"
-
 #~ msgid "Visibility:"
 #~ msgstr "ראות:"
-
 #~ msgid "Sunrise:"
 #~ msgstr "זריחה:"
-
 #~ msgid "Sunset:"
 #~ msgstr "שקיעה:"
-
 #~ msgid "Current Conditions"
 #~ msgstr "תנאים נוכחיים"
-
 #~ msgid "Forecast Report"
 #~ msgstr "דיווח תחזית"
-
 #~ msgid "See the ForeCast Details"
 #~ msgstr "ראה את פרטי התחזית"
-
 #~ msgid "Forecast"
 #~ msgstr "תחזית"
-
 #~ msgid "Radar Map"
 #~ msgstr "מפת ראדר"
-
 #~ msgid "_Visit Weather.com"
 #~ msgstr "_בקר ב Weather.com"
-
 #~ msgid "Visit Weather.com"
 #~ msgstr "בקר ב Weather.com"
-
 #~ msgid "Click to Enter Weather.com"
 #~ msgstr "לחץ כדי להכנס ל Weather.com"
-
 #~ msgid "Forecast not currently available for this location."
 #~ msgstr "אין תחזית עבור מיקום זה"
-
 #~ msgid "Location view"
 #~ msgstr "תצוגת מיקום"
-
 #~ msgid "Select Location from the list"
 #~ msgstr "בחר מיקום מהרשימה"
-
 #~ msgid "Update spin button"
 #~ msgstr "עדכן כפתור טווח"
-
 #~ msgid "Spinbutton for updating"
 #~ msgstr "כפתור טווח לעדכון"
-
 #~ msgid "Address Entry"
 #~ msgstr "ערך כתובת"
-
 #~ msgid "Enter the URL"
 #~ msgstr "הזן כתובת"
-
 #~ msgid ""
 #~ "Failed to load the Locations XML database.  Please report this as a bug."
 #~ msgstr "נכשל בטעינת בסיס נתונים XML של המיקומים. אנא דווח זאת כבאג."
-
 #~ msgid "Weather Preferences"
 #~ msgstr "העדפות מזג-האויר"
-
 #~ msgid "_Automatically update every:"
 #~ msgstr "עדכן _אוטומטית כל:"
-
 #~ msgid "_Temperature unit:"
 #~ msgstr "יחידת _טמפרטורה:"
-
 #~ msgid "Kelvin"
 #~ msgstr "קלוין"
-
 #~ msgid "Celsius"
 #~ msgstr "צלזיוס"
-
 #~ msgid "_Wind speed unit:"
 #~ msgstr "יחידת מהירות ה_רוח:"
-
 #~ msgid "_Pressure unit:"
 #~ msgstr "יחידת _לחץ אויר:"
-
 #~ msgid "_Visibility unit:"
 #~ msgstr "יחידת _ראות:"
-
 #~ msgid "meters"
 #~ msgstr "מטרים"
-
 #~ msgid "Enable _radar map"
 #~ msgstr "אפשר מפת _ראדר"
-
 #~ msgid "Use _custom address for radar map"
 #~ msgstr "השתמש בכתובת מו_תאמת אישית למפת הראדר"
-
 #~ msgid "A_ddress:"
 #~ msgstr "_כתובת:"
-
 #~ msgid "Update"
 #~ msgstr "עדכן"
-
 #~ msgid "minutes"
 #~ msgstr "דקות"
-
 #~ msgid "Display"
 #~ msgstr "תצוגה"
-
 #~ msgid "General"
 #~ msgstr "כללי"
-
 #~ msgid "_Select a location:"
 #~ msgstr "_בחר מיקום:"
-
 #~ msgid "_Find:"
 #~ msgstr "_חפש:"
-
 #~ msgid "Find _Next"
 #~ msgstr "ה_בא"
-
-#~ msgid "Location"
-#~ msgstr "מיקום"
-
 #~ msgid "Invest"
 #~ msgstr "‏Invest"
-
 #~ msgid "Track your invested money."
 #~ msgstr "מעקב אחרי כספך המושקע."
-
 #~ msgid "_Refresh"
 #~ msgstr "_רענן"
-
 #~ msgid "10"
 #~ msgstr "10"
-
 #~ msgid "100"
 #~ msgstr "100"
-
 #~ msgid "20"
 #~ msgstr "20"
-
 #~ msgid "200"
 #~ msgstr "200"
-
 #~ msgid "5"
 #~ msgstr "5"
-
 #~ msgid "50"
 #~ msgstr "50"
-
 #, fuzzy
 #~ msgid "Bollinger"
 #~ msgstr "גולל"
@@ -2548,6 +2144,7 @@ msgstr ""
 #~ msgid ""
 #~ "%s:\n"
 #~ "%u%% in use"
+
 #~ msgid_plural ""
 #~ "%s:\n"
 #~ "%u%% in use"
@@ -3085,6 +2682,7 @@ msgstr ""
 #~ msgstr "Whether to use the default system font"
 
 #~ msgid "%d note"
+
 #~ msgid_plural "%d notes"
 #~ msgstr[0] "פתקית אחת"
 #~ msgstr[1] "‏%d פתקיות"
@@ -3114,6 +2712,7 @@ msgstr ""
 #~ msgstr "אין פריטים באשפה"
 
 #~ msgid "%d Item in Trash"
+
 #~ msgid_plural "%d Items in Trash"
 #~ msgstr[0] "‏%d פריטים באשפה"
 #~ msgstr[1] "‏%d פריטים באשפה"
@@ -4449,6 +4048,7 @@ msgstr ""
 
 #, fuzzy
 #~ msgid "%d message"
+
 #~ msgid_plural "%d messages"
 #~ msgstr[0] "%d הודעות"
 #~ msgstr[1] "%d הודעות"
@@ -5982,9 +5582,6 @@ msgstr ""
 
 #~ msgid "Actions"
 #~ msgstr "פעולות"
-
-#~ msgid "Actions Menu"
-#~ msgstr "תפריט פעולות"
 
 #~ msgid "Add items to the Menu Bar"
 #~ msgstr "הוסף פריטים לתפריט"
