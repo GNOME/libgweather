@@ -20,7 +20,7 @@ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 #   change to C+1:0:0
 # - If the interface is the same as the previous version, change to C:R+1:A
 
-LT_VERSION=4:0:1
+LT_VERSION=4:1:1
 AC_SUBST(LT_VERSION)
 
 GTK_REQUIRED=2.90.0
@@ -175,9 +175,11 @@ AC_MSG_RESULT([$found_glade_catalog])
 if test "x$found_glade_catalog" = "xyes"; then
   AC_MSG_CHECKING([for Glade catalog dir])
   GLADE_DATA_DIR=`$PKG_CONFIG --variable=datadir gladeui-2.0 2>&AS_MESSAGE_LOG_FD`
+  GLADE_CATALOG_DTD_DIR=`$PKG_CONFIG --variable=catalogdir gladeui-2.0 2>&AS_MESSAGE_LOG_FD`
   GLADE_CATALOG_DIR=`$PKG_CONFIG --variable=catalogdir gladeui-2.0 2>&AS_MESSAGE_LOG_FD | sed -e "s#^$GLADE_DATA_DIR#$datadir#"`
   AC_MSG_RESULT([$GLADE_CATALOG_DIR])
   AC_SUBST(GLADE_CATALOG_DIR)
+  AC_SUBST(GLADE_CATALOG_DTD_DIR)
 fi
 
 AM_CONDITIONAL([ENABLE_GLADE_CATALOG],[test "x$found_glade_catalog" = "xyes"])

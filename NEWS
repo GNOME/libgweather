@@ -1,4 +1,18 @@
 =============
+Version 3.9.2
+=============
+
+* There is now a single hierarchy of GWeatherLocation
+  structures, and gweather_location_new_world() returns
+  a singleton object
+* Therefore, constructors which accepted a @world parameter
+  have been deprecated.
+* GWeatherInfo now emits ::updated in response to GSettings
+  changes
+* A Glade catalog was added, covering the Gtk widgets
+* Updated translations
+
+=============
 Version 3.9.1
 =============
 

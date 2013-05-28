@@ -6,7 +6,7 @@ EXTRA_DIST = \
 	$(catalog_in_files)
 
 check-local: $(catalog_DATA)
-	xmllint --dtdvalid $(GLADE_CATALOG_DIR)/glade-catalog.dtd --noout $<
+	xmllint --dtdvalid $(GLADE_CATALOG_DTD_DIR)/glade-catalog.dtd --noout $<
 
 CLEANFILES = $(catalog_DATA)
 
