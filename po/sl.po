@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: libgwether master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-04-30 20:27+0000\n"
-"PO-Revision-Date: 2013-05-01 20:05+0100\n"
+"POT-Creation-Date: 2013-06-03 16:13+0000\n"
+"PO-Revision-Date: 2013-06-03 21:41+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -26,11 +26,27 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 1.5.4\n"
 
+#: ../data/glade/libgweather.xml.in.h:1
+msgid "Location Entry"
+msgstr "Vnos mesta"
+
+#: ../data/glade/libgweather.xml.in.h:2
+msgid "Timezone Menu"
+msgstr "Meni časovnih pasov"
+
+#: ../data/glade/libgweather.xml.in.h:3
+msgid "Timezone"
+msgstr "Časovni pas "
+
+#: ../data/glade/libgweather.xml.in.h:4
+msgid "GWeather"
+msgstr "Gweather"
+
 #: ../libgweather/gweather-timezone.c:316
 msgid "Greenwich Mean Time"
 msgstr "Greenwiški srednji čas"
 
-#: ../libgweather/timezone-menu.c:278
+#: ../libgweather/timezone-menu.c:276
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Neznano"
@@ -426,97 +442,97 @@ msgstr "prašni vrtinec"
 msgid "Dust whirls in the vicinity"
 msgstr "prašni vrtinci v okolici"
 
-#: ../libgweather/weather.c:637
+#: ../libgweather/weather.c:656
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a, %d. %b. / %H:%M"
 
-#: ../libgweather/weather.c:643
+#: ../libgweather/weather.c:662
 msgid "Unknown observation time"
 msgstr "Neznan čas meritve"
 
-#: ../libgweather/weather.c:655
+#: ../libgweather/weather.c:674
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Neznani pogoji"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:705
+#: ../libgweather/weather.c:724
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:708
+#: ../libgweather/weather.c:727
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:714
+#: ../libgweather/weather.c:733
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:717
+#: ../libgweather/weather.c:736
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:723
+#: ../libgweather/weather.c:742
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:726
+#: ../libgweather/weather.c:745
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: ../libgweather/weather.c:749 ../libgweather/weather.c:765
-#: ../libgweather/weather.c:781 ../libgweather/weather.c:834
+#: ../libgweather/weather.c:768 ../libgweather/weather.c:784
+#: ../libgweather/weather.c:800 ../libgweather/weather.c:853
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Neznana vrednost"
 
-#: ../libgweather/weather.c:797
+#: ../libgweather/weather.c:816
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Neznana točka"
 
-#: ../libgweather/weather.c:814
+#: ../libgweather/weather.c:833
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Neznana vrednost"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:817
+#: ../libgweather/weather.c:836
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:863
+#: ../libgweather/weather.c:882
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f vozlov"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:866
+#: ../libgweather/weather.c:885
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f milj/uro"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:869
+#: ../libgweather/weather.c:888
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:872
+#: ../libgweather/weather.c:891
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -524,96 +540,96 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:877
+#: ../libgweather/weather.c:896
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Baeufortova sila vetra %.1f"
 
-#: ../libgweather/weather.c:898
+#: ../libgweather/weather.c:917
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Neznana hitrost"
 
-#: ../libgweather/weather.c:900
+#: ../libgweather/weather.c:919
 msgid "Calm"
 msgstr "Mirno"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:908
+#: ../libgweather/weather.c:927
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/weather.c:944
+#: ../libgweather/weather.c:963
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Neznana vrednost"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:950
+#: ../libgweather/weather.c:969
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:953
+#: ../libgweather/weather.c:972
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:956
+#: ../libgweather/weather.c:975
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:959
+#: ../libgweather/weather.c:978
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:962
+#: ../libgweather/weather.c:981
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:965
+#: ../libgweather/weather.c:984
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#: ../libgweather/weather.c:1003
+#: ../libgweather/weather.c:1022
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Neznana vrednost"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:1009
+#: ../libgweather/weather.c:1028
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f milj"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:1012
+#: ../libgweather/weather.c:1031
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1015
+#: ../libgweather/weather.c:1034
 #, c-format
 msgid "%.0fm"
 msgstr "%.0f m"
 
-#: ../libgweather/weather.c:1043 ../libgweather/weather.c:1068
+#: ../libgweather/weather.c:1062 ../libgweather/weather.c:1087
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
 # @ Which form?
-#: ../libgweather/weather.c:1169
+#: ../libgweather/weather.c:1188
 msgid "Retrieval failed"
 msgstr "Prevzem spodletel"
 
@@ -887,9 +903,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Zemljepisna višina in širina vašega mesta je zapisana kot: ST-MM-SS[SJ) "
 #~ "ST-MM-SS [VZ]"
-
-#~ msgid "Location coordinates"
-#~ msgstr "Koordinate mesta"
 
 #~ msgid "Nearby city"
 #~ msgstr "Bližnje mesto"
