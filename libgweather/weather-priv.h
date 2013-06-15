@@ -90,7 +90,6 @@ typedef gdouble GWeatherVisibility;
 typedef time_t GWeatherUpdate;
 
 struct _GWeatherInfoPrivate {
-    GWeatherForecastType forecast_type;
     GWeatherProvider providers;
 
     GSettings *settings;
@@ -112,7 +111,6 @@ struct _GWeatherInfoPrivate {
     gboolean hasHumidity;
 
     WeatherLocation location;
-    GWeatherLocation *world;
     GWeatherLocation *glocation;
     GWeatherUpdate update;
     GWeatherUpdate current_time;
@@ -131,7 +129,6 @@ struct _GWeatherInfoPrivate {
     GWeatherUpdate sunset;
     GWeatherMoonPhase moonphase;
     GWeatherMoonLatitude moonlatitude;
-    gchar *forecast;
     GSList *forecast_list; /* list of GWeatherInfo* for the forecast, NULL if not available */
     gchar *forecast_attribution;
     gchar *radar_buffer;
@@ -188,8 +185,6 @@ struct _GWeatherInfoPrivate {
 
 void		metar_start_open	(GWeatherInfo *info);
 gboolean	iwin_start_open		(GWeatherInfo *info);
-void		metoffice_start_open	(GWeatherInfo *info);
-void		bom_start_open		(GWeatherInfo *info);
 void		wx_start_open		(GWeatherInfo *info);
 gboolean        yahoo_start_open        (GWeatherInfo *info);
 gboolean        yrno_start_open         (GWeatherInfo *info);

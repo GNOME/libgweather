@@ -423,8 +423,7 @@ owm_start_open (GWeatherInfo *info)
     priv = info->priv;
     loc = &priv->location;
 
-    if (!loc->latlon_valid ||
-	priv->forecast_type != GWEATHER_FORECAST_LIST)
+    if (!loc->latlon_valid)
 	return FALSE;
 
     /* see the description here: http://bugs.openweathermap.org/projects/api/wiki/Api_2_5_forecast */

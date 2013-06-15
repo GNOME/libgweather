@@ -77,11 +77,7 @@ struct _GWeatherInfoClass {
 };
 
 GType                    gweather_info_get_type            (void) G_GNUC_CONST;
-GWeatherInfo *           gweather_info_new                 (GWeatherLocation *location,
-							    GWeatherForecastType forecast_type);
-GWeatherInfo *           gweather_info_new_for_world       (GWeatherLocation *world,
-							    GWeatherLocation *location,
-							    GWeatherForecastType forecast_type);
+GWeatherInfo *           gweather_info_new                 (GWeatherLocation *location);
 void                     gweather_info_update              (GWeatherInfo *info);
 void			 gweather_info_abort		   (GWeatherInfo *info);
 void                     gweather_info_store_cache         (void);
@@ -111,7 +107,6 @@ gchar * 		 gweather_info_get_visibility	   (GWeatherInfo *info);
 gchar * 		 gweather_info_get_apparent	   (GWeatherInfo *info);
 gchar * 		 gweather_info_get_sunrise	   (GWeatherInfo *info);
 gchar * 		 gweather_info_get_sunset	   (GWeatherInfo *info);
-gchar * 		 gweather_info_get_forecast	   (GWeatherInfo *info);
 GSList *		 gweather_info_get_forecast_list   (GWeatherInfo *info);
 GdkPixbufAnimation *	 gweather_info_get_radar	   (GWeatherInfo *info);
 const gchar             *gweather_info_get_attribution     (GWeatherInfo *info);

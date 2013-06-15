@@ -29,47 +29,6 @@
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "weather-priv.h"
 
-/*
- *  Humans don't deal well with .MONDAY...SUNNY AND BLAH BLAH.TUESDAY...THEN THIS AND THAT.WEDNESDAY...RAINY BLAH BLAH.
- *  This function makes it easier to read.
- */
-static gchar *
-formatWeatherMsg (gchar *forecast)
-{
-    gchar *ptr = forecast;
-    gchar *startLine = NULL;
-
-    while (0 != *ptr) {
-        if (ptr[0] == '\n' && ptr[1] == '.') {
-          /* This removes the preamble by shifting the relevant data
-           * down to the start of the buffer. */
-            if (NULL == startLine) {
-                memmove (forecast, ptr, strlen (ptr) + 1);
-                ptr = forecast;
-                ptr[0] = ' ';
-            }
-            ptr[1] = '\n';
-            ptr += 2;
-            startLine = ptr;
-        } else if (ptr[0] == '.' && ptr[1] == '.' && ptr[2] == '.' && NULL != startLine) {
-            memmove (startLine + 2, startLine, (ptr - startLine) * sizeof (gchar));
-            startLine[0] = ' ';
-            startLine[1] = '\n';
-            ptr[2] = '\n';
-
-            ptr += 3;
-
-        } else if (ptr[0] == '$' && ptr[1] == '$') {
-            ptr[0] = ptr[1] = ' ';
-
-        } else {
-            ptr++;
-        }
-    }
-
-    return forecast;
-}
-
 static gboolean
 hasAttr (xmlNode *node, const char *attr_name, const char *attr_value)
 {
@@ -279,8 +238,6 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
                                         };
 
                                         priv->valid = TRUE;
-                                        g_free (priv->forecast);
-                                        priv->forecast = g_strdup ((const char *)val);
 
                                         for (i = 0; i < G_N_ELEMENTS (ph_list); i++) {
                                             if (strstr ((const char *)val, ph_list [i].name)) {
@@ -372,11 +329,7 @@ iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     }
 
     priv = info->priv;
-
-    if (priv->forecast_type == GWEATHER_FORECAST_LIST)
-        priv->forecast_list = parseForecastXml (msg->response_body->data, info);
-    else
-        priv->forecast = formatWeatherMsg (g_strdup (msg->response_body->data));
+    priv->forecast_list = parseForecastXml (msg->response_body->data, info);
 
     _gweather_info_request_done (info);
 }
@@ -386,81 +339,41 @@ gboolean
 iwin_start_open (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
-    gchar *url, *state, *zone;
+    gchar *url;
     WeatherLocation *loc;
     SoupMessage *msg;
 
-    g_return_val_if_fail (info != NULL, FALSE);
+    g_assert (info != NULL);
 
     priv = info->priv;
     loc = &priv->location;
-    g_return_val_if_fail (loc != NULL, FALSE);
 
-    /* No zone (or -) means no weather information from national offices */
-    if ((!loc->zone || loc->zone[0] == '-'))
+    /* No zone (or -) means no weather information from national offices.
+       We don't actually use zone, but it's a good indicator of a US location.
+       (@ and : prefixes were used in the past for Australia and UK) */
+    if (!loc->zone || loc->zone[0] == '-' || loc->zone[0] == '@' || loc->zone[0] == ':')
         return FALSE;
 
-    /* Zones starting with : are for the UK Met Office, @ is for Austrialian
-       Bureau of Metereology. GWEATHER_FORECAST_LIST only works for US, so bail
-       out early if the location is outside.
-    */
-    if (priv->forecast_type == GWEATHER_FORECAST_LIST &&
-	(loc->zone[0] == ':' || loc->zone[0] == '@'))
+    if (!loc->latlon_valid)
 	return FALSE;
 
-    /* We also need a pair of coordinates for GWEATHER_FORECAST_LIST */
-    if (priv->forecast_type == GWEATHER_FORECAST_LIST &&
-	!loc->latlon_valid)
-	return FALSE;
+    /* see the description here: http://www.weather.gov/forecasts/xml/ */
+    struct tm tm;
+    time_t now;
+    gchar latstr[G_ASCII_DTOSTR_BUF_SIZE], lonstr[G_ASCII_DTOSTR_BUF_SIZE];
 
-    if (priv->forecast_type == GWEATHER_FORECAST_LIST) {
-        /* see the description here: http://www.weather.gov/forecasts/xml/ */
-        struct tm tm;
-        time_t now;
-        gchar latstr[G_ASCII_DTOSTR_BUF_SIZE], lonstr[G_ASCII_DTOSTR_BUF_SIZE];
+    now = time (NULL);
+    localtime_r (&now, &tm);
 
-        now = time (NULL);
-        localtime_r (&now, &tm);
-
-	g_ascii_dtostr (latstr, sizeof(latstr), RADIANS_TO_DEGREES (loc->latitude));
-	g_ascii_dtostr (lonstr, sizeof(lonstr), RADIANS_TO_DEGREES (loc->longitude));
-	url = g_strdup_printf ("http://www.weather.gov/forecasts/xml/sample_products/browser_interface/ndfdBrowserClientByDay.php?&lat=%s&lon=%s&format=24+hourly&startDate=%04d-%02d-%02d&numDays=7",
-			       latstr, lonstr, 1900 + tm.tm_year, 1 + tm.tm_mon, tm.tm_mday);
-	msg = soup_message_new ("GET", url);
-	g_free (url);
-	soup_session_queue_message (priv->session, msg, iwin_finish, info);
-
-        priv->requests_pending++;
-        return TRUE;
-    }
-
-    if (loc->zone[0] == ':') {
-        /* Met Office Region Names */
-        metoffice_start_open (info);
-        return TRUE;
-    } else if (loc->zone[0] == '@') {
-        /* Australian BOM forecasts */
-        bom_start_open (info);
-        return TRUE;
-    }
-
-    /* The zone for Pittsburgh (for example) is given as PAZ021 in the locations
-    ** file (the PA stands for the state pennsylvania). The url used wants the state
-    ** as pa, and the zone as lower case paz021.
-    */
-    zone = g_ascii_strdown (loc->zone, -1);
-    state = g_strndup (zone, 2);
-
-    url = g_strdup_printf ("http://weather.noaa.gov/pub/data/forecasts/zone/%s/%s.txt", state, zone);
-
-    g_free (zone);
-    g_free (state);
-    
+    g_ascii_dtostr (latstr, sizeof(latstr), RADIANS_TO_DEGREES (loc->latitude));
+    g_ascii_dtostr (lonstr, sizeof(lonstr), RADIANS_TO_DEGREES (loc->longitude));
+    url = g_strdup_printf ("http://www.weather.gov/forecasts/xml/sample_products/browser_interface/ndfdBrowserClientByDay.php?&lat=%s&lon=%s&format=24+hourly&startDate=%04d-%02d-%02d&numDays=7",
+			   latstr, lonstr, 1900 + tm.tm_year, 1 + tm.tm_mon, tm.tm_mday);
     msg = soup_message_new ("GET", url);
-    g_free (url);
     soup_session_queue_message (priv->session, msg, iwin_finish, info);
 
     priv->requests_pending++;
+    g_free (url);
 
     return TRUE;
 }

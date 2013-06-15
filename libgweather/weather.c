@@ -64,9 +64,7 @@
 
 enum {
     PROP_0,
-    PROP_WORLD,
     PROP_LOCATION,
-    PROP_TYPE,
     PROP_ENABLED_PROVIDERS,
     PROP_LAST
 };
@@ -386,9 +384,6 @@ gweather_info_reset (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv = info->priv;
 
-    g_free (priv->forecast);
-    priv->forecast = NULL;
-
     g_free (priv->forecast_attribution);
     priv->forecast_attribution = NULL;
 
@@ -422,7 +417,6 @@ gweather_info_reset (GWeatherInfo *info)
     priv->sunset = 0;
     priv->moonphase = 0;
     priv->moonlatitude = 0;
-    priv->forecast = NULL;
     priv->forecast_list = NULL;
     priv->radar = NULL;
 }
@@ -449,6 +443,7 @@ gweather_info_init (GWeatherInfo *info)
 
     priv = info->priv = G_TYPE_INSTANCE_GET_PRIVATE (info, GWEATHER_TYPE_INFO, GWeatherInfoPrivate);
 
+    priv->providers = GWEATHER_PROVIDER_METAR | GWEATHER_PROVIDER_IWIN;
     priv->settings = g_settings_new ("org.gnome.GWeather");
 
     g_signal_connect_object (priv->settings, "changed",
@@ -625,12 +620,6 @@ gweather_info_finalize (GObject *object)
 
     if (priv->glocation)
 	gweather_location_unref (priv->glocation);
-
-    if (priv->world)
-	gweather_location_unref (priv->world);
-
-    g_free (priv->forecast);
-    priv->forecast = NULL;
 
     g_free (priv->radar_url);
     priv->radar_url = NULL;
@@ -1133,13 +1122,6 @@ gweather_info_get_sunset (GWeatherInfo *info)
 
     g_date_time_unref (sunset);
     return buf;
-}
-
-gchar *
-gweather_info_get_forecast (GWeatherInfo *info)
-{
-    g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
-    return g_strdup (info->priv->forecast);
 }
 
 /**
@@ -2056,6 +2038,8 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
  * @location: (allow-none): a location for which weather is desired
  *
  * Changes @info to report weather for @location.
+ * Note that this will clear any forecast or current conditions from
+ * @info, you must call gweather_info_update() to obtain the new data.
  */
 void
 gweather_info_set_location (GWeatherInfo     *info,
@@ -2064,7 +2048,7 @@ gweather_info_set_location (GWeatherInfo     *info,
     g_return_if_fail (GWEATHER_IS_INFO (info));
 
     gweather_info_set_location_internal (info, location);
-    gweather_info_update (info);
+    gweather_info_reset (info);
 }
 
 GWeatherProvider
@@ -2100,22 +2084,14 @@ gweather_info_set_property (GObject *object,
 			    GParamSpec *pspec)
 {
     GWeatherInfo *self = GWEATHER_INFO (object);
-    GWeatherInfoPrivate *priv = self->priv;
 
     switch (property_id) {
-    case PROP_WORLD:
-	priv->world = g_value_dup_boxed (value);
-	break;
     case PROP_LOCATION:
 	gweather_info_set_location_internal (self, (GWeatherLocation*) g_value_get_boxed (value));
-	break;
-    case PROP_TYPE:
-	priv->forecast_type = g_value_get_enum (value);
 	break;
     case PROP_ENABLED_PROVIDERS:
 	gweather_info_set_enabled_providers (self, g_value_get_flags (value));
 	break;
-
     default:
 	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
     }
@@ -2131,14 +2107,8 @@ gweather_info_get_property (GObject    *object,
     GWeatherInfoPrivate *priv = self->priv;
 
     switch (property_id) {
-    case PROP_WORLD:
-	g_value_set_boxed (value, priv->world);
-	break;
     case PROP_LOCATION:
 	g_value_set_boxed (value, priv->glocation);
-	break;
-    case PROP_TYPE:
-	g_value_set_enum (value, priv->forecast_type);
 	break;
     case PROP_ENABLED_PROVIDERS:
 	g_value_set_flags (value, priv->providers);
@@ -2160,27 +2130,12 @@ gweather_info_class_init (GWeatherInfoClass *klass)
     gobject_class->set_property = gweather_info_set_property;
     gobject_class->get_property = gweather_info_get_property;
 
-    pspec = g_param_spec_boxed ("world",
-				"World",
-				"The hierarchy of locations containing the desired location",
-				GWEATHER_TYPE_LOCATION,
-				G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_DEPRECATED);
-    g_object_class_install_property (gobject_class, PROP_WORLD, pspec);
-
     pspec = g_param_spec_boxed ("location",
 				"Location",
 				"The location this info represents",
 				GWEATHER_TYPE_LOCATION,
 				G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
     g_object_class_install_property (gobject_class, PROP_LOCATION, pspec);
-
-    pspec = g_param_spec_enum ("forecast-type",
-			       "Forecast type",
-			       "The type of forecast desired (list, zone or state)",
-			       GWEATHER_TYPE_FORECAST_TYPE,
-			       GWEATHER_FORECAST_LIST,
-			       G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
-    g_object_class_install_property (gobject_class, PROP_TYPE, pspec);
 
     pspec = g_param_spec_flags ("enabled-providers",
 				"Enabled providers",
@@ -2210,59 +2165,22 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 
 /**
  * gweather_info_new:
- * @location: (allow-none): the desidered #GWeatherLocation (NULL for default)
- * @forecast_type: the type of forecast requested
+ * @location: (allow-none): the desidered #GWeatherLocation (%NULL for default)
  *
  * Builds a new #GWeatherInfo that will provide weather information about
  * @location.
- * Note that, as compared to g_object_new(), this will call gweather_info_update()
- * on the resulting info, which will not be ready until the #GWeatherInfo::updated
- * signal is emitted.
  *
  * Returns: (transfer full): a new #GWeatherInfo
  */
 GWeatherInfo *
-gweather_info_new (GWeatherLocation    *location,
-		   GWeatherForecastType forecast_type)
+gweather_info_new (GWeatherLocation    *location)
 {
     GWeatherInfo *self;
 
     if (location != NULL)
-	self = g_object_new (GWEATHER_TYPE_INFO, "location", location, "forecast-type", forecast_type, NULL);
+	self = g_object_new (GWEATHER_TYPE_INFO, "location", location, NULL);
     else
-	self = g_object_new (GWEATHER_TYPE_INFO, "forecast-type", forecast_type, NULL);
-    gweather_info_update (self);
-
-    return self;
-}
-
-/**
- * gweather_info_new_for_world:
- * @world: a #GWeatherLocation representing the whole world
- * @location: (allow-none): the desidered #GWeatherLocation (NULL for default)
- * @forecast_type: the type of forecast requested
- *
- * Similar to gweather_info_new(), but also has a @world parameter, that allow controlling
- * the hierarchy of #GWeatherLocation to which @location (or the default one taken from
- * GSettings) belongs.
- *
- * Returns: (transfer full): a new #GWeatherInfo
- *
- * Deprecated: there is only one world-level #GWeatherLocation at any time, so
- *             this is the same as gweather_info_new().
- */
-GWeatherInfo *
-gweather_info_new_for_world (GWeatherLocation    *world,
-			     GWeatherLocation    *location,
-			     GWeatherForecastType forecast_type)
-{
-    GWeatherInfo *self;
-
-    if (location != NULL)
-	self = g_object_new (GWEATHER_TYPE_INFO, "world", world, "location", location, "forecast-type", forecast_type, NULL);
-    else
-	self = g_object_new (GWEATHER_TYPE_INFO, "world", world, "forecast-type", forecast_type, NULL);
-    gweather_info_update (self);
+	self = g_object_new (GWEATHER_TYPE_INFO, NULL);
 
     return self;
 }
@@ -2270,5 +2188,5 @@ gweather_info_new_for_world (GWeatherLocation    *world,
 GWeatherInfo *
 _gweather_info_new_clone (GWeatherInfo *other)
 {
-    return g_object_new (GWEATHER_TYPE_INFO, "location", other->priv->glocation, "forecast-type", other->priv->forecast_type, NULL);
+    return g_object_new (GWEATHER_TYPE_INFO, "location", other->priv->glocation, NULL);
 }

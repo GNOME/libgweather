@@ -21,12 +21,6 @@
 #ifndef __GWEATHER_ENUMS_H_
 #define __GWEATHER_ENUMS_H_
 
-typedef enum { /*< underscore_name=gweather_forecast_type >*/
-    GWEATHER_FORECAST_STATE,
-    GWEATHER_FORECAST_ZONE,
-    GWEATHER_FORECAST_LIST
-} GWeatherForecastType;
-
 typedef enum { /*< underscore_name=gweather_temperature_unit >*/
     GWEATHER_TEMP_UNIT_INVALID = 0,
     GWEATHER_TEMP_UNIT_DEFAULT,

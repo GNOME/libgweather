@@ -188,10 +188,6 @@ make_info_from_node (GWeatherInfo *master_info,
     priv->tempMinMaxValid = priv->tempMinMaxValid || (priv->temp_max > -999.0 && priv->temp_min > -999.0);
     priv->valid = priv->tempMinMaxValid;
 
-    val = xmlGetProp (node, XC("text"));
-    priv->forecast = g_strdup ((const char*) val);
-    xmlFree (val);
-
     val = xmlGetProp (node, XC("code"));
     code = strtol((const char*) val, NULL, 0);
     if (code >= 0 && code < G_N_ELEMENTS (condition_codes)) {
@@ -275,13 +271,6 @@ yahoo_start_open (GWeatherInfo *info)
     loc = &priv->location;
 
     if (!loc->yahoo_id)
-	return FALSE;
-
-    /* Yahoo! Weather only supports forecast list
-       (and really, the other types only make sense with national
-       weather offices that cannot return structured data)
-    */
-    if (!priv->forecast_type != GWEATHER_FORECAST_LIST)
 	return FALSE;
 
     /* u=f means that the values are in imperial system (which is what
