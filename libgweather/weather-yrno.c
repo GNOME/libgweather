@@ -482,9 +482,6 @@ yrno_start_open_old (GWeatherInfo *info)
 
     priv = info->priv;
 
-    if (priv->forecast_type != GWEATHER_FORECAST_LIST)
-	return FALSE;
-
     url = build_yrno_url_geonames (priv->glocation, "forecast.xml");
     if (url == NULL)
 	return FALSE;
@@ -531,8 +528,7 @@ yrno_start_open_new (GWeatherInfo *info)
     priv = info->priv;
     loc = &priv->location;
 
-    if (!loc->latlon_valid ||
-	priv->forecast_type != GWEATHER_FORECAST_LIST)
+    if (!loc->latlon_valid)
 	return FALSE;
 
     /* see the description here: http://api.yr.no/weatherapi/ */
