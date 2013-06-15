@@ -11,3 +11,5 @@ check-local: $(catalog_DATA)
 CLEANFILES = $(catalog_DATA)
 
 @INTLTOOL_XML_NOMERGE_RULE@
+
+-include $(top_srcdir)/git.mk
