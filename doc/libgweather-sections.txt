@@ -44,7 +44,7 @@ GWeatherLocationEntryPrivate
 <TITLE>GWeatherLocation</TITLE>
 GWeatherLocation
 GWeatherLocationLevel
-gweather_location_new_world
+gweather_location_get_world
 gweather_location_ref
 gweather_location_unref
 
@@ -58,7 +58,6 @@ gweather_location_find_by_station_code
 gweather_location_get_level
 gweather_location_get_parent
 gweather_location_get_children
-gweather_location_ref_world
 
 <SUBSECTION>
 gweather_location_get_name
@@ -73,7 +72,6 @@ gweather_location_get_code
 gweather_location_get_city_name
 
 <SUBSECTION Private>
-gweather_location_free_children
 gweather_location_free_timezones
 
 <SUBSECTION Standard>

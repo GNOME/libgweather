@@ -31,7 +31,6 @@ location_changed (GObject *object, GParamSpec *param, gpointer tzmenu)
 int
 main (int argc, char **argv)
 {
-    GWeatherLocation *loc;
     GtkWidget *window, *vbox, *entry;
     GtkWidget *combo;
     gtk_init (&argc, &argv);
@@ -45,13 +44,11 @@ main (int argc, char **argv)
     vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 8);
     gtk_container_add (GTK_CONTAINER (window), vbox);
 
-    loc = gweather_location_new_world (FALSE);
-    entry = gweather_location_entry_new (loc);
+    entry = gweather_location_entry_new (NULL);
     gtk_widget_set_size_request (entry, 400, -1);
     gtk_box_pack_start (GTK_BOX (vbox), entry, FALSE, TRUE, 0);
 
-    combo = gweather_timezone_menu_new (loc);
-    gweather_location_unref (loc);
+    combo = gweather_timezone_menu_new (NULL);
     gtk_box_pack_start (GTK_BOX (vbox), combo, FALSE, TRUE, 0);
 
     g_signal_connect (entry, "notify::location",

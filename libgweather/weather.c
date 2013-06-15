@@ -1965,16 +1965,12 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
 	gweather_location_unref (priv->glocation);
     _weather_location_free (&priv->location);
 
-    if (!priv->world && location)
-	priv->world = gweather_location_ref_world (location);
-
-    if (!priv->world)
-	priv->world = gweather_location_new_world (TRUE);
-
     priv->glocation = location;
+
     if (priv->glocation) {
 	gweather_location_ref (location);
     } else {
+	GWeatherLocation *world;
 	GVariant *default_loc = g_settings_get_value (priv->settings, DEFAULT_LOCATION);
 	const gchar *station_code;
 
@@ -1983,7 +1979,8 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
 	if (strcmp(name, "") == 0)
 	    name = NULL;
 
-	priv->glocation = gweather_location_find_by_station_code (priv->world, station_code);
+	world = gweather_location_get_world ();
+	priv->glocation = gweather_location_find_by_station_code (world, station_code);
     }
 
     _gweather_location_update_weather_location (priv->glocation,

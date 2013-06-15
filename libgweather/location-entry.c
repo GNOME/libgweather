@@ -547,8 +547,6 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
     case GWEATHER_LOCATION_DETACHED:
 	g_assert_not_reached ();
     }
-
-    gweather_location_free_children (loc, children);
 }
 
 static void
@@ -560,7 +558,7 @@ gweather_location_entry_build_model (GWeatherLocationEntry *entry,
     if (top)
 	entry->priv->top = gweather_location_ref (top);
     else
-	entry->priv->top = gweather_location_new_world (TRUE);
+	entry->priv->top = gweather_location_ref (gweather_location_get_world ());
 
     store = gtk_tree_store_new (4, G_TYPE_STRING, GWEATHER_TYPE_LOCATION, G_TYPE_STRING, G_TYPE_STRING);
     fill_location_entry_model (store, entry->priv->top, NULL, NULL);
@@ -663,8 +661,8 @@ match_selected (GtkEntryCompletion *completion,
  *
  * Creates a new #GWeatherLocationEntry.
  *
- * @top will normally be a location returned from
- * gweather_location_new_world(), but you can create an entry that
+ * @top will normally be the location returned from
+ * gweather_location_get_world(), but you can create an entry that
  * only accepts a smaller set of locations if you want.
  *
  * Return value: the new #GWeatherLocationEntry
