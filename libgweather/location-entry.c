@@ -32,7 +32,7 @@
  * SECTION:gweatherlocationentry
  * @Title: GWeatherLocationEntry
  *
- * A subclass of #GtkEntry that provides autocompletion on
+ * A subclass of #GtkSearchEntry that provides autocompletion on
  * #GWeatherLocation<!-- -->s
  */
 
@@ -43,7 +43,7 @@ struct _GWeatherLocationEntryPrivate {
     gboolean          custom_text;
 };
 
-G_DEFINE_TYPE (GWeatherLocationEntry, gweather_location_entry, GTK_TYPE_ENTRY)
+G_DEFINE_TYPE (GWeatherLocationEntry, gweather_location_entry, GTK_TYPE_SEARCH_ENTRY)
 
 enum {
     PROP_0,

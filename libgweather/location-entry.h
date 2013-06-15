@@ -36,17 +36,14 @@ typedef struct _GWeatherLocationEntryPrivate GWeatherLocationEntryPrivate;
 #define GWEATHER_LOCATION_ENTRY_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GWEATHER_TYPE_LOCATION_ENTRY, GWeatherLocationEntryClass))
 
 struct _GWeatherLocationEntry {
-    GtkEntry parent;
+    GtkSearchEntry parent;
 
     /*< private >*/
     GWeatherLocationEntryPrivate *priv;
-    gpointer backward_compatibility_padding;
-    guint more_padding : 1;
 };
 
 struct _GWeatherLocationEntryClass {
-    GtkEntryClass parent_class;
-
+    GtkSearchEntryClass parent_class;
 };
 
 GType             gweather_location_entry_get_type     (void);
