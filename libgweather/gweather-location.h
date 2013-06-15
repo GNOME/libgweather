@@ -48,7 +48,7 @@ typedef enum { /*< underscore_name=gweather_location_level >*/
 GType gweather_location_get_type (void);
 #define GWEATHER_TYPE_LOCATION (gweather_location_get_type ())
 
-GWeatherLocation      *gweather_location_new_world      (gboolean           use_regions);
+GWeatherLocation      *gweather_location_get_world      (void);
 GWeatherLocation      *gweather_location_ref            (GWeatherLocation  *loc);
 void                   gweather_location_unref          (GWeatherLocation  *loc);
 
@@ -58,10 +58,6 @@ GWeatherLocationLevel  gweather_location_get_level      (GWeatherLocation  *loc)
 GWeatherLocation      *gweather_location_get_parent     (GWeatherLocation  *loc);
 
 GWeatherLocation     **gweather_location_get_children   (GWeatherLocation  *loc);
-#ifndef GWEATHER_DISABLE_DEPRECATED
-void                   gweather_location_free_children  (GWeatherLocation  *loc,
-							 GWeatherLocation **children);
-#endif
 
 gboolean               gweather_location_has_coords     (GWeatherLocation  *loc);
 void                   gweather_location_get_coords     (GWeatherLocation  *loc,
@@ -82,8 +78,6 @@ char                  *gweather_location_get_city_name  (GWeatherLocation  *loc)
 
 GWeatherLocation      *gweather_location_find_by_station_code (GWeatherLocation *world,
 							       const gchar      *station_code);
-
-GWeatherLocation      *gweather_location_ref_world      (GWeatherLocation  *loc);
 
 gboolean               gweather_location_equal          (GWeatherLocation  *one,
 							 GWeatherLocation  *two);

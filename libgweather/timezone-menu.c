@@ -268,7 +268,6 @@ gweather_timezone_model_new (GWeatherLocation *top)
     GtkTreeIter iter;
     char *unknown;
     GWeatherTimezone *utc;
-    GWeatherLocation *world;
 
     store = gtk_tree_store_new (2, G_TYPE_STRING, GWEATHER_TYPE_TIMEZONE);
     model = GTK_TREE_MODEL (store);
@@ -291,14 +290,10 @@ gweather_timezone_model_new (GWeatherLocation *top)
 
     g_free (unknown);
 
-    if (top)
-	world = gweather_location_ref (top);
-    else
-	world = gweather_location_new_world (TRUE);
+    if (!top)
+	top = gweather_location_get_world ();
 
-    insert_locations (store, world);
-
-    gweather_location_unref (world);
+    insert_locations (store, top);
 
     return model;
 }
@@ -334,8 +329,8 @@ is_sensitive (GtkCellLayout *cell_layout, GtkCellRenderer *cell,
  *
  * Creates a new #GWeatherTimezoneMenu.
  *
- * @top will normally be a location returned from
- * gweather_location_new_world(), but you can create a menu that
+ * @top will normally be the location returned from
+ * gweather_location_get_world(), but you can create a menu that
  * contains the timezones from a smaller set of locations if you want.
  *
  * Return value: the new #GWeatherTimezoneMenu

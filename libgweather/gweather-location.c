@@ -77,7 +77,7 @@
  * and possibly several, weather stations inside it. Weather stations
  * will never appear outside of cities.
  *
- * Building a database with gweather_location_new_world() will never
+ * Building a database with gweather_location_get_world() will never
  * create detached instances, but deserializing might.
  **/
 
@@ -298,42 +298,29 @@ error_out:
 static GWeatherLocation *global_world;
 
 /**
- * gweather_location_new_world:
- * @use_regions: whether or not to divide the world into regions (deprecated)
+ * gweather_location_get_world:
  *
- * Creates a new #GWeatherLocation of type %GWEATHER_LOCATION_WORLD,
+ * Obtains the shared #GWeatherLocation of type %GWEATHER_LOCATION_WORLD,
  * representing a hierarchy containing all of the locations from
  * Locations.xml.
  *
- * Starting from 3.10, multiple invocations to this function return the
- * same location.
- *
- * In the past, the @use_regions parameter could be used to control
- * if the immediate children were %GWEATHER_LOCATION_REGION or
- * %GWEATHER_LOCATION_COUNTRY nodes. Now it is deprecated and treated
- * always as %TRUE. A diagnostic message is printed if %FALSE is passed.
- *
- * Return value: (allow-none) (transfer full): a %GWEATHER_LOCATION_WORLD
+ * Return value: (allow-none) (transfer none): a %GWEATHER_LOCATION_WORLD
  * location, or %NULL if Locations.xml could not be found or could not be parsed.
+ * The return value is owned by libgweather and should not be modified or freed.
  **/
 GWeatherLocation *
-gweather_location_new_world (gboolean use_regions)
+gweather_location_get_world (void)
 {
     GWeatherParser *parser;
 
-    if (!use_regions)
-	g_message ("passing FALSE to gweather_location_new_world() is deprecated, ignoring");
+    if (!global_world) {
+	parser = gweather_parser_new (TRUE);
+	if (!parser)
+	    return NULL;
 
-    if (global_world)
-	return gweather_location_ref (global_world);
+	global_world = location_new_from_xml (parser, GWEATHER_LOCATION_WORLD, NULL);
+    }
 
-    parser = gweather_parser_new (TRUE);
-    if (!parser)
-	return NULL;
-
-    global_world = location_new_from_xml (parser, GWEATHER_LOCATION_WORLD, NULL);
-
-    gweather_parser_free (parser);
     return global_world;
 }
 
@@ -371,6 +358,8 @@ gweather_location_unref (GWeatherLocation *loc)
     if (--loc->ref_count)
 	return;
 
+    g_return_if_fail (loc->level != GWEATHER_LOCATION_WORLD);
+
     g_free (loc->name);
     g_free (loc->sort_name);
     g_free (loc->country_code);
@@ -395,9 +384,6 @@ gweather_location_unref (GWeatherLocation *loc)
 
     if (loc->metar_code_cache)
 	g_hash_table_unref (loc->metar_code_cache);
-
-    if (loc->level == GWEATHER_LOCATION_WORLD)
-	global_world = NULL;
 
     g_slice_free (GWeatherLocation, loc);
 }
@@ -508,23 +494,6 @@ gweather_location_get_children (GWeatherLocation *loc)
 	return loc->children;
     else
 	return &no_children;
-}
-
-
-/**
- * gweather_location_free_children:
- * @loc: a #GWeatherLocation
- * @children: an array of @loc's children
- *
- * This is a no-op. Do not use it.
- *
- * Deprecated: This is a no-op.
- **/
-void
-gweather_location_free_children (GWeatherLocation  *loc,
-				 GWeatherLocation **children)
-{
-    ;
 }
 
 /**
@@ -826,18 +795,6 @@ gweather_location_find_by_station_code (GWeatherLocation *world,
 
     l = g_hash_table_lookup (world->metar_code_cache, station_code);
     return l ? l->data : NULL;
-}
-
-GWeatherLocation *
-gweather_location_ref_world (GWeatherLocation *loc)
-{
-    while (loc &&
-	   loc->level != GWEATHER_LOCATION_WORLD)
-	loc = loc->parent;
-
-    if (loc)
-	gweather_location_ref (loc);
-    return loc;
 }
 
 /**
