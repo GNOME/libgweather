@@ -9,6 +9,12 @@ EXTRA_DIST =		\
 	MAINTAINERS
 
 MAINTAINERCLEANFILES = \
+	$(srcdir)/INSTALL \
+	$(srcdir)/ABOUT-NLS \
+	$(srcdir)/build-aux \
+	$(srcdir)/config.rpath \
+	$(srcdir)/gtk-doc.make \
+	$(srcdir)/m4 \
 	$(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL) \
 	$(GITIGNORE_MAINTAINERCLEANFILES_MAKEFILE_IN) \
 	$(GITIGNORE_MAINTAINERCLEANFILES_M4_LIBTOOL)
