@@ -941,6 +941,7 @@ _gweather_location_new_detached (GWeatherLocation *nearest_station,
     char *normalized;
 
     self = g_slice_new0 (GWeatherLocation);
+    self->ref_count = 1;
     self->level = GWEATHER_LOCATION_DETACHED;
     self->name = g_strdup (name);
 
@@ -1033,7 +1034,7 @@ gweather_location_format_one_deserialize (GWeatherLocation *world,
 	    if (g_strcmp0 (name, city->name) == 0)
 		found = gweather_location_ref (city);
 	    else
-		found = _gweather_location_new_detached (city, name, FALSE, 0, 0);
+		found = _gweather_location_new_detached (ws, name, TRUE, latitude, longitude);
 
 	    break;
 	}
