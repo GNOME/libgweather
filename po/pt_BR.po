@@ -10,7 +10,7 @@
 # Og Maciel <ogmaciel@ubuntu.com>, 2007, 2009.
 # Leonardo Ferreira Fontenelle <leo.fontenelle@gmail.com>, 2008.
 # Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008.
-# Enrico Nicoletto <liverig@gmail.com>, 2009.
+# Enrico Nicoletto <liverig@gmail.com>, 2009, 2013.
 # André Gondim <In Memoriam>, 2009.
 # Djavan Fagundes <dnoway@gmail.com>, 2009, 2012.
 # Rafael Ferreira <rafael.f.f1@gmail.com>, 2013.
@@ -20,9 +20,9 @@ msgstr ""
 "Project-Id-Version: libgweather\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-03 04:07+0000\n"
-"PO-Revision-Date: 2013-03-02 13:46-0300\n"
-"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
+"POT-Creation-Date: 2013-07-13 01:15+0000\n"
+"PO-Revision-Date: 2013-07-14 15:52-0300\n"
+"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -642,7 +642,7 @@ msgid "Retrieval failed"
 msgstr "Obtenção falhou"
 
 #. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:523
+#: ../libgweather/weather-metar.c:573
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "Falhou ao obter dados do METAR: %d %s.\n"
@@ -653,7 +653,7 @@ msgstr "Falhou ao obter dados do METAR: %d %s.\n"
 #.
 #. That's very nice of them!
 #.
-#: ../libgweather/weather-yrno.c:416
+#: ../libgweather/weather-yrno.c:418
 msgid ""
 "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
 "Institute</a>"
@@ -695,7 +695,7 @@ msgstr ""
 #. for valid values
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:10
 msgid "'miles'"
-msgstr "\"milhas\""
+msgstr "'km'"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:11
 msgid "Distance unit"
