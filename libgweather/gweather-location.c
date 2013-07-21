@@ -324,6 +324,13 @@ gweather_location_get_world (void)
     return global_world;
 }
 
+/* deprecated */
+GWeatherLocation *
+gweather_location_new_world (gboolean use_regions)
+{
+    return gweather_location_ref (gweather_location_get_world ());
+}
+
 /**
  * gweather_location_ref:
  * @loc: a #GWeatherLocation

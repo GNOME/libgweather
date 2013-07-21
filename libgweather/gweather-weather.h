@@ -77,7 +77,8 @@ struct _GWeatherInfoClass {
 };
 
 GType                    gweather_info_get_type            (void) G_GNUC_CONST;
-GWeatherInfo *           gweather_info_new                 (GWeatherLocation *location);
+GWeatherInfo *           gweather_info_new                 (GWeatherLocation     *location,
+							    GWeatherForecastType  type);
 void                     gweather_info_update              (GWeatherInfo *info);
 void			 gweather_info_abort		   (GWeatherInfo *info);
 void                     gweather_info_store_cache         (void);
@@ -96,6 +97,10 @@ gchar *		         gweather_info_get_location_name   (GWeatherInfo *info);
 gchar * 		 gweather_info_get_update	   (GWeatherInfo *info);
 gchar * 		 gweather_info_get_sky		   (GWeatherInfo *info);
 gchar *	                 gweather_info_get_conditions	   (GWeatherInfo *info);
+
+G_DEPRECATED_FOR(gweather_info_get_forecast_list)
+gchar *                  gweather_info_get_forecast        (GWeatherInfo *info);
+
 gchar * 	  	 gweather_info_get_temp		   (GWeatherInfo *info);
 gchar * 	 	 gweather_info_get_temp_min	   (GWeatherInfo *info);
 gchar * 		 gweather_info_get_temp_max	   (GWeatherInfo *info);

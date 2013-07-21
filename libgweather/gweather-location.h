@@ -49,6 +49,10 @@ GType gweather_location_get_type (void);
 #define GWEATHER_TYPE_LOCATION (gweather_location_get_type ())
 
 GWeatherLocation      *gweather_location_get_world      (void);
+
+G_DEPRECATED_FOR(gweather_location_get_world)
+GWeatherLocation      *gweather_location_new_world      (gboolean use_regions);
+
 GWeatherLocation      *gweather_location_ref            (GWeatherLocation  *loc);
 void                   gweather_location_unref          (GWeatherLocation  *loc);
 

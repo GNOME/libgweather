@@ -2166,6 +2166,7 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 /**
  * gweather_info_new:
  * @location: (allow-none): the desidered #GWeatherLocation (%NULL for default)
+ * @type: deprecated and ignored
  *
  * Builds a new #GWeatherInfo that will provide weather information about
  * @location.
@@ -2173,7 +2174,8 @@ gweather_info_class_init (GWeatherInfoClass *klass)
  * Returns: (transfer full): a new #GWeatherInfo
  */
 GWeatherInfo *
-gweather_info_new (GWeatherLocation    *location)
+gweather_info_new (GWeatherLocation     *location,
+		   GWeatherForecastType  type)
 {
     GWeatherInfo *self;
 
@@ -2182,6 +2184,7 @@ gweather_info_new (GWeatherLocation    *location)
     else
 	self = g_object_new (GWEATHER_TYPE_INFO, NULL);
 
+    gweather_info_update (self);
     return self;
 }
 
@@ -2189,4 +2192,34 @@ GWeatherInfo *
 _gweather_info_new_clone (GWeatherInfo *other)
 {
     return g_object_new (GWEATHER_TYPE_INFO, "location", other->priv->glocation, NULL);
+}
+
+/* deprecated */
+char *
+gweather_info_get_forecast (GWeatherInfo *info)
+{
+    GString *buffer;
+    GSList *iter;
+
+    buffer = g_string_new ("");
+
+    for (iter = info->priv->forecast_list; iter; iter = iter->next) {
+	char *date, *summary, *temp;
+
+	date = gweather_info_get_update (iter->data);
+	summary = gweather_info_get_conditions (iter->data);
+	if (g_str_equal (summary, "-")) {
+	    g_free (summary);
+	    summary = gweather_info_get_sky (iter->data);
+	}
+	temp = gweather_info_get_temp_summary (iter->data);
+
+	g_string_append_printf (buffer, " * %s: %s, %s", date, summary, temp);
+
+	g_free (date);
+	g_free (summary);
+	g_free (temp);
+    }
+
+    return g_string_free (buffer, FALSE);
 }
