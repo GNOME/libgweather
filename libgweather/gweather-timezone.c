@@ -154,7 +154,8 @@ static GWeatherTimezone *
 parse_timezone (GWeatherParser *parser)
 {
     GWeatherTimezone *zone = NULL;
-    char *id = NULL, *name = NULL;
+    char *id = NULL;
+    char *name = NULL;
     int offset = 0, dst_offset = 0;
     gboolean has_dst = FALSE;
 
@@ -178,7 +179,7 @@ parse_timezone (GWeatherParser *parser)
 	    }
 
 	    if (!strcmp ((const char *) xmlTextReaderConstName (parser->xml), "name"))
-		name = gweather_parser_get_localized_value (parser);
+		name = _gweather_parser_get_localized_value (parser);
 	    else {
 		if (xmlTextReaderNext (parser->xml) != 1)
 		    break;
@@ -191,21 +192,22 @@ parse_timezone (GWeatherParser *parser)
 	zone = g_slice_new0 (GWeatherTimezone);
 	zone->ref_count = 1;
 	zone->id = g_strdup (id);
-	zone->name = g_strdup (name);
+	zone->name = name;
 	zone->offset = offset;
 	zone->has_dst = has_dst;
 	zone->dst_offset = dst_offset;
+
+	name = NULL;
     }
 
+    g_free (name);
     xmlFree (id);
-    if (name)
-	xmlFree (name);
 
     return zone;
 }
 
 GWeatherTimezone **
-gweather_timezones_parse_xml (GWeatherParser *parser)
+_gweather_timezones_parse_xml (GWeatherParser *parser)
 {
     GPtrArray *zones;
     GWeatherTimezone *zone;

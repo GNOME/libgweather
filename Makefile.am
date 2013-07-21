@@ -32,5 +32,21 @@ dist-hook:
 	  echo A git checkout is required to generate ChangeLog >&2; \
 	fi
 
-GITIGNOREFILES = $(PACKAGE)-\*.tar.{gz,bz2,xz}
+GITIGNOREFILES = \
+	$(PACKAGE)-\*.tar.{gz,bz2,xz} \
+	po-locations/Makefile.in.in \
+	po-locations/Makefile.in \
+	po-locations/Makefile \
+	po-locations/Makevars.template \
+	po-locations/POTFILES \
+	po-locations/Rules-quot \
+	po-locations/stamp-it \
+	po-locations/.intltool-merge-cache \
+	"po-locations/*.gmo" \
+	"po-locations/*.header" \
+	"po-locations/*.mo" \
+	"po-locations/*.sed" \
+	"po-locations/*.sin" \
+	po-locations/libgweather-locations.pot
+
 -include $(top_srcdir)/git.mk

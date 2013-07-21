@@ -78,8 +78,8 @@ static guint gweather_info_signals[SIGNAL_LAST];
 
 G_DEFINE_TYPE (GWeatherInfo, gweather_info, G_TYPE_OBJECT);
 
-static inline void
-gweather_gettext_init (void)
+void
+_gweather_gettext_init (void)
 {
     static gsize gweather_gettext_initialized = FALSE;
 
@@ -88,6 +88,12 @@ gweather_gettext_init (void)
 #ifdef HAVE_BIND_TEXTDOMAIN_CODESET
         bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 #endif
+
+        bindtextdomain ("libgweather-locations", GNOMELOCALEDIR);
+#ifdef HAVE_BIND_TEXTDOMAIN_CODESET
+        bind_textdomain_codeset ("libgweather-locations", "UTF-8");
+#endif
+
         g_once_init_leave (&gweather_gettext_initialized, TRUE);
     }
 }
@@ -95,7 +101,7 @@ gweather_gettext_init (void)
 const char *
 gweather_gettext (const char *str)
 {
-    gweather_gettext_init ();
+    _gweather_gettext_init ();
     return dgettext (GETTEXT_PACKAGE, str);
 }
 
@@ -103,7 +109,7 @@ const char *
 gweather_dpgettext (const char *context,
                     const char *str)
 {
-    gweather_gettext_init ();
+    _gweather_gettext_init ();
     return g_dpgettext2 (GETTEXT_PACKAGE, context, str);
 }
 

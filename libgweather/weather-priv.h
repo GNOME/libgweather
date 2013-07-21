@@ -36,6 +36,7 @@
 
 const char *gweather_gettext (const char *str) G_GNUC_FORMAT (1);
 const char *gweather_dpgettext (const char *context, const char *str) G_GNUC_FORMAT (2);
+void        _gweather_gettext_init (void);
 #define _(str) (gweather_gettext (str))
 #define C_(context, str) (gweather_dpgettext (context, str))
 #define N_(str) (str)

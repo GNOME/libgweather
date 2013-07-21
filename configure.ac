@@ -39,25 +39,6 @@ AM_PROG_CC_C_O
 
 GLIB_GSETTINGS
 
-AC_ARG_ENABLE(all-translations-in-one-xml,
-        [AS_HELP_STRING([--enable-all-translations-in-one-xml],
-                        [Put all translations in a big Locations.xml file (slow to parse)])],
-        [enable_big_xml=yes],
-        [enable_big_xml=no])
-AM_CONDITIONAL(USE_ONE_BIG_XML, test "x$enable_big_xml" = "xyes")
-
-AC_ARG_ENABLE(locations-compression,
-        [AS_HELP_STRING([--enable-locations-compression],
-                        [Compress Locations.xml files])],
-        [enable_locations_compression=yes],
-        [enable_locations_compression=no])
-if test "x$enable_locations_compression" = "xyes"; then
-    COMPRESS_EXT=.gz
-else
-    COMPRESS_EXT=
-fi
-AC_SUBST(COMPRESS_EXT)
-
 GNOME_COMPILE_WARNINGS([maximum])
 
 dnl -- Check for GTK+ 3.0 (required) ------------------------------------------
@@ -77,10 +58,11 @@ dnl -- check for glib; redundant at this point, but sets $GLIB_MKENUMS
 AM_PATH_GLIB_2_0($GLIB_REQUIRED)
 
 dnl gettext
-IT_PROG_INTLTOOL([0.50.0])
-
 AM_GNU_GETTEXT_VERSION([0.18])
 AM_GNU_GETTEXT([external])
+
+IT_PROG_INTLTOOL([0.50.0])
+IT_PO_SUBDIR([po-locations])
 
 GETTEXT_PACKAGE=libgweather-3.0
 AC_SUBST(GETTEXT_PACKAGE)
@@ -205,7 +187,7 @@ AC_CONFIG_FILES([
 Makefile
 doc/Makefile
 po/Makefile.in
-po-locations/Makefile
+po-locations/Makefile.in
 libgweather/Makefile
 libgweather/gweather-3.0.pc
 libgweather/gweather-3.0-uninstalled.pc
@@ -215,12 +197,6 @@ icons/Makefile
 schemas/Makefile
 ])
 AC_OUTPUT
-
-if test "x$enable_big_xml" = "xyes"; then
-	LOCATIONS_XML_TRANSLATIONS="one big file"
-else
-	LOCATIONS_XML_TRANSLATIONS="one file per translation"
-fi
 
 dnl ***************************************************************************
 dnl *** Display Summary                                                     ***
@@ -232,6 +208,4 @@ libgweather-$VERSION configure summary:
 	Source code location:		${srcdir}
 	Compiler:			${CC}
 	Introspection support:          ${found_introspection}
-	Locations.xml translations:	${LOCATIONS_XML_TRANSLATIONS}
-	Locations.xml compression:	${enable_locations_compression}
 " >&2

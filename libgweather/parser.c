@@ -31,8 +31,8 @@
 #include <glib.h>
 #include <libxml/xmlreader.h>
 
-/**
- * gweather_parser_get_value:
+/*
+ * _gweather_parser_get_value:
  * @parser: a #GWeatherParser
  *
  * Gets the text of the element whose start tag @parser is pointing to.
@@ -42,7 +42,7 @@
  * string, or %NULL if the node is empty.
  **/
 char *
-gweather_parser_get_value (GWeatherParser *parser)
+_gweather_parser_get_value (GWeatherParser *parser)
 {
     char *value;
 
@@ -73,84 +73,28 @@ gweather_parser_get_value (GWeatherParser *parser)
     return value;
 }
 
-/**
- * gweather_parser_get_localized_value:
+/*
+ * _gweather_parser_get_localized_value:
  * @parser: a #GWeatherParser
  *
  * Looks at the name of the element @parser is currently pointing to, and
- * returns the content of either that node, or a following node with
- * the same name but an "xml:lang" attribute naming one of the locale
- * languages. Leaves @parser pointing to the next node after the last
- * consecutive element with the same name as the original element.
+ * returns the content of either that node, or the translation for
+ * it from the gettext domain for gweather locations.
  *
  * Return value: the localized (or unlocalized) text, as a
- * libxml-allocated string, or %NULL if the node is empty.
+ * glib-allocated string, or %NULL if the node is empty.
  **/
 char *
-gweather_parser_get_localized_value (GWeatherParser *parser)
+_gweather_parser_get_localized_value (GWeatherParser *parser)
 {
-    const char *this_language;
-    int best_match = INT_MAX;
-    const char *lang, *tagname, *next_tagname;
-    gboolean keep_going;
-    char *name = NULL;
-    int i;
+    char *untranslated_value = _gweather_parser_get_value (parser);
+    char *ret;
 
-    tagname = (const char *) xmlTextReaderConstName (parser->xml);
+    ret = (char*) dgettext ("libgweather-locations", (char*) untranslated_value);
 
-    do {
-	/* First let's get the language */
-	lang = (const char *) xmlTextReaderConstXmlLang (parser->xml);
-
-	if (lang == NULL)
-	    this_language = "C";
-	else
-	    this_language = lang;
-
-	/* the next "node" is text node containing the actual name */
-	if (xmlTextReaderRead (parser->xml) != 1) {
-	    if (name)
-		xmlFree (name);
-	    return NULL;
-	}
-
-	for (i = 0; parser->locales[i] && i < best_match; i++) {
-	    if (!strcmp (parser->locales[i], this_language)) {
-		/* if we've already encounted a less accurate
-		   translation, then free it */
-		g_free (name);
-
-		name = (char *) xmlTextReaderValue (parser->xml);
-		best_match = i;
-
-		break;
-	    }
-	}
-
-	/* Skip to close tag */
-	while (xmlTextReaderNodeType (parser->xml) != XML_READER_TYPE_END_ELEMENT) {
-	    if (xmlTextReaderRead (parser->xml) != 1) {
-		xmlFree (name);
-		return NULL;
-	    }
-	}
-
-	/* Skip junk */
-	do {
-	    if (xmlTextReaderRead (parser->xml) != 1) {
-		xmlFree (name);
-		return NULL;
-	    }
-	} while (xmlTextReaderNodeType (parser->xml) != XML_READER_TYPE_ELEMENT &&
-		 xmlTextReaderNodeType (parser->xml) != XML_READER_TYPE_END_ELEMENT);
-
-	/* if the next tag has the same name then keep going */
-	next_tagname = (const char *) xmlTextReaderConstName (parser->xml);
-	keep_going = !strcmp (next_tagname, tagname);
-
-    } while (keep_going);
-
-    return name;
+    ret = g_strdup (ret);
+    xmlFree (untranslated_value);
+    return ret;
 }
 
 static void
@@ -160,54 +104,23 @@ gweather_location_list_free (gpointer list)
 }
 
 GWeatherParser *
-gweather_parser_new (gboolean use_regions)
+_gweather_parser_new (void)
 {
     GWeatherParser *parser;
     int zlib_support;
-    int i, keep_going;
+    int keep_going;
     char *filename;
     char *tagname, *format;
     time_t now;
     struct tm tm;
 
+    _gweather_gettext_init ();
+
     parser = g_slice_new0 (GWeatherParser);
-    parser->use_regions = use_regions;
-    parser->locales = g_get_language_names ();
 
     zlib_support = xmlHasFeature (XML_WITH_ZLIB);
 
-    /* First try to load a locale-specific XML. It's much faster. */
-    filename = NULL;
-    for (i = 0; parser->locales[i] != NULL; i++) {
-	filename = g_strdup_printf ("%s/Locations.%s.xml",
-				    GWEATHER_XML_LOCATION_DIR,
-				    parser->locales[i]);
-
-	if (g_file_test (filename, G_FILE_TEST_IS_REGULAR))
-	    break;
-
-	g_free (filename);
-	filename = NULL;
-
-        if (!zlib_support)
-            continue;
-
-	filename = g_strdup_printf ("%s/Locations.%s.xml.gz",
-				    GWEATHER_XML_LOCATION_DIR,
-				    parser->locales[i]);
-
-	if (g_file_test (filename, G_FILE_TEST_IS_REGULAR))
-	    break;
-
-	g_free (filename);
-	filename = NULL;
-    }
-
-    /* Fall back on the file containing either all translations, or only
-     * the english names (depending on the configure flags).
-     */
-    if (!filename)
-	filename = g_build_filename (GWEATHER_XML_LOCATION_DIR, "Locations.xml", NULL);
+    filename = g_build_filename (GWEATHER_XML_LOCATION_DIR, "Locations.xml", NULL);
 
     if (!g_file_test (filename, G_FILE_TEST_IS_REGULAR) && zlib_support) {
         g_free (filename);
@@ -258,12 +171,12 @@ gweather_parser_new (gboolean use_regions)
     return parser;
 
 error_out:
-    gweather_parser_free (parser);
+    _gweather_parser_free (parser);
     return NULL;
 }
 
 void
-gweather_parser_free (GWeatherParser *parser)
+_gweather_parser_free (GWeatherParser *parser)
 {
     if (parser->xml)
 	xmlFreeTextReader (parser->xml);

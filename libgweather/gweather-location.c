@@ -154,54 +154,53 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 
 	tagname = (const char *) xmlTextReaderConstName (parser->xml);
 	if (!strcmp (tagname, "name") && !loc->name) {
-	    value = gweather_parser_get_localized_value (parser);
+	    value = _gweather_parser_get_localized_value (parser);
 	    if (!value)
 		goto error_out;
-	    loc->name = g_strdup (value);
-	    xmlFree (value);
+	    loc->name = value;
 	    normalized = g_utf8_normalize (loc->name, -1, G_NORMALIZE_ALL);
 	    loc->sort_name = g_utf8_casefold (normalized, -1);
 	    g_free (normalized);
 
 	} else if (!strcmp (tagname, "iso-code") && !loc->country_code) {
-	    value = gweather_parser_get_value (parser);
+	    value = _gweather_parser_get_value (parser);
 	    if (!value)
 		goto error_out;
 	    loc->country_code = g_strdup (value);
 	    xmlFree (value);
 	} else if (!strcmp (tagname, "tz-hint") && !loc->tz_hint) {
-	    value = gweather_parser_get_value (parser);
+	    value = _gweather_parser_get_value (parser);
 	    if (!value)
 		goto error_out;
 	    loc->tz_hint = g_strdup (value);
 	    xmlFree (value);
 	} else if (!strcmp (tagname, "code") && !loc->station_code) {
-	    value = gweather_parser_get_value (parser);
+	    value = _gweather_parser_get_value (parser);
 	    if (!value)
 		goto error_out;
 	    loc->station_code = g_strdup (value);
 	    xmlFree (value);
 	} else if (!strcmp (tagname, "coordinates") && !loc->latlon_valid) {
-	    value = gweather_parser_get_value (parser);
+	    value = _gweather_parser_get_value (parser);
 	    if (!value)
 		goto error_out;
 	    if (parse_coordinates (value, &loc->latitude, &loc->longitude))
 		loc->latlon_valid = TRUE;
 	    xmlFree (value);
 	} else if (!strcmp (tagname, "zone") && !loc->forecast_zone) {
-	    value = gweather_parser_get_value (parser);
+	    value = _gweather_parser_get_value (parser);
 	    if (!value)
 		goto error_out;
 	    loc->forecast_zone = g_strdup (value);
 	    xmlFree (value);
 	} else if (!strcmp (tagname, "yahoo-woeid") && !loc->yahoo_id) {
-	    value = gweather_parser_get_value (parser);
+	    value = _gweather_parser_get_value (parser);
 	    if (!value)
 		goto error_out;
 	    loc->yahoo_id = g_strdup (value);
 	    xmlFree (value);
 	} else if (!strcmp (tagname, "radar") && !loc->radar) {
-	    value = gweather_parser_get_value (parser);
+	    value = _gweather_parser_get_value (parser);
 	    if (!value)
 		goto error_out;
 	    loc->radar = g_strdup (value);
@@ -211,19 +210,7 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 	    child = location_new_from_xml (parser, GWEATHER_LOCATION_REGION, loc);
 	    if (!child)
 		goto error_out;
-	    if (parser->use_regions)
-		g_ptr_array_add (children, child);
-	    else {
-		if (child->children) {
-		    for (i = 0; child->children[i]; i++) {
-			/* Correct back pointers */
-			child->children[i]->parent = loc;
-			g_ptr_array_add (children, child->children[i]);
-		    }
-		}
-		child->children = NULL;
-		gweather_location_unref (child);
-	    }
+	    g_ptr_array_add (children, child);
 	} else if (!strcmp (tagname, "country")) {
 	    child = location_new_from_xml (parser, GWEATHER_LOCATION_COUNTRY, loc);
 	    if (!child)
@@ -251,7 +238,7 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 	    g_ptr_array_add (children, child);
 
 	} else if (!strcmp (tagname, "timezones")) {
-	    loc->zones = gweather_timezones_parse_xml (parser);
+	    loc->zones = _gweather_timezones_parse_xml (parser);
 	    if (!loc->zones)
 		goto error_out;
 
@@ -314,11 +301,12 @@ gweather_location_get_world (void)
     GWeatherParser *parser;
 
     if (!global_world) {
-	parser = gweather_parser_new (TRUE);
+	parser = _gweather_parser_new ();
 	if (!parser)
 	    return NULL;
 
 	global_world = location_new_from_xml (parser, GWEATHER_LOCATION_WORLD, NULL);
+	_gweather_parser_free (parser);
     }
 
     return global_world;
