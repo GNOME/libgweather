@@ -19,8 +19,8 @@ locationdb.sqlite: build-locationdb.pl major-cities.txt sources/nsd_cccc.txt sou
 	$(AM_V_GEN)$(srcdir)/build-locationdb.pl
 
 check:
-	xmllint --valid --noout $(top_srcdir)/data/Locations.xml
-	$(srcdir)/check-timezones.sh $(srcdir)/Locations.xml
+	xmllint --valid --path "$(srcdir)" --noout $(builddir)/Locations.xml
+	$(srcdir)/check-timezones.sh $(builddir)/Locations.xml
 
 @INTLTOOL_XML_NOMERGE_RULE@
 
