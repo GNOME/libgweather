@@ -254,7 +254,27 @@ free_forecast_list (GWeatherInfo *info)
     info->priv->forecast_list = NULL;
 }
 
-/* Relative humidity computation - thanks to <Olof.Oberg@modopaper.modogroup.com> */
+/* Relative humidity computation - thanks to <Olof.Oberg@modopaper.modogroup.com>
+   calc_dew is simply the inverse of calc_humidity */
+
+static inline gdouble
+calc_dew (gdouble temp, gdouble humidity)
+{
+    gdouble esat, esurf, tmp;
+
+    if (temp > -500.0 && humidity > -1.0) {
+	temp = TEMP_F_TO_C (temp);
+
+	esat = 6.11 * pow (10.0, (7.5 * temp) / (237.7 + temp));
+	esurf = (humidity / 100) * esat;
+    } else {
+	esurf = -1.0;
+	esat = 1.0;
+    }
+
+    tmp = log10 (esurf / 6.11);
+    return TEMP_C_TO_F (tmp * 237.7 / (tmp + 7.5));
+}
 
 static inline gdouble
 calc_humidity (gdouble temp, gdouble dewp)
@@ -281,6 +301,12 @@ calc_apparent (GWeatherInfo *info)
     gdouble wind = WINDSPEED_KNOTS_TO_MPH (info->priv->windspeed);
     gdouble apparent = -1000.;
     gdouble dew = info->priv->dew;
+    gdouble humidity;
+
+    if (info->priv->hasHumidity)
+	humidity = info->priv->humidity;
+    else
+	humidity = calc_humidity (temp, dew);
 
     /*
      * Wind chill calculations as of 01-Nov-2001
@@ -301,10 +327,11 @@ calc_apparent (GWeatherInfo *info)
      * http://www.srh.noaa.gov/fwd/heatindex/heat5.html
      */
     else if (temp >= 80.0) {
-        if (temp >= -500. && dew >= -500.) {
-	    gdouble humidity = calc_humidity (temp, dew);
-	    gdouble t2 = temp * temp;
-	    gdouble h2 = humidity * humidity;
+        if (temp >= -500. && humidity >= 0) {
+	    gdouble t2, h2;
+
+	    t2 = temp * temp;
+	    h2 = humidity * humidity;
 
 #if 1
 	    /*
@@ -383,6 +410,7 @@ gweather_info_reset (GWeatherInfo *info)
     priv->temp_min = -1000.0;
     priv->temp_max = -1000.0;
     priv->dew = -1000.0;
+    priv->humidity = -1.0;
     priv->wind = -1;
     priv->windspeed = -1;
     priv->pressure = -1.0;
@@ -563,7 +591,13 @@ gweather_info_update (GWeatherInfo *info)
 
     /* Try yr.no next */
     if (priv->providers & GWEATHER_PROVIDER_YR_NO)
-	yrno_start_open (info);
+	ok = yrno_start_open (info);
+    if (ok)
+	return;
+
+    /* Try OpenWeatherMap next */
+    if (priv->providers & GWEATHER_PROVIDER_OWM)
+	owm_start_open (info);
 }
 
 void
@@ -806,13 +840,19 @@ gchar *
 gweather_info_get_dew (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
+    gdouble dew;
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
     priv = info->priv;
 
     if (!priv->valid)
         return g_strdup("-");
-    if (priv->dew < -500.0)
+
+    if (priv->hasHumidity)
+	dew = calc_dew (priv->temp, priv->humidity);
+    else
+	dew = priv->dew;
+    if (dew < -500.0)
         return g_strdup(C_("dew", "Unknown"));
 
     return temperature_string (priv->dew, g_settings_get_enum (priv->settings, TEMPERATURE_UNIT), FALSE);
@@ -828,7 +868,10 @@ gweather_info_get_humidity (GWeatherInfo *info)
     if (!info->priv->valid)
         return g_strdup("-");
 
-    humidity = calc_humidity (info->priv->temp, info->priv->dew);
+    if (info->priv->hasHumidity)
+	humidity = info->priv->humidity;
+    else
+	humidity = calc_humidity (info->priv->temp, info->priv->dew);
     if (humidity < 0.0)
         return g_strdup(C_("humidity", "Unknown"));
 
@@ -1747,13 +1790,20 @@ gweather_info_get_value_temp_max (GWeatherInfo *info, GWeatherTemperatureUnit un
 gboolean
 gweather_info_get_value_dew (GWeatherInfo *info, GWeatherTemperatureUnit unit, gdouble *value)
 {
+    gdouble dew;
+
     g_return_val_if_fail (GWEATHER_IS_INFO (info), FALSE);
     g_return_val_if_fail (value != NULL, FALSE);
 
     if (!info->priv->valid)
 	return FALSE;
 
-    return temperature_value (info->priv->dew, unit, value, info->priv->settings);
+    if (info->priv->hasHumidity)
+	dew = calc_dew (info->priv->temp, info->priv->humidity);
+    else
+	dew = info->priv->dew;
+
+    return temperature_value (dew, unit, value, info->priv->settings);
 }
 
 /**

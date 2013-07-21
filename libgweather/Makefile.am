@@ -26,7 +26,7 @@ libgweather_internal_3_la_SOURCES = \
 	weather.c weather-priv.h \
 	weather-metar.c weather-iwin.c weather-met.c \
 	weather-bom.c weather-yahoo.c weather-wx.c \
-	weather-yrno.c \
+	weather-yrno.c weather-owm.c \
 	weather-sun.c weather-moon.c \
 	gweather-enum-types.c \
 	gweather-location.c gweather-location.h \

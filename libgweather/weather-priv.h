@@ -103,6 +103,14 @@ struct _GWeatherInfoPrivate {
     gboolean polarNight;
     gboolean moonValid;
     gboolean tempMinMaxValid;
+
+    /* TRUE if we don't need to calc humidity from
+       temperature and dew point (and conversely, we
+       need to calculate the dew point from temperature
+       and humidity)
+    */
+    gboolean hasHumidity;
+
     WeatherLocation location;
     GWeatherLocation *world;
     GWeatherLocation *glocation;
@@ -114,6 +122,7 @@ struct _GWeatherInfoPrivate {
     GWeatherTemperature temp_min;
     GWeatherTemperature temp_max;
     GWeatherTemperature dew;
+    GWeatherHumidity humidity;
     GWeatherWindDirection wind;
     GWeatherWindSpeed windspeed;
     GWeatherPressure pressure;
@@ -184,6 +193,7 @@ void		bom_start_open		(GWeatherInfo *info);
 void		wx_start_open		(GWeatherInfo *info);
 gboolean        yahoo_start_open        (GWeatherInfo *info);
 gboolean        yrno_start_open         (GWeatherInfo *info);
+gboolean        owm_start_open          (GWeatherInfo *info);
 
 gboolean	metar_parse		(gchar *metar,
 					 GWeatherInfo *info);

@@ -184,6 +184,13 @@ fi
 
 AM_CONDITIONAL([ENABLE_GLADE_CATALOG],[test "x$found_glade_catalog" = "xyes"])
 
+AC_ARG_WITH([owm-apikey],
+        [AS_HELP_STRING([--with-owm-apikey=APIKEY],
+        [Specify an API key for OpenWeatherMap (optional)])])
+if test "x$with_owm_apikey" != x ; then
+   AC_DEFINE_UNQUOTED(OWM_APIKEY, "$with_owm_apikey", [OpenWeatherMap API key])
+fi
+
 ##################################################
 # Checks for gtk-doc and docbook-tools
 ##################################################
