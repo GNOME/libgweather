@@ -62,7 +62,7 @@ test_metar_CPPFLAGS = $(AM_CPPFLAGS) $(LIBSOUP_CFLAGS)
 test_metar_LDADD = libgweather-internal-3.la $(GTK_LIBS)
 
 test_locations_SOURCES = test_locations.c
-test_locations_LDADD = libgweather-internal-3.la $(GTK_LIBS)
+test_locations_LDADD = libgweather-3.la $(GTK_LIBS)
 
 test_sun_moon_SOURCES = test_sun_moon.c
 test_sun_moon_CPPFLAGS = $(AM_CPPFLAGS) $(LIBSOUP_CFLAGS)
