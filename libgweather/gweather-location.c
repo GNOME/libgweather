@@ -25,6 +25,7 @@
 #include <string.h>
 #include <math.h>
 #include <locale.h>
+#include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 #include <libxml/xmlreader.h>
 
@@ -138,6 +139,7 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
     loc->parent = parent;
     loc->level = level;
     loc->ref_count = 1;
+    loc->msgctxt = NULL;
     if (level == GWEATHER_LOCATION_WORLD)
 	loc->metar_code_cache = g_hash_table_ref (parser->metar_code_cache);
     children = g_ptr_array_new ();
@@ -154,14 +156,14 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 
 	tagname = (const char *) xmlTextReaderConstName (parser->xml);
 	if (!strcmp (tagname, "name") && !loc->name) {
-	    value = _gweather_parser_get_localized_value (parser);
+            loc->msgctxt = _gweather_parser_get_msgctxt_value (parser);
+	    value = _gweather_parser_get_value (parser);
 	    if (!value)
 		goto error_out;
 	    loc->name = value;
 	    normalized = g_utf8_normalize (loc->name, -1, G_NORMALIZE_ALL);
 	    loc->sort_name = g_utf8_casefold (normalized, -1);
 	    g_free (normalized);
-
 	} else if (!strcmp (tagname, "iso-code") && !loc->country_code) {
 	    value = _gweather_parser_get_value (parser);
 	    if (!value)
@@ -356,6 +358,7 @@ gweather_location_unref (GWeatherLocation *loc)
     g_return_if_fail (loc->level != GWEATHER_LOCATION_WORLD);
 
     g_free (loc->name);
+    g_free (loc->msgctxt);
     g_free (loc->sort_name);
     g_free (loc->country_code);
     g_free (loc->tz_hint);
@@ -415,7 +418,17 @@ const char *
 gweather_location_get_name (GWeatherLocation *loc)
 {
     g_return_val_if_fail (loc != NULL, NULL);
-    return loc->name;
+
+    const char *ret;
+
+    if (loc->msgctxt) {
+	ret = (const char*) g_dpgettext2 ("libgweather-locations",
+				       (char*) loc->msgctxt, (char*) loc->name);
+    } else {
+	ret = (const char*) g_dgettext ("libgweather-locations", (char*) loc->name);
+    }
+
+    return g_strdup (ret);
 }
 
 /**
@@ -708,15 +721,28 @@ gweather_location_get_city_name (GWeatherLocation *loc)
 {
     g_return_val_if_fail (loc != NULL, NULL);
 
+    const char *ret;
+
     if (loc->level == GWEATHER_LOCATION_CITY ||
-	loc->level == GWEATHER_LOCATION_DETACHED)
-	return g_strdup (loc->name);
-    else if (loc->level == GWEATHER_LOCATION_WEATHER_STATION &&
-	     loc->parent &&
-	     loc->parent->level == GWEATHER_LOCATION_CITY)
-	return g_strdup (loc->parent->name);
-    else
-	return NULL;
+        loc->level == GWEATHER_LOCATION_DETACHED) {
+        if (loc->msgctxt) {
+            ret = (const char*) g_dpgettext2 ("libgweather-locations", (char*) loc->msgctxt, (char*) loc->name);
+        } else {
+            ret = (const char*) g_dgettext ("libgweather-locations", (char*) loc->name);
+        }
+
+        return g_strdup (ret);
+    } else if (loc->level == GWEATHER_LOCATION_WEATHER_STATION &&
+               loc->parent &&
+               loc->parent->level == GWEATHER_LOCATION_CITY) {
+        if (loc->parent->msgctxt) {
+            ret = (const char*) g_dpgettext2 ("libgweather-locations", (char*) loc->parent->msgctxt, (char*) loc->parent->name);
+        } else {
+            ret = (const char*) g_dgettext ("libgweather-locations", (char*) loc->parent->name);
+        }
+        return g_strdup (ret);
+    } else
+        return NULL;
 }
 
 void

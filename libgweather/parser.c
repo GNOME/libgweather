@@ -26,10 +26,10 @@
 #include "weather-priv.h"
 
 #include "parser.h"
-
 #include <string.h>
 #include <glib.h>
 #include <libxml/xmlreader.h>
+#include <glib/gi18n-lib.h>
 
 /*
  * _gweather_parser_get_value:
@@ -90,11 +90,28 @@ _gweather_parser_get_localized_value (GWeatherParser *parser)
     char *untranslated_value = _gweather_parser_get_value (parser);
     char *ret;
 
-    ret = (char*) dgettext ("libgweather-locations", (char*) untranslated_value);
+    ret = (char*) g_dgettext ("libgweather-locations", (char*) untranslated_value);
 
     ret = g_strdup (ret);
     xmlFree (untranslated_value);
     return ret;
+}
+
+char *
+_gweather_parser_get_msgctxt_value (GWeatherParser *parser)
+{
+    const char *value;
+    const char *name;
+
+    while(xmlTextReaderMoveToNextAttribute(parser->xml)) {
+	name = (const char *)xmlTextReaderConstName(parser->xml);
+	if (!strcmp (name, "msgctxt")) {
+	    value = (const char *)xmlTextReaderConstValue(parser->xml);
+	    return g_strdup (value);
+	}
+    }
+
+    return NULL;
 }
 
 static void

@@ -34,6 +34,7 @@ GWeatherParser *_gweather_parser_new                 (void);
 void            _gweather_parser_free                (GWeatherParser *parser);
 
 char           *_gweather_parser_get_value           (GWeatherParser *parser);
+char           *_gweather_parser_get_msgctxt_value   (GWeatherParser *parser);
 char           *_gweather_parser_get_localized_value (GWeatherParser *parser);
 
 /* from gweather-timezone.c */
