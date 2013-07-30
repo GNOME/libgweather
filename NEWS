@@ -1,4 +1,17 @@
 =============
+Version 3.9.5
+=============
+
+* Translations for the locations database are now
+  stored in separate mo files and looked up at runtime,
+  cutting build times and installed size
+* A number of minor API breaks, such as the removal of
+  forecast-type GObject property and accessors; most
+  apps still build fine
+* New backend: OpenWeatherMap
+* Updated translations
+
+=============
 Version 3.9.4
 =============
 
