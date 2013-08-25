@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: libgweather master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-26 14:29+0000\n"
-"PO-Revision-Date: 2013-03-28 09:58+0100\n"
+"POT-Creation-Date: 2013-07-21 15:01+0000\n"
+"PO-Revision-Date: 2013-08-25 09:16+0200\n"
 "Last-Translator: Balázs Úr <urbalazs at gmail dot com>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -26,109 +26,125 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.2\n"
 
+#: ../data/glade/libgweather.xml.in.h:1
+msgid "Location Entry"
+msgstr "Hely bejegyzés"
+
+#: ../data/glade/libgweather.xml.in.h:2
+msgid "Timezone Menu"
+msgstr "Időzóna menü"
+
+#: ../data/glade/libgweather.xml.in.h:3
+msgid "Timezone"
+msgstr "Időzóna"
+
+#: ../data/glade/libgweather.xml.in.h:4
+msgid "GWeather"
+msgstr "GWeather"
+
 #: ../libgweather/gweather-timezone.c:316
 msgid "Greenwich Mean Time"
 msgstr "Greenwich-i középidő"
 
-#: ../libgweather/timezone-menu.c:278
+#: ../libgweather/timezone-menu.c:275
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: ../libgweather/weather.c:129
+#: ../libgweather/weather.c:123
 msgid "Variable"
 msgstr "Változó"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:124
 msgid "North"
 msgstr "Észak"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:124
 msgid "North - NorthEast"
 msgstr "Észak - északkelet"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:124
 msgid "Northeast"
 msgstr "Északkelet"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:124
 msgid "East - NorthEast"
 msgstr "Kelet - északkelet"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:125
 msgid "East"
 msgstr "Kelet"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:125
 msgid "East - Southeast"
 msgstr "Kelet - délkelet"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:125
 msgid "Southeast"
 msgstr "Délkelet"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:125
 msgid "South - Southeast"
 msgstr "Dél - délkelet"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:126
 msgid "South"
 msgstr "Dél"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:126
 msgid "South - Southwest"
 msgstr "Dél - délnyugat"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:126
 msgid "Southwest"
 msgstr "Délnyugat"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:126
 msgid "West - Southwest"
 msgstr "Nyugat - délnyugat"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:127
 msgid "West"
 msgstr "Nyugat"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:127
 msgid "West - Northwest"
 msgstr "Nyugat - északnyugat"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:127
 msgid "Northwest"
 msgstr "Északnyugat"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:127
 msgid "North - Northwest"
 msgstr "Észak - északnyugat"
 
-#: ../libgweather/weather.c:140
+#: ../libgweather/weather.c:134
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Érvénytelen"
 
-#: ../libgweather/weather.c:146
+#: ../libgweather/weather.c:140
 msgid "Clear Sky"
 msgstr "Tiszta ég"
 
-#: ../libgweather/weather.c:147
+#: ../libgweather/weather.c:141
 msgid "Broken clouds"
 msgstr "Szakadozott felhőzet"
 
-#: ../libgweather/weather.c:148
+#: ../libgweather/weather.c:142
 msgid "Scattered clouds"
 msgstr "Elszórtan felhős"
 
-#: ../libgweather/weather.c:149
+#: ../libgweather/weather.c:143
 msgid "Few clouds"
 msgstr "Kevés felhő"
 
-#: ../libgweather/weather.c:150
+#: ../libgweather/weather.c:144
 msgid "Overcast"
 msgstr "Borús"
 
-#: ../libgweather/weather.c:157 ../libgweather/weather.c:229
+#: ../libgweather/weather.c:151 ../libgweather/weather.c:223
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "Érvénytelen"
@@ -137,393 +153,384 @@ msgstr "Érvénytelen"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:189 ../libgweather/weather.c:191
+#: ../libgweather/weather.c:183 ../libgweather/weather.c:185
 msgid "Thunderstorm"
 msgstr "Zivatar"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:184
 msgid "Drizzle"
 msgstr "Szitáló eső"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:184
 msgid "Light drizzle"
 msgstr "Gyenge szitálás"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:184
 msgid "Moderate drizzle"
 msgstr "Mérsékelt szitálás"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:184
 msgid "Heavy drizzle"
 msgstr "Erős szitálás"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:184
 msgid "Freezing drizzle"
 msgstr "Jeges szitálás"
 
 #. RAIN
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:185
 msgid "Rain"
 msgstr "Eső"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:185
 msgid "Light rain"
 msgstr "Csendes eső"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:185
 msgid "Moderate rain"
 msgstr "Mérsékelt esőzés"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:185
 msgid "Heavy rain"
 msgstr "Heves esőzés"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:185
 msgid "Rain showers"
 msgstr "Záporok"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:185
 msgid "Freezing rain"
 msgstr "Fagyos eső"
 
 #. SNOW
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:186
 msgid "Snow"
 msgstr "Havazás"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:186
 msgid "Light snow"
 msgstr "Hószállingózás"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:186
 msgid "Moderate snow"
 msgstr "Hóesés"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:186
 msgid "Heavy snow"
 msgstr "Hószakadás"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:186
 msgid "Snowstorm"
 msgstr "Hóvihar"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:186
 msgid "Blowing snowfall"
 msgstr "Szeles hóesés"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:186
 msgid "Snow showers"
 msgstr "Hózápor"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:186
 msgid "Drifting snow"
 msgstr "Hófúvás"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:187
 msgid "Snow grains"
 msgstr "Havazás"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:187
 msgid "Light snow grains"
 msgstr "Enyhe havazás"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:187
 msgid "Moderate snow grains"
 msgstr "Mérsékelt havazás"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:187
 msgid "Heavy snow grains"
 msgstr "Sűrű hóesés"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:194
+#: ../libgweather/weather.c:188
 msgid "Ice crystals"
 msgstr "Jégkristályok"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:195
+#: ../libgweather/weather.c:189
 msgid "Sleet"
 msgstr "Ónos eső"
 
-#: ../libgweather/weather.c:195
+#: ../libgweather/weather.c:189
 msgid "Little sleet"
 msgstr "Kis ónos eső"
 
-#: ../libgweather/weather.c:195
-#| msgid "Moderate snow"
+#: ../libgweather/weather.c:189
 msgid "Moderate sleet"
 msgstr "Mérsékelt ónos eső"
 
-#: ../libgweather/weather.c:195
-#| msgid "Heavy snow"
+#: ../libgweather/weather.c:189
 msgid "Heavy sleet"
 msgstr "Erős ónos eső"
 
-#: ../libgweather/weather.c:195
-#| msgid "Ice pellet storm"
+#: ../libgweather/weather.c:189
 msgid "Sleet storm"
 msgstr "Ónos eső vihar"
 
-#: ../libgweather/weather.c:195
-#| msgid "Showers of ice pellets"
+#: ../libgweather/weather.c:189
 msgid "Showers of sleet"
 msgstr "Zuhogó ónos eső"
 
 #. HAIL
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:190
 msgid "Hail"
 msgstr "Jégeső"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:190
 msgid "Hailstorm"
 msgstr "Vihar jégesővel"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:190
 msgid "Hail showers"
 msgstr "Zuhogó jégeső"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:197
+#: ../libgweather/weather.c:191
 msgid "Small hail"
 msgstr "Kis szemű jégeső"
 
-#: ../libgweather/weather.c:197
+#: ../libgweather/weather.c:191
 msgid "Small hailstorm"
 msgstr "Viharos kis szemű jégeső"
 
-#: ../libgweather/weather.c:197
+#: ../libgweather/weather.c:191
 msgid "Showers of small hail"
 msgstr "Zuhogó kis szemű jégeső"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:198
+#: ../libgweather/weather.c:192
 msgid "Unknown precipitation"
 msgstr "Ismeretlen csapadék"
 
 #. MIST
-#: ../libgweather/weather.c:199
+#: ../libgweather/weather.c:193
 msgid "Mist"
 msgstr "Pára"
 
 #. FOG
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:194
 msgid "Fog"
 msgstr "Köd"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:194
 msgid "Fog in the vicinity"
 msgstr "Köd a környéken"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:194
 msgid "Shallow fog"
 msgstr "Ködfoltok"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:194
 msgid "Patches of fog"
 msgstr "Helyenként köd"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:194
 msgid "Partial fog"
 msgstr "Szórványos ködfoltok"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:194
 msgid "Freezing fog"
 msgstr "Zúzmarás köd"
 
 #. SMOKE
-#: ../libgweather/weather.c:201
+#: ../libgweather/weather.c:195
 msgid "Smoke"
 msgstr "Füst"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:202
+#: ../libgweather/weather.c:196
 msgid "Volcanic ash"
 msgstr "Vulkanikus hamu"
 
 #. SAND
-#: ../libgweather/weather.c:203
+#: ../libgweather/weather.c:197
 msgid "Sand"
 msgstr "Homok"
 
-#: ../libgweather/weather.c:203
+#: ../libgweather/weather.c:197
 msgid "Blowing sand"
 msgstr "Homokfúvás"
 
-#: ../libgweather/weather.c:203
+#: ../libgweather/weather.c:197
 msgid "Drifting sand"
 msgstr "Erős homokfúvás"
 
 #. HAZE
-#: ../libgweather/weather.c:204
+#: ../libgweather/weather.c:198
 msgid "Haze"
 msgstr "Száraz légköri homály"
 
 #. SPRAY
-#: ../libgweather/weather.c:205
+#: ../libgweather/weather.c:199
 msgid "Blowing sprays"
 msgstr "Szélfútta sópermet"
 
 #. DUST
-#: ../libgweather/weather.c:206
+#: ../libgweather/weather.c:200
 msgid "Dust"
 msgstr "Por"
 
-#: ../libgweather/weather.c:206
+#: ../libgweather/weather.c:200
 msgid "Blowing dust"
 msgstr "Porfúvás"
 
-#: ../libgweather/weather.c:206
+#: ../libgweather/weather.c:200
 msgid "Drifting dust"
 msgstr "Erős porfúvás"
 
 #. SQUALL
-#: ../libgweather/weather.c:207
+#: ../libgweather/weather.c:201
 msgid "Squall"
 msgstr "Széllökés"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:202
 msgid "Sandstorm"
 msgstr "Homokvihar"
 
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:202
 msgid "Sandstorm in the vicinity"
 msgstr "Homokvihar a környéken"
 
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:202
 msgid "Heavy sandstorm"
 msgstr "Erőteljes homokvihar"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:209
+#: ../libgweather/weather.c:203
 msgid "Duststorm"
 msgstr "Porvihar"
 
-#: ../libgweather/weather.c:209
+#: ../libgweather/weather.c:203
 msgid "Duststorm in the vicinity"
 msgstr "Porvihar a környéken"
 
-#: ../libgweather/weather.c:209
+#: ../libgweather/weather.c:203
 msgid "Heavy duststorm"
 msgstr "Erős porvihar"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:210
+#: ../libgweather/weather.c:204
 msgid "Funnel cloud"
 msgstr "Tölcsérfelhő"
 
 #. TORNADO
-#: ../libgweather/weather.c:211
+#: ../libgweather/weather.c:205
 msgid "Tornado"
 msgstr "Tornádó"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:212
+#: ../libgweather/weather.c:206
 msgid "Dust whirls"
 msgstr "Portölcsérek"
 
-#: ../libgweather/weather.c:212
+#: ../libgweather/weather.c:206
 msgid "Dust whirls in the vicinity"
 msgstr "Poros forgószél a közelben"
 
-#: ../libgweather/weather.c:641
+#: ../libgweather/weather.c:679
 msgid "%a, %b %d / %H∶%M"
 msgstr "%b. %d., %a. / %H.%M"
 
-#: ../libgweather/weather.c:647
+#: ../libgweather/weather.c:685
 msgid "Unknown observation time"
 msgstr "Ismeretlen észlelési idő"
 
-#: ../libgweather/weather.c:659
+#: ../libgweather/weather.c:697
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:679
+#: ../libgweather/weather.c:747
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:682
+#: ../libgweather/weather.c:750
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:688
+#: ../libgweather/weather.c:756
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:691
+#: ../libgweather/weather.c:759
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:697
+#: ../libgweather/weather.c:765
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:700
+#: ../libgweather/weather.c:768
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: ../libgweather/weather.c:708
-msgctxt "temperature unit"
-msgid "Unknown"
-msgstr "Ismeretlen"
-
-#: ../libgweather/weather.c:723 ../libgweather/weather.c:739
-#: ../libgweather/weather.c:755 ../libgweather/weather.c:808
+#: ../libgweather/weather.c:791 ../libgweather/weather.c:807
+#: ../libgweather/weather.c:823 ../libgweather/weather.c:885
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: ../libgweather/weather.c:771
+#: ../libgweather/weather.c:845
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: ../libgweather/weather.c:788
+#: ../libgweather/weather.c:865
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:791
+#: ../libgweather/weather.c:868
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:819
+#: ../libgweather/weather.c:914
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f csomó"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:822
+#: ../libgweather/weather.c:917
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:825
+#: ../libgweather/weather.c:920
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:828
+#: ../libgweather/weather.c:923
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -531,110 +538,95 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:833
+#: ../libgweather/weather.c:928
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Beaufort erősség: %.1f"
 
-#: ../libgweather/weather.c:838
-msgctxt "speed unit"
-msgid "Unknown"
-msgstr "Ismeretlen"
-
-#: ../libgweather/weather.c:856
+#: ../libgweather/weather.c:949
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: ../libgweather/weather.c:858
+#: ../libgweather/weather.c:951
 msgid "Calm"
 msgstr "Szélcsend"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:866
+#: ../libgweather/weather.c:959
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/weather.c:885
+#: ../libgweather/weather.c:995
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:890
+#: ../libgweather/weather.c:1001
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:893
+#: ../libgweather/weather.c:1004
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:896
+#: ../libgweather/weather.c:1007
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:899
+#: ../libgweather/weather.c:1010
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:902
+#: ../libgweather/weather.c:1013
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:905
+#: ../libgweather/weather.c:1016
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#: ../libgweather/weather.c:911
-msgctxt "pressure unit"
-msgid "Unknown"
-msgstr "Ismeretlen"
-
-#: ../libgweather/weather.c:928
+#: ../libgweather/weather.c:1054
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:933
+#: ../libgweather/weather.c:1060
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f mérföld"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:936
+#: ../libgweather/weather.c:1063
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:939
+#: ../libgweather/weather.c:1066
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:945
-msgctxt "visibility unit"
-msgid "Unknown"
-msgstr "Ismeretlen"
-
-#: ../libgweather/weather.c:969 ../libgweather/weather.c:994
+#: ../libgweather/weather.c:1094 ../libgweather/weather.c:1119
 msgid "%H∶%M"
 msgstr "%H.%M"
 
-#: ../libgweather/weather.c:1095
+#: ../libgweather/weather.c:1213
 msgid "Retrieval failed"
 msgstr "Letöltés sikertelen"
 
@@ -644,11 +636,19 @@ msgstr "Letöltés sikertelen"
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "Nem sikerült lekérni a METAR adatokat: %d %s.\n"
 
+#: ../libgweather/weather-owm.c:385
+#| msgid ""
+#| "Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</"
+#| "a>"
+msgid ""
+"Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
+"project</a>"
+msgstr ""
+"Időjárási adatok az <a href=\"http://openweathermap.org\">Open Weather Map "
+"projekttől</a>"
+
 #: ../libgweather/weather-yrno.c:449
 #, c-format
-#| msgid ""
-#| "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
-#| "Institute</a>"
 msgid ""
 "Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</a>"
 msgstr "Időjárási adatok a <a href=\"%s\">Norvég Meteorológiai Intézettől</a>"
@@ -664,17 +664,11 @@ msgid ""
 msgstr ""
 "A letöltendő radartérkép helyének beállítása (URL), vagy üres a letiltáshoz."
 
-#. TRANSLATORS: pick a temperature unit that should be used by default in your
-#. locale; values must be quoted
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
-msgid "'fahrenheit'"
-msgstr "'centigrade'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:3
 msgid "Temperature unit"
 msgstr "Hőmérséklet mértékegysége"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:4
 msgid ""
 "The unit of temperature used for showing weather. Valid values are 'kelvin', "
 "'centigrade' and 'fahrenheit'."
@@ -682,17 +676,11 @@ msgstr ""
 "Az időjárás megjelenítéséhez használt hőmérsékleti egység. Lehetséges "
 "értékek: 'kelvin', 'centigrade' és 'fahrenheit'."
 
-#. TRANSLATORS: pick a default distance unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
-msgid "'miles'"
-msgstr "'km'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
 msgid "Distance unit"
 msgstr "Távolság mértékegysége"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or "
 "for distance of important events). Valid values are 'meters', 'km' and "
@@ -702,17 +690,11 @@ msgstr ""
 "megjelenítéséhez használt távolságegység. Lehetséges értékek: 'meters', 'km' "
 "és 'miles'."
 
-#. TRANSLATORS: pick a default speed unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:15
-msgid "'knots'"
-msgstr "'kph'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:16
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
 msgid "Speed unit"
 msgstr "Sebesség mértékegysége"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:17
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:8
 msgid ""
 "The unit of speed used for showing weather (for example for wind speed). "
 "Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
@@ -722,17 +704,11 @@ msgstr ""
 "Lehetséges értékek: 'ms' (méter per másodperc), 'kph' (kilométer per óra), "
 "'mph' (mérföld per óra), 'knots' (csomó) és 'bft' (Beaufort-skála)."
 
-#. TRANSLATORS: pick a default pressure unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:20
-msgid "'inch-hg'"
-msgstr "'mm-hg'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:21
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:9
 msgid "Pressure unit"
 msgstr "Nyomás mértékegysége"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:22
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
 msgid ""
 "The unit of pressure used for showing weather. Valid values are "
 "'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
@@ -744,11 +720,11 @@ msgstr ""
 "matematikailag azonos 1 hPa-val, de másként jelenik meg), 'mm-"
 "hg' (higanymilliméter), 'inch-hg' (higanyhüvelyk), 'atm' (atmoszféra)."
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:23
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
 msgid "Default location"
 msgstr "Alapértelmezett hely"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:24
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
 msgid ""
 "The default location for the weather applet. The first field is the name "
 "that will be shown. If empty, it will be taken from the locations database. "
@@ -765,6 +741,34 @@ msgstr ""
 "a (szélesség, hosszúság) párt tartalmazza, az adatbázisból származó érték "
 "felülbírálásához. Ez csak a napkelte és a holdfázisok számításához "
 "használatos, az időjárási előrejelzéshez nem."
+
+#~ msgctxt "temperature unit"
+#~ msgid "Unknown"
+#~ msgstr "Ismeretlen"
+
+#~ msgctxt "speed unit"
+#~ msgid "Unknown"
+#~ msgstr "Ismeretlen"
+
+#~ msgctxt "pressure unit"
+#~ msgid "Unknown"
+#~ msgstr "Ismeretlen"
+
+#~ msgctxt "visibility unit"
+#~ msgid "Unknown"
+#~ msgstr "Ismeretlen"
+
+#~ msgid "'fahrenheit'"
+#~ msgstr "'centigrade'"
+
+#~ msgid "'miles'"
+#~ msgstr "'km'"
+
+#~ msgid "'knots'"
+#~ msgstr "'kph'"
+
+#~ msgid "'inch-hg'"
+#~ msgstr "'mm-hg'"
 
 #~ msgid "Ice pellets"
 #~ msgstr "Jégdara"
