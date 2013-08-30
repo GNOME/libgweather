@@ -181,6 +181,19 @@ GTK_DOC_CHECK([1.11],[--flavour no-tmpl])
 GOBJECT_INTROSPECTION_CHECK([0.9.5])
 
 dnl ***************************************************************************
+dnl *** Vala bindings support                                               ***
+dnl ***************************************************************************
+AC_ARG_ENABLE([vala],
+	[AS_HELP_STRING([--enable-vala],
+		[Install vala bindings [default=auto]])],
+	[enable_vala=$enableval],
+	[enable_vala=auto])
+
+m4_ifdef([VAPIGEN_CHECK],
+	[VAPIGEN_CHECK([0.18],,,[no])],
+	[AM_CONDITIONAL([ENABLE_VAPIGEN],[false])])
+
+dnl ***************************************************************************
 dnl *** Output Makefiles et al                                              ***
 dnl ***************************************************************************
 AC_CONFIG_FILES([
@@ -208,4 +221,5 @@ libgweather-$VERSION configure summary:
 	Source code location:		${srcdir}
 	Compiler:			${CC}
 	Introspection support:          ${found_introspection}
+	Build Vala bindings:            ${enable_vala}
 " >&2

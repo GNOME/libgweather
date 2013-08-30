@@ -122,6 +122,24 @@ typelibdir = $(INTROSPECTION_TYPELIBDIR)
 typelib_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
 
 CLEANFILES += $(gir_DATA) $(typelib_DATA)
-endif
+
+if ENABLE_VAPIGEN
+-include $(VAPIGEN_MAKEFILE)
+
+VAPIGEN_VAPIS = gweather-3.0.vapi
+
+gweather-3.0.vapi: GWeather-3.0.gir
+gweather_3_0_vapi_DEPS = gobject-2.0 gtk+-3.0
+gweather_3_0_vapi_METADATADIRS = $(srcdir)
+gweather_3_0_vapi_VAPIDIRS = $(datadir)/vala/vapi
+gweather_3_0_vapi_FILES = GWeather-3.0.gir
+
+vapidir = $(VAPIGEN_VAPIDIR)
+nodist_vapi_DATA = $(VAPIGEN_VAPIS)
+
+CLEANFILES += $(nodist_vapi_DATA)
+
+endif # ENABLE_VAPIGEN
+endif # HAVE_INTROSPECTION
 
 -include $(top_srcdir)/git.mk
