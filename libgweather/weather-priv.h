@@ -26,6 +26,7 @@
 #include <math.h>
 #include <gio/gio.h>
 #include <libsoup/soup.h>
+#include <glib/gi18n-lib.h>
 
 #include "gweather-weather.h"
 #include "gweather-location.h"
@@ -34,12 +35,7 @@
 #include "gweather-win32.h"
 #endif
 
-const char *gweather_gettext (const char *str) G_GNUC_FORMAT (1);
-const char *gweather_dpgettext (const char *context, const char *str) G_GNUC_FORMAT (2);
 void        _gweather_gettext_init (void);
-#define _(str) (gweather_gettext (str))
-#define C_(context, str) (gweather_dpgettext (context, str))
-#define N_(str) (str)
 
 struct _GWeatherLocation {
     char *name, *msgctxt, *sort_name;

@@ -98,21 +98,6 @@ _gweather_gettext_init (void)
     }
 }
 
-const char *
-gweather_gettext (const char *str)
-{
-    _gweather_gettext_init ();
-    return dgettext (GETTEXT_PACKAGE, str);
-}
-
-const char *
-gweather_dpgettext (const char *context,
-                    const char *str)
-{
-    _gweather_gettext_init ();
-    return g_dpgettext2 (GETTEXT_PACKAGE, context, str);
-}
-
 static void
 _weather_location_free (WeatherLocation *location)
 {
@@ -2167,6 +2152,8 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 							  NULL, /* accu_data */
 							  g_cclosure_marshal_VOID__VOID,
 							  G_TYPE_NONE, 0);
+
+    _gweather_gettext_init ();
 }
 
 /**
