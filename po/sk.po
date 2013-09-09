@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: libgweather\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-11 13:38+0000\n"
-"PO-Revision-Date: 2013-02-11 17:23+0100\n"
+"POT-Creation-Date: 2013-09-07 17:30+0000\n"
+"PO-Revision-Date: 2013-09-08 14:39+0200\n"
 "Last-Translator: Pavol Klačanský <pavol@klacansky.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -20,11 +20,29 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
 
-#: ../libgweather/gweather-timezone.c:316
+# PM: myslím že poloha by sa tu hodila viac
+#: ../data/glade/libgweather.xml.in.h:1
+#, fuzzy
+msgid "Location Entry"
+msgstr "Položka s miestom"
+
+#: ../data/glade/libgweather.xml.in.h:2
+msgid "Timezone Menu"
+msgstr "Ponuka časového pásma"
+
+#: ../data/glade/libgweather.xml.in.h:3
+msgid "Timezone"
+msgstr "Časové pásmo"
+
+#: ../data/glade/libgweather.xml.in.h:4
+msgid "GWeather"
+msgstr "GWeather"
+
+#: ../libgweather/gweather-timezone.c:318
 msgid "Greenwich Mean Time"
 msgstr "Greenwichský stredný čas"
 
-#: ../libgweather/timezone-menu.c:278
+#: ../libgweather/timezone-menu.c:275
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Neznáme"
@@ -254,27 +272,27 @@ msgstr "Ľadové kryštály"
 
 #. ICE_PELLETS
 #: ../libgweather/weather.c:195
-msgid "Ice pellets"
+msgid "Sleet"
 msgstr "Snehové krúpky"
 
 #: ../libgweather/weather.c:195
-msgid "Few ice pellets"
-msgstr "Málo snehových krúpkov"
+msgid "Little sleet"
+msgstr "Slabé snehové krúpky"
 
 #: ../libgweather/weather.c:195
-msgid "Moderate ice pellets"
-msgstr "Mierne veľa snehových krúpkov"
+msgid "Moderate sleet"
+msgstr "Mierne snehové krúpky"
 
 #: ../libgweather/weather.c:195
-msgid "Heavy ice pellets"
-msgstr "Veľa snehových krúpkov"
+msgid "Heavy sleet"
+msgstr "Husté snehové krúpky"
 
 #: ../libgweather/weather.c:195
-msgid "Ice pellet storm"
+msgid "Sleet storm"
 msgstr "Búrka snehových krúpkov"
 
 #: ../libgweather/weather.c:195
-msgid "Showers of ice pellets"
+msgid "Showers of sleet"
 msgstr "Prehánky snehových krúpkov"
 
 #. HAIL
@@ -434,103 +452,98 @@ msgstr "Prachové víry"
 msgid "Dust whirls in the vicinity"
 msgstr "Prachové víry v okolí"
 
-#: ../libgweather/weather.c:552
-msgid "%a, %b %d / %H:%M"
-msgstr "%a, %e. %b / %H:%M"
+#: ../libgweather/weather.c:685
+msgid "%a, %b %d / %H∶%M"
+msgstr "%a, %e. %b / %H∶%M"
 
-#: ../libgweather/weather.c:558
+#: ../libgweather/weather.c:691
 msgid "Unknown observation time"
 msgstr "Neznámy čas pozorovania"
 
-#: ../libgweather/weather.c:570
+#: ../libgweather/weather.c:703
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Neznáme"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:590
+#: ../libgweather/weather.c:753
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:593
+#: ../libgweather/weather.c:756
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:599
+#: ../libgweather/weather.c:762
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:602
+#: ../libgweather/weather.c:765
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:608
+#: ../libgweather/weather.c:771
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:611
+#: ../libgweather/weather.c:774
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: ../libgweather/weather.c:619
-msgctxt "temperature unit"
-msgid "Unknown"
-msgstr "Neznáma"
-
-#: ../libgweather/weather.c:634 ../libgweather/weather.c:650
-#: ../libgweather/weather.c:666 ../libgweather/weather.c:719
+#: ../libgweather/weather.c:797 ../libgweather/weather.c:813
+#: ../libgweather/weather.c:829 ../libgweather/weather.c:891
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Neznáma"
 
-#: ../libgweather/weather.c:682
+#: ../libgweather/weather.c:851
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Neznáma"
 
 # * https://bugzilla.gnome.org/show_bug.cgi?id=693274
-#: ../libgweather/weather.c:699
+#: ../libgweather/weather.c:871
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Neznáma"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:702
+#: ../libgweather/weather.c:874
 #, c-format
 msgid "%.f%%"
 msgstr "%.f %%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:730
+#: ../libgweather/weather.c:920
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f uzlov"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:733
+#: ../libgweather/weather.c:923
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:736
+#: ../libgweather/weather.c:926
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:739
+#: ../libgweather/weather.c:929
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -538,132 +551,118 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:744
+#: ../libgweather/weather.c:934
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Beaufortova sila %.1f"
 
-#: ../libgweather/weather.c:749
-msgctxt "speed unit"
-msgid "Unknown"
-msgstr "Neznáma"
-
-#: ../libgweather/weather.c:767
+#: ../libgweather/weather.c:955
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Neznáma"
 
-#: ../libgweather/weather.c:769
+#: ../libgweather/weather.c:957
 msgid "Calm"
 msgstr "Bezvetrie"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:777
+#: ../libgweather/weather.c:965
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/weather.c:796
+#: ../libgweather/weather.c:1001
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Neznámy"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:801
+#: ../libgweather/weather.c:1007
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:804
+#: ../libgweather/weather.c:1010
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:807
+#: ../libgweather/weather.c:1013
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:810
+#: ../libgweather/weather.c:1016
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:813
+#: ../libgweather/weather.c:1019
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mbar"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:816
+#: ../libgweather/weather.c:1022
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#: ../libgweather/weather.c:822
-msgctxt "pressure unit"
-msgid "Unknown"
-msgstr "Neznáma"
-
-#: ../libgweather/weather.c:839
+#: ../libgweather/weather.c:1060
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Neznáma"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:844
+#: ../libgweather/weather.c:1066
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f míľ"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:847
+#: ../libgweather/weather.c:1069
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:850
+#: ../libgweather/weather.c:1072
 #, c-format
 msgid "%.0fm"
 msgstr "%.0f m"
 
-#: ../libgweather/weather.c:856
-msgctxt "visibility unit"
-msgid "Unknown"
-msgstr "Neznáma"
+#: ../libgweather/weather.c:1100 ../libgweather/weather.c:1125
+msgid "%H∶%M"
+msgstr "%H∶%M"
 
-#: ../libgweather/weather.c:880 ../libgweather/weather.c:905
-msgid "%H:%M"
-msgstr "%H:%M"
-
-#: ../libgweather/weather.c:1006
+#: ../libgweather/weather.c:1219
 msgid "Retrieval failed"
 msgstr "Získanie zlyhalo"
 
 #. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:523
+#: ../libgweather/weather-metar.c:573
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
-msgstr "Neporadilo sa získať údaje METAR: %d %s.\n"
+msgstr "Zlyhalo získanie údajov METAR: %d %s.\n"
 
-#. The new (documented but not advertised) API is less strict in the
-#. format of the attribution, and just requires a generic CC-BY compatible
-#. attribution with a link to their service.
-#.
-#. That's very nice of them!
-#.
-#: ../libgweather/weather-yrno.c:416
+#: ../libgweather/weather-owm.c:385
 msgid ""
-"Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
-"Institute</a>"
+"Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
+"project</a>"
 msgstr ""
-"Údaje o počasí z <a href=\"http://yr.no/\">Nórskeho meteorologického "
-"inštitútu</a>"
+"Údaje o počasí z <a href=\"http://openweathermap.org\">projektu Open Weather Map"
+"</a>"
+
+#: ../libgweather/weather-yrno.c:449
+#, c-format
+msgid ""
+"Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</a>"
+msgstr ""
+"Údaje o počasí z <a href=\"%s\">Nórskeho meteorologického inštitútu</a>"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:1
 msgid "URL for the radar map"
@@ -677,18 +676,11 @@ msgstr ""
 "Vlastná adresa URL, z ktorej sa má získať radarová mapa, alebo ponechajte "
 "prázdne na zakázanie radarových máp."
 
-# PK: uvodzovky nemozu byt normalne, lebo potom nejde skompilovat schema
-#. TRANSLATORS: pick a temperature unit that should be used by default in your
-#. locale; values must be quoted
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
-msgid "'fahrenheit'"
-msgstr "'centigrade'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:3
 msgid "Temperature unit"
 msgstr "Jednotka teploty"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:4
 msgid ""
 "The unit of temperature used for showing weather. Valid values are 'kelvin', "
 "'centigrade' and 'fahrenheit'."
@@ -696,18 +688,11 @@ msgstr ""
 "Jednotka ktorá sa použije na zobrazenie teploty. Platné hodnoty sú „kelvin“, "
 "„centigrade“ (stupeň celzia) a „fahrenheit“."
 
-# PK: uvodzovky nemozu byt normalne, lebo potom nejde skompilovat schema
-#. TRANSLATORS: pick a default distance unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
-msgid "'miles'"
-msgstr "'km'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
 msgid "Distance unit"
 msgstr "Jednotka vzdialenosti"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or "
 "for distance of important events). Valid values are 'meters', 'km' and "
@@ -717,18 +702,11 @@ msgstr ""
 "vzdialenosť dôležitých udalostí). Platné hodnoty sú „meters“ (metre), "
 "„km“ (kilometre) a „miles“ (míle)."
 
-# PK: uvodzovky nemozu byt normalne, lebo potom nejde skompilovat schema
-#. TRANSLATORS: pick a default speed unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:15
-msgid "'knots'"
-msgstr "'kph'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:16
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
 msgid "Speed unit"
 msgstr "Jednotka rýchlosti"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:17
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:8
 msgid ""
 "The unit of speed used for showing weather (for example for wind speed). "
 "Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
@@ -738,17 +716,11 @@ msgstr ""
 "hodnoty sú „ms“ (metre za sekundu), „kph“ (kilometre za hodinu), „mph“ (míle "
 "za hodinu), „knots“ (uzly) a „bft“ (Beaufortova stupnica)."
 
-#. TRANSLATORS: pick a default pressure unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:20
-msgid "'inch-hg'"
-msgstr "'hpa'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:21
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:9
 msgid "Pressure unit"
 msgstr "Jednotka tlaku"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:22
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
 msgid ""
 "The unit of pressure used for showing weather. Valid values are "
 "'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
@@ -760,11 +732,11 @@ msgstr ""
 "ako 1 hPa len zobrazené inak), „mm-hg“ (milimetre ortuti), „inch-hg“ (palce "
 "ortuti), „atm“ (atmosféry)."
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:23
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
 msgid "Default location"
 msgstr "Predvolené umiestnenie"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:24
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
 msgid ""
 "The default location for the weather applet. The first field is the name "
 "that will be shown. If empty, it will be taken from the locations database. "
