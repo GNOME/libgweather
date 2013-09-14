@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2013-07-21 15:01+0000\n"
-"PO-Revision-Date: 2013-03-19 02:09+0900\n"
+"PO-Revision-Date: 2013-09-14 22:16+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: \n"
@@ -23,19 +23,19 @@ msgstr ""
 
 #: ../data/glade/libgweather.xml.in.h:1
 msgid "Location Entry"
-msgstr ""
+msgstr "위치 항목"
 
 #: ../data/glade/libgweather.xml.in.h:2
 msgid "Timezone Menu"
-msgstr ""
+msgstr "표준 시간대 메뉴"
 
 #: ../data/glade/libgweather.xml.in.h:3
 msgid "Timezone"
-msgstr ""
+msgstr "표준 시간대"
 
 #: ../data/glade/libgweather.xml.in.h:4
 msgid "GWeather"
-msgstr ""
+msgstr "날씨"
 
 #: ../libgweather/gweather-timezone.c:316
 msgid "Greenwich Mean Time"
@@ -246,7 +246,7 @@ msgstr "눈 알갱이 보통"
 
 #: ../libgweather/weather.c:187
 msgid "Heavy snow grains"
-msgstr "심한 눈 알갱이"
+msgstr "눈 알갱이 심함"
 
 #. ICE_CRYSTALS
 #: ../libgweather/weather.c:188
@@ -256,35 +256,27 @@ msgstr "눈 결정"
 #. ICE_PELLETS
 #: ../libgweather/weather.c:189
 msgid "Sleet"
-msgstr ""
+msgstr "진눈깨비"
 
 #: ../libgweather/weather.c:189
 msgid "Little sleet"
-msgstr ""
+msgstr "진눈깨비 약간"
 
 #: ../libgweather/weather.c:189
-#, fuzzy
-#| msgid "Moderate snow"
 msgid "Moderate sleet"
-msgstr "눈 보통"
+msgstr "진눈깨비 보통"
 
 #: ../libgweather/weather.c:189
-#, fuzzy
-#| msgid "Heavy snow"
 msgid "Heavy sleet"
-msgstr "폭설"
+msgstr "진눈깨비 심함"
 
 #: ../libgweather/weather.c:189
-#, fuzzy
-#| msgid "Ice pellet storm"
 msgid "Sleet storm"
-msgstr "눈덩이 폭풍"
+msgstr "진눈깨비 폭풍"
 
 #: ../libgweather/weather.c:189
-#, fuzzy
-#| msgid "Showers of ice pellets"
 msgid "Showers of sleet"
-msgstr "눈덩이 소나기"
+msgstr "진눈깨비 소나기"
 
 #. HAIL
 #: ../libgweather/weather.c:190
@@ -640,23 +632,16 @@ msgid "Failed to get METAR data: %d %s.\n"
 msgstr "METAR 데이터를 받는데 실패했습니다: %d %s.\n"
 
 #: ../libgweather/weather-owm.c:385
-#, fuzzy
-#| msgid ""
-#| "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
-#| "Institute</a>"
 msgid ""
 "Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
 "project</a>"
-msgstr "<a href=\"http://yr.no/\">노르웨이 기상청</a>의 날씨 자료"
+msgstr "<a href=\"http://openweathermap.org\">오픈 웨더 맵 프로젝트</a>의 날씨 자료"
 
 #: ../libgweather/weather-yrno.c:449
-#, fuzzy, c-format
-#| msgid ""
-#| "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
-#| "Institute</a>"
+#, c-format
 msgid ""
 "Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</a>"
-msgstr "<a href=\"http://yr.no/\">노르웨이 기상청</a>의 날씨 자료"
+msgstr "<a href=\"%s\">노르웨이 기상청</a>의 날씨 자료"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:1
 msgid "URL for the radar map"
@@ -742,43 +727,3 @@ msgstr ""
 "야 합니다. 세 번째 값은 (위도, 경도) 형식의 튜플로, 데이터베이스에서 가져온 "
 "값 대신 사용합니다. 이 좌표는 기상 예보에는 사용하지 않고 일출 시각과 달 주"
 "기 계산에만 사용합니다."
-
-#~ msgid "Ice pellets"
-#~ msgstr "눈덩이"
-
-#~ msgid "Few ice pellets"
-#~ msgstr "눈덩이 약간"
-
-#~ msgid "Moderate ice pellets"
-#~ msgstr "눈덩이 보통"
-
-#~ msgid "Heavy ice pellets"
-#~ msgstr "눈덩이 많이"
-
-#~ msgctxt "temperature unit"
-#~ msgid "Unknown"
-#~ msgstr "알 수 없음"
-
-#~ msgctxt "speed unit"
-#~ msgid "Unknown"
-#~ msgstr "알 수 없음"
-
-#~ msgctxt "pressure unit"
-#~ msgid "Unknown"
-#~ msgstr "알 수 없음"
-
-#~ msgctxt "visibility unit"
-#~ msgid "Unknown"
-#~ msgstr "알 수 없음"
-
-#~ msgid "'fahrenheit'"
-#~ msgstr "'centigrade'"
-
-#~ msgid "'miles'"
-#~ msgstr "'meters'"
-
-#~ msgid "'knots'"
-#~ msgstr "'ms'"
-
-#~ msgid "'inch-hg'"
-#~ msgstr "'hpa'"
