@@ -321,6 +321,11 @@ gweather_location_entry_set_location (GWeatherLocationEntry *entry,
     completion = gtk_entry_get_completion (GTK_ENTRY (entry));
     model = gtk_entry_completion_get_model (completion);
 
+    if (loc == NULL) {
+	set_location_internal (entry, model, NULL, NULL);
+	return;
+    }
+
     gtk_tree_model_get_iter_first (model, &iter);
     do {
 	gtk_tree_model_get (model, &iter,
