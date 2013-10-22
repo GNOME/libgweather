@@ -714,7 +714,7 @@ gweather_location_get_code (GWeatherLocation *loc)
  * calling gweather_location_get_name() on the location's parent. For
  * other locations it will return %NULL.
  *
- * Return value: (allow-none) @loc's city name, or %NULL
+ * Return value: (allow-none): @loc's city name, or %NULL
  **/
 char *
 gweather_location_get_city_name (GWeatherLocation *loc)
