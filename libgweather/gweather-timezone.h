@@ -44,6 +44,7 @@ GWeatherTimezone *gweather_timezone_ref            (GWeatherTimezone *zone);
 void              gweather_timezone_unref          (GWeatherTimezone *zone);
 
 GWeatherTimezone *gweather_timezone_get_utc        (void);
+GWeatherTimezone *gweather_timezone_get_by_tzid    (const char *tzid);
 
 G_END_DECLS
 
