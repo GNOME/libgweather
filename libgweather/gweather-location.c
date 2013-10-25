@@ -382,6 +382,8 @@ gweather_location_unref (GWeatherLocation *loc)
 
     if (loc->metar_code_cache)
 	g_hash_table_unref (loc->metar_code_cache);
+    if (loc->timezone_cache)
+	g_hash_table_unref (loc->timezone_cache);
 
     g_slice_free (GWeatherLocation, loc);
 }

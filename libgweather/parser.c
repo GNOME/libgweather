@@ -183,7 +183,10 @@ _gweather_parser_new (void)
     tm.tm_year++;
     parser->year_end = mktime (&tm);
 
-    parser->metar_code_cache = g_hash_table_new_full (g_str_hash, g_str_equal, NULL, gweather_location_list_free);
+    parser->metar_code_cache = g_hash_table_new_full (g_str_hash, g_str_equal,
+						      NULL, gweather_location_list_free);
+    parser->timezone_cache = g_hash_table_new_full (g_str_hash, g_str_equal,
+						    NULL, (GDestroyNotify) gweather_timezone_unref);
 
     return parser;
 

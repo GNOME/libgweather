@@ -47,6 +47,7 @@ struct _GWeatherLocation {
     gboolean latlon_valid;
     GWeatherTimezone **zones;
     GHashTable *metar_code_cache;
+    GHashTable *timezone_cache;
 
     int ref_count;
 };

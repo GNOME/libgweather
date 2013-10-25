@@ -149,8 +149,6 @@ parse_tzdata (const char *tzname, time_t start, time_t end,
     return TRUE;
 }
 
-static GHashTable *timezones = NULL;
-
 /**
  * gweather_timezone_get_by_tzid:
  * @tzid: A timezone identifier, like "America/New_York" or "Europe/London"
@@ -163,13 +161,11 @@ static GHashTable *timezones = NULL;
 GWeatherTimezone *
 gweather_timezone_get_by_tzid (const char *tzid)
 {
-    /* ensure that the database has been loaded and parsed */
-    gweather_location_get_world ();
+    GWeatherLocation *world;
 
-    if (timezones == NULL)
-	return NULL;
+    world = gweather_location_get_world ();
 
-    return g_hash_table_lookup (timezones, tzid);
+    return g_hash_table_lookup (world->timezone_cache, tzid);
 }
 
 static GWeatherTimezone *
@@ -219,12 +215,7 @@ parse_timezone (GWeatherParser *parser)
 	zone->has_dst = has_dst;
 	zone->dst_offset = dst_offset;
 
-	if (timezones == NULL)
-	    timezones = g_hash_table_new_full (g_str_hash, g_str_equal,
-					       NULL, /* key owned by zone */
-					       (GDestroyNotify) gweather_timezone_unref);
-
-	g_hash_table_insert (timezones, zone->id, zone);
+	g_hash_table_insert (parser->timezone_cache, zone->id, zone);
 
 	name = NULL;
     }

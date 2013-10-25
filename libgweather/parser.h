@@ -28,6 +28,7 @@ typedef struct {
     xmlTextReaderPtr xml;
     time_t year_start, year_end;
     GHashTable *metar_code_cache;
+    GHashTable *timezone_cache;
 } GWeatherParser;
 
 GWeatherParser *_gweather_parser_new                 (void);
