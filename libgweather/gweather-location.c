@@ -554,33 +554,46 @@ find_nearest_city (GWeatherLocation *location,
 
 /**
  * gweather_location_find_nearest_city:
- * @loc: The parent location, which will be searched recursively
+ * @loc: (allow-none): The parent location, which will be searched recursively
  * @lat: Latitude, in degrees
- * @long_: Longitude, in degrees
+ * @lon: Longitude, in degrees
  *
  * Finds the nearest city to the passed latitude and
- * longitude.
+ * longitude, among the descendants of @loc.
  *
- * Returns: (transfer full): the closest city
+ * @loc must be at most a %GWEATHER_LOCATION_LEVEL_ADM2 location.
+ * This restriction may be lifted in a future version.
+ *
+ * Note that this function does not check if (@lat, @lon) fall inside
+ * @loc, or are in the same region and timezone as the return value.
+ *
+ * Returns: (transfer full): the city closest to (@lat, @lon), in the
+ *          region or administrative district of @loc.
  */
 GWeatherLocation *
-gweather_location_find_nearest_city (double lat, double long_)
+gweather_location_find_nearest_city (GWeatherLocation *loc,
+				     double            lat,
+				     double            lon)
 {
    /* The data set really isn't too big. Don't concern ourselves
      * with a proper nearest neighbors search. Instead, just do
      * an O(n) search. */
-    GWeatherLocation *world = gweather_location_get_world ();
     struct FindNearestCityData data;
 
+    g_return_val_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY, NULL);
+
+    if (loc == NULL)
+	loc = gweather_location_get_world ();
+
     lat = lat * M_PI / 180.0;
-    long_ = long_ * M_PI / 180.0;
+    lon = lon * M_PI / 180.0;
 
     data.latitude = lat;
-    data.longitude = long_;
+    data.longitude = lon;
     data.location = NULL;
     data.distance = 0.0;
 
-    foreach_cities (world, (GFunc) find_nearest_city, &data);
+    foreach_cities (loc, (GFunc) find_nearest_city, &data);
 
     return gweather_location_ref (data.location);
 }
