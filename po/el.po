@@ -39,13 +39,14 @@
 # Fotis Tsamis <ftsamis@gmail.com>, 2009.
 # Simos Xenitellis <simos.lists@googlemail.com>, 2010.
 # Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2013.
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgwe"
 "ather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-04-22 15:50+0000\n"
-"PO-Revision-Date: 2013-04-25 09:31+0300\n"
+"POT-Creation-Date: 2013-10-25 15:12+0000\n"
+"PO-Revision-Date: 2013-11-04 10:33+0300\n"
 "Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
@@ -56,109 +57,125 @@ msgstr ""
 "X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
-#: ../libgweather/gweather-timezone.c:316
+#: ../data/glade/libgweather.xml.in.h:1
+msgid "Location Entry"
+msgstr "Εισαγωγή Τοποθεσίας"
+
+#: ../data/glade/libgweather.xml.in.h:2
+msgid "Timezone Menu"
+msgstr "Μενού Ζώνης Ώρας"
+
+#: ../data/glade/libgweather.xml.in.h:3
+msgid "Timezone"
+msgstr "Ζώνη ώρας"
+
+#: ../data/glade/libgweather.xml.in.h:4
+msgid "GWeather"
+msgstr "GWeather"
+
+#: ../libgweather/gweather-timezone.c:338
 msgid "Greenwich Mean Time"
 msgstr "Μέση ώρα Γκρίνουιτς"
 
-#: ../libgweather/timezone-menu.c:278
+#: ../libgweather/timezone-menu.c:275
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Άγνωστη"
 
-#: ../libgweather/weather.c:125
+#: ../libgweather/weather.c:114
 msgid "Variable"
 msgstr "Μεταβλητός"
 
-#: ../libgweather/weather.c:126
+#: ../libgweather/weather.c:115
 msgid "North"
 msgstr "Βόρειος"
 
-#: ../libgweather/weather.c:126
+#: ../libgweather/weather.c:115
 msgid "North - NorthEast"
 msgstr "Βόρειος - Βορειοανατολικός"
 
-#: ../libgweather/weather.c:126
+#: ../libgweather/weather.c:115
 msgid "Northeast"
 msgstr "Βορειοανατολικός"
 
-#: ../libgweather/weather.c:126
+#: ../libgweather/weather.c:115
 msgid "East - NorthEast"
 msgstr "Ανατολικός - Βορειοανατολικός"
 
-#: ../libgweather/weather.c:127
+#: ../libgweather/weather.c:116
 msgid "East"
 msgstr "Ανατολικός"
 
-#: ../libgweather/weather.c:127
+#: ../libgweather/weather.c:116
 msgid "East - Southeast"
 msgstr "Ανατολικός - Νοτιοανατολικός"
 
-#: ../libgweather/weather.c:127
+#: ../libgweather/weather.c:116
 msgid "Southeast"
 msgstr "Νοτιοανατολικός"
 
-#: ../libgweather/weather.c:127
+#: ../libgweather/weather.c:116
 msgid "South - Southeast"
 msgstr "Νότιος - Νοτιοανατολικός"
 
-#: ../libgweather/weather.c:128
+#: ../libgweather/weather.c:117
 msgid "South"
 msgstr "Νότιος"
 
-#: ../libgweather/weather.c:128
+#: ../libgweather/weather.c:117
 msgid "South - Southwest"
 msgstr "Νότιος - Νοτιοδυτικός"
 
-#: ../libgweather/weather.c:128
+#: ../libgweather/weather.c:117
 msgid "Southwest"
 msgstr "Νοτιοδυτικός"
 
-#: ../libgweather/weather.c:128
+#: ../libgweather/weather.c:117
 msgid "West - Southwest"
 msgstr "Δυτικός - Νοτιοδυτικός"
 
-#: ../libgweather/weather.c:129
+#: ../libgweather/weather.c:118
 msgid "West"
 msgstr "Δυτικός"
 
-#: ../libgweather/weather.c:129
+#: ../libgweather/weather.c:118
 msgid "West - Northwest"
 msgstr "Δυτικός - Βορειοδυτικός"
 
-#: ../libgweather/weather.c:129
+#: ../libgweather/weather.c:118
 msgid "Northwest"
 msgstr "Βορειοδυτικός"
 
-#: ../libgweather/weather.c:129
+#: ../libgweather/weather.c:118
 msgid "North - Northwest"
 msgstr "Βόρειος - Βορειοδυτικός"
 
-#: ../libgweather/weather.c:136
+#: ../libgweather/weather.c:125
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Άκυρη"
 
-#: ../libgweather/weather.c:142
+#: ../libgweather/weather.c:131
 msgid "Clear Sky"
 msgstr "Καθαρός Ουρανός"
 
-#: ../libgweather/weather.c:143
+#: ../libgweather/weather.c:132
 msgid "Broken clouds"
 msgstr "Μέτρια σύννεφα"
 
-#: ../libgweather/weather.c:144
+#: ../libgweather/weather.c:133
 msgid "Scattered clouds"
 msgstr "Λίγα σύννεφα"
 
-#: ../libgweather/weather.c:145
+#: ../libgweather/weather.c:134
 msgid "Few clouds"
 msgstr "Ελάχιστα σύννεφα"
 
-#: ../libgweather/weather.c:146
+#: ../libgweather/weather.c:135
 msgid "Overcast"
 msgstr "Πυκνά σύννεφα"
 
-#: ../libgweather/weather.c:153 ../libgweather/weather.c:225
+#: ../libgweather/weather.c:142 ../libgweather/weather.c:214
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "Άκυρες"
@@ -167,388 +184,394 @@ msgstr "Άκυρες"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:185 ../libgweather/weather.c:187
+#: ../libgweather/weather.c:174 ../libgweather/weather.c:176
 msgid "Thunderstorm"
 msgstr "Καταιγίδα με κεραυνούς"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:186
+#: ../libgweather/weather.c:175
 msgid "Drizzle"
 msgstr "Ψιχάλισμα"
 
-#: ../libgweather/weather.c:186
+#: ../libgweather/weather.c:175
 msgid "Light drizzle"
 msgstr "Ελαφρύ ψιχάλισμα"
 
-#: ../libgweather/weather.c:186
+#: ../libgweather/weather.c:175
 msgid "Moderate drizzle"
 msgstr "Μέτριο ψιχάλισμα"
 
-#: ../libgweather/weather.c:186
+#: ../libgweather/weather.c:175
 msgid "Heavy drizzle"
 msgstr "Δυνατό ψιχάλισμα"
 
-#: ../libgweather/weather.c:186
+#: ../libgweather/weather.c:175
 msgid "Freezing drizzle"
 msgstr "Παγωμένο ψιχάλισμα"
 
 #. RAIN
-#: ../libgweather/weather.c:187
+#: ../libgweather/weather.c:176
 msgid "Rain"
 msgstr "Βροχή"
 
-#: ../libgweather/weather.c:187
+#: ../libgweather/weather.c:176
 msgid "Light rain"
 msgstr "Ελαφριά βροχή"
 
-#: ../libgweather/weather.c:187
+#: ../libgweather/weather.c:176
 msgid "Moderate rain"
 msgstr "Μέτρια βροχή"
 
-#: ../libgweather/weather.c:187
+#: ../libgweather/weather.c:176
 msgid "Heavy rain"
 msgstr "Δυνατή βροχή"
 
-#: ../libgweather/weather.c:187
+#: ../libgweather/weather.c:176
 msgid "Rain showers"
 msgstr "Νεροποντές"
 
-#: ../libgweather/weather.c:187
+#: ../libgweather/weather.c:176
 msgid "Freezing rain"
 msgstr "Παγωμένη βροχή"
 
 #. SNOW
-#: ../libgweather/weather.c:188
+#: ../libgweather/weather.c:177
 msgid "Snow"
 msgstr "Χιόνι"
 
-#: ../libgweather/weather.c:188
+#: ../libgweather/weather.c:177
 msgid "Light snow"
 msgstr "Ελαφρά χιονόπτωση"
 
-#: ../libgweather/weather.c:188
+#: ../libgweather/weather.c:177
 msgid "Moderate snow"
 msgstr "Μέτρια χιονόπτωση"
 
-#: ../libgweather/weather.c:188
+#: ../libgweather/weather.c:177
 msgid "Heavy snow"
 msgstr "Έντονη χιονόπτωση"
 
-#: ../libgweather/weather.c:188
+#: ../libgweather/weather.c:177
 msgid "Snowstorm"
 msgstr "Χιονοθύελλα"
 
-#: ../libgweather/weather.c:188
+#: ../libgweather/weather.c:177
 msgid "Blowing snowfall"
 msgstr "Υψηλά αιωρούμενο χιόνι"
 
-#: ../libgweather/weather.c:188
+#: ../libgweather/weather.c:177
 msgid "Snow showers"
 msgstr "Μπόρες χιονιού"
 
-#: ../libgweather/weather.c:188
+#: ../libgweather/weather.c:177
 msgid "Drifting snow"
 msgstr "Χαμηλά αιωρούμενο χιόνι"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:189
+#: ../libgweather/weather.c:178
 msgid "Snow grains"
 msgstr "Χιονόνερο"
 
-#: ../libgweather/weather.c:189
+#: ../libgweather/weather.c:178
 msgid "Light snow grains"
 msgstr "Ελαφρύ χιονόνερο"
 
-#: ../libgweather/weather.c:189
+#: ../libgweather/weather.c:178
 msgid "Moderate snow grains"
 msgstr "Μέτριο χιονόνερο"
 
-#: ../libgweather/weather.c:189
+#: ../libgweather/weather.c:178
 msgid "Heavy snow grains"
 msgstr "Δυνατό χιονόνερο"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:179
 msgid "Ice crystals"
 msgstr "Κρύσταλλοι πάγου"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:180
 msgid "Sleet"
 msgstr "Χιονόνερο"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:180
 msgid "Little sleet"
 msgstr "Λίγο χιονόνερο"
 
-#: ../libgweather/weather.c:191
-#| msgid "Moderate snow"
+#: ../libgweather/weather.c:180
 msgid "Moderate sleet"
 msgstr "Μέτριο χιονόνερο"
 
-#: ../libgweather/weather.c:191
-#| msgid "Heavy snow"
+#: ../libgweather/weather.c:180
 msgid "Heavy sleet"
 msgstr "Έντονο χιονόνερο"
 
-#: ../libgweather/weather.c:191
-#| msgid "Ice pellet storm"
+#: ../libgweather/weather.c:180
 msgid "Sleet storm"
 msgstr "Καταιγίδα χιονόνερου"
 
-#: ../libgweather/weather.c:191
-#| msgid "Showers of ice pellets"
+#: ../libgweather/weather.c:180
 msgid "Showers of sleet"
 msgstr "Μπόρες από χιονόνερο"
 
 #. HAIL
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:181
 msgid "Hail"
 msgstr "Χαλάζι"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:181
 msgid "Hailstorm"
 msgstr "Καταιγίδα με χαλάζι"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:181
 msgid "Hail showers"
 msgstr "Μπόρες με χαλάζι"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:182
 msgid "Small hail"
 msgstr "Μικρό χαλάζι"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:182
 msgid "Small hailstorm"
 msgstr "Καταιγίδα με μικρό χαλάζι"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:182
 msgid "Showers of small hail"
 msgstr "Μπόρες με μικρό χαλάζι"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:194
+#: ../libgweather/weather.c:183
 msgid "Unknown precipitation"
 msgstr "Άγνωστη ένταση βροχόπτωσης"
 
 #. MIST
-#: ../libgweather/weather.c:195
+#: ../libgweather/weather.c:184
 msgid "Mist"
 msgstr "Καταχνιά"
 
 #. FOG
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:185
 msgid "Fog"
 msgstr "Ομίχλη"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:185
 msgid "Fog in the vicinity"
 msgstr "Ομίχλη στην περιοχή"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:185
 msgid "Shallow fog"
 msgstr "Ασθενής ομίχλη"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:185
 msgid "Patches of fog"
 msgstr "Ομίχλη κατά τόπους"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:185
 msgid "Partial fog"
 msgstr "Μερική ομίχλη"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:185
 msgid "Freezing fog"
 msgstr "Παγωμένη ομίχλη"
 
 #. SMOKE
-#: ../libgweather/weather.c:197
+#: ../libgweather/weather.c:186
 msgid "Smoke"
 msgstr "Καπνός"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:198
+#: ../libgweather/weather.c:187
 msgid "Volcanic ash"
 msgstr "Ηφαιστιακή στάχτη"
 
 #. SAND
-#: ../libgweather/weather.c:199
+#: ../libgweather/weather.c:188
 msgid "Sand"
 msgstr "Άμμος"
 
-#: ../libgweather/weather.c:199
+#: ../libgweather/weather.c:188
 msgid "Blowing sand"
 msgstr "Υψηλά αιωρούμενη άμμος"
 
-#: ../libgweather/weather.c:199
+#: ../libgweather/weather.c:188
 msgid "Drifting sand"
 msgstr "Χαμηλά αιωρούμενη άμμος"
 
 #. HAZE
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:189
 msgid "Haze"
 msgstr "Αιωρούμενα σωματίδια"
 
 #. SPRAY
-#: ../libgweather/weather.c:201
+#: ../libgweather/weather.c:190
 msgid "Blowing sprays"
 msgstr "Υψηλά αιωρούμενο αλατόνερο"
 
 #. DUST
-#: ../libgweather/weather.c:202
+#: ../libgweather/weather.c:191
 msgid "Dust"
 msgstr "Σκόνη"
 
-#: ../libgweather/weather.c:202
+#: ../libgweather/weather.c:191
 msgid "Blowing dust"
 msgstr "Υψηλά αιωρούμενη σκόνη"
 
-#: ../libgweather/weather.c:202
+#: ../libgweather/weather.c:191
 msgid "Drifting dust"
 msgstr "Χαμηλά αιωρούμενη σκόνη"
 
 #. SQUALL
-#: ../libgweather/weather.c:203
+#: ../libgweather/weather.c:192
 msgid "Squall"
 msgstr "Μπουρίνι"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:204
+#: ../libgweather/weather.c:193
 msgid "Sandstorm"
 msgstr "Αμμοθύελλα"
 
-#: ../libgweather/weather.c:204
+#: ../libgweather/weather.c:193
 msgid "Sandstorm in the vicinity"
 msgstr "Αμμοθύελλα στην περιοχή"
 
-#: ../libgweather/weather.c:204
+#: ../libgweather/weather.c:193
 msgid "Heavy sandstorm"
 msgstr "Δυνατή αμμοθύελλα"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:205
+#: ../libgweather/weather.c:194
 msgid "Duststorm"
 msgstr "Θύελλα σκόνης"
 
-#: ../libgweather/weather.c:205
+#: ../libgweather/weather.c:194
 msgid "Duststorm in the vicinity"
 msgstr "Θύελλα σκόνης στην περιοχή"
 
-#: ../libgweather/weather.c:205
+#: ../libgweather/weather.c:194
 msgid "Heavy duststorm"
 msgstr "Δυνατή θύελλα σκόνης"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:206
+#: ../libgweather/weather.c:195
 msgid "Funnel cloud"
 msgstr "Στρόβιλος"
 
 #. TORNADO
-#: ../libgweather/weather.c:207
+#: ../libgweather/weather.c:196
 msgid "Tornado"
 msgstr "Ανεμοστρόβιλος"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:197
 msgid "Dust whirls"
 msgstr "Στρόβιλοι σκόνης"
 
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:197
 msgid "Dust whirls in the vicinity"
 msgstr "Στρόβιλοι σκόνης στην περιοχή"
 
-#: ../libgweather/weather.c:637
+#: ../libgweather/weather.c:670
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a, %b %d / %H∶%M"
 
-#: ../libgweather/weather.c:643
+#: ../libgweather/weather.c:676
 msgid "Unknown observation time"
 msgstr "Άγνωστη ώρα καταγραφής"
 
-#: ../libgweather/weather.c:655
+#: ../libgweather/weather.c:688
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Άγνωστες"
 
+#. Translate to the default units to use for presenting
+#. * lengths to the user. Translate to default:inch if you
+#. * want inches, otherwise translate to default:mm.
+#. * Do *not* translate it to "predefinito:mm", if it
+#. * it isn't default:mm or default:inch it will not work
+#.
+#: ../libgweather/weather.c:710
+msgid "default:mm"
+msgstr "default:mm"
+
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:705
+#: ../libgweather/weather.c:755
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:708
+#: ../libgweather/weather.c:758
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:714
+#: ../libgweather/weather.c:764
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:717
+#: ../libgweather/weather.c:767
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:723
+#: ../libgweather/weather.c:773
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:726
+#: ../libgweather/weather.c:776
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: ../libgweather/weather.c:749 ../libgweather/weather.c:765
-#: ../libgweather/weather.c:781 ../libgweather/weather.c:834
+#: ../libgweather/weather.c:799 ../libgweather/weather.c:815
+#: ../libgweather/weather.c:831 ../libgweather/weather.c:893
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Άγνωστη"
 
-#: ../libgweather/weather.c:797
+#: ../libgweather/weather.c:853
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Άγνωστη"
 
-#: ../libgweather/weather.c:814
+#: ../libgweather/weather.c:873
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Άγνωστη"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:817
+#: ../libgweather/weather.c:876
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:863
+#: ../libgweather/weather.c:922
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f κόμβοι"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:866
+#: ../libgweather/weather.c:925
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f μίλια ανά ώρα"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:869
+#: ../libgweather/weather.c:928
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:872
+#: ../libgweather/weather.c:931
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -556,95 +579,95 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:877
+#: ../libgweather/weather.c:936
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Ισχύς Μποφόρ %.1f"
 
-#: ../libgweather/weather.c:898
+#: ../libgweather/weather.c:957
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Άγνωστη"
 
-#: ../libgweather/weather.c:900
+#: ../libgweather/weather.c:959
 msgid "Calm"
 msgstr "Άπνοια"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:908
+#: ../libgweather/weather.c:967
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/weather.c:944
+#: ../libgweather/weather.c:1003
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Άγνωστη"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:950
+#: ../libgweather/weather.c:1009
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:953
+#: ../libgweather/weather.c:1012
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:956
+#: ../libgweather/weather.c:1015
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:959
+#: ../libgweather/weather.c:1018
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:962
+#: ../libgweather/weather.c:1021
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:965
+#: ../libgweather/weather.c:1024
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#: ../libgweather/weather.c:1003
+#: ../libgweather/weather.c:1062
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Άγνωστη"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:1009
+#: ../libgweather/weather.c:1068
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f μίλια"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:1012
+#: ../libgweather/weather.c:1071
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1015
+#: ../libgweather/weather.c:1074
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:1043 ../libgweather/weather.c:1068
+#: ../libgweather/weather.c:1102 ../libgweather/weather.c:1127
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
-#: ../libgweather/weather.c:1169
+#: ../libgweather/weather.c:1221
 msgid "Retrieval failed"
 msgstr "Αποτυχία λήψης"
 
@@ -654,11 +677,16 @@ msgstr "Αποτυχία λήψης"
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "Αδύνατη η ανάγνωση πληροφοριών METAR: %d %s.\n"
 
+#: ../libgweather/weather-owm.c:385
+msgid ""
+"Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
+"project</a>"
+msgstr ""
+"Μετεωρολογικά δεδομένα από το <a<a href=\"http://openweathermap.org\">Open "
+"Weather Map project</a>"
+
 #: ../libgweather/weather-yrno.c:449
 #, c-format
-#| msgid ""
-#| "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
-#| "Institute</a>"
 msgid ""
 "Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</a>"
 msgstr ""
