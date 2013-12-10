@@ -995,8 +995,8 @@ gweather_location_format_one_serialize (GWeatherLocation *location)
 			  location->latitude,
 			  location->longitude,
 			  location->parent && location->parent->latlon_valid,
-			  location->parent ? location->parent->latitude : 0.0d,
-			  location->parent ? location->parent->longitude : 0.0d);
+			  location->parent ? location->parent->latitude : 0.0,
+			  location->parent ? location->parent->longitude : 0.0);
 }
 
 GWeatherLocation *
