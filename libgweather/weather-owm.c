@@ -414,7 +414,6 @@ gboolean
 owm_start_open (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
-    const char *template;
     gchar *url;
     SoupMessage *message;
     WeatherLocation *loc;
@@ -431,13 +430,16 @@ owm_start_open (GWeatherInfo *info)
     g_ascii_dtostr (latstr, sizeof(latstr), RADIANS_TO_DEGREES (loc->latitude));
     g_ascii_dtostr (lonstr, sizeof(lonstr), RADIANS_TO_DEGREES (loc->longitude));
 
-    template = "http://api.openweathermap.org/data/2.5/forecast?lat=%s&lon=%s&mode=xml&units=metric"
+#define TEMPLATE_START "http://api.openweathermap.org/data/2.5/forecast?lat=%s&lon=%s&mode=xml&units=metric"
 #ifdef OWM_APIKEY
-        "&APPID=" OWM_APIKEY
+ #define TEMPLATE TEMPLATE_START "&APPID=" OWM_APIKEY
+#else
+ #define TEMPLATE TEMPLATE_START
 #endif
-        ;
 
-    url = g_strdup_printf (template, latstr, lonstr);
+    url = g_strdup_printf (TEMPLATE, latstr, lonstr);
+
+#undef TEMPLATE
 
     message = soup_message_new ("GET", url);
     soup_session_queue_message (priv->session, message, owm_finish, info);
