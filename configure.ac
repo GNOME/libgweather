@@ -1,5 +1,5 @@
 AC_INIT([libgweather],
-        [3.11.1],
+        [3.11.3],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=libgweather],
         [libgweather],
         [http://live.gnome.org/LibGWeather])
@@ -20,7 +20,7 @@ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 #   change to C+1:0:0
 # - If the interface is the same as the previous version, change to C:R+1:A
 
-LT_VERSION=6:1:0
+LT_VERSION=7:0:1
 AC_SUBST(LT_VERSION)
 
 GTK_REQUIRED=2.90.0
