@@ -370,7 +370,6 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
     xmlDocPtr doc;
     xmlXPathContextPtr xpath_ctx;
     xmlXPathObjectPtr xpath_result;
-    char *attribution_url;
     int i;
 
     priv = master_info->priv;
@@ -443,11 +442,7 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 
        That's very nice of them!
     */
-    attribution_url = build_yrno_url_geonames (priv->glocation, "");
-    if (attribution_url == NULL)
-	attribution_url = g_strdup ("http://yr.no/");
-    priv->forecast_attribution = g_strdup_printf(_("Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</a>"), attribution_url);
-    g_free (attribution_url);
+    priv->forecast_attribution = g_strdup(_("Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological Institute</a>"));
 
  out:
     xmlXPathFreeContext (xpath_ctx);
