@@ -9,13 +9,13 @@
 # Antón Méixome <meixome@mancomun.org>, 2009.
 # Fran Diéguez <frandieguez@gnome.org>, 2009, 2010, 2011, 2012.
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.
-# Fran Dieguez <frandieguez@gnome.org>, 2012, 2013.
+# Fran Dieguez <frandieguez@gnome.org>, 2012, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather-master-po-gl-57986\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-01 13:47+0100\n"
-"PO-Revision-Date: 2013-11-01 13:47+0200\n"
+"POT-Creation-Date: 2014-01-20 23:05+0100\n"
+"PO-Revision-Date: 2014-01-20 23:05+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -653,11 +653,19 @@ msgstr ""
 "Datos do tempo de <a href=\"http://openweathermap.org\">Proxecto aberto de "
 "mapas do tempo</a>"
 
-#: ../libgweather/weather-yrno.c:449
-#, c-format
+#. The new (documented but not advertised) API is less strict in the
+#. format of the attribution, and just requires a generic CC-BY compatible
+#. attribution with a link to their service.
+#.
+#. That's very nice of them!
+#.
+#: ../libgweather/weather-yrno.c:445
 msgid ""
-"Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</a>"
-msgstr "Datos do tempo de <a href=\"%s\">Instituto meteorolóxico noruego</a>"
+"Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
+"Institute</a>"
+msgstr ""
+"Datos do tempo de <a href=\"http://yr.no/\">Instituto meteorolóxico "
+"noruego</a>"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:1
 msgid "URL for the radar map"
