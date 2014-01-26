@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: libgweather\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-12-29 19:12+0000\n"
-"PO-Revision-Date: 2014-01-13 14:23+0100\n"
+"POT-Creation-Date: 2014-01-26 03:43+0000\n"
+"PO-Revision-Date: 2014-01-26 16:32+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -660,12 +660,22 @@ msgstr ""
 "Údaje o počasí z <a href=\"http://openweathermap.org\">projektu Open Weather "
 "Map</a>"
 
-#: ../libgweather/weather-yrno.c:449
-#, c-format
+#. The new (documented but not advertised) API is less strict in the
+#. format of the attribution, and just requires a generic CC-BY compatible
+#. attribution with a link to their service.
+#.
+#. That's very nice of them!
+#.
+#: ../libgweather/weather-yrno.c:445
+#| msgid ""
+#| "Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</"
+#| "a>"
 msgid ""
-"Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</a>"
+"Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
+"Institute</a>"
 msgstr ""
-"Údaje o počasí z <a href=\"%s\">Norského meteorologického institutu</a>"
+"Údaje o počasí z <a href=\"http://yr.no/\">Norského meteorologického "
+"institutu</a>"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:1
 msgid "URL for the radar map"
