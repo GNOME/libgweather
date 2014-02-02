@@ -1,5 +1,5 @@
 # Brazilian Portuguese translation for libgweather
-# Copyright (C) 2000-2013 Free Software Foundation, Inc.
+# Copyright (C) 2000-2014 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-applets package.
 # Gustavo Maciel Dias Vieira <gustavo@sagui.org>, 2000-2001.
 # Alexandre Folle de Menezes <afmenez@terra.com.br>, 2003.
@@ -13,23 +13,23 @@
 # Enrico Nicoletto <liverig@gmail.com>, 2009, 2013.
 # André Gondim <In Memoriam>, 2009.
 # Djavan Fagundes <dnoway@gmail.com>, 2009, 2012.
-# Rafael Ferreira <rafael.f.f1@gmail.com>, 2013.
+# Rafael Ferreira <rafael.f.f1@gmail.com>, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-16 17:48+0000\n"
-"PO-Revision-Date: 2013-10-16 15:05-0300\n"
-"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
+"POT-Creation-Date: 2014-01-20 21:37+0000\n"
+"PO-Revision-Date: 2014-01-20 23:56-0300\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.3\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/glade/libgweather.xml.in.h:1
@@ -48,7 +48,7 @@ msgstr "Fuso horário"
 msgid "GWeather"
 msgstr "GWeather"
 
-#: ../libgweather/gweather-timezone.c:318
+#: ../libgweather/gweather-timezone.c:338
 msgid "Greenwich Mean Time"
 msgstr "Hora de Greenwich"
 
@@ -661,12 +661,22 @@ msgstr ""
 "Dados climáticos do <a href=\"http://openweathermap.org\">projeto Open "
 "Weather Map</a>"
 
-#: ../libgweather/weather-yrno.c:449
-#, c-format
+#. The new (documented but not advertised) API is less strict in the
+#. format of the attribution, and just requires a generic CC-BY compatible
+#. attribution with a link to their service.
+#.
+#. That's very nice of them!
+#.
+#: ../libgweather/weather-yrno.c:445
+#| msgid ""
+#| "Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</"
+#| "a>"
 msgid ""
-"Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</a>"
+"Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
+"Institute</a>"
 msgstr ""
-"Dados climáticos do <a href=\"%s\">Instituto de Meteorologia Norueguês</a>"
+"Dados climáticos do <a href=\"http://yr.no/\">Instituto de Meteorologia "
+"Norueguês</a>"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:1
 msgid "URL for the radar map"
