@@ -1,24 +1,24 @@
 # translation of libgweather.master.kn.po to Kannada
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Praveen <prawinmysore@gmail.com>, 2008.
 # Shankar Prasad <svenkate@redhat.com>, 2008, 2009, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather.master.kn\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=libgweather&keywords=I18N+L10N&component=general\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product="
+"libgweather&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2013-03-04 21:50+0000\n"
-"PO-Revision-Date: 2013-03-26 00:49+0530\n"
+"PO-Revision-Date: 2013-03-25 03:21-0400\n"
 "Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
 "Language-Team: Kannada <en@li.org>\n"
-"Language: kn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"Language: kn\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.2.3\n"
 
 #: ../libgweather/gweather-timezone.c:316
 msgid "Greenwich Mean Time"
@@ -98,7 +98,6 @@ msgid "North - Northwest"
 msgstr "ಉತ್ತರ - ಉತ್ತರಪಶ್ಚಿಮ"
 
 #: ../libgweather/weather.c:140
-#| msgid "Invalid"
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "ಅಮಾನ್ಯ"
@@ -123,8 +122,8 @@ msgstr "ಒಂದಿಷ್ಟು ಮೋಡಗಳು"
 msgid "Overcast"
 msgstr "ಮೋಡಕವಿದ ವಾತಾವರಣ"
 
-#: ../libgweather/weather.c:157 ../libgweather/weather.c:229
-#| msgid "Invalid"
+#: ../libgweather/weather.c:157
+#: ../libgweather/weather.c:229
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "ಅಮಾನ್ಯ"
@@ -133,7 +132,8 @@ msgstr "ಅಮಾನ್ಯ"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:189 ../libgweather/weather.c:191
+#: ../libgweather/weather.c:189
+#: ../libgweather/weather.c:191
 msgid "Thunderstorm"
 msgstr "ಗುಡುಗು ಬಿರುಗಾಳಿ"
 
@@ -421,7 +421,6 @@ msgid "Dust whirls in the vicinity"
 msgstr "ಸಮೀಪದಲ್ಲಿ ರಭಸದಿಂದ ತಿರುಗುವ ಧೂಳು"
 
 #: ../libgweather/weather.c:552
-#| msgid "%a, %b %d / %H:%M"
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a, %b %d / %H∶%M"
 
@@ -430,7 +429,6 @@ msgid "Unknown observation time"
 msgstr "ಗೊತ್ತಿರದ ವೀಕ್ಷಣಾ ಸಮಯ"
 
 #: ../libgweather/weather.c:570
-#| msgid "Unknown"
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "ಗೊತ್ತಿರದ"
@@ -472,26 +470,24 @@ msgid "%d K"
 msgstr "%d K"
 
 #: ../libgweather/weather.c:619
-#| msgid "Unknown"
 msgctxt "temperature unit"
 msgid "Unknown"
 msgstr "ಗೊತ್ತಿರದ"
 
-#: ../libgweather/weather.c:634 ../libgweather/weather.c:650
-#: ../libgweather/weather.c:666 ../libgweather/weather.c:719
-#| msgid "Unknown"
+#: ../libgweather/weather.c:634
+#: ../libgweather/weather.c:650
+#: ../libgweather/weather.c:666
+#: ../libgweather/weather.c:719
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "ಗೊತ್ತಿರದ"
 
 #: ../libgweather/weather.c:682
-#| msgid "Unknown"
 msgctxt "dew"
 msgid "Unknown"
 msgstr "ಗೊತ್ತಿರದ"
 
 #: ../libgweather/weather.c:699
-#| msgid "Unknown"
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "ಗೊತ್ತಿರದ"
@@ -528,20 +524,17 @@ msgstr "%.1f m/s"
 
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
-#.
 #: ../libgweather/weather.c:744
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "ಬೋಫರ್ಟ್ ಫೋರ್ಸ್ %.1f"
 
 #: ../libgweather/weather.c:749
-#| msgid "Unknown"
 msgctxt "speed unit"
 msgid "Unknown"
 msgstr "ಗೊತ್ತಿರದ"
 
 #: ../libgweather/weather.c:767
-#| msgid "Unknown"
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "ಗೊತ್ತಿರದ"
@@ -557,7 +550,6 @@ msgid "%s / %s"
 msgstr "%s / %s"
 
 #: ../libgweather/weather.c:796
-#| msgid "Unknown"
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "ಗೊತ್ತಿರದ"
@@ -599,13 +591,11 @@ msgid "%.3f atm"
 msgstr "%.3f atm"
 
 #: ../libgweather/weather.c:822
-#| msgid "Unknown"
 msgctxt "pressure unit"
 msgid "Unknown"
 msgstr "ಗೊತ್ತಿರದ"
 
 #: ../libgweather/weather.c:839
-#| msgid "Unknown"
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "ಗೊತ್ತಿರದ"
@@ -629,12 +619,12 @@ msgid "%.0fm"
 msgstr "%.0fm"
 
 #: ../libgweather/weather.c:856
-#| msgid "Unknown"
 msgctxt "visibility unit"
 msgid "Unknown"
 msgstr "ಗೊತ್ತಿರದ"
 
-#: ../libgweather/weather.c:880 ../libgweather/weather.c:905
+#: ../libgweather/weather.c:880
+#: ../libgweather/weather.c:905
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
@@ -643,7 +633,7 @@ msgid "Retrieval failed"
 msgstr "ಮರಳಿ ಪಡೆಯುವಲ್ಲಿ ವಿಫಲವಾಗಿದೆ"
 
 #. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:523
+#: ../libgweather/weather-metar.c:573
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "METAR ಮಾಹಿತಿಯನ್ನು ಪಡೆಯುವಲ್ಲಿ ವಿಫಲವಾಗಿದೆ: %d %s.\n"
@@ -651,10 +641,8 @@ msgstr "METAR ಮಾಹಿತಿಯನ್ನು ಪಡೆಯುವಲ್ಲಿ �
 #. The new (documented but not advertised) API is less strict in the
 #. format of the attribution, and just requires a generic CC-BY compatible
 #. attribution with a link to their service.
-#.
 #. That's very nice of them!
-#.
-#: ../libgweather/weather-yrno.c:416
+#: ../libgweather/weather-yrno.c:418
 msgid ""
 "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
 "Institute</a>"
@@ -672,8 +660,7 @@ msgid ""
 "radar maps."
 msgstr ""
 "ಒಂದು ರಾಡರಿನ ನಕ್ಷೆಯನ್ನು ಮರಳಿ ಪಡೆದುಕೊಳ್ಳಬೇಕಿರುವ ಅಗತ್ಯಾನುಗುಣ URL. ರಾಡರ್ "
-"ನಕ್ಷೆಗಳನ್ನು "
-"ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ಇದನ್ನು ಖಾಲಿ ಬಿಡಿ."
+"ನಕ್ಷೆಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ಇದನ್ನು ಖಾಲಿ ಬಿಡಿ."
 
 #. TRANSLATORS: pick a temperature unit that should be used by default in your
 #. locale; values must be quoted
@@ -730,8 +717,8 @@ msgid ""
 msgstr ""
 "ಹವಮಾನವನ್ನು ತೋರಿಸಲು ಬಳಸಲಾಗುವ ವೇಗದ ಏಕಮಾನ (ಉದಾಹರಣೆಗೆ ಗಾಳಿಯ ವೇಗ). ಮಾನ್ಯವಾದ "
 "ಮೌಲ್ಯಗಳೆಂದರೆ 'ms' (ಪ್ರತಿ ಸೆಕೆಂಡಿಗೆ ಮೀಟರುಗಳು), 'kph' (ಪ್ರತಿ ಗಂಟೆಗೆ "
-"ಕಿಲೋಮೀಟರುಗಳು), "
-"'mph' (ಪ್ರತಿ ಗಂಟೆಗೆ ಮೈಲುಗಳು), 'ನಾಟ್‌ಗಳು' ಮತ್ತು 'bft' (ಬೀಫೋರ್ಟ ಸ್ಕೇಲ್)."
+"ಕಿಲೋಮೀಟರುಗಳು), 'mph' (ಪ್ರತಿ ಗಂಟೆಗೆ ಮೈಲುಗಳು), 'ನಾಟ್‌ಗಳು' ಮತ್ತು 'bft' (ಬೀಫೋರ್ಟ "
+"ಸ್ಕೇಲ್)."
 
 #. TRANSLATORS: pick a default pressure unit for your locale, see key description
 #. for valid values
@@ -745,16 +732,16 @@ msgstr "ಒತ್ತಡದ ಘಟಕ"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:22
 msgid ""
-"The unit of pressure used for showing weather. Valid values are "
-"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
-"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
-"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+"The unit of pressure used for showing weather. Valid values are 'kpa' "
+"(kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically equivalent "
+"to 1 hPa but shown differently), 'mm-hg' (millimiters of mercury), 'inch-hg' "
+"(inches of mercury), 'atm' (atmospheres)."
 msgstr ""
 "ಹವಮಾನವನ್ನು ತೋರಿಸಲು ಬಳಸಲಾಗುವ ಒತ್ತಡದ ವೇಗ. ಮಾನ್ಯವಾದ ಮೌಲ್ಯಗಳೆಂದರೆ 'kpa' "
-"(ಕಿಲೋಪ್ಯಾಸ್ಕಲ್), "
-"'hpa' (ಹೆಕ್ಟೋಪ್ಯಾಸ್ಕಲ್), 'mb' (ಮಿಲಿಬಾರ್, ಗಣತೀಯದ ಲೆಕ್ಕಾಚಾರದ ಪ್ರಕಾರ 1 hPa ಗೆ "
-"ಸಮನಾಗಿರುತ್ತದೆ ಆದರೆ ಭಿನ್ನವಾಗಿ ತೋರಿಸಲಾಗುತ್ತದೆ), 'mm-hg' (ಮರ್ಕ್ಯುರಿಯ ಮಿಲಿಮೀಟರ್), "
-"'inch-hg' (ಮರ್ಕ್ಯುರಿಯ ಇಂಚು), 'atm' (ಅಟ್ಮಾಸ್ಫಿಯರುಗಳು)."
+"(ಕಿಲೋಪ್ಯಾಸ್ಕಲ್), 'hpa' (ಹೆಕ್ಟೋಪ್ಯಾಸ್ಕಲ್), 'mb' (ಮಿಲಿಬಾರ್, ಗಣತೀಯದ ಲೆಕ್ಕಾಚಾರದ "
+"ಪ್ರಕಾರ 1 hPa ಗೆ ಸಮನಾಗಿರುತ್ತದೆ ಆದರೆ ಭಿನ್ನವಾಗಿ ತೋರಿಸಲಾಗುತ್ತದೆ), 'mm-hg' "
+"(ಮರ್ಕ್ಯುರಿಯ ಮಿಲಿಮೀಟರ್), 'inch-hg' (ಮರ್ಕ್ಯುರಿಯ ಇಂಚು), 'atm' (ಅಟ್ಮಾಸ್ಫಿಯರುಗಳು)."
+""
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:23
 msgid "Default location"
@@ -772,200 +759,9 @@ msgid ""
 msgstr ""
 "ಹವಾಮಾನ ಕಿರುಅನ್ವಯವು ಇರುವ ಸ್ಥಳದ ಪೂರ್ವನಿಯೋಜಿತ ಸ್ಥಳ. ಹೆಸರಿನಲ್ಲಿನ ಮೊದಲ ಭಾಗವನ್ನು "
 "ತೋರಿಸಲಾಗುತ್ತದೆ. ಖಾಲಿ ಇದ್ದಲ್ಲಿ, ಇದನ್ನು ಸ್ಥಳಗಳ ದತ್ತಸಂಚಯದಿಂದ "
-"ತೆಗೆದುಕೊಳ್ಳಲಾಗುತ್ತದೆ. "
-"METAR ಸಂಕೇತದಲ್ಲಿನ ಎರಡನೆಯ ಭಾಗವು ಪೂರ್ವನಿಯೋಜಿತ ಹವಾಮಾನ ಕೇಂದ್ರವಾಗಿರುತ್ತದೆ. ಇದು "
-"ಖಾಲಿ "
-"ಇರಬಾರದು ಮತ್ತು Locations.xml ಕಡತದಲ್ಲಿ ಒಂದು &lt;ಸಂಕೇತ&gt; ಟ್ಯಾಗ್‌ಗೆ "
-"ಸಂಬಂಧಿಸಿರಬೇಕು. "
-"ಮೂರನೆಯ ಭಾಗವು ದತ್ತಸಂಚಯದಿಂದ ಪಡೆಯಲಾದ ಮೌಲ್ಯವನ್ನು ಅತಿಕ್ರಮಿಸುವಂತೆ (ಅಕ್ಷಾಂಶ, "
-"ರೇಖಾಂಶ)ದ "
-"ಒಂದು ಅನುಕ್ರಮವಾಗಿರುತ್ತದೆ. ಇದನ್ನು ಕೇವಲ ಸೂರ್ಯ ಹುಟ್ಟುವಿಕೆ ಮತ್ತು ಚಂದ್ರನ "
-"ದೃಶ್ಯಭಾಗವನ್ನು "
-"ಲೆಕ್ಕಹಾಕಲು ಬಳಸಲಾಗುತ್ತದೆಯೆ ಹೊರತು ಹವಾಮಾನ ಮುನ್ಸೂಚನೆಯನ್ನು ತಿಳಿದುಕೊಳ್ಳಲು ಅಲ್ಲ."
-
-#~ msgid "%H:%M"
-#~ msgstr "%H:%M"
-
-#~ msgid "WeatherInfo missing location"
-#~ msgstr "ಹವಾಗುಣದ ಮಾಹಿತಿಯಲ್ಲಿ ಸ್ಥಳವು ಕಾಣುತ್ತಿಲ್ಲ"
-
-#~ msgid "DEFAULT_LOCATION"
-#~ msgstr "ಬೆಂಗಳೂರು"
-
-#~ msgid "DEFAULT_CODE"
-#~ msgstr "VOBG"
-
-#~ msgid "DEFAULT_ZONE"
-#~ msgstr "DEFAULT_ZONE"
-
-#~ msgid "DEFAULT_RADAR"
-#~ msgstr "DEFAULT_RADAR"
-
-#~ msgid "DEFAULT_COORDINATES"
-#~ msgstr "12-57N 077-40E"
-
-#~ msgid "Default"
-#~ msgstr "ಪೂರ್ವನಿಯೋಜಿತ"
-
-#~ msgid "K"
-#~ msgstr "K"
-
-#~ msgid "C"
-#~ msgstr "C"
-
-#~ msgid "F"
-#~ msgstr "F"
-
-#~ msgid "m/s"
-#~ msgstr "m/s"
-
-#~ msgid "km/h"
-#~ msgstr "km/h"
-
-#~ msgid "mph"
-#~ msgstr "mph"
-
-#~ msgid "Beaufort scale"
-#~ msgstr "ಬೋಫರ್ಟ್ ಘಟಕ"
-
-#~ msgid "kPa"
-#~ msgstr "kPa"
-
-#~ msgid "hPa"
-#~ msgstr "hPa"
-
-#~ msgid "mb"
-#~ msgstr "mb"
-
-#~ msgid "mmHg"
-#~ msgstr "mmHg"
-
-#~ msgid "inHg"
-#~ msgstr "inHg"
-
-#~ msgid "atm"
-#~ msgstr "atm"
-
-#~ msgid "m"
-#~ msgstr "m"
-
-#~ msgid "km"
-#~ msgstr "km"
-
-#~ msgid "mi"
-#~ msgstr "mi"
-
-#~ msgid "DEFAULT_TEMP_UNIT"
-#~ msgstr "C"
-
-#~ msgid "DEFAULT_SPEED_UNIT"
-#~ msgstr "km/h"
-
-#~ msgid "DEFAULT_PRESSURE_UNIT"
-#~ msgstr "hPa"
-
-#~ msgid "DEFAULT_DISTANCE_UNIT"
-#~ msgstr "km"
-
-#~ msgid ""
-#~ "A three-digit-long code for retrieving radar maps from weather.com, found "
-#~ "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-#~ msgstr ""
-#~ "weather.com ನಿಂದ ರಾಡಾರ್ ನಕ್ಷೆಗಳನ್ನು ಪಡೆಯಲು ಬಳಸಲಾಗುವ ಮೂರು ಅಂಕಿಗಳ ಒಂದು ಕೋಡ್, "
-#~ "http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in ನಲ್ಲಿ "
-#~ "ಕಂಡು ಬಂದಂತೆ"
-
-#~ msgid ""
-#~ "A unique zone for the city, as found from http://git.gnome.org/cgit/"
-#~ "libgweather/plain/data/Locations.xml.in"
-#~ msgstr ""
-#~ "ನಗರದ ಒಂದು ವಿಶಿಷ್ಟ ವಲಯ, http://git.gnome.org/cgit/libgweather/plain/data/"
-#~ "Locations.xml.in ನಲ್ಲಿ ಕಂಡು ಬಂದಂತೆ"
-
-#~ msgid ""
-#~ "Determines whether the applet automatically updates its weather "
-#~ "statistics or not."
-#~ msgstr ""
-#~ "ಹವಾಮಾನ ಆಪ್ಲೆಟ್‌ ತಾನಾಗಿಯೆ ಹವಾಮಾನ ಅಂಕಿಅಂಶಗಳನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡುತ್ತದೆಯೆ ಅಥವ ಇಲ್ಲವೆ ಎಂದು "
-#~ "ನಿರ್ಧರಿಸುತ್ತದೆ."
-
-#~ msgid "Display radar map"
-#~ msgstr "ರಾಡಾರ್ ನಕ್ಷೆಯನ್ನು ಪ್ರದರ್ಶಿಸು"
-
-#~ msgid "Fetch a radar map on each update."
-#~ msgstr "ಪ್ರತಿಯೊಂದು ಅಪ್ಡೇಟಿನಲ್ಲೂ ರಾಡಾರ್ ನಕ್ಷೆಯನ್ನು ಪಡೆದುಕೋ"
-
-#~ msgid ""
-#~ "If true, then retrieve a radar map from a location specified by the "
-#~ "\"radar\" key."
-#~ msgstr ""
-#~ "ಇದು ಸತ್ಯವಾಗಿದ್ದರೆ, ರಾಡಾರ್ ನಕ್ಷೆಯನ್ನು \"ರಾಡಾರ್\" ಕೀಲಿಯಿಂದ ಸೂಚಿಸಲಾದ ಒಂದು ಸ್ಥಳದಿಂದ "
-#~ "ಪಡೆದುಕೊಳ್ಳಿ."
-
-#~ msgid ""
-#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-#~ "[EW]."
-#~ msgstr ""
-#~ "ನೀವಿರುವ ಜಾಗದ ರೇಖಾಂಶ ಮತ್ತು ಅಕ್ಷಾಂಶವನ್ನು DD-MM-SS[NS] DD-MM-SS[EW] ಮಾದರಿಯಲ್ಲಿ "
-#~ "ತೋರಿಸಲಾಗಿದೆ."
-
-#~ msgid "Location coordinates"
-#~ msgstr "ಸ್ಥಳದ ನಿರ್ದೇಶಾಂಕಗಳು"
-
-#~ msgid "Nearby city"
-#~ msgstr "ಹತ್ತಿರದ ಪಟ್ಟಣ"
-
-#~ msgid ""
-#~ "Nearby major zone, such as a capital city, as found from http://git.gnome."
-#~ "org/cgit/libgweather/plain/data/Locations.xml.in"
-#~ msgstr ""
-#~ "http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in ನಲ್ಲಿ "
-#~ "ಕಂಡುಬಂದಂತಹ ರಾಜಧಾನಿಯಂತಹ ಸಮೀಪದ ಪ್ರಮುಖ ವಲಯ"
-
-#~ msgid "Not used anymore"
-#~ msgstr "ಇದು ಈಗ ಬಳಸಲ್ಪಡುವುದಿಲ್ಲ"
-
-#~ msgid "Radar location"
-#~ msgstr "ರಾಡರಿನ ಸ್ಥಳ"
-
-#~ msgid "The city that gweather displays information for."
-#~ msgstr "gweather ಹವಾಗುಣದ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸುತ್ತಿರುವ ಊರು."
-
-#~ msgid "The interval, in seconds, between automatic updates."
-#~ msgstr "ಸ್ವಯಂಚಾಲಿತ ಅಪ್ಡೇಟ್‌ಗಳ ನಡುವಿನ ವಿರಾಮ, ಸೆಕೆಂಡುಗಳಲ್ಲಿ."
-
-#~ msgid "The unit to use for pressure."
-#~ msgstr "ಒತ್ತಡಕ್ಕಾಗಿ ಬಳಸಬೇಕಿರುವ ಘಟಕ."
-
-#~ msgid "The unit to use for temperature."
-#~ msgstr "ತಾಪಮಾನಕ್ಕಾಗಿ ಬಳಸಬೇಕಿರುವ ಘಟಕ."
-
-#~ msgid "The unit to use for visibility."
-#~ msgstr "ಗೋಚರಿಕೆಗೆ ಬಳಸಬೇಕಿರುವ ಘಟಕ."
-
-#~ msgid "The unit to use for wind speed."
-#~ msgstr "ಗಾಳಿಯ ವೇಗಕ್ಕಾಗಿ ಬಳಸಬೇಕಿರುವ ಘಟಕ."
-
-#~ msgid "Update interval"
-#~ msgstr "ಅಪ್ಡೇಟ್‌ನ ನಡುವಿನ ಅಂತರ"
-
-#~ msgid "Update the data automatically"
-#~ msgstr "ಮಾಹಿತಿಯನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಅಪ್ ಡೇಟ್ ಮಾಡು"
-
-#~ msgid "Use custom url for the radar map"
-#~ msgstr "ರಾಡರನ ನಕ್ಷೆಗೆ ಕಸ್ಟಮ್ ಯುಆರ್ಎಲ್ ಅನ್ನು ಬಳಸು"
-
-#~ msgid "Use metric units"
-#~ msgstr "ಮೆಟ್ರಿಕ್‌ ಘಟಕಗಳನ್ನು ಉಪಯೋಗಿಸಿ"
-
-#~ msgid "Use metric units instead of english units."
-#~ msgstr "ಇಂಗ್ಲೀಷ್ ಘಟಕಗಳ ಬದಲಾಗಿ ಮೆಟ್ರಿಕ್ ಪದ್ದತಿಯ ಘಟಕಗಳನ್ನು ಉಪಯೋಗಿಸಿ."
-
-#~ msgid "Weather for a city"
-#~ msgstr "ನಗರದ ಹವಾಗುಣ"
-
-#~ msgid "Weather location information"
-#~ msgstr "ಹವಾಗುಣದ ಸ್ಥಳದ ಮಾಹಿತಿ"
-
-#~ msgid "Weather location information."
-#~ msgstr "ಹವಾಗುಣದ ಸ್ಥಳದ ಮಾಹಿತಿ."
+"ತೆಗೆದುಕೊಳ್ಳಲಾಗುತ್ತದೆ. METAR ಸಂಕೇತದಲ್ಲಿನ ಎರಡನೆಯ ಭಾಗವು ಪೂರ್ವನಿಯೋಜಿತ ಹವಾಮಾನ "
+"ಕೇಂದ್ರವಾಗಿರುತ್ತದೆ. ಇದು ಖಾಲಿ ಇರಬಾರದು ಮತ್ತು Locations.xml ಕಡತದಲ್ಲಿ ಒಂದು "
+"&lt;ಸಂಕೇತ&gt; ಟ್ಯಾಗ್‌ಗೆ ಸಂಬಂಧಿಸಿರಬೇಕು. ಮೂರನೆಯ ಭಾಗವು ದತ್ತಸಂಚಯದಿಂದ ಪಡೆಯಲಾದ "
+"ಮೌಲ್ಯವನ್ನು ಅತಿಕ್ರಮಿಸುವಂತೆ (ಅಕ್ಷಾಂಶ, ರೇಖಾಂಶ)ದ ಒಂದು ಅನುಕ್ರಮವಾಗಿರುತ್ತದೆ. ಇದನ್ನು "
+"ಕೇವಲ ಸೂರ್ಯ ಹುಟ್ಟುವಿಕೆ ಮತ್ತು ಚಂದ್ರನ ದೃಶ್ಯಭಾಗವನ್ನು ಲೆಕ್ಕಹಾಕಲು ಬಳಸಲಾಗುತ್ತದೆಯೆ "
+"ಹೊರತು ಹವಾಮಾನ ಮುನ್ಸೂಚನೆಯನ್ನು ತಿಳಿದುಕೊಳ್ಳಲು ಅಲ್ಲ."
