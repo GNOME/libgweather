@@ -576,8 +576,12 @@ static char *
 find_word (const char *full_name, const char *word, int word_len,
 	   gboolean whole_word, gboolean is_first_word)
 {
-    char *p = (char *)full_name - 1;
+    char *p;
 
+    if (word == NULL || *word == '\0')
+        return NULL;
+
+    p = (char *)full_name - 1;
     while ((p = strchr (p + 1, *word))) {
 	if (strncmp (p, word, word_len) != 0)
 	    continue;
