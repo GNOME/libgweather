@@ -255,7 +255,14 @@ get_property (GObject *object, guint prop_id,
 static void
 entry_changed (GWeatherLocationEntry *entry)
 {
-    entry->priv->custom_text = TRUE;
+    const gchar *text;
+
+    text = gtk_entry_get_text (GTK_ENTRY (entry));
+
+    if (text && *text)
+	entry->priv->custom_text = TRUE;
+    else
+	set_location_internal (entry, NULL, NULL, NULL);
 }
 
 static void
