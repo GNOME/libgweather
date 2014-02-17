@@ -1,5 +1,5 @@
 AC_INIT([libgweather],
-        [3.11.90],
+        [3.11.91],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=libgweather],
         [libgweather],
         [http://live.gnome.org/LibGWeather])
