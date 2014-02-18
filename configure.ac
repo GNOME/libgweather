@@ -1,5 +1,10 @@
+m4_define(libgweather_major_version,   3)
+m4_define(libgweather_minor_version,  11)
+m4_define(libgweather_micro_version,  91)
+m4_define(libgweather_version, libgweather_major_version.libgweather_minor_version.libgweather_micro_version)
+
 AC_INIT([libgweather],
-        [3.11.91],
+        [libgweather_version],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=libgweather],
         [libgweather],
         [http://live.gnome.org/LibGWeather])
@@ -11,6 +16,17 @@ AC_CONFIG_AUX_DIR([build-aux])
 
 AM_INIT_AUTOMAKE([1.11 no-dist-gzip dist-xz tar-ustar])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+
+dnl === Versioning ============================================================
+
+LIBGWEATHER_MAJOR_VERSION=libgweather_major_version
+LIBGWEATHER_MINOR_VERSION=libgweather_minor_version
+LIBGWEATHER_MICRO_VERSION=libgweather_micro_version
+LIBGWEATHER_VERSION=libgweather_version
+AC_SUBST(LIBGWEATHER_MAJOR_VERSION)
+AC_SUBST(LIBGWEATHER_MINOR_VERSION)
+AC_SUBST(LIBGWEATHER_MICRO_VERSION)
+AC_SUBST(LIBGWEATHER_VERSION)
 
 # Before making a release, the LT_VERSION string should be modified.
 # The string is of the form C:R:A.
@@ -204,6 +220,7 @@ po-locations/Makefile.in
 libgweather/Makefile
 libgweather/gweather-3.0.pc
 libgweather/gweather-3.0-uninstalled.pc
+libgweather/gweather-version.h
 data/Makefile
 data/glade/Makefile
 icons/Makefile

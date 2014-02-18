@@ -20,7 +20,8 @@ gweather_new_headers = \
 libgweatherincdir = $(includedir)/libgweather-3.0/libgweather
 libgweatherinc_HEADERS = \
 	$(gweather_new_headers)		\
-	gweather-enum-types.h
+	gweather-enum-types.h		\
+	gweather-version.h
 
 libgweather_internal_3_la_SOURCES = \
 	weather.c weather-priv.h \
@@ -87,7 +88,7 @@ pkgconfig_DATA = gweather-3.0.pc
 
 @INTLTOOL_SCHEMAS_RULE@
 
-EXTRA_DIST = gweather-3.0.pc.in gweather-3.0-uninstalled.pc.in $(schema_in_files)
+EXTRA_DIST = gweather-3.0.pc.in gweather-3.0-uninstalled.pc.in $(schema_in_files) gweather-version.h.in
 
 CLEANFILES = $(schema_DATA) $(noinst_PROGRAMS) $(BUILT_SOURCES)
 
