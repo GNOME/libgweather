@@ -157,6 +157,8 @@ parse_tzdata (const char *tzname, time_t start, time_t end,
  *
  * Returns: (transfer none): A #GWeatherTimezone. This object
  * belongs to GWeather, do not unref it.
+ *
+ * Since: 3.12
  */
 GWeatherTimezone *
 gweather_timezone_get_by_tzid (const char *tzid)

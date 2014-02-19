@@ -569,6 +569,8 @@ find_nearest_city (GWeatherLocation *location,
  *
  * Returns: (transfer full): the city closest to (@lat, @lon), in the
  *          region or administrative district of @loc.
+ *
+ * Since: 3.12
  */
 GWeatherLocation *
 gweather_location_find_nearest_city (GWeatherLocation *loc,
