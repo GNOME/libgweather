@@ -215,6 +215,7 @@ dnl ***************************************************************************
 AC_CONFIG_FILES([
 Makefile
 doc/Makefile
+doc/version.xml
 po/Makefile.in
 po-locations/Makefile.in
 libgweather/Makefile
