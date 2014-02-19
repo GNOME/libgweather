@@ -2204,7 +2204,12 @@ _gweather_info_new_clone (GWeatherInfo *other)
     return g_object_new (GWEATHER_TYPE_INFO, "location", other->priv->glocation, NULL);
 }
 
-/* deprecated */
+/**
+ * gweather_info_get_forecast:
+ * @info: a #GWeatherInfo
+ *
+ * Deprecated: 3.10: Use gweather_info_get_forecast_list() instead.
+ */
 char *
 gweather_info_get_forecast (GWeatherInfo *info)
 {
