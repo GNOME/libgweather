@@ -44,7 +44,9 @@ GWeatherLocationEntryPrivate
 <TITLE>GWeatherLocation</TITLE>
 GWeatherLocation
 GWeatherLocationLevel
+gweather_location_find_nearest_city
 gweather_location_get_world
+gweather_location_new_world
 gweather_location_ref
 gweather_location_unref
 
@@ -104,6 +106,7 @@ gweather_info_network_error
 gweather_info_store_cache
 gweather_info_get_location
 gweather_info_set_location
+gweather_info_get_forecast
 gweather_info_get_forecast_list
 
 <SUBSECTION>
@@ -149,6 +152,7 @@ GWeatherDistanceUnit
 GWeatherPressureUnit
 GWeatherSpeedUnit
 GWeatherTemperatureUnit
+GWeatherForecastType
 
 <SUBSECTION>
 gweather_info_get_value_update
@@ -177,6 +181,7 @@ gweather_timezone_get_type
 GWEATHER_TYPE_TIMEZONE
 gweather_timezone_get_name
 gweather_timezone_get_tzid
+gweather_timezone_get_by_tzid
 gweather_timezone_get_offset
 gweather_timezone_has_dst
 gweather_timezone_get_dst_offset
