@@ -6,15 +6,15 @@
 # Nejc Novak <nejc.novak@guest.arnes.si>, 2002.
 # Andraž Tori <andraz.tori1@guest.arnes.si>, 2003.
 # Matic Žgur <mr.zgur@gmail.com>, 2006.
-# Matej Urbančič <mateju@svn.gnome.org>, 2008-2013.
+# Matej Urbančič <mateju@svn.gnome.org>, 2008-2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgwether master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-23 15:18+0000\n"
-"PO-Revision-Date: 2013-10-24 21:07+0100\n"
+"POT-Creation-Date: 2014-02-26 10:39+0000\n"
+"PO-Revision-Date: 2014-02-26 19:55+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -42,7 +42,7 @@ msgstr "Časovni pas "
 msgid "GWeather"
 msgstr "Gweather"
 
-#: ../libgweather/gweather-timezone.c:347
+#: ../libgweather/gweather-timezone.c:340
 msgid "Greenwich Mean Time"
 msgstr "Greenwiški srednji čas"
 
@@ -657,12 +657,19 @@ msgstr ""
 "Vremenski podatki projekta <a href=\"http://openweathermap.org\">Open "
 "Weather Map</a>"
 
-#: ../libgweather/weather-yrno.c:449
-#, c-format
+#. The new (documented but not advertised) API is less strict in the
+#. format of the attribution, and just requires a generic CC-BY compatible
+#. attribution with a link to their service.
+#.
+#. That's very nice of them!
+#.
+#: ../libgweather/weather-yrno.c:445
 msgid ""
-"Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</a>"
+"Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
+"Institute</a>"
 msgstr ""
-"Vremenski podatki <a href=\"%s\">Norveškega meteorološkega inštituta</a>."
+"Vremenski podatki <a href=\"http://yr.no/\">Norveškega meteorološkega "
+"inštituta</a>"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:1
 msgid "URL for the radar map"
@@ -913,8 +920,8 @@ msgstr ""
 #~ "navedenega v ključu \"radar\"."
 
 #~ msgid ""
-#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-#~ "[EW]."
+#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-"
+#~ "SS[EW]."
 #~ msgstr ""
 #~ "Zemljepisna višina in širina vašega mesta je zapisana kot: ST-MM-SS[SJ) "
 #~ "ST-MM-SS [VZ]"
