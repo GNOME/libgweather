@@ -86,8 +86,6 @@ BUILT_SOURCES = gweather-enum-types.c gweather-enum-types.h
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gweather-3.0.pc
 
-@INTLTOOL_SCHEMAS_RULE@
-
 EXTRA_DIST = gweather-3.0.pc.in gweather-3.0-uninstalled.pc.in $(schema_in_files) gweather-version.h.in
 
 CLEANFILES = $(schema_DATA) $(noinst_PROGRAMS) $(BUILT_SOURCES)
