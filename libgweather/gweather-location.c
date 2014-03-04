@@ -526,9 +526,9 @@ foreach_cities (GWeatherLocation *loc,
     if (loc->level == GWEATHER_LOCATION_CITY) {
 	callback (loc, user_data);
     } else if (loc->children) {
-	GWeatherLocation *child;
-	for (child = *loc->children; child != NULL; child++)
-	    foreach_cities (child, callback, user_data);
+        int i;
+        for (i = 0; loc->children[i]; i++)
+            foreach_cities (loc->children[i], callback, user_data);
     }
 }
 
@@ -558,7 +558,7 @@ find_nearest_city (GWeatherLocation *location,
     double distance = location_distance (location->latitude, location->longitude,
 					 data->latitude, data->longitude);
 
-    if (data->location == NULL || data->distance < distance) {
+    if (data->location == NULL || data->distance > distance) {
 	data->location = location;
 	data->distance = distance;
     }
