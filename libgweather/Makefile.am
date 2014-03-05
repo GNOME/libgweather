@@ -5,7 +5,7 @@ noinst_LTLIBRARIES = libgweather-internal-3.la
 noinst_PROGRAMS = test_metar test_locations test_sun_moon
 
 AM_CPPFLAGS = 			\
-	$(GTK_CFLAGS)		\
+	$(DEPS_CFLAGS)		\
 	-I$(top_srcdir)		\
 	-I$(srcdir)
 
@@ -37,19 +37,13 @@ libgweather_internal_3_la_SOURCES = \
 
 libgweather_internal_3_la_CPPFLAGS = \
 	$(AM_CPPFLAGS)			\
-	$(LIBXML_CFLAGS)		\
-	$(LIBSOUP_CFLAGS)		\
-	$(GIO_CFLAGS)			\
 	-DG_LOG_DOMAIN=\"GWeather\"	\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-DGWEATHER_XML_LOCATION_DIR=\""$(pkgdatadir)"\"
 
 libgweather_internal_3_la_LIBADD = \
 	$(LIBM)		\
-	$(GTK_LIBS)	\
-	$(LIBXML_LIBS)	\
-	$(LIBSOUP_LIBS)	\
-	$(GIO_LIBS) \
+	$(DEPS_LIBS)	\
 	$(REGEX_LIBS)
 
 libgweather_3_la_SOURCES = 
@@ -59,15 +53,13 @@ libgweather_3_la_LDFLAGS = \
 	-version-info $(LT_VERSION) -no-undefined
 
 test_metar_SOURCES = test_metar.c
-test_metar_CPPFLAGS = $(AM_CPPFLAGS) $(LIBSOUP_CFLAGS)
-test_metar_LDADD = libgweather-internal-3.la $(GTK_LIBS)
+test_metar_LDADD = libgweather-internal-3.la $(DEPS_LIBS)
 
 test_locations_SOURCES = test_locations.c
-test_locations_LDADD = libgweather-3.la $(GTK_LIBS)
+test_locations_LDADD = libgweather-3.la $(DEPS_LIBS)
 
 test_sun_moon_SOURCES = test_sun_moon.c
-test_sun_moon_CPPFLAGS = $(AM_CPPFLAGS) $(LIBSOUP_CFLAGS)
-test_sun_moon_LDADD = libgweather-internal-3.la $(GTK_LIBS)
+test_sun_moon_LDADD = libgweather-internal-3.la $(DEPS_LIBS)
 
 gweather-enum-types.h: $(gweather_new_headers)
 	$(AM_V_GEN)( cd $(srcdir) && $(GLIB_MKENUMS) --template gweather-enum-types.h.tmpl \

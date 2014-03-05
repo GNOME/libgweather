@@ -57,18 +57,11 @@ GLIB_GSETTINGS
 
 GNOME_COMPILE_WARNINGS([maximum])
 
-dnl -- Check for GTK+ 3.0 (required) ------------------------------------------
-PKG_CHECK_MODULES(GTK, gtk+-3.0 >= $GTK_REQUIRED)
-
-dnl -- Check for libxml (required) ------------------------------------------
-PKG_CHECK_MODULES(LIBXML, libxml-2.0 >= $LIBXML_REQUIRED)
-
-dnl -- check for libsoup (required) -----------------------------------------
-PKG_CHECK_MODULES(LIBSOUP, [libsoup-2.4 >= $LIBSOUP_REQUIRED])
-
-dnl -- check for glib and gio (required) -----------------------------------------
-PKG_CHECK_MODULES(GIO,
-		  [glib-2.0 >= $GLIB_REQUIRED gio-2.0 >= $GLIB_REQUIRED])
+PKG_CHECK_MODULES(DEPS, [gtk+-3.0 >= $GTK_REQUIRED
+                         libxml-2.0 >= $LIBXML_REQUIRED
+                         libsoup-2.4 >= $LIBSOUP_REQUIRED
+                         glib-2.0 >= $GLIB_REQUIRED
+                         gio-2.0])
 
 dnl -- check for glib; redundant at this point, but sets $GLIB_MKENUMS
 AM_PATH_GLIB_2_0($GLIB_REQUIRED)
