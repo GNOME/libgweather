@@ -570,11 +570,12 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 	    priv->network_error = TRUE;
 	else {
 	    /* Translators: %d is an error code, and %s the error string */
-	    g_warning (_("Failed to get METAR data: %d %s.\n"),
-		       msg->status_code, msg->reason_phrase);
+	    if (msg->status_code != SOUP_STATUS_CANCELLED)
+		g_warning (_("Failed to get METAR data: %d %s.\n"),
+			   msg->status_code, msg->reason_phrase);
 	}
 
-	_gweather_info_request_done (info);
+	_gweather_info_request_done (info, msg);
 	return;
     }
 
@@ -601,7 +602,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     }
 
     priv->valid = success;
-    _gweather_info_request_done (info);
+    _gweather_info_request_done (info, msg);
 }
 
 /* Read current conditions and fill in info structure */
@@ -623,7 +624,6 @@ metar_start_open (GWeatherInfo *info)
 	"GET", "http://weather.noaa.gov/cgi-bin/mgetmetar.pl",
 	"cccc", loc->code,
 	NULL);
+    _gweather_info_begin_request (info, msg);
     soup_session_queue_message (priv->session, msg, metar_finish, info);
-
-    priv->requests_pending++;
 }

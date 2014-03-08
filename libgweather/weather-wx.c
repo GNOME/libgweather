@@ -34,10 +34,11 @@ wx_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     priv = info->priv;
 
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
-	g_warning ("Failed to get radar map image: %d %s.\n",
-		   msg->status_code, msg->reason_phrase);
+	if (msg->status_code != SOUP_STATUS_CANCELLED)
+	    g_warning ("Failed to get radar map image: %d %s.\n",
+		       msg->status_code, msg->reason_phrase);
 	g_object_unref (priv->radar_loader);
-	_gweather_info_request_done (info);
+	_gweather_info_request_done (info, msg);
 	return;
     }
 
@@ -51,7 +52,7 @@ wx_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     }
     g_object_unref (priv->radar_loader);
 
-    _gweather_info_request_done (info);
+    _gweather_info_request_done (info, msg);
 }
 
 static void
@@ -103,8 +104,8 @@ wx_start_open (GWeatherInfo *info)
 
     g_signal_connect (msg, "got-chunk", G_CALLBACK (wx_got_chunk), info);
     soup_message_body_set_accumulate (msg->response_body, FALSE);
+    _gweather_info_begin_request (info, msg);
     soup_session_queue_message (priv->session, msg, wx_finish, info);
-    g_free (url);
 
-    priv->requests_pending++;
+    g_free (url);
 }

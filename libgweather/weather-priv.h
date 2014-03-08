@@ -134,7 +134,7 @@ struct _GWeatherInfoPrivate {
     GdkPixbufLoader *radar_loader;
     GdkPixbufAnimation *radar;
     SoupSession *session;
-    gint requests_pending;
+    GSList *requests_pending;
 };
 
 /* Values common to the parsing source files */
@@ -191,7 +191,10 @@ gboolean        owm_start_open          (GWeatherInfo *info);
 gboolean	metar_parse		(gchar *metar,
 					 GWeatherInfo *info);
 
-void		_gweather_info_request_done (GWeatherInfo *info);
+void            _gweather_info_begin_request (GWeatherInfo *info,
+					      SoupMessage  *message);
+void		_gweather_info_request_done (GWeatherInfo *info,
+					     SoupMessage  *message);
 
 void		ecl2equ			(gdouble t,
 					 gdouble eclipLon,

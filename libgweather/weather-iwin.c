@@ -322,16 +322,17 @@ iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
         /* forecast data is not really interesting anyway ;) */
-        g_warning ("Failed to get IWIN forecast data: %d %s\n",
-                   msg->status_code, msg->reason_phrase);
-        _gweather_info_request_done (info);
+	if (msg->status_code != SOUP_STATUS_CANCELLED)
+	    g_warning ("Failed to get IWIN forecast data: %d %s\n",
+		       msg->status_code, msg->reason_phrase);
+        _gweather_info_request_done (info, msg);
         return;
     }
 
     priv = info->priv;
     priv->forecast_list = parseForecastXml (msg->response_body->data, info);
 
-    _gweather_info_request_done (info);
+    _gweather_info_request_done (info, msg);
 }
 
 /* Get forecast into newly alloc'ed string */
@@ -370,9 +371,9 @@ iwin_start_open (GWeatherInfo *info)
     url = g_strdup_printf ("http://www.weather.gov/forecasts/xml/sample_products/browser_interface/ndfdBrowserClientByDay.php?&lat=%s&lon=%s&format=24+hourly&startDate=%04d-%02d-%02d&numDays=7",
 			   latstr, lonstr, 1900 + tm.tm_year, 1 + tm.tm_mon, tm.tm_mday);
     msg = soup_message_new ("GET", url);
+    _gweather_info_begin_request (info, msg);
     soup_session_queue_message (priv->session, msg, iwin_finish, info);
 
-    priv->requests_pending++;
     g_free (url);
 
     return TRUE;
