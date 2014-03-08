@@ -226,9 +226,21 @@ requests_init (GWeatherInfo *info)
 }
 
 void
-_gweather_info_request_done (GWeatherInfo *info)
+_gweather_info_begin_request (GWeatherInfo *info,
+			      SoupMessage  *message)
 {
-    if (!--info->priv->requests_pending)
+    info->priv->requests_pending = g_slist_prepend (info->priv->requests_pending, message);
+    g_object_ref (message);
+}
+
+void
+_gweather_info_request_done (GWeatherInfo *info,
+			     SoupMessage  *message)
+{
+    info->priv->requests_pending = g_slist_remove (info->priv->requests_pending, message);
+    g_object_ref (message);
+
+    if (info->priv->requests_pending == NULL)
         g_signal_emit (info, gweather_info_signals[SIGNAL_UPDATED], 0);
 }
 
@@ -423,7 +435,7 @@ settings_changed_cb (GSettings    *settings,
        Otherwise just wait for the update that will happen at
        the end
     */
-    if (priv->requests_pending == 0)
+    if (priv->requests_pending == NULL)
         g_signal_emit (info, gweather_info_signals[SIGNAL_UPDATED], 0);
 }
 
@@ -589,12 +601,25 @@ gweather_info_update (GWeatherInfo *info)
 void
 gweather_info_abort (GWeatherInfo *info)
 {
+    GSList *list, *iter;
+    GSList dummy = { NULL, NULL };
+
     g_return_if_fail (GWEATHER_IS_INFO (info));
 
-    if (info->priv->session) {
-	soup_session_abort (info->priv->session);
-	info->priv->requests_pending = 0;
+    if (info->priv->session == NULL) {
+	g_assert (info->priv->requests_pending == NULL);
+	return;
     }
+
+    list = info->priv->requests_pending;
+    /* to block updated signals */
+    info->priv->requests_pending = &dummy;
+
+    for (iter = list; iter; iter = iter->next)
+	soup_session_cancel_message (info->priv->session, iter->data, SOUP_STATUS_CANCELLED);
+    g_slist_free (list);
+
+    info->priv->requests_pending = NULL;
 }
 
 static void

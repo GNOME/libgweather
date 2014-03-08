@@ -463,14 +463,15 @@ yrno_finish_old (SoupSession *session,
 
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
 	/* forecast data is not really interesting anyway ;) */
-	g_message ("Failed to get Yr.no forecast data: %d %s\n",
-		   msg->status_code, msg->reason_phrase);
-	_gweather_info_request_done (info);
+	if (msg->status_code != SOUP_STATUS_CANCELLED)
+	    g_message ("Failed to get Yr.no forecast data: %d %s\n",
+		       msg->status_code, msg->reason_phrase);
+	_gweather_info_request_done (info, msg);
 	return;
     }
 
     parse_forecast_xml_old (info, msg->response_body);
-    _gweather_info_request_done (info);
+    _gweather_info_request_done (info, msg);
 }
 
 static gboolean
@@ -487,9 +488,8 @@ yrno_start_open_old (GWeatherInfo *info)
 	return FALSE;
 
     message = soup_message_new ("GET", url);
+    _gweather_info_begin_request (info, message);
     soup_session_queue_message (priv->session, message, yrno_finish_old, info);
-
-    priv->requests_pending++;
 
     g_free (url);
 
@@ -505,15 +505,16 @@ yrno_finish_new (SoupSession *session,
 
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
 	/* forecast data is not really interesting anyway ;) */
-	g_message ("Failed to get Yr.no forecast data: %d %s\n",
-		   msg->status_code, msg->reason_phrase);
-	_gweather_info_request_done (info);
+	if (msg->status_code != SOUP_STATUS_CANCELLED)
+	    g_message ("Failed to get Yr.no forecast data: %d %s\n",
+		       msg->status_code, msg->reason_phrase);
+	_gweather_info_request_done (info, msg);
 	return;
     }
 
     parse_forecast_xml_new (info, msg->response_body);
 
-    _gweather_info_request_done (info);
+    _gweather_info_request_done (info, msg);
 }
 
 static gboolean
@@ -539,9 +540,8 @@ yrno_start_open_new (GWeatherInfo *info)
     url = g_strdup_printf("http://api.yr.no/weatherapi/locationforecast/1.8/?lat=%s;lon=%s", latstr, lonstr);
 
     message = soup_message_new ("GET", url);
+    _gweather_info_begin_request (info, message);
     soup_session_queue_message (priv->session, message, yrno_finish_new, info);
-
-    priv->requests_pending++;
 
     g_free (url);
 

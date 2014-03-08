@@ -400,14 +400,15 @@ owm_finish (SoupSession *session,
 
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
 	/* forecast data is not really interesting anyway ;) */
-	g_message ("Failed to get OpenWeatherMap forecast data: %d %s\n",
-		   msg->status_code, msg->reason_phrase);
-	_gweather_info_request_done (info);
+	if (msg->status_code != SOUP_STATUS_CANCELLED)
+	    g_message ("Failed to get OpenWeatherMap forecast data: %d %s\n",
+		       msg->status_code, msg->reason_phrase);
+	_gweather_info_request_done (info, msg);
 	return;
     }
 
     parse_forecast_xml (info, msg->response_body);
-    _gweather_info_request_done (info);
+    _gweather_info_request_done (info, msg);
 }
 
 gboolean
@@ -440,9 +441,8 @@ owm_start_open (GWeatherInfo *info)
     url = g_strdup_printf (template, latstr, lonstr);
 
     message = soup_message_new ("GET", url);
+    _gweather_info_begin_request (info, message);
     soup_session_queue_message (priv->session, message, owm_finish, info);
-
-    priv->requests_pending++;
 
     g_free (url);
 
