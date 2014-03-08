@@ -598,14 +598,32 @@ gweather_info_abort (GWeatherInfo *info)
 }
 
 static void
-gweather_info_finalize (GObject *object)
+gweather_info_dispose (GObject *object)
 {
     GWeatherInfo *info = GWEATHER_INFO (object);
     GWeatherInfoPrivate *priv = info->priv;
 
     gweather_info_abort (info);
-    if (priv->session)
-	g_object_unref (priv->session);
+
+    g_clear_object (&priv->session);
+
+    free_forecast_list (info);
+
+    if (priv->radar != NULL) {
+        g_object_unref (priv->radar);
+        priv->radar = NULL;
+    }
+
+    priv->valid = FALSE;
+
+    G_OBJECT_CLASS (gweather_info_parent_class)->dispose (object);
+}
+
+static void
+gweather_info_finalize (GObject *object)
+{
+    GWeatherInfo *info = GWEATHER_INFO (object);
+    GWeatherInfoPrivate *priv = info->priv;
 
     _weather_location_free (&priv->location);
 
@@ -614,13 +632,6 @@ gweather_info_finalize (GObject *object)
 
     g_free (priv->radar_url);
     priv->radar_url = NULL;
-
-    free_forecast_list (info);
-
-    if (priv->radar != NULL) {
-        g_object_unref (priv->radar);
-        priv->radar = NULL;
-    }
 
     G_OBJECT_CLASS (gweather_info_parent_class)->finalize (object);
 }
@@ -2117,6 +2128,7 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 
     g_type_class_add_private (klass, sizeof(GWeatherInfoPrivate));
 
+    gobject_class->dispose = gweather_info_dispose;
     gobject_class->finalize = gweather_info_finalize;
     gobject_class->set_property = gweather_info_set_property;
     gobject_class->get_property = gweather_info_get_property;
