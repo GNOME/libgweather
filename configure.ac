@@ -61,7 +61,8 @@ PKG_CHECK_MODULES(DEPS, [gtk+-3.0 >= $GTK_REQUIRED
                          libxml-2.0 >= $LIBXML_REQUIRED
                          libsoup-2.4 >= $LIBSOUP_REQUIRED
                          glib-2.0 >= $GLIB_REQUIRED
-                         gio-2.0])
+                         gio-2.0
+                         geocode-glib-1.0])
 
 dnl -- check for glib; redundant at this point, but sets $GLIB_MKENUMS
 AM_PATH_GLIB_2_0($GLIB_REQUIRED)

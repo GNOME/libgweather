@@ -28,6 +28,7 @@
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 #include <libxml/xmlreader.h>
+#include <geocode-glib/geocode-glib.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-location.h"
@@ -522,9 +523,16 @@ static void
 foreach_city (GWeatherLocation  *loc,
               GFunc              callback,
               gpointer           user_data,
+	      const char        *country_code,
               GWeatherFilterFunc func,
               gpointer           user_data_func)
 {
+     if (country_code) {
+         const char *loc_country_code = gweather_location_get_country(loc);
+         if (loc_country_code && (g_strcmp0 (loc_country_code, country_code) != 0))
+             return;
+     }
+
     if (func) {
         if (!func (loc, user_data_func))
             return;
@@ -535,7 +543,7 @@ foreach_city (GWeatherLocation  *loc,
     } else if (loc->children) {
         int i;
         for (i = 0; loc->children[i]; i++)
-            foreach_city (loc->children[i], callback, user_data, func, user_data_func);
+            foreach_city (loc->children[i], callback, user_data, country_code, func, user_data_func);
     }
 }
 
@@ -545,6 +553,15 @@ struct FindNearestCityData {
     GWeatherLocation *location;
     double distance;
 };
+
+struct ArgData {
+    double latitude;
+    double longitude;
+    GWeatherLocation *location;
+    GSimpleAsyncResult *simple;
+};
+
+typedef struct ArgData ArgData;
 
 static double
 location_distance (double lat1, double long1,
@@ -614,7 +631,7 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
     data.location = NULL;
     data.distance = 0.0;
 
-    foreach_city (loc, (GFunc) find_nearest_city, &data, NULL, NULL);
+    foreach_city (loc, (GFunc) find_nearest_city, &data, NULL, NULL, NULL);
 
     return gweather_location_ref (data.location);
 }
@@ -669,11 +686,137 @@ gweather_location_find_nearest_city_full (GWeatherLocation  *loc,
     data.location = NULL;
     data.distance = 0.0;
 
-    foreach_city (loc, (GFunc) find_nearest_city, &data, func, user_data);
+    foreach_city (loc, (GFunc) find_nearest_city, &data, NULL, func, user_data);
 
     destroy (user_data);
 
     return gweather_location_ref (data.location);
+}
+
+static
+void _got_place (GObject      *source_object,
+		 GAsyncResult *result,
+		 gpointer      user_data)
+{
+    ArgData *info = (user_data);
+    GSimpleAsyncResult *simple = info->simple;
+
+    GeocodePlace *place;
+    GError *error = NULL;
+    place = geocode_reverse_resolve_finish (GEOCODE_REVERSE (source_object), result, &error);
+    if (place == NULL) {
+        g_simple_async_result_set_from_error (simple, error);
+        g_slice_free (ArgData, info);
+        g_object_unref (simple);
+        return;
+    }
+    const char *country_code = geocode_place_get_country_code (place);
+
+    struct FindNearestCityData data;
+    data.latitude = info->latitude * M_PI / 180.0;
+    data.longitude = info->longitude * M_PI / 180.0;
+    data.location = NULL;
+    data.distance = 0.0;
+
+    foreach_city (info->location, (GFunc) find_nearest_city, &data, country_code, NULL, NULL);
+
+    g_slice_free (ArgData, info);
+
+    if (data.location == NULL) {
+        g_simple_async_result_set_op_res_gpointer (simple, NULL, NULL);
+        g_simple_async_result_complete_in_idle (simple);
+    }
+    else {
+        GWeatherLocation *location;
+        location = _gweather_location_new_detached(data.location, geocode_place_get_town (place), TRUE, data.latitude, data.longitude);
+
+        g_simple_async_result_set_op_res_gpointer (simple, location, (GDestroyNotify)gweather_location_unref);
+        g_simple_async_result_complete_in_idle (simple);
+    }
+    g_object_unref (simple);
+}
+
+/**
+ * gweather_location_detect_nearest_city:
+ * @loc: (allow-none): The parent location, which will be searched recursively
+ * @lat: Latitude, in degrees
+ * @lon: Longitude, in degrees
+ * @cancellable: optional, NULL to ignore
+ * @callback: callback function for GAsyncReadyCallback argument for GSimpleAsyncResult
+ *
+ * Initializes geocode reversing to find place for (@lat, @lon) coordinates. Calls the callback
+ * function passed by user when the result is ready.
+ *
+ * @loc must be at most a %GWEATHER_LOCATION_LEVEL_ADM2 location.
+ * This restriction may be lifted in a future version.
+ *
+ * Returns: void
+ *
+ * Since: 3.12
+ */
+void
+gweather_location_detect_nearest_city (GWeatherLocation    *loc,
+					double              lat,
+					double              lon,
+					GCancellable       *cancellable,
+					GAsyncReadyCallback callback,
+					gpointer            user_data)
+{
+    ArgData *data;
+
+    g_return_val_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY, NULL);
+
+    if (loc == NULL)
+        loc = gweather_location_get_world ();
+
+    GeocodeLocation *location = geocode_location_new (lat, lon, GEOCODE_LOCATION_ACCURACY_CITY);
+    GeocodeReverse *reverse = geocode_reverse_new_for_location (location);
+
+    GSimpleAsyncResult *simple;
+    simple = g_simple_async_result_new (NULL, callback, user_data, gweather_location_detect_nearest_city);
+    g_simple_async_result_set_check_cancellable (simple, cancellable);
+
+    data = g_slice_new0 (ArgData);
+    data->latitude = lat;
+    data->longitude = lon;
+    data->location = loc;
+    data->simple = simple;
+
+    geocode_reverse_resolve_async (reverse, cancellable, _got_place, data);
+}
+
+/**
+ * gweather_location_detect_nearest_location_finish:
+ * @result: Passed by GSimpleAsyncResult in _got_place method and used to get result pointer
+ * that might contain location
+ * @error: Stores error if any occurs in retrieving the result
+ *
+ * Fetches the location from @result.
+ *
+ * Returns: (transfer full): Customized GWeatherLocation
+ *
+ * Since: 3.12
+ */
+
+GWeatherLocation *
+gweather_location_detect_nearest_city_finish (GAsyncResult *result, GError **error)
+{
+    GSimpleAsyncResult *simple;
+    GWeatherLocation *loc;
+
+    g_return_val_if_fail (g_simple_async_result_is_valid (result,
+                                                          NULL,
+                                                          gweather_location_detect_nearest_city),
+                                                          NULL);
+
+    simple = (GSimpleAsyncResult *) result;
+
+    if (g_simple_async_result_propagate_error (simple, error))
+        return NULL;
+
+    loc = (g_simple_async_result_get_op_res_gpointer (simple));
+
+    return gweather_location_ref (loc);
 }
 
 /**

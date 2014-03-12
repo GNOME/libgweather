@@ -27,6 +27,7 @@
 
 #include <glib.h>
 #include <libgweather/gweather-timezone.h>
+#include <gio/gio.h>
 
 G_BEGIN_DECLS
 
@@ -80,6 +81,14 @@ GWeatherLocation      *gweather_location_find_nearest_city_full (GWeatherLocatio
 								 GWeatherFilterFunc func,
 								 gpointer           user_data,
 								 GDestroyNotify     destroy);
+
+void                  gweather_location_detect_nearest_city (GWeatherLocation   *loc,
+							     double              lat,
+							     double              lon,
+							     GCancellable       *cancellable,
+							     GAsyncReadyCallback callback,
+							     gpointer            user_data);
+GWeatherLocation      *gweather_location_detect_nearest_city_finish (GAsyncResult *result, GError **error);
 
 const char            *gweather_location_get_country    (GWeatherLocation  *loc);
 
