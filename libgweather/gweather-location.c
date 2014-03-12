@@ -519,16 +519,23 @@ gweather_location_get_children (GWeatherLocation *loc)
 }
 
 static void
-foreach_cities (GWeatherLocation *loc,
-		GFunc             callback,
-		gpointer          user_data)
+foreach_city (GWeatherLocation  *loc,
+              GFunc              callback,
+              gpointer           user_data,
+              GWeatherFilterFunc func,
+              gpointer           user_data_func)
 {
-    if (loc->level == GWEATHER_LOCATION_CITY) {
-	callback (loc, user_data);
+    if (func) {
+        if (!func (loc, user_data_func))
+            return;
+    }
+
+    if (loc->level == GWEATHER_LOCATION_WEATHER_STATION) {
+        callback (loc, user_data);
     } else if (loc->children) {
         int i;
         for (i = 0; loc->children[i]; i++)
-            foreach_cities (loc->children[i], callback, user_data);
+            foreach_city (loc->children[i], callback, user_data, func, user_data_func);
     }
 }
 
@@ -607,7 +614,64 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
     data.location = NULL;
     data.distance = 0.0;
 
-    foreach_cities (loc, (GFunc) find_nearest_city, &data);
+    foreach_city (loc, (GFunc) find_nearest_city, &data, NULL, NULL);
+
+    return gweather_location_ref (data.location);
+}
+
+/**
+ * gweather_location_find_nearest_city_full:
+ * @loc: (allow-none): The parent location, which will be searched recursively
+ * @lat: Latitude, in degrees
+ * @lon: Longitude, in degrees
+ * @func: (scope notified) (allow-none): returns true to continue check for
+ *                                       the location and false to filter the location out
+ * @user_data: for customization
+ * @destroy: to destroy user_data
+ *
+ * Finds the nearest city to the passed latitude and
+ * longitude, among the descendants of @loc.
+ *
+ * Supports the use of own filter function to filter out locations.
+ * Geocoding should be done on the application side if needed.
+ *
+ * @loc must be at most a %GWEATHER_LOCATION_LEVEL_ADM2 location.
+ * This restriction may be lifted in a future version.
+ *
+ * Returns: (transfer full): the city closest to (@lat, @lon), in the
+ *          region or administrative district of @loc with validation of filter function.
+ *
+ * Since: 3.12
+ */
+GWeatherLocation *
+gweather_location_find_nearest_city_full (GWeatherLocation  *loc,
+					  double             lat,
+					  double             lon,
+					  GWeatherFilterFunc func,
+					  gpointer           user_data,
+					  GDestroyNotify     destroy)
+{
+   /* The data set really isn't too big. Don't concern ourselves
+     * with a proper nearest neighbors search. Instead, just do
+     * an O(n) search. */
+    struct FindNearestCityData data;
+
+    g_return_val_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY, NULL);
+
+    if (loc == NULL)
+        loc = gweather_location_get_world ();
+
+    lat = lat * M_PI / 180.0;
+    lon = lon * M_PI / 180.0;
+
+    data.latitude = lat;
+    data.longitude = lon;
+    data.location = NULL;
+    data.distance = 0.0;
+
+    foreach_city (loc, (GFunc) find_nearest_city, &data, func, user_data);
+
+    destroy (user_data);
 
     return gweather_location_ref (data.location);
 }

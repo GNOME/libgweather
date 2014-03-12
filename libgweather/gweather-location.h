@@ -31,6 +31,7 @@
 G_BEGIN_DECLS
 
 typedef struct _GWeatherLocation GWeatherLocation;
+typedef gboolean (* GWeatherFilterFunc) (GWeatherLocation* location, gpointer user_data);
 
 typedef enum { /*< underscore_name=gweather_location_level >*/
     GWEATHER_LOCATION_WORLD,
@@ -72,6 +73,13 @@ double                 gweather_location_get_distance   (GWeatherLocation  *loc,
 GWeatherLocation      *gweather_location_find_nearest_city (GWeatherLocation *loc,
 							    double            lat,
 							    double            lon);
+
+GWeatherLocation      *gweather_location_find_nearest_city_full (GWeatherLocation  *loc,
+								 double             lat,
+								 double             lon,
+								 GWeatherFilterFunc func,
+								 gpointer           user_data,
+								 GDestroyNotify     destroy);
 
 const char            *gweather_location_get_country    (GWeatherLocation  *loc);
 
