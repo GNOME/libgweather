@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the gnome-applets package.
 # Paisa Seeluangsawat <paisa@users.sf.net>, 2004.
 # Theppitak Karoonboonyanan <thep@linux.thai.net>, 2004-2012.
-# Akom Chotiphantawanon <knight2000@gmail.com>, 2013.
+# Akom Chotiphantawanon <knight2000@gmail.com>, 2013-2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-15 18:29+0000\n"
-"PO-Revision-Date: 2013-10-31 18:38+0700\n"
+"POT-Creation-Date: 2014-03-08 18:35+0000\n"
+"PO-Revision-Date: 2014-03-26 21:33+0700\n"
 "Last-Translator: Akom Chotiphantawanon <knight2000@gmail.com>\n"
 "Language-Team: Thai <thai-10n@googlegroups.com>\n"
 "Language: th\n"
@@ -37,7 +37,7 @@ msgstr "เขตเวลา"
 msgid "GWeather"
 msgstr "GWeather"
 
-#: ../libgweather/gweather-timezone.c:318
+#: ../libgweather/gweather-timezone.c:340
 msgid "Greenwich Mean Time"
 msgstr "เวลามาตรฐานกรีนิช"
 
@@ -449,98 +449,108 @@ msgstr "ลมฝุ่นหมุน"
 msgid "Dust whirls in the vicinity"
 msgstr "ลมฝุ่นหมุนในบริเวณใกล้เคียง"
 
-#: ../libgweather/weather.c:670
+#: ../libgweather/weather.c:706
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a %d %b / %H:%M น."
 
-#: ../libgweather/weather.c:676
+#: ../libgweather/weather.c:712
 msgid "Unknown observation time"
 msgstr "ไม่ทราบเวลาบันทึกสภาพอากาศ"
 
-#: ../libgweather/weather.c:688
+#: ../libgweather/weather.c:724
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
+#. Translate to the default units to use for presenting
+#. * lengths to the user. Translate to default:inch if you
+#. * want inches, otherwise translate to default:mm.
+#. * Do *not* translate it to "predefinito:mm", if it
+#. * it isn't default:mm or default:inch it will not work
+#.
+#: ../libgweather/weather.c:746
+msgid "default:mm"
+msgstr "default:mm"
+
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:738
+#: ../libgweather/weather.c:791
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:741
+#: ../libgweather/weather.c:794
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:747
+#: ../libgweather/weather.c:800
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:750
+#: ../libgweather/weather.c:803
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:756
+#: ../libgweather/weather.c:809
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:759
+#: ../libgweather/weather.c:812
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: ../libgweather/weather.c:782 ../libgweather/weather.c:798
-#: ../libgweather/weather.c:814 ../libgweather/weather.c:876
+#: ../libgweather/weather.c:835 ../libgweather/weather.c:851
+#: ../libgweather/weather.c:867 ../libgweather/weather.c:929
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
-#: ../libgweather/weather.c:836
+#: ../libgweather/weather.c:889
 msgctxt "dew"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
-#: ../libgweather/weather.c:856
+#: ../libgweather/weather.c:909
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:859
+#: ../libgweather/weather.c:912
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 # from กรมอุตุนิยมวิทยา www.tmd.go.th
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:905
+#: ../libgweather/weather.c:958
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f นอต"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:908
+#: ../libgweather/weather.c:961
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f ไมล์/ชม."
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:911
+#: ../libgweather/weather.c:964
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f กม./ชม."
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:914
+#: ../libgweather/weather.c:967
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f เมตร/วินาที"
@@ -548,100 +558,99 @@ msgstr "%.1f เมตร/วินาที"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:919
+#: ../libgweather/weather.c:972
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "แรงโบฟอร์ต %.1f"
 
-#: ../libgweather/weather.c:940
+#: ../libgweather/weather.c:993
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
-#: ../libgweather/weather.c:942
+#: ../libgweather/weather.c:995
 msgid "Calm"
 msgstr "สงบ"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:950
+#: ../libgweather/weather.c:1003
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/weather.c:986
+#: ../libgweather/weather.c:1039
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:992
+#: ../libgweather/weather.c:1045
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f นิ้วปรอท"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:995
+#: ../libgweather/weather.c:1048
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f มม.ปรอท"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:998
+#: ../libgweather/weather.c:1051
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f กิโลปาสคาล"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:1001
+#: ../libgweather/weather.c:1054
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f เฮกโตปาสคาล"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:1004
+#: ../libgweather/weather.c:1057
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f มิลลิบาร์"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:1007
+#: ../libgweather/weather.c:1060
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f บรรยากาศ"
 
-#: ../libgweather/weather.c:1045
+#: ../libgweather/weather.c:1098
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:1051
+#: ../libgweather/weather.c:1104
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f ไมล์"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:1054
+#: ../libgweather/weather.c:1107
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f กม."
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1057
+#: ../libgweather/weather.c:1110
 #, c-format
 msgid "%.0fm"
 msgstr "%.0f เมตร"
 
-#: ../libgweather/weather.c:1085 ../libgweather/weather.c:1110
+#: ../libgweather/weather.c:1138 ../libgweather/weather.c:1163
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
-#: ../libgweather/weather.c:1204
+#: ../libgweather/weather.c:1257
 msgid "Retrieval failed"
 msgstr "เรียกอ่านข้อมูลไม่สำเร็จ"
 
-#. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:573
+#: ../libgweather/weather-metar.c:574
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "อ่านข้อมูล METAR ไม่สำเร็จ: %d %s\n"
@@ -654,11 +663,17 @@ msgstr ""
 "ข้อมูลสภาพอากาศจาก <a href=\"http://openweathermap.org"
 "\">โครงการแผนที่สภาพอากาศแบบเปิด</a>"
 
-#: ../libgweather/weather-yrno.c:449
-#, c-format
+#. The new (documented but not advertised) API is less strict in the
+#. format of the attribution, and just requires a generic CC-BY compatible
+#. attribution with a link to their service.
+#.
+#. That's very nice of them!
+#.
+#: ../libgweather/weather-yrno.c:445
 msgid ""
-"Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</a>"
-msgstr "ข้อมูลสภาพอากาศจาก <a href=\"%s\">สถาบันอุตุนิยมวิทยานอร์เวย์</a>"
+"Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
+"Institute</a>"
+msgstr "ข้อมูลสภาพอากาศจาก <a href=\"http://yr.no/\">สถาบันอุตุนิยมวิทยานอร์เวย์</a>"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:1
 msgid "URL for the radar map"
