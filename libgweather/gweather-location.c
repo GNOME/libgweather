@@ -764,7 +764,7 @@ gweather_location_detect_nearest_city (GWeatherLocation    *loc,
 {
     ArgData *data;
 
-    g_return_val_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY, NULL);
+    g_return_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY);
 
     if (loc == NULL)
         loc = gweather_location_get_world ();
