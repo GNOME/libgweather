@@ -1192,13 +1192,15 @@ gweather_location_equal (GWeatherLocation *one,
 
 /* ------------------- serialization ------------------------------- */
 
-#define FORMAT 1
+#define FORMAT 2
 
 static GVariant *
-gweather_location_format_one_serialize (GWeatherLocation *location)
+gweather_location_format_two_serialize (GWeatherLocation *location)
 {
     const char *name;
     gboolean is_city;
+    GVariantBuilder latlon_builder;
+    GVariantBuilder parent_latlon_builder;
 
     name = location->name;
 
@@ -1210,14 +1212,17 @@ gweather_location_format_one_serialize (GWeatherLocation *location)
 	is_city = FALSE;
     }
 
-    return g_variant_new ("(ssbm(dd)m(dd))",
+    g_variant_builder_init (&latlon_builder, G_VARIANT_TYPE ("a(dd)"));
+    if (location->latlon_valid)
+	g_variant_builder_add (&latlon_builder, "(dd)", location->latitude, location->longitude);
+
+    g_variant_builder_init (&parent_latlon_builder, G_VARIANT_TYPE ("a(dd)"));
+    if (location->parent && location->parent->latlon_valid)
+	g_variant_builder_add (&parent_latlon_builder, "(dd)", location->parent->latitude, location->parent->longitude);
+
+    return g_variant_new ("(ssba(dd)a(dd))",
 			  name, location->station_code, is_city,
-			  location->latlon_valid,
-			  location->latitude,
-			  location->longitude,
-			  location->parent && location->parent->latlon_valid,
-			  location->parent ? location->parent->latitude : 0.0,
-			  location->parent ? location->parent->longitude : 0.0);
+			  &latlon_builder, &parent_latlon_builder);
 }
 
 GWeatherLocation *
@@ -1261,24 +1266,19 @@ _gweather_location_new_detached (GWeatherLocation *nearest_station,
 }
 
 static GWeatherLocation *
-gweather_location_format_one_deserialize (GWeatherLocation *world,
-					  GVariant         *variant)
+gweather_location_common_deserialize (GWeatherLocation *world,
+				      const char       *name,
+				      const char       *station_code,
+				      gboolean          is_city,
+				      gboolean          latlon_valid,
+				      gdouble           latitude,
+				      gdouble           longitude,
+				      gboolean          parent_latlon_valid,
+				      gdouble           parent_latitude,
+				      gdouble           parent_longitude)
 {
-    const char *name;
-    const char *station_code;
-    gboolean is_city, latlon_valid, parent_latlon_valid;
-    gdouble latitude, longitude, parent_latitude, parent_longitude;
     GList *candidates, *l;
     GWeatherLocation *found;
-
-    /* This one instead is a critical, because format is specified in
-       the containing variant */
-    g_return_val_if_fail (g_variant_is_of_type (variant,
-						G_VARIANT_TYPE ("(ssbm(dd)m(dd))")), NULL);
-
-    g_variant_get (variant, "(&s&sbm(dd)m(dd))", &name, &station_code, &is_city,
-		   &latlon_valid, &latitude, &longitude,
-		   &parent_latlon_valid, &parent_latitude, &parent_longitude);
 
     /* First find the list of candidate locations */
     candidates = g_hash_table_lookup (world->metar_code_cache, station_code);
@@ -1342,6 +1342,71 @@ gweather_location_format_one_deserialize (GWeatherLocation *world,
 	return NULL;
 }
 
+static GWeatherLocation *
+gweather_location_format_one_deserialize (GWeatherLocation *world,
+					  GVariant         *variant)
+{
+    const char *name;
+    const char *station_code;
+    gboolean is_city, latlon_valid, parent_latlon_valid;
+    gdouble latitude, longitude, parent_latitude, parent_longitude;
+
+    /* This one instead is a critical, because format is specified in
+       the containing variant */
+    g_return_val_if_fail (g_variant_is_of_type (variant,
+						G_VARIANT_TYPE ("(ssbm(dd)m(dd))")), NULL);
+
+    g_variant_get (variant, "(&s&sbm(dd)m(dd))", &name, &station_code, &is_city,
+		   &latlon_valid, &latitude, &longitude,
+		   &parent_latlon_valid, &parent_latitude, &parent_longitude);
+
+    return gweather_location_common_deserialize(world, name, station_code, is_city,
+						latlon_valid, latitude, longitude,
+						parent_latlon_valid, parent_latitude, parent_longitude);
+}
+
+static GWeatherLocation *
+gweather_location_format_two_deserialize (GWeatherLocation *world,
+					  GVariant         *variant)
+{
+    const char *name;
+    const char *station_code;
+    GVariant *latlon_variant;
+    GVariant *parent_latlon_variant;
+    gboolean is_city, latlon_valid, parent_latlon_valid;
+    gdouble latitude, longitude, parent_latitude, parent_longitude;
+
+    /* This one instead is a critical, because format is specified in
+       the containing variant */
+    g_return_val_if_fail (g_variant_is_of_type (variant,
+						G_VARIANT_TYPE ("(ssba(dd)a(dd))")), NULL);
+
+    g_variant_get (variant, "(&s&sb@a(dd)@a(dd))", &name, &station_code, &is_city,
+		   &latlon_variant, &parent_latlon_variant);
+
+    if (g_variant_n_children (latlon_variant) > 0) {
+	latlon_valid = TRUE;
+	g_variant_get_child (latlon_variant, 0, "(dd)", &latitude, &longitude);
+    } else {
+	latlon_valid = FALSE;
+	latitude = 0;
+	longitude = 0;
+    }
+
+    if (g_variant_n_children (parent_latlon_variant) > 0) {
+	parent_latlon_valid = TRUE;
+	g_variant_get_child (parent_latlon_variant, 0, "(dd)", &parent_latitude, &parent_longitude);
+    } else {
+	parent_latlon_valid = FALSE;
+	parent_latitude = 0;
+	parent_longitude = 0;
+    }
+
+    return gweather_location_common_deserialize(world, name, station_code, is_city,
+						latlon_valid, latitude, longitude,
+						parent_latlon_valid, parent_latitude, parent_longitude);
+}
+
 /**
  * gweather_location_serialize:
  * @loc: a city, weather station or detached #GWeatherLocation
@@ -1365,7 +1430,7 @@ gweather_location_serialize (GWeatherLocation *loc)
     g_return_val_if_fail (loc->level >= GWEATHER_LOCATION_CITY, NULL);
 
     return g_variant_new ("(uv)", FORMAT,
-			  gweather_location_format_one_serialize (loc));
+			  gweather_location_format_two_serialize (loc));
 }
 
 /**
@@ -1399,8 +1464,10 @@ gweather_location_deserialize (GWeatherLocation *world,
 
     g_variant_get (serialized, "(uv)", &format, &v);
 
-    if (format == FORMAT)
+    if (format == 1)
 	loc = gweather_location_format_one_deserialize (world, v);
+    else if (format == 2)
+	loc = gweather_location_format_two_deserialize (world, v);
     else
 	loc = NULL;
 
