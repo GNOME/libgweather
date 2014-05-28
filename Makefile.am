@@ -1,4 +1,4 @@
-SUBDIRS = data libgweather schemas icons doc po po-locations
+SUBDIRS = data libgweather schemas doc po po-locations
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 

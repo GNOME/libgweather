@@ -218,7 +218,6 @@ libgweather/gweather-3.0-uninstalled.pc
 libgweather/gweather-version.h
 data/Makefile
 data/glade/Makefile
-icons/Makefile
 schemas/Makefile
 ])
 AC_OUTPUT
