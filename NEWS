@@ -1,4 +1,15 @@
 ==============
+Version 3.13.2
+==============
+
+* Serialization format for locations was changed. Existing
+  serialized locations are recognized, but variants produced
+  by the new library are not compatible.
+  The new format is compatible with dbus-1, so locations
+  can now be sent across dbus.
+* Updated translations
+
+==============
 Version 3.13.1
 ==============
 
