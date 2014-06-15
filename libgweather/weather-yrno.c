@@ -343,12 +343,12 @@ build_yrno_url_geonames (GWeatherLocation *glocation,
 
     while (glocation) {
 	if (glocation->level == GWEATHER_LOCATION_CITY)
-	    city_name = glocation->name;
+	    city_name = glocation->english_name;
 	if (glocation->level == GWEATHER_LOCATION_ADM1 ||
 	    glocation->level == GWEATHER_LOCATION_ADM2)
-	    adm_division = glocation->name;
+	    adm_division = glocation->english_name;
 	if (glocation->level == GWEATHER_LOCATION_COUNTRY)
-	    country = glocation->name;
+	    country = glocation->english_name;
 	glocation = glocation->parent;
     }
 

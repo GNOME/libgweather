@@ -38,7 +38,7 @@
 void        _gweather_gettext_init (void);
 
 struct _GWeatherLocation {
-    char *name, *msgctxt, *sort_name;
+    char *english_name, *local_name, *msgctxt, *local_sort_name, *english_sort_name;
     GWeatherLocation *parent, **children;
     GWeatherLocationLevel level;
     char *country_code, *tz_hint;

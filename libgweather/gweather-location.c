@@ -89,7 +89,7 @@ sort_locations_by_name (gconstpointer a, gconstpointer b)
     GWeatherLocation *loc_a = *(GWeatherLocation **)a;
     GWeatherLocation *loc_b = *(GWeatherLocation **)b;
 
-    return g_utf8_collate (loc_a->sort_name, loc_b->sort_name);
+    return g_utf8_collate (loc_a->local_sort_name, loc_b->local_sort_name);
 }
  
 static int
@@ -156,14 +156,26 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 	}
 
 	tagname = (const char *) xmlTextReaderConstName (parser->xml);
-	if (!strcmp (tagname, "name") && !loc->name) {
+	if (!strcmp (tagname, "name") && !loc->english_name) {
             loc->msgctxt = _gweather_parser_get_msgctxt_value (parser);
 	    value = _gweather_parser_get_value (parser);
 	    if (!value)
 		goto error_out;
-	    loc->name = value;
-	    normalized = g_utf8_normalize (loc->name, -1, G_NORMALIZE_ALL);
-	    loc->sort_name = g_utf8_casefold (normalized, -1);
+
+	    loc->english_name = value;
+	    if (loc->msgctxt) {
+		loc->local_name = g_strdup (g_dpgettext2 ("libgweather-locations",
+							  (char*) loc->msgctxt, value));
+	    } else {
+		loc->local_name = g_strdup (g_dgettext ("libgweather-locations", value));
+	    }
+
+	    normalized = g_utf8_normalize (loc->local_name, -1, G_NORMALIZE_ALL);
+	    loc->local_sort_name = g_utf8_casefold (normalized, -1);
+	    g_free (normalized);
+
+	    normalized = g_utf8_normalize (loc->english_name, -1, G_NORMALIZE_ALL);
+	    loc->english_sort_name = g_utf8_casefold (normalized, -1);
 	    g_free (normalized);
 	} else if (!strcmp (tagname, "iso-code") && !loc->country_code) {
 	    value = _gweather_parser_get_value (parser);
@@ -370,9 +382,11 @@ gweather_location_unref (GWeatherLocation *loc)
 
     g_return_if_fail (loc->level != GWEATHER_LOCATION_WORLD);
 
-    g_free (loc->name);
+    g_free (loc->english_name);
+    g_free (loc->local_name);
     g_free (loc->msgctxt);
-    g_free (loc->sort_name);
+    g_free (loc->local_sort_name);
+    g_free (loc->english_sort_name);
     g_free (loc->country_code);
     g_free (loc->tz_hint);
     g_free (loc->station_code);
@@ -422,11 +436,6 @@ gweather_location_get_type (void)
  *
  * Gets @loc's name, localized into the current language.
  *
- * Note that %GWEATHER_LOCATION_WEATHER_STATION nodes are not
- * localized, and so the name returned for those nodes will always be
- * in English, and should therefore not be displayed to the user.
- * (FIXME: should we just not return a name?)
- *
  * Return value: @loc's name
  **/
 const char *
@@ -434,16 +443,7 @@ gweather_location_get_name (GWeatherLocation *loc)
 {
     g_return_val_if_fail (loc != NULL, NULL);
 
-    const char *ret;
-
-    if (loc->msgctxt) {
-	ret = (const char*) g_dpgettext2 ("libgweather-locations",
-				       (char*) loc->msgctxt, (char*) loc->name);
-    } else {
-	ret = (const char*) g_dgettext ("libgweather-locations", (char*) loc->name);
-    }
-
-    return g_strdup (ret);
+    return g_strdup (loc->local_name);
 }
 
 /**
@@ -461,7 +461,7 @@ const char *
 gweather_location_get_sort_name (GWeatherLocation *loc)
 {
     g_return_val_if_fail (loc != NULL, NULL);
-    return loc->sort_name;
+    return loc->local_sort_name;
 }
 
 /**
@@ -1033,26 +1033,13 @@ gweather_location_get_city_name (GWeatherLocation *loc)
 {
     g_return_val_if_fail (loc != NULL, NULL);
 
-    const char *ret;
-
     if (loc->level == GWEATHER_LOCATION_CITY ||
         loc->level == GWEATHER_LOCATION_DETACHED) {
-        if (loc->msgctxt) {
-            ret = (const char*) g_dpgettext2 ("libgweather-locations", (char*) loc->msgctxt, (char*) loc->name);
-        } else {
-            ret = (const char*) g_dgettext ("libgweather-locations", (char*) loc->name);
-        }
-
-        return g_strdup (ret);
+        return g_strdup (loc->local_name);
     } else if (loc->level == GWEATHER_LOCATION_WEATHER_STATION &&
                loc->parent &&
                loc->parent->level == GWEATHER_LOCATION_CITY) {
-        if (loc->parent->msgctxt) {
-            ret = (const char*) g_dpgettext2 ("libgweather-locations", (char*) loc->parent->msgctxt, (char*) loc->parent->name);
-        } else {
-            ret = (const char*) g_dgettext ("libgweather-locations", (char*) loc->parent->name);
-        }
-        return g_strdup (ret);
+        return g_strdup (loc->parent->local_name);
     } else
         return NULL;
 }
@@ -1092,7 +1079,7 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
 	l = l->parent;
     }
 
-    loc->name = g_strdup (gweather_location_get_name (gloc)),
+    loc->name = g_strdup (gloc->local_name),
     loc->code = g_strdup (code);
     loc->zone = g_strdup (zone);
     loc->yahoo_id = g_strdup (yahoo_id);
@@ -1171,7 +1158,7 @@ gweather_location_equal (GWeatherLocation *one,
 
     if (level == GWEATHER_LOCATION_ADM1 ||
 	level == GWEATHER_LOCATION_ADM2) {
-	if (g_strcmp0 (one->sort_name, two->sort_name) != 0)
+	if (g_strcmp0 (one->english_sort_name, two->english_sort_name) != 0)
 	    return FALSE;
 
 	return one->parent && two->parent &&
@@ -1202,7 +1189,7 @@ gweather_location_format_two_serialize (GWeatherLocation *location)
     GVariantBuilder latlon_builder;
     GVariantBuilder parent_latlon_builder;
 
-    name = location->name;
+    name = location->english_name;
 
     /* Normalize location to be a weather station or detached */
     if (location->level == GWEATHER_LOCATION_CITY) {
@@ -1238,10 +1225,12 @@ _gweather_location_new_detached (GWeatherLocation *nearest_station,
     self = g_slice_new0 (GWeatherLocation);
     self->ref_count = 1;
     self->level = GWEATHER_LOCATION_DETACHED;
-    self->name = g_strdup (name);
+    self->english_name = g_strdup (name);
+    self->local_name = g_strdup (name);
 
     normalized = g_utf8_normalize (name, -1, G_NORMALIZE_ALL);
-    self->sort_name = g_utf8_casefold (normalized, -1);
+    self->english_sort_name = g_utf8_casefold (normalized, -1);
+    self->local_sort_name = g_strdup (self->english_sort_name);
     g_free (normalized);
 
     self->parent = nearest_station;
@@ -1321,7 +1310,7 @@ gweather_location_common_deserialize (GWeatherLocation *world,
 		continue;
 	    }
 
-	    if (g_strcmp0 (name, city->name) == 0)
+	    if (g_strcmp0 (name, city->english_name) == 0)
 		found = gweather_location_ref (city);
 	    else
 		found = _gweather_location_new_detached (ws, name, TRUE, latitude, longitude);

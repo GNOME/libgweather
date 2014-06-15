@@ -70,8 +70,8 @@ enum
 {
     GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME = 0,
     GWEATHER_LOCATION_ENTRY_COL_LOCATION,
-    GWEATHER_LOCATION_ENTRY_COL_COMPARE_NAME,
-    GWEATHER_LOCATION_ENTRY_COL_SORT_NAME,
+    GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME,
+    GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME,
     GWEATHER_LOCATION_ENTRY_NUM_COLUMNS
 };
 
@@ -291,7 +291,7 @@ set_location_internal (GWeatherLocationEntry *entry,
 	g_free (name);
     } else if (loc) {
 	priv->location = gweather_location_ref (loc);
-	gtk_entry_set_text (GTK_ENTRY (entry), loc->name);
+	gtk_entry_set_text (GTK_ENTRY (entry), loc->local_name);
 	priv->custom_text = TRUE;
     } else {
 	priv->location = NULL;
@@ -457,10 +457,11 @@ gweather_location_entry_set_city (GWeatherLocationEntry *entry,
 static void
 fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 			   const char *parent_display_name,
-			   const char *parent_compare_name)
+			   const char *parent_compare_local_name,
+			   const char *parent_compare_english_name)
 {
     GWeatherLocation **children;
-    char *display_name, *compare_name;
+    char *display_name, *local_compare_name, *english_compare_name;
     GtkTreeIter iter;
     int i;
 
@@ -476,7 +477,8 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	for (i = 0; children[i]; i++) {
 	    fill_location_entry_model (store, children[i],
 				       parent_display_name,
-				       parent_compare_name);
+				       parent_compare_local_name,
+				       parent_compare_english_name);
 	}
 	break;
 
@@ -484,23 +486,26 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	/* Recurse, initializing the names to the country name */
 	for (i = 0; children[i]; i++) {
 	    fill_location_entry_model (store, children[i],
-				       gweather_location_get_name (loc),
-				       gweather_location_get_sort_name (loc));
+				       loc->local_name,
+				       loc->local_sort_name,
+				       loc->english_sort_name);
 	}
 	break;
 
     case GWEATHER_LOCATION_ADM1:
 	/* Recurse, adding the ADM1 name to the country name */
-	display_name = g_strdup_printf ("%s, %s", gweather_location_get_name (loc), parent_display_name);
-	compare_name = g_strdup_printf ("%s, %s", gweather_location_get_sort_name (loc), parent_compare_name);
+	display_name = g_strdup_printf ("%s, %s", loc->local_name, parent_display_name);
+	local_compare_name = g_strdup_printf ("%s, %s", loc->local_sort_name, parent_compare_local_name);
+	english_compare_name = g_strdup_printf ("%s, %s", loc->english_sort_name, parent_compare_english_name);
 
 	for (i = 0; children[i]; i++) {
 	    fill_location_entry_model (store, children[i],
-				       display_name, compare_name);
+				       display_name, local_compare_name, english_compare_name);
 	}
 
 	g_free (display_name);
-	g_free (compare_name);
+	g_free (local_compare_name);
+	g_free (english_compare_name);
 	break;
 
     case GWEATHER_LOCATION_CITY:
@@ -510,23 +515,26 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	     */
 	    for (i = 0; children[i]; i++) {
 		display_name = g_strdup_printf ("%s (%s), %s",
-						gweather_location_get_name (loc),
-						gweather_location_get_name (children[i]),
+						loc->local_name, children[i]->local_name,
 						parent_display_name);
-		compare_name = g_strdup_printf ("%s (%s), %s",
-						gweather_location_get_sort_name (loc),
-						gweather_location_get_sort_name (children[i]),
-						parent_compare_name);
+		local_compare_name = g_strdup_printf ("%s (%s), %s",
+						      loc->local_sort_name, children[i]->local_sort_name,
+						      parent_compare_local_name);
+		english_compare_name = g_strdup_printf ("%s (%s), %s",
+							loc->english_sort_name, children[i]->english_sort_name,
+							parent_compare_english_name);
 
 		gtk_tree_store_append (store, &iter, NULL);
 		gtk_tree_store_set (store, &iter,
 				    GWEATHER_LOCATION_ENTRY_COL_LOCATION, children[i],
 				    GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
-				    GWEATHER_LOCATION_ENTRY_COL_COMPARE_NAME, compare_name,
+				    GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, local_compare_name,
+				    GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME, english_compare_name,
 				    -1);
 
 		g_free (display_name);
-		g_free (compare_name);
+		g_free (local_compare_name);
+		g_free (english_compare_name);
 	    }
 
 	    break;
@@ -539,21 +547,23 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	 * child <location>.
 	 */
 	display_name = g_strdup_printf ("%s, %s",
-					gweather_location_get_name (loc),
-					parent_display_name);
-	compare_name = g_strdup_printf ("%s, %s",
-					gweather_location_get_sort_name (loc),
-					parent_compare_name);
+					loc->local_name, parent_display_name);
+	local_compare_name = g_strdup_printf ("%s, %s",
+					      loc->local_sort_name, parent_compare_local_name);
+	english_compare_name = g_strdup_printf ("%s, %s",
+						loc->english_sort_name, parent_compare_english_name);
 
 	gtk_tree_store_append (store, &iter, NULL);
 	gtk_tree_store_set (store, &iter,
 			    GWEATHER_LOCATION_ENTRY_COL_LOCATION, loc,
 			    GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
-			    GWEATHER_LOCATION_ENTRY_COL_COMPARE_NAME, compare_name,
+			    GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, local_compare_name,
+			    GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME, english_compare_name,
 			    -1);
 
 	g_free (display_name);
-	g_free (compare_name);
+	g_free (local_compare_name);
+	g_free (english_compare_name);
 	break;
 
     case GWEATHER_LOCATION_DETACHED:
@@ -573,7 +583,7 @@ gweather_location_entry_build_model (GWeatherLocationEntry *entry,
 	entry->priv->top = gweather_location_ref (gweather_location_get_world ());
 
     store = gtk_tree_store_new (4, G_TYPE_STRING, GWEATHER_TYPE_LOCATION, G_TYPE_STRING, G_TYPE_STRING);
-    fill_location_entry_model (store, entry->priv->top, NULL, NULL);
+    fill_location_entry_model (store, entry->priv->top, NULL, NULL, NULL);
     gtk_entry_completion_set_model (gtk_entry_get_completion (GTK_ENTRY (entry)),
 				    GTK_TREE_MODEL (store));
     g_object_unref (store);
@@ -622,17 +632,10 @@ find_word (const char *full_name, const char *word, int word_len,
 }
 
 static gboolean
-matcher (GtkEntryCompletion *completion, const char *key,
-	 GtkTreeIter *iter, gpointer user_data)
+match_compare_name (const char *key, const char *name)
 {
-    char *name, *name_mem;
-    gboolean is_first_word = TRUE, match;
+    gboolean is_first_word = TRUE;
     int len;
-
-    gtk_tree_model_get (gtk_entry_completion_get_model (completion), iter,
-			GWEATHER_LOCATION_ENTRY_COL_COMPARE_NAME, &name_mem,
-			-1);
-    name = name_mem;
 
     /* All but the last word in KEY must match a full word from NAME,
      * in order (but possibly skipping some words from NAME).
@@ -640,10 +643,8 @@ matcher (GtkEntryCompletion *completion, const char *key,
     len = strcspn (key, " ");
     while (key[len]) {
 	name = find_word (name, key, len, TRUE, is_first_word);
-	if (!name) {
-	    g_free (name_mem);
+	if (!name)
 	    return FALSE;
-	}
 
 	key += len;
 	while (*key && !g_unichar_isalpha (g_utf8_get_char (key)))
@@ -656,8 +657,24 @@ matcher (GtkEntryCompletion *completion, const char *key,
     }
 
     /* The last word in KEY must match a prefix of a following word in NAME */
-    match = find_word (name, key, strlen (key), FALSE, is_first_word) != NULL;
-    g_free (name_mem);
+    return find_word (name, key, strlen (key), FALSE, is_first_word) != NULL;
+}
+
+static gboolean
+matcher (GtkEntryCompletion *completion, const char *key,
+	 GtkTreeIter *iter, gpointer user_data)
+{
+    char *local_compare_name, *english_compare_name;
+    gboolean match;
+
+    gtk_tree_model_get (gtk_entry_completion_get_model (completion), iter,
+			GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, &local_compare_name,
+			GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME, &english_compare_name,
+			-1);
+    match = match_compare_name (key, local_compare_name) || match_compare_name (key, english_compare_name);
+
+    g_free (local_compare_name);
+    g_free (english_compare_name);
     return match;
 }
 
