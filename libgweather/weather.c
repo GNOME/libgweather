@@ -1308,18 +1308,10 @@ gweather_info_get_icon_name (GWeatherInfo *info)
     GWeatherConditions   cond;
     GWeatherSky          sky;
     gboolean             daytime;
-    gchar*               icon;
-    static gchar         icon_buffer[32];
-    GWeatherMoonPhase    moonPhase;
-    GWeatherMoonLatitude moonLat;
-    gint                 phase;
 
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
 
     priv = info->priv;
-
-    _gweather_info_ensure_sun (info);
-    _gweather_info_ensure_moon (info);
 
     cond = priv->cond;
     sky = priv->sky;
@@ -1376,20 +1368,16 @@ gweather_info_get_icon_name (GWeatherInfo *info)
     case GWEATHER_SKY_CLEAR:
 	if (daytime)
 	    return "weather-clear";
-	else {
-	    icon = g_stpcpy(icon_buffer, "weather-clear-night");
-	    break;
-	}
+	else
+	    return "weather-clear-night";
 
     case GWEATHER_SKY_BROKEN:
     case GWEATHER_SKY_SCATTERED:
     case GWEATHER_SKY_FEW:
 	if (daytime)
 	    return "weather-few-clouds";
-	else {
-	    icon = g_stpcpy(icon_buffer, "weather-few-clouds-night");
-	    break;
-	}
+	else
+	    return "weather-few-clouds-night";
 
     case GWEATHER_SKY_OVERCAST:
 	return "weather-overcast";
@@ -1397,38 +1385,6 @@ gweather_info_get_icon_name (GWeatherInfo *info)
     default: /* unrecognized */
 	return NULL;
     }
-
-    /*
-     * A phase-of-moon icon is to be returned.
-     * Determine which one based on the moon's location
-     */
-    if (priv->moonValid && gweather_info_get_value_moonphase(info, &moonPhase, &moonLat)) {
-	phase = (gint)((moonPhase * MOON_PHASES / 360.) + 0.5);
-	if (phase == MOON_PHASES) {
-	    phase = 0;
-	} else if (phase > 0 &&
-		   (RADIANS_TO_DEGREES(priv->location.latitude)
-		    < moonLat)) {
-	    /*
-	     * Locations south of the moon's latitude will see the moon in the
-	     * northern sky.  The moon waxes and wanes from left to right
-	     * so we reference an icon running in the opposite direction.
-	     */
-	    phase = MOON_PHASES - phase;
-	}
-
-	/*
-	 * If the moon is not full then append the angle to the icon string.
-	 * Note that an icon by this name is not required to exist:
-	 * the caller can use GTK_ICON_LOOKUP_GENERIC_FALLBACK to fall back to
-	 * the full moon image.
-	 */
-	if ((0 == (MOON_PHASES & 0x1)) && (MOON_PHASES/2 != phase)) {
-	    g_snprintf(icon, sizeof(icon_buffer) - strlen(icon_buffer),
-		       "-%03d", phase * 360 / MOON_PHASES);
-	}
-    }
-    return icon_buffer;
 }
 
 const gchar *
@@ -1442,9 +1398,6 @@ gweather_info_get_symbolic_icon_name (GWeatherInfo *info)
     g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
 
     priv = info->priv;
-
-    _gweather_info_ensure_sun (info);
-    _gweather_info_ensure_moon (info);
 
     cond = priv->cond;
     sky = priv->sky;
