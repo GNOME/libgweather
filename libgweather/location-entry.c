@@ -794,27 +794,33 @@ _got_places (GObject      *source_object,
     GWeatherLocationEntry *self = user_data;
     GError *error = NULL;
     GtkTreeStore *store = NULL;
-    GtkEntryCompletion *completion = gtk_entry_get_completion (user_data);
+    GtkEntryCompletion *completion;
 
     places = geocode_forward_search_finish (GEOCODE_FORWARD (source_object), result, &error);
     if (places == NULL) {
         /* return without touching anything if cancelled (the entry might have been disposed) */
         if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
+            g_clear_error (&error);
             return;
         }
 
-        gtk_entry_completion_delete_action (completion, 0);
+        g_clear_error (&error);
+        completion = gtk_entry_get_completion (user_data);
         gtk_entry_completion_set_match_func (completion, matcher, NULL, NULL);
         gtk_entry_completion_set_model (completion, self->priv->model);
-        return;
+        goto out;
     }
 
+    completion = gtk_entry_get_completion (user_data);
     store = gtk_tree_store_new (4, G_TYPE_STRING, GEOCODE_TYPE_PLACE, G_TYPE_STRING, G_TYPE_STRING);
     g_list_foreach (places, fill_store, store);
     gtk_entry_completion_set_match_func (completion, new_matcher, NULL, NULL);
     gtk_entry_completion_set_model (completion, GTK_TREE_MODEL (store));
-    gtk_entry_completion_delete_action (completion, 0);
     g_object_unref (store);
+
+ out:
+    gtk_entry_completion_delete_action (completion, 0);
+    g_clear_object (&self->priv->cancellable);
 }
 
 static void
