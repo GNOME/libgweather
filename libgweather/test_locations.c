@@ -17,7 +17,9 @@ location_changed (GObject *object, GParamSpec *param, gpointer tzmenu)
     GWeatherTimezone *zone;
 
     loc = gweather_location_entry_get_location (entry);
-    g_return_if_fail (loc != NULL);
+    if (loc == NULL)
+      return;
+
     zone = gweather_location_get_timezone (loc);
     if (zone)
 	gweather_timezone_menu_set_tzid (tzmenu, gweather_timezone_get_tzid (zone));
