@@ -564,43 +564,14 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	break;
 
     case GWEATHER_LOCATION_CITY:
-	if (children[0] && children[1]) {
-	    /* If there are multiple (<location>) children, add a line
-	     * for each of them.
-	     */
-	    for (i = 0; children[i]; i++) {
-		display_name = g_strdup_printf ("%s (%s), %s",
-						loc->local_name, children[i]->local_name,
-						parent_display_name);
-		local_compare_name = g_strdup_printf ("%s (%s), %s",
-						      loc->local_sort_name, children[i]->local_sort_name,
-						      parent_compare_local_name);
-		english_compare_name = g_strdup_printf ("%s (%s), %s",
-							loc->english_sort_name, children[i]->english_sort_name,
-							parent_compare_english_name);
-
-		gtk_tree_store_append (store, &iter, NULL);
-		gtk_tree_store_set (store, &iter,
-				    LOC_GWEATHER_LOCATION_ENTRY_COL_LOCATION, children[i],
-				    LOC_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
-				    LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, local_compare_name,
-				    LOC_GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME, english_compare_name,
-				    -1);
-
-		g_free (display_name);
-		g_free (local_compare_name);
-		g_free (english_compare_name);
-	    }
-
-	    break;
-	}
-
-	/* fall through */
-
-    case GWEATHER_LOCATION_WEATHER_STATION:
-	/* <location> with no parent <city>, or <city> with a single
-	 * child <location>.
+	/* If there are multiple (<location>) children, we use the one
+	 * closest to the city center.
+	 *
+	 * Locations are already sorted by increasing distance from
+	 * the city.
 	 */
+    case GWEATHER_LOCATION_WEATHER_STATION:
+	/* <location> with no parent <city> */
 	display_name = g_strdup_printf ("%s, %s",
 					loc->local_name, parent_display_name);
 	local_compare_name = g_strdup_printf ("%s, %s",
