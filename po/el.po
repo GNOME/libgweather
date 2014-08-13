@@ -45,8 +45,8 @@ msgstr ""
 "Project-Id-Version: libgweather.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-04-18 10:22+0000\n"
-"PO-Revision-Date: 2014-04-18 21:09+0200\n"
+"POT-Creation-Date: 2014-08-05 09:39+0000\n"
+"PO-Revision-Date: 2014-08-13 15:04+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
@@ -54,7 +54,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/glade/libgweather.xml.in.h:1
@@ -157,7 +157,7 @@ msgstr "Άκυρη"
 
 #: ../libgweather/weather.c:131
 msgid "Clear Sky"
-msgstr "Καθαρός Ουρανός"
+msgstr "Καθαρός ουρανός"
 
 #: ../libgweather/weather.c:132
 msgid "Broken clouds"
@@ -562,7 +562,7 @@ msgstr "%0.1f κόμβοι"
 #: ../libgweather/weather.c:961
 #, c-format
 msgid "%.1f mph"
-msgstr "%.1f μίλια ανά ώρα"
+msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
 #: ../libgweather/weather.c:964
@@ -674,14 +674,14 @@ msgstr "Αποτυχία λήψης"
 #: ../libgweather/weather-metar.c:574
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
-msgstr "Αδύνατη η ανάγνωση πληροφοριών METAR: %d %s.\n"
+msgstr "Αποτυχία λήψης δεδομένων METAR: %d %s.\n"
 
 #: ../libgweather/weather-owm.c:385
 msgid ""
 "Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
 "project</a>"
 msgstr ""
-"Μετεωρολογικά δεδομένα από το <a<a href=\"http://openweathermap.org\">Open "
+"Μετεωρολογικά δεδομένα από το <a href=\"http://openweathermap.org\">Open "
 "Weather Map project</a>"
 
 #. The new (documented but not advertised) API is less strict in the
@@ -691,9 +691,6 @@ msgstr ""
 #. That's very nice of them!
 #.
 #: ../libgweather/weather-yrno.c:445
-#| msgid ""
-#| "Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</"
-#| "a>"
 msgid ""
 "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
 "Institute</a>"
@@ -703,13 +700,15 @@ msgstr ""
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:1
 msgid "URL for the radar map"
-msgstr "URL για το χάρτη ραντάρ"
+msgstr "Διεύθυνση για το χάρτη ραντάρ"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:2
 msgid ""
 "The custom URL from where to retrieve a radar map, or empty for disabling "
 "radar maps."
-msgstr "Χρήση προσαρμοσμένου URL για λήψη του χάρτη radar."
+msgstr ""
+"Χρήση προσαρμοσμένης διεύθυνσης για λήψη του χάρτη ραντάρ ή κενής για "
+"απενεργοποίσηση των χαρτών ραντάρ."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:3
 msgid "Temperature unit"
@@ -750,7 +749,7 @@ msgstr ""
 "Η μονάδα της ταχύτητας που χρησιμοποιείται για την προβολή καιρού (για "
 "παράδειγμα για την ταχύτητα του ανέμου). Έγκυρες τιμές είναι οι 'ms' (μέτρα "
 "ανά δευτερόλεπτο), 'kph' (χιλιόμετρα ανά ώρα), 'mph' (μίλια ανά ώρα), "
-"'knots' και 'bft' (κλίμακα Μποφόρ)."
+"'knots' και 'bft' (κλίμακα μποφόρ)."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:9
 msgid "Pressure unit"
