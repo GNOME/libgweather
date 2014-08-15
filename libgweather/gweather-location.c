@@ -1044,6 +1044,35 @@ gweather_location_get_city_name (GWeatherLocation *loc)
         return NULL;
 }
 
+/**
+ * gweather_location_get_country_name:
+ * @loc: a #GWeatherLocation
+ *
+ * Gets the country name of loc.
+ * For a %GWEATHER_LOCATION_COUNTRY location, this is equivalent to
+ * gweather_location_get_name().
+ * For a %GWEATHER_LOCATION_REGION and GWEATHER_LOCATION_WORLD location it
+ * will return %NULL.
+ * For other locations it will find the parent %GWEATHER_LOCATION_COUNTRY
+ * and return its name.
+ *
+ * Return value: (allow-none): @loc's country name, or %NULL
+ **/
+char *
+gweather_location_get_country_name (GWeatherLocation *loc)
+{
+    GWeatherLocation *country;
+
+    g_return_val_if_fail (loc != NULL, NULL);
+
+    country = loc;
+    while (country != NULL && country->level != GWEATHER_LOCATION_COUNTRY) {
+        country = country->parent;
+    }
+
+    return country != NULL ? g_strdup (country->local_name) : NULL;
+}
+
 void
 _gweather_location_update_weather_location (GWeatherLocation *gloc,
 					    WeatherLocation  *loc)
