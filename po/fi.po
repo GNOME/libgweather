@@ -13,9 +13,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-04 21:50+0000\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
+"cgi?product=libgweather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-08-08 21:40+0000\n"
 "PO-Revision-Date: 2013-03-23 14:19+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -26,111 +26,129 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: ../libgweather/gweather-timezone.c:316
+#: ../data/glade/libgweather.xml.in.h:1
+#, fuzzy
+#| msgid "Location"
+msgid "Location Entry"
+msgstr "Sijainti"
+
+#: ../data/glade/libgweather.xml.in.h:2
+msgid "Timezone Menu"
+msgstr ""
+
+#: ../data/glade/libgweather.xml.in.h:3
+msgid "Timezone"
+msgstr ""
+
+#: ../data/glade/libgweather.xml.in.h:4
+#, fuzzy
+#| msgid "GNOME Weather"
+msgid "GWeather"
+msgstr "Gnomen säätiedot"
+
+#: ../libgweather/gweather-timezone.c:340
 msgid "Greenwich Mean Time"
 msgstr "Greenwichin aika"
 
-#: ../libgweather/timezone-menu.c:278
+#: ../libgweather/timezone-menu.c:275
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: ../libgweather/weather.c:129
+#: ../libgweather/weather.c:114
 msgid "Variable"
 msgstr "Vaihteleva"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:115
 msgid "North"
 msgstr "Pohjoinen"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:115
 msgid "North - NorthEast"
 msgstr "Pohjoinen - Koillinen"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:115
 msgid "Northeast"
 msgstr "Koillinen"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:115
 msgid "East - NorthEast"
 msgstr "Itäinen - Koillinen"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:116
 msgid "East"
 msgstr "Itäinen"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:116
 msgid "East - Southeast"
 msgstr "Itäinen - Kaakkoinen"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:116
 msgid "Southeast"
 msgstr "Kaakkoinen"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:116
 msgid "South - Southeast"
 msgstr "Eteläinen - Kaakkoinen"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:117
 msgid "South"
 msgstr "Eteläinen"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:117
 msgid "South - Southwest"
 msgstr "Eteläinen - Lounainen"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:117
 msgid "Southwest"
 msgstr "Lounainen"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:117
 msgid "West - Southwest"
 msgstr "Läntinen - Lounainen"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:118
 msgid "West"
 msgstr "Läntinen"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:118
 msgid "West - Northwest"
 msgstr "Läntinen - Luoteinen"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:118
 msgid "Northwest"
 msgstr "Luoteinen"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:118
 msgid "North - Northwest"
 msgstr "Pohjoinen - Luoteinen"
 
-#: ../libgweather/weather.c:140
-#| msgid "Invalid"
+#: ../libgweather/weather.c:125
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Virheellinen"
 
-#: ../libgweather/weather.c:146
+#: ../libgweather/weather.c:131
 msgid "Clear Sky"
 msgstr "Selkeää"
 
-#: ../libgweather/weather.c:147
+#: ../libgweather/weather.c:132
 msgid "Broken clouds"
 msgstr "Melkein pilvistä"
 
-#: ../libgweather/weather.c:148
+#: ../libgweather/weather.c:133
 msgid "Scattered clouds"
 msgstr "Ajoittain pilvistä"
 
-#: ../libgweather/weather.c:149
+#: ../libgweather/weather.c:134
 msgid "Few clouds"
 msgstr "Joitakin pilviä"
 
-#: ../libgweather/weather.c:150
+#: ../libgweather/weather.c:135
 msgid "Overcast"
 msgstr "Pilvistä"
 
-#: ../libgweather/weather.c:157 ../libgweather/weather.c:229
-#| msgid "Invalid"
+#: ../libgweather/weather.c:142 ../libgweather/weather.c:214
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "Virheellinen"
@@ -139,396 +157,406 @@ msgstr "Virheellinen"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:189 ../libgweather/weather.c:191
+#: ../libgweather/weather.c:174 ../libgweather/weather.c:176
 msgid "Thunderstorm"
 msgstr "Ukkosmyrsky"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Drizzle"
 msgstr "Tihkusadetta"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Light drizzle"
 msgstr "Kevyttä tihkusadetta"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Moderate drizzle"
 msgstr "Kohtalaista tihkusadetta"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Heavy drizzle"
 msgstr "Voimakasta tihkusadetta"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Freezing drizzle"
 msgstr "Jäätävää tihkusadetta"
 
 #. RAIN
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Rain"
 msgstr "Vesisadetta"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Light rain"
 msgstr "Kevyttä vesisadetta"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Moderate rain"
 msgstr "Kohtalaista sadetta"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Heavy rain"
 msgstr "Voimakasta sadetta"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Rain showers"
 msgstr "Sadekuuroja"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Freezing rain"
 msgstr "Jäätävää sadetta"
 
 #. SNOW
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Snow"
 msgstr "Lumisadetta"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Light snow"
 msgstr "Kevyttä lumisadetta"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Moderate snow"
 msgstr "Kohtalaista lumisadetta"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Heavy snow"
 msgstr "Voimakasta lumisadetta"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Snowstorm"
 msgstr "Lumipyry"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Blowing snowfall"
 msgstr "Tuulista lumisadetta"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Snow showers"
 msgstr "Lumikuuroja"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Drifting snow"
 msgstr "Ajelehtivaa lumisadetta"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:178
 msgid "Snow grains"
 msgstr "Jyvässadetta"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:178
 msgid "Light snow grains"
 msgstr "Kevyttä jyvässadetta"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:178
 msgid "Moderate snow grains"
 msgstr "Kohtalaista jyvässadetta"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:178
 msgid "Heavy snow grains"
 msgstr "Voimakasta jyvässadetta"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:194
+#: ../libgweather/weather.c:179
 msgid "Ice crystals"
 msgstr "Jääkiteitä"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:195
-msgid "Ice pellets"
-msgstr "Jääjyvässadetta"
+#: ../libgweather/weather.c:180
+msgid "Sleet"
+msgstr ""
 
-#: ../libgweather/weather.c:195
-msgid "Few ice pellets"
-msgstr "Vähän jääjyväsiä"
+#: ../libgweather/weather.c:180
+msgid "Little sleet"
+msgstr ""
 
-#: ../libgweather/weather.c:195
-msgid "Moderate ice pellets"
-msgstr "Kohtalaisesti jääjyväsiä"
+#: ../libgweather/weather.c:180
+#, fuzzy
+#| msgid "Moderate snow"
+msgid "Moderate sleet"
+msgstr "Kohtalaista lumisadetta"
 
-#: ../libgweather/weather.c:195
-msgid "Heavy ice pellets"
-msgstr "Paljon jääjyväsiä"
+#: ../libgweather/weather.c:180
+#, fuzzy
+#| msgid "Heavy snow"
+msgid "Heavy sleet"
+msgstr "Voimakasta lumisadetta"
 
-#: ../libgweather/weather.c:195
-msgid "Ice pellet storm"
+#: ../libgweather/weather.c:180
+#, fuzzy
+#| msgid "Ice pellet storm"
+msgid "Sleet storm"
 msgstr "Jääjyväsmyrsky"
 
-#: ../libgweather/weather.c:195
-msgid "Showers of ice pellets"
+#: ../libgweather/weather.c:180
+#, fuzzy
+#| msgid "Showers of ice pellets"
+msgid "Showers of sleet"
 msgstr "Jääjyvässadekuuroja"
 
 #. HAIL
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:181
 msgid "Hail"
 msgstr "Rakeita"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:181
 msgid "Hailstorm"
 msgstr "Jäämyrsky"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:181
 msgid "Hail showers"
 msgstr "Raekuuroja"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:197
+#: ../libgweather/weather.c:182
 msgid "Small hail"
 msgstr "Pikkuraesadetta"
 
-#: ../libgweather/weather.c:197
+#: ../libgweather/weather.c:182
 msgid "Small hailstorm"
 msgstr "Pikkuraemyrsky"
 
-#: ../libgweather/weather.c:197
+#: ../libgweather/weather.c:182
 msgid "Showers of small hail"
 msgstr "Pikkuraekuuroja"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:198
+#: ../libgweather/weather.c:183
 msgid "Unknown precipitation"
 msgstr "Sademäärä tuntematon"
 
 #. MIST
-#: ../libgweather/weather.c:199
+#: ../libgweather/weather.c:184
 msgid "Mist"
 msgstr "Utuista"
 
 #. FOG
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Fog"
 msgstr "Sumuista"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Fog in the vicinity"
 msgstr "Alueella sumuista"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Shallow fog"
 msgstr "Matalaa sumua"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Patches of fog"
 msgstr "Ajoittain sumuista"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Partial fog"
 msgstr "Osittaista sumua"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Freezing fog"
 msgstr "Jäätävää sumua"
 
 #. SMOKE
-#: ../libgweather/weather.c:201
+#: ../libgweather/weather.c:186
 msgid "Smoke"
 msgstr "Savuista"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:202
+#: ../libgweather/weather.c:187
 msgid "Volcanic ash"
 msgstr "Tulivuoripölyä"
 
 #. SAND
-#: ../libgweather/weather.c:203
+#: ../libgweather/weather.c:188
 msgid "Sand"
 msgstr "Hiekkaista"
 
-#: ../libgweather/weather.c:203
+#: ../libgweather/weather.c:188
 msgid "Blowing sand"
 msgstr "Tuulista ja hiekkaista"
 
-#: ../libgweather/weather.c:203
+#: ../libgweather/weather.c:188
 msgid "Drifting sand"
 msgstr "Ajelehtivaa hiekkaa"
 
 #. HAZE
-#: ../libgweather/weather.c:204
+#: ../libgweather/weather.c:189
 msgid "Haze"
 msgstr "Autereista"
 
 #. SPRAY
-#: ../libgweather/weather.c:205
+#: ../libgweather/weather.c:190
 msgid "Blowing sprays"
 msgstr "Tuulista ja pärskeistä"
 
 #. DUST
-#: ../libgweather/weather.c:206
+#: ../libgweather/weather.c:191
 msgid "Dust"
 msgstr "Pölyistä"
 
-#: ../libgweather/weather.c:206
+#: ../libgweather/weather.c:191
 msgid "Blowing dust"
 msgstr "Tuulista ja pölyistä"
 
-#: ../libgweather/weather.c:206
+#: ../libgweather/weather.c:191
 msgid "Drifting dust"
 msgstr "Ajelehtivaa pölyä"
 
 #. SQUALL
-#: ../libgweather/weather.c:207
+#: ../libgweather/weather.c:192
 msgid "Squall"
 msgstr "Ukkospuuskia"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:193
 msgid "Sandstorm"
 msgstr "Hiekkamyrsky"
 
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:193
 msgid "Sandstorm in the vicinity"
 msgstr "Alueella hiekkamyrsky"
 
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:193
 msgid "Heavy sandstorm"
 msgstr "Voimakas hiekkamyrsky"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:209
+#: ../libgweather/weather.c:194
 msgid "Duststorm"
 msgstr "Pölymyrsky"
 
-#: ../libgweather/weather.c:209
+#: ../libgweather/weather.c:194
 msgid "Duststorm in the vicinity"
 msgstr "Alueella pölymyrsky"
 
-#: ../libgweather/weather.c:209
+#: ../libgweather/weather.c:194
 msgid "Heavy duststorm"
 msgstr "Raskas pölymyrsky"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:210
+#: ../libgweather/weather.c:195
 msgid "Funnel cloud"
 msgstr "Suppilopilvistä"
 
 #. TORNADO
-#: ../libgweather/weather.c:211
+#: ../libgweather/weather.c:196
 msgid "Tornado"
 msgstr "Pyörremyrsky"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:212
+#: ../libgweather/weather.c:197
 msgid "Dust whirls"
 msgstr "Pölypyörteitä"
 
-#: ../libgweather/weather.c:212
+#: ../libgweather/weather.c:197
 msgid "Dust whirls in the vicinity"
 msgstr "Alueella pölypyörteitä"
 
-#: ../libgweather/weather.c:552
+#: ../libgweather/weather.c:706
 #, fuzzy
 #| msgid "%a, %b %d / %H:%M"
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a %d. %Bta %H.%M"
 
-#: ../libgweather/weather.c:558
+#: ../libgweather/weather.c:712
 msgid "Unknown observation time"
 msgstr "Tuntematon havaintoaika"
 
-#: ../libgweather/weather.c:570
-#| msgid "Unknown"
+#: ../libgweather/weather.c:724
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Tuntematon"
 
+#. Translate to the default units to use for presenting
+#. * lengths to the user. Translate to default:inch if you
+#. * want inches, otherwise translate to default:mm.
+#. * Do *not* translate it to "predefinito:mm", if it
+#. * it isn't default:mm or default:inch it will not work
+#.
+#: ../libgweather/weather.c:746
+#, fuzzy
+#| msgid "Default"
+msgid "default:mm"
+msgstr "Oletus"
+
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:590
+#: ../libgweather/weather.c:791
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:593
+#: ../libgweather/weather.c:794
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:599
+#: ../libgweather/weather.c:800
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:602
+#: ../libgweather/weather.c:803
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:608
+#: ../libgweather/weather.c:809
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:611
+#: ../libgweather/weather.c:812
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: ../libgweather/weather.c:619
-#| msgid "Unknown"
-msgctxt "temperature unit"
-msgid "Unknown"
-msgstr "Tuntematon"
-
-#: ../libgweather/weather.c:634 ../libgweather/weather.c:650
-#: ../libgweather/weather.c:666 ../libgweather/weather.c:719
-#| msgid "Unknown"
+#: ../libgweather/weather.c:835 ../libgweather/weather.c:851
+#: ../libgweather/weather.c:867 ../libgweather/weather.c:929
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: ../libgweather/weather.c:682
-#| msgid "Unknown"
+#: ../libgweather/weather.c:889
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: ../libgweather/weather.c:699
-#| msgid "Unknown"
+#: ../libgweather/weather.c:909
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Tuntematon"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:702
+#: ../libgweather/weather.c:912
 #, c-format
 msgid "%.f%%"
 msgstr "%.f %%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:730
+#: ../libgweather/weather.c:958
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f solmua"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:733
+#: ../libgweather/weather.c:961
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:736
+#: ../libgweather/weather.c:964
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:739
+#: ../libgweather/weather.c:967
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -536,124 +564,114 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:744
+#: ../libgweather/weather.c:972
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "%.1f boforia"
 
-#: ../libgweather/weather.c:749
-#| msgid "Unknown"
-msgctxt "speed unit"
-msgid "Unknown"
-msgstr "Tuntematon"
-
-#: ../libgweather/weather.c:767
-#| msgid "Unknown"
+#: ../libgweather/weather.c:993
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: ../libgweather/weather.c:769
+#: ../libgweather/weather.c:995
 msgid "Calm"
 msgstr "Tyyntä"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:777
+#: ../libgweather/weather.c:1003
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/weather.c:796
-#| msgid "Unknown"
+#: ../libgweather/weather.c:1039
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Tuntematon"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:801
+#: ../libgweather/weather.c:1045
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:804
+#: ../libgweather/weather.c:1048
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:807
+#: ../libgweather/weather.c:1051
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:810
+#: ../libgweather/weather.c:1054
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:813
+#: ../libgweather/weather.c:1057
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:816
+#: ../libgweather/weather.c:1060
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#: ../libgweather/weather.c:822
-#| msgid "Unknown"
-msgctxt "pressure unit"
-msgid "Unknown"
-msgstr "Tuntematon"
-
-#: ../libgweather/weather.c:839
-#| msgid "Unknown"
+#: ../libgweather/weather.c:1098
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Tuntematon"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:844
+#: ../libgweather/weather.c:1104
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f mailia"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:847
+#: ../libgweather/weather.c:1107
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:850
+#: ../libgweather/weather.c:1110
 #, c-format
 msgid "%.0fm"
 msgstr "%.0f m"
 
-#: ../libgweather/weather.c:856
-#| msgid "Unknown"
-msgctxt "visibility unit"
-msgid "Unknown"
-msgstr "Tuntematon"
-
-#: ../libgweather/weather.c:880 ../libgweather/weather.c:905
+#: ../libgweather/weather.c:1138 ../libgweather/weather.c:1163
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
-#: ../libgweather/weather.c:1006
+#: ../libgweather/weather.c:1257
 msgid "Retrieval failed"
 msgstr "Haku epäonnistui"
 
-#. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:523
+#: ../libgweather/weather-metar.c:574
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "METAR-tietoja ei voitu noutaa: %d %s.\n"
+
+#: ../libgweather/weather-owm.c:385
+#, fuzzy
+#| msgid ""
+#| "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
+#| "Institute</a>"
+msgid ""
+"Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
+"project</a>"
+msgstr ""
+"Säätiedot tarjoaa <a href=\"http://yr.no/\">Norwegian Meteorological "
+"Institute</a>"
 
 #. The new (documented but not advertised) API is less strict in the
 #. format of the attribution, and just requires a generic CC-BY compatible
@@ -661,7 +679,7 @@ msgstr "METAR-tietoja ei voitu noutaa: %d %s.\n"
 #.
 #. That's very nice of them!
 #.
-#: ../libgweather/weather-yrno.c:416
+#: ../libgweather/weather-yrno.c:445
 msgid ""
 "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
 "Institute</a>"
@@ -683,86 +701,55 @@ msgid ""
 "radar maps."
 msgstr "Mukautettu URL josta tutkakartat haetaan."
 
-#. TRANSLATORS: pick a temperature unit that should be used by default in your
-#. locale; values must be quoted
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
-#, fuzzy
-#| msgid "Fahrenheit"
-msgid "'fahrenheit'"
-msgstr "Fahrenheit"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:3
 msgid "Temperature unit"
 msgstr "Lämpötilan yksikkö"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:4
 msgid ""
 "The unit of temperature used for showing weather. Valid values are 'kelvin', "
 "'centigrade' and 'fahrenheit'."
 msgstr ""
 
-#. TRANSLATORS: pick a default distance unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
-#, fuzzy
-#| msgid "miles"
-msgid "'miles'"
-msgstr "mailia"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
 msgid "Distance unit"
 msgstr "Matkan yksikkö"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or "
 "for distance of important events). Valid values are 'meters', 'km' and "
 "'miles'."
 msgstr ""
 
-#. TRANSLATORS: pick a default speed unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:15
-#, fuzzy
-#| msgid "knots"
-msgid "'knots'"
-msgstr "solmua"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:16
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
 msgid "Speed unit"
 msgstr "Nopeuden yksikkö"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:17
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:8
 msgid ""
 "The unit of speed used for showing weather (for example for wind speed). "
 "Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
 "'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
 msgstr ""
 
-#. TRANSLATORS: pick a default pressure unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:20
-msgid "'inch-hg'"
-msgstr ""
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:21
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:9
 msgid "Pressure unit"
 msgstr "Paineen yksikkö"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:22
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
 msgid ""
-"The unit of pressure used for showing weather. Valid values are "
-"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
-"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
-"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+"The unit of pressure used for showing weather. Valid values are 'kpa' "
+"(kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically equivalent "
+"to 1 hPa but shown differently), 'mm-hg' (millimiters of mercury), 'inch-hg' "
+"(inches of mercury), 'atm' (atmospheres)."
 msgstr ""
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:23
-#| msgid "Zone location"
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
 msgid "Default location"
 msgstr "Oletussijainti"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:24
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
 msgid ""
 "The default location for the weather applet. The first field is the name "
 "that will be shown. If empty, it will be taken from the locations database. "
@@ -772,3137 +759,3 @@ msgid ""
 "value taken from the database. This is only used for sunrise and moon phase "
 "calculations, not for weather forecast."
 msgstr ""
-
-#~ msgid "DEFAULT_LOCATION"
-#~ msgstr "Helsinki-Malmi"
-
-#~ msgid "DEFAULT_CODE"
-#~ msgstr "EFHF"
-
-#  XX - Olen kysellyt ilmatieteenlaitokselta josko suomalaisille säätietoasemille
-#  löytyisi tämäkin kohta  - Jarkko Ranta
-#~ msgid "DEFAULT_ZONE"
-#~ msgstr "------"
-
-#  XX - Olen kysellyt ilmatieteenlaitokselta josko suomalaisille säätietoasemille
-#  löytyisi tämäkin kohta  - Jarkko Ranta
-#~ msgid "DEFAULT_RADAR"
-#~ msgstr "---"
-
-#~ msgid "DEFAULT_COORDINATES"
-#~ msgstr "60-15N 025-03E"
-
-#~ msgid "Default"
-#~ msgstr "Oletus"
-
-#~ msgid "K"
-#~ msgstr "K"
-
-#~ msgid "C"
-#~ msgstr "C"
-
-#~ msgid "F"
-#~ msgstr "F"
-
-#~ msgid "m/s"
-#~ msgstr " m/s"
-
-#~ msgid "km/h"
-#~ msgstr " km/h"
-
-#~ msgid "mph"
-#~ msgstr " mph"
-
-#~ msgid "Beaufort scale"
-#~ msgstr "Bofori-skaala"
-
-#~ msgid "kPa"
-#~ msgstr " kPa"
-
-#~ msgid "hPa"
-#~ msgstr " hPa"
-
-#~ msgid "mb"
-#~ msgstr " mb"
-
-#~ msgid "mmHg"
-#~ msgstr " mmHg"
-
-#~ msgid "inHg"
-#~ msgstr " inHg"
-
-#~ msgid "atm"
-#~ msgstr "atm"
-
-#~ msgid "m"
-#~ msgstr "m"
-
-#~ msgid "km"
-#~ msgstr " km"
-
-#~ msgid "mi"
-#~ msgstr "mi"
-
-#~ msgid "DEFAULT_TEMP_UNIT"
-#~ msgstr "C"
-
-#~ msgid "DEFAULT_SPEED_UNIT"
-#~ msgstr "m/s"
-
-#~ msgid "DEFAULT_PRESSURE_UNIT"
-#~ msgstr "hPa"
-
-#~ msgid "DEFAULT_DISTANCE_UNIT"
-#~ msgstr "km"
-
-#~ msgid ""
-#~ "A three-digit-long code for retrieving radar maps from weather.com, found "
-#~ "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-#~ msgstr ""
-#~ "Kolminumeroinen koodi tutkakarttojen hakemiseksi weather.com -palvelusta. "
-#~ "Koodit löytyvät tiedostosta http://git.gnome.org/cgit/libgweather/plain/"
-#~ "data/Locations.xml.in"
-
-#~ msgid ""
-#~ "A unique zone for the city, as found from http://git.gnome.org/cgit/"
-#~ "libgweather/plain/data/Locations.xml.in"
-#~ msgstr ""
-#~ "Yksilöllinen kaupungin alue, kuten määritelty tiedostossa http://git."
-#~ "gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-
-#~ msgid ""
-#~ "Determines whether the applet automatically updates its weather "
-#~ "statistics or not."
-#~ msgstr "Määrittää, päivittääkö sovelma automaattisesti säätiedot vai ei."
-
-#~ msgid "Display radar map"
-#~ msgstr "Näytä tutkakartta"
-
-#~ msgid "Fetch a radar map on each update."
-#~ msgstr "Hae tutkakartta jokaisen päivityksen yhteydessä."
-
-#~ msgid ""
-#~ "If true, then retrieve a radar map from a location specified by the "
-#~ "\"radar\" key."
-#~ msgstr ""
-#~ "Mikäli tämä on päällä, hae tutkakartta \"radar\"-avaimessa määritellystä "
-#~ "paikasta."
-
-#~ msgid ""
-#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-#~ "[EW]."
-#~ msgstr ""
-#~ "Sijaintisi leveys- ja pituusasteet muodossa DD-MM-SS[NS] DD-MM-SS[EW]"
-
-#~ msgid "Location coordinates"
-#~ msgstr "Sijainnin koordinaatit"
-
-#~ msgid "Nearby city"
-#~ msgstr "Lähikaupunki"
-
-#~ msgid ""
-#~ "Nearby major zone, such as a capital city, as found from http://git.gnome."
-#~ "org/cgit/libgweather/plain/data/Locations.xml.in"
-#~ msgstr ""
-#~ "Lähellä oleva tärkeä alue, kuten pääkaupunki. Määritelty tiedostossa "
-#~ "http://git.gnome.org/vcgit/libgweather/plain/data/Locations.xml.in"
-
-#~ msgid "Not used anymore"
-#~ msgstr "Ei enää käytössä"
-
-#~ msgid "Radar location"
-#~ msgstr "Tutkan sijainti"
-
-#~ msgid "The city that gweather displays information for."
-#~ msgstr "Kaupunki, jolle gweather näyttää säätietoja"
-
-#~ msgid "The interval, in seconds, between automatic updates."
-#~ msgstr "Automaattisten päivitysten päivitystiheys sekunneissa."
-
-#~ msgid "The unit to use for pressure."
-#~ msgstr "Painetta näytettäessä käytettävä yksikkö"
-
-#~ msgid "The unit to use for temperature."
-#~ msgstr "Lämpötilaa näytettäessä käytettävä yksikkö."
-
-#~ msgid "The unit to use for visibility."
-#~ msgstr "Näkyvyyttä näytettäessä käytettävä yksikkö"
-
-#~ msgid "The unit to use for wind speed."
-#~ msgstr "Tuulen nopeutta näytettäessä käytettävä yksikkö"
-
-#~ msgid "Update interval"
-#~ msgstr "Päivitystiheys"
-
-#~ msgid "Update the data automatically"
-#~ msgstr "Päivitä tiedot automaattisesti"
-
-#~ msgid "Use custom url for the radar map"
-#~ msgstr "Käytä mukautettua osoitetta sääkartalle"
-
-#~ msgid "Use metric units"
-#~ msgstr "Käytä SI-järjestelmää"
-
-#~ msgid "Use metric units instead of english units."
-#~ msgstr "Käytä SI-järjestelmää englantilaisten yksiköiden sijaan."
-
-#~ msgid "Weather for a city"
-#~ msgstr "Kaupunkisää"
-
-#~ msgid "Weather location information"
-#~ msgstr "Sijainnin säätiedot"
-
-#~ msgid "Weather location information."
-#~ msgstr "Annetun sijainnin säätiedot."
-
-#~ msgid "WeatherInfo missing location"
-#~ msgstr "WeatherInfolta puuttuu sijainti"
-
-#~ msgid "%H:%M"
-#~ msgstr "%H.%M"
-
-#~ msgid "%.1f ℉"
-#~ msgstr "%.1f ℉"
-
-#~ msgid "%d ℉"
-#~ msgstr "%d ℉"
-
-#~ msgid "%.1f ℃"
-#~ msgstr "%.1f ℃"
-
-#~ msgid "%d ℃"
-#~ msgstr "%d ℃"
-
-#~ msgid "_About"
-#~ msgstr "_Tietoja"
-
-#~ msgid "_Help"
-#~ msgstr "O_hje"
-
-#~ msgid "_Keyboard Accessibility Preferences"
-#~ msgstr "_Näppäimistön esteettömyysasetukset"
-
-#~ msgid "AccessX Status Applet Factory"
-#~ msgstr "AccessX-tilasovelman tehdas"
-
-#~ msgid "Keyboard Accessibility Status"
-#~ msgstr "Näppäimistön esteettömyystila"
-
-#~ msgid "Keyboard Accessibility Status Applet Factory"
-#~ msgstr "Näppäimistön esteettömyystila -sovelman tehdas"
-
-#~ msgid "Shows the status of keyboard accessibility features"
-#~ msgstr "Näyttää näppäimistön esteettömyysominaisuuksien tilan"
-
-#~ msgid "AccessX Status"
-#~ msgstr "AccessX-tila"
-
-#~ msgid "Shows the state of AccessX features such as latched modifiers"
-#~ msgstr "Näyttää AccessX-ominaisuuksien (kuten salvattujen muuttujien) tilat"
-
-#~ msgid "translator-credits"
-#~ msgstr ""
-#~ "Ilkka Tuohela, 2005\n"
-#~ "Jarkko Ranta, 2000-2004\n"
-#~ "Mikka Rauhala, 1999\n"
-#~ "Ville Hautamäki, 1998\n"
-#~ "Tuomas Lukka, 1998\n"
-#~ "\n"
-#~ "http://gnome.fi/"
-
-#~ msgid "There was an error launching the help viewer: %s"
-#~ msgstr "Virhe käynnistettäessä ohjeselainta: %s"
-
-#~ msgid "There was an error launching the keyboard preferences dialog: %s"
-#~ msgstr "Virhe käynnistettäessä näppäimistön asetusikkunaa: %s"
-
-#~ msgid "a"
-#~ msgstr "a"
-
-#~ msgid "Shows keyboard status when accessibility features are used."
-#~ msgstr "Näyttää näppäimistön tilan esteettömysominaisuuksia käytettäessä"
-
-#~ msgid "XKB Extension is not enabled"
-#~ msgstr "XKB-laajennus ei ole käytössä"
-
-#~ msgid "Unknown error"
-#~ msgstr "Tuntematon virhe"
-
-#~ msgid "Error: %s"
-#~ msgstr "Virhe: %s"
-
-#~ msgid "Displays current state of keyboard accessibility features"
-#~ msgstr "Näyttää nykyiset näppäimistön esteettömyystoiminnot"
-
-#~ msgid "Battery Charge Monitor"
-#~ msgstr "Latausmittari"
-
-#~ msgid "Battstat Factory"
-#~ msgstr "Battstat-tehdas"
-
-#~ msgid "Monitor a laptop's remaining power"
-#~ msgstr "Seuraa kannettavan tietokoneen käytettävissä olevaa virtaa"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Asetukset"
-
-#~ msgid "0 for no label, 1 for percentage and 2 for time remaining"
-#~ msgstr "0 ei otsikkoa, 1 prosentteina ja 2 jäljellä olevana aikana"
-
-#~ msgid "Beep for warnings"
-#~ msgstr "Anna äänimerkki varoitettaessa"
-
-#~ msgid "Beep when displaying a warning"
-#~ msgstr "Anna äänimerkki akun tilasta varoitettaessa"
-
-#~ msgid "Drain from top"
-#~ msgstr "Tyhjennä yläpäästä"
-
-#~ msgid "Full Battery Notification"
-#~ msgstr "Huomautus täydestä akusta"
-
-#~ msgid "Low Battery Notification"
-#~ msgstr "Huomautus matalasta akun latauksesta"
-
-#~ msgid "Notify user when the battery is full"
-#~ msgstr "Huomauta akun ollessa täysi"
-
-#~ msgid "Notify user when the battery is low"
-#~ msgstr "Huomauta akun latauksen ollessa matala"
-
-#~ msgid "Red value level"
-#~ msgstr "Punaisen arvon raja"
-
-#~ msgid ""
-#~ "Show the battery meter draining from the top of the battery. Only "
-#~ "implemented for traditional battery view."
-#~ msgstr ""
-#~ "Näytä yläpäästä tyhjentyvä akun latausmittari. Toteutettu vain "
-#~ "perinteisessä akun näkymässä."
-
-#~ msgid "Show the horizontal battery"
-#~ msgstr "Näytä vaakasuuntainen akku"
-
-#~ msgid "Show the time/percent label"
-#~ msgstr "Näytä aika- ja prosenttitiedot"
-
-#~ msgid "Show the traditional, horizontal battery on the panel"
-#~ msgstr "Näytä perinteinen, vaakasuuntainen akku paneelissa"
-
-#~ msgid "Show the upright, smaller battery on the panel"
-#~ msgstr "Näytä pystysuuntainen, pienempi akku paneelissa"
-
-#~ msgid ""
-#~ "The battery level below which the battery is displayed as red. Also the "
-#~ "value at which the low battery warning is displayed."
-#~ msgstr ""
-#~ "Akun lataustila jonka jälkeen akku näytetään punaisena. Arvo on samalla "
-#~ "se, jonka jälkeen matalan lataustason varoitus näytetään."
-
-#~ msgid "Upright (small) battery"
-#~ msgstr "Pysty (pienempi) akun kuva"
-
-#~ msgid ""
-#~ "Use the value defined in red_value as a time remaining to show the "
-#~ "warning dialog rather than a percentage"
-#~ msgstr ""
-#~ "Käytä kohdassa red_value määriteltyä arvoa jäljelläolevan ajan "
-#~ "näyttämiseen varoitusikkuna aikana eikä prosenttilukuna"
-
-#~ msgid "Warn on low time rather than low percentage"
-#~ msgstr "Varoita vähäisestä käyttöajasta eikä matalasta latausprosentista"
-
-#~ msgid "System is running on AC power"
-#~ msgstr "Järjestelmä käyttää verkkovirtaa"
-
-#~ msgid "System is running on battery power"
-#~ msgstr "Järjestelmä käyttää akkuvirtaa"
-
-#~ msgid "Battery charged (%d%%)"
-#~ msgstr "Akku on nyt täynnä (%d %%)"
-
-#~ msgid "Unknown time (%d%%) remaining"
-#~ msgstr "Tuntematon määrä (%d %%) jäljellä"
-
-#~ msgid "Unknown time (%d%%) until charged"
-#~ msgstr "Akun lataukseen (%d %%) kuluva aika tuntematon"
-
-#~ msgid "%d minute (%d%%) remaining"
-#~ msgid_plural "%d minutes (%d%%) remaining"
-#~ msgstr[0] "%d minuutti (%d %%) jäljellä"
-#~ msgstr[1] "%d minuuttia (%d %%) jäljellä"
-
-#~ msgid "%d minute until charged (%d%%)"
-#~ msgid_plural "%d minutes until charged (%d%%)"
-#~ msgstr[0] "%d minuutti kunnes akku on latautunut (%d %%)"
-#~ msgstr[1] "%d minuuttia kunnes akku on latautunut (%d %%)"
-
-#~ msgid "%d hour (%d%%) remaining"
-#~ msgid_plural "%d hours (%d%%) remaining"
-#~ msgstr[0] "%d tunti (%d %%) jäljellä"
-#~ msgstr[1] "%d tuntia (%d %%) jäljellä"
-
-#~ msgid "%d hour until charged (%d%%)"
-#~ msgid_plural "%d hours until charged (%d%%)"
-#~ msgstr[0] "%d tunti kunnes akku on latautunut (%d %%)"
-#~ msgstr[1] "%d tuntia kunnes akku on latautunut (%d %%)"
-
-#~ msgid "%d %s %d %s (%d%%) remaining"
-#~ msgstr "%d %s %d %s (%d %%) jäljellä"
-
-#~ msgid "hour"
-#~ msgid_plural "hours"
-#~ msgstr[0] "tunti"
-#~ msgstr[1] "tuntia"
-
-#~ msgid "minute"
-#~ msgid_plural "minutes"
-#~ msgstr[0] "minuutti"
-#~ msgstr[1] "minuuttia"
-
-#~ msgid "%d %s %d %s until charged (%d%%)"
-#~ msgstr "%d %s %d %s kunnes akku on latautunut (%d %%)"
-
-#~ msgid "Battery Monitor"
-#~ msgstr "Latausmittari"
-
-#~ msgid "Your battery is now fully recharged"
-#~ msgstr "Akkusi on nyt täynnä"
-
-#~ msgid "Battery Notice"
-#~ msgstr "Akkuilmoitus"
-
-#~ msgid "You have %d%% of your total battery capacity remaining."
-#~ msgstr "Akun latauksesta on %d%% jäljellä."
-
-#~ msgid ""
-#~ "You have %d minute of battery power remaining (%d%% of the total "
-#~ "capacity)."
-#~ msgid_plural ""
-#~ "You have %d minutes of battery power remaining (%d%% of the total "
-#~ "capacity)."
-#~ msgstr[0] "Akussa on %d minuutti virtaa jäljellä (%d %% täydestä akusta)."
-#~ msgstr[1] "Akussa on %d minuuttia virtaa jäljellä (%d %% täydestä akusta)."
-
-#~ msgid ""
-#~ "To avoid losing your work:\n"
-#~ " • plug your laptop into external power, or\n"
-#~ " • save open documents and shut your laptop down."
-#~ msgstr ""
-#~ "Välttääksesi työtiedostojen menetyksen:\n"
-#~ " • kytke tietokone virtalähteeseen tai\n"
-#~ " • sulje avoimet asiakirjat ja sammuta tietokoneesi."
-
-#~ msgid ""
-#~ "To avoid losing your work:\n"
-#~ " • suspend your laptop to save power,\n"
-#~ " • plug your laptop into external power, or\n"
-#~ " • save open documents and shut your laptop down."
-#~ msgstr ""
-#~ "Välttääksesi työtiedostojen menetyksen:\n"
-#~ " • aseta tietokone virransäästötilaan,\n"
-#~ " • kytke tietokone virtalähteeseen, tai\n"
-#~ " • sulje avoimet asiakirjat ja sammuta tietokoneesi."
-
-#~ msgid "Your battery is running low"
-#~ msgstr "Akkusi on vähissä"
-
-#~ msgid "No battery present"
-#~ msgstr "Ei akkua kytketty"
-
-#~ msgid "Battery status unknown"
-#~ msgstr "Akun tila tuntematon"
-
-#~ msgid "N/A"
-#~ msgstr "N/A"
-
-#~ msgid "There was an error displaying help: %s"
-#~ msgstr "Virhe näytettäessä ohjetta: %s"
-
-#~ msgid "This utility shows the status of your laptop battery."
-#~ msgstr "Tämä ohjelma näyttää kannettavan tietokoneesi akun latauksen."
-
-#~ msgid "HAL backend enabled."
-#~ msgstr "HAL-taustajärjestelmä käytössä."
-
-#~ msgid "Legacy (non-HAL) backend enabled."
-#~ msgstr "Perinteinen (muu kuin HAL) taustajärjestelmä käytössä."
-
-#~ msgid "<b>Appearance</b>"
-#~ msgstr "<b>Ulkoasu</b>"
-
-#~ msgid "<b>Notifications</b>"
-#~ msgstr "<b>Huomautukset</b>"
-
-#~ msgid "<small>(shows single image for status and charge)</small>"
-#~ msgstr "<small>(yksi kuva tilalle ja lataukselle)</small>"
-
-#~ msgid "<small>(two images: one for status, one for charge)</small>"
-#~ msgstr "<small>(kaksi kuvaa, toinen tilalle ja toinen lataukselle)</small>"
-
-#~ msgid "Battery Charge Monitor Preferences"
-#~ msgstr "Latausmittarin asetukset"
-
-#~ msgid "Show _percentage remaining"
-#~ msgstr "Näytä jäljelläolevat _prosentit"
-
-#~ msgid "Show _time remaining"
-#~ msgstr "Tuntematon määrä (%d %%) jäljellä"
-
-#~ msgid "_Compact view"
-#~ msgstr "_Tiivis näkymä"
-
-#~ msgid "_Expanded view"
-#~ msgstr "_Laaja näkymä"
-
-#~ msgid "_Notify when battery is fully recharged"
-#~ msgstr "_Huomauta kun akku on ladattu täyteen"
-
-#~ msgid "_Show time/percentage:"
-#~ msgstr "_Näytä aika tai prosentit:"
-
-#~ msgid "_Warn when battery charge drops to:"
-#~ msgstr "Va_roita akun latauksen laskiessa arvoon:"
-
-#~ msgid "Percent"
-#~ msgstr "prosenttia"
-
-#~ msgid "Minutes Remaining"
-#~ msgstr "minuuttia jäljellä"
-
-#~ msgid "Battery Status Utility"
-#~ msgstr "Akun latausmittari"
-
-#~ msgid "Battery fully re-charged"
-#~ msgstr "Akku on täynnä"
-
-#~ msgid "Battery power low"
-#~ msgstr "Virta vähissä"
-
-#~ msgid "Character Palette"
-#~ msgstr "Merkkipaletti"
-
-#~ msgid "Charpicker Applet Factory"
-#~ msgstr "Merkkivalitsimen tehdas"
-
-#~ msgid "Insert characters"
-#~ msgstr "Lisää merkkejä"
-
-#~ msgid "Available palettes"
-#~ msgstr "Saatavilla olevat paletit"
-
-#~ msgid "Insert \"%s\""
-#~ msgstr "Lisää \"%s\""
-
-#~ msgid "Insert special character"
-#~ msgstr "Lisää erikoismerkki"
-
-#~ msgid "insert special character %s"
-#~ msgstr "lisää erikoismerkki %s"
-
-#~ msgid ""
-#~ "Gnome Panel applet for selecting strange characters that are not on my "
-#~ "keyboard. Released under GNU General Public Licence."
-#~ msgstr ""
-#~ "Gnome-paneelisovelma epätavallisten, näppäimistöltä puuttuvien merkkien "
-#~ "valitsemiseen. Julkaistu GNU:n GPL-lisenssillä"
-
-#~ msgid "Characters shown on applet startup"
-#~ msgstr "Sovelman käynnistyessä näytettävät merkit"
-
-#~ msgid "DEPRECATED - Characters shown on applet startup"
-#~ msgstr "VANHENTUNUT - Sovelman käynnistyessä näytettävät merkit"
-
-#~ msgid "List of available palettes"
-#~ msgstr "Luettelo saatavilla olevista paleteista"
-
-#~ msgid "List of strings containing the available palettes"
-#~ msgstr "Luettelo merkkijonoista, jotka sisältävät saatavilla olevat paletit"
-
-#~ msgid ""
-#~ "The string that the user had selected when the applet was last used. This "
-#~ "string will be displayed when the user starts the applet."
-#~ msgstr ""
-#~ "Merkkijono, jonka käyttäjä valitsi, kun sovelmaa viimeksi käytettiin. "
-#~ "Tämä merkkijono näytetään kun sovelma käynnistetään."
-
-#~ msgid "_Edit"
-#~ msgstr "_Muokkaa"
-
-#~ msgid "_Palette:"
-#~ msgstr "_Paletti:"
-
-#~ msgid "Palette entry"
-#~ msgstr "Paletti"
-
-#~ msgid "Modify a palette by adding or removing characters"
-#~ msgstr "Muokkaa palettia lisäämällä tai poistamalla merkkejä"
-
-#~ msgid "Add Palette"
-#~ msgstr "Lisää paletti"
-
-#~ msgid "Edit Palette"
-#~ msgstr "Muokkaa palettia"
-
-#~ msgid "Palettes list"
-#~ msgstr "Palettiluettelo"
-
-#~ msgid "_Palettes:"
-#~ msgstr "_Paletit:"
-
-#~ msgid "Add button"
-#~ msgstr "Lisäyspainike"
-
-#~ msgid "Click to add a new palette"
-#~ msgstr "Napsauta lisätäksesi uuden paletin"
-
-#~ msgid "Edit button"
-#~ msgstr "Muokkauspainike"
-
-#~ msgid "Click to edit the selected palette"
-#~ msgstr "Napsauta muokataksesi valittua palettia"
-
-#~ msgid "Delete button"
-#~ msgstr "Poistopainike"
-
-#~ msgid "Click to delete the selected palette"
-#~ msgstr "Napsauta poistaaksesi valitun paletin"
-
-#~ msgid "Character Palette Preferences"
-#~ msgstr "Merkkipaletin asetukset"
-
-#~ msgid "CPU Frequency Scaling Monitor"
-#~ msgstr "Prosessorin kellotaajuuden ilmaisin"
-
-#~ msgid "Monitor the CPU Frequency Scaling"
-#~ msgstr "Tarkkaile prosessorin kellotaajuuden muutoksia"
-
-#~ msgid ""
-#~ "A 0 value means to show cpu frequency, 1 to show frequency and units, and "
-#~ "2 to show percentage instead of frequency."
-#~ msgstr ""
-#~ "Arvo 0 näyttää kellotaajuudeen, 1 näyttää kellotaajuuden ja yksiköt ja 2 "
-#~ "näyttää prosentteja taajuuden sijasta."
-
-#~ msgid ""
-#~ "A 0 value means to show the applet in graphic mode (pixmap only), 1 to "
-#~ "show the applet in text mode (not to show the pixmap) and 2 to show the "
-#~ "applet in graphic and text mode."
-#~ msgstr ""
-#~ "Arvo 0 näyttää sovelman graafisessa tilassa (vain pixmap), 1 näyttää "
-#~ "tekstitilassa (ei näytetä pixmappia) ja 2 näyttää sovelman sekä "
-#~ "graafisessa että tekstitilassa."
-
-#~ msgid "CPU to Monitor"
-#~ msgstr "Tarkkailtava prosessori"
-
-#~ msgid "Mode to show cpu usage"
-#~ msgstr "Prosessorin käytön näyttötila"
-
-#~ msgid ""
-#~ "Set the CPU to monitor. In a single processor system you don't have to "
-#~ "change it."
-#~ msgstr ""
-#~ "Valitse tarkkailtava prosessori. Yhden prosessorin laitteissa tätä ei "
-#~ "tarvitse muuttaa."
-
-#~ msgid "The type of text to display (if the text is enabled)."
-#~ msgstr "Näytettävän tekstin tyyppi (jos tekstin näyttö on käytössä)"
-
-#~ msgid "    "
-#~ msgstr "    "
-
-#~ msgid "<b>Display Settings</b>"
-#~ msgstr "<b>Ulkoasun asetukset</b>"
-
-#~ msgid "<b>Monitor Settings</b>"
-#~ msgstr "<b>Tarkkailun asetukset</b>"
-
-#~ msgid "CPU Frequency Monitor Preferences"
-#~ msgstr "Prosessorin kellotaajuusnäytön asetukset"
-
-#~ msgid "Show CPU frequency as _frequency"
-#~ msgstr "Näytä CPU-taajuus _taajuutena"
-
-#~ msgid "Show CPU frequency as _percentage"
-#~ msgstr "Näytä nopeus _prosentteina"
-
-#~ msgid "Show frequency _units"
-#~ msgstr "Näytä taajuuden _yksiköt"
-
-#~ msgid "_Appearance:"
-#~ msgstr "_Ulkoasu:"
-
-#~ msgid "_Monitored CPU:"
-#~ msgstr "_Seurattava prosessori:"
-
-#~ msgid "Could not open help document"
-#~ msgstr "Ohje-dokumenttia ei voitu avata"
-
-#~ msgid "This utility shows the current CPU Frequency Scaling."
-#~ msgstr ""
-#~ "Tämä ohjelma näyttää tämänhetkisen CPU:n kellotaajuuden skaalauksen."
-
-#~ msgid "This utility shows the current CPU Frequency"
-#~ msgstr "Tämä ohjelma näyttää prosessorin tämänhetkisen kellotaajuuden."
-
-#~ msgid "Graphic"
-#~ msgstr "Graafisena"
-
-#~ msgid "Text"
-#~ msgstr "Teksti"
-
-#~ msgid "Graphic and Text"
-#~ msgstr "Graafisena ja tekstinä"
-
-#~ msgid "Frequency Scaling Unsupported"
-#~ msgstr "Kellotaajuuden skaalaus ei ole tuettu"
-
-#~ msgid "CPU frequency scaling unsupported"
-#~ msgstr "Prosessorin kellotaajuuden skaalaus ei ole tuettu"
-
-#~ msgid ""
-#~ "You will not be able to modify the frequency of your machine.  Your "
-#~ "machine may be misconfigured or not have hardware support for CPU "
-#~ "frequency scaling."
-#~ msgstr ""
-#~ "Et voi muuttaa tietokoneesi prosessorin kellotaajuutta. Tietokoneesi voi "
-#~ "olla väärin määritelty tai sen laitteisto ei tue CPU:n kellotaajuuden "
-#~ "säätöä."
-
-#~ msgid "Disk Mounter"
-#~ msgstr "Levynliitin"
-
-#~ msgid "Drive Mount Applet Factory"
-#~ msgstr "Levynliitossovelman tehdas"
-
-#~ msgid "Factory for drive mount applet"
-#~ msgstr "Tehdas levynliitossovelmalle"
-
-#~ msgid "Mount local disks and devices"
-#~ msgstr "Liitä paikallisia levyjä ja asemia"
-
-#~ msgid "(mounted)"
-#~ msgstr "(liitetty)"
-
-#~ msgid "(not mounted)"
-#~ msgstr "(ei liitetty)"
-
-#~ msgid "(not connected)"
-#~ msgstr "(ei yhteyttä)"
-
-#~ msgid "Cannot execute '%s'"
-#~ msgstr "Ei voida suorittaa \"%s\""
-
-#~ msgid "Mount Error"
-#~ msgstr "Virhe liitettäessä"
-
-#~ msgid "Unmount Error"
-#~ msgstr "Virhe irroitettaessa"
-
-#~ msgid "Eject Error"
-#~ msgstr "Virhe otettaessa levyä ulos"
-
-#~ msgid "Error"
-#~ msgstr "Virhe"
-
-#~ msgid "_Play DVD"
-#~ msgstr "_Soita DVD"
-
-#~ msgid "_Play CD"
-#~ msgstr "_Soita CD"
-
-#~ msgid "_Open %s"
-#~ msgstr "_Avaa %s"
-
-#~ msgid "_Mount %s"
-#~ msgstr "_Liitä %s"
-
-#~ msgid "Un_mount %s"
-#~ msgstr "_Irrota %s"
-
-#~ msgid "_Eject %s"
-#~ msgstr "Levy %s _ulos"
-
-#~ msgid "Applet for mounting and unmounting block volumes."
-#~ msgstr "Sovelma asemien liittämiseksi ja irrottamiseksi."
-
-#~ msgid "Interval timeout to check mount point status"
-#~ msgstr "Liitoksen tilan tarkistamisen aikaväli"
-
-#~ msgid "Time in seconds between status updates"
-#~ msgstr "Aikaväli sekunteina, jonka välein sovelma tarkistaa liitoksen tilan"
-
-#~ msgid "A set of eyeballs for your panel"
-#~ msgstr "Aseta silmäpari paneeliisi"
-
-#~ msgid "Geyes"
-#~ msgstr "Geyes"
-
-#~ msgid "Geyes Applet Factory"
-#~ msgstr "Geyes-sovelman tehdas"
-
-#~ msgid "A goofy little xeyes clone for the GNOME panel."
-#~ msgstr "Hauska, pieni xeyes-klooni Gnomen paneeliin."
-
-#~ msgid "The eyes look in the direction of the mouse pointer"
-#~ msgstr "Silmät katsovat aina hiiren osoittimen suuntaan"
-
-#~ msgid "Directory in which the theme is located"
-#~ msgstr "Hakemisto, josta teema löytyy"
-
-#~ msgid "Can not launch the eyes applet."
-#~ msgstr "Silmäsovelman käynnistäminen epäonnistui."
-
-#~ msgid "There was a fatal error while trying to load the theme."
-#~ msgstr "Vakava virhe yritettäessä ladata teemaa."
-
-#~ msgid "Geyes Preferences"
-#~ msgstr "Geyesin asetukset"
-
-#~ msgid "Themes"
-#~ msgstr "Teemat"
-
-#~ msgid "_Select a theme:"
-#~ msgstr "_Valitse teema:"
-
-#~ msgid "Alt+Control changes layout."
-#~ msgstr "Alt+Control vaihtaa asettelua"
-
-#~ msgid "Alt+Shift changes layout."
-#~ msgstr "Alt+Shift vaihtaa asettelua."
-
-#~ msgid "Arabic keymap"
-#~ msgstr "Arabialainen näppäinkartta"
-
-#~ msgid "Armenian"
-#~ msgstr "Armenialainen"
-
-#~ msgid "Basque"
-#~ msgstr "Baski"
-
-#~ msgid "Belgian"
-#~ msgstr "Belgialainen"
-
-#~ msgid "Both Alt keys together change layout."
-#~ msgstr "Molemmat Alt-näppäimet yhdessä vaihtavat asettelua."
-
-#~ msgid "Both Ctrl keys together change layout."
-#~ msgstr "Molemmat Control-näppäimet yhdessä vaihtavat asettelua."
-
-#~ msgid "Both Shift keys together change layout."
-#~ msgstr "Molemmat Shift-näppäimet yhdessä vaihtavat asettelua"
-
-#~ msgid "Brazil Portuguese keymap"
-#~ msgstr "Brasilian portugalilainen näppäinkartta"
-
-#~ msgid "Bulgarian Cyrillic"
-#~ msgstr "Bulgarian kyrillinen"
-
-#~ msgid "Bulgarian keymap"
-#~ msgstr "Bulgarialainen näppäinkartta"
-
-#~ msgid "CapsLock key changes layout."
-#~ msgstr "CapsLock-näppäin vaihtaa asettelua."
-
-#~ msgid "Control+Shift changes layout."
-#~ msgstr "Control+Shift vaihtaa asettelua."
-
-#~ msgid "Czech keymap"
-#~ msgstr "Tsekkiläinen näppäinkartta"
-
-#~ msgid "Danish keymap"
-#~ msgstr "Tanskalainen näppäinkartta"
-
-#~ msgid "Dutch keymap"
-#~ msgstr "Hollantilainen näppäinkartta"
-
-#~ msgid "English keymap"
-#~ msgstr "Englantilainen näppäinkartta"
-
-#~ msgid "Estonian keymap"
-#~ msgstr "Virolainen näppäinkartta"
-
-#~ msgid "Finnish keymap"
-#~ msgstr "Suomalainen näppäinkartta"
-
-#~ msgid "French Swiss"
-#~ msgstr "Ranskan sveitsiläinen"
-
-#~ msgid "French Swiss keymap"
-#~ msgstr "Ranskan sveitsiläinen näppäinkartta"
-
-#~ msgid "French keymap"
-#~ msgstr "Ranskalainen näppäinkartta"
-
-#~ msgid "French-Canadian 105-key"
-#~ msgstr "Ranskalais-kanadalainen 105-näppäiminen"
-
-#~ msgid "GB 102-key"
-#~ msgstr "Iso-Britannian 102-näppäiminen"
-
-#~ msgid "GB 105-key"
-#~ msgstr "Iso-Britannian 105-näppäiminen"
-
-#~ msgid "Generic Keyboard"
-#~ msgstr "Yleinen näppäimistö"
-
-#~ msgid "Georgian Latin"
-#~ msgstr "Georgian Latin"
-
-#~ msgid "Georgian Russian layout"
-#~ msgstr "Georgian venäläinen asettelu"
-
-#~ msgid "Georgian keymap"
-#~ msgstr "Georgialainen näppäinkartta"
-
-#~ msgid "German"
-#~ msgstr "Saksalainen"
-
-#~ msgid "German Swiss with Euro"
-#~ msgstr "Saksan sveitsiläinen Eurolla"
-
-#~ msgid "German keymap"
-#~ msgstr "Saksalainen näppäinkartta"
-
-#~ msgid "Greek keymap"
-#~ msgstr "Kreikkalainen näppäinkartta"
-
-#~ msgid "Hebrew keymap"
-#~ msgstr "Heprealainen näppäinkartta"
-
-#~ msgid "Hungarian 101-key latin 1"
-#~ msgstr "Unkarilainen 101-näppäiminen latin 1"
-
-#~ msgid "Hungarian 101-key latin 2"
-#~ msgstr "Unkarilainen 101-näppäiminen latin 2"
-
-#~ msgid "Hungarian 105-key latin 1"
-#~ msgstr "Unkarilainen 105-näppäiminen latin 1"
-
-#~ msgid "Hungarian 105-key latin 2"
-#~ msgstr "Unkarilainen 105-näppäiminen latin 2"
-
-#~ msgid "Hungarian PC/AT 101 keyboard"
-#~ msgstr "Unkarilainen PC/AT 101 -näppäimistö"
-
-#~ msgid "Hungarian latin1"
-#~ msgstr "Unkarilainen latin1"
-
-#~ msgid "Icelandic keymap"
-#~ msgstr "Islantilainen näppäinkartta"
-
-#~ msgid "Italian keymap"
-#~ msgstr "Italialainen näppäinkartta"
-
-#~ msgid "Japanese keymap"
-#~ msgstr "Japanilainen näppäinkartta"
-
-#~ msgid "Lao keymap"
-#~ msgstr "Laolainen näppäinkartta"
-
-#~ msgid "Layout shift behavior"
-#~ msgstr "Asettelun vaihdon toiminta"
-
-#~ msgid "Left Alt key changes layout."
-#~ msgstr "Vasen Alt-näppäin vaihtaa asettelua."
-
-#~ msgid "Left Ctrl key changes group."
-#~ msgstr "Vasen C-näppäin vaihtaa ryhmää."
-
-#~ msgid "Left Shift key changes group."
-#~ msgstr "Vasen Shift-näppäin vaihtaa ryhmää."
-
-#~ msgid "Left Win-key changes layout."
-#~ msgstr "Vasen Win-näppäin vaihtaa ryhmää."
-
-#~ msgid "Lithuanian keymap"
-#~ msgstr "Liettualainen näppäinkartta"
-
-#~ msgid "Macedonian"
-#~ msgstr "Makedonialainen"
-
-#~ msgid "Menu key changes layout."
-#~ msgstr "Menu-näppäin vaihtaa ryhmää."
-
-#~ msgid "Mongolian alt keymap"
-#~ msgstr "Mongolialainen alt-näppäinkartta"
-
-#~ msgid "Mongolian keymap"
-#~ msgstr "Mongolialainen näppäinkartta"
-
-#~ msgid "Mongolian phonetic keymap"
-#~ msgstr "Mongolialainen foneettinen näppäinkartta"
-
-#~ msgid "Norwegian"
-#~ msgstr "Norjalainen"
-
-#~ msgid "Plain Russian keymap"
-#~ msgstr "Puhdas venäläinen näppäinkartta"
-
-#~ msgid "Polish"
-#~ msgstr "Puolalainen"
-
-#~ msgid "Polish deadkeys"
-#~ msgstr "Puolalainen (kuolleet näppäimet)"
-
-#~ msgid "Portugal"
-#~ msgstr "Portugali"
-
-#~ msgid "Portugal Deadkeys"
-#~ msgstr "Portugalilainen (kuolleet näppäimet)"
-
-#~ msgid "Portuguese keymap"
-#~ msgstr "Portugalilainen näppäinkartta"
-
-#~ msgid "Right Alt key changes layout."
-#~ msgstr "Oikea Alt-näppäin vaihtaa asettelua."
-
-#~ msgid "Right Ctrl key changes group."
-#~ msgstr "Oikea Ctrl-näppäin vaihtaa ryhmää."
-
-#~ msgid "Right Shift key changes group."
-#~ msgstr "Oikea Shift-näppäin vaihtaa ryhmää."
-
-#~ msgid "Right Win-key changes layout."
-#~ msgstr "Oikea Win-näppäin vaihtaa asettelua."
-
-#~ msgid "Russian Cyrillic"
-#~ msgstr "Venäjän kyrillinen"
-
-#~ msgid "Russian keymap"
-#~ msgstr "Venäläinen näppäinkartta"
-
-#~ msgid "Serbian keymap"
-#~ msgstr "Serbialainen näppäinkartta"
-
-#~ msgid "Shift+CapsLock changes layout."
-#~ msgstr "Shhift+CapsLock vaihtaa  asettelua"
-
-#~ msgid "Slovak keymap"
-#~ msgstr "Slovakialainen näppäinkartta"
-
-#~ msgid "Slovenian"
-#~ msgstr "Slovenialainen"
-
-#~ msgid "Slovenian keymap"
-#~ msgstr "Slovenialainen näppäinkartta"
-
-#~ msgid "Spanish keymap"
-#~ msgstr "Espanjalainen näppäinkartta"
-
-#~ msgid "Sun (!not PC!) type5 Hungarian latin 2"
-#~ msgstr "Sun (!ei PC!) type5 unkarilainen latin 2"
-
-#~ msgid "Swedish"
-#~ msgstr "Ruotsalainen"
-
-#~ msgid "Swedish keymap"
-#~ msgstr "Ruotsalainen näppäinkartta"
-
-#~ msgid "Swiss keymap"
-#~ msgstr "Sveitsiläinen näppäinkartta"
-
-#~ msgid "Thai"
-#~ msgstr "Thai"
-
-#~ msgid "Thai Kedmanee"
-#~ msgstr "Thai Kedmanee"
-
-#~ msgid "Thai keymap"
-#~ msgstr "Thai näppäinkartta"
-
-#~ msgid "Turkish \"F\" keyboard"
-#~ msgstr "Turkkilainen \"F\"-näppäimistö"
-
-#~ msgid "Turkish \"Q\" keyboard"
-#~ msgstr "Turkkilainen \"Q\"-näppäimistö"
-
-#~ msgid "Turkish keymap"
-#~ msgstr "Turkkilainen näppäinkartta"
-
-#~ msgid "UK 105-key"
-#~ msgstr "Iso-Britannian 105-näppäiminen"
-
-#~ msgid "UK PC/AT keyboard"
-#~ msgstr "Iso-Britannialainen PC/AT-näppäimistö"
-
-#~ msgid "US 101-key keyboard"
-#~ msgstr "Yhdysvaltalainen 101-näppäiminen näppäimistö"
-
-#~ msgid "US 105-key keyboard (with windows keys)"
-#~ msgstr "Yhdysvaltalainen 105-näppäiminen (windows-näppäimillä)"
-
-#~ msgid "US 84-key"
-#~ msgstr "Yhdysvaltalainen 84-näppäiminen"
-
-#~ msgid "US DEC 450"
-#~ msgstr "Yhdysvaltalainen DEC 450"
-
-#~ msgid "US IBM RS/6000"
-#~ msgstr "Yhdysvaltalainen IBM RS/6000"
-
-#~ msgid "US International"
-#~ msgstr "Yhdysvaltalainen kansainvälinen"
-
-#~ msgid "US Macintosh"
-#~ msgstr "Yhdysvaltalainen Macintosh"
-
-#~ msgid "US PC/AT 101 keyboard"
-#~ msgstr "Yhdysvaltalainen PC/AT 101-näppäimistö"
-
-#~ msgid "US Silicon Graphics 101-key"
-#~ msgstr "Yhdysvaltalainen Silicon Graphics 101-näppäimistö"
-
-#~ msgid "US Sun type5"
-#~ msgstr "Yhdysvaltalainen Sun type5"
-
-#~ msgid "Armenian Sun keymap"
-#~ msgstr "Armenialainen Sun-näppäinkartta"
-
-#~ msgid "Azerbaijani Turkish Sun keymap"
-#~ msgstr "Azerbaidzanin turkkilainen Sun-näppäinkartta"
-
-#~ msgid "Belarusian Sun keymap"
-#~ msgstr "Valkovenäläinen Sun-näppäinkartta"
-
-#~ msgid "Brazil Portuguese Sun USB keymap"
-#~ msgstr "Brasilian portugalilainen Sun USB -näppäinkartta"
-
-#~ msgid "Brazil Portuguese Sun keymap"
-#~ msgstr "Brasilian portugalilainen Sun-näppäinkartta"
-
-#~ msgid "British Sun Type-4 keymap"
-#~ msgstr "Englantilainen Sun Type-4 -näppäinkartta"
-
-#~ msgid "British Sun USB keymap"
-#~ msgstr "Englantilainen Sun USB -näppäinkartta"
-
-#~ msgid "British Sun keymap"
-#~ msgstr "Englantilainen Sun-näppäinkartta"
-
-#~ msgid "Bulgarian Sun keymap"
-#~ msgstr "Bulgarialainen Sun-näppäinkartta"
-
-#~ msgid "Canadian Sun keymap"
-#~ msgstr "Kanadalainen Sun-näppäinkartta"
-
-#~ msgid "Czech Sun keymap"
-#~ msgstr "Tsekkiläinen Sun-näppäinkartta"
-
-#~ msgid "Danish Sun Type-4 keymap"
-#~ msgstr "Tanskalainen Sun Type-4 -näppäinkartta"
-
-#~ msgid "Danish Sun USB keymap"
-#~ msgstr "Tanskalainen Sun USB -näppäinkartta"
-
-#~ msgid "Danish Sun keymap"
-#~ msgstr "Tanskalainen Sun-näppäinkartta"
-
-#~ msgid "Dutch Sun keymap"
-#~ msgstr "Hollantilainen Sun -näppäinkartta"
-
-#~ msgid "Estonian Sun keymap"
-#~ msgstr "Virolainen Sun-näppäinkartta"
-
-#~ msgid "Finnish Sun keymap"
-#~ msgstr "Suomalainen Sun-näppäinkartta"
-
-#~ msgid "French Sun USB keymap"
-#~ msgstr "Ranskalainen Sun USB -näppäinkartta"
-
-#~ msgid "French Sun keymap"
-#~ msgstr "Ranskalainen Sun-näppäinkartta"
-
-#~ msgid "German Sun Type-4 keymap"
-#~ msgstr "Saksalainen Sun Type-4 -näppäinkartta"
-
-#~ msgid "German Sun USB keymap"
-#~ msgstr "Saksalainen Sun USB -näppäinkartta"
-
-#~ msgid "German Sun keymap"
-#~ msgstr "Saksalainen Sun-näppäinkartta"
-
-#~ msgid "Hebrew Sun keymap"
-#~ msgstr "Heprealainen Sun-näppäinkartta"
-
-#~ msgid "Hungarian latin2 Sun keymap"
-#~ msgstr "Unkarilainen latin2 Sun -näppäinkartta"
-
-#~ msgid "Hungarian type5 latin 1 keymap"
-#~ msgstr "Unkarilainen type5 latin 1 -näppäinkartta"
-
-#~ msgid "Icelandic Sun keymap"
-#~ msgstr "Islantilainen Sun-näppäinkartta"
-
-#~ msgid "Italian Sun Type-4 keymap"
-#~ msgstr "Italialainen Sun Type-4 -näppäinkartta"
-
-#~ msgid "Italian Sun USB keymap"
-#~ msgstr "Italialainen Sun USB -näppäinkartta"
-
-#~ msgid "Italian Sun keymap"
-#~ msgstr "Italialainen Sun-näppäinkartta"
-
-#~ msgid "Japanese Sun Type-4 keymap"
-#~ msgstr "Japanilainen Sun Type-4 -näppäinkartta"
-
-#~ msgid "Japanese Sun keymap"
-#~ msgstr "Japanilainen Sun-näppäinkartta"
-
-#~ msgid "Latvian Sun keymap"
-#~ msgstr "Latvialainen Sun-näppäinkartta"
-
-#~ msgid "Lithuanian Sun keymap"
-#~ msgstr "Liettualainen Sun-näppäinkartta"
-
-#~ msgid "Macedonian Sun keymap"
-#~ msgstr "Makedonialainen Sun-näppäinkartta"
-
-#~ msgid "Norwegian Sun keymap"
-#~ msgstr "Norjalainen Sun-näppäinkartta"
-
-#~ msgid "Polish Sun keymap"
-#~ msgstr "Puolalainen Sun-näppäinkartta"
-
-#~ msgid "Portuguese Sun Type-4 keymap"
-#~ msgstr "Portugalilainen Sun Type-4 -näppäinkartta"
-
-#~ msgid "Portuguese Sun keymap"
-#~ msgstr "Portugalilainen Sun-näppäinkartta"
-
-#~ msgid "Romanian Sun keymap"
-#~ msgstr "Romanialainen Sun-näppäinkartta"
-
-#~ msgid "Russian Sun keymap"
-#~ msgstr "Venäläinen Sun-näppäinkartta"
-
-#~ msgid "Serbian Sun standard keymap"
-#~ msgstr "Serbialainen standardi Sun-näppäinkartta"
-
-#~ msgid "Slovak Sun keymap"
-#~ msgstr "Slovakialainen Sun-näppäinkartta"
-
-#~ msgid "Slovenian Sun keymap"
-#~ msgstr "Slovenialainen Sun-näppäinkartta"
-
-#~ msgid "Spanish Sun Type-4 keymap"
-#~ msgstr "Espanjalainen Sun Type-4 -näppäinkartta"
-
-#~ msgid "Spanish Sun USB keymap"
-#~ msgstr "Espanjalainen Sun USB -näppäinkartta"
-
-#~ msgid "Spanish Sun keymap"
-#~ msgstr "Espanjalainen Sun-näppäinkartta"
-
-#~ msgid "Swedish Sun Type-4 keymap"
-#~ msgstr "Ruotsalainen Sun Type-4 -näppäinkartta"
-
-#~ msgid "Swedish Sun USB keymap"
-#~ msgstr "Ruotsalainen Sun USB -näppäinkartta"
-
-#~ msgid "Swedish Sun keymap"
-#~ msgstr "Ruotsalainen Sun-näppäinkartta"
-
-#~ msgid "Swiss German Sun keymap"
-#~ msgstr "Sveitsin saksalainen Sun-näppäinkartta"
-
-#~ msgid "Thai Sun keymap"
-#~ msgstr "Thai Sun-näppäinkartta"
-
-#~ msgid "Turkish Sun keymap"
-#~ msgstr "Turkkilainen Sun-näppäinkartta"
-
-#~ msgid "US Sun Type-4 keymap"
-#~ msgstr "Yhdysvaltalainen Sun Type-4 -näppäinkartta"
-
-#~ msgid "US Sun USB keymap"
-#~ msgstr "Yhdysvaltalainen Sun USB -näppäinkartta"
-
-#~ msgid "US Sun type5 keymap"
-#~ msgstr "Yhdysvaltalainen Sun type5 -näppäinkartta"
-
-#~ msgid "Ukrainian Sun keymap"
-#~ msgstr "Ukrainalainen Sun-näppäinkartta"
-
-#~ msgid "Vietnamese Sun keymap"
-#~ msgstr "Vietnamilainen Sun-näppäinkartta"
-
-#~ msgid "Keyboard _Preferences"
-#~ msgstr "Näppäimistön _asetukset"
-
-#~ msgid "Show Current _Layout"
-#~ msgstr "Näytä nykyinen _asettelu"
-
-#~ msgid "_Groups"
-#~ msgstr "_Ryhmät"
-
-#~ msgid "Keyboard Indicator"
-#~ msgstr "Näppäimistön asettelu"
-
-#~ msgid "Keyboard applet factory"
-#~ msgstr "Näppäimistösovelman tehdas"
-
-#~ msgid "Keyboard layout indicator"
-#~ msgstr "Näppäimistön asettelun osoitin"
-
-#~ msgid "Keyboard Layout \"%s\""
-#~ msgstr "Näppäimistön asettelu \"%s\""
-
-#~ msgid "Copyright (c) Sergey V. Udaltsov 1999-2004"
-#~ msgstr "Copyright © Sergey V. Udaltsov 1999-2004"
-
-#~ msgid "Keyboard layout indicator applet for GNOME"
-#~ msgstr "Näppäimistön asettelun sovelma Gnomelle"
-
-#~ msgid "Keyboard Indicator (%s)"
-#~ msgstr "Näppäimistöilmaisin (%s)"
-
-#~ msgid "Keyboard Layout"
-#~ msgstr "Näppäimistöasettelu"
-
-#~ msgid "Secondary groups"
-#~ msgstr "Toissijaiset ryhmät"
-
-#~ msgid "Show flags in the applet"
-#~ msgstr "Näytä liput sovelmassa"
-
-#~ msgid "Show flags in the applet to indicate the current layout"
-#~ msgstr "Näytä lippu sovelmassa ilmaisemaan nykyistä asettelua"
-
-#~ msgid "The list of enabled Keyboard Indicator plugins"
-#~ msgstr "Käytössä oleva näppäimistöilmaisimen liitännäiset"
-
-#~ msgid "_Details"
-#~ msgstr "_Yksityiskohdat"
-
-#~ msgid "_Update"
-#~ msgstr "_Päivitä"
-
-#~ msgid "Factory for creating the weather applet."
-#~ msgstr "Tehdas säätietosovelman luomiseksi"
-
-#~ msgid "Gweather Applet Factory"
-#~ msgstr "Gweather-sovelman tehdas"
-
-#~ msgid "Monitor the current weather conditions, and forecasts"
-#~ msgstr "Seuraa sääoloja ja ennusteita"
-
-#~ msgid "Weather Report"
-#~ msgstr "Säätiedote"
-
-#~ msgid "© 1999-2005 by S. Papadimitriou and others"
-#~ msgstr "© 1999-2005 S. Papadimitriou ja muut"
-
-#~ msgid "A panel application for monitoring local weather conditions."
-#~ msgstr "Paikallisia sääoloja seuraava sovelma."
-
-#~ msgid "GNOME Weather"
-#~ msgstr "Gnomen säätiedot"
-
-#~ msgid "Weather Forecast"
-#~ msgstr "Säätiedote"
-
-#~ msgid ""
-#~ "City: %s\n"
-#~ "Sky: %s\n"
-#~ "Temperature: %s"
-#~ msgstr ""
-#~ "Kaupunki: %s\n"
-#~ "Taivas: %s\n"
-#~ "Lämpötila: %s"
-
-#~ msgid "Updating..."
-#~ msgstr "Päivittyy..."
-
-#~ msgid "Details"
-#~ msgstr "Yksityiskohdat"
-
-#~ msgid "City:"
-#~ msgstr "Kaupunki:"
-
-#~ msgid "Last update:"
-#~ msgstr "Päivitetty:"
-
-#~ msgid "Conditions:"
-#~ msgstr "Sääolot:"
-
-#~ msgid "Sky:"
-#~ msgstr "Taivas:"
-
-#~ msgid "Temperature:"
-#~ msgstr "Lämpötila:"
-
-#~ msgid "Feels like:"
-#~ msgstr "Tuntuu:"
-
-#~ msgid "Dew point:"
-#~ msgstr "Kastepiste:"
-
-#~ msgid "Relative humidity:"
-#~ msgstr "Suhteellinen kosteus:"
-
-#~ msgid "Wind:"
-#~ msgstr "Tuuli:"
-
-#~ msgid "Pressure:"
-#~ msgstr "Paine:"
-
-#~ msgid "Visibility:"
-#~ msgstr "Näkyvyys:"
-
-#~ msgid "Sunrise:"
-#~ msgstr "Aurinko nousee:"
-
-#~ msgid "Sunset:"
-#~ msgstr "Aurinko laskee:"
-
-#~ msgid "Current Conditions"
-#~ msgstr "Tämänhetkiset sääolot"
-
-#~ msgid "Forecast Report"
-#~ msgstr "Ennustetiedot"
-
-#~ msgid "See the ForeCast Details"
-#~ msgstr "Katso ennusteen yksityiskohtia"
-
-#~ msgid "Forecast"
-#~ msgstr "Ennuste"
-
-#~ msgid "Radar Map"
-#~ msgstr "Tutkakartta"
-
-#~ msgid "_Visit Weather.com"
-#~ msgstr "_Vieraile Weather.com:ssa"
-
-#~ msgid "Visit Weather.com"
-#~ msgstr "Vieraile Weather.com:ssa"
-
-#~ msgid "Click to Enter Weather.com"
-#~ msgstr "Vieraile Weather.com:ssa"
-
-#~ msgid "Forecast not currently available for this location."
-#~ msgstr "Ennustetta ei ole juuri nyt saatavana tälle sijainnille."
-
-#~ msgid "Location view"
-#~ msgstr "Sijaintinäkymä"
-
-#~ msgid "Select Location from the list"
-#~ msgstr "Valitse sijainti luettelosta"
-
-#~ msgid "Update spin button"
-#~ msgstr "Päivityspainike"
-
-#~ msgid "Spinbutton for updating"
-#~ msgstr "Painike säätietojen päivitykseen"
-
-#~ msgid "Address Entry"
-#~ msgstr "Osoite"
-
-#~ msgid "Enter the URL"
-#~ msgstr "Anna URL"
-
-#~ msgid ""
-#~ "Failed to load the Locations XML database.  Please report this as a bug."
-#~ msgstr ""
-#~ "Sijaintien XML-tietokantaa ei voitu ladata. Ole hyvä ja raportoi tämä "
-#~ "virhe."
-
-#~ msgid "Weather Preferences"
-#~ msgstr "Säätietosovelman asetukset"
-
-#~ msgid "_Automatically update every:"
-#~ msgstr "_Päivitä automaattisesti:"
-
-#~ msgid "_Temperature unit:"
-#~ msgstr "_Lämpötilan yksikkö:"
-
-#~ msgid "Kelvin"
-#~ msgstr "Kelvin"
-
-#~ msgid "Celsius"
-#~ msgstr "Celsius"
-
-#~ msgid "_Wind speed unit:"
-#~ msgstr "_Tuulennopeuden yksikkö:"
-
-#~ msgid "_Pressure unit:"
-#~ msgstr "_Paineen yksikkö:"
-
-#~ msgid "_Visibility unit:"
-#~ msgstr "_Näkyvyyden yksikkö:"
-
-#~ msgid "meters"
-#~ msgstr "metriä"
-
-#~ msgid "Enable _radar map"
-#~ msgstr "Kä_ytä sääkarttoja"
-
-#~ msgid "Use _custom address for radar map"
-#~ msgstr "Käytä mukau_tettua osoitetta sääkartalle"
-
-#~ msgid "A_ddress:"
-#~ msgstr "_Osoite:"
-
-#~ msgid "Update"
-#~ msgstr "Päivitä"
-
-#~ msgid "minutes"
-#~ msgstr "minuuttia"
-
-#~ msgid "Display"
-#~ msgstr "Näyttö"
-
-#~ msgid "General"
-#~ msgstr "Yleiset"
-
-#~ msgid "_Select a location:"
-#~ msgstr "_Valitse sijainti:"
-
-#~ msgid "_Find:"
-#~ msgstr "_Etsi:"
-
-#~ msgid "Find _Next"
-#~ msgstr "Etsi _seuraava"
-
-#~ msgid "Location"
-#~ msgstr "Sijainti"
-
-#~ msgid "Invest"
-#~ msgstr "Sijoittaminen"
-
-#~ msgid "Track your invested money."
-#~ msgstr "Seuraa rahallisia sijoituksiasi."
-
-#~ msgid "_Refresh"
-#~ msgstr "_Päivitä"
-
-#~ msgid "10"
-#~ msgstr "10"
-
-#~ msgid "100"
-#~ msgstr "100"
-
-#~ msgid ""
-#~ "1d\n"
-#~ "5d\n"
-#~ "3m\n"
-#~ "6m\n"
-#~ "1y\n"
-#~ "3y"
-#~ msgstr ""
-#~ "1pv\n"
-#~ "5pv\n"
-#~ "3kk\n"
-#~ "6kk\n"
-#~ "1v\n"
-#~ "3v"
-
-#~ msgid "20"
-#~ msgstr "20"
-
-#~ msgid "200"
-#~ msgstr "200"
-
-#~ msgid "5"
-#~ msgstr "5"
-
-#~ msgid "50"
-#~ msgstr "50"
-
-#~ msgid "Auto _refresh"
-#~ msgstr "Automaattinen _päivitys"
-
-#~ msgid "Bollinger"
-#~ msgstr "Bollinger"
-
-#~ msgid "Downloading chart from <b>Yahoo!</b>"
-#~ msgstr "Hae kaavioita <b>Yahoo!sta</b>"
-
-#~ msgid "Exponential moving average: "
-#~ msgstr "Eksponentiaalisesti liikkuva keskiarvo: "
-
-#~ msgid "Fast stoch"
-#~ msgstr "Nopea stokastinen"
-
-#~ msgid "Financial Chart"
-#~ msgstr "Kurssikehityskaavio"
-
-#~ msgid "Indicators: "
-#~ msgstr "Ilmaisimet: "
-
-#~ msgid "MACD"
-#~ msgstr "MACD"
-
-#~ msgid "MFI"
-#~ msgstr "MFI"
-
-#~ msgid "Moving average: "
-#~ msgstr "Liikkuva keskiarvo: "
-
-#~ msgid "Overlays: "
-#~ msgstr "Ylipiirrot: "
-
-#~ msgid "ROC"
-#~ msgstr "ROC"
-
-#~ msgid "RSI"
-#~ msgstr "RSI"
-
-#~ msgid "SAR"
-#~ msgstr "SAR"
-
-#~ msgid "Slow stoch"
-#~ msgstr "Hidas stokastinen"
-
-#~ msgid "Splits"
-#~ msgstr "Jaot"
-
-#~ msgid "Vol"
-#~ msgstr "Vol"
-
-#~ msgid "Vol+MA"
-#~ msgstr "Vol+MA"
-
-#~ msgid "Volumes"
-#~ msgstr "Myyntimäärät"
-
-#~ msgid "W%R"
-#~ msgstr "W%R"
-
-#~ msgid "_Graph style: "
-#~ msgstr "_Kaavion tyyli: "
-
-#~ msgid "_Options"
-#~ msgstr "_Valinnat"
-
-#~ msgid "_Ticker symbol: "
-#~ msgstr "_Osakkeen symboli: "
-
-#~ msgid ""
-#~ "l\n"
-#~ "b\n"
-#~ "c"
-#~ msgstr ""
-#~ "l\n"
-#~ "b\n"
-#~ "c"
-
-#~ msgid "Display yahoo charts"
-#~ msgstr "Näytä Yahoon kaavioita"
-
-#~ msgid "Invest Chart"
-#~ msgstr "Sijoituskaaviot"
-
-#~ msgid "<b>Stocks</b>"
-#~ msgstr "<b>Osakkeet</b>"
-
-#~ msgid ""
-#~ "<i><small><b>Note:</b> Quotes are delayed at least 15 minutes.\n"
-#~ "<b>Source: </b> Yahoo!</small></i>"
-#~ msgstr ""
-#~ "<i><small><b>Huomautus: </b> Kurssit viipyvät vähintään 15 minuuttia.\n"
-#~ "<b>Lähde: </b> Yahoo!</small></i>"
-
-#~ msgid "Invest Preferences"
-#~ msgstr "Sijoittajan asetukset"
-
-#~ msgid "Invest Website"
-#~ msgstr "Sijoittajan www-sivut"
-
-#~ msgid "Financial Chart - %s"
-#~ msgstr "Kurssikehityskaavio - %s"
-
-#~ msgid "Opening Chart"
-#~ msgstr "Avataan kaaviota"
-
-#~ msgid "Downloading Chart"
-#~ msgstr "Haetaan kaaviota"
-
-#~ msgid "Reading Chart chunk"
-#~ msgstr "Luetaan kaavion palaa"
-
-#~ msgid "Invest Applet"
-#~ msgstr "Sijoitussovelma"
-
-#~ msgid "Symbol"
-#~ msgstr "Symbolit"
-
-#~ msgid "Amount"
-#~ msgstr "Määrä"
-
-#~ msgid "Price"
-#~ msgstr "Hinta"
-
-#~ msgid "Commission"
-#~ msgstr "Palkkio"
-
-#~ msgid "Deskbar (formerly Mini-Commander)"
-#~ msgstr "Komentopalkki (aiemmin komentorivisovelma)"
-
-#~ msgid "Deskbar (transparent upgrade from Mini-Commander)"
-#~ msgstr "Komentopalkki (päivitys komentorivisovelmasta)"
-
-#~ msgid "Command Line"
-#~ msgstr "Komentorivi"
-
-#~ msgid "Mini-Commander"
-#~ msgstr "Minikomentotulkki"
-
-#~ msgid "MiniCommander Applet Factory"
-#~ msgstr "Pienoiskomentotulkkisovelman tehdas"
-
-#~ msgid ""
-#~ "This GNOME applet adds a command line to the panel. It features command "
-#~ "completion, command history, and changeable macros."
-#~ msgstr ""
-#~ "Tämä Gnomen sovelma lisää komentorivin paneeliin. Komentoriv osaa "
-#~ "komennon täydennyksen, komentohistorian ja muokattavat makrot."
-
-#~ msgid "No items in history"
-#~ msgstr "Ei historiakohtia"
-
-#~ msgid "Start program"
-#~ msgstr "Käynnistettävä ohjelma"
-
-#~ msgid "Command line"
-#~ msgstr "Komentorivi"
-
-#~ msgid "Type a command here and Gnome will execute it for you"
-#~ msgstr "Kirjoita komento tähän ja Gnome suorittaa sen sinulle"
-
-#~ msgid "Cannot get schema for %s: %s"
-#~ msgstr "%s:n kaavainta ei löytynyt : %s"
-
-#~ msgid "Cannot set schema for %s: %s"
-#~ msgstr "%s:n kaavainta ei löytynyt: %s"
-
-#~ msgid "Set default list value for %s\n"
-#~ msgstr "Aseta oletusarvo kohteelle %s\n"
-
-#~ msgid ""
-#~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
-#~ msgstr ""
-#~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL on asetettu eli kaavaimia ei "
-#~ "asenneta\n"
-
-#~ msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
-#~ msgstr "Sinun täytyy asettaa GCONF_CONFIG_SOURCE-ympäristömuuttuja\n"
-
-#~ msgid "Failed to access configuration source(s): %s\n"
-#~ msgstr "Asetusten lähteen saanti ei onnistunut: %s\n"
-
-#~ msgid "Error syncing config data: %s"
-#~ msgstr "Asetustietojen synkronisointi epäonnistui: %s"
-
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro commands."
-#~ msgstr "Makrokomennot sisältävien GConfValue-arvojen luettelo."
-
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro patterns."
-#~ msgstr "Makrokuviot sisältävien GConfValue-arvojen luettelo."
-
-#~ msgid "Macro command list"
-#~ msgstr "Makrokomentojen luettelo"
-
-#~ msgid "Macro pattern list"
-#~ msgstr "Makrokuvioiden luettelo"
-
-#~ msgid "*"
-#~ msgstr "*"
-
-#~ msgid "<b>Auto Completion</b>"
-#~ msgstr "<b>Automaattitäydennys</b>"
-
-#~ msgid "<b>Colors</b>"
-#~ msgstr "<b>Värit</b>"
-
-#~ msgid "<b>Size</b>"
-#~ msgstr "<b>Koko</b>"
-
-#~ msgid "Add New Macro"
-#~ msgstr "Lisää makro"
-
-#~ msgid "Co_mmand:"
-#~ msgstr "_Komento:"
-
-#~ msgid "Command Line Preferences"
-#~ msgstr "Komentorivin asetukset"
-
-#~ msgid "Command line _background:"
-#~ msgstr "Komentorivin _taustaväri:"
-
-#~ msgid "Command line _foreground:"
-#~ msgstr "Komentorivin _edustaväri:"
-
-#~ msgid "E_nable history-based auto completion"
-#~ msgstr "Käytä historiaa_n perustuvaa täydennystä"
-
-#~ msgid "Macros"
-#~ msgstr "Makrot"
-
-#~ msgid "Pick a color"
-#~ msgstr "Valitse väri"
-
-#~ msgid "_Add Macro..."
-#~ msgstr "_Lisää makro..."
-
-#~ msgid "_Delete Macro"
-#~ msgstr "_Poista makro"
-
-#~ msgid "_Macros:"
-#~ msgstr "_Makrot:"
-
-#~ msgid "_Pattern:"
-#~ msgstr "_Hakuehto:"
-
-#~ msgid "_Use default theme colors"
-#~ msgstr "_Käytä teeman oletusvärejä"
-
-#~ msgid "_Width:"
-#~ msgstr "_Leveys:"
-
-#~ msgid "pixels"
-#~ msgstr "pikseliä"
-
-#~ msgid ""
-#~ "Attempt to autocomplete a command from the history of commands entered."
-#~ msgstr "Komento pyritään täydentämään komentohistorian perusteella."
-
-#~ msgid "Background color, blue component"
-#~ msgstr "Taustaväri, sininen komponentti"
-
-#~ msgid "Background color, green component"
-#~ msgstr "Taustaväri, vihreä komponentti"
-
-#~ msgid "Background color, red component"
-#~ msgstr "Taustaväri, punainen komponentti"
-
-#~ msgid "Foreground color, blue component"
-#~ msgstr "Edustaväri, sininen komponentti"
-
-#~ msgid "Foreground color, green component"
-#~ msgstr "Edustaväri, vihreä komponentti"
-
-#~ msgid "Foreground color, red component"
-#~ msgstr "Edustaväri, punainen komponentti"
-
-#~ msgid "History list"
-#~ msgstr "Historia"
-
-#~ msgid "List of GConfValue entries containing strings for history entries."
-#~ msgstr "Historiamerkkijonot sisältävien GConfValue-arvojen luettelo."
-
-#~ msgid "Perform history autocompletion"
-#~ msgstr "Käytä historiaan perustuvaa täydennystä"
-
-#~ msgid "Show a frame surrounding the applet."
-#~ msgstr "Näytä kehys sovelman ympärillä."
-
-#~ msgid "Show a handle so the applet can be detached from the panel."
-#~ msgstr "Näytä kahva jolla sovelma voidaan irrottaa paneelista."
-
-#~ msgid "Show frame"
-#~ msgstr "Näytä kehys"
-
-#~ msgid "Show handle"
-#~ msgstr "Näytä kahva"
-
-#~ msgid "The blue component of the background color."
-#~ msgstr "Taustavärin sininen komponentti."
-
-#~ msgid "The blue component of the foreground color."
-#~ msgstr "Edustavärin sininen komponentti."
-
-#~ msgid "The green component of the background color."
-#~ msgstr "Taustavärin vihreä komponentti."
-
-#~ msgid "The green component of the foreground color."
-#~ msgstr "Edustavärin vihreä komponentti."
-
-#~ msgid "The red component of the background color."
-#~ msgstr "Taustavärin punainen komponentti."
-
-#~ msgid "The red component of the foreground color."
-#~ msgstr "Edustavärin punainen komponentti."
-
-#~ msgid ""
-#~ "This per-applet key is deprecated in favour of the global key, /schemas/"
-#~ "apps/mini-commander-global/macro_patterns."
-#~ msgstr ""
-#~ "Tämä sovelmakohtainen avain on korvattu globaalilla avaimella /schemas/"
-#~ "apps/mini-commander-global/macro_patterns."
-
-#~ msgid "Use the default theme colors"
-#~ msgstr "Käytä teeman värejä"
-
-#~ msgid "Use theme colors instead of custom ones."
-#~ msgstr "Käyttää teeman värejä mukautettujen sijaan."
-
-#~ msgid "Width"
-#~ msgstr "Leveys"
-
-#~ msgid "Width of the applet"
-#~ msgstr "Sovelman leveys"
-
-#~ msgid "Browser"
-#~ msgstr "Selain"
-
-#~ msgid "Click this button to start the browser"
-#~ msgstr "Napsauta tätä käynnistääksesi selaimen"
-
-#~ msgid "History"
-#~ msgstr "Historia"
-
-#~ msgid "Click this button for the list of previous commands"
-#~ msgstr "Napsauta saadaksesi listan viimeisimmistä komennoista"
-
-#~ msgid "Command line has been disabled by your system administrator"
-#~ msgstr "Komentorivi on poistettu käytöstä järjestelmänvalvojasi toimesta"
-
-#~ msgid "Mini-Commander applet"
-#~ msgstr "Pienoiskomentotulkki"
-
-#~ msgid "This applet adds a command line to the panel"
-#~ msgstr "Tämä sovelma lisää komentorivin paneeliin"
-
-#~ msgid "You must specify a pattern"
-#~ msgstr "Sinun täytyy määrittää hakuehto"
-
-#~ msgid "You must specify a pattern and a command"
-#~ msgstr "Sinun täytyy määrittää hakuehto ja komento"
-
-#~ msgid "You must specify a command"
-#~ msgstr "Sinun täytyy määrittää komento"
-
-#~ msgid "You may not specify duplicate patterns"
-#~ msgstr "Et voi antaa samaa hakuehtoa useita kertoja"
-
-#~ msgid "Pattern"
-#~ msgstr "Hakuehto"
-
-#~ msgid "Command"
-#~ msgstr "Komento"
-
-#~ msgid "starting..."
-#~ msgstr "käynnistetään..."
-
-#~ msgid "child exited"
-#~ msgstr "lapsiprosessi sulkeutui"
-
-#~ msgid "Adjust the sound volume"
-#~ msgstr "Säädä äänenvoimakkuutta"
-
-#~ msgid "Volume Control"
-#~ msgstr "Äänenvoimakkuus"
-
-#~ msgid "Mu_te"
-#~ msgstr "_Vaimenna"
-
-#~ msgid "_Open Volume Control"
-#~ msgstr "_Avaa äänenvoimakkuuden hallinta"
-
-#~ msgid ""
-#~ "The volume control did not find any elements and/or devices to control. "
-#~ "This means either that you don't have the right GStreamer plugins "
-#~ "installed, or that you don't have a sound card configured."
-#~ msgstr ""
-#~ "Äänenvoimakkuuden hallinta ei löytänyt ohjaimia tai laitteita, joita "
-#~ "säätää. Tämä tarkoittaa että joko oikeat GStreamer-liitännäiset eivät ole "
-#~ "asennettuina tai että äänikorttisi ei ole määritelty."
-
-#~ msgid ""
-#~ "You can remove the volume control from the panel by right-clicking the "
-#~ "speaker icon on the panel and selecting \"Remove From Panel\" from the "
-#~ "menu."
-#~ msgstr ""
-#~ "Voit poistaa äänenvoimakkuuden hallinnan paneelista painamalla oikeaa "
-#~ "nappia kaiuttimen kuvan päällä ja valitsemalla \"Poista paneelista\"."
-
-#~ msgid "Failed to start Volume Control: %s"
-#~ msgstr "Äänenvoimakkuden säätimen käynnistys epäonnistui: %s"
-
-#~ msgid "%s: muted"
-#~ msgstr "%s: vaimennettu"
-
-#~ msgid "%s: %d%%"
-#~ msgstr "%s: %d %%"
-
-#~ msgid "Failed to display help: %s"
-#~ msgstr "Ohjetta ei voitu näyttää: %s"
-
-#~ msgid "Volume control for your GNOME Panel."
-#~ msgstr "Äänenvoimakkuuden hallinta Gnomen paneeliin."
-
-#~ msgid "Using GStreamer 0.10."
-#~ msgstr "Käyttää Gstreamer-versiota 0.10."
-
-#~ msgid "Using GStreamer 0.8."
-#~ msgstr "Käyttää Gstreamer-versiota 0.8."
-
-#~ msgid "Volume Applet"
-#~ msgstr "Äänenvoimakkuuden säädin"
-
-#~ msgid "+"
-#~ msgstr "+"
-
-#~ msgid "-"
-#~ msgstr "-"
-
-#~ msgid "Unknown Volume Control %d"
-#~ msgstr "Tuntematon äänenvoimakkuuden ohjain %d"
-
-#~ msgid "Channel controlled by applet. Only for OSS setups"
-#~ msgstr "Sovelman hallinnoima kanava. Vain OSS:ää käyttäville järjestelmille"
-
-#~ msgid "Saved mute state"
-#~ msgstr "Vaimennus tallennettu"
-
-#~ msgid "Saved volume to restore on startup"
-#~ msgstr "Käynnistettäessä palautettava äänenvoimakkuus tallennettu"
-
-#~ msgid "Volume Control Preferences"
-#~ msgstr "Äänenvoimakkuuden säätimen asetukset"
-
-#~ msgid "Select the device and track to control."
-#~ msgstr "Valitse hallittava laite ja kanava."
-
-#~ msgid "Activate and monitor a dial-up network connection"
-#~ msgstr "Avaa ja tarkkaile modeemiyhteyksiä"
-
-#~ msgid "Modem Monitor"
-#~ msgstr "Modeemin tila"
-
-#~ msgid "_Activate"
-#~ msgstr "_Avaa"
-
-#~ msgid "_Deactivate"
-#~ msgstr "_Katkaise"
-
-#~ msgid "_Properties"
-#~ msgstr "_Ominaisuudet"
-
-#~ msgid "Connection active, but could not get connection time"
-#~ msgstr "Yhteys auki, mutta yhteysaikaa ei voida selvittää"
-
-#~ msgid "Time connected: %.1d:%.2d"
-#~ msgstr "Yhteys auki: %.1d:%.2d"
-
-#~ msgid "Not connected"
-#~ msgstr "ei yhteyttä"
-
-#~ msgid ""
-#~ "To connect to your Internet service provider, you need administrator "
-#~ "privileges"
-#~ msgstr ""
-#~ "Tarvitset ylläpitäjän oikeudet avataksesi yhteyden Internet-"
-#~ "palveluntarjoajaasi"
-
-#~ msgid ""
-#~ "To disconnect from your Internet service provider, you need administrator "
-#~ "privileges"
-#~ msgstr ""
-#~ "Tarvitset ylläpitäjän oikeudet sulkeaksesi yhteyden Internet-"
-#~ "palveluntarjoajaasi"
-
-#~ msgid "The entered password is invalid"
-#~ msgstr "Syötetty salasana on väärä"
-
-#~ msgid ""
-#~ "Check that you have typed it correctly and that you haven't activated the "
-#~ "\"caps lock\" key"
-#~ msgstr ""
-#~ "Tarkista että kirjoitit sen oikein ja ettei \"Caps Lock\" ole päällä"
-
-#~ msgid "Do you want to connect?"
-#~ msgstr "Haluatko ottaa yhteyden?"
-
-#~ msgid "Do you want to disconnect?"
-#~ msgstr "Haluatko katkaista yhteyden?"
-
-#~ msgid "C_onnect"
-#~ msgstr "_Yhdistä"
-
-#~ msgid "_Disconnect"
-#~ msgstr "_Katkaise"
-
-#~ msgid "Could not launch network configuration tool"
-#~ msgstr "Verkkoasetusten määrittelytyökalua ei voitu käynnistää"
-
-#~ msgid ""
-#~ "Check that it's installed in the correct path and that it has the correct "
-#~ "permissions"
-#~ msgstr ""
-#~ "Tarkista että se on asennettu oikeaan paikkaan ja että sen oikeudet ovat "
-#~ "riittävät"
-
-#~ msgid "Applet for activating and monitoring a dial-up network connection."
-#~ msgstr "Sovelma modeemiyhteyden käynnistämiseen ja tarkkailuun."
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Connecting with Internet Service "
-#~ "Provider</span>"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Yhdistetään palveluntarjoajaan</"
-#~ "span>"
-
-#~ msgid "<span weight=\"bold\" size=\"larger\">Root password required</span>"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Rootin salasana vaaditaan </span>"
-
-#~ msgid "Enter password"
-#~ msgstr "Syötä salasana"
-
-#~ msgid "Password:"
-#~ msgstr "Salasana:"
-
-#~ msgid "A system load indicator"
-#~ msgstr "Järjestelmäkuorman ilmaisin"
-
-#~ msgid "System Monitor"
-#~ msgstr "Järjestelmän tila"
-
-#~ msgid "_Open System Monitor"
-#~ msgstr "_Avaa Järjestelmänvalvonta"
-
-#~ msgid ""
-#~ "A system load monitor capable of displaying graphs for CPU, ram, and swap "
-#~ "space use, plus network traffic."
-#~ msgstr ""
-#~ "Järjestelmän kuorman tarkkailija, joka osaa näyttää käyriä CPU:n, muistin "
-#~ "ja välimuistin käytöstä sekä verkon liikenteestä."
-
-#~ msgid "There was an error executing '%s': %s"
-#~ msgstr "Virhe suoritettaessa toimintoa \"%s\": %s"
-
-#~ msgid "Processor"
-#~ msgstr "Suoritin"
-
-#~ msgid "Memory"
-#~ msgstr "Muisti"
-
-#~ msgid "Network"
-#~ msgstr "Verkko"
-
-#~ msgid "Swap Space"
-#~ msgstr "Sivutustila"
-
-#~ msgid "Load Average"
-#~ msgstr "Keskimääräinen kuorma"
-
-#~ msgid "Disk"
-#~ msgstr "Kiintolevy"
-
-#~ msgid ""
-#~ "%s:\n"
-#~ "%u%% in use by programs\n"
-#~ "%u%% in use as cache"
-#~ msgstr ""
-#~ "%s:\n"
-#~ "%u %% ohjelmien käytössä\n"
-#~ "%u %% välimuistin käytössä"
-
-#~ msgid "The system load average is %0.02f"
-#~ msgstr "Järjestelmän keskimääräinen kuormitus on %0.02f"
-
-#~ msgid ""
-#~ "%s:\n"
-#~ "%u%% in use"
-#~ msgid_plural ""
-#~ "%s:\n"
-#~ "%u%% in use"
-#~ msgstr[0] ""
-#~ "%s:\n"
-#~ "%u %% käytössä"
-#~ msgstr[1] ""
-#~ "%s:\n"
-#~ "%u %% käytössä"
-
-#~ msgid "CPU Load"
-#~ msgstr "Kuorma"
-
-#~ msgid "Memory Load"
-#~ msgstr "Muistinkulutus"
-
-#~ msgid "Net Load"
-#~ msgstr "Verkkokuorma"
-
-#~ msgid "Swap Load"
-#~ msgstr "Sivutuskuorma"
-
-#~ msgid "Disk Load"
-#~ msgstr "Levyn kuorma"
-
-#~ msgid "Applet refresh rate in milliseconds"
-#~ msgstr "Sovelman päivitystiheys millisekunneissa"
-
-#~ msgid "Background color for disk load graph"
-#~ msgstr "Taustaväri kiintolevyn kuorman käyrälle"
-
-#~ msgid "CPU graph background color"
-#~ msgstr "CPU-käyrän taustaväri"
-
-#~ msgid "Enable CPU load graph"
-#~ msgstr "Näytä CPU:n kuormituskäyrä"
-
-#~ msgid "Enable disk load graph"
-#~ msgstr "Näytä kiintolevyn kuormituskäyrä"
-
-#~ msgid "Enable load average graph"
-#~ msgstr "Näytä keskimääräisen kuorman käyrä"
-
-#~ msgid "Enable memory load graph"
-#~ msgstr "Näytä muistinkulutuskäyrä"
-
-#~ msgid "Enable network load graph"
-#~ msgstr "Näytä verkkoliikennekäyrä"
-
-#~ msgid "Enable swap load graph"
-#~ msgstr "Näytä sivutuskäyrä"
-
-#~ msgid ""
-#~ "For horizontal panels, the width of the graphs in pixels. For vertical "
-#~ "panels, this is the height of the graphs."
-#~ msgstr ""
-#~ "Vaakasuorille paneeleille käyrien leveys pikseleinä. Pystysuorille "
-#~ "paneeleille käyrien korkeus."
-
-#~ msgid "Graph color for Ethernet network activity"
-#~ msgstr "Ethernet-verkkoliikenteen käyrän väri"
-
-#~ msgid "Graph color for PLIP network activity"
-#~ msgstr "PLIP-verkkoliikenteen käyrän väri"
-
-#~ msgid "Graph color for SLIP network activity"
-#~ msgstr "SLIP-verkkoliikenteen käyrän väri"
-
-#~ msgid "Graph color for buffer memory"
-#~ msgstr "Puskurimuistin käyrän väri"
-
-#~ msgid "Graph color for cached memory"
-#~ msgstr "Välimuistin käyrän väri"
-
-#~ msgid "Graph color for disk read"
-#~ msgstr "Levyltä luvun käyrän väri"
-
-#~ msgid "Graph color for disk write"
-#~ msgstr "Levylle kirjoitusten käyrän väri"
-
-#~ msgid "Graph color for iowait related CPU activity"
-#~ msgstr "IOwait:iin liittyvän CPU-toiminnan käyrän väri"
-
-#~ msgid "Graph color for load average"
-#~ msgstr "Keskikuorman käyrän väri"
-
-#~ msgid "Graph color for nice-related CPU activity"
-#~ msgstr "Nice-toimintoihin liittyvän prosessoritoiminnan käyrän väri"
-
-#~ msgid "Graph color for other network usage"
-#~ msgstr "Muun verkkoliikenteen käyrän väri"
-
-#~ msgid "Graph color for shared memory"
-#~ msgstr "Jaetun muistin käyrän väri"
-
-#~ msgid "Graph color for system-related CPU activity"
-#~ msgstr "Järjestelmätoimintoihin liittyvän prosessoritoiminnan käyrän väri"
-
-#~ msgid "Graph color for user-related CPU activity"
-#~ msgstr "Käyttäjätoimintoihin liittyvän prosessoritoiminnan käyrän väri"
-
-#~ msgid "Graph color for user-related memory usage"
-#~ msgstr "Käyttäjätoimintoihin liittyvän muistinkäytön käyrän väri"
-
-#~ msgid "Graph color for user-related swap usage"
-#~ msgstr "Käyttäjätoimintoihin liittyvän sivutuskäytön käyrän väri"
-
-#~ msgid "Graph size"
-#~ msgstr "Käyrän koko"
-
-#~ msgid "Load graph background color"
-#~ msgstr "Kuormakäyrän taustaväri"
-
-#~ msgid "Memory graph background color"
-#~ msgstr "Muistikäyrän taustaväri"
-
-#~ msgid "Network graph background color"
-#~ msgstr "Verkkokäyrän taustaväri"
-
-#~ msgid "Swap graph background color"
-#~ msgstr "Sivutuskäyrän taustaväri"
-
-#~ msgid "Monitored Resources"
-#~ msgstr "Valvotut resurssit"
-
-#~ msgid "_Processor"
-#~ msgstr "_Suoritin"
-
-#~ msgid "_Memory"
-#~ msgstr "_Muisti"
-
-#~ msgid "_Network"
-#~ msgstr "_Verkko"
-
-#~ msgid "S_wap Space"
-#~ msgstr "Si_vutustila"
-
-#~ msgid "_Load"
-#~ msgstr "_Kuorma"
-
-#~ msgid "_Harddisk"
-#~ msgstr "_Kiintolevy"
-
-#~ msgid "Options"
-#~ msgstr "Asetukset"
-
-#~ msgid "System m_onitor width: "
-#~ msgstr "Järjestelmänvalvonnan _leveys: "
-
-#~ msgid "System m_onitor height: "
-#~ msgstr "Järjestelmänvalvonnan _korkeus: "
-
-#~ msgid "Sys_tem monitor update interval: "
-#~ msgstr "Järjestelmänvalvonnan _nopeus: "
-
-#~ msgid "milliseconds"
-#~ msgstr "millisekuntia"
-
-#~ msgid "Colors"
-#~ msgstr "Värit"
-
-#~ msgid "_User"
-#~ msgstr "Käy_ttäjä"
-
-#~ msgid "S_ystem"
-#~ msgstr "_Järjestelmä"
-
-#~ msgid "N_ice"
-#~ msgstr "N_ice"
-
-#~ msgid "I_OWait"
-#~ msgstr "I_OWait"
-
-#~ msgid "I_dle"
-#~ msgstr "Va_paa"
-
-#~ msgid "Sh_ared"
-#~ msgstr "_Jaettu"
-
-#~ msgid "_Buffers"
-#~ msgstr "Pu_skurit"
-
-#~ msgid "Cach_ed"
-#~ msgstr "_Välimuistissa"
-
-#~ msgid "F_ree"
-#~ msgstr "_Vapaana"
-
-#~ msgid "_SLIP"
-#~ msgstr "S_LIP"
-
-#~ msgid "PL_IP"
-#~ msgstr "PL_IP"
-
-#~ msgid "_Ethernet"
-#~ msgstr "_Ethernet"
-
-#~ msgid "Othe_r"
-#~ msgstr "M_uu"
-
-#~ msgid "_Background"
-#~ msgstr "_Tausta"
-
-#~ msgid "_Used"
-#~ msgstr "_Käytetty"
-
-#~ msgid "_Free"
-#~ msgstr "_Vapaana"
-
-#~ msgid "Load"
-#~ msgstr "Verkkokuorma"
-
-#~ msgid "_Average"
-#~ msgstr "_Keskimääräinen"
-
-#~ msgid "Harddisk"
-#~ msgstr "Kiintolevy"
-
-#~ msgid "_Read"
-#~ msgstr "_Luku"
-
-#~ msgid "_Write"
-#~ msgstr "_Kirjoitus"
-
-#~ msgid "System Monitor Preferences"
-#~ msgstr "Järjestelmänvalvonnan asetukset"
-
-#~ msgid "CD Player (Deprecated)"
-#~ msgstr "CD-soitin (Vanha)"
-
-#~ msgid "Panel applet for playing audio CDs"
-#~ msgstr "Paneelisovelma CD-äänilevyjen soittamiseen"
-
-#~ msgid "Alert you when new mail arrives"
-#~ msgstr "Ilmoita kun uutta sähköpostia saapuu"
-
-#~ msgid "Inbox Monitor (Deprecated)"
-#~ msgstr "Postilaatikon ilmaisin (Vanhentunut)"
-
-#~ msgid "Factory for deprecating applets"
-#~ msgstr "Tehdas vanhojen sovelmien piilottamisiin"
-
-#~ msgid "Null Applet Factory"
-#~ msgstr "Tyhjän sovelman tehdas"
-
-#~ msgid "Monitor the quality of a wireless network link"
-#~ msgstr "Seuraa langattoman verkon yhteyden laatua"
-
-#~ msgid "Wireless Link Monitor"
-#~ msgstr "Langattomien laitteiden valvonta"
-
-#~ msgid "Some panel items are no longer available"
-#~ msgstr "Jotkut paneelin kohdista eivät ole enää saatavilla"
-
-#~ msgid ""
-#~ "One or more panel items (also referred to as applets) are no longer "
-#~ "available in the GNOME desktop."
-#~ msgstr ""
-#~ "Yksi tai useampi käyttämäsi paneelin sovelma on poistettu tästä Gnome-"
-#~ "työpöydän versiosta."
-
-#~ msgid "These items will now be removed from your configuration:"
-#~ msgstr "Nämä sovelmat poistetaan nyt konfiguraatiostasi."
-
-#~ msgid "You will not receive this message again."
-#~ msgstr "Et näe tätä viestiä enää uudestaan"
-
-#~ msgid "Tomboy (ne Stickynotes)"
-#~ msgstr "Tomboy-muistilaput"
-
-#~ msgid "Tomboy (transparent upgrade from stickynotes)"
-#~ msgstr "Tomboy (päivitys aiempaan muistlappuohjelmaan)"
-
-#~ msgid "Create, view, and manage sticky notes on the desktop"
-#~ msgstr "Luo, näytä ja hallitse muistilappuja työpöydällä"
-
-#~ msgid "Sticky Notes"
-#~ msgstr "Muistilaput"
-
-#~ msgid "Sticky Notes Applet Factory"
-#~ msgstr "Muistilappusovelman tehdas"
-
-#~ msgid "Hi_de Notes"
-#~ msgstr "_Piilota muistilaput"
-
-#~ msgid "_Delete Notes"
-#~ msgstr "_Poista muistilaput"
-
-#~ msgid "_Lock Notes"
-#~ msgstr "_Lukitse muistilaput"
-
-#~ msgid "_New Note"
-#~ msgstr "_Uusi muistilappu"
-
-#~ msgid "This note is locked."
-#~ msgstr "Muistilappu on lukittu."
-
-#~ msgid "This note is unlocked."
-#~ msgstr "Muistilappu ei ole lukittu"
-
-#~ msgid "    Font C_olor:"
-#~ msgstr "    Kirjasimen _väri:"
-
-#~ msgid "    Font Co_lor:"
-#~ msgstr "    Kirjasimen _väri:"
-
-#~ msgid "    Note C_olor:"
-#~ msgstr "    Muistilapun _väri:"
-
-#~ msgid "    Note _Color:"
-#~ msgstr "    Muistilapun _väri:"
-
-#~ msgid "    _Font:"
-#~ msgstr "    _Kirjasin:"
-
-#~ msgid "<b>Behavior</b>"
-#~ msgstr "<b>Toiminta</b>"
-
-#~ msgid "<b>Default Note Properties</b>"
-#~ msgstr "<b>Lappujen oletusominaisuudet</b>"
-
-#~ msgid ""
-#~ "<b>Delete all sticky notes?</b>\n"
-#~ "\n"
-#~ "This cannot be undone."
-#~ msgstr ""
-#~ "<b>Haluatko poistaa kaikki muistilaput?</b>\n"
-#~ "\n"
-#~ "Toimintoa ei voi perua."
-
-#~ msgid ""
-#~ "<b>Delete this sticky note?</b>\n"
-#~ "\n"
-#~ "This cannot be undone."
-#~ msgstr ""
-#~ "<b>Haluatko poistaa tämän muistilapun?</b>\n"
-#~ "\n"
-#~ "Toimintoa ei voi perua."
-
-#~ msgid "<b>Properties</b>"
-#~ msgstr "<b>Ominaisuudet</b>"
-
-#~ msgid "Choose a base color to use for all sticky notes"
-#~ msgstr "Valitse perusväri, jota käytetään kaikissa muistilapuissa"
-
-#~ msgid "Choose a color for the note"
-#~ msgstr "Valitse muistilapun väri"
-
-#~ msgid "Choose a font for the note"
-#~ msgstr "Valitse muistilapun kirjasin"
-
-#~ msgid "Choose a font to use for all sticky notes"
-#~ msgstr "Valitse kirjasin, jota käytetään kaikissa muistilapuissa"
-
-#~ msgid "Choose if notes are visible on all workspaces"
-#~ msgstr "Valitse näkyvätkö muistilaput kaikilla työpöydillä"
-
-#~ msgid "Choose if the default style is forced on all notes"
-#~ msgstr "Pakotetaanko oletusulkonäkö kaikkiin muistilappuihin"
-
-#~ msgid "Close note"
-#~ msgstr "Sulje muistilappu"
-
-#~ msgid "Force _default color and font on notes"
-#~ msgstr "Pakotetaanko _oletusväri ja -kirjasin kaikkiin muistilappuihin"
-
-#~ msgid "H_eight:"
-#~ msgstr "Ko_rkeus:"
-
-#~ msgid "Lock/Unlock note"
-#~ msgstr "Lukitse/Avaa muistilappu"
-
-#~ msgid "Pick a color for the sticky note"
-#~ msgstr "Valitse muistilapun väri"
-
-#~ msgid "Pick a default sticky note color"
-#~ msgstr "Valitse muistilappujen oletusväri"
-
-#~ msgid "Pick a default sticky note font"
-#~ msgstr "Valitse muistilappujen oletuskirjasin"
-
-#~ msgid "Pick a font for the sticky note"
-#~ msgstr "Valitse muistilapun kirjasin"
-
-#~ msgid "Resize note"
-#~ msgstr "Venytä muistilappua"
-
-#~ msgid "Specify a title for the note"
-#~ msgstr "Määrittele muistilapun otsikko"
-
-#~ msgid "Specify the default height (in pixels) of new notes"
-#~ msgstr "Määrittele uusien muistilappujen korkeus (pikseleinä)"
-
-#~ msgid "Specify the default width (in pixels) of new notes"
-#~ msgstr "Määrittele uusien muistilappujen leveys (pikseleinä)"
-
-#~ msgid "Sticky Note"
-#~ msgstr "Muistilappu"
-
-#~ msgid "Sticky Note Properties"
-#~ msgstr "Muistilapun ominaisuudet"
-
-#~ msgid "Sticky Notes Preferences"
-#~ msgstr "Muistilappujen asetukset"
-
-#~ msgid "Use co_lor from the system theme"
-#~ msgstr "Käytä järjestelmän teeman v_äriä"
-
-#~ msgid "Use default co_lor"
-#~ msgstr "Käytä oletusv_äriä"
-
-#~ msgid "Use default fo_nt"
-#~ msgstr "Käytä oletusk_irjasinta"
-
-#~ msgid "Use fo_nt from the system theme"
-#~ msgstr "Käytä järjestelmän teeman k_irjasinta"
-
-#~ msgid "_Delete All"
-#~ msgstr "_Poista kaikki"
-
-#~ msgid "_Delete Note..."
-#~ msgstr "_Poista muistilappu..."
-
-#~ msgid "_Lock Note"
-#~ msgstr "_Lukitse muistilappu"
-
-#~ msgid "_Put notes on all workspaces"
-#~ msgstr "Näytä laput kaikilla ty_öpöydillä"
-
-#~ msgid "_Title:"
-#~ msgstr "_Otsikko:"
-
-#~ msgid ""
-#~ "By default, sticky notes are given the current date as the title when "
-#~ "they are created. This format is used; anything that can be parsed by "
-#~ "strftime() is valid."
-#~ msgstr ""
-#~ "Oletuksena uudet muistilaput saavat otsikokseen nykyisen päiväyksen. "
-#~ "Tähän käytetään tässä määriteltyä kaavaa. Mikä tahansa arvo jonka strftime"
-#~ "() osaa jäsentää on kelvollinen."
-
-#~ msgid "Date format of note's title"
-#~ msgstr "Lapun otsikon päiväysmuoto"
-
-#~ msgid "Default color for font"
-#~ msgstr "Kirjasimen oletusväri"
-
-#~ msgid "Default color for new notes"
-#~ msgstr "Uusien muistilappujen oletusväri"
-
-#~ msgid ""
-#~ "Default color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#30FF50\"."
-#~ msgstr ""
-#~ "Uusien muistilappujen oletusväri. Tämä tulisi esittää HTML:n "
-#~ "heksamuodossa. Esimerkiksi \"#30FF50\"."
-
-#~ msgid ""
-#~ "Default font color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#000000\"."
-#~ msgstr ""
-#~ "Uusien muistilappujen kirjasimen oletusväri. Tämä tulisi esittää HTML:n "
-#~ "heksamuodossa,  esimerkiksi \"#000000\"."
-
-#~ msgid "Default font for new notes"
-#~ msgstr "Uusien muistilappujen oletuskirjasin"
-
-#~ msgid ""
-#~ "Default font for new sticky notes. This should be a Pango Font Name, for "
-#~ "example \"Sans Italic 10\""
-#~ msgstr ""
-#~ "Uusien muistilappujen oletuskirjasin. Tämän tulisi olla Pangon "
-#~ "kirjasinnimi. Esimerkiksi \"Sans Italic 10\""
-
-#~ msgid "Default height for new notes"
-#~ msgstr "Uusien muistilappujen oletuskorkeus"
-
-#~ msgid "Default height for new sticky notes in pixels."
-#~ msgstr "Uusien muistilappujen oletuskorkeus pikseleinä."
-
-#~ msgid "Default width for new notes"
-#~ msgstr "Uusien muistilappujen oletusleveys"
-
-#~ msgid "Default width for new sticky notes in pixels."
-#~ msgstr "Uusien muistilappujen oletusleveys pikseleinä."
-
-#~ msgid "Empty notes are always deleted without confirmation"
-#~ msgstr "Tyhjät laput poistetaan aina ilman varmistusta"
-
-#~ msgid ""
-#~ "If this option is disabled, a custom color can be used as the default "
-#~ "color for all sticky notes."
-#~ msgstr ""
-#~ "Jos tämä asetus on pois päältä, muistilappujen oletusvärinä voidaan "
-#~ "käyttää mukautettua väriä."
-
-#~ msgid ""
-#~ "If this option is disabled, a custom font can be used as the default font "
-#~ "for all sticky notes."
-#~ msgstr ""
-#~ "Jos tämä asetus on pois päältä, muistilappujen oletuskirjaimena voidaan "
-#~ "käyttää mukautettua kirjasinta."
-
-#~ msgid ""
-#~ "If this option is enabled, the custom colors and fonts that have been "
-#~ "assigned to individual notes will be ignored."
-#~ msgstr ""
-#~ "Jos tämä asetus on päällä, eri muistilapuille asetetut mukautetut värit "
-#~ "ja kirjasimet jätetään huomiotta ja käytetään oletusarvoja."
-
-#~ msgid "Specifies whether the sticky notes are locked (non-editable) or not."
-#~ msgstr ""
-#~ "Määrittää ovatko muistilaput lukittuja (eivät muokattavissa) vai eivät."
-
-#~ msgid ""
-#~ "Specifies whether the sticky notes are visible on ALL workspaces on the "
-#~ "desktop, or not."
-#~ msgstr ""
-#~ "Määrittää näytetäänkö muistilaput kaikissa työpöydän työtiloissa vai ei"
-
-#~ msgid "Sticky notes' locked state"
-#~ msgstr "Muistilappujen lukitustila"
-
-#~ msgid "Sticky notes' workspace stickyness"
-#~ msgstr "Muistilappujen naulaus työtilojen välillä"
-
-#~ msgid "Whether to ask for confirmation when deleting a note"
-#~ msgstr "Määrittää kysytäänkö muistilappua poistettaessa varmistusta"
-
-#~ msgid "Whether to force the default color and font on all notes"
-#~ msgstr ""
-#~ "Määrittää pakotetaanko oletusväri ja -kirjasin kaikkiin muistilappuihin"
-
-#~ msgid "Whether to use the default system color"
-#~ msgstr "Määrittää käytetäänkö järjestelmän oletusväriä"
-
-#~ msgid "Whether to use the default system font"
-#~ msgstr "Määrittää käytetäänkö järjestelmän oletuskirjasinta"
-
-#~ msgid "%d note"
-#~ msgid_plural "%d notes"
-#~ msgstr[0] "%d lappu"
-#~ msgstr[1] "%d lappua"
-
-#~ msgid "Show sticky notes"
-#~ msgstr "Näytä muistilaput"
-
-#~ msgid "Sticky Notes for the GNOME Desktop Environment"
-#~ msgstr "Gnome-työpöydän muistilaput"
-
-#~ msgid "Go to Trash"
-#~ msgstr "Avaa roskakori"
-
-#~ msgid "Trash"
-#~ msgstr "Roskakori"
-
-#~ msgid "_Empty Trash"
-#~ msgstr "Tyhjennä roskakori"
-
-#~ msgid "_Open"
-#~ msgstr "_Avaa"
-
-#~ msgid "Unable to find the Trash directory: %s"
-#~ msgstr "Roskakorin hakemistoa ei löydy: %s"
-
-#~ msgid "No Items in Trash"
-#~ msgstr "Roskakori on tyhjä"
-
-#~ msgid "%d Item in Trash"
-#~ msgid_plural "%d Items in Trash"
-#~ msgstr[0] "%d tiedosto roskakorissa"
-#~ msgstr[1] "%d tiedostoa roskakorissa"
-
-#~ msgid "Removing item %d of %d"
-#~ msgstr "Poistetaan kohta %d/%d"
-
-#~ msgid "Removing:"
-#~ msgstr "Poistetaan:"
-
-#~ msgid "Empty all of the items from the trash?"
-#~ msgstr "Poista kaikki roskakorissa olevat tiedostot?"
-
-#~ msgid ""
-#~ "If you choose to empty the trash, all items in it will be permanently "
-#~ "lost. Please note that you can also delete them separately."
-#~ msgstr ""
-#~ "Jos tyhjennät roskakorin, tuhotaan kaikki siellä olevat tiedostot "
-#~ "pysyvästi.Huomaa että voit poistaa roskakorista tiedostoja myös "
-#~ "yksitellen."
-
-#~ msgid ""
-#~ "Error while spawning nautilus:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Virhe käynnistettäessä nautilusta:\n"
-#~ "%s"
-
-#~ msgid "Trash Applet"
-#~ msgstr "Roskakorisovelma"
-
-#~ msgid ""
-#~ "A GNOME trash bin that lives in your panel. You can use it to view the "
-#~ "trash or drag and drop items into the trash."
-#~ msgstr ""
-#~ "Gnomen roskakori, joka näkyy paneelissasi. Voit katsoa sen avulla "
-#~ "roskakorisi sisältöä tai raahata siihen roskakoriin laitettavia "
-#~ "tiedostoja."
-
-#~ msgid "Delete Immediately?"
-#~ msgstr "Poistetaanko heti?"
-
-#~ msgid "Cannot move items to trash, do you want to delete them immediately?"
-#~ msgstr ""
-#~ "Kohteita ei voida siirtää roskakoriin, haluatko poistaa ne pysyvästi heti?"
-
-#~ msgid ""
-#~ "Cannot move some items to trash, do you want to delete these immediately?"
-#~ msgstr ""
-#~ "Kohteita ei voida siirtää roskakoriin, haluatko poistaa ne pysyvästi heti?"
-
-#~ msgid ""
-#~ "Unable to move to trash:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Ei voida siirtää roskakoriin:\n"
-#~ "%s"
-
-#~ msgid "<b>From:</b>"
-#~ msgstr "<b>Lähteestä:</b>"
-
-#~ msgid "<big><b>Emptying the Trash</b></big>"
-#~ msgstr "<big><b>Tyhjennetään roskakoria</b></big>"
-
-#~ msgid "Emptying the Trash"
-#~ msgstr "Tyhjennetään roskakoria"
-
-#~ msgid "Mode to show the frequency selector drop down menu"
-#~ msgstr "Taajuudenvalinnan pudotusvalikossa näytettävä tila"
-
-#~ msgid "<b>Frequency Selector</b>"
-#~ msgstr "<b>Taajuuden valinta</b>"
-
-#~ msgid "Show m_enu:"
-#~ msgstr "Näytä _valikko:"
-
-#~ msgid "Frequencies"
-#~ msgstr "Taajuudet"
-
-#~ msgid "Governors"
-#~ msgstr "Säätimet"
-
-#~ msgid "Frequencies and Governors"
-#~ msgstr "Taajuudet ja säätimet"
-
-#~ msgid "_Frequencies"
-#~ msgstr "_Taajuudet"
-
-#~ msgid "_Governors"
-#~ msgstr "_Ohjaintyypit"
-
-#~ msgid "No description."
-#~ msgstr "Ei kuvausta."
-
-#~ msgid "Failed to init GConf: %s\n"
-#~ msgstr "GConfin alustus epäonnistui: %s\n"
-
-#~ msgid "Activate more plugins"
-#~ msgstr "Ota käyttöön lisää liitännäisiä"
-
-#~ msgid "Active _plugins:"
-#~ msgstr "Käytössä olevat _liitännäiset:"
-
-#~ msgid "Add Plugin"
-#~ msgstr "Lisää liitännäinen"
-
-#~ msgid "Close the dialog"
-#~ msgstr "Sulje ikkuna"
-
-#~ msgid "Configure the selected plugin"
-#~ msgstr "Muokkaa valitun liitännäisen asetuksia"
-
-#~ msgid "Deactivate selected plugin"
-#~ msgstr "Poistas valittu liitännäinen käytöstä"
-
-#~ msgid "Decrease the plugin priority"
-#~ msgstr "Alenna liitännäisen prioriteettia"
-
-#~ msgid "Increase the plugin priority"
-#~ msgstr "Nosta liitännäisen prioriteettia"
-
-#~ msgid "Keyboard Indicator Plugins"
-#~ msgstr "Näppäimistöilmaisimen liitännäiset"
-
-#~ msgid "The list of active plugins"
-#~ msgstr "Luettelo käytössä olevista liitännäisistä"
-
-#~ msgid "_Available plugins:"
-#~ msgstr "S_aatavilla olevat liitännäiset:"
-
-#~ msgid "Keyboard Indicator Test (%s)"
-#~ msgstr "Näppäimistöilmaisimen testi (%s)"
-
-#~ msgid "Indicator:"
-#~ msgstr "Ilmaisin: "
-
-#~ msgid "layout \"%s\""
-#~ msgid_plural "layouts \"%s\""
-#~ msgstr[0] "asettelu \"%s\""
-#~ msgstr[1] "asettelut \"%s\""
-
-#~ msgid "option \"%s\""
-#~ msgid_plural "options \"%s\""
-#~ msgstr[0] "asetus \"%s\""
-#~ msgstr[1] "asetukset \"%s\""
-
-#~ msgid "model \"%s\", %s and %s"
-#~ msgstr "malli \"%s\", %s ja %s"
-
-#~ msgid "no layout"
-#~ msgstr "ei asettelua"
-
-#~ msgid "no options"
-#~ msgstr "ei valintoja"
-
-#~ msgid "Enable/disable installed plugins"
-#~ msgstr "Valitse käytössä olevat liitännäiset"
-
-#~ msgid "Keyboard Indicator plugins"
-#~ msgstr "Näppäimistöilmaisimen liitännäiset"
-
-#~ msgid "Autosave timeout in minutes"
-#~ msgstr "Automaattitallennuksen aikaväli minuuteissa"
-
-#~ msgid ""
-#~ "Every time the specified number of minutes pass, the sticky notes are "
-#~ "automatically saved."
-#~ msgstr ""
-#~ "Aina kun annettu määrä minuutteja kuluu, muistilaput tallennetaan "
-#~ "automaattisesti."
-
-#~ msgid "Pl_ugins"
-#~ msgstr "_Liitännäiset"
-
-#~ msgid "There was an error loading an image: %s"
-#~ msgstr "Virhe ladattaessa kuvaa: %s"
-
-#~ msgid "_Layout View"
-#~ msgstr "_Asettelun katselu"
-
-#~ msgid "XKB initialization error"
-#~ msgstr "XKB-alustusvirhe"
-
-#~ msgid "Error loading XKB configuration registry"
-#~ msgstr "Virhe ladattaessa XKB:n asetusrekisteriä"
-
-#~ msgid "Total"
-#~ msgstr "Kaikkiaan"
-
-#~ msgid "Get continuously updated stock quotes"
-#~ msgstr "Seuraa osakekursseja"
-
-#~ msgid "Gtik Applet Factory"
-#~ msgstr "Gtik-sovelman tehdas"
-
-#~ msgid "Stock Ticker"
-#~ msgstr "Osakekurssien seuranta"
-
-#~ msgid "Could not retrieve the stock data."
-#~ msgstr "Osaketietojen hakeminen epäonnistui."
-
-#~ msgid "No stock list"
-#~ msgstr "Ei kurssiluetteloa"
-
-#~ msgid ""
-#~ "This program connects to a popular site and downloads current stock "
-#~ "quotes.\n"
-#~ "\n"
-#~ "The GNOME Stock Ticker is a free Internet-based application. It comes "
-#~ "with ABSOLUTELY NO WARRANTY.\n"
-#~ "\n"
-#~ "Do not use the GNOME Stock Ticker for making investment decisions; it is "
-#~ "for informational purposes only."
-#~ msgstr ""
-#~ "Tämä ohjelma ottaa yhteyttä suositulle sivustulta ja hakee tämänhetkiset "
-#~ "osakekurssit.\n"
-#~ "\n"
-#~ "Gnomen osakurssisovelma on vapaa, Internet-pohjainen sovellus. Sen mukana "
-#~ "EI TULE MINKÄÄNLAISTA TAKUUTA. Älä käytä Gnomen osakekurssisovelmaa "
-#~ "rahallisessa päätöksenteossa; se on tarkoitettu ainoastaan tiedonhakuun."
-
-#~ msgid "Current _stocks:"
-#~ msgstr "Tämänhetkiset _osakekurssit:"
-
-#~ msgid "Add _new symbol:"
-#~ msgstr "Lisää _uusi symboli:"
-
-#~ msgid "Stock Ticker Preferences"
-#~ msgstr "Osakekurssisovelman asetukset"
-
-#~ msgid "Behavior"
-#~ msgstr "Toiminta"
-
-#~ msgid "Stock update fre_quency:"
-#~ msgstr "Kurssien päivitys_tiheys:"
-
-#~ msgid "_Scroll speed:"
-#~ msgstr "Vierity_snopeus:"
-
-#~ msgid "Slow"
-#~ msgstr "Hidas"
-
-#~ msgid "Medium"
-#~ msgstr "Keskinopea"
-
-#~ msgid "Fast"
-#~ msgstr "Nopea"
-
-#~ msgid "_Enable scroll buttons"
-#~ msgstr "Käytä vi_erityspainikkeita"
-
-#~ msgid "Scroll _left to right"
-#~ msgstr "Vieritä v_asemmalta oikealle"
-
-#~ msgid "Appearance"
-#~ msgstr "Ulkonäkö"
-
-#~ msgid "Displa_y only symbols and price"
-#~ msgstr "Näytä vain sym_bolit ja hinta"
-
-#~ msgid "Font and Colors"
-#~ msgstr "Kirjasin ja värit"
-
-#~ msgid "Use _default theme font and colors"
-#~ msgstr "_Käytä oletusteeman kirjasinta ja värejä"
-
-#~ msgid "_Font:"
-#~ msgstr "_Kirjasin:"
-
-#~ msgid "Stock _raised:"
-#~ msgstr "Kurssi _noussut:"
-
-#~ msgid "Stock _lowered:"
-#~ msgstr "Kurssi _laskenut:"
-
-#~ msgid "Stock _unchanged:"
-#~ msgstr "Kurssi _muuttumaton:"
-
-#~ msgid "_Background:"
-#~ msgstr "_Tausta:"
-
-#~ msgid "Skip forward"
-#~ msgstr "Eteenpäin"
-
-#~ msgid "Skip backward"
-#~ msgstr "Taaksepäin"
-
-#~ msgid ""
-#~ "Stock Ticker\n"
-#~ "Get continuously updated stock quotes"
-#~ msgstr ""
-#~ "Osakekurssisovelma\n"
-#~ "Hae jatkuvasti päivittyviä osakekursseja"
-
-#~ msgid "+%s (%s)"
-#~ msgstr "%s / %s"
-
-#~ msgid "%s (%s)"
-#~ msgstr "%s / %s"
-
-#~ msgid "(No Change)"
-#~ msgstr "(Ei muutosta)"
-
-#~ msgid "Applet scrolls right to left when this key is set to true."
-#~ msgstr ""
-#~ "Sovelma vierittää tekstiä oikealta vasemmalle jos tämä asetetaan päälle."
-
-#~ msgid "Background color"
-#~ msgstr "Taustaväri"
-
-#~ msgid ""
-#~ "Display only stock symbols along with their value. Do not display changes "
-#~ "in value."
-#~ msgstr ""
-#~ "Näytä vain osakesymbolit arvojensa kanssa. Älä näytä muutoksia arvoissa."
-
-#~ msgid "Display only symbols and price"
-#~ msgstr "Näytä vain symbolit ja hinta"
-
-#~ msgid "Font"
-#~ msgstr "Kirjasin"
-
-#~ msgid ""
-#~ "List containing the stocks to be displayed. Consists of the stock id "
-#~ "separated by \"+\""
-#~ msgstr ""
-#~ "Luettelo osakkeista jotka näytetään. Koostuu osakkeen tunnisteista jotka "
-#~ "on eroteltu toisistaan \"+\"-merkein"
-
-#~ msgid "Lowered color"
-#~ msgstr "Laskeneiden väri"
-
-#~ msgid "Raised color"
-#~ msgstr "Nousseiden väri"
-
-#~ msgid "Right to left scrolling"
-#~ msgstr "Vieritys oikealta vasemmalle"
-
-#~ msgid "Shorter time means the stocks scroll by faster."
-#~ msgstr "Lyhyempi aika tarkoittaa nopeampaa vieritystä."
-
-#~ msgid "Show arrow buttons"
-#~ msgstr "Näytä nuolipainikkeet"
-
-#~ msgid ""
-#~ "Show arrow buttons on the side of the display so that the user can scroll "
-#~ "forward or backward."
-#~ msgstr ""
-#~ "Näytä nuolipainikkeet näytön sivuilla jotta tekstiä voin vierittää eteen- "
-#~ "tai taaksepäin."
-
-#~ msgid "Stocks to monitor - must be separated by a +"
-#~ msgstr "Tarkkailtavat osakkeet - erotetaan toisistaan \"+\"-merkillä"
-
-#~ msgid ""
-#~ "The color of the background of the display. Has no effect when the user "
-#~ "chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Näytön taustaväri. Tämä tulee voimaan mikäli ei käytetä oletusteeman "
-#~ "kirjaimia ja värejä."
-
-#~ msgid ""
-#~ "The color used when the stock's values has lowered. Has no effect when "
-#~ "the user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Laskeneiden kurssien väri. Tämä tulee voimaan mikäli ei käytetä "
-#~ "oletusteeman kirjaimia ja värejä."
-
-#~ msgid ""
-#~ "The color used when the stock's values has not changed. Has no effect "
-#~ "when the user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Muuttumattomien kurssien väri. Tämä tulee voimaan mikäli ei käytetä "
-#~ "oletusteeman kirjaimia ja värejä."
-
-#~ msgid ""
-#~ "The color used when the stock's values has raised. Has no effect when the "
-#~ "user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "Nousseiden kurssien väri. Tämä tulee voimaan mikäli ei käytetä "
-#~ "oletusteeman kirjaimia ja värejä."
-
-#~ msgid ""
-#~ "The font used for the display. Has no effect when the user chooses to use "
-#~ "the default theme fonts and colors."
-#~ msgstr ""
-#~ "Näytössä käytettävä kirjasin. Tämä tulee voimaan mikäli ei käytetä "
-#~ "oletusteeman kirjaimia ja värejä."
-
-#~ msgid "The time interval until when the applet updates the stock data."
-#~ msgstr "Aikaväli jonka jälkeen sovelma päivittää kurssitietoja"
-
-#~ msgid "The width in pixels of the applet."
-#~ msgstr "Sovelman leveys pikseleinä."
-
-#~ msgid "Time in milliseconds for display update"
-#~ msgstr "Näytön päivityksen aikaväli millisekunneissa"
-
-#~ msgid "Unchanged color"
-#~ msgstr "Muuttumattomien väri"
-
-#~ msgid "Use default theme fonts and colors"
-#~ msgstr "Käytä oletuskirjasimia ja -värejä"
-
-#~ msgid "Use default theme fonts and colors instead of custom ones"
-#~ msgstr "Käytä oletuskirjasimia ja -värejä mukautettujen sijaan"
-
-#~ msgid "font 2 - No Longer used"
-#~ msgstr "kirjasin 2 - Ei enää käytössä"
-
-#~ msgid "A GNOME/GStreamer-based volume control applet"
-#~ msgstr "Gnome/GStreamer-pohjainen äänenvoimakkuuden hallintasovelma"
-
-#~ msgid "GNOME keyboard applet factory"
-#~ msgstr "Gnomen näppäimistösovelman tehdas"
-
-#~ msgid "_Show in mode:"
-#~ msgstr "_Näytä muodossa:"
-
-#~ msgid "translator_credits"
-#~ msgstr ""
-#~ "Ilkka Tuohela, 2005\n"
-#~ "Jarkko Ranta, 2000-2004\n"
-#~ "Mikka Rauhala, 1999\n"
-#~ "Ville Hautamäki, 1998\n"
-#~ "Tuomas Lukka, 1998\n"
-#~ "\n"
-#~ "http://gnome.fi/"
