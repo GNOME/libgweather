@@ -13,23 +13,24 @@
 # Michael Yakhontov <mvy@asplinux.ru>, 2003.
 # Yuri Kozlov <yuray@komyakino.ru>, 2012.
 # Stas Solovey <whats_up@tut.by>, 2013.
+# Yuri Myasoedov <ymyasoedov@yandex.ru>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-09 22:45+0000\n"
-"PO-Revision-Date: 2014-03-10 11:38+0300\n"
-"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
-"Language-Team: Русский <gnome-cyr@gnome.org>\n"
+"POT-Creation-Date: 2014-08-18 09:38+0000\n"
+"PO-Revision-Date: 2014-08-18 21:22+0400\n"
+"Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
+"Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.5.4\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/glade/libgweather.xml.in.h:1
 msgid "Location Entry"
@@ -51,14 +52,16 @@ msgstr "GWeather"
 msgid "Greenwich Mean Time"
 msgstr "По Гринвичу"
 
+# Часовой пояс
 #: ../libgweather/timezone-menu.c:275
 msgctxt "timezone"
 msgid "Unknown"
-msgstr "Неизвестная"
+msgstr "Неизвестный"
 
+# Переменное направление ветра
 #: ../libgweather/weather.c:114
 msgid "Variable"
-msgstr "Переменный"
+msgstr "Переменное направление"
 
 #: ../libgweather/weather.c:115
 msgid "North"
@@ -127,7 +130,7 @@ msgstr "Северо-северо-западный"
 #: ../libgweather/weather.c:125
 msgctxt "wind direction"
 msgid "Invalid"
-msgstr "Недопустимый"
+msgstr "Некорректные данные"
 
 #: ../libgweather/weather.c:131
 msgid "Clear Sky"
@@ -143,7 +146,7 @@ msgstr "Рассеянные облака"
 
 #: ../libgweather/weather.c:134
 msgid "Few clouds"
-msgstr "Незначительная облачность"
+msgstr "Небольшая облачность"
 
 #: ../libgweather/weather.c:135
 msgid "Overcast"
@@ -152,7 +155,7 @@ msgstr "Сплошная облачность"
 #: ../libgweather/weather.c:142 ../libgweather/weather.c:214
 msgctxt "sky conditions"
 msgid "Invalid"
-msgstr "Недопустимый"
+msgstr "Некорректные данные"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
@@ -458,6 +461,7 @@ msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Неизвестно"
 
+# !!! Не переводить !!!
 #. Translate to the default units to use for presenting
 #. * lengths to the user. Translate to default:inch if you
 #. * want inches, otherwise translate to default:mm.
@@ -466,7 +470,7 @@ msgstr "Неизвестно"
 #.
 #: ../libgweather/weather.c:746
 msgid "default:mm"
-msgstr "по умолчанию:мм"
+msgstr "default:mm"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
 #: ../libgweather/weather.c:791
@@ -665,9 +669,6 @@ msgstr ""
 #. That's very nice of them!
 #.
 #: ../libgweather/weather-yrno.c:445
-#| msgid ""
-#| "Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</"
-#| "a>"
 msgid ""
 "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
 "Institute</a>"
