@@ -9,22 +9,23 @@
 # Jarkko Ranta <jjranta@cc.joensuu.fi>, 2000-2004.
 # Ilkka Tuohela <hile@iki.fi>, 2005.
 # Tommi Vainikainen <thv@iki.fi>, 2009.
-# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2013.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2013, 2014.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
-"cgi?product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-08-08 21:40+0000\n"
-"PO-Revision-Date: 2013-03-23 14:19+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgweather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-09-06 21:45+0000\n"
+"PO-Revision-Date: 2014-09-07 12:06+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
-"Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
+"Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/glade/libgweather.xml.in.h:1
 #, fuzzy
@@ -34,17 +35,16 @@ msgstr "Sijainti"
 
 #: ../data/glade/libgweather.xml.in.h:2
 msgid "Timezone Menu"
-msgstr ""
+msgstr "Aikavyöhykevalikko"
 
 #: ../data/glade/libgweather.xml.in.h:3
 msgid "Timezone"
-msgstr ""
+msgstr "Aikavyöhyke"
 
 #: ../data/glade/libgweather.xml.in.h:4
-#, fuzzy
 #| msgid "GNOME Weather"
 msgid "GWeather"
-msgstr "Gnomen säätiedot"
+msgstr "GWeather"
 
 #: ../libgweather/gweather-timezone.c:340
 msgid "Greenwich Mean Time"
@@ -265,35 +265,31 @@ msgstr "Jääkiteitä"
 #. ICE_PELLETS
 #: ../libgweather/weather.c:180
 msgid "Sleet"
-msgstr ""
+msgstr "Räntäsadetta"
 
 #: ../libgweather/weather.c:180
 msgid "Little sleet"
-msgstr ""
+msgstr "Kevyttä räntäsadetta"
 
 #: ../libgweather/weather.c:180
-#, fuzzy
 #| msgid "Moderate snow"
 msgid "Moderate sleet"
-msgstr "Kohtalaista lumisadetta"
+msgstr "Kohtalaista räntäsadetta"
 
 #: ../libgweather/weather.c:180
-#, fuzzy
 #| msgid "Heavy snow"
 msgid "Heavy sleet"
-msgstr "Voimakasta lumisadetta"
+msgstr "Voimakasta räntäsadetta"
 
 #: ../libgweather/weather.c:180
-#, fuzzy
 #| msgid "Ice pellet storm"
 msgid "Sleet storm"
-msgstr "Jääjyväsmyrsky"
+msgstr "Räntäsademyrsky"
 
 #: ../libgweather/weather.c:180
-#, fuzzy
 #| msgid "Showers of ice pellets"
 msgid "Showers of sleet"
-msgstr "Jääjyvässadekuuroja"
+msgstr "Räntäsadekuuroja"
 
 #. HAIL
 #: ../libgweather/weather.c:181
@@ -453,10 +449,9 @@ msgid "Dust whirls in the vicinity"
 msgstr "Alueella pölypyörteitä"
 
 #: ../libgweather/weather.c:706
-#, fuzzy
 #| msgid "%a, %b %d / %H:%M"
 msgid "%a, %b %d / %H∶%M"
-msgstr "%a %d. %Bta %H.%M"
+msgstr "%a %e. %Bta %H.%M"
 
 #: ../libgweather/weather.c:712
 msgid "Unknown observation time"
@@ -474,10 +469,9 @@ msgstr "Tuntematon"
 #. * it isn't default:mm or default:inch it will not work
 #.
 #: ../libgweather/weather.c:746
-#, fuzzy
 #| msgid "Default"
 msgid "default:mm"
-msgstr "Oletus"
+msgstr "default:mm"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
 #: ../libgweather/weather.c:791
@@ -662,7 +656,6 @@ msgid "Failed to get METAR data: %d %s.\n"
 msgstr "METAR-tietoja ei voitu noutaa: %d %s.\n"
 
 #: ../libgweather/weather-owm.c:385
-#, fuzzy
 #| msgid ""
 #| "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
 #| "Institute</a>"
@@ -670,8 +663,8 @@ msgid ""
 "Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
 "project</a>"
 msgstr ""
-"Säätiedot tarjoaa <a href=\"http://yr.no/\">Norwegian Meteorological "
-"Institute</a>"
+"Säätiedot tarjoaa <a href=\"http://openweathermap.org\">Open Weather Map -"
+"projekti</a>"
 
 #. The new (documented but not advertised) API is less strict in the
 #. format of the attribution, and just requires a generic CC-BY compatible
@@ -688,7 +681,6 @@ msgstr ""
 "Institute</a>"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:1
-#, fuzzy
 #| msgid "Url for the radar map"
 msgid "URL for the radar map"
 msgstr "Tutkakartan URL"
@@ -739,10 +731,10 @@ msgstr "Paineen yksikkö"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:10
 msgid ""
-"The unit of pressure used for showing weather. Valid values are 'kpa' "
-"(kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically equivalent "
-"to 1 hPa but shown differently), 'mm-hg' (millimiters of mercury), 'inch-hg' "
-"(inches of mercury), 'atm' (atmospheres)."
+"The unit of pressure used for showing weather. Valid values are "
+"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
+"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
+"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
 msgstr ""
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:11
