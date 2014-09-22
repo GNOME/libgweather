@@ -13,9 +13,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather-master-po-gl-57986\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-17 17:00+0200\n"
-"PO-Revision-Date: 2014-09-17 17:01+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgwea"
+"ther&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-09-22 21:59+0000\n"
+"PO-Revision-Date: 2014-09-23 01:58+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -24,6 +25,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
 
 #: ../data/glade/libgweather.xml.in.h:1
 msgid "Location Entry"
@@ -465,25 +467,27 @@ msgstr "default:mm"
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
 #: ../libgweather/weather.c:791
 #, c-format
-msgid "%.1f ےF"
+#| msgid "%.1f ےF"
+msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
 #: ../libgweather/weather.c:794
 #, c-format
-msgid "%d ےF"
+msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
 #: ../libgweather/weather.c:800
 #, c-format
-msgid "%.1f ےC"
+#| msgid "%.1f ےC"
+msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
 #: ../libgweather/weather.c:803
 #, c-format
-msgid "%d ےC"
+msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
@@ -759,10 +763,10 @@ msgstr ""
 "datos. Isto só se usa para calculas as fases da lúa, non para a previsión do "
 "tempo"
 
-#~ msgid "%d °F"
+#~ msgid "%d ےF"
 #~ msgstr "%d °F"
 
-#~ msgid "%d °C"
+#~ msgid "%d ےC"
 #~ msgstr "%d °C"
 
 #~ msgid "Ice pellets"
