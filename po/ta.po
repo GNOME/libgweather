@@ -13,15 +13,16 @@
 # I. Felix <ifelix@redhat.com>, 2008.
 # Dr.T.vasudevan <agnihot3@gmail.com>, 2009, 2010.
 # Dr,T,Vasudevan <agnihot3@gmail.com>, 2010.
-# Shantha kumar <shkumar@redhat.com>, 2013.
+# Shantha kumar <shkumar@redhat.com>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: locations\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-23 14:30+0530\n"
-"PO-Revision-Date: 2013-03-23 16:46+0530\n"
-"Last-Translator: Dr.T.Vasudevan <drtvasudevan@gmail.com>\n"
-"Language-Team: Tamil <<gnome-tamil-translation@googlegroups.com>>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgweather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-09-23 09:48+0000\n"
+"PO-Revision-Date: 2014-09-23 18:33+0530\n"
+"Last-Translator: Shantha kumar <shkumar@redhat.com>\n"
+"Language-Team: American English <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,109 +33,126 @@ msgstr ""
 "\n"
 "\n"
 
-#: ../libgweather/gweather-timezone.c:316
+#: ../data/glade/libgweather.xml.in.h:1
+msgid "Location Entry"
+msgstr "இருப்பிட உள்ளீடு"
+
+#: ../data/glade/libgweather.xml.in.h:2
+msgid "Timezone Menu"
+msgstr "நேர மண்டல மெனு"
+
+#: ../data/glade/libgweather.xml.in.h:3
+msgid "Timezone"
+msgstr "நேர மண்டலம்"
+
+#: ../data/glade/libgweather.xml.in.h:4
+#| msgid "Weatherford"
+msgid "GWeather"
+msgstr "GWeather"
+
+#: ../libgweather/gweather-timezone.c:340
 msgid "Greenwich Mean Time"
 msgstr "கீரின்விட்ஜ் நேரம்"
 
-#: ../libgweather/timezone-menu.c:278
+#: ../libgweather/timezone-menu.c:275
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "தெரியாதது"
 
-#: ../libgweather/weather.c:129
+#: ../libgweather/weather.c:114
 msgid "Variable"
 msgstr "மாறி"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:115
 msgid "North"
 msgstr "வடக்கு"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:115
 msgid "North - NorthEast"
 msgstr "வடக்கு - வடகிழக்கு"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:115
 msgid "Northeast"
 msgstr "வடகிழக்கு"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:115
 msgid "East - NorthEast"
 msgstr "கிழக்கு - வடகிழக்கு"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:116
 msgid "East"
 msgstr "கிழக்கு"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:116
 msgid "East - Southeast"
 msgstr "கிழக்கு - தென்கிழக்கு"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:116
 msgid "Southeast"
 msgstr "தென்கிழக்கு"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:116
 msgid "South - Southeast"
 msgstr "தெற்கு - தென்கிழக்கு"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:117
 msgid "South"
 msgstr "தெற்கு"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:117
 msgid "South - Southwest"
 msgstr "தெற்கு - தென்மேற்கு"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:117
 msgid "Southwest"
 msgstr "தென்மேற்கு"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:117
 msgid "West - Southwest"
 msgstr "மேற்கு - தென்மேற்கு"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:118
 msgid "West"
 msgstr "மேற்கு"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:118
 msgid "West - Northwest"
 msgstr "மேற்கு - வடமேற்கு"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:118
 msgid "Northwest"
 msgstr "வடமேற்கு"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:118
 msgid "North - Northwest"
 msgstr "வடக்கு - வடமேற்கு"
 
-#: ../libgweather/weather.c:140
+#: ../libgweather/weather.c:125
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "செல்லாத"
 
-#: ../libgweather/weather.c:146
+#: ../libgweather/weather.c:131
 msgid "Clear Sky"
 msgstr "தெளிந்த வானம்"
 
-#: ../libgweather/weather.c:147
+#: ../libgweather/weather.c:132
 msgid "Broken clouds"
 msgstr "திட்டுதிட்டான மேகங்கள்"
 
-#: ../libgweather/weather.c:148
+#: ../libgweather/weather.c:133
 msgid "Scattered clouds"
 msgstr "சிதறலான மேகங்கள்"
 
-#: ../libgweather/weather.c:149
+#: ../libgweather/weather.c:134
 msgid "Few clouds"
 msgstr "குறைவான மேகங்கள்"
 
-#: ../libgweather/weather.c:150
+#: ../libgweather/weather.c:135
 msgid "Overcast"
 msgstr "மேகமூட்டம்"
 
-#: ../libgweather/weather.c:157 ../libgweather/weather.c:229
+#: ../libgweather/weather.c:142 ../libgweather/weather.c:214
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "செல்லாத"
@@ -143,389 +161,400 @@ msgstr "செல்லாத"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:189 ../libgweather/weather.c:191
+#: ../libgweather/weather.c:174 ../libgweather/weather.c:176
 msgid "Thunderstorm"
 msgstr "இடியுடன்காற்று"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Drizzle"
 msgstr "தூறல்"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Light drizzle"
 msgstr "தூரல்"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Moderate drizzle"
 msgstr "ஓரளவுத் தூறல்"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Heavy drizzle"
 msgstr "கன தூறல்"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Freezing drizzle"
 msgstr "உறைவிக்கும் தூறல்"
 
 #. RAIN
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Rain"
 msgstr "மழை"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Light rain"
 msgstr "மெல்லிய மழை"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Moderate rain"
 msgstr "ஓரளவு மழை"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Heavy rain"
 msgstr "கன மழை"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Rain showers"
 msgstr "மழைப் பொழிவுகள்"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Freezing rain"
 msgstr "உறைவுக்கும் மழை"
 
 #. SNOW
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Snow"
 msgstr "பனி"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Light snow"
 msgstr "மெல்லில பனி"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Moderate snow"
 msgstr "ஓரளவு பனி"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Heavy snow"
 msgstr "மிகுந்த பனி"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Snowstorm"
 msgstr "பனிக்காற்று"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Blowing snowfall"
 msgstr "வேகமிக்க பனிவீழல்"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Snow showers"
 msgstr "பனிப் பொழிவுகள்"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Drifting snow"
 msgstr "வீசும் பனி"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:178
 msgid "Snow grains"
 msgstr "பனிப்பொழிவு"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:178
 msgid "Light snow grains"
 msgstr "மெல்லிய பனித்தூள்கள்"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:178
 msgid "Moderate snow grains"
 msgstr "ஓரளவு பனித்தூள்கள்"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:178
 msgid "Heavy snow grains"
 msgstr "மிகுந்த பனித்தூள்கள்"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:194
+#: ../libgweather/weather.c:179
 msgid "Ice crystals"
 msgstr "பனிப் படிகங்கள்"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:195
-msgid "Ice pellets"
-msgstr "பனித்துளிகள்"
+#: ../libgweather/weather.c:180
+#| msgid "Sleetmute"
+msgid "Sleet"
+msgstr "ஆலங்கட்டி மழை"
 
-#: ../libgweather/weather.c:195
-msgid "Few ice pellets"
-msgstr "குறைந்த பனித்துளிகள்"
+#: ../libgweather/weather.c:180
+#| msgid "Little Falls"
+msgid "Little sleet"
+msgstr "சிறிதளவு ஆலங்கட்டி மழை"
 
-#: ../libgweather/weather.c:195
-msgid "Moderate ice pellets"
-msgstr "ஓரளவுப் பனித்துளிகள்"
+#: ../libgweather/weather.c:180
+#| msgid "Moderate snow"
+msgid "Moderate sleet"
+msgstr "மிதமான ஆலங்கட்டி மழை"
 
-#: ../libgweather/weather.c:195
-msgid "Heavy ice pellets"
-msgstr "மிகுந்த பனித்துளிகள்"
+#: ../libgweather/weather.c:180
+#| msgid "Heavy snow"
+msgid "Heavy sleet"
+msgstr "மிகுந்த ஆலங்கட்டி மழை"
 
-#: ../libgweather/weather.c:195
-msgid "Ice pellet storm"
-msgstr "பனித்துளிக்காற்று"
+#: ../libgweather/weather.c:180
+#| msgid "Ice pellet storm"
+msgid "Sleet storm"
+msgstr "ஆலங்கட்டி மழைப் புயல்"
 
-#: ../libgweather/weather.c:195
-msgid "Showers of ice pellets"
-msgstr "பனித்துளிப் பொழிவுகள்"
+#: ../libgweather/weather.c:180
+#| msgid "Showers of ice pellets"
+msgid "Showers of sleet"
+msgstr "ஆலங்கட்டி மழைப் பொழிவுகள்"
 
 #. HAIL
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:181
 msgid "Hail"
 msgstr "பனிப் படிகத்தூள்"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:181
 msgid "Hailstorm"
 msgstr "பனிப் படிகத்தூள் காற்று"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:181
 msgid "Hail showers"
 msgstr "பனிப் படித்தூள் பொழிவுகள்"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:197
+#: ../libgweather/weather.c:182
 msgid "Small hail"
 msgstr "சிறுபனிப் படிகத்தூள்"
 
-#: ../libgweather/weather.c:197
+#: ../libgweather/weather.c:182
 msgid "Small hailstorm"
 msgstr "சிறிய சிறுபனிப் படிகத்தூற் காற்று"
 
-#: ../libgweather/weather.c:197
+#: ../libgweather/weather.c:182
 msgid "Showers of small hail"
 msgstr "சிறுபனிப் படிகத்தூற் பொழிவு"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:198
+#: ../libgweather/weather.c:183
 msgid "Unknown precipitation"
 msgstr "விளங்காத நீர்மவீழல்"
 
 #. MIST
-#: ../libgweather/weather.c:199
+#: ../libgweather/weather.c:184
 msgid "Mist"
 msgstr "பனிமூட்டம்"
 
 #. FOG
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Fog"
 msgstr "உறைபனி"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Fog in the vicinity"
 msgstr "அருகாமையில் உறைபனி"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Shallow fog"
 msgstr "தளர்ந்த உறைபனி"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Patches of fog"
 msgstr "ஒவ்வோரிடத்தில் உறைபனி"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Partial fog"
 msgstr "பகுதியளவு உறைபனி"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Freezing fog"
 msgstr "உறைவிக்கும் உறைபனி"
 
 #. SMOKE
-#: ../libgweather/weather.c:201
+#: ../libgweather/weather.c:186
 msgid "Smoke"
 msgstr "பனிப்புகை"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:202
+#: ../libgweather/weather.c:187
 msgid "Volcanic ash"
 msgstr "எரிமலைப் பிழம்பு"
 
 #. SAND
-#: ../libgweather/weather.c:203
+#: ../libgweather/weather.c:188
 msgid "Sand"
 msgstr "மணல்"
 
-#: ../libgweather/weather.c:203
+#: ../libgweather/weather.c:188
 msgid "Blowing sand"
 msgstr "வீசும் மணல்"
 
-#: ../libgweather/weather.c:203
+#: ../libgweather/weather.c:188
 msgid "Drifting sand"
 msgstr "நகர்ந்தோடும் மணல்"
 
 #. HAZE
-#: ../libgweather/weather.c:204
+#: ../libgweather/weather.c:189
 msgid "Haze"
 msgstr "மூட்டம்"
 
 #. SPRAY
-#: ../libgweather/weather.c:205
+#: ../libgweather/weather.c:190
 msgid "Blowing sprays"
 msgstr "வீசும் தூவல்கள்"
 
 #. DUST
-#: ../libgweather/weather.c:206
+#: ../libgweather/weather.c:191
 msgid "Dust"
 msgstr "தூசு"
 
-#: ../libgweather/weather.c:206
+#: ../libgweather/weather.c:191
 msgid "Blowing dust"
 msgstr "வீசும் தூசு"
 
-#: ../libgweather/weather.c:206
+#: ../libgweather/weather.c:191
 msgid "Drifting dust"
 msgstr "நகர்ந்தோடும் தூசு"
 
 #. SQUALL
-#: ../libgweather/weather.c:207
+#: ../libgweather/weather.c:192
 msgid "Squall"
 msgstr "துடிக்காற்று"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:193
 msgid "Sandstorm"
 msgstr "மணற்காற்று"
 
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:193
 msgid "Sandstorm in the vicinity"
 msgstr "அருகாமையில் மணற்காற்று"
 
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:193
 msgid "Heavy sandstorm"
 msgstr "மிகுந்த மணற்காற்று"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:209
+#: ../libgweather/weather.c:194
 msgid "Duststorm"
 msgstr "தூசிக்காற்று"
 
-#: ../libgweather/weather.c:209
+#: ../libgweather/weather.c:194
 msgid "Duststorm in the vicinity"
 msgstr "அருகாமையில் தூசிக்காற்று"
 
-#: ../libgweather/weather.c:209
+#: ../libgweather/weather.c:194
 msgid "Heavy duststorm"
 msgstr "மிகுந்த தூசிக்காற்று"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:210
+#: ../libgweather/weather.c:195
 msgid "Funnel cloud"
 msgstr "புனல் மேகம்"
 
 #. TORNADO
-#: ../libgweather/weather.c:211
+#: ../libgweather/weather.c:196
 msgid "Tornado"
 msgstr "சுழற்காற்று"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:212
+#: ../libgweather/weather.c:197
 msgid "Dust whirls"
 msgstr "சுழற்தூசுகள்"
 
-#: ../libgweather/weather.c:212
+#: ../libgweather/weather.c:197
 msgid "Dust whirls in the vicinity"
 msgstr "அருகாமையில் சுழற்தூசுகள்"
 
-#: ../libgweather/weather.c:552
+#: ../libgweather/weather.c:706
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a, %b %d / %H:%M"
 
-#: ../libgweather/weather.c:558
+#: ../libgweather/weather.c:712
 msgid "Unknown observation time"
 msgstr "விளங்காத கண்காணிப்பு நேரம்"
 
-#: ../libgweather/weather.c:570
+#: ../libgweather/weather.c:724
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "தெரியாத"
 
+#. Translate to the default units to use for presenting
+#. * lengths to the user. Translate to default:inch if you
+#. * want inches, otherwise translate to default:mm.
+#. * Do *not* translate it to "predefinito:mm", if it
+#. * it isn't default:mm or default:inch it will not work
+#.
+#: ../libgweather/weather.c:746
+msgid "default:mm"
+msgstr "default:mm"
+
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:590
+#: ../libgweather/weather.c:791
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:593
+#: ../libgweather/weather.c:794
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:599
+#: ../libgweather/weather.c:800
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:602
+#: ../libgweather/weather.c:803
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:608
+#: ../libgweather/weather.c:809
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:611
+#: ../libgweather/weather.c:812
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: ../libgweather/weather.c:619
-msgctxt "temperature unit"
-msgid "Unknown"
-msgstr "தெரியாத"
-
-#: ../libgweather/weather.c:634 ../libgweather/weather.c:650
-#: ../libgweather/weather.c:666 ../libgweather/weather.c:719
+#: ../libgweather/weather.c:835 ../libgweather/weather.c:851
+#: ../libgweather/weather.c:867 ../libgweather/weather.c:929
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "தெரியாத"
 
-#: ../libgweather/weather.c:682
+#: ../libgweather/weather.c:889
 msgctxt "dew"
 msgid "Unknown"
 msgstr "தெரியாத"
 
-#: ../libgweather/weather.c:699
+#: ../libgweather/weather.c:909
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "தெரியாத"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:702
+#: ../libgweather/weather.c:912
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:730
+#: ../libgweather/weather.c:958
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f knots"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:733
+#: ../libgweather/weather.c:961
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:736
+#: ../libgweather/weather.c:964
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:739
+#: ../libgweather/weather.c:967
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -533,118 +562,113 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:744
+#: ../libgweather/weather.c:972
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Beaufort force %.1f"
 
-#: ../libgweather/weather.c:749
-msgctxt "speed unit"
-msgid "Unknown"
-msgstr "தெரியாத"
-
-#: ../libgweather/weather.c:767
+#: ../libgweather/weather.c:993
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "தெரியாத"
 
-#: ../libgweather/weather.c:769
+#: ../libgweather/weather.c:995
 msgid "Calm"
 msgstr "அமைதி"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:777
+#: ../libgweather/weather.c:1003
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/weather.c:796
+#: ../libgweather/weather.c:1039
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "தெரியாத"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:801
+#: ../libgweather/weather.c:1045
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:804
+#: ../libgweather/weather.c:1048
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:807
+#: ../libgweather/weather.c:1051
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:810
+#: ../libgweather/weather.c:1054
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:813
+#: ../libgweather/weather.c:1057
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:816
+#: ../libgweather/weather.c:1060
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#: ../libgweather/weather.c:822
-msgctxt "pressure unit"
-msgid "Unknown"
-msgstr "தெரியாத"
-
-#: ../libgweather/weather.c:839
+#: ../libgweather/weather.c:1098
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "தெரியாத"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:844
+#: ../libgweather/weather.c:1104
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f மைல்கள்"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:847
+#: ../libgweather/weather.c:1107
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:850
+#: ../libgweather/weather.c:1110
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:856
-msgctxt "visibility unit"
-msgid "Unknown"
-msgstr "தெரியாத"
-
-#: ../libgweather/weather.c:880 ../libgweather/weather.c:905
+#: ../libgweather/weather.c:1138 ../libgweather/weather.c:1163
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
-#: ../libgweather/weather.c:1006
+#: ../libgweather/weather.c:1257
 msgid "Retrieval failed"
 msgstr "மீட்புமுயற்சி தோல்வியுற்றது"
 
-#. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:573
+#: ../libgweather/weather-metar.c:574
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "METAR தரவை பெற முடியவில்லை: %d %s.\n"
+
+#: ../libgweather/weather-owm.c:385
+#| msgid ""
+#| "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
+#| "Institute</a>"
+msgid ""
+"Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
+"project</a>"
+msgstr ""
+"<a href=\"http://openweathermap.org\">Open Weather Map "
+"project</a> இலிருந்து வானிலைத் தரவு"
 
 #. The new (documented but not advertised) API is less strict in the
 #. format of the attribution, and just requires a generic CC-BY compatible
@@ -652,7 +676,7 @@ msgstr "METAR தரவை பெற முடியவில்லை: %d %s.\n
 #.
 #. That's very nice of them!
 #.
-#: ../libgweather/weather-yrno.c:418
+#: ../libgweather/weather-yrno.c:484
 msgid ""
 "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
 "Institute</a>"
@@ -670,17 +694,11 @@ msgid ""
 "radar maps."
 msgstr "ரேடார் வரைப்படம் பெறப்படும் தனிப் பயன் URL."
 
-#. TRANSLATORS: pick a temperature unit that should be used by default in your
-#. locale; values must be quoted
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
-msgid "'fahrenheit'"
-msgstr "'fahrenheit'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:3
 msgid "Temperature unit"
 msgstr "வெப்ப அலகு"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:4
 msgid ""
 "The unit of temperature used for showing weather. Valid values are 'kelvin', "
 "'centigrade' and 'fahrenheit'."
@@ -689,57 +707,41 @@ msgstr ""
 "'கெல்வின்(kelvin)', "
 "'சென்டிக்ரேடு(centigrade)' மற்றும்  'ஃபாரன்கீட்(fahrenheit)'."
 
-#. TRANSLATORS: pick a default distance unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
-msgid "'miles'"
-msgstr "'மைல்கள்'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
 msgid "Distance unit"
 msgstr "தொலைவு அலகு"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or "
 "for distance of important events). Valid values are 'meters', 'km' and "
 "'miles'."
 msgstr ""
 "வானிலையை காட்ட தூரத்தின் அலகு. (உதாரணமாக  புலனாகும் தூரம், முக்கிய "
-"நிகழ்வுகளின் தூரம்...). செல்லுபடியாகும் மதிப்புகள் 'மீட்டர்கள்', 'கிமீ' "
-"மற்றும் 'மைல்கள்'."
+"நிகழ்வுகளின் "
+"தூரம்...). செல்லுபடியாகும் மதிப்புகள் 'மீட்டர்கள்', 'கிமீ' மற்றும் 'மைல்கள்'."
 
-#. TRANSLATORS: pick a default speed unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:15
-msgid "'knots'"
-msgstr "'நாட்கள்'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:16
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
 msgid "Speed unit"
 msgstr "வேக அலகு"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:17
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:8
 msgid ""
 "The unit of speed used for showing weather (for example for wind speed). "
 "Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
 "'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
 msgstr ""
 "வானிலையை காட்ட வேகத்தின் அலகு. (உதாரணமாக  காற்றின் வேகம்). செல்லுபடியாகும் "
-"மதிப்புகள் 'வினாடிக்கு மீட்டர்கள்', 'மணிக்கு கிமீ' 'மணிக்கு மைல்கள்', நாட்கள் "
-"மற்றும் பிஎஃப்டி (ப்யூபோர்ட் அலகு)"
+"மதிப்புகள் "
+"'வினாடிக்கு மீட்டர்கள்', 'மணிக்கு கிமீ' 'மணிக்கு மைல்கள்', நாட்கள் மற்றும் "
+"பிஎஃப்டி "
+"(ப்யூபோர்ட் அலகு)"
 
-#. TRANSLATORS: pick a default pressure unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:20
-msgid "'inch-hg'"
-msgstr "'inch-hg'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:21
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:9
 msgid "Pressure unit"
 msgstr "அழுத்த அலகு"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:22
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
 msgid ""
 "The unit of pressure used for showing weather. Valid values are "
 "'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
@@ -747,15 +749,16 @@ msgid ""
 "mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
 msgstr ""
 "வானிலையை காட்ட அழுத்தத்தின் அலகு.  செல்லுபடியாகும் மதிப்புகள் "
-"'kpa'(க்லோபாஸ்கல்), 'hpa' (ஹெக்டோபாஸ்கல்) 'mb' (மில்லிபார் கணிதத்தில் 1 hPa "
-"ஆனால் வேறூ விதமாக காட்டப்படுகிறது), 'mm-hg' (மி.மீ பாதரசம்), 'inch-hg' (இன்ச் "
-"பாதரசம்), 'atm' (அட்மாஸ்பியர்)."
+"'kpa'(க்லோபாஸ்கல்), "
+"'hpa' (ஹெக்டோபாஸ்கல்) 'mb' (மில்லிபார் கணிதத்தில் 1 hPa ஆனால் வேறூ விதமாக "
+"காட்டப்படுகிறது), 'mm-hg' (மி.மீ பாதரசம்), 'inch-hg' (இன்ச் பாதரசம்), "
+"'atm' (அட்மாஸ்பியர்)."
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:23
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
 msgid "Default location"
 msgstr "முன்னிருப்பு இடம்"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:24
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
 msgid ""
 "The default location for the weather applet. The first field is the name "
 "that will be shown. If empty, it will be taken from the locations database. "
@@ -766,12 +769,56 @@ msgid ""
 "calculations, not for weather forecast."
 msgstr ""
 "வானிலை குறுநிரலுக்கு முன்னிருப்பு இடம். முதல் புலத்தில் பெயர். காலியாக "
-"இருந்தால் அது இடங்கள் தரவுத்தளத்தில் இருந்து எடுக்கப்படும். இரண்டாம் புலம் "
-"முன்னிருப்பு வானிலை நிலையத்துக்கான மெடார் குறீயீடு. இது காலியாக "
-"இருக்கக்கூடாது. Locations.xml  கோப்பில் உள்ள &lt;code&gt; ஒட்டுடன் இது ஒத்து "
-"போக வேண்டும். மூன்றாம் புலம் ஒரு ட்யூபில். அட்சரேகை, தீர்கரேகை. இது "
-"தரவுத்தளத்தில் இருந்து எடுத்த மதிப்பை மேலாளும். இது பயனாவது சூரிய உதயம், "
-"சந்திர கலை கணக்குகளுக்கு, வானிலைக்கு அல்ல."
+"இருந்தால் அது "
+"இடங்கள் தரவுத்தளத்தில் இருந்து எடுக்கப்படும். இரண்டாம் புலம் முன்னிருப்பு "
+"வானிலை "
+"நிலையத்துக்கான மெடார் குறீயீடு. இது காலியாக இருக்கக்கூடாது. Locations.xml  "
+"கோப்பில் "
+"உள்ள &lt;code&gt; ஒட்டுடன் இது ஒத்து போக வேண்டும். மூன்றாம் புலம் ஒரு "
+"ட்யூபில். "
+"அட்சரேகை, தீர்கரேகை. இது தரவுத்தளத்தில் இருந்து எடுத்த மதிப்பை மேலாளும். இது "
+"பயனாவது "
+"சூரிய உதயம், சந்திர கலை கணக்குகளுக்கு, வானிலைக்கு அல்ல."
+
+#~ msgid "Ice pellets"
+#~ msgstr "பனித்துளிகள்"
+
+#~ msgid "Few ice pellets"
+#~ msgstr "குறைந்த பனித்துளிகள்"
+
+#~ msgid "Moderate ice pellets"
+#~ msgstr "ஓரளவுப் பனித்துளிகள்"
+
+#~ msgid "Heavy ice pellets"
+#~ msgstr "மிகுந்த பனித்துளிகள்"
+
+#~ msgctxt "temperature unit"
+#~ msgid "Unknown"
+#~ msgstr "தெரியாத"
+
+#~ msgctxt "speed unit"
+#~ msgid "Unknown"
+#~ msgstr "தெரியாத"
+
+#~ msgctxt "pressure unit"
+#~ msgid "Unknown"
+#~ msgstr "தெரியாத"
+
+#~ msgctxt "visibility unit"
+#~ msgid "Unknown"
+#~ msgstr "தெரியாத"
+
+#~ msgid "'fahrenheit'"
+#~ msgstr "'fahrenheit'"
+
+#~ msgid "'miles'"
+#~ msgstr "'மைல்கள்'"
+
+#~ msgid "'knots'"
+#~ msgstr "'நாட்கள்'"
+
+#~ msgid "'inch-hg'"
+#~ msgstr "'inch-hg'"
 
 #~ msgid "Africa"
 #~ msgstr "ஆப்பிரிக்கா"
@@ -11726,9 +11773,6 @@ msgstr ""
 #~ msgid "Litchfield"
 #~ msgstr "லிட்ச்ஃபீல்ட்"
 
-#~ msgid "Little Falls"
-#~ msgstr "லிட்டில் ஃபால்ஸ்"
-
 #~ msgid "Little Rock"
 #~ msgstr "லிட்டில் ராக் "
 
@@ -13422,9 +13466,6 @@ msgstr ""
 #~ msgid "Slayton"
 #~ msgstr "ஸ்லேடன்"
 
-#~ msgid "Sleetmute"
-#~ msgstr "ஸ்லிட்மியூட்"
-
 #~ msgid "Slidell"
 #~ msgstr "ஸ்லைடில்"
 
@@ -13993,9 +14034,6 @@ msgstr ""
 
 #~ msgid "Waynesville"
 #~ msgstr "வேய்ன்ஸ்வில்லா"
-
-#~ msgid "Weatherford"
-#~ msgstr "வெதர்போர்ட்"
 
 #~ msgid "Webster City"
 #~ msgstr "வெப்ஸ்டர் சிட்டி"
