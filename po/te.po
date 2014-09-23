@@ -6,17 +6,17 @@
 #
 #
 # Prajasakti Localisation Team <localisation@prajasakti.com>, 2005.
-# Krishna Babu K <kkrothap@redhat.com>, 2009, 2012, 2013.
+# Krishna Babu K <kkrothap@redhat.com>, 2009, 2012, 2013, 2014.
 # Sasi Bhushan Boddepalli <sasi@swecha.net>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather.master.te\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-04 21:56+0000\n"
-"PO-Revision-Date: 2013-03-25 22:10+0530\n"
+"POT-Creation-Date: 2014-09-23 09:48+0000\n"
+"PO-Revision-Date: 2014-09-24 01:51+0530\n"
 "Last-Translator: Krishnababu Krothapalli <kkrothap@redhat.com>\n"
-"Language-Team: Telugu <Fedora-trans-te@redhat.com>\n"
+"Language-Team: Telugu <kde-i18n-doc@kde.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,111 +27,126 @@ msgstr ""
 "\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: ../libgweather/gweather-timezone.c:316
+#: ../data/glade/libgweather.xml.in.h:1
+#| msgid "Location coordinates"
+msgid "Location Entry"
+msgstr "స్థానపు ప్రవేశం"
+
+#: ../data/glade/libgweather.xml.in.h:2
+msgid "Timezone Menu"
+msgstr "సమయక్షేత్రం మెనూ"
+
+#: ../data/glade/libgweather.xml.in.h:3
+msgid "Timezone"
+msgstr "సమయక్షేత్రం"
+
+#: ../data/glade/libgweather.xml.in.h:4
+msgid "GWeather"
+msgstr "జివెదర్"
+
+#: ../libgweather/gweather-timezone.c:340
 msgid "Greenwich Mean Time"
 msgstr "గ్రీన్‌విచ్ మాన సమయం"
 
-#: ../libgweather/timezone-menu.c:278
+#: ../libgweather/timezone-menu.c:275
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "తెలియని"
 
-#: ../libgweather/weather.c:129
+#: ../libgweather/weather.c:114
 msgid "Variable"
 msgstr "చరరాశి"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:115
 msgid "North"
 msgstr "ఉత్తరం"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:115
 msgid "North - NorthEast"
 msgstr "ఉత్తరం - ఈశాన్యం"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:115
 msgid "Northeast"
 msgstr "ఈశాన్యం"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/weather.c:115
 msgid "East - NorthEast"
 msgstr "తూర్పు - ఈశాన్యం"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:116
 msgid "East"
 msgstr "తూర్పు"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:116
 msgid "East - Southeast"
 msgstr "తూర్పు - ఆగ్నేయం"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:116
 msgid "Southeast"
 msgstr "ఆగ్నేయం"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/weather.c:116
 msgid "South - Southeast"
 msgstr "దక్షిణ - ఆగ్నేయం"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:117
 msgid "South"
 msgstr "దక్షిణ"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:117
 msgid "South - Southwest"
 msgstr "దక్షిణ - నైఋతి"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:117
 msgid "Southwest"
 msgstr "నైఋతి"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/weather.c:117
 msgid "West - Southwest"
 msgstr "పశ్చిమ - నైఋతి"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:118
 msgid "West"
 msgstr "పశ్చిమ"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:118
 msgid "West - Northwest"
 msgstr "పశ్చిమ - వాయువ్య"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:118
 msgid "Northwest"
 msgstr "వాయువ్య"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/weather.c:118
 msgid "North - Northwest"
 msgstr "ఉత్తరం - వాయువ్య"
 
-#: ../libgweather/weather.c:140
-#| msgid "Invalid"
+#: ../libgweather/weather.c:125
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "చెల్లని"
 
-#: ../libgweather/weather.c:146
+#: ../libgweather/weather.c:131
 msgid "Clear Sky"
 msgstr "నిర్మలాకాశం"
 
-#: ../libgweather/weather.c:147
+#: ../libgweather/weather.c:132
 msgid "Broken clouds"
 msgstr "చెదురుమదురుగా వున్న మేఘాలు"
 
-#: ../libgweather/weather.c:148
+#: ../libgweather/weather.c:133
 msgid "Scattered clouds"
 msgstr "చెదిరిన మేఘాలు"
 
-#: ../libgweather/weather.c:149
+#: ../libgweather/weather.c:134
 msgid "Few clouds"
 msgstr "కొన్ని మేఘాలు"
 
-#: ../libgweather/weather.c:150
+#: ../libgweather/weather.c:135
 msgid "Overcast"
 msgstr "మేఘావృతమైన"
 
-#: ../libgweather/weather.c:157 ../libgweather/weather.c:229
-#| msgid "Invalid"
+#: ../libgweather/weather.c:142 ../libgweather/weather.c:214
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "చెల్లని"
@@ -140,395 +155,399 @@ msgstr "చెల్లని"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:189 ../libgweather/weather.c:191
+#: ../libgweather/weather.c:174 ../libgweather/weather.c:176
 msgid "Thunderstorm"
 msgstr "ఉరుములతో కూడిన వర్షం"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Drizzle"
 msgstr "తుంపర్లు"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Light drizzle"
 msgstr "స్వల్ప తుంపర్లు"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Moderate drizzle"
 msgstr "ఓమాదిరి తుంపర్లు"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Heavy drizzle"
 msgstr "వర్షం"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/weather.c:175
 msgid "Freezing drizzle"
 msgstr "చాలా చల్లని తుంపర"
 
 #. RAIN
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Rain"
 msgstr "వర్షం"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Light rain"
 msgstr "స్వల్ప వర్షం"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Moderate rain"
 msgstr "ఓమాదిరి వర్షం"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Heavy rain"
 msgstr "భారీ వర్షం"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Rain showers"
 msgstr "వానజల్లు"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/weather.c:176
 msgid "Freezing rain"
 msgstr "చాలా చల్లని వర్షము"
 
 #. SNOW
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Snow"
 msgstr "మంచు"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Light snow"
 msgstr "స్వల్ప మంచు"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Moderate snow"
 msgstr "ఓమోస్తరు మంచు"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Heavy snow"
 msgstr "దట్టమైన మంచు"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Snowstorm"
 msgstr "మంచువర్షం"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Blowing snowfall"
 msgstr "గాలితోకూడిన మంచుకురుస్తుంది"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Snow showers"
 msgstr "మంచు జల్లు"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/weather.c:177
 msgid "Drifting snow"
 msgstr "భీకరంగా మంచు కురుచుట"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:178
 msgid "Snow grains"
 msgstr "మంచుపోత"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:178
 msgid "Light snow grains"
 msgstr "స్వల్ప మంచుపోత"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:178
 msgid "Moderate snow grains"
 msgstr "ఓమోస్తరు మంచుపోత"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/weather.c:178
 msgid "Heavy snow grains"
 msgstr "భారీ మంచుపోత"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:194
+#: ../libgweather/weather.c:179
 msgid "Ice crystals"
 msgstr "మంచు స్పటికం"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:195
-msgid "Ice pellets"
-msgstr "మంచు గుళికలు"
+#: ../libgweather/weather.c:180
+msgid "Sleet"
+msgstr "మంచువాన"
 
-#: ../libgweather/weather.c:195
-msgid "Few ice pellets"
-msgstr "కొన్ని మంచు గుళికలు"
+#: ../libgweather/weather.c:180
+msgid "Little sleet"
+msgstr "కొద్దిపాటి మంచువాన"
 
-#: ../libgweather/weather.c:195
-msgid "Moderate ice pellets"
-msgstr "ఓమోస్తరు మంచు గుళికలు"
+#: ../libgweather/weather.c:180
+#| msgid "Moderate snow"
+msgid "Moderate sleet"
+msgstr "ఓమోస్తరు మంచువాన"
 
-#: ../libgweather/weather.c:195
-msgid "Heavy ice pellets"
-msgstr "భారీ మంచు గుళికలు"
+#: ../libgweather/weather.c:180
+#| msgid "Heavy snow"
+msgid "Heavy sleet"
+msgstr "దట్టమైన మంచువాన"
 
-#: ../libgweather/weather.c:195
-msgid "Ice pellet storm"
-msgstr "మంచు గుళికల వర్షం"
+#: ../libgweather/weather.c:180
+#| msgid "Ice pellet storm"
+msgid "Sleet storm"
+msgstr "మంచు తుఫాను"
 
-#: ../libgweather/weather.c:195
-msgid "Showers of ice pellets"
-msgstr "మంచు గుళికల జల్లు"
+#: ../libgweather/weather.c:180
+#| msgid "Showers of ice pellets"
+msgid "Showers of sleet"
+msgstr "మంచు వానజల్లు"
 
 #. HAIL
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:181
 msgid "Hail"
 msgstr "వడగళ్ళు"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:181
 msgid "Hailstorm"
 msgstr "వడగళ్ళవాన"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/weather.c:181
 msgid "Hail showers"
 msgstr "వడగళ్ళజల్లు"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:197
+#: ../libgweather/weather.c:182
 msgid "Small hail"
 msgstr "చిన్న వడగళ్ళు"
 
-#: ../libgweather/weather.c:197
+#: ../libgweather/weather.c:182
 msgid "Small hailstorm"
 msgstr "చిన్న వడగళ్ళవాన"
 
-#: ../libgweather/weather.c:197
+#: ../libgweather/weather.c:182
 msgid "Showers of small hail"
 msgstr "చిన్న వడగళ్ళతో జల్లు"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:198
+#: ../libgweather/weather.c:183
 msgid "Unknown precipitation"
 msgstr "అపరిచిత అవక్షేపం"
 
 #. MIST
-#: ../libgweather/weather.c:199
+#: ../libgweather/weather.c:184
 msgid "Mist"
 msgstr "పొగమంచు"
 
 #. FOG
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Fog"
 msgstr "పొగమంచు"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Fog in the vicinity"
 msgstr "కనుచూపు మేర పొగమంచు"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Shallow fog"
 msgstr "తుచ్ఛమైన పొగమంచు"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Patches of fog"
 msgstr "అక్కడక్కడ పొగమంచు"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Partial fog"
 msgstr "పాక్షిక పొగమంచు"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/weather.c:185
 msgid "Freezing fog"
 msgstr "గడ్డకట్టించే పొగమంచు"
 
 #. SMOKE
-#: ../libgweather/weather.c:201
+#: ../libgweather/weather.c:186
 msgid "Smoke"
 msgstr "పొగ"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:202
+#: ../libgweather/weather.c:187
 msgid "Volcanic ash"
 msgstr "అగ్నిపర్వతపు బూడిద"
 
 #. SAND
-#: ../libgweather/weather.c:203
+#: ../libgweather/weather.c:188
 msgid "Sand"
 msgstr "ఇసుక"
 
-#: ../libgweather/weather.c:203
+#: ../libgweather/weather.c:188
 msgid "Blowing sand"
 msgstr "వీస్తున్న ఇసుక"
 
-#: ../libgweather/weather.c:203
+#: ../libgweather/weather.c:188
 msgid "Drifting sand"
 msgstr "దట్టమైన ఇసుక"
 
 #. HAZE
-#: ../libgweather/weather.c:204
+#: ../libgweather/weather.c:189
 msgid "Haze"
 msgstr "మసక"
 
 #. SPRAY
-#: ../libgweather/weather.c:205
+#: ../libgweather/weather.c:190
 msgid "Blowing sprays"
 msgstr "వీస్తున్న తుంపర్లు"
 
 #. DUST
-#: ../libgweather/weather.c:206
+#: ../libgweather/weather.c:191
 msgid "Dust"
 msgstr "ధూళి"
 
-#: ../libgweather/weather.c:206
+#: ../libgweather/weather.c:191
 msgid "Blowing dust"
 msgstr "వీస్తున్న ధూళి"
 
-#: ../libgweather/weather.c:206
+#: ../libgweather/weather.c:191
 msgid "Drifting dust"
 msgstr "దట్టమైన ధూళి"
 
 #. SQUALL
-#: ../libgweather/weather.c:207
+#: ../libgweather/weather.c:192
 msgid "Squall"
 msgstr "గాలి దుమారం"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:193
 msgid "Sandstorm"
 msgstr "ఇసుక తుఫాన్"
 
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:193
 msgid "Sandstorm in the vicinity"
 msgstr "కనుచూపుమేర ఇసుక తుఫాన్"
 
-#: ../libgweather/weather.c:208
+#: ../libgweather/weather.c:193
 msgid "Heavy sandstorm"
 msgstr "భారీ ఇసుక తుఫాన్"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:209
+#: ../libgweather/weather.c:194
 msgid "Duststorm"
 msgstr "ధూళితో వీస్తున్న గాలి"
 
-#: ../libgweather/weather.c:209
+#: ../libgweather/weather.c:194
 msgid "Duststorm in the vicinity"
 msgstr "కనుచూపు మేర ధూళితో వీస్తున్న గాలి"
 
-#: ../libgweather/weather.c:209
+#: ../libgweather/weather.c:194
 msgid "Heavy duststorm"
 msgstr "భారీ ధూళితో కూడిన గాలి"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:210
+#: ../libgweather/weather.c:195
 msgid "Funnel cloud"
 msgstr "చిరు మబ్బులు"
 
 #. TORNADO
-#: ../libgweather/weather.c:211
+#: ../libgweather/weather.c:196
 msgid "Tornado"
 msgstr "టోర్నడో"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:212
+#: ../libgweather/weather.c:197
 msgid "Dust whirls"
 msgstr "సుడిగాలి"
 
-#: ../libgweather/weather.c:212
+#: ../libgweather/weather.c:197
 msgid "Dust whirls in the vicinity"
 msgstr "కనుచూపు మేర సుడిగాలి"
 
-#: ../libgweather/weather.c:552
-#| msgid "%a, %b %d / %H:%M"
+#: ../libgweather/weather.c:706
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a, %b %d / %H∶%M"
 
-#: ../libgweather/weather.c:558
+#: ../libgweather/weather.c:712
 msgid "Unknown observation time"
 msgstr "పరిశీలనా సమయం తెలియదు"
 
-#: ../libgweather/weather.c:570
-#| msgid "Unknown"
+#: ../libgweather/weather.c:724
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "తెలియని"
 
+#. Translate to the default units to use for presenting
+#. * lengths to the user. Translate to default:inch if you
+#. * want inches, otherwise translate to default:mm.
+#. * Do *not* translate it to "predefinito:mm", if it
+#. * it isn't default:mm or default:inch it will not work
+#.
+#: ../libgweather/weather.c:746
+#| msgid "Default"
+msgid "default:mm"
+msgstr "default:mm"
+
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:590
+#: ../libgweather/weather.c:791
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:593
+#: ../libgweather/weather.c:794
 #, c-format
 msgid "%d °F"
 msgstr "%d°F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:599
+#: ../libgweather/weather.c:800
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:602
+#: ../libgweather/weather.c:803
 #, c-format
 msgid "%d °C"
 msgstr "%d°C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:608
+#: ../libgweather/weather.c:809
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:611
+#: ../libgweather/weather.c:812
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: ../libgweather/weather.c:619
-#| msgid "Unknown"
-msgctxt "temperature unit"
-msgid "Unknown"
-msgstr "తెలియని"
-
-#: ../libgweather/weather.c:634 ../libgweather/weather.c:650
-#: ../libgweather/weather.c:666 ../libgweather/weather.c:719
-#| msgid "Unknown"
+#: ../libgweather/weather.c:835 ../libgweather/weather.c:851
+#: ../libgweather/weather.c:867 ../libgweather/weather.c:929
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "తెలియని"
 
-#: ../libgweather/weather.c:682
-#| msgid "Unknown"
+#: ../libgweather/weather.c:889
 msgctxt "dew"
 msgid "Unknown"
 msgstr "తెలియని"
 
-#: ../libgweather/weather.c:699
-#| msgid "Unknown"
+#: ../libgweather/weather.c:909
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "తెలియని"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:702
+#: ../libgweather/weather.c:912
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:730
+#: ../libgweather/weather.c:958
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f నాట్స్"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:733
+#: ../libgweather/weather.c:961
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f మైళ్ళు/గం."
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:736
+#: ../libgweather/weather.c:964
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f కి.మీ./గం."
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:739
+#: ../libgweather/weather.c:967
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f మీ/సె"
@@ -536,124 +555,113 @@ msgstr "%.1f మీ/సె"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:744
+#: ../libgweather/weather.c:972
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "బ్యూఫోర్ట్ బలము %.1f"
 
-#: ../libgweather/weather.c:749
-#| msgid "Unknown"
-msgctxt "speed unit"
-msgid "Unknown"
-msgstr "తెలియని"
-
-#: ../libgweather/weather.c:767
-#| msgid "Unknown"
+#: ../libgweather/weather.c:993
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "తెలియని"
 
-#: ../libgweather/weather.c:769
+#: ../libgweather/weather.c:995
 msgid "Calm"
 msgstr "ప్రశాంతత"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:777
+#: ../libgweather/weather.c:1003
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/weather.c:796
-#| msgid "Unknown"
+#: ../libgweather/weather.c:1039
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "తెలియని"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:801
+#: ../libgweather/weather.c:1045
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:804
+#: ../libgweather/weather.c:1048
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:807
+#: ../libgweather/weather.c:1051
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:810
+#: ../libgweather/weather.c:1054
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:813
+#: ../libgweather/weather.c:1057
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:816
+#: ../libgweather/weather.c:1060
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#: ../libgweather/weather.c:822
-#| msgid "Unknown"
-msgctxt "pressure unit"
-msgid "Unknown"
-msgstr "తెలియని"
-
-#: ../libgweather/weather.c:839
-#| msgid "Unknown"
+#: ../libgweather/weather.c:1098
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "తెలియని"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:844
+#: ../libgweather/weather.c:1104
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f miles"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:847
+#: ../libgweather/weather.c:1107
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:850
+#: ../libgweather/weather.c:1110
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:856
-#| msgid "Unknown"
-msgctxt "visibility unit"
-msgid "Unknown"
-msgstr "తెలియని"
-
-#: ../libgweather/weather.c:880 ../libgweather/weather.c:905
+#: ../libgweather/weather.c:1138 ../libgweather/weather.c:1163
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
-#: ../libgweather/weather.c:1006
+#: ../libgweather/weather.c:1257
 msgid "Retrieval failed"
 msgstr "వెలికితీత విఫలం"
 
-#. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:523
+#: ../libgweather/weather-metar.c:574
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "METAR ‍డాటా పొందుటలో విఫలమైంది: %d %s.\n"
+
+#: ../libgweather/weather-owm.c:385
+#| msgid ""
+#| "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
+#| "Institute</a>"
+msgid ""
+"Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
+"project</a>"
+msgstr ""
+"<a href=\"http://openweathermap.org\">ఓపెన్ వెదర్ మాప్ ప్రోజెక్ట్</a> నుండి "
+"వాతావరణ సమాచారం"
 
 #. The new (documented but not advertised) API is less strict in the
 #. format of the attribution, and just requires a generic CC-BY compatible
@@ -661,7 +669,7 @@ msgstr "METAR ‍డాటా పొందుటలో విఫలమైంద�
 #.
 #. That's very nice of them!
 #.
-#: ../libgweather/weather-yrno.c:416
+#: ../libgweather/weather-yrno.c:484
 msgid ""
 "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
 "Institute</a>"
@@ -681,17 +689,11 @@ msgstr ""
 "ఒక రాడార్ పటము, లేదా నిలిపివేసిన  రాడార్ పటాలు  తిరిగి ఎక్కడనుండైనా  "
 "పొందడానికి  కస్టమ్ URL."
 
-#. TRANSLATORS: pick a temperature unit that should be used by default in your
-#. locale; values must be quoted
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
-msgid "'fahrenheit'"
-msgstr "'ఫారెన్హీట్'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:3
 msgid "Temperature unit"
 msgstr "ఉష్ణోగ్రత ప్రమాణము"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:4
 msgid ""
 "The unit of temperature used for showing weather. Valid values are 'kelvin', "
 "'centigrade' and 'fahrenheit'."
@@ -700,17 +702,11 @@ msgstr ""
 "విలువలు 'కెల్విన్', 'సెల్సియస్ "
 "కొలమానము' మరియు 'ఫారెన్హీట్' ఉన్నాయి."
 
-#. TRANSLATORS: pick a default distance unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
-msgid "'miles'"
-msgstr "'మైళ్ళు'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
 msgid "Distance unit"
 msgstr "దూర ప్రమాణము"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or "
 "for distance of important events). Valid values are 'meters', 'km' and "
@@ -721,17 +717,11 @@ msgstr ""
 "దూరం కోసం) . చెల్లుబాటు అయ్యే విలువలు 'మీటర్లు', 'కిమీ' మరియు 'మైళ్ళు' "
 "ఉన్నాయి."
 
-#. TRANSLATORS: pick a default speed unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:15
-msgid "'knots'"
-msgstr "'నాట్స్'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:16
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
 msgid "Speed unit"
 msgstr "వేగ ప్రమాణము"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:17
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:8
 msgid ""
 "The unit of speed used for showing weather (for example for wind speed). "
 "Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
@@ -743,17 +733,11 @@ msgstr ""
 "మైళ్ళు), "
 "'చిక్కులు' మరియు 'bft' (బ్యూఫోర్ట్ ఎత్తున) ఉన్నాయి."
 
-#. TRANSLATORS: pick a default pressure unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:20
-msgid "'inch-hg'"
-msgstr "'అంగుళాల-hg' "
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:21
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:9
 msgid "Pressure unit"
 msgstr "పీడన ప్రమాణము"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:22
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
 msgid ""
 "The unit of pressure used for showing weather. Valid values are "
 "'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
@@ -768,11 +752,11 @@ msgstr ""
 "యొక్క "
 "అంగుళాలు), 'ATM' (వాతావరణం)."
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:23
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
 msgid "Default location"
 msgstr "అప్రమేయ  స్థానము"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:24
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
 msgid ""
 "The default location for the weather applet. The first field is the name "
 "that will be shown. If empty, it will be taken from the locations database. "
@@ -791,6 +775,50 @@ msgstr ""
 "డేటాబేస్ నుండి తీసిన విలువ అతిక్రమించడానికి, ఒక tuple (అక్షాంశ, రేఖాంశముల) "
 "ఉంది. ఈ మాత్రమే వాతావరణ "
 "కోసం సూర్యోదయం మరియు చంద్రుడు దశ లెక్కల కోసం కాదు ఉపయోగిస్తారు."
+
+#~ msgid "Ice pellets"
+#~ msgstr "మంచు గుళికలు"
+
+#~ msgid "Few ice pellets"
+#~ msgstr "కొన్ని మంచు గుళికలు"
+
+#~ msgid "Moderate ice pellets"
+#~ msgstr "ఓమోస్తరు మంచు గుళికలు"
+
+#~ msgid "Heavy ice pellets"
+#~ msgstr "భారీ మంచు గుళికలు"
+
+#~| msgid "Unknown"
+#~ msgctxt "temperature unit"
+#~ msgid "Unknown"
+#~ msgstr "తెలియని"
+
+#~| msgid "Unknown"
+#~ msgctxt "speed unit"
+#~ msgid "Unknown"
+#~ msgstr "తెలియని"
+
+#~| msgid "Unknown"
+#~ msgctxt "pressure unit"
+#~ msgid "Unknown"
+#~ msgstr "తెలియని"
+
+#~| msgid "Unknown"
+#~ msgctxt "visibility unit"
+#~ msgid "Unknown"
+#~ msgstr "తెలియని"
+
+#~ msgid "'fahrenheit'"
+#~ msgstr "'ఫారెన్హీట్'"
+
+#~ msgid "'miles'"
+#~ msgstr "'మైళ్ళు'"
+
+#~ msgid "'knots'"
+#~ msgstr "'నాట్స్'"
+
+#~ msgid "'inch-hg'"
+#~ msgstr "'అంగుళాల-hg' "
 
 #~ msgid "%H:%M"
 #~ msgstr "%H:%M"
@@ -812,9 +840,6 @@ msgstr ""
 
 #~ msgid "DEFAULT_COORDINATES"
 #~ msgstr "DEFAULT_COORDINATES"
-
-#~ msgid "Default"
-#~ msgstr "అప్రమేయ"
 
 #~ msgid "K"
 #~ msgstr "K"
@@ -914,13 +939,10 @@ msgstr ""
 #~ msgstr "నిజమైతే \"radar\" మీటచేత నిర్దేశించబడిన స్థానము నుంచి ఒక రాడార్ పటమును వెలికితీయుము"
 
 #~ msgid ""
-#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-#~ "[EW]."
+#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-"
+#~ "SS[EW]."
 #~ msgstr ""
 #~ "మీ స్థాన అక్షాంశము మరియు రేఖాంశములు DD-MM-SS[NS] DD-MM-SS[EW]లో వ్యక్తీకరించబడినవి."
-
-#~ msgid "Location coordinates"
-#~ msgstr "స్థానపు నిరూపకాలు"
 
 #~ msgid "Nearby city"
 #~ msgstr "దగ్గరలోని పట్టణము"
