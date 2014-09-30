@@ -278,7 +278,7 @@ yahoo_start_open (GWeatherInfo *info)
        weather.c expects). They're converted to user preferences before
        displaying.
     */
-    url = g_strdup_printf("http://weather.yahooapis.com/forecastrss?w=%s&u=f", loc->yahoo_id);
+    url = g_strdup_printf("https://weather.yahooapis.com/forecastrss?w=%s&u=f", loc->yahoo_id);
 
     message = soup_message_new ("GET", url);
     _gweather_info_begin_request (info, message);
