@@ -1,6 +1,6 @@
 m4_define(libgweather_major_version,   3)
 m4_define(libgweather_minor_version,  12)
-m4_define(libgweather_micro_version,  2)
+m4_define(libgweather_micro_version,  3)
 m4_define(libgweather_version, libgweather_major_version.libgweather_minor_version.libgweather_micro_version)
 
 AC_INIT([libgweather],
@@ -36,7 +36,7 @@ AC_SUBST(LIBGWEATHER_VERSION)
 #   change to C+1:0:0
 # - If the interface is the same as the previous version, change to C:R+1:A
 
-LT_VERSION=7:3:1
+LT_VERSION=7:4:1
 AC_SUBST(LT_VERSION)
 
 GTK_REQUIRED=2.90.0
