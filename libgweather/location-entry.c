@@ -114,7 +114,16 @@ hack_filter_model_data_func (GtkCellLayout   *layout,
     self = GWEATHER_LOCATION_ENTRY (gtk_entry_completion_get_entry (GTK_ENTRY_COMPLETION (layout)));
     priv = self->priv;
 
+    if (priv->filter_model == model)
+      return;
+
+    if (priv->filter_model)
+      g_object_remove_weak_pointer (G_OBJECT (priv->filter_model), (gpointer *)&priv->filter_model);
+
     priv->filter_model = model;
+
+    if (priv->filter_model)
+      g_object_add_weak_pointer (G_OBJECT (priv->filter_model), (gpointer *)&priv->filter_model);
 }
 
 static void
@@ -178,6 +187,9 @@ finalize (GObject *object)
     if (priv->model)
         g_object_unref (priv->model);
 
+    if (priv->filter_model)
+      g_object_remove_weak_pointer (G_OBJECT (priv->filter_model), (gpointer *)&priv->filter_model);
+
     G_OBJECT_CLASS (gweather_location_entry_parent_class)->finalize (object);
 }
 
@@ -213,6 +225,7 @@ gweather_location_entry_activate (GtkEntry *entry)
     gtk_entry_completion_complete (completion);
 
     if (priv->custom_text &&
+        priv->filter_model &&
 	gtk_tree_model_iter_n_children (priv->filter_model, NULL) == 1) {
 	GtkTreeIter iter, real_iter;
 
