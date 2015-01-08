@@ -11,23 +11,23 @@
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2003-2006.
 # Tatiana Gutiérrez Bunster <tgutierr@ubiobio.cl>, 2003.
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2012, 2013, 2014.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2012, 2013, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-01-20 21:37+0000\n"
-"PO-Revision-Date: 2014-01-21 10:47+0100\n"
+"POT-Creation-Date: 2015-01-08 10:47+0000\n"
+"PO-Revision-Date: 2015-01-08 18:21+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Gtranslator 2.91.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/glade/libgweather.xml.in.h:1
 msgid "Location Entry"
@@ -45,7 +45,7 @@ msgstr "Zona horaria"
 msgid "GWeather"
 msgstr "GWeather"
 
-#: ../libgweather/gweather-timezone.c:338
+#: ../libgweather/gweather-timezone.c:340
 msgid "Greenwich Mean Time"
 msgstr "Hora media de Greenwich"
 
@@ -443,15 +443,15 @@ msgstr "Remolino de polvo"
 msgid "Dust whirls in the vicinity"
 msgstr "Remolino de polvo en los alrededores"
 
-#: ../libgweather/weather.c:670
+#: ../libgweather/weather.c:706
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a, %b %d / %H∶%M"
 
-#: ../libgweather/weather.c:676
+#: ../libgweather/weather.c:712
 msgid "Unknown observation time"
 msgstr "Hora de observación desconocida"
 
-#: ../libgweather/weather.c:688
+#: ../libgweather/weather.c:724
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Desconocida"
@@ -462,88 +462,88 @@ msgstr "Desconocida"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: ../libgweather/weather.c:710
+#: ../libgweather/weather.c:746
 msgid "default:mm"
 msgstr "predeterminado:mm"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:755
+#: ../libgweather/weather.c:791
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:758
+#: ../libgweather/weather.c:794
 #, c-format
 msgid "%d °F"
 msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:764
+#: ../libgweather/weather.c:800
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:767
+#: ../libgweather/weather.c:803
 #, c-format
 msgid "%d °C"
 msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:773
+#: ../libgweather/weather.c:809
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:776
+#: ../libgweather/weather.c:812
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: ../libgweather/weather.c:799 ../libgweather/weather.c:815
-#: ../libgweather/weather.c:831 ../libgweather/weather.c:893
+#: ../libgweather/weather.c:835 ../libgweather/weather.c:851
+#: ../libgweather/weather.c:867 ../libgweather/weather.c:929
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Desconocida"
 
-#: ../libgweather/weather.c:853
+#: ../libgweather/weather.c:889
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: ../libgweather/weather.c:873
+#: ../libgweather/weather.c:909
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Desconocida"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:876
+#: ../libgweather/weather.c:912
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:922
+#: ../libgweather/weather.c:958
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f nudos"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:925
+#: ../libgweather/weather.c:961
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:928
+#: ../libgweather/weather.c:964
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:931
+#: ../libgweather/weather.c:967
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -551,100 +551,99 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:936
+#: ../libgweather/weather.c:972
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Fuerza Beaufort %.1f"
 
-#: ../libgweather/weather.c:957
+#: ../libgweather/weather.c:993
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Desconocida"
 
-#: ../libgweather/weather.c:959
+#: ../libgweather/weather.c:995
 msgid "Calm"
 msgstr "Calma"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:967
+#: ../libgweather/weather.c:1003
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/weather.c:1003
+#: ../libgweather/weather.c:1039
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Desconocida"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:1009
+#: ../libgweather/weather.c:1045
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:1012
+#: ../libgweather/weather.c:1048
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:1015
+#: ../libgweather/weather.c:1051
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:1018
+#: ../libgweather/weather.c:1054
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:1021
+#: ../libgweather/weather.c:1057
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:1024
+#: ../libgweather/weather.c:1060
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#: ../libgweather/weather.c:1062
+#: ../libgweather/weather.c:1098
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Desconocida"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:1068
+#: ../libgweather/weather.c:1104
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f millas"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:1071
+#: ../libgweather/weather.c:1107
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1074
+#: ../libgweather/weather.c:1110
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:1102 ../libgweather/weather.c:1127
+#: ../libgweather/weather.c:1138 ../libgweather/weather.c:1163
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
-#: ../libgweather/weather.c:1221
+#: ../libgweather/weather.c:1257
 msgid "Retrieval failed"
 msgstr "Ha fallado la obtención"
 
-#. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:573
+#: ../libgweather/weather-metar.c:574
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "Falló la obtención de los datos METAR: %d %s.\n"
@@ -663,10 +662,7 @@ msgstr ""
 #.
 #. That's very nice of them!
 #.
-#: ../libgweather/weather-yrno.c:445
-#| msgid ""
-#| "Weather data from the <a href=\"%s\">Norwegian Meteorological Institute</"
-#| "a>"
+#: ../libgweather/weather-yrno.c:509
 msgid ""
 "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
 "Institute</a>"
@@ -763,7 +759,7 @@ msgstr ""
 "datos de ubicaciones. El segundo campo es el código METAR para la estación "
 "del clima predeterminada. No debe estar vacío y debe corresponder con la "
 "etiqueta &lt;code&gt; en el archivo Locations.xml. El tercer campo es una "
-"tupla de (latitud, longitud), para sobreescribir los valores obtenidos de la "
+"tupla de (latitud, longitud), para sobrescribir los valores obtenidos de la "
 "base de datos. Esto sólo se usa para calculas las fases de la luna, no para "
 "la previsión del tiempo"
 
@@ -927,8 +923,8 @@ msgstr ""
 #~ "dirección especificada por la clave «radar»."
 
 #~ msgid ""
-#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-#~ "[EW]."
+#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-"
+#~ "SS[EW]."
 #~ msgstr ""
 #~ "Latitud y longitud de su zona expresada en DD-MM-SS[NS] DD-MM-SS[EW]."
 
