@@ -35,9 +35,10 @@
  *
  * A timezone.
  *
- * Timezones are global to the #GWeatherWorld; they can be gotten
- * by passing gweather_timezone_get_by_tzid() with a tzid like
- * "America/New_York" or "Europe/London".
+ * Timezones are global to the GWeather world (as obtained by
+ * gweather_location_get_world()); they can be gotten by passing
+ * gweather_timezone_get_by_tzid() with a tzid like "America/New_York"
+ * or "Europe/London".
  */
 
 struct _GWeatherTimezone {

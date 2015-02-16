@@ -127,6 +127,32 @@ gboolean                 gweather_info_is_daytime          (GWeatherInfo *info);
 
 /* values retrieving functions */
 
+/**
+ * GWeatherWindDirection:
+ * @GWEATHER_WIND_INVALID: value not available
+ * @GWEATHER_WIND_VARIABLE: variable throughout the day
+ * @GWEATHER_WIND_N: north
+ * @GWEATHER_WIND_NNE: north-north-east
+ * @GWEATHER_WIND_NE: north-east
+ * @GWEATHER_WIND_ENE: east-north-east
+ * @GWEATHER_WIND_E: east
+ * @GWEATHER_WIND_ESE: east-south-east
+ * @GWEATHER_WIND_SE: south-east
+ * @GWEATHER_WIND_SSE: south-south-east
+ * @GWEATHER_WIND_S: south
+ * @GWEATHER_WIND_SSW: south-south-west
+ * @GWEATHER_WIND_SW: south-west
+ * @GWEATHER_WIND_WSW: west-south-west
+ * @GWEATHER_WIND_W: west
+ * @GWEATHER_WIND_WNW: west-north-west
+ * @GWEATHER_WIND_NW: north-west
+ * @GWEATHER_WIND_NNW: north-north-west
+ * @GWEATHER_WIND_LAST: maximum value for the enumeration
+ *
+ * The direction of the prevailing wind. Composite values
+ * such as north-north-east indicate a direction between the
+ * two component value (north and north-east).
+ */
 typedef enum { /*< underscore_name=gweather_wind_direction >*/
     GWEATHER_WIND_INVALID = -1,
     GWEATHER_WIND_VARIABLE,
@@ -151,6 +177,21 @@ typedef enum { /*< underscore_name=gweather_wind_direction >*/
 
 const gchar * gweather_wind_direction_to_string (GWeatherWindDirection wind);
 
+/**
+ * GWeatherSky:
+ * @GWEATHER_SKY_INVALID: value not available
+ * @GWEATHER_SKY_CLEAR: sky completely clear, no clouds visible
+ * @GWEATHER_SKY_BROKEN: sky mostly clear, few clouds
+ * @GWEATHER_SKY_SCATTERED: sky mostly clear, patches of clouds
+ * @GWEATHER_SKY_FEW: few clouds, sky cloudy but patches of sky visible
+ * @GWEATHER_SKY_OVERCAST: sky completely clouded, sun not visible
+ * @GWEATHER_SKY_LAST: the maximum value for the enumeration
+ *
+ * The sky and cloud visibility. In general it is discouraged to
+ * use this value directly to compute the forecast icon: applications
+ * should instead use gweather_info_get_icon_name() or
+ * gweather_info_get_symbolic_icon_name().
+ */
 typedef enum { /*< underscore_name=gweather_sky >*/
     GWEATHER_SKY_INVALID = -1,
     GWEATHER_SKY_CLEAR,
@@ -163,6 +204,13 @@ typedef enum { /*< underscore_name=gweather_sky >*/
 
 const gchar * gweather_sky_to_string (GWeatherSky sky);
 
+/**
+ * GWeatherConditionPhenomenon:
+ * @GWEATHER_PHENOMENON_INVALID: value not available
+ * @GWEATHER_PHENOMENON_NONE: no significant phenomenon
+ *
+ * The current or forecasted significant phenomenon.
+ */
 typedef enum { /*< underscore_name=gweather_phenomenon >*/
     GWEATHER_PHENOMENON_INVALID = -1,
 
@@ -197,6 +245,40 @@ typedef enum { /*< underscore_name=gweather_phenomenon >*/
     GWEATHER_PHENOMENON_LAST
 } GWeatherConditionPhenomenon;
 
+/**
+ * GWeatherConditionQualifier:
+ * @GWEATHER_QUALIFIER_INVALID: value not available
+ * @GWEATHER_QUALIFIER_NONE: no qualifier for the phenomenon
+ * @GWEATHER_QUALIFIER_VICINITY: phenomenon happening in the proximity
+ *                               of the location, not in the actual location
+ * @GWEATHER_QUALIFIER_LIGHT: phenomenon is light or predicted to be light
+ * @GWEATHER_QUALIFIER_MODERATE: phenomenon is moderate or predicted to be
+ *                               moderate
+ * @GWEATHER_QUALIFIER_HEAVY: phenomenon is heavy or predicted to be heavy
+ * @GWEATHER_QUALIFIER_SHALLOW: shallow fog (only valid with
+ *                              %GWEATHER_PHENOMENON_FOG)
+ * @GWEATHER_QUALIFIER_PATCHES: patches of fog (only valid with
+ *                              %GWEATHER_PHENOMENON_FOG)
+ * @GWEATHER_QUALIFIER_PARTIAL: partial fog (only valid with
+ *                             %GWEATHER_PHENOMENON_FOG)
+ * @GWEATHER_QUALIFIER_THUNDERSTORM: phenomenon will be a thunderstorm
+ *                                   and/or will include lightning
+ * @GWEATHER_QUALIFIER_BLOWING: phenomenon is blowing (valid with
+ *                              %GWEATHER_PHENOMENON_SNOW, %GWEATHER_PHENOMENON_SAND,
+ *                              %GWEATHER_PHENOMENON_SPRAY, %GWEATHER_PHENOMENON_DUST)
+ * @GWEATHER_QUALIFIER_SHOWERS: phenomenon is heavy and involves showers
+ * @GWEATHER_QUALIFIER_DRIFTING: phenomenon is moving across (valid
+ *                               with %GWEATHER_PHENOMENON_SAND and
+ *                               %GWEATHER_PHENOMENON_DUST)
+ * @GWEATHER_QUALIFIER_FREEZING: phenomenon is freezing and involves ice
+ * @GWEATHER_QUALIFIER_LAST: maximum value of the enumeration.
+ *
+ * An additional modifier applied to a #GWeatherConditionPhenomenon to
+ * describe the current or forecasted weather conditions.
+ * The exact meaning of each qualifier is described at
+ * http://www.weather.com/glossary/ and
+ * http://www.crh.noaa.gov/arx/wx.tbl.php
+ */
 typedef enum { /*< underscore_name=gweather_qualifier >*/
     GWEATHER_QUALIFIER_INVALID = -1,
 
@@ -219,7 +301,19 @@ typedef enum { /*< underscore_name=gweather_qualifier >*/
     GWEATHER_QUALIFIER_LAST
 } GWeatherConditionQualifier;
 
+/**
+ * GWeatherMoonPhase:
+ *
+ * The current phase of the moon, represented as degrees,
+ * where 0 is the new moon, 90 is the first quarter, etc.
+ */
 typedef gdouble GWeatherMoonPhase;
+
+/**
+ * GWeatherMoonLatitude:
+ *
+ * The moon declension, in degrees.
+ */
 typedef gdouble GWeatherMoonLatitude;
 
 gboolean gweather_info_get_value_update		(GWeatherInfo *info, time_t *value);
@@ -239,6 +333,23 @@ gboolean gweather_info_get_value_moonphase      (GWeatherInfo *info, GWeatherMoo
 gboolean gweather_info_get_upcoming_moonphases  (GWeatherInfo *info, time_t *phases);
 
 typedef struct _GWeatherConditions GWeatherConditions;
+
+/**
+ * GWeatherConditions:
+ * @significant: %TRUE if the struct contains usable data, %FALSE otherwise
+ * @phenomenon: the main weather phenomenon
+ * @qualifier: a modifier for @phenomenon
+ *
+ * A convenient way to describe the current or forecast
+ * weather phenomenon, if significant, and its associated
+ * modifier. If the value is not significant, the weather conditions
+ * are described by gweather_info_get_sky() instead.
+ *
+ * In general it is discouraged to use this value directly to compute
+ * the forecast icon: applications should instead use
+ * gweather_info_get_icon_name() or
+ * gweather_info_get_symbolic_icon_name().
+ */
 struct _GWeatherConditions {
     gboolean significant;
     GWeatherConditionPhenomenon phenomenon;

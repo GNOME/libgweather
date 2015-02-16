@@ -44,7 +44,6 @@ GWeatherLocationEntryPrivate
 <TITLE>GWeatherLocation</TITLE>
 GWeatherLocation
 GWeatherLocationLevel
-gweather_location_find_nearest_city
 gweather_location_get_world
 gweather_location_new_world
 gweather_location_new_detached
@@ -56,6 +55,11 @@ gweather_location_serialize
 gweather_location_deserialize
 gweather_location_equal
 gweather_location_find_by_station_code
+gweather_location_find_nearest_city
+GWeatherFilterFunc
+gweather_location_find_nearest_city_full
+gweather_location_detect_nearest_city
+gweather_location_detect_nearest_city_finish
 
 <SUBSECTION>
 gweather_location_get_level
@@ -73,6 +77,7 @@ gweather_location_get_timezone
 gweather_location_get_timezones
 gweather_location_get_code
 gweather_location_get_city_name
+gweather_location_get_country_name
 
 <SUBSECTION Private>
 gweather_location_free_timezones

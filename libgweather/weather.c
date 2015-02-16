@@ -1875,8 +1875,8 @@ gweather_info_get_value_sunset (GWeatherInfo *info, time_t *value)
 /**
  * gweather_info_get_value_moonphase:
  * @info: a #GWeatherInfo
- * @value: (out): the current moon phase (represented as the visible percentage)
- * @lat: (out): the latitude the moon is at (???)
+ * @value: (out): the current moon phase
+ * @lat: (out): the moon declension
  *
  * Returns: TRUE is @value is valid, FALSE otherwise.
  */

@@ -597,7 +597,7 @@ find_nearest_city (GWeatherLocation *location,
  * Finds the nearest city to the passed latitude and
  * longitude, among the descendants of @loc.
  *
- * @loc must be at most a %GWEATHER_LOCATION_LEVEL_ADM2 location.
+ * @loc must be at most a %GWEATHER_LOCATION_ADM2 location.
  * This restriction may be lifted in a future version.
  *
  * Note that this function does not check if (@lat, @lon) fall inside
@@ -652,7 +652,7 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
  * Supports the use of own filter function to filter out locations.
  * Geocoding should be done on the application side if needed.
  *
- * @loc must be at most a %GWEATHER_LOCATION_LEVEL_ADM2 location.
+ * @loc must be at most a %GWEATHER_LOCATION_ADM2 location.
  * This restriction may be lifted in a future version.
  *
  * Returns: (transfer full): the city closest to (@lat, @lon), in the
@@ -743,11 +743,12 @@ void _got_place (GObject      *source_object,
  * @lon: Longitude, in degrees
  * @cancellable: optional, NULL to ignore
  * @callback: callback function for GAsyncReadyCallback argument for GSimpleAsyncResult
+ * @user_data: user data passed to @callback
  *
  * Initializes geocode reversing to find place for (@lat, @lon) coordinates. Calls the callback
  * function passed by user when the result is ready.
  *
- * @loc must be at most a %GWEATHER_LOCATION_LEVEL_ADM2 location.
+ * @loc must be at most a %GWEATHER_LOCATION_ADM2 location.
  * This restriction may be lifted in a future version.
  *
  * Returns: void
