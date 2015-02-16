@@ -111,6 +111,11 @@ GVariant              *gweather_location_serialize      (GWeatherLocation  *loc)
 GWeatherLocation      *gweather_location_deserialize    (GWeatherLocation  *world,
 							 GVariant          *serialized);
 
+GWeatherLocation      *gweather_location_new_detached   (const char        *name,
+							 const char        *icao,
+							 gdouble            latitude,
+							 gdouble            longitude);
+
 G_END_DECLS
 
 #endif /* __GWEATHER_LOCATIONS_H__ */

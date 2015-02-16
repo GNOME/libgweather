@@ -1254,13 +1254,20 @@ _gweather_location_new_detached (GWeatherLocation *nearest_station,
     self = g_slice_new0 (GWeatherLocation);
     self->ref_count = 1;
     self->level = GWEATHER_LOCATION_DETACHED;
-    self->english_name = g_strdup (name);
-    self->local_name = g_strdup (name);
+    if (name != NULL) {
+	self->english_name = g_strdup (name);
+	self->local_name = g_strdup (name);
 
-    normalized = g_utf8_normalize (name, -1, G_NORMALIZE_ALL);
-    self->english_sort_name = g_utf8_casefold (normalized, -1);
-    self->local_sort_name = g_strdup (self->english_sort_name);
-    g_free (normalized);
+	normalized = g_utf8_normalize (name, -1, G_NORMALIZE_ALL);
+	self->english_sort_name = g_utf8_casefold (normalized, -1);
+	self->local_sort_name = g_strdup (self->english_sort_name);
+	g_free (normalized);
+    } else if (nearest_station) {
+	self->english_name = g_strdup (nearest_station->english_name);
+	self->local_name = g_strdup (nearest_station->local_name);
+	self->english_sort_name = g_strdup (nearest_station->english_sort_name);
+	self->local_sort_name = g_strdup (nearest_station->local_sort_name);
+    }
 
     self->parent = nearest_station;
     self->children = NULL;
@@ -1339,7 +1346,9 @@ gweather_location_common_deserialize (GWeatherLocation *world,
 		continue;
 	    }
 
-	    if (g_strcmp0 (name, city->english_name) == 0)
+	    if (name == NULL ||
+		g_strcmp0 (name, city->english_name) == 0 ||
+		g_strcmp0 (name, city->local_name) == 0)
 		found = gweather_location_ref (city);
 	    else
 		found = _gweather_location_new_detached (ws, name, TRUE, latitude, longitude);
@@ -1491,4 +1500,44 @@ gweather_location_deserialize (GWeatherLocation *world,
 
     g_variant_unref (v);
     return loc;
+}
+
+/**
+ * gweather_location_new_detached:
+ * @name: the user visible location name
+ * @icao: (nullable): the ICAO code of the location
+ * @latitude: the latitude of the location
+ * @longitude: the longitude of the location
+ *
+ * Construct a new location from the given data, supplementing
+ * any missing information from the static database.
+ */
+GWeatherLocation *
+gweather_location_new_detached (const char *name,
+				const char *icao,
+				gdouble     latitude,
+				gdouble     longitude)
+{
+    GWeatherLocation *world, *city;
+
+    g_return_val_if_fail (name != NULL, NULL);
+
+    if (*name == 0)
+	name = NULL;
+
+    world = gweather_location_get_world ();
+
+    if (icao != NULL) {
+	return gweather_location_common_deserialize (world, name,
+						     icao, FALSE,
+						     TRUE, latitude, longitude,
+						     FALSE, 0, 0);
+    } else {
+	city = gweather_location_find_nearest_city (world, latitude, longitude);
+
+	latitude = DEGREES_TO_RADIANS (latitude);
+	longitude = DEGREES_TO_RADIANS (longitude);
+	return _gweather_location_new_detached (city, name,
+						TRUE, latitude, longitude);
+    }
 }
