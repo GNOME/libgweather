@@ -728,19 +728,22 @@ match_selected (GtkEntryCompletion *completion,
 {
     if (model != ((GWeatherLocationEntry *)entry)->priv->model) {
         GeocodePlace *place;
+	char *display_name;
         gtk_tree_model_get (model, iter,
                             PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE, &place,
+			    PLACE_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, &display_name,
                             -1);
         GeocodeLocation *loc = geocode_place_get_location (place);
 
         GWeatherLocation *location;
         location = gweather_location_find_nearest_city (NULL, geocode_location_get_latitude (loc), geocode_location_get_longitude (loc));
 
-        location = create_new_detached_location(location, geocode_location_get_description (loc), TRUE,
+        location = create_new_detached_location(location, display_name, TRUE,
                                                 geocode_location_get_latitude (loc) * M_PI / 180.0,
                                                 geocode_location_get_longitude (loc) * M_PI / 180.0);
 
         set_location_internal (entry, model, NULL, location);
+	g_free (display_name);
     } else {
         set_location_internal (entry, model, iter, NULL);
     }
@@ -754,19 +757,44 @@ new_matcher (GtkEntryCompletion *completion, const char *key,
     return TRUE;
 }
 
+static char *
+sanitize_display_name (GeocodeLocation *loc)
+{
+    const char *display_name;
+    const char *last_comma;
+
+    display_name = geocode_location_get_description (loc);
+    last_comma = g_utf8_strrchr (display_name, -1, ',');
+    if (last_comma == NULL)
+	return g_strdup (display_name);
+    else
+	return g_strndup (display_name, last_comma - display_name);
+}
+
 static void
 fill_store (gpointer data, gpointer user_data)
 {
     GeocodePlace *place = GEOCODE_PLACE (data);
     GeocodeLocation *loc = geocode_place_get_location (place);
     GtkTreeIter iter;
+    char *display_name;
+    char *normalized;
+    char *compare_name;
+
+    display_name = sanitize_display_name (loc);
+    normalized = g_utf8_normalize (display_name, -1, G_NORMALIZE_ALL);
+    compare_name = g_utf8_casefold (normalized, -1);
 
     gtk_tree_store_append (user_data, &iter, NULL);
     gtk_tree_store_set (user_data, &iter,
                         PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE, place,
-                        PLACE_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, geocode_location_get_description (loc),
-                        PLACE_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, geocode_location_get_description (loc),
+                        PLACE_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
+                        PLACE_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, compare_name,
                         -1);
+
+    g_free (display_name);
+    g_free (normalized);
+    g_free (compare_name);
 }
 
 static void
