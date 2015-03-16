@@ -727,25 +727,29 @@ match_selected (GtkEntryCompletion *completion,
 		gpointer            entry)
 {
     if (model != ((GWeatherLocationEntry *)entry)->priv->model) {
-        GeocodePlace *place;
+	GeocodePlace *place;
 	char *display_name;
-        gtk_tree_model_get (model, iter,
-                            PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE, &place,
+	GeocodeLocation *loc;
+	GWeatherLocation *location;
+
+	gtk_tree_model_get (model, iter,
+			    PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE, &place,
 			    PLACE_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, &display_name,
-                            -1);
-        GeocodeLocation *loc = geocode_place_get_location (place);
+			    -1);
 
-        GWeatherLocation *location;
-        location = gweather_location_find_nearest_city (NULL, geocode_location_get_latitude (loc), geocode_location_get_longitude (loc));
+	loc = geocode_place_get_location (place);
+	location = gweather_location_find_nearest_city (NULL, geocode_location_get_latitude (loc), geocode_location_get_longitude (loc));
 
-        location = create_new_detached_location(location, display_name, TRUE,
-                                                geocode_location_get_latitude (loc) * M_PI / 180.0,
-                                                geocode_location_get_longitude (loc) * M_PI / 180.0);
+	location = create_new_detached_location(location, display_name, TRUE,
+						geocode_location_get_latitude (loc) * M_PI / 180.0,
+						geocode_location_get_longitude (loc) * M_PI / 180.0);
 
-        set_location_internal (entry, model, NULL, location);
+	set_location_internal (entry, model, NULL, location);
+
+	g_object_unref (place);
 	g_free (display_name);
     } else {
-        set_location_internal (entry, model, iter, NULL);
+	set_location_internal (entry, model, iter, NULL);
     }
     return TRUE;
 }
@@ -787,10 +791,10 @@ fill_store (gpointer data, gpointer user_data)
 
     gtk_tree_store_append (user_data, &iter, NULL);
     gtk_tree_store_set (user_data, &iter,
-                        PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE, place,
-                        PLACE_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
-                        PLACE_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, compare_name,
-                        -1);
+			PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE, place,
+			PLACE_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
+			PLACE_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, compare_name,
+			-1);
 
     g_free (display_name);
     g_free (normalized);
@@ -826,6 +830,7 @@ _got_places (GObject      *source_object,
     completion = gtk_entry_get_completion (user_data);
     store = gtk_tree_store_new (4, G_TYPE_STRING, GEOCODE_TYPE_PLACE, G_TYPE_STRING, G_TYPE_STRING);
     g_list_foreach (places, fill_store, store);
+    g_list_free (places);
     gtk_entry_completion_set_match_func (completion, new_matcher, NULL, NULL);
     gtk_entry_completion_set_model (completion, GTK_TREE_MODEL (store));
     g_object_unref (store);
