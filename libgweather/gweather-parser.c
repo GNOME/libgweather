@@ -27,7 +27,6 @@
 #include <libxml/xmlreader.h>
 #include <glib/gi18n-lib.h>
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-private.h"
 #include "gweather-parser.h"
 

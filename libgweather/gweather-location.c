@@ -30,7 +30,6 @@
 #include <libxml/xmlreader.h>
 #include <geocode-glib/geocode-glib.h>
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-location.h"
 #include "gweather-timezone.h"
 #include "gweather-parser.h"

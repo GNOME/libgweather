@@ -20,7 +20,6 @@
 #include <config.h>
 #endif
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-private.h"
 
 static void

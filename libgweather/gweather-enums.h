@@ -21,6 +21,10 @@
 #ifndef __GWEATHER_ENUMS_H_
 #define __GWEATHER_ENUMS_H_
 
+#if !(defined(IN_GWEATHER_H) || defined(GWEATHER_COMPILATION))
+#error "gweather-enums.h must not be included individually, include gweather.h instead"
+#endif
+
 /**
  * GWeatherTemperatureUnit:
  * @GWEATHER_TEMP_UNIT_INVALID: invalid unit

@@ -1,5 +1,4 @@
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-location-entry.h"
 #include "gweather-timezone-menu.h"
 

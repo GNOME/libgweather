@@ -35,7 +35,6 @@
 #include <string.h>
 #include <glib.h>
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-private.h"
 
 /*

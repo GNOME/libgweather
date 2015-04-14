@@ -4,7 +4,6 @@
 #include <string.h>
 #include <time.h>
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-private.h"
 
 int

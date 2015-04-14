@@ -24,6 +24,10 @@
 #ifndef __GWEATHER_VERSION_H__
 #define __GWEATHER_VERSION_H__
 
+#if !(defined(IN_GWEATHER_H) || defined(GWEATHER_COMPILATION))
+#error "gweather-version.h must not be included individually, include gweather.h instead"
+#endif
+
 /**
  * SECTION:gweatherversion
  * @short_description: libgweather version checking

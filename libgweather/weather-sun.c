@@ -32,7 +32,6 @@
 #include <time.h>
 #include <glib.h>
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-private.h"
 
 #define ECCENTRICITY(d)         (0.01671123 - (d)/36525.*0.00004392)

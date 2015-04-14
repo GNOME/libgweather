@@ -25,7 +25,6 @@
 #include <sys/types.h>
 #include <regex.h>
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-private.h"
 
 enum {

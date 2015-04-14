@@ -26,7 +26,6 @@
 #include <geocode-glib/geocode-glib.h>
 #include <gio/gio.h>
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-location-entry.h"
 #include "gweather-private.h"
 

@@ -21,6 +21,10 @@
 #ifndef GWEATHER_LOCATION_ENTRY_H
 #define GWEATHER_LOCATION_ENTRY_H 1
 
+#if !(defined(IN_GWEATHER_H) || defined(GWEATHER_COMPILATION))
+#error "gweather-location-entry.h must not be included individually, include gweather.h instead"
+#endif
+
 #include <gtk/gtk.h>
 #include <libgweather/gweather-location.h>
 

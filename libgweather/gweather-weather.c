@@ -34,7 +34,6 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <glib.h>
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-weather.h"
 #include "gweather-private.h"
 #include "gweather-enum-types.h"

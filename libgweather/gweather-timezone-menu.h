@@ -21,6 +21,10 @@
 #ifndef GWEATHER_TIMEZONE_MENU_H
 #define GWEATHER_TIMEZONE_MENU_H 1
 
+#if !(defined(IN_GWEATHER_H) || defined(GWEATHER_COMPILATION))
+#error "gweather-timezone-menu.h must not be included individually, include gweather.h instead"
+#endif
+
 #include <gtk/gtk.h>
 #include <libgweather/gweather-location.h>
 
