@@ -31,10 +31,6 @@
 #include "gweather-weather.h"
 #include "gweather-location.h"
 
-#ifdef _WIN32
-#include "gweather-win32.h"
-#endif
-
 void        _gweather_gettext_init (void);
 
 struct _GWeatherLocation {
