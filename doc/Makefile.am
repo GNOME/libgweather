@@ -51,7 +51,7 @@ CFILE_GLOB=$(top_srcdir)/libgweather/*.c
 
 # Header files to ignore when scanning.
 # e.g. IGNORE_HFILES=gtkdebug.h gtkintl.h
-IGNORE_HFILES=gweather-enum-types.h gweather-win32.h parser.h weather-priv.h
+IGNORE_HFILES=gweather-enum-types.h gweather-parser.h gweather-private.h
 
 # Images to copy into HTML directory.
 # e.g. HTML_IMAGES=$(top_srcdir)/gtk/stock-icons/stock_about_24.png
@@ -72,7 +72,7 @@ expand_content_files=
 # signals and properties.
 # e.g. GTKDOC_CFLAGS=-I$(top_srcdir) -I$(top_builddir) $(GTK_DEBUG_FLAGS)
 # e.g. GTKDOC_LIBS=$(top_builddir)/gtk/$(gtktargetlib)
-GTKDOC_CFLAGS = -I$(top_srcdir) $(GTK_CFLAGS) $(LIBXML_CFLAGS) $(LIBSOUP_CFLAGS) -DGWEATHER_I_KNOW_THIS_IS_UNSTABLE
+GTKDOC_CFLAGS = -I$(top_srcdir) $(GTK_CFLAGS) $(LIBXML_CFLAGS) $(LIBSOUP_CFLAGS) -DGWEATHER_COMPILATION
 GTKDOC_LIBS = $(top_builddir)/libgweather/libgweather-3.la $(GTK_LIBS) $(LIBXML_LIBS) $(LIBSOUP_LIBS)
 
 # This includes the standard gtk-doc make rules, copied by gtkdocize.
