@@ -25,6 +25,7 @@ libgweatherinc_HEADERS = \
 	gweather-version.h
 
 gweather_c_sources = \
+	gweather.c gweather-private.c \
 	gweather-weather.c \
 	weather-metar.c weather-iwin.c weather-yahoo.c \
 	weather-wx.c weather-yrno.c weather-owm.c \
