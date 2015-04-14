@@ -21,7 +21,7 @@
 #endif
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
-#include "weather-priv.h"
+#include "gweather-private.h"
 
 static void
 wx_finish (SoupSession *session, SoupMessage *msg, gpointer data)

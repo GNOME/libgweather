@@ -36,7 +36,7 @@
 #include <glib.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
-#include "weather-priv.h"
+#include "gweather-private.h"
 
 /*
  * Elements of the Moon's orbit, epoch 2000 Jan 1.5

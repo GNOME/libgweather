@@ -1,7 +1,7 @@
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
-#include "location-entry.h"
-#include "timezone-menu.h"
+#include "gweather-location-entry.h"
+#include "gweather-timezone-menu.h"
 
 static void
 deleted (GtkWidget *widget, GdkEvent *event, gpointer data)

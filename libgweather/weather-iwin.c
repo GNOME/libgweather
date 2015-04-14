@@ -27,7 +27,7 @@
 #include <libxml/parser.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
-#include "weather-priv.h"
+#include "gweather-private.h"
 
 static gboolean
 hasAttr (xmlNode *node, const char *attr_name, const char *attr_value)

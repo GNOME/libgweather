@@ -13,8 +13,8 @@ AM_CFLAGS = $(WARN_CFLAGS)
 
 gweather_new_headers = \
 	gweather.h \
-	gweather-location.h location-entry.h \
-	gweather-timezone.h timezone-menu.h \
+	gweather-location.h gweather-location-entry.h \
+	gweather-timezone.h gweather-timezone-menu.h \
 	gweather-weather.h gweather-enums.h
 
 libgweatherincdir = $(includedir)/libgweather-3.0/libgweather
@@ -23,17 +23,31 @@ libgweatherinc_HEADERS = \
 	gweather-enum-types.h		\
 	gweather-version.h
 
-libgweather_internal_3_la_SOURCES = \
-	weather.c weather-priv.h \
+gweather_c_sources = \
+	gweather-weather.c \
 	weather-metar.c weather-iwin.c weather-yahoo.c \
 	weather-wx.c weather-yrno.c weather-owm.c \
 	weather-sun.c weather-moon.c \
 	gweather-enum-types.c \
-	gweather-location.c gweather-location.h \
-	gweather-timezone.c gweather-timezone.h \
-	location-entry.c location-entry.h \
-	timezone-menu.c timezone-menu.h \
-	parser.c parser.h
+	gweather-location.c \
+	gweather-timezone.c \
+	gweather-location-entry.c \
+	gweather-timezone-menu.c \
+	gweather-parser.c
+
+introspection_sources = \
+	$(gweather_c_sources) \
+	$(gweather_new_headers)
+
+built_introspection_sources = \
+	gweather-enum-types.h gweather-enums.h
+
+libgweather_internal_3_la_SOURCES = \
+	$(gweather_c_sources) \
+	$(gweather_new_headers) \
+	$(built_introspection_sources) \
+	gweather-private.h \
+	gweather-parser.h
 
 libgweather_internal_3_la_CPPFLAGS = \
 	$(AM_CPPFLAGS)			\
@@ -86,15 +100,6 @@ INTROSPECTION_SCANNER_ARGS = --warn-all --add-include-path=$(srcdir) --c-include
 INTROSPECTION_COMPILER_ARGS = --includedir=$(srcdir)
 
 if HAVE_INTROSPECTION
-introspection_sources = 	\
-	weather.c gweather-weather.h \
-	gweather-location.c gweather-location.h \
-	gweather-timezone.c gweather-timezone.h \
-	location-entry.c location-entry.h \
-	timezone-menu.c timezone-menu.h
-
-built_introspection_sources = gweather-enum-types.h gweather-enums.h
-
 GWeather-3.0.gir: libgweather-3.la Makefile
 GWeather_3_0_gir_INCLUDES = GObject-2.0 Gtk-3.0
 GWeather_3_0_gir_CFLAGS = $(libgweather_internal_3_la_CPPFLAGS) -DGWEATHER_I_KNOW_THIS_IS_UNSTABLE

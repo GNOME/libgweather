@@ -26,8 +26,8 @@
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-timezone.h"
-#include "parser.h"
-#include "weather-priv.h"
+#include "gweather-parser.h"
+#include "gweather-private.h"
 
 /**
  * SECTION:gweathertimezone

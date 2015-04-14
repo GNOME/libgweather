@@ -27,8 +27,8 @@
 #include <gio/gio.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
-#include "location-entry.h"
-#include "weather-priv.h"
+#include "gweather-location-entry.h"
+#include "gweather-private.h"
 
 /**
  * SECTION:gweatherlocationentry

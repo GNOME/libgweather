@@ -28,6 +28,7 @@
 #include <libgweather/gweather-location.h>
 #include <libgweather/gweather-timezone.h>
 #include <libgweather/gweather-weather.h>
-#include <libgweather/location-entry.h>
+#include <libgweather/gweather-location-entry.h>
+#include <libgweather/gweather-timezone-menu.h>
 
 #endif /* __GWEATHER_H__ */

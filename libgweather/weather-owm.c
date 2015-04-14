@@ -36,7 +36,7 @@
 #include <libxml/xpathInternals.h>
 
 #define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
-#include "weather-priv.h"
+#include "gweather-private.h"
 
 #define XC(t) ((const xmlChar *)(t))
 
