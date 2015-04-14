@@ -24,7 +24,12 @@ check:
 
 @INTLTOOL_XML_NOMERGE_RULE@
 
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = gweather-3.0.pc
+
 EXTRA_DIST =	\
+	gweather-3.0.pc.in 			\
+	gweather-3.0-uninstalled.pc.in		\
 	Locations.xml.in			\
 	$(libgweatherdtd_DATA)			\
 	check-timezones.sh			\

@@ -208,16 +208,16 @@ dnl *** Output Makefiles et al                                              ***
 dnl ***************************************************************************
 AC_CONFIG_FILES([
 Makefile
-doc/Makefile
-doc/version.xml
-po/Makefile.in
-po-locations/Makefile.in
-libgweather/Makefile
-libgweather/gweather-3.0.pc
-libgweather/gweather-3.0-uninstalled.pc
-libgweather/gweather-version.h
+data/gweather-3.0.pc
+data/gweather-3.0-uninstalled.pc
 data/Makefile
 data/glade/Makefile
+doc/Makefile
+doc/version.xml
+libgweather/Makefile
+libgweather/gweather-version.h
+po/Makefile.in
+po-locations/Makefile.in
 schemas/Makefile
 ])
 AC_OUTPUT

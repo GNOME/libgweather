@@ -75,10 +75,7 @@ gweather-enum-types.c: $(gweather_new_headers)
 
 BUILT_SOURCES = gweather-enum-types.c gweather-enum-types.h
 
-pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = gweather-3.0.pc
-
-EXTRA_DIST = gweather-3.0.pc.in gweather-3.0-uninstalled.pc.in gweather-version.h.in
+EXTRA_DIST = gweather-version.h.in
 
 CLEANFILES = $(noinst_PROGRAMS) $(BUILT_SOURCES)
 
