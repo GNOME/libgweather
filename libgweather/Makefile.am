@@ -9,6 +9,7 @@ AM_CPPFLAGS = 			\
 	-DGWEATHER_COMPILATION  \
 	$(DEPS_CFLAGS)		\
 	-I$(top_srcdir)		\
+	-I$(top_builddir)	\
 	-I$(srcdir)
 
 AM_CFLAGS = -std=c99 $(WARN_CFLAGS)
@@ -31,7 +32,6 @@ gweather_c_sources = \
 	weather-metar.c weather-iwin.c weather-yahoo.c \
 	weather-wx.c weather-yrno.c weather-owm.c \
 	weather-sun.c weather-moon.c \
-	gweather-enum-types.c \
 	gweather-location.c \
 	gweather-timezone.c \
 	gweather-location-entry.c \
@@ -43,7 +43,7 @@ introspection_sources = \
 	$(gweather_new_headers)
 
 built_introspection_sources = \
-	gweather-enum-types.h gweather-enums.h
+	gweather-enum-types.h gweather-enum-types.c
 
 libgweather_internal_3_la_SOURCES = \
 	$(gweather_c_sources) \
