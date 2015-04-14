@@ -5,12 +5,13 @@ noinst_LTLIBRARIES = libgweather-internal-3.la
 noinst_PROGRAMS = test_metar test_locations test_sun_moon
 
 AM_CPPFLAGS = 			\
+	-D_XOPEN_SOURCE=700	\
 	-DGWEATHER_COMPILATION  \
 	$(DEPS_CFLAGS)		\
 	-I$(top_srcdir)		\
 	-I$(srcdir)
 
-AM_CFLAGS = $(WARN_CFLAGS)
+AM_CFLAGS = -std=c99 $(WARN_CFLAGS)
 
 gweather_new_headers = \
 	gweather.h \
