@@ -678,6 +678,9 @@ match_compare_name (const char *key, const char *name)
     gboolean is_first_word = TRUE;
     int len;
 
+    /* Ignore whitespace before the string */
+    key += strspn (key, " ");
+
     /* All but the last word in KEY must match a full word from NAME,
      * in order (but possibly skipping some words from NAME).
      */
@@ -698,7 +701,13 @@ match_compare_name (const char *key, const char *name)
     }
 
     /* The last word in KEY must match a prefix of a following word in NAME */
-    return find_word (name, key, strlen (key), FALSE, is_first_word) != NULL;
+    if (len == 0) {
+	return TRUE;
+    } else {
+	// if we get here, key[len] == 0, so...
+	g_assert (len == strlen(key));
+	return find_word (name, key, len, FALSE, is_first_word) != NULL;
+    }
 }
 
 static gboolean
