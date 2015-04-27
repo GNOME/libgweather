@@ -6,6 +6,8 @@ noinst_PROGRAMS = test_metar test_locations test_sun_moon
 
 AM_CPPFLAGS = 			\
 	-DGWEATHER_COMPILATION  \
+	-D_XOPEN_SOURCE=700	\
+	-D_DEFAULT_SOURCE	\
 	$(DEPS_CFLAGS)		\
 	-I$(top_srcdir)		\
 	-I$(top_builddir)	\
