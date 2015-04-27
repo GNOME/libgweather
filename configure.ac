@@ -86,6 +86,37 @@ AC_CHECK_FUNCS(regexec,,[AC_CHECK_LIB(regex,regexec,
                [AC_MSG_ERROR([No regex library found])])])
 AC_SUBST(REGEX_LIBS)
 
+
+dnl ***************************************************************************
+dnl *** Check for presence of tm.tm_gmtoff on the system                    ***
+dnl ***************************************************************************
+AC_CHECK_MEMBER([struct tm.tm_gmtoff],[struct_tm_tm_gmtoff=true],[struct_tm_tm_gmtoff=false],[#include <time.h>])
+case $struct_tm_tm_gmtoff in
+        true)
+                AC_DEFINE_UNQUOTED(HAVE_TM_TM_GMOFF, 1, Have the tm.tm_gmtoff member.)
+                ;;
+        *)
+                AC_CHECK_DECL(timezone,AC_DEFINE(HAVE_TIMEZONE,1,Have timezone),,
+[
+#include <time.h>
+])
+                ;;
+esac
+
+dnl ***************************************************************************
+dnl *** _NL_MEASUREMENT_MEASUREMENT is an enum and not a define             ***
+dnl ***************************************************************************
+AC_MSG_CHECKING([for _NL_MEASUREMENT_MEASUREMENT])
+AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <langinfo.h>]], [[
+char c;
+c = *((unsigned char *)  nl_langinfo(_NL_MEASUREMENT_MEASUREMENT));
+]])],[gtk_ok=yes],[gtk_ok=no])
+AC_MSG_RESULT($gtk_ok)
+if test "$gtk_ok" = "yes"; then
+  AC_DEFINE([HAVE__NL_MEASUREMENT_MEASUREMENT], [1],
+            [Define if _NL_MEASUREMENT_MEASUREMENT is available])
+fi
+
 dnl ***************************************************************************
 dnl *** Find tzdata                                                         ***
 dnl ***************************************************************************
