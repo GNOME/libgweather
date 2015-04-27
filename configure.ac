@@ -36,7 +36,7 @@ AC_SUBST(LIBGWEATHER_VERSION)
 #   change to C+1:0:0
 # - If the interface is the same as the previous version, change to C:R+1:A
 
-LT_VERSION=10:1:4
+LT_VERSION=10:2:4
 AC_SUBST(LT_VERSION)
 
 GTK_REQUIRED=3.13.5
