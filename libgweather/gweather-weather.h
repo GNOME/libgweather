@@ -357,6 +357,8 @@ struct _GWeatherConditions {
 
 const gchar * gweather_conditions_to_string (GWeatherConditions *conditions);
 
+GWeatherTemperatureUnit gweather_temperature_unit_to_real (GWeatherTemperatureUnit unit);
+
 G_END_DECLS
 
 #endif /* __WEATHER_H_ */

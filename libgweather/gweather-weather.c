@@ -762,8 +762,15 @@ is_locale_metric (void)
     return TRUE;
 }
 
-static GWeatherTemperatureUnit
-temperature_unit_to_real (GWeatherTemperatureUnit unit)
+/**
+ * gweather_temperature_unit_to_real:
+ * @unit: a tempeature unit, or %GWEATHER_TEMP_UNIT_DEFAULT
+ *
+ * Resolve @unit into a real temperature unit, potentially considering
+ * locale defaults.
+ */
+GWeatherTemperatureUnit
+gweather_temperature_unit_to_real (GWeatherTemperatureUnit unit)
 {
     if (G_UNLIKELY (unit == GWEATHER_TEMP_UNIT_INVALID)) {
 	g_critical("Conversion to invalid temperature unit");
@@ -781,7 +788,7 @@ temperature_unit_to_real (GWeatherTemperatureUnit unit)
 static gchar *
 temperature_string (gfloat temp_f, GWeatherTemperatureUnit to_unit, gboolean want_round)
 {
-    to_unit = temperature_unit_to_real (to_unit);
+    to_unit = gweather_temperature_unit_to_real (to_unit);
 
     switch (to_unit) {
     case GWEATHER_TEMP_UNIT_FAHRENHEIT:
@@ -1486,7 +1493,7 @@ temperature_value (gdouble temp_f,
 
     if (to_unit == GWEATHER_TEMP_UNIT_DEFAULT)
 	    to_unit = g_settings_get_enum (settings, TEMPERATURE_UNIT);
-    to_unit = temperature_unit_to_real (to_unit);
+    to_unit = gweather_temperature_unit_to_real (to_unit);
 
     switch (to_unit) {
         case GWEATHER_TEMP_UNIT_FAHRENHEIT:
