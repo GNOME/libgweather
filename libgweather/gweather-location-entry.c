@@ -781,7 +781,7 @@ _no_matches (GtkEntryCompletion *completion, GWeatherLocationEntry *entry) {
         g_object_unref (entry->priv->cancellable);
         entry->priv->cancellable = NULL;
     } else {
-        gtk_entry_completion_insert_action_text (completion, 0, "Loading...");
+        gtk_entry_completion_insert_action_text (completion, 0, _("Loading..."));
     }
 
     entry->priv->cancellable = g_cancellable_new ();
