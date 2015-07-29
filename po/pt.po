@@ -3,42 +3,43 @@
 # This file is distributed under the same license as the libgweather package.
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2012, 2013.
 # Tiago S. <almosthumane@portugalmail.pt>, 2014.
+# Pedro Albuquerque <palbuquerque73@gmail.com>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 3.12\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-08 18:35+0000\n"
-"PO-Revision-Date: 2014-03-18 00:10+0100\n"
-"Last-Translator: Tiago S. <almosthumane@portugalmail.pt>\n"
+"POT-Creation-Date: 2015-06-07 22:37+0000\n"
+"PO-Revision-Date: 2015-06-25 09:30+0100\n"
+"Last-Translator: Pedro Albuquerque <palbuquerque73@gmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/glade/libgweather.xml.in.h:1
 msgid "Location Entry"
-msgstr "Entrada de Localização"
+msgstr "Entrada de localização"
 
 #: ../data/glade/libgweather.xml.in.h:2
 msgid "Timezone Menu"
-msgstr "Menu de Fuso-Horário"
+msgstr "Menu de fuso horário"
 
 #: ../data/glade/libgweather.xml.in.h:3
 msgid "Timezone"
-msgstr "Fuso-Horário"
+msgstr "Fuso horário"
 
 #: ../data/glade/libgweather.xml.in.h:4
 msgid "GWeather"
 msgstr "GWeather"
 
-#: ../libgweather/gweather-timezone.c:340
+#: ../libgweather/gweather-timezone.c:341
 msgid "Greenwich Mean Time"
-msgstr "Tempo Médio de Greenwich"
+msgstr "Tempo médio de Greenwich"
 
 #: ../libgweather/timezone-menu.c:275
 msgctxt "timezone"
@@ -120,7 +121,7 @@ msgstr "Inválida"
 
 #: ../libgweather/weather.c:131
 msgid "Clear Sky"
-msgstr "Céu Limpo"
+msgstr "Céu limpo"
 
 #: ../libgweather/weather.c:132
 msgid "Broken clouds"
@@ -224,7 +225,7 @@ msgstr "Neve com vento"
 
 #: ../libgweather/weather.c:177
 msgid "Snow showers"
-msgstr "Neve com chuva"
+msgstr "Aguaceiros de neve"
 
 #: ../libgweather/weather.c:177
 msgid "Drifting snow"
@@ -255,32 +256,32 @@ msgstr "Cristais de gelo"
 #. ICE_PELLETS
 #: ../libgweather/weather.c:180
 msgid "Sleet"
-msgstr "Granizo"
+msgstr "Chuva com neve"
 
 #: ../libgweather/weather.c:180
 msgid "Little sleet"
-msgstr "Granizo ligeiro"
+msgstr "Chuva com neve ligeira"
 
 #: ../libgweather/weather.c:180
 msgid "Moderate sleet"
-msgstr "Granizo moderado"
+msgstr "Chuva com neve moderada"
 
 #: ../libgweather/weather.c:180
 msgid "Heavy sleet"
-msgstr "Granizo forte"
+msgstr "Chuva com neve forte"
 
 #: ../libgweather/weather.c:180
 msgid "Sleet storm"
-msgstr "Tempestade de granizo"
+msgstr "Tempestade de chuva com neve"
 
 #: ../libgweather/weather.c:180
 msgid "Showers of sleet"
-msgstr "Períodos de granizo"
+msgstr "Aguaceiros de chuva com neve"
 
 #. HAIL
 #: ../libgweather/weather.c:181
 msgid "Hail"
-msgstr "Nevoeiro"
+msgstr "Granizo"
 
 #: ../libgweather/weather.c:181
 msgid "Hailstorm"
@@ -288,7 +289,7 @@ msgstr "Tempestade de granizo"
 
 #: ../libgweather/weather.c:181
 msgid "Hail showers"
-msgstr "Granizo com chuva"
+msgstr "Aguaceiros de granizo"
 
 #. SMALL_HAIL
 #: ../libgweather/weather.c:182
@@ -301,7 +302,7 @@ msgstr "Pequena tempestade de granizo"
 
 #: ../libgweather/weather.c:182
 msgid "Showers of small hail"
-msgstr "Granizo ligeiro com chuva"
+msgstr "Aguaceiros de granizo ligeiro"
 
 #. PRECIPITATION
 #: ../libgweather/weather.c:183
@@ -455,7 +456,7 @@ msgstr "Desconhecida"
 #.
 #: ../libgweather/weather.c:746
 msgid "default:mm"
-msgstr "omissão:mm"
+msgstr "default:mm"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
 #: ../libgweather/weather.c:791
@@ -653,7 +654,7 @@ msgstr ""
 #.
 #. That's very nice of them!
 #.
-#: ../libgweather/weather-yrno.c:445
+#: ../libgweather/weather-yrno.c:509
 msgid ""
 "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
 "Institute</a>"
@@ -727,12 +728,12 @@ msgid ""
 msgstr ""
 "A unidade de presão utilizada na meteorologia. Valores válidos são "
 "'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, matematicamente "
-"equivalente a 1 hPa mas apresentado de forma distinta), 'mm-hg' (milímetros "
-"de mercúrio), 'inch-hg' (polegadas de mercúrio), 'atm' (atmosferas)."
+"equivalente a 1 hPa mas mostrado de forma distinta), 'mm-hg' (milímetros de "
+"mercúrio), 'inch-hg' (polegadas de mercúrio), 'atm' (atmosferas)."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:11
 msgid "Default location"
-msgstr "Localização por omissão"
+msgstr "Localização predefinida"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:12
 msgid ""
@@ -744,13 +745,13 @@ msgid ""
 "value taken from the database. This is only used for sunrise and moon phase "
 "calculations, not for weather forecast."
 msgstr ""
-"A localização por omissão da applet de meteorologia. O primeiro campo é o "
+"A localização predefinida da aplicação de meteorologia. O primeiro campo é o "
 "nome que será apresentado. Se vazio, será obtido da base de dados de "
-"localizações. O segundo campo é o código METAR da estação meteorológica por "
-"omissão. Não pode ser vazio e tem de corresponder à etiqueta &lt;code&gt; no "
-"ficheiro Locations.xml. O terceiro campo é uma enupla de (latitude, "
-"longitude), para sobrepor ao valor obtido da base de dados. Apenas é "
-"utilizado para cálculos da aurora e da fase da lua, não é para previsões "
+"localizações. O segundo campo é o código METAR da estação meteorológica "
+"predefinida. Não pode ser vazio e tem de corresponder à etiqueta &lt;"
+"code&gt; no ficheiro Locations.xml. O terceiro campo é um conjunto de "
+"(latitude, longitude), para sobrepor ao valor obtido da base de dados. Só é "
+"utilizado para cálculos da aurora e fases da lua, não é para previsões "
 "meteorológicas."
 
 #~ msgid "Ice pellets"
