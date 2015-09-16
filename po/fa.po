@@ -7,128 +7,147 @@
 # Farzaneh Sarafraz <farzaneh@farsiweb.info>, 2006.
 # Mahyar Moghimi <mahyar.moqimi@gmail.com>, 2010.
 # Mohammad Javad Badiee <m.j.badiee@gmail.com>, 2010.
-# Arash Mousavi <mousavi.arash@gmail.com>, 2012, 2013.
+# Arash Mousavi <mousavi.arash@gmail.com>, 2012, 2013, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets gnome-2-12\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-04 21:50+0000\n"
-"PO-Revision-Date: 2013-03-23 18:18+0330\n"
+"POT-Creation-Date: 2015-09-16 10:59+0000\n"
+"PO-Revision-Date: 2015-09-16 23:51+0430\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: Persian\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.4\n"
 
-#: ../libgweather/gweather-timezone.c:316
+#: ../data/glade/libgweather.xml.in.h:1
+msgid "Location Entry"
+msgstr "مدخل مکان"
+
+#: ../data/glade/libgweather.xml.in.h:2
+msgid "Timezone Menu"
+msgstr "منو منطقه زمانی"
+
+#: ../data/glade/libgweather.xml.in.h:3
+msgid "Timezone"
+msgstr "منطقه زمانی"
+
+#: ../data/glade/libgweather.xml.in.h:4
+msgid "GWeather"
+msgstr "آب و هوای گنوم"
+
+#: ../libgweather/gweather-location-entry.c:784
+msgid "Loading..."
+msgstr "در حال بارگیری..."
+
+#: ../libgweather/gweather-timezone.c:340
 msgid "Greenwich Mean Time"
 msgstr "زمان میانی گرینویچ"
 
-#: ../libgweather/timezone-menu.c:278
+#: ../libgweather/gweather-timezone-menu.c:274
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "ناشناخته"
 
-#: ../libgweather/weather.c:129
+#: ../libgweather/gweather-weather.c:113
 msgid "Variable"
 msgstr "متغیر"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/gweather-weather.c:114
 msgid "North"
 msgstr "شمال"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/gweather-weather.c:114
 msgid "North - NorthEast"
 msgstr "شمال ‐ شمال شرقی"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/gweather-weather.c:114
 msgid "Northeast"
 msgstr "شمال شرقی"
 
-#: ../libgweather/weather.c:130
+#: ../libgweather/gweather-weather.c:114
 msgid "East - NorthEast"
 msgstr "شرق ‐ شمال شرقی"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/gweather-weather.c:115
 msgid "East"
 msgstr "شرق"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/gweather-weather.c:115
 msgid "East - Southeast"
 msgstr "شرق ‐ جنوب شرقی"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/gweather-weather.c:115
 msgid "Southeast"
 msgstr "جنوب شرقی"
 
-#: ../libgweather/weather.c:131
+#: ../libgweather/gweather-weather.c:115
 msgid "South - Southeast"
 msgstr "جنوب ‐ جنوب شرقی"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/gweather-weather.c:116
 msgid "South"
 msgstr "جنوب"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/gweather-weather.c:116
 msgid "South - Southwest"
 msgstr "جنوب ‐ جنوب غربی"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/gweather-weather.c:116
 msgid "Southwest"
 msgstr "جنوب غربی"
 
-#: ../libgweather/weather.c:132
+#: ../libgweather/gweather-weather.c:116
 msgid "West - Southwest"
 msgstr "غرب ‐ جنوب غربی"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/gweather-weather.c:117
 msgid "West"
 msgstr "غرب"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/gweather-weather.c:117
 msgid "West - Northwest"
 msgstr "غرب ‐ شمال غربی"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/gweather-weather.c:117
 msgid "Northwest"
 msgstr "شمال غربی"
 
-#: ../libgweather/weather.c:133
+#: ../libgweather/gweather-weather.c:117
 msgid "North - Northwest"
 msgstr "شمال ‐ شمال غربی"
 
-#: ../libgweather/weather.c:140
-#| msgid "Invalid"
+#: ../libgweather/gweather-weather.c:124
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "نامعتبر"
 
-#: ../libgweather/weather.c:146
+#: ../libgweather/gweather-weather.c:130
 msgid "Clear Sky"
 msgstr "آسمان صاف"
 
-#: ../libgweather/weather.c:147
+#: ../libgweather/gweather-weather.c:131
 msgid "Broken clouds"
 msgstr "نیمه‌ابری"
 
-#: ../libgweather/weather.c:148
+#: ../libgweather/gweather-weather.c:132
 msgid "Scattered clouds"
 msgstr "ابرهای پراکنده"
 
-#: ../libgweather/weather.c:149
+#: ../libgweather/gweather-weather.c:133
 msgid "Few clouds"
 msgstr "ابرهای اندک"
 
-#: ../libgweather/weather.c:150
+#: ../libgweather/gweather-weather.c:134
 msgid "Overcast"
 msgstr "ابری"
 
-#: ../libgweather/weather.c:157 ../libgweather/weather.c:229
-#| msgid "Invalid"
+#: ../libgweather/gweather-weather.c:141 ../libgweather/gweather-weather.c:213
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "نامعتبر"
@@ -137,395 +156,394 @@ msgstr "نامعتبر"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:189 ../libgweather/weather.c:191
+#: ../libgweather/gweather-weather.c:173 ../libgweather/gweather-weather.c:175
 msgid "Thunderstorm"
 msgstr "طوفان و رعد و برق"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:190
+#: ../libgweather/gweather-weather.c:174
 msgid "Drizzle"
 msgstr "باران ریز"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/gweather-weather.c:174
 msgid "Light drizzle"
 msgstr "باران ریز سبک"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/gweather-weather.c:174
 msgid "Moderate drizzle"
 msgstr "باران ریز متوسط"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/gweather-weather.c:174
 msgid "Heavy drizzle"
 msgstr "باران ریز سنگین"
 
-#: ../libgweather/weather.c:190
+#: ../libgweather/gweather-weather.c:174
 msgid "Freezing drizzle"
 msgstr "باران ریز یخ زده"
 
 #. RAIN
-#: ../libgweather/weather.c:191
+#: ../libgweather/gweather-weather.c:175
 msgid "Rain"
 msgstr "باران"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/gweather-weather.c:175
 msgid "Light rain"
 msgstr "باران سبک"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/gweather-weather.c:175
 msgid "Moderate rain"
 msgstr "باران معتدل"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/gweather-weather.c:175
 msgid "Heavy rain"
 msgstr "باران سنگین"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/gweather-weather.c:175
 msgid "Rain showers"
 msgstr "رگبار باران"
 
-#: ../libgweather/weather.c:191
+#: ../libgweather/gweather-weather.c:175
 msgid "Freezing rain"
 msgstr "باران یخ زده"
 
 #. SNOW
-#: ../libgweather/weather.c:192
+#: ../libgweather/gweather-weather.c:176
 msgid "Snow"
 msgstr "برف"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/gweather-weather.c:176
 msgid "Light snow"
 msgstr "برف سبک"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/gweather-weather.c:176
 msgid "Moderate snow"
 msgstr "برف معتدل"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/gweather-weather.c:176
 msgid "Heavy snow"
 msgstr "برف سنگین"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/gweather-weather.c:176
 msgid "Snowstorm"
 msgstr "کولاک"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/gweather-weather.c:176
 msgid "Blowing snowfall"
 msgstr "ریزش برف همراه با باد"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/gweather-weather.c:176
 msgid "Snow showers"
 msgstr "رگبار برف"
 
-#: ../libgweather/weather.c:192
+#: ../libgweather/gweather-weather.c:176
 msgid "Drifting snow"
 msgstr "برف خیزان"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:193
+#: ../libgweather/gweather-weather.c:177
 msgid "Snow grains"
 msgstr "برف یخ‌زده"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/gweather-weather.c:177
 msgid "Light snow grains"
 msgstr "برف یخ‌زده‌ی سبک"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/gweather-weather.c:177
 msgid "Moderate snow grains"
 msgstr "برف یخ‌زده‌ی متوسط"
 
-#: ../libgweather/weather.c:193
+#: ../libgweather/gweather-weather.c:177
 msgid "Heavy snow grains"
 msgstr "برف یخ‌زده‌ی سنگین"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:194
+#: ../libgweather/gweather-weather.c:178
 msgid "Ice crystals"
 msgstr "بلور‌های یخ"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:195
-msgid "Ice pellets"
-msgstr "گلوله‌های یخ"
+#: ../libgweather/gweather-weather.c:179
+msgid "Sleet"
+msgstr "بوران"
 
-#: ../libgweather/weather.c:195
-msgid "Few ice pellets"
-msgstr "گلوله‌های یخ با تعداد کم"
+#: ../libgweather/gweather-weather.c:179
+msgid "Little sleet"
+msgstr "بوران اندک"
 
-#: ../libgweather/weather.c:195
-msgid "Moderate ice pellets"
-msgstr "گلوله‌های یخ با تعداد متوسط"
+#: ../libgweather/gweather-weather.c:179
+msgid "Moderate sleet"
+msgstr "بوران معتدل"
 
-#: ../libgweather/weather.c:195
-msgid "Heavy ice pellets"
-msgstr "گلوله‌های یخ با تعداد زیاد"
+#: ../libgweather/gweather-weather.c:179
+msgid "Heavy sleet"
+msgstr "بوران سنگین"
 
-#: ../libgweather/weather.c:195
-msgid "Ice pellet storm"
-msgstr "کولاک گلوله‌های یخ"
+#: ../libgweather/gweather-weather.c:179
+msgid "Sleet storm"
+msgstr "بوران طوفانی"
 
-#: ../libgweather/weather.c:195
-msgid "Showers of ice pellets"
-msgstr "دوش گلوله‌های یخ"
+#: ../libgweather/gweather-weather.c:179
+msgid "Showers of sleet"
+msgstr "تگرگ و بوران"
 
 #. HAIL
-#: ../libgweather/weather.c:196
+#: ../libgweather/gweather-weather.c:180
 msgid "Hail"
 msgstr "تگرگ"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/gweather-weather.c:180
 msgid "Hailstorm"
 msgstr "طوفان تگرگ"
 
-#: ../libgweather/weather.c:196
+#: ../libgweather/gweather-weather.c:180
 msgid "Hail showers"
 msgstr "رگبار تگرگ"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:197
+#: ../libgweather/gweather-weather.c:181
 msgid "Small hail"
 msgstr "تگرگ ریز"
 
-#: ../libgweather/weather.c:197
+#: ../libgweather/gweather-weather.c:181
 msgid "Small hailstorm"
 msgstr "طوفان تگرگ ریز"
 
-#: ../libgweather/weather.c:197
+#: ../libgweather/gweather-weather.c:181
 msgid "Showers of small hail"
 msgstr "رگبار تگرگ ریز"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:198
+#: ../libgweather/gweather-weather.c:182
 msgid "Unknown precipitation"
 msgstr "بارش نامعلوم"
 
 #. MIST
-#: ../libgweather/weather.c:199
+#: ../libgweather/gweather-weather.c:183
 msgid "Mist"
 msgstr "مه رقیق"
 
 #. FOG
-#: ../libgweather/weather.c:200
+#: ../libgweather/gweather-weather.c:184
 msgid "Fog"
 msgstr "مه"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/gweather-weather.c:184
 msgid "Fog in the vicinity"
 msgstr "مه در حوالی"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/gweather-weather.c:184
 msgid "Shallow fog"
 msgstr "مه کم عمق"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/gweather-weather.c:184
 msgid "Patches of fog"
 msgstr "مه تکه تکه"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/gweather-weather.c:184
 msgid "Partial fog"
 msgstr "مه ناتمام"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/gweather-weather.c:184
 msgid "Freezing fog"
 msgstr "مه یخ زده"
 
 #. SMOKE
-#: ../libgweather/weather.c:201
+#: ../libgweather/gweather-weather.c:185
 msgid "Smoke"
 msgstr "دود"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:202
+#: ../libgweather/gweather-weather.c:186
 msgid "Volcanic ash"
 msgstr "خاکستر آتشفشانی"
 
 #. SAND
-#: ../libgweather/weather.c:203
+#: ../libgweather/gweather-weather.c:187
 msgid "Sand"
 msgstr "شن"
 
-#: ../libgweather/weather.c:203
+#: ../libgweather/gweather-weather.c:187
 msgid "Blowing sand"
 msgstr "شن‌باد"
 
-#: ../libgweather/weather.c:203
+#: ../libgweather/gweather-weather.c:187
 msgid "Drifting sand"
 msgstr "شن خیزان"
 
 #. HAZE
-#: ../libgweather/weather.c:204
+#: ../libgweather/gweather-weather.c:188
 msgid "Haze"
 msgstr "تیرگی هوا"
 
 #. SPRAY
-#: ../libgweather/weather.c:205
+#: ../libgweather/gweather-weather.c:189
 msgid "Blowing sprays"
 msgstr "قطرات ریز باران همراه با باد"
 
 #. DUST
-#: ../libgweather/weather.c:206
+#: ../libgweather/gweather-weather.c:190
 msgid "Dust"
 msgstr "غبار"
 
-#: ../libgweather/weather.c:206
+#: ../libgweather/gweather-weather.c:190
 msgid "Blowing dust"
 msgstr "گرد و خاک با باد"
 
-#: ../libgweather/weather.c:206
+#: ../libgweather/gweather-weather.c:190
 msgid "Drifting dust"
 msgstr "غبار خیزان"
 
 #. SQUALL
-#: ../libgweather/weather.c:207
+#: ../libgweather/gweather-weather.c:191
 msgid "Squall"
 msgstr "باد و بوران"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:208
+#: ../libgweather/gweather-weather.c:192
 msgid "Sandstorm"
 msgstr "توفان شن"
 
-#: ../libgweather/weather.c:208
+#: ../libgweather/gweather-weather.c:192
 msgid "Sandstorm in the vicinity"
 msgstr "توفان شن در حوالی"
 
-#: ../libgweather/weather.c:208
+#: ../libgweather/gweather-weather.c:192
 msgid "Heavy sandstorm"
 msgstr "توفان شن سنگین"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:209
+#: ../libgweather/gweather-weather.c:193
 msgid "Duststorm"
 msgstr "دیوباد"
 
-#: ../libgweather/weather.c:209
+#: ../libgweather/gweather-weather.c:193
 msgid "Duststorm in the vicinity"
 msgstr "دیوباد در حومه"
 
-#: ../libgweather/weather.c:209
+#: ../libgweather/gweather-weather.c:193
 msgid "Heavy duststorm"
 msgstr "دیوباد سنگین"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:210
+#: ../libgweather/gweather-weather.c:194
 msgid "Funnel cloud"
 msgstr "ابر فونل(دودکشی)"
 
 #. TORNADO
-#: ../libgweather/weather.c:211
+#: ../libgweather/gweather-weather.c:195
 msgid "Tornado"
 msgstr "توفان پیچنده"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:212
+#: ../libgweather/gweather-weather.c:196
 msgid "Dust whirls"
 msgstr "گرداب‌های گرد و خاک"
 
-#: ../libgweather/weather.c:212
+#: ../libgweather/gweather-weather.c:196
 msgid "Dust whirls in the vicinity"
 msgstr "گرداب‌های گرد و خاک در حومه"
 
-#: ../libgweather/weather.c:552
-#| msgid "%a, %b %d / %H:%M"
+#: ../libgweather/gweather-weather.c:705
 msgid "%a, %b %d / %H∶%M"
 msgstr "%A %Od %B / %OH:%OM"
 
-#: ../libgweather/weather.c:558
+#: ../libgweather/gweather-weather.c:711
 msgid "Unknown observation time"
 msgstr "زمان رصد نامشخص"
 
-#: ../libgweather/weather.c:570
-#| msgid "Unknown"
+#: ../libgweather/gweather-weather.c:723
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "نامعلوم"
 
+#. Translate to the default units to use for presenting
+#. * lengths to the user. Translate to default:inch if you
+#. * want inches, otherwise translate to default:mm.
+#. * Do *not* translate it to "predefinito:mm", if it
+#. * it isn't default:mm or default:inch it will not work
+#.
+#: ../libgweather/gweather-weather.c:745
+msgid "default:mm"
+msgstr "default:mm"
+
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:590
+#: ../libgweather/gweather-weather.c:797
 #, c-format
 msgid "%.1f °F"
 msgstr "‏%I.1f درجه‌ی فارنهایت‬"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:593
+#: ../libgweather/gweather-weather.c:800
 #, c-format
 msgid "%d °F"
 msgstr "‎%Id °F‬"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:599
+#: ../libgweather/gweather-weather.c:806
 #, c-format
 msgid "%.1f °C"
 msgstr "‏%I.1f درجه‌ی سلسیوس‬"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:602
+#: ../libgweather/gweather-weather.c:809
 #, c-format
 msgid "%d °C"
 msgstr "‎%Id ‬°C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:608
+#: ../libgweather/gweather-weather.c:815
 #, c-format
 msgid "%.1f K"
 msgstr "‏%I.1f درجه‌ی کلوین‬"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:611
+#: ../libgweather/gweather-weather.c:818
 #, c-format
 msgid "%d K"
 msgstr "‎%Id K"
 
-#: ../libgweather/weather.c:619
-#| msgid "Unknown"
-msgctxt "temperature unit"
-msgid "Unknown"
-msgstr "نامعلوم"
-
-#: ../libgweather/weather.c:634 ../libgweather/weather.c:650
-#: ../libgweather/weather.c:666 ../libgweather/weather.c:719
-#| msgid "Unknown"
+#: ../libgweather/gweather-weather.c:841 ../libgweather/gweather-weather.c:857
+#: ../libgweather/gweather-weather.c:873 ../libgweather/gweather-weather.c:935
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "نامعلوم"
 
-#: ../libgweather/weather.c:682
-#| msgid "Unknown"
+#: ../libgweather/gweather-weather.c:895
 msgctxt "dew"
 msgid "Unknown"
 msgstr "نامعلوم"
 
-#: ../libgweather/weather.c:699
-#| msgid "Unknown"
+#: ../libgweather/gweather-weather.c:915
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "نامعلوم"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:702
+#: ../libgweather/gweather-weather.c:918
 #, c-format
 msgid "%.f%%"
 msgstr "‪٪%I.f‬"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:730
+#: ../libgweather/gweather-weather.c:964
 #, c-format
 msgid "%0.1f knots"
 msgstr "%I0.1f گره‌"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:733
+#: ../libgweather/gweather-weather.c:967
 #, c-format
 msgid "%.1f mph"
 msgstr "%I.1f مایل بر ساعت"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:736
+#: ../libgweather/gweather-weather.c:970
 #, c-format
 msgid "%.1f km/h"
 msgstr "%I.1f کیلومتر بر ساعت"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:739
+#: ../libgweather/gweather-weather.c:973
 #, c-format
 msgid "%.1f m/s"
 msgstr "%I.1f متر بر ساعت"
@@ -533,124 +551,110 @@ msgstr "%I.1f متر بر ساعت"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:744
+#: ../libgweather/gweather-weather.c:978
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "نیروی بوفورت %.1f"
 
-#: ../libgweather/weather.c:749
-#| msgid "Unknown"
-msgctxt "speed unit"
-msgid "Unknown"
-msgstr "نامعلوم"
-
-#: ../libgweather/weather.c:767
-#| msgid "Unknown"
+#: ../libgweather/gweather-weather.c:999
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "نامعلوم"
 
-#: ../libgweather/weather.c:769
+#: ../libgweather/gweather-weather.c:1001
 msgid "Calm"
 msgstr "آرام"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:777
+#: ../libgweather/gweather-weather.c:1009
 #, c-format
 msgid "%s / %s"
 msgstr "‏%s‏ / ‏%s‏"
 
-#: ../libgweather/weather.c:796
-#| msgid "Unknown"
+#: ../libgweather/gweather-weather.c:1045
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "نامعلوم"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:801
+#: ../libgweather/gweather-weather.c:1051
 #, c-format
 msgid "%.2f inHg"
 msgstr "%I.2f اینچ جیوه"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:804
+#: ../libgweather/gweather-weather.c:1054
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%I.1f میلی‌متر جیوه"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:807
+#: ../libgweather/gweather-weather.c:1057
 #, c-format
 msgid "%.2f kPa"
 msgstr "%I.2f کیلوپاسکال"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:810
+#: ../libgweather/gweather-weather.c:1060
 #, c-format
 msgid "%.2f hPa"
 msgstr "%I.2f هکتوپاسکال"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:813
+#: ../libgweather/gweather-weather.c:1063
 #, c-format
 msgid "%.2f mb"
 msgstr "%I.2f میلی‌بار"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:816
+#: ../libgweather/gweather-weather.c:1066
 #, c-format
 msgid "%.3f atm"
 msgstr "%I.3f اتمسفر"
 
-#: ../libgweather/weather.c:822
-#| msgid "Unknown"
-msgctxt "pressure unit"
-msgid "Unknown"
-msgstr "نامعلوم"
-
-#: ../libgweather/weather.c:839
-#| msgid "Unknown"
+#: ../libgweather/gweather-weather.c:1104
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "نامعلوم"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:844
+#: ../libgweather/gweather-weather.c:1110
 #, c-format
 msgid "%.1f miles"
 msgstr "%I.1f مایل"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:847
+#: ../libgweather/gweather-weather.c:1113
 #, c-format
 msgid "%.1f km"
 msgstr "%I.1f کیلومتر"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:850
+#: ../libgweather/gweather-weather.c:1116
 #, c-format
 msgid "%.0fm"
 msgstr "%I.0f متر"
 
-#: ../libgweather/weather.c:856
-#| msgid "Unknown"
-msgctxt "visibility unit"
-msgid "Unknown"
-msgstr "نامعلوم"
-
-#: ../libgweather/weather.c:880 ../libgweather/weather.c:905
+#: ../libgweather/gweather-weather.c:1144 ../libgweather/gweather-weather.c:1169
 msgid "%H∶%M"
 msgstr "%OH∶%OM"
 
-#: ../libgweather/weather.c:1006
+#: ../libgweather/gweather-weather.c:1263
 msgid "Retrieval failed"
 msgstr "بازیابی شکست خورد"
 
-#. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:523
+#: ../libgweather/weather-metar.c:573
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "گرفتن داده‌های METAR شکست خورد: %Id %s.\n"
+
+#: ../libgweather/weather-owm.c:383
+msgid ""
+"Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
+"project</a>"
+msgstr ""
+"اطلاعات هوا از طریق <a href=\"http://openweathermap.org\">پروژه‌ی نقش آب و هوایی "
+"باز</a>"
 
 #. The new (documented but not advertised) API is less strict in the
 #. format of the attribution, and just requires a generic CC-BY compatible
@@ -658,7 +662,7 @@ msgstr "گرفتن داده‌های METAR شکست خورد: %Id %s.\n"
 #.
 #. That's very nice of them!
 #.
-#: ../libgweather/weather-yrno.c:416
+#: ../libgweather/weather-yrno.c:507
 msgid ""
 "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
 "Institute</a>"
@@ -670,23 +674,17 @@ msgstr "نشانی اینترنتی نقشه‌ی رادار"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:2
 msgid ""
-"The custom URL from where to retrieve a radar map, or empty for disabling "
-"radar maps."
+"The custom URL from where to retrieve a radar map, or empty for disabling radar "
+"maps."
 msgstr ""
-"نشانی اینترنتی سفارشی‌ای که نقشه‌ی رادار از آنجا گرفته می‌شود، یا نقشه‌ی رادار "
-"را غیرفعال یا خالی می‌کند."
+"نشانی اینترنتی سفارشی‌ای که نقشه‌ی رادار از آنجا گرفته می‌شود، یا نقشه‌ی رادار را "
+"غیرفعال یا خالی می‌کند."
 
-#. TRANSLATORS: pick a temperature unit that should be used by default in your
-#. locale; values must be quoted
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
-msgid "'fahrenheit'"
-msgstr "'centigrade'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:3
 msgid "Temperature unit"
 msgstr "واحد دما"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:4
 msgid ""
 "The unit of temperature used for showing weather. Valid values are 'kelvin', "
 "'centigrade' and 'fahrenheit'."
@@ -694,88 +692,112 @@ msgstr ""
 "واحد دما جهت نمایش آب‌وهوا. مقادیر معتبر عبارتند از 'kelvin' ،'centigrade' و "
 "'fahrenheit'."
 
-#. TRANSLATORS: pick a default distance unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
-msgid "'miles'"
-msgstr "'km'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
 msgid "Distance unit"
 msgstr "واحد فاصله"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
 msgid ""
-"The unit of distance used for showing weather (for example for visibility or "
-"for distance of important events). Valid values are 'meters', 'km' and "
-"'miles'."
+"The unit of distance used for showing weather (for example for visibility or for "
+"distance of important events). Valid values are 'meters', 'km' and 'miles'."
 msgstr ""
 "واحد مسافت که برای نمایش آب‌وهوا استفاده می‌شود (برای مثال جهت قابلیت دید و یا "
 "مسافت رویدادهای مهم). مقادیر معتبر عبارتند از 'meters' ،'km' و 'miles'."
 
-#. TRANSLATORS: pick a default speed unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:15
-msgid "'knots'"
-msgstr "'kph'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:16
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
 msgid "Speed unit"
 msgstr "واحد سرعت"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:17
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:8
 msgid ""
-"The unit of speed used for showing weather (for example for wind speed). "
-"Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
-"'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+"The unit of speed used for showing weather (for example for wind speed). Valid "
+"values are 'ms' (meters per second), 'kph' (kilometers per hour), 'mph' (miles "
+"per hour), 'knots' and 'bft' (Beaufort scale)."
 msgstr ""
-"واحد سرعت که برای نمایش آب‌وهوا استفاده می‌شود (برای مثال جهت سرعت باد). "
-"مقادیر معتبر عبارتند از 'ms' (متر بر ثانبه)، 'kph' (کیلومتر بر ساعت)، "
-"'mph' (مایل بر ساعت)، 'knots' و 'bft' (مقیاس بوفورت)."
+"واحد سرعت که برای نمایش آب‌وهوا استفاده می‌شود (برای مثال جهت سرعت باد). مقادیر "
+"معتبر عبارتند از 'ms' (متر بر ثانبه)، 'kph' (کیلومتر بر ساعت)، 'mph' (مایل بر "
+"ساعت)، 'knots' و 'bft' (مقیاس بوفورت)."
 
-#. TRANSLATORS: pick a default pressure unit for your locale, see key description
-#. for valid values
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:20
-msgid "'inch-hg'"
-msgstr "'atm'"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:21
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:9
 msgid "Pressure unit"
 msgstr "واحد فشار"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:22
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
 msgid ""
 "The unit of pressure used for showing weather. Valid values are "
 "'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
-"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
-"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of mercury), "
+"'inch-hg' (inches of mercury), 'atm' (atmospheres)."
 msgstr ""
-"واحد فشار که برای نمایش آب‌وهوا مورد استفاده قرار می‌گیرد. مقادیر معتبر "
-"عبارتند از 'kpa' (کلیوپاسکال), 'hpa' (هکتوپاسکال), 'mb' (میلی‌بار، از لحاظ "
-"ریاضی معادل ۱ هکتوپاسکال است اما به شکل متفاوتی نمایش داده می‌شود), 'mm-"
-"hg' (میلی‌متر جیوه), 'inch-hg' (اینچ جیوه), 'atm' (اتموسفر)."
+"واحد فشار که برای نمایش آب‌وهوا مورد استفاده قرار می‌گیرد. مقادیر معتبر عبارتند از "
+"'kpa' (کلیوپاسکال), 'hpa' (هکتوپاسکال), 'mb' (میلی‌بار، از لحاظ ریاضی معادل ۱ "
+"هکتوپاسکال است اما به شکل متفاوتی نمایش داده می‌شود), 'mm-hg' (میلی‌متر جیوه), "
+"'inch-hg' (اینچ جیوه), 'atm' (اتموسفر)."
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:23
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
 msgid "Default location"
 msgstr "مکان پیش‌فرض"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:24
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
 msgid ""
-"The default location for the weather applet. The first field is the name "
-"that will be shown. If empty, it will be taken from the locations database. "
-"The second field is the METAR code for the default weather station. It must "
-"not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml "
-"file. The third field is a tuple of (latitude, longitude), to override the "
-"value taken from the database. This is only used for sunrise and moon phase "
-"calculations, not for weather forecast."
+"The default location for the weather applet. The first field is the name that "
+"will be shown. If empty, it will be taken from the locations database. The second "
+"field is the METAR code for the default weather station. It must not be empty and "
+"must correspond to a &lt;code&gt; tag in the Locations.xml file. The third field "
+"is a tuple of (latitude, longitude), to override the value taken from the "
+"database. This is only used for sunrise and moon phase calculations, not for "
+"weather forecast."
 msgstr ""
-"مکان پیش‌فرض برای برنامک آب‌وهوا. فیلد اول نامی است که نمایش داده می‌شود. اگر "
-"خالی باشد، از طریق بانک‌اطلاعاتی مکان‌ها دریافت خواهد شد. فیلد دوم کد METAR "
-"ایستگاه هواشناسی پیش‌فرض است. این نباید خالی باشد و باید برابر با تگ &lt;"
-"code&gt; در پرونده Locations.xml باشد. فیلد سوم یک تاپل از (latitude, "
-"longitude) است، تا مقادیر دریافت شده از بانک اطلاعاتی را بازنویسی کند. این "
-"تنها فقط برای محاسبات غروب و حالت ماه استفاده می‌شود و در پیش‌بینی هوا تاثیری "
-"ندارد."
+"مکان پیش‌فرض برای برنامک آب‌وهوا. فیلد اول نامی است که نمایش داده می‌شود. اگر خالی "
+"باشد، از طریق بانک‌اطلاعاتی مکان‌ها دریافت خواهد شد. فیلد دوم کد METAR ایستگاه "
+"هواشناسی پیش‌فرض است. این نباید خالی باشد و باید برابر با تگ &lt;code&gt; در "
+"پرونده Locations.xml باشد. فیلد سوم یک تاپل از (latitude, longitude) است، تا "
+"مقادیر دریافت شده از بانک اطلاعاتی را بازنویسی کند. این تنها فقط برای محاسبات "
+"غروب و حالت ماه استفاده می‌شود و در پیش‌بینی هوا تاثیری ندارد."
+
+#~ msgid "Ice pellets"
+#~ msgstr "گلوله‌های یخ"
+
+#~ msgid "Few ice pellets"
+#~ msgstr "گلوله‌های یخ با تعداد کم"
+
+#~ msgid "Moderate ice pellets"
+#~ msgstr "گلوله‌های یخ با تعداد متوسط"
+
+#~ msgid "Heavy ice pellets"
+#~ msgstr "گلوله‌های یخ با تعداد زیاد"
+
+#~| msgid "Unknown"
+#~ msgctxt "temperature unit"
+#~ msgid "Unknown"
+#~ msgstr "نامعلوم"
+
+#~| msgid "Unknown"
+#~ msgctxt "speed unit"
+#~ msgid "Unknown"
+#~ msgstr "نامعلوم"
+
+#~| msgid "Unknown"
+#~ msgctxt "pressure unit"
+#~ msgid "Unknown"
+#~ msgstr "نامعلوم"
+
+#~| msgid "Unknown"
+#~ msgctxt "visibility unit"
+#~ msgid "Unknown"
+#~ msgstr "نامعلوم"
+
+#~ msgid "'fahrenheit'"
+#~ msgstr "'centigrade'"
+
+#~ msgid "'miles'"
+#~ msgstr "'km'"
+
+#~ msgid "'knots'"
+#~ msgstr "'kph'"
+
+#~ msgid "'inch-hg'"
+#~ msgstr "'atm'"
 
 #~ msgid "%H:%M"
 #~ msgstr "%OH:%OM"
@@ -797,9 +819,6 @@ msgstr ""
 
 #~ msgid "DEFAULT_COORDINATES"
 #~ msgstr "35-41N 051-21E"
-
-#~ msgid "Default"
-#~ msgstr "پیش‌فرض"
 
 #~ msgid "K"
 #~ msgstr "کلوین"
@@ -862,11 +881,11 @@ msgstr ""
 #~ msgstr "km"
 
 #~ msgid ""
-#~ "A three-digit-long code for retrieving radar maps from weather.com, found "
-#~ "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+#~ "A three-digit-long code for retrieving radar maps from weather.com, found from "
+#~ "http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 #~ msgstr ""
-#~ "یک کد ۳ رقمی برای گرفتن نقشه‌های رادار از weather.com که می‌توان آن را در "
-#~ "http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in یافت"
+#~ "یک کد ۳ رقمی برای گرفتن نقشه‌های رادار از weather.com که می‌توان آن را در http://"
+#~ "git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in یافت"
 
 #~ msgid ""
 #~ "A unique zone for the city, as found from http://git.gnome.org/cgit/"
@@ -876,10 +895,9 @@ msgstr ""
 #~ "plain/data/Locations.xml.in یافت "
 
 #~ msgid ""
-#~ "Determines whether the applet automatically updates its weather "
-#~ "statistics or not."
-#~ msgstr ""
-#~ "تعیین می‌کند که برنامک به طور خودکار آمار آب و هوا را به‌هنگام بکند یا نه."
+#~ "Determines whether the applet automatically updates its weather statistics or "
+#~ "not."
+#~ msgstr "تعیین می‌کند که برنامک به طور خودکار آمار آب و هوا را به‌هنگام بکند یا نه."
 
 #~ msgid "Display radar map"
 #~ msgstr "نمایش نقشه‌ی رادار"
@@ -888,18 +906,15 @@ msgstr ""
 #~ msgstr "در هر به‌هنگام‌سازی یک نقشه‌ی رادار گرفته شود."
 
 #~ msgid ""
-#~ "If true, then retrieve a radar map from a location specified by the "
-#~ "\"radar\" key."
+#~ "If true, then retrieve a radar map from a location specified by the \"radar\" "
+#~ "key."
 #~ msgstr ""
-#~ "اگر «درست» باشد، یک نقشه‌ی رادار از مکان مشخص شده توسط کلید «رادار» گرفته "
-#~ "شود."
+#~ "اگر «درست» باشد، یک نقشه‌ی رادار از مکان مشخص شده توسط کلید «رادار» گرفته شود."
 
 #~ msgid ""
-#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-"
-#~ "SS[EW]."
+#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS[EW]."
 #~ msgstr ""
-#~ "طول و عرض جغرافیایی مکان شما که به شکل DD-MM-SS[NS] DD-MM-SS[EW]‎ مشخص شده "
-#~ "است"
+#~ "طول و عرض جغرافیایی مکان شما که به شکل DD-MM-SS[NS] DD-MM-SS[EW]‎ مشخص شده است"
 
 #~ msgid "Location coordinates"
 #~ msgstr "مختصات مکان"
@@ -908,11 +923,11 @@ msgstr ""
 #~ msgstr "شهر نزدیک"
 
 #~ msgid ""
-#~ "Nearby major zone, such as a capital city, as found from http://git.gnome."
-#~ "org/cgit/libgweather/plain/data/Locations.xml.in"
+#~ "Nearby major zone, such as a capital city, as found from http://git.gnome.org/"
+#~ "cgit/libgweather/plain/data/Locations.xml.in"
 #~ msgstr ""
-#~ "منطقه زمانی اصلی نزدیک، مثل پایتخت، که می‌توان آن را در http://git.gnome."
-#~ "org/cgit/libgweather/plain/data/Locations.xml.in یافت"
+#~ "منطقه زمانی اصلی نزدیک، مثل پایتخت، که می‌توان آن را در http://git.gnome.org/"
+#~ "cgit/libgweather/plain/data/Locations.xml.in یافت"
 
 #~ msgid "Not used anymore"
 #~ msgstr "دیگر استفاده نمی‌شود"
@@ -1022,8 +1037,7 @@ msgstr ""
 #~ msgstr "ا"
 
 #~ msgid "Shows keyboard status when accessibility features are used."
-#~ msgstr ""
-#~ "وقتی از امکانات دسترسی‌پذیری استفاده شود، وضعیت صفحه‌کلید را ‌نشان می‌دهد."
+#~ msgstr "وقتی از امکانات دسترسی‌پذیری استفاده شود، وضعیت صفحه‌کلید را ‌نشان می‌دهد."
 
 #~ msgid "XKB Extension is not enabled"
 #~ msgstr "گسترش XKB به کار نیافتاده است"
@@ -1077,11 +1091,11 @@ msgstr ""
 #~ msgstr "سطح مقدار قرمز"
 
 #~ msgid ""
-#~ "Show the battery meter draining from the top of the battery. Only "
-#~ "implemented for traditional battery view."
+#~ "Show the battery meter draining from the top of the battery. Only implemented "
+#~ "for traditional battery view."
 #~ msgstr ""
-#~ "پایین آمدن درجه‌ی باتری‌سنج به شکل خالی شدن از سر باتری نشان داده شود. فقط "
-#~ "در نمای باتری سنتی پیاده‌سازی شده است."
+#~ "پایین آمدن درجه‌ی باتری‌سنج به شکل خالی شدن از سر باتری نشان داده شود. فقط در "
+#~ "نمای باتری سنتی پیاده‌سازی شده است."
 
 #~ msgid "Show the horizontal battery"
 #~ msgstr "نشان دادن باتری افقی"
@@ -1096,21 +1110,21 @@ msgstr ""
 #~ msgstr "نشان دادن باتری ایستاده که کوچکتر است روی تابلو"
 
 #~ msgid ""
-#~ "The battery level below which the battery is displayed as red. Also the "
-#~ "value at which the low battery warning is displayed."
+#~ "The battery level below which the battery is displayed as red. Also the value "
+#~ "at which the low battery warning is displayed."
 #~ msgstr ""
-#~ "سطحی از باتری که پایین‌تر از آن باتری قرمز نمایش داده می‌شود. همچنین مقداری "
-#~ "که در آن اخطار کم شدن باتری نشان داده می‌شود."
+#~ "سطحی از باتری که پایین‌تر از آن باتری قرمز نمایش داده می‌شود. همچنین مقداری که "
+#~ "در آن اخطار کم شدن باتری نشان داده می‌شود."
 
 #~ msgid "Upright (small) battery"
 #~ msgstr "باتری ایستاده (کوچک)"
 
 #~ msgid ""
-#~ "Use the value defined in red_value as a time remaining to show the "
-#~ "warning dialog rather than a percentage"
+#~ "Use the value defined in red_value as a time remaining to show the warning "
+#~ "dialog rather than a percentage"
 #~ msgstr ""
-#~ "برای نشان دادن محاوره‌ی اخطار به جای درصد از مقدار تعریف شده در red_value "
-#~ "به عنوان زمان باقی‌مانده استفاده شود"
+#~ "برای نشان دادن محاوره‌ی اخطار به جای درصد از مقدار تعریف شده در red_value به "
+#~ "عنوان زمان باقی‌مانده استفاده شود"
 
 #~ msgid "Warn on low time rather than low percentage"
 #~ msgstr "اخطار بر اساس زمان کم نه درصد کم"
@@ -1170,11 +1184,9 @@ msgstr ""
 #~ msgstr "اعلان باتری"
 
 #~ msgid ""
-#~ "You have %d minute of battery power remaining (%d%% of the total "
-#~ "capacity)."
+#~ "You have %d minute of battery power remaining (%d%% of the total capacity)."
 #~ msgid_plural ""
-#~ "You have %d minutes of battery power remaining (%d%% of the total "
-#~ "capacity)."
+#~ "You have %d minutes of battery power remaining (%d%% of the total capacity)."
 #~ msgstr[0] "برای %Id دقیقه باتری دارید (٪Id کل ظرفیت)"
 
 #~ msgid ""
@@ -1291,8 +1303,8 @@ msgstr ""
 #~ "Gnome Panel applet for selecting strange characters that are not on my "
 #~ "keyboard. Released under GNU General Public Licence."
 #~ msgstr ""
-#~ "برنامک تابلوی گنوم برای انتخاب نویسه‌های غیرعادی که روی صفحه‌کلید نیستند. "
-#~ "تحت مجوز عمومی همگانی گنو منتشر شده است."
+#~ "برنامک تابلوی گنوم برای انتخاب نویسه‌های غیرعادی که روی صفحه‌کلید نیستند. تحت "
+#~ "مجوز عمومی همگانی گنو منتشر شده است."
 
 #~ msgid "Characters shown on applet startup"
 #~ msgstr "نویسه‌هایی که موقع راه‌اندازی برنامک نمایش داده می‌شوند"
@@ -1310,8 +1322,8 @@ msgstr ""
 #~ "The string that the user had selected when the applet was last used. This "
 #~ "string will be displayed when the user starts the applet."
 #~ msgstr ""
-#~ "رشته‌ای که کاربر در آخرین باری که برنامک استفاده شده، انتخاب کرده است. این "
-#~ "رشته وقتی که کاربر برنامک را آغاز کند نمایش داده می‌شود."
+#~ "رشته‌ای که کاربر در آخرین باری که برنامک استفاده شده، انتخاب کرده است. این رشته "
+#~ "وقتی که کاربر برنامک را آغاز کند نمایش داده می‌شود."
 
 #~ msgid "_Edit"
 #~ msgstr "_ویرایش"
@@ -1365,20 +1377,20 @@ msgstr ""
 #~ msgstr "پایش میزان‌بندی بسامد واحد پردازش مرکزی"
 
 #~ msgid ""
-#~ "A 0 value means to show cpu frequency, 1 to show frequency and units, and "
-#~ "2 to show percentage instead of frequency."
+#~ "A 0 value means to show cpu frequency, 1 to show frequency and units, and 2 to "
+#~ "show percentage instead of frequency."
 #~ msgstr ""
-#~ "مقدار ۰ یعنی نمایش بسامد واحد پردازش مرکزی، ۱ یعنی نمایش بسامد و واحدها، "
-#~ "و ۲ به معنی نمایش درصد به‌جای بسامد است."
+#~ "مقدار ۰ یعنی نمایش بسامد واحد پردازش مرکزی، ۱ یعنی نمایش بسامد و واحدها، و ۲ "
+#~ "به معنی نمایش درصد به‌جای بسامد است."
 
 #~ msgid ""
-#~ "A 0 value means to show the applet in graphic mode (pixmap only), 1 to "
-#~ "show the applet in text mode (not to show the pixmap) and 2 to show the "
-#~ "applet in graphic and text mode."
+#~ "A 0 value means to show the applet in graphic mode (pixmap only), 1 to show "
+#~ "the applet in text mode (not to show the pixmap) and 2 to show the applet in "
+#~ "graphic and text mode."
 #~ msgstr ""
 #~ "مقدار ۰ یعنی نمایش برنامک در حالت گرافیکی (فقط نقشه‌نقطه‌ای)، ۱ یعنی نمایش "
-#~ "برنامک در حالت متنی (یعنی بدون نمایش نقشه‌نقطه‌ای)، و ۲ یعنی نمایش برنامک "
-#~ "در حالت گرافیکی و متنی."
+#~ "برنامک در حالت متنی (یعنی بدون نمایش نقشه‌نقطه‌ای)، و ۲ یعنی نمایش برنامک در "
+#~ "حالت گرافیکی و متنی."
 
 #~ msgid "CPU to Monitor"
 #~ msgstr "واحد پردازش مرکزی‌ای که پایش شود"
@@ -1390,11 +1402,11 @@ msgstr ""
 #~ msgstr "حالت نشان دادن منوی طوماری انتخاب‌گر بسامد"
 
 #~ msgid ""
-#~ "Set the CPU to monitor. In a single processor system you don't have to "
-#~ "change it."
+#~ "Set the CPU to monitor. In a single processor system you don't have to change "
+#~ "it."
 #~ msgstr ""
-#~ "تعیین کنید کدام واحد پردازش مرکزی پایش شود. در دستگاه‌های تک‌پردازنده لازم "
-#~ "نیست این را تغییر دهید."
+#~ "تعیین کنید کدام واحد پردازش مرکزی پایش شود. در دستگاه‌های تک‌پردازنده لازم نیست "
+#~ "این را تغییر دهید."
 
 #~ msgid "The type of text to display (if the text is enabled)."
 #~ msgstr "نوع متنی که نمایش داده شود (اگر متن به کار انداخته شده باشد)"
@@ -1466,13 +1478,12 @@ msgstr ""
 #~ msgstr "میزان‌بندی بسامد واحد پردازش مرکزی پشتیبانی نمی‌شود"
 
 #~ msgid ""
-#~ "You will not be able to modify the frequency of your machine.  Your "
-#~ "machine may be misconfigured or not have hardware support for CPU "
-#~ "frequency scaling."
+#~ "You will not be able to modify the frequency of your machine.  Your machine "
+#~ "may be misconfigured or not have hardware support for CPU frequency scaling."
 #~ msgstr ""
 #~ "شما قادر به تغییر بسامد دستگاهتان نخواهید بود. ممکن است دستگاه شما درست "
-#~ "پیکربندی نشده باشد یا از نظر سخت‌افزاری از میزان‌بندی بسامد واحد پردازش "
-#~ "مرکزی پشتیبانی نکند."
+#~ "پیکربندی نشده باشد یا از نظر سخت‌افزاری از میزان‌بندی بسامد واحد پردازش مرکزی "
+#~ "پشتیبانی نکند."
 
 #~ msgid "Disk Mounter"
 #~ msgstr "سوارکننده‌ی دیسک"
@@ -2131,22 +2142,17 @@ msgstr ""
 #~ msgid "No stock list"
 #~ msgstr "فهرست سهام موجود نیست"
 
-#~ msgid "Updating..."
-#~ msgstr "در حال به‌هنگام‌سازی..."
-
 #, fuzzy
 #~ msgid ""
-#~ "This program connects to a popular site and downloads current stock "
-#~ "quotes.\n"
+#~ "This program connects to a popular site and downloads current stock quotes.\n"
 #~ "\n"
-#~ "The GNOME Stock Ticker is a free Internet-based application. It comes "
-#~ "with ABSOLUTELY NO WARRANTY.\n"
+#~ "The GNOME Stock Ticker is a free Internet-based application. It comes with "
+#~ "ABSOLUTELY NO WARRANTY.\n"
 #~ "\n"
-#~ "Do not use the GNOME Stock Ticker for making investment decisions; it is "
-#~ "for informational purposes only."
+#~ "Do not use the GNOME Stock Ticker for making investment decisions; it is for "
+#~ "informational purposes only."
 #~ msgstr ""
-#~ "این برنامه به یک پایگاه مشهور وصل می‌شود و مظنه‌های فعلی سهام را بارگیری "
-#~ "می‌کند.\n"
+#~ "این برنامه به یک پایگاه مشهور وصل می‌شود و مظنه‌های فعلی سهام را بارگیری می‌کند.\n"
 #~ "..."
 
 #~ msgid "Current _stocks:"
@@ -2252,10 +2258,9 @@ msgstr ""
 #~ msgstr "رنگ پس‌زمینه"
 
 #~ msgid ""
-#~ "Display only stock symbols along with their value. Do not display changes "
-#~ "in value."
-#~ msgstr ""
-#~ "فقط نمادهای سهام و ارزششان نمایش داده شود. تغییرات ارزش نمایش داده نشود."
+#~ "Display only stock symbols along with their value. Do not display changes in "
+#~ "value."
+#~ msgstr "فقط نمادهای سهام و ارزششان نمایش داده شود. تغییرات ارزش نمایش داده نشود."
 
 #~ msgid "Display only symbols and price"
 #~ msgstr "نمایش فقط نمادها و قیمت"
@@ -2264,11 +2269,11 @@ msgstr ""
 #~ msgstr "قلم"
 
 #~ msgid ""
-#~ "List containing the stocks to be displayed. Consists of the stock id "
-#~ "separated by \"+\""
+#~ "List containing the stocks to be displayed. Consists of the stock id separated "
+#~ "by \"+\""
 #~ msgstr ""
-#~ "فهرست سهام‌هایی که باید نمایش داده شوند. شامل شناسه‌ی سهام‌هاست که با «+» "
-#~ "جدا شده‌اند."
+#~ "فهرست سهام‌هایی که باید نمایش داده شوند. شامل شناسه‌ی سهام‌هاست که با «+» جدا "
+#~ "شده‌اند."
 
 #~ msgid "Lowered color"
 #~ msgstr "رنگ پایین آمده‌ها"
@@ -2289,8 +2294,8 @@ msgstr ""
 #~ "Show arrow buttons on the side of the display so that the user can scroll "
 #~ "forward or backward."
 #~ msgstr ""
-#~ "نمایش دکمه‌های پیکان در کنار قسمت نمایش، طوری که کاربر بتواند صفحه را به "
-#~ "جلو یا عقب بلغزاند."
+#~ "نمایش دکمه‌های پیکان در کنار قسمت نمایش، طوری که کاربر بتواند صفحه را به جلو یا "
+#~ "عقب بلغزاند."
 
 #~ msgid "Stocks to monitor - must be separated by a +"
 #~ msgstr "سهام‌هایی که پاییده می‌شوند. باید با + جدا شوند"
@@ -2299,36 +2304,36 @@ msgstr ""
 #~ "The color of the background of the display. Has no effect when the user "
 #~ "chooses to use the default theme fonts and colors."
 #~ msgstr ""
-#~ "رنگ پس‌زمینه‌ی قسمت نمایش. وقتی کاربر استفاده از قلمها و رنگهای پیش‌فرض تم "
-#~ "را انتخاب کند، تأثیر ندارد."
+#~ "رنگ پس‌زمینه‌ی قسمت نمایش. وقتی کاربر استفاده از قلمها و رنگهای پیش‌فرض تم را "
+#~ "انتخاب کند، تأثیر ندارد."
 
 #~ msgid ""
-#~ "The color used when the stock's values has lowered. Has no effect when "
-#~ "the user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "رنگ مورد استفاده وقتی ارزش سهام پایین آمده است. وقتی کاربر استفاده از قلم "
-#~ "و رنگ‌های پیش‌فرض را انتخاب کند تأثیری ندارد."
-
-#~ msgid ""
-#~ "The color used when the stock's values has not changed. Has no effect "
-#~ "when the user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "رنگ مورد استفاده وقتی ارزش سهام تغییری نکرده است. وقتی کاربر استفاده از "
-#~ "قلم و رنگ‌های پیش‌فرض را انتخاب کند تأثیری ندارد."
-
-#~ msgid ""
-#~ "The color used when the stock's values has raised. Has no effect when the "
+#~ "The color used when the stock's values has lowered. Has no effect when the "
 #~ "user chooses to use the default theme fonts and colors."
 #~ msgstr ""
-#~ "رنگ مورد استفاده وقتی ارزش سهام بالا رفته است. وقتی کاربر استفاده از قلم "
-#~ "و رنگ‌های پیش‌فرض را انتخاب کند تأثیری ندارد."
+#~ "رنگ مورد استفاده وقتی ارزش سهام پایین آمده است. وقتی کاربر استفاده از قلم و "
+#~ "رنگ‌های پیش‌فرض را انتخاب کند تأثیری ندارد."
 
 #~ msgid ""
-#~ "The font used for the display. Has no effect when the user chooses to use "
-#~ "the default theme fonts and colors."
+#~ "The color used when the stock's values has not changed. Has no effect when the "
+#~ "user chooses to use the default theme fonts and colors."
 #~ msgstr ""
-#~ "قلم مورد استفاده برای نمایش. وقتی کاربر استفاده از قلمها و رنگهای پیش‌فرض "
-#~ "تم را انتخاب کند، تأثیر ندارد."
+#~ "رنگ مورد استفاده وقتی ارزش سهام تغییری نکرده است. وقتی کاربر استفاده از قلم و "
+#~ "رنگ‌های پیش‌فرض را انتخاب کند تأثیری ندارد."
+
+#~ msgid ""
+#~ "The color used when the stock's values has raised. Has no effect when the user "
+#~ "chooses to use the default theme fonts and colors."
+#~ msgstr ""
+#~ "رنگ مورد استفاده وقتی ارزش سهام بالا رفته است. وقتی کاربر استفاده از قلم و "
+#~ "رنگ‌های پیش‌فرض را انتخاب کند تأثیری ندارد."
+
+#~ msgid ""
+#~ "The font used for the display. Has no effect when the user chooses to use the "
+#~ "default theme fonts and colors."
+#~ msgstr ""
+#~ "قلم مورد استفاده برای نمایش. وقتی کاربر استفاده از قلمها و رنگهای پیش‌فرض تم را "
+#~ "انتخاب کند، تأثیر ندارد."
 
 #~ msgid "The time interval until when the applet updates the stock data."
 #~ msgstr "بازه‌ی زمانی‌ای که برنامک اطلاعات سهام را به‌هنگام می‌کند."
@@ -2374,9 +2379,6 @@ msgstr ""
 
 #~ msgid "A panel application for monitoring local weather conditions."
 #~ msgstr "یک برنامه‌ی تابلو برای پایش شرایط محلی آب و هوا."
-
-#~ msgid "GNOME Weather"
-#~ msgstr "آب و هوای گنوم"
 
 #~ msgid ""
 #~ "City: %s\n"
@@ -2456,9 +2458,6 @@ msgstr ""
 #~ msgid "Forecast not currently available for this location."
 #~ msgstr "برای این مکان فعلاً پیش‌بینی‌ای موجود نیست."
 
-#~ msgid "Location view"
-#~ msgstr "نمایش مکان"
-
 #~ msgid "Select Location from the list"
 #~ msgstr "انتخاب مکان از فهرست"
 
@@ -2468,11 +2467,10 @@ msgstr ""
 #~ msgid "Enter the URL"
 #~ msgstr "نشانی اینترنتی را وارد کنید"
 
-#~ msgid ""
-#~ "Failed to load the Locations XML database.  Please report this as a bug."
+#~ msgid "Failed to load the Locations XML database.  Please report this as a bug."
 #~ msgstr ""
-#~ "بار کردن پایگاه‌داده‌ی Locations XML شکست خورد. لطفاً این مورد را به عنوان "
-#~ "اشکال گزارش کنید."
+#~ "بار کردن پایگاه‌داده‌ی Locations XML شکست خورد. لطفاً این مورد را به عنوان اشکال "
+#~ "گزارش کنید."
 
 #~ msgid "Weather Preferences"
 #~ msgstr "ترجیحات آب و هوا"
@@ -2566,10 +2564,8 @@ msgstr ""
 #~ msgid "Set default list value for %s\n"
 #~ msgstr "تنظیم مقدار پیش‌فرض فهرست برای %s\n"
 
-#~ msgid ""
-#~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
-#~ msgstr ""
-#~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL تنظیم شده است، شِماها نصب نمی‌شوند\n"
+#~ msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
+#~ msgstr "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL تنظیم شده است، شِماها نصب نمی‌شوند\n"
 
 #~ msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
 #~ msgstr "باید متغیر محیطی GCONF_CONFIG_SOURCE تنظیم شود\n"
@@ -2580,13 +2576,10 @@ msgstr ""
 #~ msgid "Error syncing config data: %s"
 #~ msgstr "خطا در همگام‌سازی داده‌های پیکربندی: %s"
 
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro commands."
-#~ msgstr ""
-#~ "فهرست مدخل‌های GConfValue که حاوی رشته‌هایی برای فرمان‌های ماکرو هستند."
+#~ msgid "List of GConfValue entries containing strings for the macro commands."
+#~ msgstr "فهرست مدخل‌های GConfValue که حاوی رشته‌هایی برای فرمان‌های ماکرو هستند."
 
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro patterns."
+#~ msgid "List of GConfValue entries containing strings for the macro patterns."
 #~ msgstr "فهرست مدخل‌های GConfValue که حاوی رشته‌هایی برای الگوهای ماکرو هستند."
 
 #~ msgid "Macro command list"
@@ -2643,8 +2636,7 @@ msgstr ""
 #~ msgid "_Use default theme colors"
 #~ msgstr "استفاده از رنگ‌های _تم پیش‌فرض"
 
-#~ msgid ""
-#~ "Attempt to autocomplete a command from the history of commands entered."
+#~ msgid "Attempt to autocomplete a command from the history of commands entered."
 #~ msgstr "تلاش برای تکمیل خودکار یک فرمان از تاریخچه‌ی فرمان‌های وارد شده."
 
 #~ msgid "Background color, blue component"
@@ -2765,21 +2757,20 @@ msgstr ""
 #~ msgstr "_باز کردن کنترل صدا"
 
 #~ msgid ""
-#~ "The volume control did not find any elements and/or devices to control. "
-#~ "This means either that you don't have the right GStreamer plugins "
-#~ "installed, or that you don't have a sound card configured."
+#~ "The volume control did not find any elements and/or devices to control. This "
+#~ "means either that you don't have the right GStreamer plugins installed, or "
+#~ "that you don't have a sound card configured."
 #~ msgstr ""
-#~ "کنترل بلندی صدا عنصر و/یا دستگاهی پیدا نکرد تا کنترل کند. این بدین معنی "
-#~ "است که یا متصل شونده‌های مناسب GStreamer نصب نشده‌اند، یا کارت صوتی برای "
-#~ "شما پیکربندی نشده است."
+#~ "کنترل بلندی صدا عنصر و/یا دستگاهی پیدا نکرد تا کنترل کند. این بدین معنی است که "
+#~ "یا متصل شونده‌های مناسب GStreamer نصب نشده‌اند، یا کارت صوتی برای شما پیکربندی "
+#~ "نشده است."
 
 #~ msgid ""
-#~ "You can remove the volume control from the panel by right-clicking the "
-#~ "speaker icon on the panel and selecting \"Remove From Panel\" from the "
-#~ "menu."
+#~ "You can remove the volume control from the panel by right-clicking the speaker "
+#~ "icon on the panel and selecting \"Remove From Panel\" from the menu."
 #~ msgstr ""
-#~ "می‌توانید با راست کلیک کردن روی شمایل بلندگو در تابلو و انتخاب «حذف از "
-#~ "تابلو» از منو، کنترل بلندی صدا را از تابلو حذف کنید."
+#~ "می‌توانید با راست کلیک کردن روی شمایل بلندگو در تابلو و انتخاب «حذف از تابلو» "
+#~ "از منو، کنترل بلندی صدا را از تابلو حذف کنید."
 
 #~ msgid "Failed to start Volume Control: %s"
 #~ msgstr "آغاز کردن کنترل صدا شکست خورد: %s"
@@ -2845,17 +2836,14 @@ msgstr ""
 #~ msgstr "متصل نیست"
 
 #~ msgid ""
-#~ "To connect to your Internet service provider, you need administrator "
-#~ "privileges"
-#~ msgstr ""
-#~ "برای اتصال به فراهم‌کننده‌ی خدمات اینترنتی، نیاز به امتیازات مدیریت دارید"
+#~ "To connect to your Internet service provider, you need administrator privileges"
+#~ msgstr "برای اتصال به فراهم‌کننده‌ی خدمات اینترنتی، نیاز به امتیازات مدیریت دارید"
 
 #~ msgid ""
 #~ "To disconnect from your Internet service provider, you need administrator "
 #~ "privileges"
 #~ msgstr ""
-#~ "برای قطع اتصال از فراهم‌کننده‌ی خدمات اینترنتی، نیاز به امتیازات مدیریت "
-#~ "دارید"
+#~ "برای قطع اتصال از فراهم‌کننده‌ی خدمات اینترنتی، نیاز به امتیازات مدیریت دارید"
 
 #~ msgid "The entered password is invalid"
 #~ msgstr "گذرواژه‌ی واردشده نامعتبر است"
@@ -2919,8 +2907,8 @@ msgstr ""
 #~ "space use, plus network traffic."
 #~ msgstr ""
 #~ "پایشگری برای بار دستگاه که می‌تواند نمودارهایی برای میزان استفاده از واحد "
-#~ "پردازش مرکزی (CPU)، حافظه‌ی با دستیابی تصادفی (RAM) و فضای مبادله نمایش "
-#~ "دهد،‌ به‌علاوه‌ی ترافیک شبکه."
+#~ "پردازش مرکزی (CPU)، حافظه‌ی با دستیابی تصادفی (RAM) و فضای مبادله نمایش دهد،‌ "
+#~ "به‌علاوه‌ی ترافیک شبکه."
 
 #~ msgid "There was an error executing '%s': %s"
 #~ msgstr "در اجرای «%s» خطایی پیش آمد: %s"
@@ -3006,11 +2994,11 @@ msgstr ""
 #~ msgstr "به کار انداختن نمودار بار فضای مبادله"
 
 #~ msgid ""
-#~ "For horizontal panels, the width of the graphs in pixels. For vertical "
-#~ "panels, this is the height of the graphs."
+#~ "For horizontal panels, the width of the graphs in pixels. For vertical panels, "
+#~ "this is the height of the graphs."
 #~ msgstr ""
-#~ "برای تابلوهای افقی، عرض نمودارها بر حسب نقطه. برای تابلوهای عمودی، این "
-#~ "ارتفاع نمودارهاست."
+#~ "برای تابلوهای افقی، عرض نمودارها بر حسب نقطه. برای تابلوهای عمودی، این ارتفاع "
+#~ "نمودارهاست."
 
 #~ msgid "Graph color for Ethernet network activity"
 #~ msgstr "رنگ نمودار برای فعالیت شبکه‌ی اترنت"
@@ -3208,11 +3196,11 @@ msgstr ""
 #~ msgstr "بعضی موارد تابلو دیگر موجود نیستند"
 
 #~ msgid ""
-#~ "One or more panel items (also referred to as applets) are no longer "
-#~ "available in the GNOME desktop."
+#~ "One or more panel items (also referred to as applets) are no longer available "
+#~ "in the GNOME desktop."
 #~ msgstr ""
-#~ "یک یا چند مورد تابلو (که به آن‌ها برنامک نیز می‌گویند) دیگر در محیط رومیزی "
-#~ "گنوم موجود نیستند."
+#~ "یک یا چند مورد تابلو (که به آن‌ها برنامک نیز می‌گویند) دیگر در محیط رومیزی گنوم "
+#~ "موجود نیستند."
 
 #~ msgid "These items will now be removed from your configuration:"
 #~ msgstr "اکنون این موارد از پیکربندی‌تان برداشته خواهد شد:"
@@ -3383,13 +3371,12 @@ msgstr ""
 #~ msgstr "مدت انقضای ذخیره‌ی خودکار بر حسب دقیقه"
 
 #~ msgid ""
-#~ "By default, sticky notes are given the current date as the title when "
-#~ "they are created. This format is used; anything that can be parsed by "
-#~ "strftime() is valid."
+#~ "By default, sticky notes are given the current date as the title when they are "
+#~ "created. This format is used; anything that can be parsed by strftime() is "
+#~ "valid."
 #~ msgstr ""
-#~ "به طور پیش‌فرض، عنوان یادداشت‌های چسبان در هنگام ایجاد شدن، تاریخ جاری است. "
-#~ "از این قالب استفاده می‌شود؛ هرچیزی که بتواند توسط strftime()‎ تجزیه شود "
-#~ "قبول است."
+#~ "به طور پیش‌فرض، عنوان یادداشت‌های چسبان در هنگام ایجاد شدن، تاریخ جاری است. از "
+#~ "این قالب استفاده می‌شود؛ هرچیزی که بتواند توسط strftime()‎ تجزیه شود قبول است."
 
 #~ msgid "Date format of note's title"
 #~ msgstr "قالب تاریخ عنوان یادداشت"
@@ -3401,18 +3388,18 @@ msgstr ""
 #~ msgstr "رنگ پیش‌فرض برای یادداشت‌های جدید"
 
 #~ msgid ""
-#~ "Default color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#30FF50\"."
+#~ "Default color for new sticky notes. This should be in html hex specification, "
+#~ "for example \"#30FF50\"."
 #~ msgstr ""
-#~ "رنگ پیش‌فرض برای یادداشت‌های چسبان جدید. باید بنا بر توصیف شانزده‌شانزدهی "
-#~ "HTML باشد، مثلاً «‎#30FF50»."
+#~ "رنگ پیش‌فرض برای یادداشت‌های چسبان جدید. باید بنا بر توصیف شانزده‌شانزدهی HTML "
+#~ "باشد، مثلاً «‎#30FF50»."
 
 #~ msgid ""
 #~ "Default font color for new sticky notes. This should be in html hex "
 #~ "specification, for example \"#000000\"."
 #~ msgstr ""
-#~ "رنگ پیش‌فرض قلم برای یادداشت‌های چسبان جدید. باید بنا بر توصیف "
-#~ "شانزده‌شانزدهی HTML باشد، مثلاً «‎#000000»."
+#~ "رنگ پیش‌فرض قلم برای یادداشت‌های چسبان جدید. باید بنا بر توصیف شانزده‌شانزدهی "
+#~ "HTML باشد، مثلاً «‎#000000»."
 
 #~ msgid "Default font for new notes"
 #~ msgstr "قلم پیش‌فرض برای یادداشت‌های جدید"
@@ -3421,8 +3408,8 @@ msgstr ""
 #~ "Default font for new sticky notes. This should be a Pango Font Name, for "
 #~ "example \"Sans Italic 10\""
 #~ msgstr ""
-#~ "قلم پیش‌فرض برای یادداشت‌های چسبان جدید. باید یک نام قلم پنگویی (Pango) "
-#~ "باشد، مثلاً «Sans Italic 10»"
+#~ "قلم پیش‌فرض برای یادداشت‌های چسبان جدید. باید یک نام قلم پنگویی (Pango) باشد، "
+#~ "مثلاً «Sans Italic 10»"
 
 #~ msgid "Default height for new notes"
 #~ msgstr "ارتفاع پیش‌فرض برای یادداشت‌های جدید"
@@ -3443,40 +3430,39 @@ msgstr ""
 #~ "Every time the specified number of minutes pass, the sticky notes are "
 #~ "automatically saved."
 #~ msgstr ""
-#~ "هر بار پس از گذشتن تعداد دقایق مشخص شده، یادداشت‌های چسبان به طور خودکار "
-#~ "ذخیره می‌شوند."
+#~ "هر بار پس از گذشتن تعداد دقایق مشخص شده، یادداشت‌های چسبان به طور خودکار ذخیره "
+#~ "می‌شوند."
 
 #~ msgid ""
-#~ "If this option is disabled, a custom color can be used as the default "
-#~ "color for all sticky notes."
-#~ msgstr ""
-#~ "اگر این گزینه از کار انداخته شود، می‌توان از یک رنگ سفارشی به‌ عنوان رنگ "
-#~ "پیش‌فرض همه‌ی یادداشت‌های چسبان استفاده کرد."
-
-#~ msgid ""
-#~ "If this option is disabled, a custom font can be used as the default font "
+#~ "If this option is disabled, a custom color can be used as the default color "
 #~ "for all sticky notes."
 #~ msgstr ""
-#~ "اگر این گزینه از کار انداخته شود، می‌توان از یک قلم سفارشی به عنوان قلم "
-#~ "پیش‌فرض همه‌ی یادداشت‌های چسبان استفاده کرد."
+#~ "اگر این گزینه از کار انداخته شود، می‌توان از یک رنگ سفارشی به‌ عنوان رنگ پیش‌فرض "
+#~ "همه‌ی یادداشت‌های چسبان استفاده کرد."
 
 #~ msgid ""
-#~ "If this option is enabled, the custom colors and fonts that have been "
-#~ "assigned to individual notes will be ignored."
+#~ "If this option is disabled, a custom font can be used as the default font for "
+#~ "all sticky notes."
 #~ msgstr ""
-#~ "اگر این گزینه به کار انادخته شود، رنگ‌ها و قلم‌های سفارشی‌ای که برای "
-#~ "یادداشت‌های جداگانه تعیین شده‌اند، نادیده گرفته می‌شوند."
+#~ "اگر این گزینه از کار انداخته شود، می‌توان از یک قلم سفارشی به عنوان قلم پیش‌فرض "
+#~ "همه‌ی یادداشت‌های چسبان استفاده کرد."
+
+#~ msgid ""
+#~ "If this option is enabled, the custom colors and fonts that have been assigned "
+#~ "to individual notes will be ignored."
+#~ msgstr ""
+#~ "اگر این گزینه به کار انادخته شود، رنگ‌ها و قلم‌های سفارشی‌ای که برای یادداشت‌های "
+#~ "جداگانه تعیین شده‌اند، نادیده گرفته می‌شوند."
 
 #~ msgid "Specifies whether the sticky notes are locked (non-editable) or not."
-#~ msgstr ""
-#~ "مشخص می‌کند که آیا یادداشت‌های چسبان قفل شده (ویرایش نشدنی) هستند یا نه."
+#~ msgstr "مشخص می‌کند که آیا یادداشت‌های چسبان قفل شده (ویرایش نشدنی) هستند یا نه."
 
 #~ msgid ""
 #~ "Specifies whether the sticky notes are visible on ALL workspaces on the "
 #~ "desktop, or not."
 #~ msgstr ""
-#~ "مشخص می‌کند که آیا یادداشت‌های چسبان روی «همه‌ی» فضاهای کاری رومیزی مرئی "
-#~ "باشند یا نه."
+#~ "مشخص می‌کند که آیا یادداشت‌های چسبان روی «همه‌ی» فضاهای کاری رومیزی مرئی باشند یا "
+#~ "نه."
 
 #~ msgid "Sticky notes' locked state"
 #~ msgstr "وضعیت قفل شدن یادداشت‌های چسبان"
@@ -3538,12 +3524,12 @@ msgstr ""
 #~ msgstr "همه‌ی موارد زباله‌دان خالی شود؟"
 
 #~ msgid ""
-#~ "If you choose to empty the trash, all items in it will be permanently "
-#~ "lost. Please note that you can also delete them separately."
+#~ "If you choose to empty the trash, all items in it will be permanently lost. "
+#~ "Please note that you can also delete them separately."
 #~ msgstr ""
-#~ "اگر تصمیم بگیرید که زباله‌دان را خالی کنید، همه‌ی موارد داخل آن برای همیشه "
-#~ "از دست خواهند رفت. لطفاً توجه کنید که می‌توانید هر وقت که بخواهید آنها را "
-#~ "تک تک حذف کنید."
+#~ "اگر تصمیم بگیرید که زباله‌دان را خالی کنید، همه‌ی موارد داخل آن برای همیشه از "
+#~ "دست خواهند رفت. لطفاً توجه کنید که می‌توانید هر وقت که بخواهید آنها را تک تک حذف "
+#~ "کنید."
 
 #~ msgid ""
 #~ "Error while spawning nautilus:\n"
@@ -3556,24 +3542,22 @@ msgstr ""
 #~ msgstr "برنامک زباله‌دان"
 
 #~ msgid ""
-#~ "A GNOME trash bin that lives in your panel. You can use it to view the "
-#~ "trash or drag and drop items into the trash."
+#~ "A GNOME trash bin that lives in your panel. You can use it to view the trash "
+#~ "or drag and drop items into the trash."
 #~ msgstr ""
-#~ "سطل زباله‌ای که در تابلوتان زندگی می‌کند. شما می‌توانید از آن برای نمایش "
-#~ "زباله یا کشیدن و رها کردن موارد به زباله‌دان استفاده کنید."
+#~ "سطل زباله‌ای که در تابلوتان زندگی می‌کند. شما می‌توانید از آن برای نمایش زباله یا "
+#~ "کشیدن و رها کردن موارد به زباله‌دان استفاده کنید."
 
 #~ msgid "Delete Immediately?"
 #~ msgstr "بلافاصله حذف شود؟"
 
 #~ msgid "Cannot move items to trash, do you want to delete them immediately?"
-#~ msgstr ""
-#~ "نمی‌توان موارد را به زباله‌دان انداخت، آیا می‌خواهید بلافاصله حذفشان کنید؟"
+#~ msgstr "نمی‌توان موارد را به زباله‌دان انداخت، آیا می‌خواهید بلافاصله حذفشان کنید؟"
 
-#~ msgid ""
-#~ "Cannot move some items to trash, do you want to delete these immediately?"
+#~ msgid "Cannot move some items to trash, do you want to delete these immediately?"
 #~ msgstr ""
-#~ "نمی‌توان بعضی از موارد را به زباله‌دان انداخت، آیا می‌خواهید این‌ها را "
-#~ "بلافاصله حذف کنید؟"
+#~ "نمی‌توان بعضی از موارد را به زباله‌دان انداخت، آیا می‌خواهید این‌ها را بلافاصله "
+#~ "حذف کنید؟"
 
 #~ msgid ""
 #~ "Unable to move to trash:\n"
@@ -3626,11 +3610,10 @@ msgstr ""
 #~ msgid "The battery level below which the battery is displayed as yellow."
 #~ msgstr "سطحی از باتری که پایین‌تر از آن باتری زرد نمایش داده می‌شود."
 
-#~ msgid ""
-#~ "To avoid losing work please power off, suspend or plug your laptop in."
+#~ msgid "To avoid losing work please power off, suspend or plug your laptop in."
 #~ msgstr ""
-#~ "برای این که کارتان از دست نرود، لطفاً کامپیوتر کیفی‌تان را خاموش یا معلق "
-#~ "کنید یا آن را به برق وصل کنید."
+#~ "برای این که کارتان از دست نرود، لطفاً کامپیوتر کیفی‌تان را خاموش یا معلق کنید یا "
+#~ "آن را به برق وصل کنید."
 
 #~ msgid ""
 #~ "An error occured while launching the Suspend command: %s\n"
@@ -3982,8 +3965,8 @@ msgstr ""
 
 #, fuzzy
 #~ msgid ""
-#~ "This version of XFree86 does not support multiple layouts, so only one "
-#~ "layout can be choosen."
+#~ "This version of XFree86 does not support multiple layouts, so only one layout "
+#~ "can be choosen."
 #~ msgstr "."
 
 #, fuzzy
