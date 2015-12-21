@@ -164,7 +164,7 @@ make_info_from_node (GWeatherInfo *master_info,
     GWeatherInfo *info;
     GWeatherInfoPrivate *priv;
     xmlChar *val;
-    int code;
+    unsigned long code;
 
     g_return_val_if_fail (node->type == XML_ELEMENT_NODE, NULL);
 
@@ -187,8 +187,8 @@ make_info_from_node (GWeatherInfo *master_info,
     priv->valid = priv->tempMinMaxValid;
 
     val = xmlGetProp (node, XC("code"));
-    code = strtol((const char*) val, NULL, 0);
-    if (code >= 0 && code < G_N_ELEMENTS (condition_codes)) {
+    code = strtoul((const char*) val, NULL, 0);
+    if (code < G_N_ELEMENTS (condition_codes)) {
 	priv->cond = condition_codes[code];
 	priv->sky = sky_codes[code];
     } else

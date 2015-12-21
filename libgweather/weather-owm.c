@@ -199,7 +199,7 @@ read_wind_direction (GWeatherInfo *info,
 		     xmlNodePtr    node)
 {
     xmlChar *val;
-    int i;
+    unsigned int i;
 
     val = xmlGetProp (node, XC("code"));
     if (val == NULL)

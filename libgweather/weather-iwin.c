@@ -191,7 +191,7 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
                                     if (val && nfo) {
                                         /* Checking from top to bottom, if 'value' contains 'name', then that win,
                                            thus put longer (more precise) values to the top. */
-                                        int i;
+                                        unsigned int i;
                                         struct _ph_list {
                                             const char *name;
                                             GWeatherConditionPhenomenon ph;
@@ -342,6 +342,9 @@ iwin_start_open (GWeatherInfo *info)
     gchar *url;
     WeatherLocation *loc;
     SoupMessage *msg;
+    struct tm tm;
+    time_t now;
+    gchar latstr[G_ASCII_DTOSTR_BUF_SIZE], lonstr[G_ASCII_DTOSTR_BUF_SIZE];
 
     g_assert (info != NULL);
 
@@ -358,10 +361,6 @@ iwin_start_open (GWeatherInfo *info)
 	return FALSE;
 
     /* see the description here: http://www.weather.gov/forecasts/xml/ */
-    struct tm tm;
-    time_t now;
-    gchar latstr[G_ASCII_DTOSTR_BUF_SIZE], lonstr[G_ASCII_DTOSTR_BUF_SIZE];
-
     now = time (NULL);
     localtime_r (&now, &tm);
 

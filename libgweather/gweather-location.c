@@ -132,7 +132,8 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
     GPtrArray *children = NULL;
     const char *tagname;
     char *value, *normalized;
-    int tagtype, i;
+    int tagtype;
+    unsigned int i;
 
     loc = g_slice_new0 (GWeatherLocation);
     loc->latitude = loc->longitude = DBL_MAX;
@@ -699,9 +700,11 @@ _got_place (GObject      *source_object,
 {
     ArgData *info = (user_data);
     GTask *task = info->task;
-
     GeocodePlace *place;
     GError *error = NULL;
+    const char *country_code;
+    struct FindNearestCityData data;
+
     place = geocode_reverse_resolve_finish (GEOCODE_REVERSE (source_object), result, &error);
     if (place == NULL) {
 	g_task_return_error (task, error);
@@ -709,9 +712,8 @@ _got_place (GObject      *source_object,
         g_object_unref (task);
         return;
     }
-    const char *country_code = geocode_place_get_country_code (place);
+    country_code = geocode_place_get_country_code (place);
 
-    struct FindNearestCityData data;
     data.latitude = info->latitude * M_PI / 180.0;
     data.longitude = info->longitude * M_PI / 180.0;
     data.location = NULL;

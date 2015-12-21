@@ -234,7 +234,8 @@ _gweather_timezones_parse_xml (GWeatherParser *parser)
     GPtrArray *zones;
     GWeatherTimezone *zone;
     const char *tagname;
-    int tagtype, i;
+    int tagtype;
+    unsigned int i;
 
     zones = g_ptr_array_new ();
 

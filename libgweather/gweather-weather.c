@@ -329,6 +329,7 @@ calc_apparent (GWeatherInfo *info)
     else if (temp >= 80.0) {
         if (temp >= -500. && humidity >= 0) {
 	    gdouble t2, h2;
+	    gdouble t3, h3;
 
 	    t2 = temp * temp;
 	    h2 = humidity * humidity;
@@ -339,8 +340,9 @@ calc_apparent (GWeatherInfo *info)
 	     * constrained by the accuracy of the instruments and that the
 	     * we receive the temperature and dewpoints as integers.
 	     */
-	    gdouble t3 = t2 * temp;
-	    gdouble h3 = h2 * temp;
+
+	    t3 = t2 * temp;
+	    h3 = h2 * temp;
 
 	    apparent = 16.923
 		+ 0.185212 * temp
@@ -500,9 +502,7 @@ ref_session (void)
     if (session != NULL)
 	return g_object_ref (session);
 
-    session = soup_session_async_new ();
-    soup_session_add_feature_by_type (session, SOUP_TYPE_PROXY_RESOLVER_DEFAULT);
-    soup_session_add_feature_by_type (session, SOUP_TYPE_CONTENT_DECODER);
+    session = soup_session_new ();
 
     cache = get_cache ();
     soup_session_add_feature (session, SOUP_SESSION_FEATURE (cache));
@@ -2006,8 +2006,9 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
 	gweather_location_ref (location);
     } else {
 	GWeatherLocation *world;
-	GVariant *default_loc = g_settings_get_value (priv->settings, DEFAULT_LOCATION);
 	const gchar *station_code;
+
+	default_loc = g_settings_get_value (priv->settings, DEFAULT_LOCATION);
 
 	g_variant_get (default_loc, "(&s&sm(dd))", &name, &station_code, &latlon_override, &lat, &lon);
 

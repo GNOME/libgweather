@@ -599,7 +599,7 @@ static gboolean
 match_compare_name (const char *key, const char *name)
 {
     gboolean is_first_word = TRUE;
-    int len;
+    size_t len;
 
     /* Ignore whitespace before the string */
     key += strspn (key, " ");
