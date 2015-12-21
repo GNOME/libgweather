@@ -1,5 +1,5 @@
 m4_define(libgweather_major_version,   3)
-m4_define(libgweather_minor_version,  18)
+m4_define(libgweather_minor_version,  19)
 m4_define(libgweather_micro_version,  1)
 m4_define(libgweather_version, libgweather_major_version.libgweather_minor_version.libgweather_micro_version)
 
@@ -13,6 +13,7 @@ AC_PREREQ([2.64])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_AUX_DIR([build-aux])
+AX_IS_RELEASE([minor-version])
 
 AM_INIT_AUTOMAKE([1.11 foreign no-dist-gzip dist-xz tar-ustar])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
@@ -55,7 +56,7 @@ AM_PROG_CC_C_O
 
 GLIB_GSETTINGS
 
-GNOME_COMPILE_WARNINGS([maximum])
+AX_COMPILER_FLAGS([WARN_CFLAGS],[WARN_LDFLAGS])
 
 PKG_CHECK_MODULES(DEPS, [gtk+-3.0 >= $GTK_REQUIRED
                          libxml-2.0 >= $LIBXML_REQUIRED
@@ -68,9 +69,6 @@ dnl -- check for glib; redundant at this point, but sets $GLIB_MKENUMS
 AM_PATH_GLIB_2_0($GLIB_REQUIRED)
 
 dnl gettext
-AM_GNU_GETTEXT_VERSION([0.18])
-AM_GNU_GETTEXT([external])
-
 IT_PROG_INTLTOOL([0.50.0])
 IT_PO_SUBDIR([po-locations])
 

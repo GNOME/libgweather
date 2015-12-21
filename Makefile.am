@@ -1,7 +1,5 @@
 SUBDIRS = data libgweather schemas doc po po-locations
 
-ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
-
 AM_DISTCHECK_CONFIGURE_FLAGS = --enable-gtk-doc --enable-introspection
 
 EXTRA_DIST =		\
