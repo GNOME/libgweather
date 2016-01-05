@@ -58,7 +58,7 @@ struct _GWeatherTimezone {
 #define TZ_TTINFO_ISDST_OFFSET 4
 
 static gboolean
-parse_tzdata (const char *tzname, time_t start, time_t end,
+parse_tzdata (const char *tz_name, time_t start, time_t end,
 	      int *offset, gboolean *has_dst, int *dst_offset)
 {
     char *filename, *contents;
@@ -71,7 +71,7 @@ parse_tzdata (const char *tzname, time_t start, time_t end,
     char initial_isdst, second_isdst;
     int i;
 
-    filename = g_build_filename (ZONEINFO_DIR, tzname, NULL);
+    filename = g_build_filename (ZONEINFO_DIR, tz_name, NULL);
     if (!g_file_get_contents (filename, &contents, &length, NULL)) {
 	g_free (filename);
 	return FALSE;
@@ -84,7 +84,7 @@ parse_tzdata (const char *tzname, time_t start, time_t end,
 	return FALSE;
     }
 
-    timecnt = GUINT32_FROM_BE (*(guint32 *)(contents + TZ_TIMECNT_OFFSET));
+    timecnt = GUINT32_FROM_BE (*(guint32 *)(void *)(contents + TZ_TIMECNT_OFFSET));
     transitions = (void *)(contents + TZ_TRANSITIONS_OFFSET);
     transitions_size = timecnt * sizeof (*transitions);
     ttinfo_map = (void *)(contents + TZ_TRANSITIONS_OFFSET + transitions_size);
@@ -112,7 +112,7 @@ parse_tzdata (const char *tzname, time_t start, time_t end,
     }
 
     /* Copy the data out of the corresponding ttinfo structs */
-    initial_offset = *(gint32 *)(ttinfos +
+    initial_offset = *(gint32 *)(void *)(ttinfos +
 				 initial_transition * TZ_TTINFO_SIZE +
 				 TZ_TTINFO_GMTOFF_OFFSET);
     initial_offset = GINT32_FROM_BE (initial_offset);
@@ -121,7 +121,7 @@ parse_tzdata (const char *tzname, time_t start, time_t end,
 		      TZ_TTINFO_ISDST_OFFSET);
 
     if (second_transition != -1) {
-	second_offset = *(gint32 *)(ttinfos +
+	second_offset = *(gint32 *)(void *)(ttinfos +
 				    second_transition * TZ_TTINFO_SIZE +
 				    TZ_TTINFO_GMTOFF_OFFSET);
 	second_offset = GINT32_FROM_BE (second_offset);
