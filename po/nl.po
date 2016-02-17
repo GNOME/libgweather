@@ -9,63 +9,776 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-31 00:25+0200\n"
-"PO-Revision-Date: 2010-03-31 00:26+0200\n"
-"Last-Translator: Wouter Bolsterlee <wbolster@gnome.org>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgweather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-12-21 13:15+0000\n"
+"PO-Revision-Date: 2015-06-20 14:51+0100\n"
+"Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.1\n"
 
-#. TRANSLATOR: Change this to the default location name,
-#. * used when you first start the Weather Applet. This is
-#. * the common localised name that corresponds to
-#. * the location code (DEFAULT_CODE) you will put on the next message
-#. * For example, for the Greek locale, we set this to "Athens", the
-#. * capital city and we write it in Greek. It's important to translate
-#. * this name.
-#. *
-#. * If you do not require a DEFAULT_LOCATION, set this to
-#. * "DEFAULT_LOCATION".
-#.
-#: ../libgweather/gweather-gconf.c:212 ../libgweather/gweather-gconf.c:213
-#: ../libgweather/gweather.schemas.in.h:5
-msgid "DEFAULT_LOCATION"
-msgstr "Utrecht/Soesterberg"
+#: ../data/glade/libgweather.xml.in.h:1
+msgid "Location Entry"
+msgstr "Locatie-item"
 
-#. TRANSLATOR: Change this to the code of your default location that
-#. * corresponds to the DEFAULT_LOCATION name you put above. This is
-#. * normally a four-letter (ICAO) code and can be found in
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * NB. The web page is over 1.7MB in size.
-#. * Pick a default location like a capital city so that it would be ok
-#. * for more of your users. For example, for Greek, we use "LGAV" for
-#. * the capital city, Athens.
-#. *
-#. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
-#.
-#: ../libgweather/gweather-gconf.c:232 ../libgweather/gweather-gconf.c:233
-#: ../libgweather/gweather.schemas.in.h:3
-msgid "DEFAULT_CODE"
-msgstr "EHSB"
+#: ../data/glade/libgweather.xml.in.h:2
+msgid "Timezone Menu"
+msgstr "Tijdzonemenu"
 
-#. TRANSLATOR: Change this to the zone of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have zones while the rest do not.
-#. * Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any zone you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a zone, set this to
-#. * "DEFAULT_ZONE".
+#: ../data/glade/libgweather.xml.in.h:3
+msgid "Timezone"
+msgstr "Tijdzone"
+
+#: ../data/glade/libgweather.xml.in.h:4
+msgid "GWeather"
+msgstr "GWeerbericht"
+
+#: ../libgweather/gweather-location-entry.c:784
+msgid "Loading..."
+msgstr "Laden…"
+
+#: ../libgweather/gweather-timezone.c:341
+msgid "Greenwich Mean Time"
+msgstr "Greenwich Mean Time"
+
+#: ../libgweather/gweather-timezone-menu.c:274
+msgctxt "timezone"
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: ../libgweather/gweather-weather.c:113
+msgid "Variable"
+msgstr "Variabel"
+
+#: ../libgweather/gweather-weather.c:114
+msgid "North"
+msgstr "Noord"
+
+#: ../libgweather/gweather-weather.c:114
+msgid "North - NorthEast"
+msgstr "Noord - Noordoost"
+
+#: ../libgweather/gweather-weather.c:114
+msgid "Northeast"
+msgstr "Noordoost"
+
+#: ../libgweather/gweather-weather.c:114
+msgid "East - NorthEast"
+msgstr "Oost - Noordoost"
+
+#: ../libgweather/gweather-weather.c:115
+msgid "East"
+msgstr "Oost"
+
+#: ../libgweather/gweather-weather.c:115
+msgid "East - Southeast"
+msgstr "Oost - Zuidoost"
+
+#: ../libgweather/gweather-weather.c:115
+msgid "Southeast"
+msgstr "Zuidoost"
+
+#: ../libgweather/gweather-weather.c:115
+msgid "South - Southeast"
+msgstr "Zuid - Zuidoost"
+
+#: ../libgweather/gweather-weather.c:116
+msgid "South"
+msgstr "Zuid"
+
+#: ../libgweather/gweather-weather.c:116
+msgid "South - Southwest"
+msgstr "Zuid - Zuidwest"
+
+#: ../libgweather/gweather-weather.c:116
+msgid "Southwest"
+msgstr "Zuidwest"
+
+#: ../libgweather/gweather-weather.c:116
+msgid "West - Southwest"
+msgstr "West - Zuidwest"
+
+#: ../libgweather/gweather-weather.c:117
+msgid "West"
+msgstr "West"
+
+#: ../libgweather/gweather-weather.c:117
+msgid "West - Northwest"
+msgstr "West - Noordwest"
+
+#: ../libgweather/gweather-weather.c:117
+msgid "Northwest"
+msgstr "Noordwest"
+
+#: ../libgweather/gweather-weather.c:117
+msgid "North - Northwest"
+msgstr "Noord - Noordwest"
+
+#: ../libgweather/gweather-weather.c:124
+msgctxt "wind direction"
+msgid "Invalid"
+msgstr "Ongeldig"
+
+#: ../libgweather/gweather-weather.c:130
+msgid "Clear Sky"
+msgstr "Heldere lucht"
+
+#: ../libgweather/gweather-weather.c:131
+msgid "Broken clouds"
+msgstr "Dun bewolkt"
+
+#: ../libgweather/gweather-weather.c:132
+msgid "Scattered clouds"
+msgstr "Licht bewolkt"
+
+#: ../libgweather/gweather-weather.c:133
+msgid "Few clouds"
+msgstr "Bewolkt"
+
+#: ../libgweather/gweather-weather.c:134
+msgid "Overcast"
+msgstr "Zwaar bewolkt"
+
+#: ../libgweather/gweather-weather.c:141 ../libgweather/gweather-weather.c:213
+msgctxt "sky conditions"
+msgid "Invalid"
+msgstr "Ongeldig"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
+#. NONE
+#: ../libgweather/gweather-weather.c:173 ../libgweather/gweather-weather.c:175
+msgid "Thunderstorm"
+msgstr "Onweer"
+
+#. DRIZZLE
+#: ../libgweather/gweather-weather.c:174
+msgid "Drizzle"
+msgstr "Motregen"
+
+#: ../libgweather/gweather-weather.c:174
+msgid "Light drizzle"
+msgstr "Lichte motregen"
+
+#: ../libgweather/gweather-weather.c:174
+msgid "Moderate drizzle"
+msgstr "Matige motregen"
+
+#: ../libgweather/gweather-weather.c:174
+msgid "Heavy drizzle"
+msgstr "Zware motregen"
+
+#: ../libgweather/gweather-weather.c:174
+msgid "Freezing drizzle"
+msgstr "IJskoude motregen"
+
+#. RAIN
+#: ../libgweather/gweather-weather.c:175
+msgid "Rain"
+msgstr "Regen"
+
+#: ../libgweather/gweather-weather.c:175
+msgid "Light rain"
+msgstr "Lichte regen"
+
+#: ../libgweather/gweather-weather.c:175
+msgid "Moderate rain"
+msgstr "Matige regen"
+
+#: ../libgweather/gweather-weather.c:175
+msgid "Heavy rain"
+msgstr "Zware regen"
+
+#: ../libgweather/gweather-weather.c:175
+msgid "Rain showers"
+msgstr "Buien"
+
+#: ../libgweather/gweather-weather.c:175
+msgid "Freezing rain"
+msgstr "IJskoude regen"
+
+#. SNOW
+#: ../libgweather/gweather-weather.c:176
+msgid "Snow"
+msgstr "Sneeuw"
+
+#: ../libgweather/gweather-weather.c:176
+msgid "Light snow"
+msgstr "Lichte sneeuwval"
+
+#: ../libgweather/gweather-weather.c:176
+msgid "Moderate snow"
+msgstr "Matige sneeuwval"
+
+#: ../libgweather/gweather-weather.c:176
+msgid "Heavy snow"
+msgstr "Zware sneeuwval"
+
+#: ../libgweather/gweather-weather.c:176
+msgid "Snowstorm"
+msgstr "Sneeuwstorm"
+
+#: ../libgweather/gweather-weather.c:176
+msgid "Blowing snowfall"
+msgstr "Winderige sneeuwval"
+
+#: ../libgweather/gweather-weather.c:176
+msgid "Snow showers"
+msgstr "Sneeuwbuien"
+
+#: ../libgweather/gweather-weather.c:176
+msgid "Drifting snow"
+msgstr "Sneeuwbuien"
+
+#. SNOW_GRAINS
+#: ../libgweather/gweather-weather.c:177
+msgid "Snow grains"
+msgstr "Sneeuwvlagen"
+
+#: ../libgweather/gweather-weather.c:177
+msgid "Light snow grains"
+msgstr "Lichte sneeuwbuien"
+
+#: ../libgweather/gweather-weather.c:177
+msgid "Moderate snow grains"
+msgstr "Matige sneeuwbuien"
+
+#: ../libgweather/gweather-weather.c:177
+msgid "Heavy snow grains"
+msgstr "Zware sneeuwbuien"
+
+#. ICE_CRYSTALS
+#: ../libgweather/gweather-weather.c:178
+msgid "Ice crystals"
+msgstr "Hagel"
+
+#. ICE_PELLETS
+#: ../libgweather/gweather-weather.c:179
+msgid "Sleet"
+msgstr "IJsregen"
+
+#: ../libgweather/gweather-weather.c:179
+msgid "Little sleet"
+msgstr "Lichte ijsregen"
+
+#: ../libgweather/gweather-weather.c:179
+msgid "Moderate sleet"
+msgstr "Matige ijsregen"
+
+#: ../libgweather/gweather-weather.c:179
+msgid "Heavy sleet"
+msgstr "Zware ijsregen"
+
+#: ../libgweather/gweather-weather.c:179
+msgid "Sleet storm"
+msgstr "IJsregenstorm"
+
+#: ../libgweather/gweather-weather.c:179
+msgid "Showers of sleet"
+msgstr "Buien van ijsregen"
+
+#. HAIL
+#: ../libgweather/gweather-weather.c:180
+msgid "Hail"
+msgstr "Hagel"
+
+#: ../libgweather/gweather-weather.c:180
+msgid "Hailstorm"
+msgstr "Hagelstorm"
+
+#: ../libgweather/gweather-weather.c:180
+msgid "Hail showers"
+msgstr "Hagelbuien"
+
+#. SMALL_HAIL
+#: ../libgweather/gweather-weather.c:181
+msgid "Small hail"
+msgstr "Kleine hagel"
+
+#: ../libgweather/gweather-weather.c:181
+msgid "Small hailstorm"
+msgstr "Kleine hagelstorm"
+
+# de hagel is klein
+#: ../libgweather/gweather-weather.c:181
+msgid "Showers of small hail"
+msgstr "Kleine hagelbuien"
+
+#. PRECIPITATION
+#: ../libgweather/gweather-weather.c:182
+msgid "Unknown precipitation"
+msgstr "Onbekende neerslag"
+
+#. MIST
+#: ../libgweather/gweather-weather.c:183
+msgid "Mist"
+msgstr "Mist"
+
+#. FOG
+#: ../libgweather/gweather-weather.c:184
+msgid "Fog"
+msgstr "Nevel"
+
+#: ../libgweather/gweather-weather.c:184
+msgid "Fog in the vicinity"
+msgstr "Hier en daar mist"
+
+#: ../libgweather/gweather-weather.c:184
+msgid "Shallow fog"
+msgstr "Matige mist"
+
+#: ../libgweather/gweather-weather.c:184
+msgid "Patches of fog"
+msgstr "Hier en daar mist"
+
+#: ../libgweather/gweather-weather.c:184
+msgid "Partial fog"
+msgstr "Gedeeltelijke mist"
+
+#: ../libgweather/gweather-weather.c:184
+msgid "Freezing fog"
+msgstr "IJskoude mist"
+
+#. SMOKE
+#: ../libgweather/gweather-weather.c:185
+msgid "Smoke"
+msgstr "Rook"
+
+#. VOLCANIC_ASH
+#: ../libgweather/gweather-weather.c:186
+msgid "Volcanic ash"
+msgstr "Vulkanische as"
+
+#. SAND
+#: ../libgweather/gweather-weather.c:187
+msgid "Sand"
+msgstr "Zand"
+
+#: ../libgweather/gweather-weather.c:187
+msgid "Blowing sand"
+msgstr "Winderige zandstormen"
+
+#: ../libgweather/gweather-weather.c:187
+msgid "Drifting sand"
+msgstr "Drijvend zand"
+
+#. HAZE
+#: ../libgweather/gweather-weather.c:188
+msgid "Haze"
+msgstr "Nevel"
+
+#. SPRAY
+#: ../libgweather/gweather-weather.c:189
+msgid "Blowing sprays"
+msgstr "Vlagen met regen"
+
+#. DUST
+#: ../libgweather/gweather-weather.c:190
+msgid "Dust"
+msgstr "Stof"
+
+#: ../libgweather/gweather-weather.c:190
+msgid "Blowing dust"
+msgstr "Winderige stofbuien"
+
+#: ../libgweather/gweather-weather.c:190
+msgid "Drifting dust"
+msgstr "Drijvende stofbuien"
+
+#. SQUALL
+#: ../libgweather/gweather-weather.c:191
+msgid "Squall"
+msgstr "Regenstorm"
+
+#. SANDSTORM
+#: ../libgweather/gweather-weather.c:192
+msgid "Sandstorm"
+msgstr "Zandstorm"
+
+#: ../libgweather/gweather-weather.c:192
+msgid "Sandstorm in the vicinity"
+msgstr "Zandstorm dichtbij"
+
+#: ../libgweather/gweather-weather.c:192
+msgid "Heavy sandstorm"
+msgstr "Zware zandstorm"
+
+#. DUSTSTORM
+#: ../libgweather/gweather-weather.c:193
+msgid "Duststorm"
+msgstr "Stofstorm"
+
+#: ../libgweather/gweather-weather.c:193
+msgid "Duststorm in the vicinity"
+msgstr "Stofstorm dichtbij"
+
+#: ../libgweather/gweather-weather.c:193
+msgid "Heavy duststorm"
+msgstr "Zware stofstorm"
+
+#. FUNNEL_CLOUD
+#: ../libgweather/gweather-weather.c:194
+msgid "Funnel cloud"
+msgstr "Trechterwolk"
+
+#. TORNADO
+#: ../libgweather/gweather-weather.c:195
+msgid "Tornado"
+msgstr "Tornado"
+
+#. DUST_WHIRLS
+#: ../libgweather/gweather-weather.c:196
+msgid "Dust whirls"
+msgstr "Stofstorm"
+
+#: ../libgweather/gweather-weather.c:196
+msgid "Dust whirls in the vicinity"
+msgstr "Stofstorm dichtbij"
+
+#: ../libgweather/gweather-weather.c:705
+msgid "%a, %b %d / %H∶%M"
+msgstr "%A, %d %b om %H:%M uur"
+
+#: ../libgweather/gweather-weather.c:711
+msgid "Unknown observation time"
+msgstr "Onbekende observatietijd"
+
+#: ../libgweather/gweather-weather.c:723
+msgctxt "sky conditions"
+msgid "Unknown"
+msgstr "Onbekend"
+
+#. Translate to the default units to use for presenting
+#. * lengths to the user. Translate to default:inch if you
+#. * want inches, otherwise translate to default:mm.
+#. * Do *not* translate it to "predefinito:mm", if it
+#. * it isn't default:mm or default:inch it will not work
 #.
-#: ../libgweather/gweather-gconf.c:252 ../libgweather/gweather-gconf.c:253
-#: ../libgweather/gweather.schemas.in.h:7
-msgid "DEFAULT_ZONE"
-msgstr "EHSB"
+#: ../libgweather/gweather-weather.c:745
+msgid "default:mm"
+msgstr "default:mm"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/gweather-weather.c:797
+#, c-format
+msgid "%.1f °F"
+msgstr "%.1f °F"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/gweather-weather.c:800
+#, c-format
+msgid "%d °F"
+msgstr "%d °F"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/gweather-weather.c:806
+#, c-format
+msgid "%.1f °C"
+msgstr "%.1f °C"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/gweather-weather.c:809
+#, c-format
+msgid "%d °C"
+msgstr "%d °C"
+
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../libgweather/gweather-weather.c:815
+#, c-format
+msgid "%.1f K"
+msgstr "%.1f K"
+
+#. TRANSLATOR: This is the temperature in kelvin
+#: ../libgweather/gweather-weather.c:818
+#, c-format
+msgid "%d K"
+msgstr "%d K"
+
+#: ../libgweather/gweather-weather.c:841 ../libgweather/gweather-weather.c:857
+#: ../libgweather/gweather-weather.c:873 ../libgweather/gweather-weather.c:935
+msgctxt "temperature"
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: ../libgweather/gweather-weather.c:895
+msgctxt "dew"
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: ../libgweather/gweather-weather.c:915
+msgctxt "humidity"
+msgid "Unknown"
+msgstr "Onbekend"
+
+# een extra spatie? Relatieve vochtigheid: 63 %
+#. TRANSLATOR: This is the humidity in percent
+#: ../libgweather/gweather-weather.c:918
+#, c-format
+msgid "%.f%%"
+msgstr "%.f%%"
+
+#. TRANSLATOR: This is the wind speed in knots
+#: ../libgweather/gweather-weather.c:964
+#, c-format
+msgid "%0.1f knots"
+msgstr "%0.1f knopen"
+
+#. TRANSLATOR: This is the wind speed in miles per hour
+#: ../libgweather/gweather-weather.c:967
+#, c-format
+msgid "%.1f mph"
+msgstr "%.1f mpu"
+
+#. TRANSLATOR: This is the wind speed in kilometers per hour
+#: ../libgweather/gweather-weather.c:970
+#, c-format
+msgid "%.1f km/h"
+msgstr "%.1f km/u"
+
+#. TRANSLATOR: This is the wind speed in meters per second
+#: ../libgweather/gweather-weather.c:973
+#, c-format
+msgid "%.1f m/s"
+msgstr "%.1f m/s"
+
+#. TRANSLATOR: This is the wind speed as a Beaufort force factor
+#. * (commonly used in nautical wind estimation).
+#.
+#: ../libgweather/gweather-weather.c:978
+#, c-format
+msgid "Beaufort force %.1f"
+msgstr "Beaufort kracht %.1f"
+
+#: ../libgweather/gweather-weather.c:999
+msgctxt "wind speed"
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: ../libgweather/gweather-weather.c:1001
+msgid "Calm"
+msgstr "Kalm"
+
+# een / is niet mooi omdat dat ook al in km/u staat en dan
+# staat er bijvoorbeeld:  West / 25 km/u
+#. TRANSLATOR: This is 'wind direction' / 'wind speed'
+#: ../libgweather/gweather-weather.c:1009
+#, c-format
+msgid "%s / %s"
+msgstr "%s · %s"
+
+#: ../libgweather/gweather-weather.c:1045
+msgctxt "pressure"
+msgid "Unknown"
+msgstr "Onbekend"
+
+#. TRANSLATOR: This is pressure in inches of mercury
+#: ../libgweather/gweather-weather.c:1051
+#, c-format
+msgid "%.2f inHg"
+msgstr "%.2f inHg"
+
+#. TRANSLATOR: This is pressure in millimeters of mercury
+#: ../libgweather/gweather-weather.c:1054
+#, c-format
+msgid "%.1f mmHg"
+msgstr "%.1f mmHg"
+
+#. TRANSLATOR: This is pressure in kiloPascals
+#: ../libgweather/gweather-weather.c:1057
+#, c-format
+msgid "%.2f kPa"
+msgstr "%.2f KPa"
+
+#. TRANSLATOR: This is pressure in hectoPascals
+#: ../libgweather/gweather-weather.c:1060
+#, c-format
+msgid "%.2f hPa"
+msgstr "%.2f hPa"
+
+#. TRANSLATOR: This is pressure in millibars
+#: ../libgweather/gweather-weather.c:1063
+#, c-format
+msgid "%.2f mb"
+msgstr "%.2f mb"
+
+#. TRANSLATOR: This is pressure in atmospheres
+#: ../libgweather/gweather-weather.c:1066
+#, c-format
+msgid "%.3f atm"
+msgstr "%.3f atm"
+
+#: ../libgweather/gweather-weather.c:1104
+msgctxt "visibility"
+msgid "Unknown"
+msgstr "Onbekend"
+
+# geen meervoud hier
+# zicht is 5 mijl
+#. TRANSLATOR: This is the visibility in miles
+#: ../libgweather/gweather-weather.c:1110
+#, c-format
+msgid "%.1f miles"
+msgstr "%.1f mijl"
+
+#. TRANSLATOR: This is the visibility in kilometers
+#: ../libgweather/gweather-weather.c:1113
+#, c-format
+msgid "%.1f km"
+msgstr "%.1f km"
+
+# spatie na getal?
+# zicht is 50m
+# zicht is 50 m
+#. TRANSLATOR: This is the visibility in meters
+#: ../libgweather/gweather-weather.c:1116
+#, c-format
+msgid "%.0fm"
+msgstr "%.0f m"
+
+#: ../libgweather/gweather-weather.c:1144
+#: ../libgweather/gweather-weather.c:1169
+msgid "%H∶%M"
+msgstr "%H:%M"
+
+#: ../libgweather/gweather-weather.c:1263
+msgid "Retrieval failed"
+msgstr "Ophalen mislukt"
+
+#: ../libgweather/weather-metar.c:573
+#, c-format
+msgid "Failed to get METAR data: %d %s.\n"
+msgstr "Kon geen METAR-data ophalen: %d %s.\n"
+
+#: ../libgweather/weather-owm.c:383
+msgid ""
+"Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
+"project</a>"
+msgstr ""
+"Weergegevens van het <a href=\"http://openweathermap.org\">Open Weather Map-"
+"project</a>"
+
+#. The new (documented but not advertised) API is less strict in the
+#. format of the attribution, and just requires a generic CC-BY compatible
+#. attribution with a link to their service.
+#.
+#. That's very nice of them!
+#.
+#: ../libgweather/weather-yrno.c:507
+msgid ""
+"Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
+"Institute</a>"
+msgstr ""
+"Weergegevens van het <a href=\"http://yr.no/\">Noors Meteorologisch "
+"Instituut</a>"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:1
+msgid "URL for the radar map"
+msgstr "URL voor de radarkaart"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:2
+msgid ""
+"The custom URL from where to retrieve a radar map, or empty for disabling "
+"radar maps."
+msgstr ""
+"De aangepaste URL voor de radarkaart, of laat leeg om radarkaarten uit te "
+"schakelen."
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:3
+msgid "Temperature unit"
+msgstr "Temperatuur-eenheid"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:4
+msgid ""
+"The unit of temperature used for showing weather. Valid values are 'kelvin', "
+"'centigrade' and 'fahrenheit'."
+msgstr ""
+"De te gebruiken temperatuur-eenheid voor het weergeven van het weer. Geldige "
+"waarden zijn 'kelvin', 'centigrade' (Celsius) en 'fahrenheit'."
+
+# eenheid voor afstand
+# eenheden voor afstand
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
+msgid "Distance unit"
+msgstr "Afstandseenheid"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
+msgid ""
+"The unit of distance used for showing weather (for example for visibility or "
+"for distance of important events). Valid values are 'meters', 'km' and "
+"'miles'."
+msgstr ""
+"De te gebruiken afstandseenheid voor het weergeven van het weer "
+"(bijvoorbeeld zichtbaarheid of voor afstand van belangrijke gebeurtenissen). "
+"Geldige waarden zijn 'meters', 'km' en 'miles' (mijl)."
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
+msgid "Speed unit"
+msgstr "Snelheidseenheid"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:8
+msgid ""
+"The unit of speed used for showing weather (for example for wind speed). "
+"Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
+"'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+msgstr ""
+"De te gebruiken snelheidseenheid voor het weergeven van het weer "
+"(bijvoorbeeld windsnelheid). Geldige waarden zijn 'ms' (meter per seconde), "
+"'kph' (kilometer per uur), 'mph' (mijl per uur), 'knots' (knopen) en "
+"'bft' (Beaufort)."
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:9
+msgid "Pressure unit"
+msgstr "Luchtdruk-eenheid"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
+msgid ""
+"The unit of pressure used for showing weather. Valid values are "
+"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
+"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
+"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+msgstr ""
+"De te gebruiken luchtdruk-eenheid voor het weergeven van het weer. Geldige "
+"waarden zijn 'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, "
+"wiskundig gelijkwaardig aan 1hPa, maar anders weergegeven), 'mm-"
+"hg' (millimeters kwik), 'inch-hg' (inches kwik), 'atm' (atmosfeer)."
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
+msgid "Default location"
+msgstr "Standaardlocatie"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
+msgid ""
+"The default location for the weather applet. The first field is the name "
+"that will be shown. If empty, it will be taken from the locations database. "
+"The second field is the METAR code for the default weather station. It must "
+"not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml "
+"file. The third field is a tuple of (latitude, longitude), to override the "
+"value taken from the database. This is only used for sunrise and moon phase "
+"calculations, not for weather forecast."
+msgstr ""
+"De standaardlocatie voor de weertoepassing. Het eerste veld is de weer te "
+"geven naam. Indien leeg zal deze uit de locatiedatabase gehaald worden. Het "
+"tweede veld is de METAR-code voor het standaard weerstation. Het mag niet "
+"leeg zijn en moet overeenkomen met een &lt;code&gt;-tag in het bestand "
+"'Locations.xml'. Het derde veld is een tuple van (breedtegraad, lengtegraad) "
+"om de uit de database gehaalde waarde te overschrijven. Dit wordt enkel "
+"gebruikt voor berekeningen mbt zonsopgang en maanstand, niet voor "
+"weersverwachting."
+
+#~ msgid "DEFAULT_LOCATION"
+#~ msgstr "Utrecht/Soesterberg"
+
+#~ msgid "DEFAULT_CODE"
+#~ msgstr "EHSB"
+
+#~ msgid "DEFAULT_ZONE"
+#~ msgstr "EHSB"
 
 # Het relevante veld in gweather/Locations voor Nederland is:
 # [EU_NL]
@@ -85,896 +798,200 @@ msgstr "EHSB"
 # loc12=Vlieland EHVL ------ ---
 # loc13=Volkel EHVK ------ ---
 # loc14=Woensdrecht EHWO ------ ---
-#. TRANSLATOR: Change this to the radar of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have radar names while the rest do
-#. * not. Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any radar you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a radar, set this to " "
-#. * (or space).
-#. * If you do not have a default location, set this to DEFAULT_RADAR.
-#.
-#: ../libgweather/gweather-gconf.c:273 ../libgweather/gweather-gconf.c:274
-#: ../libgweather/gweather.schemas.in.h:6
-msgid "DEFAULT_RADAR"
-msgstr "EHSB"
+#~ msgid "DEFAULT_RADAR"
+#~ msgstr "EHSB"
 
-#. TRANSLATOR: Change this to the coordinates of your default location
-#. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
-#. * above. Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any coordinates you put here must also be present in the
-#. * Locations.xml file.
-#. *
-#. * If your default location does not have known coordinates, set this
-#. * to " " (or space).
-#. * If you do not have a default location, set this to
-#. * DEFAULT_COORDINATES.
-#.
-#: ../libgweather/gweather-gconf.c:294 ../libgweather/gweather-gconf.c:295
-#: ../libgweather/gweather.schemas.in.h:4
-msgid "DEFAULT_COORDINATES"
-msgstr "EHSB"
+#~ msgid "DEFAULT_COORDINATES"
+#~ msgstr "EHSB"
 
-#: ../libgweather/gweather-prefs.c:34 ../libgweather/gweather-prefs.c:45
-#: ../libgweather/gweather-prefs.c:60 ../libgweather/gweather-prefs.c:77
-msgid "Default"
-msgstr "Standaard"
+#~ msgid "Default"
+#~ msgstr "Standaard"
 
-#. translators: Kelvin
-#: ../libgweather/gweather-prefs.c:36
-msgid "K"
-msgstr "K"
+#~ msgid "K"
+#~ msgstr "K"
 
-#. translators: Celsius
-#: ../libgweather/gweather-prefs.c:38
-msgid "C"
-msgstr "C"
+#~ msgid "C"
+#~ msgstr "C"
 
-#. translators: Fahrenheit
-#: ../libgweather/gweather-prefs.c:40
-msgid "F"
-msgstr "F"
+#~ msgid "F"
+#~ msgstr "F"
 
-#. translators: meters per second
-#: ../libgweather/gweather-prefs.c:47
-msgid "m/s"
-msgstr "m/s"
+#~ msgid "m/s"
+#~ msgstr "m/s"
 
-#. translators: kilometers per hour
-#: ../libgweather/gweather-prefs.c:49
-msgid "km/h"
-msgstr "km/u"
+#~ msgid "km/h"
+#~ msgstr "km/u"
 
-#. translators: miles per hour
-#: ../libgweather/gweather-prefs.c:51
-msgid "mph"
-msgstr "mpu"
+#~ msgid "mph"
+#~ msgstr "mpu"
 
-#. translators: knots (speed unit)
-#: ../libgweather/gweather-prefs.c:53
-msgid "knots"
-msgstr "knopen"
+#~ msgid "knots"
+#~ msgstr "knopen"
 
-#. translators: wind speed
-#: ../libgweather/gweather-prefs.c:55
-msgid "Beaufort scale"
-msgstr "Beaufort schaal"
+#~ msgid "Beaufort scale"
+#~ msgstr "Beaufort schaal"
 
-#. translators: kilopascals
-#: ../libgweather/gweather-prefs.c:62
-msgid "kPa"
-msgstr "kPa"
+#~ msgid "kPa"
+#~ msgstr "kPa"
 
-#. translators: hectopascals
-#: ../libgweather/gweather-prefs.c:64
-msgid "hPa"
-msgstr "hPa"
+#~ msgid "hPa"
+#~ msgstr "hPa"
 
-#. translators: millibars
-#: ../libgweather/gweather-prefs.c:66
-msgid "mb"
-msgstr "mb"
+#~ msgid "mb"
+#~ msgstr "mb"
 
-#. translators: millimeters of mercury
-#: ../libgweather/gweather-prefs.c:68
-msgid "mmHg"
-msgstr "mmHg"
+#~ msgid "mmHg"
+#~ msgstr "mmHg"
 
-#. translators: inches of mercury
-#: ../libgweather/gweather-prefs.c:70
-msgid "inHg"
-msgstr "inHg"
+#~ msgid "inHg"
+#~ msgstr "inHg"
 
-#. translators: atmosphere
-#: ../libgweather/gweather-prefs.c:72
-msgid "atm"
-msgstr "atm"
+#~ msgid "atm"
+#~ msgstr "atm"
 
-#. translators: meters
-#: ../libgweather/gweather-prefs.c:79
-msgid "m"
-msgstr "m"
+#~ msgid "m"
+#~ msgstr "m"
 
-#. translators: kilometers
-#: ../libgweather/gweather-prefs.c:81
-msgid "km"
-msgstr "km"
+#~ msgid "km"
+#~ msgstr "km"
 
-#. translators: miles
-#: ../libgweather/gweather-prefs.c:83
-msgid "mi"
-msgstr "mi"
+#~ msgid "mi"
+#~ msgstr "mi"
 
-#. TRANSLATOR: This is the default unit to use for temperature measurements.
-#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:103 ../libgweather/gweather-prefs.c:111
-msgid "DEFAULT_TEMP_UNIT"
-msgstr "C"
+#~ msgid "DEFAULT_TEMP_UNIT"
+#~ msgstr "C"
 
 # dit MOET dus zijn km/h en niet km/u
-#. TRANSLATOR: This is the default unit to use for wind speed.
-#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
-#. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:141 ../libgweather/gweather-prefs.c:151
-msgid "DEFAULT_SPEED_UNIT"
-msgstr "km/h"
+#~ msgid "DEFAULT_SPEED_UNIT"
+#~ msgstr "km/h"
 
-#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
-#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
-#. "mb" (millibars), "mmHg" (millimeters of mercury),
-#. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:183 ../libgweather/gweather-prefs.c:194
-msgid "DEFAULT_PRESSURE_UNIT"
-msgstr "mb"
+#~ msgid "DEFAULT_PRESSURE_UNIT"
+#~ msgstr "mb"
 
-#. TRANSLATOR: This is the default unit to use for visibility distance.
-#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:224 ../libgweather/gweather-prefs.c:233
-msgid "DEFAULT_DISTANCE_UNIT"
-msgstr "m"
+#~ msgid "DEFAULT_DISTANCE_UNIT"
+#~ msgstr "m"
 
-#: ../libgweather/gweather-timezone.c:314
-msgid "Greenwich Mean Time"
-msgstr "Greenwich Mean Time"
+#~ msgid ""
+#~ "A three-digit-long code for retrieving radar maps from weather.com, found "
+#~ "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "Een 3-cijferige code voor het ophalen radarkaarten van weather.com. U "
+#~ "kunt deze vinden op http://git.gnome.org/cgit/libgweather/plain/data/"
+#~ "Locations.xml.in"
 
-#: ../libgweather/gweather.schemas.in.h:1
-msgid ""
-"A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Een 3-cijferige code voor het ophalen radarkaarten van weather.com. U kunt "
-"deze vinden op http://git.gnome.org/cgit/libgweather/plain/data/Locations."
-"xml.in"
+#~ msgid ""
+#~ "A unique zone for the city, as found from http://git.gnome.org/cgit/"
+#~ "libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "Een uniek gebied voor de stad. U kunt deze vinden op http://git.gnome.org/"
+#~ "cgit/libgweather/plain/data/Locations.xml.in"
 
-#: ../libgweather/gweather.schemas.in.h:2
-msgid ""
-"A unique zone for the city, as found from http://git.gnome.org/cgit/"
-"libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Een uniek gebied voor de stad. U kunt deze vinden op http://git.gnome.org/"
-"cgit/libgweather/plain/data/Locations.xml.in"
+#~ msgid ""
+#~ "Determines whether the applet automatically updates its weather "
+#~ "statistics or not."
+#~ msgstr ""
+#~ "Bepaalt of het applet de weerstatistieken automatisch ververst of niet."
 
-#: ../libgweather/gweather.schemas.in.h:8
-msgid ""
-"Determines whether the applet automatically updates its weather statistics "
-"or not."
-msgstr ""
-"Bepaalt of het applet de weerstatistieken automatisch ververst of niet."
+#~ msgid "Display radar map"
+#~ msgstr "Radarkaart weergeven"
 
-#: ../libgweather/gweather.schemas.in.h:9
-msgid "Display radar map"
-msgstr "Radarkaart weergeven"
+#~ msgid "Fetch a radar map on each update."
+#~ msgstr "Radarkaart ophalen bij iedere update."
 
-# eenheid voor afstand
-# eenheden voor afstand
-#: ../libgweather/gweather.schemas.in.h:10
-msgid "Distance unit"
-msgstr "Afstands eenheid"
+#~ msgid ""
+#~ "If true, then retrieve a radar map from a location specified by the "
+#~ "\"radar\" key."
+#~ msgstr ""
+#~ "Indien ingeschakeld, een radarkaart ophalen van de locatie gespecificeerd "
+#~ "in d sleutel \"radar\"."
 
-#: ../libgweather/gweather.schemas.in.h:11
-msgid "Fetch a radar map on each update."
-msgstr "Radarkaart ophalen bij iedere update."
+#~ msgid ""
+#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-"
+#~ "SS[EW]."
+#~ msgstr ""
+#~ "Lengte- en breedtegraad van uw locatie uitgedrukt in DD-MM-SS[NS] DD-MM-"
+#~ "SS[EW]."
 
-#: ../libgweather/gweather.schemas.in.h:12
-msgid ""
-"If true, then retrieve a radar map from a location specified by the \"radar"
-"\" key."
-msgstr ""
-"Indien ingeschakeld, een radarkaart ophalen van de locatie gespecificeerd in "
-"d sleutel \"radar\"."
-
-#: ../libgweather/gweather.schemas.in.h:13
-msgid ""
-"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-"[EW]."
-msgstr ""
-"Lengte- en breedtegraad van uw locatie uitgedrukt in DD-MM-SS[NS] DD-MM-SS"
-"[EW]."
-
-#: ../libgweather/gweather.schemas.in.h:14
-msgid "Location coordinates"
-msgstr "Locatie coördinaten"
+#~ msgid "Location coordinates"
+#~ msgstr "Locatie coördinaten"
 
 # nabije stad/dichtstbijzijnde stad
-#: ../libgweather/gweather.schemas.in.h:15
-msgid "Nearby city"
-msgstr "Dichtstbijzijnde stad"
+#~ msgid "Nearby city"
+#~ msgstr "Dichtstbijzijnde stad"
 
-#: ../libgweather/gweather.schemas.in.h:16
-msgid ""
-"Nearby major zone, such as a capital city, as found from http://git.gnome."
-"org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Aangrenzend gebied, zoals een hoofdstad. U kunt deze vinden op http://git."
-"gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+#~ msgid ""
+#~ "Nearby major zone, such as a capital city, as found from http://git.gnome."
+#~ "org/cgit/libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "Aangrenzend gebied, zoals een hoofdstad. U kunt deze vinden op http://git."
+#~ "gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
 
-#: ../libgweather/gweather.schemas.in.h:17
-msgid "Not used anymore"
-msgstr "Niet meer gebruikt"
+#~ msgid "Not used anymore"
+#~ msgstr "Niet meer gebruikt"
 
-#: ../libgweather/gweather.schemas.in.h:18
-msgid "Pressure unit"
-msgstr "Luchtdruk eenheid"
+#~ msgid "Radar location"
+#~ msgstr "Radarlocatie"
 
-#: ../libgweather/gweather.schemas.in.h:19
-msgid "Radar location"
-msgstr "Radarlocatie"
+#~ msgid "The city that gweather displays information for."
+#~ msgstr "De stad waarover gweather informatie toont."
 
-#: ../libgweather/gweather.schemas.in.h:20
-msgid "Speed unit"
-msgstr "Snelheids eenheid"
+#~ msgid "The interval, in seconds, between automatic updates."
+#~ msgstr "Het automatische verversingsinterval in seconden."
 
-#: ../libgweather/gweather.schemas.in.h:21
-msgid "Temperature unit"
-msgstr "Temperatuur eenheid"
+#~ msgid "The unit to use for pressure."
+#~ msgstr "De gebruikte eenheid voor druk."
 
-#: ../libgweather/gweather.schemas.in.h:22
-msgid "The city that gweather displays information for."
-msgstr "De stad waarover gweather informatie toont."
+#~ msgid "The unit to use for temperature."
+#~ msgstr "De gebruikte eenheid voor temperatuur."
 
-#: ../libgweather/gweather.schemas.in.h:23
-msgid "The custom url from where to retrieve a radar map."
-msgstr "De aangepaste URL voor de radarkaart."
+#~ msgid "The unit to use for visibility."
+#~ msgstr "De gebruikte eenheid voor zicht."
 
-#: ../libgweather/gweather.schemas.in.h:24
-msgid "The interval, in seconds, between automatic updates."
-msgstr "Het automatische verversingsinterval in seconden."
+#~ msgid "The unit to use for wind speed."
+#~ msgstr "De gebruikte eenheid voor windsnelheid."
 
-#: ../libgweather/gweather.schemas.in.h:25
-msgid "The unit to use for pressure."
-msgstr "De gebruikte eenheid voor druk."
+#~ msgid "Update interval"
+#~ msgstr "Verversingstijd"
 
-#: ../libgweather/gweather.schemas.in.h:26
-msgid "The unit to use for temperature."
-msgstr "De gebruikte eenheid voor temperatuur."
+#~ msgid "Update the data automatically"
+#~ msgstr "Gegevens automatisch verversen"
 
-#: ../libgweather/gweather.schemas.in.h:27
-msgid "The unit to use for visibility."
-msgstr "De gebruikte eenheid voor zicht."
+#~ msgid "Use custom url for the radar map"
+#~ msgstr "Aangepaste URL gebruiken voor de radarkaart"
 
-#: ../libgweather/gweather.schemas.in.h:28
-msgid "The unit to use for wind speed."
-msgstr "De gebruikte eenheid voor windsnelheid."
+#~ msgid "Use metric units"
+#~ msgstr "Metrische eenheden gebruiken"
 
-#: ../libgweather/gweather.schemas.in.h:29
-msgid "Update interval"
-msgstr "Verversingstijd"
+#~ msgid "Use metric units instead of english units."
+#~ msgstr "Metrische eenheden gebruiken in plaats van engelse eenheden."
 
-#: ../libgweather/gweather.schemas.in.h:30
-msgid "Update the data automatically"
-msgstr "Gegevens automatisch verversen"
+#~ msgid "Weather for a city"
+#~ msgstr "Weerbericht voor een stad"
 
-#: ../libgweather/gweather.schemas.in.h:31
-msgid "Url for the radar map"
-msgstr "URL voor de radarkaart"
+#~ msgid "Weather location information"
+#~ msgstr "Weerbericht locatie-informatie"
 
-#: ../libgweather/gweather.schemas.in.h:32
-msgid "Use custom url for the radar map"
-msgstr "Aangepaste URL gebruiken voor de radarkaart"
+#~ msgid "Weather location information."
+#~ msgstr "Weerbericht locatie-informatie."
 
-#: ../libgweather/gweather.schemas.in.h:33
-msgid "Use metric units"
-msgstr "Metrische eenheden gebruiken"
+#~ msgid "WeatherInfo missing location"
+#~ msgstr "Missende locatie bij weerinfo"
 
-#: ../libgweather/gweather.schemas.in.h:34
-msgid "Use metric units instead of english units."
-msgstr "Metrische eenheden gebruiken in plaats van engelse eenheden."
+#~ msgid "Ice pellets"
+#~ msgstr "Hagelbuien"
 
-#: ../libgweather/gweather.schemas.in.h:35
-msgid "Weather for a city"
-msgstr "Weerbericht voor een stad"
+#~ msgid "Few ice pellets"
+#~ msgstr "Lichte hagelbuien"
 
-#: ../libgweather/gweather.schemas.in.h:36
-msgid "Weather location information"
-msgstr "Weerbericht locatie-informatie"
+#~ msgid "Moderate ice pellets"
+#~ msgstr "Matige hagelbuien"
 
-#: ../libgweather/gweather.schemas.in.h:37
-msgid "Weather location information."
-msgstr "Weerbericht locatie-informatie."
-
-#: ../libgweather/gweather.schemas.in.h:38
-msgid "Zone location"
-msgstr "Zone locatie"
-
-#: ../libgweather/timezone-menu.c:277
-msgctxt "timezone"
-msgid "Unknown"
-msgstr "Onbekend"
-
-#. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:504
-#, c-format
-msgid "Failed to get METAR data: %d %s.\n"
-msgstr "Kon geen METAR-data ophalen: %d %s.\n"
-
-#: ../libgweather/weather-metar.c:548
-msgid "WeatherInfo missing location"
-msgstr "Missende locatie bij weerinfo"
-
-#: ../libgweather/weather.c:232
-msgid "Variable"
-msgstr "Variabel"
-
-#: ../libgweather/weather.c:233
-msgid "North"
-msgstr "Noord"
-
-#: ../libgweather/weather.c:233
-msgid "North - NorthEast"
-msgstr "Noord - Noordoost"
-
-#: ../libgweather/weather.c:233
-msgid "Northeast"
-msgstr "Noordoost"
-
-#: ../libgweather/weather.c:233
-msgid "East - NorthEast"
-msgstr "Oost - Noordoost"
-
-#: ../libgweather/weather.c:234
-msgid "East"
-msgstr "Oost"
-
-#: ../libgweather/weather.c:234
-msgid "East - Southeast"
-msgstr "Oost - Zuidoost"
-
-#: ../libgweather/weather.c:234
-msgid "Southeast"
-msgstr "Zuidoost"
-
-#: ../libgweather/weather.c:234
-msgid "South - Southeast"
-msgstr "Zuid - Zuidoost"
-
-#: ../libgweather/weather.c:235
-msgid "South"
-msgstr "Zuid"
-
-#: ../libgweather/weather.c:235
-msgid "South - Southwest"
-msgstr "Zuid - Zuidwest"
-
-#: ../libgweather/weather.c:235
-msgid "Southwest"
-msgstr "Zuidwest"
-
-#: ../libgweather/weather.c:235
-msgid "West - Southwest"
-msgstr "West - Zuidwest"
-
-#: ../libgweather/weather.c:236
-msgid "West"
-msgstr "West"
-
-#: ../libgweather/weather.c:236
-msgid "West - Northwest"
-msgstr "West - Noordwest"
-
-#: ../libgweather/weather.c:236
-msgid "Northwest"
-msgstr "Noordwest"
-
-#: ../libgweather/weather.c:236
-msgid "North - Northwest"
-msgstr "Noord - Noordwest"
-
-#: ../libgweather/weather.c:243 ../libgweather/weather.c:260
-#: ../libgweather/weather.c:332
-msgid "Invalid"
-msgstr "Ongeldig"
-
-#: ../libgweather/weather.c:249
-msgid "Clear Sky"
-msgstr "Heldere lucht"
-
-#: ../libgweather/weather.c:250
-msgid "Broken clouds"
-msgstr "Dun bewolkt"
-
-#: ../libgweather/weather.c:251
-msgid "Scattered clouds"
-msgstr "Licht bewolkt"
-
-#: ../libgweather/weather.c:252
-msgid "Few clouds"
-msgstr "Bewolkt"
-
-#: ../libgweather/weather.c:253
-msgid "Overcast"
-msgstr "Zwaar bewolkt"
-
-#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
-#. * etc means, you can go to http://www.weather.com/glossary/ and
-#. * http://www.crh.noaa.gov/arx/wx.tbl.php
-#. NONE
-#: ../libgweather/weather.c:292 ../libgweather/weather.c:294
-msgid "Thunderstorm"
-msgstr "Onweer"
-
-#. DRIZZLE
-#: ../libgweather/weather.c:293
-msgid "Drizzle"
-msgstr "Motregen"
-
-#: ../libgweather/weather.c:293
-msgid "Light drizzle"
-msgstr "Lichte motregen"
-
-#: ../libgweather/weather.c:293
-msgid "Moderate drizzle"
-msgstr "Matige motregen"
-
-#: ../libgweather/weather.c:293
-msgid "Heavy drizzle"
-msgstr "Zware motregen"
-
-#: ../libgweather/weather.c:293
-msgid "Freezing drizzle"
-msgstr "IJskoude motregen"
-
-#. RAIN
-#: ../libgweather/weather.c:294
-msgid "Rain"
-msgstr "Regen"
-
-#: ../libgweather/weather.c:294
-msgid "Light rain"
-msgstr "Lichte regen"
-
-#: ../libgweather/weather.c:294
-msgid "Moderate rain"
-msgstr "Matige regen"
-
-#: ../libgweather/weather.c:294
-msgid "Heavy rain"
-msgstr "Zware regen"
-
-#: ../libgweather/weather.c:294
-msgid "Rain showers"
-msgstr "Buien"
-
-#: ../libgweather/weather.c:294
-msgid "Freezing rain"
-msgstr "IJskoude regen"
-
-#. SNOW
-#: ../libgweather/weather.c:295
-msgid "Snow"
-msgstr "Sneeuw"
-
-#: ../libgweather/weather.c:295
-msgid "Light snow"
-msgstr "Lichte sneeuwval"
-
-#: ../libgweather/weather.c:295
-msgid "Moderate snow"
-msgstr "Matige sneeuwval"
-
-#: ../libgweather/weather.c:295
-msgid "Heavy snow"
-msgstr "Zware sneeuwval"
-
-#: ../libgweather/weather.c:295
-msgid "Snowstorm"
-msgstr "Sneeuwstorm"
-
-#: ../libgweather/weather.c:295
-msgid "Blowing snowfall"
-msgstr "Winderige sneeuwval"
-
-#: ../libgweather/weather.c:295
-msgid "Snow showers"
-msgstr "Sneeuwbuien"
-
-#: ../libgweather/weather.c:295
-msgid "Drifting snow"
-msgstr "Sneeuwbuien"
-
-#. SNOW_GRAINS
-#: ../libgweather/weather.c:296
-msgid "Snow grains"
-msgstr "Sneeuwvlagen"
-
-#: ../libgweather/weather.c:296
-msgid "Light snow grains"
-msgstr "Lichte sneeuwbuien"
-
-#: ../libgweather/weather.c:296
-msgid "Moderate snow grains"
-msgstr "Matige sneeuwbuien"
-
-#: ../libgweather/weather.c:296
-msgid "Heavy snow grains"
-msgstr "Zware sneeuwbuien"
-
-#. ICE_CRYSTALS
-#: ../libgweather/weather.c:297
-msgid "Ice crystals"
-msgstr "Hagel"
-
-#. ICE_PELLETS
-#: ../libgweather/weather.c:298
-msgid "Ice pellets"
-msgstr "Hagelbuien"
-
-#: ../libgweather/weather.c:298
-msgid "Few ice pellets"
-msgstr "Lichte hagelbuien"
-
-#: ../libgweather/weather.c:298
-msgid "Moderate ice pellets"
-msgstr "Matige hagelbuien"
-
-#: ../libgweather/weather.c:298
-msgid "Heavy ice pellets"
-msgstr "Zware hagelbuien"
-
-#: ../libgweather/weather.c:298
-msgid "Ice pellet storm"
-msgstr "Hagelstorm"
-
-#: ../libgweather/weather.c:298
-msgid "Showers of ice pellets"
-msgstr "Hagelbuien"
-
-#. HAIL
-#: ../libgweather/weather.c:299
-msgid "Hail"
-msgstr "Hagel"
-
-#: ../libgweather/weather.c:299
-msgid "Hailstorm"
-msgstr "Hagelstorm"
-
-#: ../libgweather/weather.c:299
-msgid "Hail showers"
-msgstr "Hagelbuien"
-
-#. SMALL_HAIL
-#: ../libgweather/weather.c:300
-msgid "Small hail"
-msgstr "Kleine hagel"
-
-#: ../libgweather/weather.c:300
-msgid "Small hailstorm"
-msgstr "Kleine hagelstorm"
-
-# de hagel is klein
-#: ../libgweather/weather.c:300
-msgid "Showers of small hail"
-msgstr "Kleine hagelbuien"
-
-#. PRECIPITATION
-#: ../libgweather/weather.c:301
-msgid "Unknown precipitation"
-msgstr "Onbekende neerslag"
-
-#. MIST
-#: ../libgweather/weather.c:302
-msgid "Mist"
-msgstr "Mist"
-
-#. FOG
-#: ../libgweather/weather.c:303
-msgid "Fog"
-msgstr "Nevel"
-
-#: ../libgweather/weather.c:303
-msgid "Fog in the vicinity"
-msgstr "Hier en daar mist"
-
-#: ../libgweather/weather.c:303
-msgid "Shallow fog"
-msgstr "Matige mist"
-
-#: ../libgweather/weather.c:303
-msgid "Patches of fog"
-msgstr "Hier en daar mist"
-
-#: ../libgweather/weather.c:303
-msgid "Partial fog"
-msgstr "Gedeeltelijke mist"
-
-#: ../libgweather/weather.c:303
-msgid "Freezing fog"
-msgstr "IJskoude mist"
-
-#. SMOKE
-#: ../libgweather/weather.c:304
-msgid "Smoke"
-msgstr "Rook"
-
-#. VOLCANIC_ASH
-#: ../libgweather/weather.c:305
-msgid "Volcanic ash"
-msgstr "Vulkanische as"
-
-#. SAND
-#: ../libgweather/weather.c:306
-msgid "Sand"
-msgstr "Zand"
-
-#: ../libgweather/weather.c:306
-msgid "Blowing sand"
-msgstr "Winderige zandstormen"
-
-#: ../libgweather/weather.c:306
-msgid "Drifting sand"
-msgstr "Drijvend zand"
-
-#. HAZE
-#: ../libgweather/weather.c:307
-msgid "Haze"
-msgstr "Nevel"
-
-#. SPRAY
-#: ../libgweather/weather.c:308
-msgid "Blowing sprays"
-msgstr "Vlagen met regen"
-
-#. DUST
-#: ../libgweather/weather.c:309
-msgid "Dust"
-msgstr "Stof"
-
-#: ../libgweather/weather.c:309
-msgid "Blowing dust"
-msgstr "Winderige stofbuien"
-
-#: ../libgweather/weather.c:309
-msgid "Drifting dust"
-msgstr "Drijvende stofbuien"
-
-#. SQUALL
-#: ../libgweather/weather.c:310
-msgid "Squall"
-msgstr "Regenstorm"
-
-#. SANDSTORM
-#: ../libgweather/weather.c:311
-msgid "Sandstorm"
-msgstr "Zandstorm"
-
-#: ../libgweather/weather.c:311
-msgid "Sandstorm in the vicinity"
-msgstr "Zandstorm dichtbij"
-
-#: ../libgweather/weather.c:311
-msgid "Heavy sandstorm"
-msgstr "Zware zandstorm"
-
-#. DUSTSTORM
-#: ../libgweather/weather.c:312
-msgid "Duststorm"
-msgstr "Stofstorm"
-
-#: ../libgweather/weather.c:312
-msgid "Duststorm in the vicinity"
-msgstr "Stofstorm dichtbij"
-
-#: ../libgweather/weather.c:312
-msgid "Heavy duststorm"
-msgstr "Zware stofstorm"
-
-#. FUNNEL_CLOUD
-#: ../libgweather/weather.c:313
-msgid "Funnel cloud"
-msgstr "Trechterwolk"
-
-#. TORNADO
-#: ../libgweather/weather.c:314
-msgid "Tornado"
-msgstr "Tornado"
-
-#. DUST_WHIRLS
-#: ../libgweather/weather.c:315
-msgid "Dust whirls"
-msgstr "Stofstorm"
-
-#: ../libgweather/weather.c:315
-msgid "Dust whirls in the vicinity"
-msgstr "Stofstorm dichtbij"
-
-#. TRANSLATOR: this is a format string for strftime
-#. *             see `man 3 strftime` for more details
-#.
-#: ../libgweather/weather.c:710
-msgid "%a, %b %d / %H:%M"
-msgstr "%A, %d %b om %H:%M uur"
-
-#: ../libgweather/weather.c:725
-msgid "Unknown observation time"
-msgstr "Onbekende observatietijd"
-
-#: ../libgweather/weather.c:739 ../libgweather/weather.c:790
-#: ../libgweather/weather.c:804 ../libgweather/weather.c:817
-#: ../libgweather/weather.c:830 ../libgweather/weather.c:843
-#: ../libgweather/weather.c:861 ../libgweather/weather.c:879
-#: ../libgweather/weather.c:917 ../libgweather/weather.c:933
-#: ../libgweather/weather.c:956 ../libgweather/weather.c:988
-#: ../libgweather/weather.c:1004 ../libgweather/weather.c:1024
-msgid "Unknown"
-msgstr "Onbekend"
-
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:761
-#, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
-
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:764
-#, c-format
-msgid "%d °F"
-msgstr "%d °F"
-
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:770
-#, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
-
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:773
-#, c-format
-msgid "%d °C"
-msgstr "%d °C"
-
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:779
-#, c-format
-msgid "%.1f K"
-msgstr "%.1f K"
-
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:782
-#, c-format
-msgid "%d K"
-msgstr "%d K"
-
-# een extra spatie? Relatieve vochtigheid: 63 % 
-#. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:864
-#, c-format
-msgid "%.f%%"
-msgstr "%.f%%"
-
-#. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:892
-#, c-format
-msgid "%0.1f knots"
-msgstr "%0.1f knopen"
-
-#. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:896
-#, c-format
-msgid "%.1f mph"
-msgstr "%.1f mpu"
-
-#. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:900
-#, c-format
-msgid "%.1f km/h"
-msgstr "%.1f km/u"
-
-#. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:904
-#, c-format
-msgid "%.1f m/s"
-msgstr "%.1f m/s"
-
-#. TRANSLATOR: This is the wind speed as a Beaufort force factor
-#. * (commonly used in nautical wind estimation).
-#.
-#: ../libgweather/weather.c:910
-#, c-format
-msgid "Beaufort force %.1f"
-msgstr "Beaufort kracht %.1f"
-
-#: ../libgweather/weather.c:935
-msgid "Calm"
-msgstr "Kalm"
-
-# een / is niet mooi omdat dat ook al in km/u staat en dan
-# staat er bijvoorbeeld:  West / 25 km/u
-#. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:939
-#, c-format
-msgid "%s / %s"
-msgstr "%s · %s"
-
-#. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:961
-#, c-format
-msgid "%.2f inHg"
-msgstr "%.2f inHg"
-
-#. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:965
-#, c-format
-msgid "%.1f mmHg"
-msgstr "%.1f mmHg"
-
-#. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:969
-#, c-format
-msgid "%.2f kPa"
-msgstr "%.2f KPa"
-
-#. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:973
-#, c-format
-msgid "%.2f hPa"
-msgstr "%.2f hPa"
-
-#. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:977
-#, c-format
-msgid "%.2f mb"
-msgstr "%.2f mb"
-
-#. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:981
-#, c-format
-msgid "%.3f atm"
-msgstr "%.3f atm"
-
-# geen meervoud hier
-# zicht is 5 mijl
-#. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:1009
-#, c-format
-msgid "%.1f miles"
-msgstr "%.1f mijl"
-
-#. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:1013
-#, c-format
-msgid "%.1f km"
-msgstr "%.1f km"
-
-# spatie na getal?
-# zicht is 50m
-# zicht is 50 m
-#. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1017
-#, c-format
-msgid "%.0fm"
-msgstr "%.0f m"
+#~ msgid "Heavy ice pellets"
+#~ msgstr "Zware hagelbuien"
 
 # er moet 'uur' achter de tijd staan (tino)
-#: ../libgweather/weather.c:1046 ../libgweather/weather.c:1067
-msgid "%H:%M"
-msgstr "%H:%M uur"
-
-#: ../libgweather/weather.c:1126
-msgid "Retrieval failed"
-msgstr "Ophalen mislukt"
+#~ msgid "%H:%M"
+#~ msgstr "%H:%M uur"
 
 #~ msgid "%.1f ℉"
 #~ msgstr "%.1f ℉"
@@ -2146,9 +2163,6 @@ msgstr "Ophalen mislukt"
 #~ msgid "A panel application for monitoring local weather conditions."
 #~ msgstr "Een paneeltoepassing om het lokale weer te volgen."
 
-#~ msgid "GNOME Weather"
-#~ msgstr "Gnome-weerbericht"
-
 #~ msgid "Weather Forecast"
 #~ msgstr "Weerbericht"
 
@@ -2160,9 +2174,6 @@ msgstr "Ophalen mislukt"
 #~ "Stad: %s\n"
 #~ "Lucht: %s\n"
 #~ "Temperatuur: %s"
-
-#~ msgid "Updating..."
-#~ msgstr "Bezig met verversen..."
 
 #~ msgid "Details"
 #~ msgstr "Details"
@@ -2328,15 +2339,12 @@ msgstr "Ophalen mislukt"
 #~ msgstr "_Kies een locatie:"
 
 # het is hier een opdracht (het staat voor het tekstveld)
-# Zoek naar: [locatietekstveld] [knop: volgende zoeken] 
+# Zoek naar: [locatietekstveld] [knop: volgende zoeken]
 #~ msgid "_Find:"
 #~ msgstr "_Zoek naar:"
 
 #~ msgid "Find _Next"
 #~ msgstr "Zoek v_olgende"
-
-#~ msgid "Location"
-#~ msgstr "Locatie"
 
 # $De naam van de toepassing is Invest
 #~ msgid "Invest"
@@ -4937,9 +4945,6 @@ msgstr "Ophalen mislukt"
 #~ msgid "Gnome Keyboard Default"
 #~ msgstr "Gnome toetsenbord standaard"
 
-#~ msgid "default"
-#~ msgstr "standaard"
-
 #~ msgid "Appearance mode of the applet"
 #~ msgstr "Uiterlijk van het applet"
 
@@ -5254,7 +5259,7 @@ msgstr "Ophalen mislukt"
 #~ msgstr "Geluid _afspelen bij nieuwe e-mail"
 
 # bij aanklikken
-# bij klikken 
+# bij klikken
 # indien aangeklikt
 #~ msgid "Sto_p animation when clicked"
 #~ msgstr "Animatie _stoppen bij aanklikken"
