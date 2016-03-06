@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-/* weather-yrno.c - Yr.no Weather service.
+/* weather-yrno.c - MET Norway Weather service.
  *
  * Copyright 2012 Giovanni Campagna <scampa.giovanni@gmail.com>
  *
@@ -418,9 +418,9 @@ build_yrno_url_geonames (GWeatherLocation *glocation,
 	return NULL;
 
     if (adm_division != NULL)
-	return g_strdup_printf("http://yr.no/place/%s/%s/%s/%s", country, adm_division, city_name, append);
+	return g_strdup_printf("http://www.yr.no/place/%s/%s/%s/%s", country, adm_division, city_name, append);
     else
-	return g_strdup_printf("http://yr.no/place/%s/%s/%s", country, city_name, append);
+	return g_strdup_printf("http://www.yr.no/place/%s/%s/%s", country, city_name, append);
 }
 
 
@@ -504,7 +504,7 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 
        That's very nice of them!
     */
-    priv->forecast_attribution = g_strdup(_("Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological Institute</a>"));
+    priv->forecast_attribution = g_strdup(_("Weather data from the <a href=\"http://www.met.no/\">Norwegian Meteorological Institute</a>"));
 
  out:
     xmlXPathFreeContext (xpath_ctx);
@@ -589,12 +589,12 @@ yrno_start_open_new (GWeatherInfo *info)
     if (!loc->latlon_valid)
 	return FALSE;
 
-    /* see the description here: http://api.yr.no/weatherapi/ */
+    /* see the description here: https://api.met.no/ */
 
     g_ascii_dtostr (latstr, sizeof(latstr), RADIANS_TO_DEGREES (loc->latitude));
     g_ascii_dtostr (lonstr, sizeof(lonstr), RADIANS_TO_DEGREES (loc->longitude));
 
-    url = g_strdup_printf("http://api.yr.no/weatherapi/locationforecast/1.9/?lat=%s;lon=%s", latstr, lonstr);
+    url = g_strdup_printf("https://api.met.no/weatherapi/locationforecast/1.9/?lat=%s;lon=%s", latstr, lonstr);
 
     message = soup_message_new ("GET", url);
     _gweather_info_begin_request (info, message);
