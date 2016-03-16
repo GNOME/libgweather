@@ -39,22 +39,23 @@
 # Fotis Tsamis <ftsamis@gmail.com>, 2009.
 # Simos Xenitellis <simos.lists@googlemail.com>, 2010.
 # Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2013.
-# Efstathios Iosifidis <iosifidis@opensuse.org>, 2013.
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2013, 2016.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgweather&keywords=I18N"
-"+L10N&component=general\n"
-"POT-Creation-Date: 2015-08-28 10:46+0000\n"
-"PO-Revision-Date: 2015-08-28 21:58+0300\n"
-"Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
-"Language-Team: team@gnome.gr\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgweather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-03-16 01:20+0000\n"
+"PO-Revision-Date: 2016-03-16 10:03+0200\n"
+"Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
+"Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Gtranslator 2.91.7\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/glade/libgweather.xml.in.h:1
@@ -77,7 +78,7 @@ msgstr "GWeather"
 msgid "Loading..."
 msgstr "Φόρτωση..."
 
-#: ../libgweather/gweather-timezone.c:340
+#: ../libgweather/gweather-timezone.c:341
 msgid "Greenwich Mean Time"
 msgstr "Μέση ώρα Γκρίνουιτς"
 
@@ -667,7 +668,8 @@ msgstr "%.1f km"
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/gweather-weather.c:1144 ../libgweather/gweather-weather.c:1169
+#: ../libgweather/gweather-weather.c:1144
+#: ../libgweather/gweather-weather.c:1169
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
@@ -681,8 +683,12 @@ msgid "Failed to get METAR data: %d %s.\n"
 msgstr "Αποτυχία λήψης δεδομένων METAR: %d %s.\n"
 
 #: ../libgweather/weather-owm.c:383
-msgid "Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map project</a>"
-msgstr "Μετεωρολογικά δεδομένα από το <a href=\"http://openweathermap.org\">Open Weather Map project</a>"
+msgid ""
+"Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
+"project</a>"
+msgstr ""
+"Μετεωρολογικά δεδομένα από το <a href=\"http://openweathermap.org\">Open "
+"Weather Map project</a>"
 
 #. The new (documented but not advertised) API is less strict in the
 #. format of the attribution, and just requires a generic CC-BY compatible
@@ -691,17 +697,27 @@ msgstr "Μετεωρολογικά δεδομένα από το <a href=\"http:/
 #. That's very nice of them!
 #.
 #: ../libgweather/weather-yrno.c:507
-msgid "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological Institute</a>"
-msgstr "Μετεωρολογικά δεδομένα από το <a href=\"http://yr.no/\">Νορβηγικό μετεωρολογικό ινστιτούτο</a>"
+#| msgid ""
+#| "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
+#| "Institute</a>"
+msgid ""
+"Weather data from the <a href=\"http://www.met.no/\">Norwegian "
+"Meteorological Institute</a>"
+msgstr ""
+"Μετεωρολογικά δεδομένα από το <a href=\"http://www.met.no/\">Νορβηγικό "
+"μετεωρολογικό ινστιτούτο</a>"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:1
 msgid "URL for the radar map"
 msgstr "Διεύθυνση για το χάρτη ραντάρ"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:2
-msgid "The custom URL from where to retrieve a radar map, or empty for disabling radar maps."
+msgid ""
+"The custom URL from where to retrieve a radar map, or empty for disabling "
+"radar maps."
 msgstr ""
-"Χρήση προσαρμοσμένης διεύθυνσης για λήψη του χάρτη ραντάρ ή κενής για απενεργοποίσηση των χαρτών ραντάρ."
+"Χρήση προσαρμοσμένης διεύθυνσης για λήψη του χάρτη ραντάρ ή κενής για "
+"απενεργοποίσηση των χαρτών ραντάρ."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:3
 msgid "Temperature unit"
@@ -709,10 +725,11 @@ msgstr "Μονάδα θερμοκρασίας"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:4
 msgid ""
-"The unit of temperature used for showing weather. Valid values are 'kelvin', 'centigrade' and 'fahrenheit'."
+"The unit of temperature used for showing weather. Valid values are 'kelvin', "
+"'centigrade' and 'fahrenheit'."
 msgstr ""
-"Η μονάδα της θερμοκρασίας που χρησιμοποιείται για την προβολή καιρού. Έγκυρες τιμές είναι οι 'kelvin', "
-"'centigrade' και 'fahrenheit'."
+"Η μονάδα της θερμοκρασίας που χρησιμοποιείται για την προβολή καιρού. "
+"Έγκυρες τιμές είναι οι 'kelvin', 'centigrade' και 'fahrenheit'."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:5
 msgid "Distance unit"
@@ -720,11 +737,13 @@ msgstr "Μονάδα απόστασης"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:6
 msgid ""
-"The unit of distance used for showing weather (for example for visibility or for distance of important "
-"events). Valid values are 'meters', 'km' and 'miles'."
+"The unit of distance used for showing weather (for example for visibility or "
+"for distance of important events). Valid values are 'meters', 'km' and "
+"'miles'."
 msgstr ""
-"Η μονάδα της απόστασης που χρησιμοποιείται για την προβολή καιρού (για παράδειγμα για την ορατότητα ή την "
-"απόσταση σημαντικών εκδηλώσεων). Έγκυρες τιμές είναι 'meters', 'km' και 'miles'."
+"Η μονάδα της απόστασης που χρησιμοποιείται για την προβολή καιρού (για "
+"παράδειγμα για την ορατότητα ή την απόσταση σημαντικών εκδηλώσεων). Έγκυρες "
+"τιμές είναι 'meters', 'km' και 'miles'."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:7
 msgid "Speed unit"
@@ -732,12 +751,14 @@ msgstr "Μονάδα ταχύτητας"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:8
 msgid ""
-"The unit of speed used for showing weather (for example for wind speed). Valid values are 'ms' (meters per "
-"second), 'kph' (kilometers per hour), 'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+"The unit of speed used for showing weather (for example for wind speed). "
+"Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
+"'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
 msgstr ""
-"Η μονάδα της ταχύτητας που χρησιμοποιείται για την προβολή καιρού (για παράδειγμα για την ταχύτητα του "
-"ανέμου). Έγκυρες τιμές είναι οι 'ms' (μέτρα ανά δευτερόλεπτο), 'kph' (χιλιόμετρα ανά ώρα), 'mph' (μίλια ανά "
-"ώρα), 'knots' και 'bft' (κλίμακα μποφόρ)."
+"Η μονάδα της ταχύτητας που χρησιμοποιείται για την προβολή καιρού (για "
+"παράδειγμα για την ταχύτητα του ανέμου). Έγκυρες τιμές είναι οι 'ms' (μέτρα "
+"ανά δευτερόλεπτο), 'kph' (χιλιόμετρα ανά ώρα), 'mph' (μίλια ανά ώρα), "
+"'knots' και 'bft' (κλίμακα μποφόρ)."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:9
 msgid "Pressure unit"
@@ -745,13 +766,16 @@ msgstr "Μονάδα πίεσης"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:10
 msgid ""
-"The unit of pressure used for showing weather. Valid values are 'kpa' (kilopascal), 'hpa' (hectopascal), "
-"'mb' (millibar, mathematically equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of mercury), "
-"'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+"The unit of pressure used for showing weather. Valid values are "
+"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
+"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
+"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
 msgstr ""
-"Η μονάδα της πίεσης που χρησιμοποιείται για την προβολή καιρού. Έγκυρες τιμές είναι οι 'kpa' (kilopascal), "
-"'hpa' (hectopascal), 'mb' (μίλιμπαρ, μαθηματικά ισοδυναμεί με 1 hPa, αλλά εμφανίζεται με διαφορετικό τρόπο), "
-"'mm-hg' (χιλιοστά του υδραργύρου), 'inch-hg' (ίντσες του υδραργύρου), 'atm' (ατμόσφαιρες)."
+"Η μονάδα της πίεσης που χρησιμοποιείται για την προβολή καιρού. Έγκυρες "
+"τιμές είναι οι 'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (μίλιμπαρ, "
+"μαθηματικά ισοδυναμεί με 1 hPa, αλλά εμφανίζεται με διαφορετικό τρόπο), 'mm-"
+"hg' (χιλιοστά του υδραργύρου), 'inch-hg' (ίντσες του υδραργύρου), "
+"'atm' (ατμόσφαιρες)."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:11
 msgid "Default location"
@@ -759,18 +783,22 @@ msgstr "Προεπιλεγμένη τοποθεσία"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:12
 msgid ""
-"The default location for the weather applet. The first field is the name that will be shown. If empty, it "
-"will be taken from the locations database. The second field is the METAR code for the default weather "
-"station. It must not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml file. The third "
-"field is a tuple of (latitude, longitude), to override the value taken from the database. This is only used "
-"for sunrise and moon phase calculations, not for weather forecast."
+"The default location for the weather applet. The first field is the name "
+"that will be shown. If empty, it will be taken from the locations database. "
+"The second field is the METAR code for the default weather station. It must "
+"not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml "
+"file. The third field is a tuple of (latitude, longitude), to override the "
+"value taken from the database. This is only used for sunrise and moon phase "
+"calculations, not for weather forecast."
 msgstr ""
-"Η προεπιλεγμένη τοποθεσία για την μικροεφαρμογή του καιρού. Το πρώτο πεδίο είναι το όνομα που θα "
-"εμφανίζεται. Αν είναι κενό, τότε θα ληφθεί από τη βάση δεδομένων των τοποθεσιών. Το δεύτερο πεδίο είναι ο "
-"κωδικός METAR για τον προεπιλεγμένο μετεωρολογικο σταθμό. Δεν πρέπει να είναι κενός και πρέπει να "
-"αντιστοιχεί σε μια &lt;code&gt; ετικέτα στο αρχείο Locations.xml. Το τρίτο πεδίο είναι μια πλειάδα "
-"(γεωγραφικό πλάτος,μήκος) για να αντικαταστήσει την τιμή που λαμβάνεται από τη βάση δεδομένων. Αυτό "
-"χρησιμοποιείται μόνο για την ανατολή του ηλίου και τον υπολογισμό φάσεων της σελήνης, και όχι για την "
+"Η προεπιλεγμένη τοποθεσία για την μικροεφαρμογή του καιρού. Το πρώτο πεδίο "
+"είναι το όνομα που θα εμφανίζεται. Αν είναι κενό, τότε θα ληφθεί από τη βάση "
+"δεδομένων των τοποθεσιών. Το δεύτερο πεδίο είναι ο κωδικός METAR για τον "
+"προεπιλεγμένο μετεωρολογικο σταθμό. Δεν πρέπει να είναι κενός και πρέπει να "
+"αντιστοιχεί σε μια &lt;code&gt; ετικέτα στο αρχείο Locations.xml. Το τρίτο "
+"πεδίο είναι μια πλειάδα (γεωγραφικό πλάτος,μήκος) για να αντικαταστήσει την "
+"τιμή που λαμβάνεται από τη βάση δεδομένων. Αυτό χρησιμοποιείται μόνο για την "
+"ανατολή του ηλίου και τον υπολογισμό φάσεων της σελήνης, και όχι για την "
 "πρόγνωση του καιρού."
 
 #~ msgid "Ice pellets"
