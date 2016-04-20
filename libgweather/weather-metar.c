@@ -620,7 +620,7 @@ metar_start_open (GWeatherInfo *info)
     loc = &priv->location;
 
     msg = soup_form_request_new (
-	"GET", "http://weather.noaa.gov/cgi-bin/mgetmetar.pl",
+	"GET", "http://weather.noaa.gov/mgetmetar.php",
 	"cccc", loc->code,
 	NULL);
     _gweather_info_begin_request (info, msg);
