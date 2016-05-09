@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: oc\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgwea"
 "ther&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-07-30 04:37+0000\n"
-"PO-Revision-Date: 2016-02-29 20:05+0200\n"
+"POT-Creation-Date: 2016-04-29 13:02+0000\n"
+"PO-Revision-Date: 2016-05-08 18:49+0200\n"
 "Last-Translator: Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>\n"
 "Language-Team: Tot En Òc\n"
 "Language: oci\n"
@@ -43,7 +43,7 @@ msgstr "GWeather"
 msgid "Loading..."
 msgstr "Cargament..."
 
-#: ../libgweather/gweather-timezone.c:340
+#: ../libgweather/gweather-timezone.c:341
 msgid "Greenwich Mean Time"
 msgstr "Temps mejan de Greenwich"
 
@@ -467,7 +467,6 @@ msgstr "default:mm"
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
 #: ../libgweather/gweather-weather.c:797
 #, c-format
-#| msgid "%.1f ےF"
 msgid "%.1f °F"
 msgstr "%.1f ےF"
 
@@ -480,7 +479,6 @@ msgstr "%d °F"
 #. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
 #: ../libgweather/gweather-weather.c:806
 #, c-format
-#| msgid "%.1f ےC"
 msgid "%.1f °C"
 msgstr "%.1f ےC"
 
@@ -664,12 +662,15 @@ msgstr ""
 #. That's very nice of them!
 #.
 #: ../libgweather/weather-yrno.c:507
+#| msgid ""
+#| "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
+#| "Institute</a>"
 msgid ""
-"Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
-"Institute</a>"
+"Weather data from the <a href=\"http://www.met.no/\">Norwegian "
+"Meteorological Institute</a>"
 msgstr ""
-"Donadas meteorologicas de <a href=\"http://yr.no/\">l'institut meteorologic "
-"norvegian</a>"
+"Donadas meteorologicas de <a href=\"http://www.met.no/\">l'institut "
+"meteorologic norvegian</a>"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:1
 msgid "URL for the radar map"
@@ -756,7 +757,7 @@ msgid ""
 msgstr ""
 "L'emplaçament per defaut per l'applet de la metèo. Lo primièr camp es lo nom "
 "que serà afichat. Se void, serà pres dins la banca de donadas dels sites. Lo "
-"segond camp es lo còde METAR per l'estacion metèo per defaut. Deu pas èsser "
+"segond camp es lo còdi METAR per l'estacion metèo per defaut. Deu pas èsser "
 "void e deu correspondre a una balisa &lt;code&gt; contengut dins lo fichièr "
 "Locations.xml. Lo tresen camp es una para (latitud, longitud) que pren la "
 "plaça de la valor presa dins la banca de donadas. Aqueste darrièr es pas "
