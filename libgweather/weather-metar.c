@@ -580,7 +580,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
     loc = &priv->location;
 
-    searchkey = g_strdup_printf ("\n%s", loc->code);
+    searchkey = g_strdup_printf ("<raw_text>%s", loc->code);
     p = strstr (msg->response_body->data, searchkey);
     g_free (searchkey);
     if (p) {
@@ -592,8 +592,8 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 	    metar = g_strdup (p);
 	success = metar_parse (metar, info);
 	g_free (metar);
-    } else if (!strstr (msg->response_body->data, "National Weather Service")) {
-	/* The response doesn't even seem to have come from NWS...
+    } else if (!strstr (msg->response_body->data, "aviationweather.gov")) {
+	/* The response doesn't even seem to have come from NOAA...
 	 * most likely it is a wifi hotspot login page. Call that a
 	 * network error.
 	 */
@@ -620,8 +620,14 @@ metar_start_open (GWeatherInfo *info)
     loc = &priv->location;
 
     msg = soup_form_request_new (
-	"GET", "http://weather.noaa.gov/cgi-bin/mgetmetar.pl",
-	"cccc", loc->code,
+	"GET", "https://www.aviationweather.gov/adds/dataserver_current/httpparam",
+	"dataSource", "metars",
+	"requestType", "retrieve",
+	"format", "xml",
+	"hoursBeforeNow", "3",
+	"mostRecent", "true",
+	"fields", "raw_text",
+	"stationString", loc->code,
 	NULL);
     _gweather_info_begin_request (info, msg);
     soup_session_queue_message (priv->session, msg, metar_finish, info);
