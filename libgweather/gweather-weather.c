@@ -112,10 +112,10 @@ _weather_location_free (WeatherLocation *location)
 
 static const gchar *wind_direction_str[] = {
     N_("Variable"),
-    N_("North"), N_("North - NorthEast"), N_("Northeast"), N_("East - NorthEast"),
-    N_("East"), N_("East - Southeast"), N_("Southeast"), N_("South - Southeast"),
-    N_("South"), N_("South - Southwest"), N_("Southwest"), N_("West - Southwest"),
-    N_("West"), N_("West - Northwest"), N_("Northwest"), N_("North - Northwest")
+    N_("North"), N_("North — NorthEast"), N_("Northeast"), N_("East — NorthEast"),
+    N_("East"), N_("East — Southeast"), N_("Southeast"), N_("South — Southeast"),
+    N_("South"), N_("South — Southwest"), N_("Southwest"), N_("West — Southwest"),
+    N_("West"), N_("West — Northwest"), N_("Northwest"), N_("North — Northwest")
 };
 
 const gchar *
