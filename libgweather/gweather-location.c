@@ -144,6 +144,7 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
     if (level == GWEATHER_LOCATION_WORLD) {
 	loc->metar_code_cache = g_hash_table_ref (parser->metar_code_cache);
 	loc->country_code_cache = g_hash_table_ref (parser->country_code_cache);
+	loc->timezone_cache = g_hash_table_ref (parser->timezone_cache);
     }
     children = g_ptr_array_new ();
 
