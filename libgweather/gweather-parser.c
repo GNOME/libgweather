@@ -205,6 +205,8 @@ _gweather_parser_free (GWeatherParser *parser)
 	g_hash_table_unref (parser->metar_code_cache);
     if (parser->country_code_cache)
 	g_hash_table_unref (parser->country_code_cache);
+    if (parser->timezone_cache)
+	g_hash_table_unref (parser->timezone_cache);
 
     g_slice_free (GWeatherParser, parser);
 }
