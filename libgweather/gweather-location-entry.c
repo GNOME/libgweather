@@ -662,14 +662,22 @@ match_selected (GtkEntryCompletion *completion,
 	char *display_name;
 	GeocodeLocation *loc;
 	GWeatherLocation *location;
+	GWeatherLocation *scope;
+	const char* country_code;
 
 	gtk_tree_model_get (model, iter,
 			    PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE, &place,
 			    PLACE_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, &display_name,
 			    -1);
 
+	country_code = geocode_place_get_country_code (place);
+	if (country_code != NULL)
+	    scope = gweather_location_find_by_country_code (gweather_location_get_world (), country_code);
+	else
+	    scope = gweather_location_get_world ();
+
 	loc = geocode_place_get_location (place);
-	location = gweather_location_find_nearest_city (NULL, geocode_location_get_latitude (loc), geocode_location_get_longitude (loc));
+	location = gweather_location_find_nearest_city (scope, geocode_location_get_latitude (loc), geocode_location_get_longitude (loc));
 
 	location = create_new_detached_location(location, display_name, TRUE,
 						geocode_location_get_latitude (loc) * M_PI / 180.0,
