@@ -29,6 +29,7 @@
 #include <time.h>
 #include <unistd.h>
 #include <langinfo.h>
+#include <errno.h>
 
 #include <gtk/gtk.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
@@ -472,6 +473,7 @@ get_cache (void)
 				 "libgweather", NULL);
 
     if (g_mkdir_with_parents (filename, 0700) < 0) {
+	g_warning ("Failed to create libgweather cache directory: %s. Check your XDG_CACHE_HOME setting!", strerror (errno));
 	g_free (filename);
 	return NULL;
     }
@@ -505,12 +507,14 @@ ref_session (void)
     session = soup_session_new ();
 
     cache = get_cache ();
-    soup_session_add_feature (session, SOUP_SESSION_FEATURE (cache));
-    g_object_set_data_full (G_OBJECT (session), "libgweather-cache", g_object_ref (cache),
-			    (GDestroyNotify) dump_and_unref_cache);
+    if (cache != NULL) {
+	soup_session_add_feature (session, SOUP_SESSION_FEATURE (cache));
+	g_object_set_data_full (G_OBJECT (session), "libgweather-cache", g_object_ref (cache),
+			        (GDestroyNotify) dump_and_unref_cache);
 
-    soup_cache_load (cache);
-    g_object_unref (cache);
+	soup_cache_load (cache);
+	g_object_unref (cache);
+    }
 
     static_session = session;
     g_object_add_weak_pointer (G_OBJECT (session), (void**) &static_session);
