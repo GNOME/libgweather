@@ -186,6 +186,8 @@ _gweather_parser_new (void)
 						      NULL, gweather_location_list_free);
     parser->timezone_cache = g_hash_table_new_full (g_str_hash, g_str_equal,
 						    NULL, (GDestroyNotify) gweather_timezone_unref);
+    parser->country_code_cache = g_hash_table_new_full (g_str_hash, g_str_equal,
+							NULL, (GDestroyNotify) gweather_location_unref);
 
     return parser;
 
@@ -199,7 +201,10 @@ _gweather_parser_free (GWeatherParser *parser)
 {
     if (parser->xml)
 	xmlFreeTextReader (parser->xml);
-    g_hash_table_unref (parser->metar_code_cache);
+    if (parser->metar_code_cache)
+	g_hash_table_unref (parser->metar_code_cache);
+    if (parser->country_code_cache)
+	g_hash_table_unref (parser->country_code_cache);
 
     g_slice_free (GWeatherParser, parser);
 }

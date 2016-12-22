@@ -103,6 +103,8 @@ char                  *gweather_location_get_country_name (GWeatherLocation  *lo
 
 GWeatherLocation      *gweather_location_find_by_station_code (GWeatherLocation *world,
 							       const gchar      *station_code);
+GWeatherLocation      *gweather_location_find_by_country_code (GWeatherLocation *world,
+							       const gchar      *country_code);
 
 gboolean               gweather_location_equal          (GWeatherLocation  *one,
 							 GWeatherLocation  *two);

@@ -44,6 +44,7 @@ struct _GWeatherLocation {
     GWeatherTimezone **zones;
     GHashTable *metar_code_cache;
     GHashTable *timezone_cache;
+    GHashTable *country_code_cache;
 
     int ref_count;
 };

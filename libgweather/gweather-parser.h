@@ -29,6 +29,7 @@ typedef struct {
     time_t year_start, year_end;
     GHashTable *metar_code_cache;
     GHashTable *timezone_cache;
+    GHashTable *country_code_cache;
 } GWeatherParser;
 
 GWeatherParser *_gweather_parser_new                 (void);
