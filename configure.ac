@@ -1,6 +1,6 @@
 m4_define(libgweather_major_version,   3)
-m4_define(libgweather_minor_version,  20)
-m4_define(libgweather_micro_version,  4)
+m4_define(libgweather_minor_version,  23)
+m4_define(libgweather_micro_version,  1)
 m4_define(libgweather_version, libgweather_major_version.libgweather_minor_version.libgweather_micro_version)
 
 AC_INIT([libgweather],
