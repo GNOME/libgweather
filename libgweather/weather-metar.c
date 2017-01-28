@@ -568,8 +568,8 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 	if (SOUP_STATUS_IS_TRANSPORT_ERROR (msg->status_code))
 	    priv->network_error = TRUE;
 	else {
-	    /* Translators: %d is an error code, and %s the error string */
 	    if (msg->status_code != SOUP_STATUS_CANCELLED)
+		/* Translators: %d is an error code, and %s the error string */
 		g_warning (_("Failed to get METAR data: %d %s.\n"),
 			   msg->status_code, msg->reason_phrase);
 	}
