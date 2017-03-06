@@ -128,7 +128,7 @@ gweather_wind_direction_to_string (GWeatherWindDirection wind)
 }
 
 static const gchar *sky_str[] = {
-    N_("Clear Sky"),
+    N_("Clear sky"),
     N_("Broken clouds"),
     N_("Scattered clouds"),
     N_("Few clouds"),
