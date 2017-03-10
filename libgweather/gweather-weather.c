@@ -126,7 +126,7 @@ static const gchar *wind_direction_str[] = {
 
 static const gchar *wind_direction_caps_str[] = {
     N_("Variable"),
-    N_("North"), N_("North — NorthEast"), N_("Northeast"), N_("East — NorthEast"),
+    N_("North"), N_("North — Northeast"), N_("Northeast"), N_("East — Northeast"),
     N_("East"), N_("East — Southeast"), N_("Southeast"), N_("South — Southeast"),
     N_("South"), N_("South — Southwest"), N_("Southwest"), N_("West — Southwest"),
     N_("West"), N_("West — Northwest"), N_("Northwest"), N_("North — Northwest")
