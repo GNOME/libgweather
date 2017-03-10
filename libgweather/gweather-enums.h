@@ -118,4 +118,21 @@ typedef enum { /*< underscore_name=gweather_forecast_type >*/
     GWEATHER_FORECAST_LIST
 } GWeatherForecastType;
 
+/**
+ * GWeatherFormatOptions:
+ * @GWEATHER_FORMAT_OPTION_DEFAULT: The default string format
+ * @GWEATHER_FORMAT_OPTION_SENTENCE_CAPITALIZATION: Capitalize as if the string
+ *                                                  was starting a sentence
+ * @GWEATHER_FORMAT_OPTION_NO_CAPITALIZATION: Capitalize as if the string was
+ *                                            appearing within a sentence
+ *
+ * Format options to influence the returned string of the
+ * gweather_*_to_string_full() functions.
+ */
+typedef enum { /*< underscore_name=gweather_format_options >*/
+    GWEATHER_FORMAT_OPTION_DEFAULT                 = 0,
+    GWEATHER_FORMAT_OPTION_SENTENCE_CAPITALIZATION = 1 << 0,
+    GWEATHER_FORMAT_OPTION_NO_CAPITALIZATION       = 1 << 1
+} GWeatherFormatOptions;
+
 #endif /* __GWEATHER_ENUMS_H_ */

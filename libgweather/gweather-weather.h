@@ -175,6 +175,8 @@ typedef enum { /*< underscore_name=gweather_wind_direction >*/
 } GWeatherWindDirection;
 
 const gchar * gweather_wind_direction_to_string (GWeatherWindDirection wind);
+const gchar * gweather_wind_direction_to_string_full (GWeatherWindDirection wind,
+                                                      GWeatherFormatOptions options);
 
 /**
  * GWeatherSky:
@@ -202,6 +204,8 @@ typedef enum { /*< underscore_name=gweather_sky >*/
 } GWeatherSky;
 
 const gchar * gweather_sky_to_string (GWeatherSky sky);
+const gchar * gweather_sky_to_string_full (GWeatherSky        sky,
+                                           GWeatherFormatOptions options);
 
 /**
  * GWeatherConditionPhenomenon:
@@ -356,6 +360,8 @@ struct _GWeatherConditions {
 };
 
 const gchar * gweather_conditions_to_string (GWeatherConditions *conditions);
+const gchar * gweather_conditions_to_string_full (GWeatherConditions *conditions,
+                                                  GWeatherFormatOptions options);
 
 GWeatherTemperatureUnit gweather_temperature_unit_to_real (GWeatherTemperatureUnit unit);
 
