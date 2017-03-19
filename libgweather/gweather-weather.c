@@ -2002,7 +2002,6 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
 
     if (priv->glocation)
 	gweather_location_unref (priv->glocation);
-    _weather_location_free (&priv->location);
 
     priv->glocation = location;
 
@@ -2023,8 +2022,12 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
 	priv->glocation = gweather_location_find_by_station_code (world, station_code);
     }
 
-    _gweather_location_update_weather_location (priv->glocation,
-						&priv->location);
+    if (priv->glocation) {
+        _weather_location_free (&priv->location);
+        _gweather_location_update_weather_location (priv->glocation,
+						    &priv->location);
+    }
+
     if (name) {
 	g_free (priv->location.name);
 	priv->location.name = g_strdup (name);
