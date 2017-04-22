@@ -165,7 +165,8 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 	    if (!value)
 		goto error_out;
 
-	    loc->english_name = value;
+	    loc->english_name = g_strdup (value);
+
 	    if (loc->msgctxt) {
 		loc->local_name = g_strdup (g_dpgettext2 ("libgweather-locations",
 							  (char*) loc->msgctxt, value));
@@ -180,6 +181,7 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 	    normalized = g_utf8_normalize (loc->english_name, -1, G_NORMALIZE_ALL);
 	    loc->english_sort_name = g_utf8_casefold (normalized, -1);
 	    g_free (normalized);
+	    xmlFree (value);
 	} else if (!strcmp (tagname, "iso-code") && !loc->country_code) {
 	    value = _gweather_parser_get_value (parser);
 	    if (!value)
