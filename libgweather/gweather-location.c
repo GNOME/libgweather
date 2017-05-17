@@ -401,6 +401,7 @@ gweather_location_unref (GWeatherLocation *loc)
     g_free (loc->tz_hint);
     g_free (loc->station_code);
     g_free (loc->forecast_zone);
+    g_free (loc->yahoo_id);
     g_free (loc->radar);
 
     if (loc->children) {
