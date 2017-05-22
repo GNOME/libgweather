@@ -1992,7 +1992,7 @@ gweather_info_get_value_visibility (GWeatherInfo *info,
 
 static void
 gweather_info_set_location_internal (GWeatherInfo     *info,
-				     GWeatherLocation *location)
+                                     GWeatherLocation *location)
 {
     GWeatherInfoPrivate *priv = info->priv;
     GVariant *default_loc = NULL;
@@ -2000,26 +2000,31 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
     gboolean latlon_override = FALSE;
     gdouble lat, lon;
 
+    if (priv->glocation == location)
+        return;
+
     if (priv->glocation)
 	gweather_location_unref (priv->glocation);
 
     priv->glocation = location;
 
     if (priv->glocation) {
-	gweather_location_ref (location);
+        gweather_location_ref (location);
     } else {
-	GWeatherLocation *world;
-	const gchar *station_code;
+        GWeatherLocation *world;
+        const gchar *station_code;
 
-	default_loc = g_settings_get_value (priv->settings, DEFAULT_LOCATION);
+        default_loc = g_settings_get_value (priv->settings, DEFAULT_LOCATION);
 
-	g_variant_get (default_loc, "(&s&sm(dd))", &name, &station_code, &latlon_override, &lat, &lon);
+        g_variant_get (default_loc, "(&s&sm(dd))", &name, &station_code, &latlon_override, &lat, &lon);
 
 	if (strcmp(name, "") == 0)
 	    name = NULL;
 
 	world = gweather_location_get_world ();
 	priv->glocation = gweather_location_find_by_station_code (world, station_code);
+	if (priv->glocation)
+	    gweather_location_ref (priv->glocation);
     }
 
     if (priv->glocation) {
