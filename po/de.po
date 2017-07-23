@@ -10,17 +10,17 @@
 # Jochen Skulj <jochen@jochenskulj.de>, 2006.
 # Andre Klapper <ak-47@gmx.net>, 2008.
 # Christian Kirbach <Christian.Kirbach@googlemail.com>, 2009.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2009, 2012-2013, 2016.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2009, 2012-2013, 2016-2017.
 # Wolfgang Stöggl <c72578@yahoo.de>, 2014.
 # Paul Seyfert <pseyfert@mathphys.fsk.uni-heidelberg.de>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-12-22 16:00+0000\n"
-"PO-Revision-Date: 2016-12-23 21:49+0100\n"
+"POT-Creation-Date: 2017-07-23 19:42+0000\n"
+"PO-Revision-Date: 2017-07-23 21:49+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.2\n"
 
 #: ../data/glade/libgweather.xml.in.h:1
 msgid "Location Entry"
@@ -474,41 +474,42 @@ msgstr "Unbekannt"
 msgid "default:mm"
 msgstr "default:mm"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
 #: ../libgweather/gweather-weather.c:801
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+msgid "%.1f ℉"
+msgstr "%.1f ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
 #: ../libgweather/gweather-weather.c:804
 #, c-format
-msgid "%d °F"
-msgstr "%d °F"
+msgid "%d ℉"
+msgstr "%d ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
 #: ../libgweather/gweather-weather.c:810
 #, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
+msgid "%.1f ℃"
+msgstr "%.1f ℃"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
 #: ../libgweather/gweather-weather.c:813
 #, c-format
-msgid "%d °C"
-msgstr "%d °C"
+msgid "%d ℃"
+msgstr "%d ℃"
 
-#. TRANSLATOR: This is the temperature in kelvin
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #: ../libgweather/gweather-weather.c:819
 #, c-format
-msgid "%.1f K"
-msgstr "%.1f K"
+#| msgid "%.1f ℉"
+msgid "%.1f K"
+msgstr "%.1f K"
 
-#. TRANSLATOR: This is the temperature in kelvin
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #: ../libgweather/gweather-weather.c:822
 #, c-format
-msgid "%d K"
-msgstr "%d K"
+msgid "%d K"
+msgstr "%d K"
 
 #: ../libgweather/gweather-weather.c:845 ../libgweather/gweather-weather.c:861
 #: ../libgweather/gweather-weather.c:877 ../libgweather/gweather-weather.c:939
@@ -652,6 +653,7 @@ msgstr "%H∶%M"
 msgid "Retrieval failed"
 msgstr "Abrufen fehlgeschlagen"
 
+#. Translators: %d is an error code, and %s the error string
 #: ../libgweather/weather-metar.c:573
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
@@ -771,234 +773,3 @@ msgstr ""
 "(Breitengrad, Längengrad), welches Vorrang vor den Werten aus der Datenbank "
 "hat. Dies gilt nur für die Berechnung von Sonnenaufgängen und Mondphasen und "
 "nicht für die Wettervorhersage."
-
-#~ msgid "Ice pellets"
-#~ msgstr "Graupel"
-
-#~ msgid "Few ice pellets"
-#~ msgstr "Wenig Graupel"
-
-#~ msgid "Moderate ice pellets"
-#~ msgstr "Mäßiger Graupel"
-
-#~ msgid "Heavy ice pellets"
-#~ msgstr "Schwerer Graupel"
-
-#~ msgctxt "temperature unit"
-#~ msgid "Unknown"
-#~ msgstr "Unbekannt"
-
-#~ msgctxt "speed unit"
-#~ msgid "Unknown"
-#~ msgstr "Unbekannt"
-
-#~ msgctxt "pressure unit"
-#~ msgid "Unknown"
-#~ msgstr "Unbekannt"
-
-#~ msgctxt "visibility unit"
-#~ msgid "Unknown"
-#~ msgstr "Unbekannt"
-
-#~ msgid "'fahrenheit'"
-#~ msgstr "'centigrade'"
-
-#~ msgid "'miles'"
-#~ msgstr "'km'"
-
-#~ msgid "'knots'"
-#~ msgstr "'ms'"
-
-#~ msgid "'inch-hg'"
-#~ msgstr "'hpa'"
-
-#~ msgid "%H:%M"
-#~ msgstr "%H:%M"
-
-#~ msgid "WeatherInfo missing location"
-#~ msgstr "Wetterinfo konnte Standort nicht finden"
-
-#~ msgid "DEFAULT_LOCATION"
-#~ msgstr "Berlin"
-
-#~ msgid "DEFAULT_CODE"
-#~ msgstr "EDDM"
-
-#~ msgid "DEFAULT_ZONE"
-#~ msgstr "DEFAULT_ZONE"
-
-#~ msgid "DEFAULT_RADAR"
-#~ msgstr "DEFAULT_RADAR"
-
-#~ msgid "DEFAULT_COORDINATES"
-#~ msgstr "48-21N 011-47E"
-
-#~ msgid "K"
-#~ msgstr "K"
-
-#~ msgid "C"
-#~ msgstr "C"
-
-#~ msgid "F"
-#~ msgstr "F"
-
-#~ msgid "m/s"
-#~ msgstr "m/s"
-
-#~ msgid "km/h"
-#~ msgstr "km/h"
-
-#~ msgid "mph"
-#~ msgstr "mph"
-
-#~ msgid "Beaufort scale"
-#~ msgstr "Beaufort-Skala"
-
-#~ msgid "kPa"
-#~ msgstr "kPa"
-
-#~ msgid "hPa"
-#~ msgstr "hPa"
-
-#~ msgid "mb"
-#~ msgstr "mbar"
-
-#~ msgid "mmHg"
-#~ msgstr "mmHg"
-
-#~ msgid "inHg"
-#~ msgstr "inHg"
-
-#~ msgid "atm"
-#~ msgstr "atm"
-
-#~ msgid "m"
-#~ msgstr "m"
-
-#~ msgid "km"
-#~ msgstr "km"
-
-#~ msgid "mi"
-#~ msgstr "mi"
-
-#~ msgid "DEFAULT_TEMP_UNIT"
-#~ msgstr "C"
-
-#~ msgid "DEFAULT_SPEED_UNIT"
-#~ msgstr "m/s"
-
-#~ msgid "DEFAULT_PRESSURE_UNIT"
-#~ msgstr "hPa"
-
-#~ msgid "DEFAULT_DISTANCE_UNIT"
-#~ msgstr "m"
-
-#~ msgid ""
-#~ "A three-digit-long code for retrieving radar maps from weather.com, found "
-#~ "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-#~ msgstr ""
-#~ "Ein dreistelliger Code zum Abfragen der Radarkarten von weather.com, "
-#~ "siehe http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-
-#~ msgid ""
-#~ "A unique zone for the city, as found from http://git.gnome.org/cgit/"
-#~ "libgweather/plain/data/Locations.xml.in"
-#~ msgstr ""
-#~ "Eine eindeutige Zone für die Stadt, siehe http://git.gnome.org/cgit/"
-#~ "libgweather/plain/data/Locations.xml.in"
-
-#~ msgid ""
-#~ "Determines whether the applet automatically updates its weather "
-#~ "statistics or not."
-#~ msgstr ""
-#~ "Legt fest, ob das Applet automatisch seine Wetterstatistiken aktualisiert."
-
-#~ msgid "Display radar map"
-#~ msgstr "Radarkarte anzeigen"
-
-#~ msgid "Fetch a radar map on each update."
-#~ msgstr "Bei jedem Aktualisierungsvorgang eine Radarkarte abrufen."
-
-#~ msgid ""
-#~ "If true, then retrieve a radar map from a location specified by the "
-#~ "\"radar\" key."
-#~ msgstr ""
-#~ "Falls dieser Schlüssel wahr ist, wird eine Radarkarte von einem Ort "
-#~ "abgerufen, der vom Schlüssel »radar« angegeben wird."
-
-#~ msgid ""
-#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-"
-#~ "SS[EW]."
-#~ msgstr ""
-#~ "Breiten- und Längengrad Ihres aktuellen Standorts, angegeben in GG-MM-"
-#~ "SS[NS] GG-MM-SS[OW], also Grad-Minuten-Sekunden[Nord-Süd] bzw. [Ost-West]."
-
-#~ msgid "Nearby city"
-#~ msgstr "Nächstgelegene Stadt"
-
-#~ msgid ""
-#~ "Nearby major zone, such as a capital city, as found from http://git.gnome."
-#~ "org/cgit/libgweather/plain/data/Locations.xml.in"
-#~ msgstr ""
-#~ "Nächstgelegene Zone, z.B. einer Hauptstadt, siehe http://git.gnome.org/"
-#~ "cgit/libgweather/plain/data/Locations.xml.in"
-
-#~ msgid "Not used anymore"
-#~ msgstr "Nicht mehr verwendet"
-
-#~ msgid "Radar location"
-#~ msgstr "Radarstandort"
-
-#~ msgid "The city that gweather displays information for."
-#~ msgstr "Die Stadt, für die gweather die Informationen darstellt."
-
-#~ msgid "The interval, in seconds, between automatic updates."
-#~ msgstr "Das Intervall zwischen automatischen Aktualisierungen in Sekunden."
-
-#~ msgid "The unit to use for pressure."
-#~ msgstr "Die für den Druck zu verwendente Einheit."
-
-#~ msgid "The unit to use for temperature."
-#~ msgstr "Die für die Temperatur zu verwendente Einheit."
-
-#~ msgid "The unit to use for visibility."
-#~ msgstr "Die für die Sichtweite zu verwendente Einheit."
-
-#~ msgid "The unit to use for wind speed."
-#~ msgstr "Die für die Windgeschwindigkeit zu verwendente Einheit."
-
-#~ msgid "Update interval"
-#~ msgstr "Aktualisierungsintervall"
-
-#~ msgid "Update the data automatically"
-#~ msgstr "Die Daten automatisch aktualisieren"
-
-#~ msgid "Use custom url for the radar map"
-#~ msgstr "Benutzerdefinierte URL für die Radarkarte verwenden"
-
-#~ msgid "Use metric units"
-#~ msgstr "Metrische Einheiten verwenden"
-
-#~ msgid "Use metric units instead of english units."
-#~ msgstr "Metrische statt englische Einheiten verwenden"
-
-#~ msgid "Weather for a city"
-#~ msgstr "Wetter für eine Stadt"
-
-#~ msgid "Weather location information"
-#~ msgstr "Informationen zum Wetterstandort."
-
-#~ msgid "Weather location information."
-#~ msgstr "Informationen zum Wetterstandort."
-
-#~ msgid "%.1f ℉"
-#~ msgstr "%.1f ℉"
-
-#~ msgid "%d ℉"
-#~ msgstr "%d ℉"
-
-#~ msgid "%.1f ℃"
-#~ msgstr "%.1f ℃"
-
-#~ msgid "%d ℃"
-#~ msgstr "%d ℃"
