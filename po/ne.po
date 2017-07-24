@@ -15,849 +15,540 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-applets.gnome-2-14.ne\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-26 21:39-0500\n"
-"PO-Revision-Date: 2006-06-26 14:09+0545\n"
-"Last-Translator: Mahesh subedi <submanesh@hotmail.com>\n"
-"Language-Team: Nepali <info@mpp.org.np>\n"
+"Project-Id-Version: Gnome Nepali Translation Project\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=libgweather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-06-05 04:12+0000\n"
+"PO-Revision-Date: 2017-07-24 17:46+0545\n"
+"Last-Translator: Pawan Chitrakar <chautari@gmail.com>\n"
+"Language-Team: Nepali Translation Team <chautari@gmail.com>\n"
 "Language: ne\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2;plural=(n!=1)\n"
-"X-Generator: KBabel 1.10.2\n"
+"Plural-Forms: nplurals=2;plural=(n!=1);\n"
+"X-Generator: Poedit 2.0.3\n"
 
-#. TRANSLATOR: Change this to the default location name,
-#. * used when you first start the Weather Applet. This is
-#. * the common localised name that corresponds to
-#. * the location code (DEFAULT_CODE) you will put on the next message
-#. * For example, for the Greek locale, we set this to "Athens", the
-#. * capital city and we write it in Greek. It's important to translate
-#. * this name.
-#. *
-#. * If you do not require a DEFAULT_LOCATION, set this to
-#. * "DEFAULT_LOCATION".
-#.
-#: ../libgweather/gweather-gconf.c:163 ../libgweather/gweather-gconf.c:164
-#: ../libgweather/gweather.schemas.in.h:5
-msgid "DEFAULT_LOCATION"
-msgstr "काठमाडौं"
+#: ../data/glade/libgweather.xml.in.h:1
+msgid "Location Entry"
+msgstr "स्थान प्रविष्टि प्रयोग गर्नुहोस"
 
-#. TRANSLATOR: Change this to the code of your default location that
-#. * corresponds to the DEFAULT_LOCATION name you put above. This is
-#. * normally a four-letter (ICAO) code and can be found in
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
-#. * NB. The web page is over 1.7MB in size.
-#. * Pick a default location like a capital city so that it would be ok
-#. * for more of your users. For example, for Greek, we use "LGAV" for
-#. * the capital city, Athens.
-#. *
-#. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
-#.
-#: ../libgweather/gweather-gconf.c:183 ../libgweather/gweather-gconf.c:184
-#: ../libgweather/gweather.schemas.in.h:3
-msgid "DEFAULT_CODE"
-msgstr "VNKT"
+#: ../data/glade/libgweather.xml.in.h:2
+msgid "Timezone Menu"
+msgstr "समय क्षेत्र मेनु"
 
-#. TRANSLATOR: Change this to the zone of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have zones while the rest do not.
-#. * Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
-#. * as any zone you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a zone, set this to
-#. * "DEFAULT_ZONE".
-#.
-#: ../libgweather/gweather-gconf.c:203 ../libgweather/gweather-gconf.c:204
-#: ../libgweather/gweather.schemas.in.h:7
-msgid "DEFAULT_ZONE"
-msgstr "----"
+#: ../data/glade/libgweather.xml.in.h:3
+msgid "Timezone"
+msgstr "समय क्षेत्र"
 
-#. TRANSLATOR: Change this to the radar of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have radar names while the rest do
-#. * not. Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
-#. * as any radar you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a radar, set this to " "
-#. * (or space).
-#. * If you do not have a default location, set this to DEFAULT_RADAR.
-#.
-#: ../libgweather/gweather-gconf.c:224 ../libgweather/gweather-gconf.c:225
-#: ../libgweather/gweather.schemas.in.h:6
-msgid "DEFAULT_RADAR"
-msgstr "----"
+#: ../data/glade/libgweather.xml.in.h:4
+msgid "GWeather"
+msgstr "GNOME मौसम"
 
-#. TRANSLATOR: Change this to the coordinates of your default location
-#. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
-#. * above. Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
-#. * as any coordinates you put here must also be present in the
-#. * Locations.xml file.
-#. *
-#. * If your default location does not have known coordinates, set this
-#. * to " " (or space).
-#. * If you do not have a default location, set this to
-#. * DEFAULT_COORDINATES.
-#.
-#: ../libgweather/gweather-gconf.c:245 ../libgweather/gweather-gconf.c:246
-#: ../libgweather/gweather.schemas.in.h:4
-msgid "DEFAULT_COORDINATES"
-msgstr "27-41N 085-21E"
+#: ../libgweather/gweather-location-entry.c:792
+msgid "Loading…"
+msgstr "लोड गर्दैछ..."
 
-#: ../libgweather/gweather-prefs.c:25 ../libgweather/gweather-prefs.c:36
-#: ../libgweather/gweather-prefs.c:51 ../libgweather/gweather-prefs.c:68
-msgid "Default"
-msgstr "पूर्वनिर्धारित"
-
-#. translators: Kelvin
-#: ../libgweather/gweather-prefs.c:27
-msgid "K"
-msgstr ""
-
-#. translators: Celsius
-#: ../libgweather/gweather-prefs.c:29
-msgid "C"
-msgstr ""
-
-#. translators: Fahrenheit
-#: ../libgweather/gweather-prefs.c:31
-msgid "F"
-msgstr ""
-
-#. translators: meters per second
-#: ../libgweather/gweather-prefs.c:38
-msgid "m/s"
-msgstr "मिटर/सेकन्ड"
-
-#. translators: kilometers per hour
-#: ../libgweather/gweather-prefs.c:40
-msgid "km/h"
-msgstr "किलोमिटर/सेकन्ड"
-
-#. translators: miles per hour
-#: ../libgweather/gweather-prefs.c:42
-msgid "mph"
-msgstr "mph"
-
-#. translators: knots (speed unit)
-#: ../libgweather/gweather-prefs.c:44
-msgid "knots"
-msgstr "knots"
-
-#. translators: wind speed
-#: ../libgweather/gweather-prefs.c:46
-msgid "Beaufort scale"
-msgstr "ब्युफोर्ट स्केल"
-
-#. translators: kilopascals
-#: ../libgweather/gweather-prefs.c:53
-msgid "kPa"
-msgstr "kPa"
-
-#. translators: hectopascals
-#: ../libgweather/gweather-prefs.c:55
-msgid "hPa"
-msgstr "hPa"
-
-#. translators: millibars
-#: ../libgweather/gweather-prefs.c:57
-msgid "mb"
-msgstr "mb"
-
-#. translators: millimeters of mercury
-#: ../libgweather/gweather-prefs.c:59
-msgid "mmHg"
-msgstr "mmHg"
-
-#. translators: inches of mercury
-#: ../libgweather/gweather-prefs.c:61
-msgid "inHg"
-msgstr "inHg"
-
-#. translators: atmosphere
-#: ../libgweather/gweather-prefs.c:63
-msgid "atm"
-msgstr "atm"
-
-#. translators: meters
-#: ../libgweather/gweather-prefs.c:70
+#: ../libgweather/gweather-timezone.c:341
 #, fuzzy
-msgid "m"
-msgstr "mb"
+msgid "Greenwich Mean Time"
+msgstr "मीन:"
 
-#. translators: kilometers
-#: ../libgweather/gweather-prefs.c:72
-msgid "km"
-msgstr "km"
-
-#. translators: miles
-#: ../libgweather/gweather-prefs.c:74
-msgid "mi"
-msgstr ""
-
-#. TRANSLATOR: This is the default unit to use for temperature measurements.
-#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:93 ../libgweather/gweather-prefs.c:102
-msgid "DEFAULT_TEMP_UNIT"
-msgstr "C"
-
-#. TRANSLATOR: This is the default unit to use for wind speed.
-#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
-#. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:131 ../libgweather/gweather-prefs.c:141
-msgid "DEFAULT_SPEED_UNIT"
-msgstr "DEFAULT_SPEED_UNIT"
-
-#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
-#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
-#. "mb" (millibars), "mmHg" (millimeters of mercury),
-#. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:172 ../libgweather/gweather-prefs.c:183
-msgid "DEFAULT_PRESSURE_UNIT"
-msgstr "DEFAULT_PRESSURE_UNIT"
-
-#. TRANSLATOR: This is the default unit to use for visibility distance.
-#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:212 ../libgweather/gweather-prefs.c:221
-msgid "DEFAULT_DISTANCE_UNIT"
-msgstr "DEFAULT_DISTANCE_UNIT"
-
-#: ../libgweather/gweather.schemas.in.h:1
-msgid ""
-"A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/"
-"Locations.xml.in"
-msgstr ""
-
-#: ../libgweather/gweather.schemas.in.h:2
-msgid ""
-"A unique zone for the city, as found from http://cvs.gnome.org/viewcvs/"
-"*checkout*/gnome-applets/gweather/Locations.xml.in"
-msgstr ""
-
-#: ../libgweather/gweather.schemas.in.h:8
-msgid ""
-"Determines whether the applet automatically updates its weather statistics "
-"or not."
-msgstr "एप्लेट स्वचालित मौसम तथ्याङ्कसंगअध्यावधिक हुन्छ कि हुँदैन निर्धारण गर्छ"
-
-#: ../libgweather/gweather.schemas.in.h:9
-msgid "Display radar map"
-msgstr "राडार नक्सा प्रदर्शन गर्नुहोस"
-
-#: ../libgweather/gweather.schemas.in.h:10
-msgid "Distance unit"
-msgstr "दूरी एकाइ"
-
-#: ../libgweather/gweather.schemas.in.h:11
-msgid "Fetch a radar map on each update."
-msgstr "प्रत्येक अद्यावधिकमा एउटा राडार नक्सा ल्याउनुहोस"
-
-#: ../libgweather/gweather.schemas.in.h:12
-msgid ""
-"If true, then retrieve a radar map from a location specified by the \"radar"
-"\" key."
-msgstr ""
-"यदि ठिक छ, भने \" कुञ्जी\" निर्दिष्ट रााडार स्थानबाट राडार नक्सा पुन: प्राप्त गर्नुहोस"
-
-#: ../libgweather/gweather.schemas.in.h:13
-#, fuzzy
-msgid ""
-"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-"[EW]."
-msgstr "तपाईको चौडाइ र लम्बाइ द्रुत गरिएको स्थान DD-MM-SS[NS] DD-MM-SS[EW] मा हुन्छ"
-
-#: ../libgweather/gweather.schemas.in.h:14
-#, fuzzy
-msgid "Location coordinates"
-msgstr "स्थान कोर्डिनेट्स"
-
-#: ../libgweather/gweather.schemas.in.h:15
-msgid "Nearby city"
-msgstr ""
-
-#: ../libgweather/gweather.schemas.in.h:16
-msgid ""
-"Nearby major zone, such as a capital city, as found from http://cvs.gnome."
-"org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
-msgstr ""
-
-#: ../libgweather/gweather.schemas.in.h:17
-msgid "Not used anymore"
-msgstr "धेरै प्रयोगमा छैन"
-
-#: ../libgweather/gweather.schemas.in.h:18
-msgid "Pressure unit"
-msgstr "चाप एकाइ"
-
-#: ../libgweather/gweather.schemas.in.h:19
-#, fuzzy
-msgid "Radar location"
-msgstr "स्थान"
-
-#: ../libgweather/gweather.schemas.in.h:20
-msgid "Speed unit"
-msgstr "गति एकाइ"
-
-#: ../libgweather/gweather.schemas.in.h:21
-msgid "Temperature unit"
-msgstr "तापक्रम एकाइ"
-
-#: ../libgweather/gweather.schemas.in.h:22
-msgid "The city that gweather displays information for."
-msgstr ""
-
-#: ../libgweather/gweather.schemas.in.h:23
-msgid "The custom url from where to retrieve a radar map."
-msgstr "अनुकूलन यु आर एल जहाँ राडार नक्सा पुन: प्राप्त गर्नुहोस"
-
-#: ../libgweather/gweather.schemas.in.h:24
-msgid "The interval, in seconds, between automatic updates."
-msgstr "स्वचालित अद्यावधिक बिचमा , सेकेन्डहरूमा अन्तराल"
-
-#: ../libgweather/gweather.schemas.in.h:25
-msgid "The unit to use for pressure."
-msgstr "एकाइ चापका लागि प्रयोग"
-
-#: ../libgweather/gweather.schemas.in.h:26
-msgid "The unit to use for temperature."
-msgstr "एकाइ तापमानका लागि प्रयोग"
-
-#: ../libgweather/gweather.schemas.in.h:27
-msgid "The unit to use for visibility."
-msgstr "एकाइ दृश्यात्मकका लागि प्रयोग"
-
-#: ../libgweather/gweather.schemas.in.h:28
-msgid "The unit to use for wind speed."
-msgstr "एकाइ हावा गतिका लागि प्रयोग"
-
-#: ../libgweather/gweather.schemas.in.h:29
-msgid "Update interval"
-msgstr "अन्तराल अद्यावधिक गर्नुहोस"
-
-#: ../libgweather/gweather.schemas.in.h:30
-msgid "Update the data automatically"
-msgstr "स्वचालिततवरले डाटा अद्यावधिक गर्नुहोस"
-
-#: ../libgweather/gweather.schemas.in.h:31
-msgid "Url for the radar map"
-msgstr "राडार नक्साका लागि यु आर एल"
-
-#: ../libgweather/gweather.schemas.in.h:32
-msgid "Use custom url for the radar map"
-msgstr "राडार नक्साका लागि अनुकूलन यु आर एल प्रयोग गर्नुहोस"
-
-#: ../libgweather/gweather.schemas.in.h:33
-msgid "Use metric units"
-msgstr "मेट्रिक एकाइहरू प्रयोग गर्नुहोस"
-
-#: ../libgweather/gweather.schemas.in.h:34
-msgid "Use metric units instead of english units."
-msgstr "अङ्ग्रेजी एकाइहरुको सट्टा मेट्रिक एकाइहरू प्रयोग गर्नुहोस"
-
-#: ../libgweather/gweather.schemas.in.h:35
-#, fuzzy
-msgid "Weather for a city"
-msgstr "मौसम पूर्वानुमान"
-
-#: ../libgweather/gweather.schemas.in.h:36
-#, fuzzy
-msgid "Weather location information"
-msgstr "मौसम स्थान सूचना"
-
-#: ../libgweather/gweather.schemas.in.h:37
-#, fuzzy
-msgid "Weather location information."
-msgstr "मौसम स्थान सूचना"
-
-#: ../libgweather/gweather.schemas.in.h:38
-#, fuzzy
-msgid "Zone location"
-msgstr "स्थान"
-
-#: ../libgweather/weather-iwin.c:135 ../libgweather/weather-metar.c:554
-#: ../libgweather/weather-metar.c:582
-msgid "WeatherInfo missing location"
-msgstr "मौसम सूचना स्थान हराइरहेछ"
-
-#: ../libgweather/weather-metar.c:527 ../libgweather/weather-metar.c:562
-#: ../libgweather/weather-wx.c:63
-msgid "Failed to get METAR data.\n"
-msgstr " METAR  डाटा प्राप्त गर्न असफल.\n"
-
-#: ../libgweather/weather.c:180
-msgid "Variable"
-msgstr "चल"
-
-#: ../libgweather/weather.c:181
-msgid "North"
-msgstr "उत्तर"
-
-#: ../libgweather/weather.c:181
-msgid "North - NorthEast"
-msgstr "उत्तर - उत्तर पूर्व"
-
-#: ../libgweather/weather.c:181
-msgid "Northeast"
-msgstr "उत्तर पूर्व"
-
-#: ../libgweather/weather.c:181
-msgid "East - NorthEast"
-msgstr "पूर्व - उत्तर पूर्व"
-
-#: ../libgweather/weather.c:182
-msgid "East"
-msgstr "पूर्व"
-
-#: ../libgweather/weather.c:182
-msgid "East - Southeast"
-msgstr "पूर्व - दक्षिण पूर्व"
-
-#: ../libgweather/weather.c:182
-msgid "Southeast"
-msgstr "दक्षिण पूर्व"
-
-#: ../libgweather/weather.c:182
-msgid "South - Southeast"
-msgstr "दक्षिण - दक्षिण पूर्व"
-
-#: ../libgweather/weather.c:183
-msgid "South"
-msgstr "दक्षिण"
-
-#: ../libgweather/weather.c:183
-msgid "South - Southwest"
-msgstr "दक्षिण - दक्षिण पश्चिम"
-
-#: ../libgweather/weather.c:183
-msgid "Southwest"
-msgstr "दक्षिण पश्चिम"
-
-#: ../libgweather/weather.c:183
-msgid "West - Southwest"
-msgstr "पश्चिम - दक्षिण पश्चिम"
-
-#: ../libgweather/weather.c:184
-msgid "West"
-msgstr "पश्चिम"
-
-#: ../libgweather/weather.c:184
-msgid "West - Northwest"
-msgstr "पश्चिम - उत्तर पश्चिम"
-
-#: ../libgweather/weather.c:184
-msgid "Northwest"
-msgstr "उत्तर पश्चिम"
-
-#: ../libgweather/weather.c:184
-msgid "North - Northwest"
-msgstr "उत्तर - उत्तर पश्चिम"
-
-#: ../libgweather/weather.c:190 ../libgweather/weather.c:690
-#: ../libgweather/weather.c:739 ../libgweather/weather.c:752
-#: ../libgweather/weather.c:764 ../libgweather/weather.c:779
-#: ../libgweather/weather.c:795 ../libgweather/weather.c:832
-#: ../libgweather/weather.c:844 ../libgweather/weather.c:863
-#: ../libgweather/weather.c:895 ../libgweather/weather.c:908
-#: ../libgweather/weather.c:928
+#: ../libgweather/gweather-timezone-menu.c:274
+msgctxt "timezone"
 msgid "Unknown"
 msgstr "अज्ञात"
 
-#: ../libgweather/weather.c:192 ../libgweather/weather.c:209
-#: ../libgweather/weather.c:280
+#: ../libgweather/gweather-weather.c:114
+msgid "Variable"
+msgstr "चल"
+
+#: ../libgweather/gweather-weather.c:115
+msgid "North"
+msgstr "उत्तर"
+
+#: ../libgweather/gweather-weather.c:115
+msgid "North — NorthEast"
+msgstr "उत्तर — उत्तर पूर्व"
+
+#: ../libgweather/gweather-weather.c:115
+msgid "Northeast"
+msgstr "उत्तर पूर्व"
+
+#: ../libgweather/gweather-weather.c:115
+msgid "East — NorthEast"
+msgstr "पूर्व — उत्तर पूर्व"
+
+#: ../libgweather/gweather-weather.c:116
+msgid "East"
+msgstr "पूर्व"
+
+#: ../libgweather/gweather-weather.c:116
+msgid "East — Southeast"
+msgstr "पूर्व —  दक्षिण पूर्व"
+
+#: ../libgweather/gweather-weather.c:116
+msgid "Southeast"
+msgstr "दक्षिण पूर्व"
+
+#: ../libgweather/gweather-weather.c:116
+msgid "South — Southeast"
+msgstr "दक्षिण —  दक्षिण पूर्व"
+
+#: ../libgweather/gweather-weather.c:117
+msgid "South"
+msgstr "दक्षिण"
+
+#: ../libgweather/gweather-weather.c:117
+msgid "South — Southwest"
+msgstr "दक्षिण —  दक्षिण पश्चिम"
+
+#: ../libgweather/gweather-weather.c:117
+msgid "Southwest"
+msgstr "दक्षिण पश्चिम"
+
+#: ../libgweather/gweather-weather.c:117
+msgid "West — Southwest"
+msgstr "पश्चिम —  दक्षिण पश्चिम"
+
+#: ../libgweather/gweather-weather.c:118
+msgid "West"
+msgstr "पश्चिम"
+
+#: ../libgweather/gweather-weather.c:118
+msgid "West — Northwest"
+msgstr "पश्चिम — उत्तर पूर्व"
+
+#: ../libgweather/gweather-weather.c:118
+msgid "Northwest"
+msgstr "उत्तर पश्चिम"
+
+#: ../libgweather/gweather-weather.c:118
+msgid "North — Northwest"
+msgstr "उत्तर — उत्तर पूर्व"
+
+#: ../libgweather/gweather-weather.c:125
+msgctxt "wind direction"
 msgid "Invalid"
 msgstr "अवैध"
 
-#: ../libgweather/weather.c:198
+#: ../libgweather/gweather-weather.c:131
 msgid "Clear Sky"
 msgstr "आकास खाली "
 
-#: ../libgweather/weather.c:199
+#: ../libgweather/gweather-weather.c:132
 msgid "Broken clouds"
 msgstr "बिच्छेद बादलहरू"
 
-#: ../libgweather/weather.c:200
+#: ../libgweather/gweather-weather.c:133
 msgid "Scattered clouds"
 msgstr "टाटे बादलहरू"
 
-#: ../libgweather/weather.c:201
+#: ../libgweather/gweather-weather.c:134
 msgid "Few clouds"
 msgstr "केहि बादलहरू"
 
-#: ../libgweather/weather.c:202
+#: ../libgweather/gweather-weather.c:135
 msgid "Overcast"
 msgstr "छाएको"
 
+#: ../libgweather/gweather-weather.c:142 ../libgweather/gweather-weather.c:214
+msgctxt "sky conditions"
+msgid "Invalid"
+msgstr "अवैध"
+
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
-#. * http://www.crh.noaa.gov/arx/wx.tbl.html
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:241 ../libgweather/weather.c:243
+#: ../libgweather/gweather-weather.c:174 ../libgweather/gweather-weather.c:176
 msgid "Thunderstorm"
 msgstr "बज्र तुफान"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:242
+#: ../libgweather/gweather-weather.c:175
 msgid "Drizzle"
 msgstr "सिमसिम"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/gweather-weather.c:175
 msgid "Light drizzle"
 msgstr "हल्का सिमसिम"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/gweather-weather.c:175
 msgid "Moderate drizzle"
 msgstr "मध्यम सिमसिम"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/gweather-weather.c:175
 msgid "Heavy drizzle"
 msgstr "भारी सिमसिम"
 
-#: ../libgweather/weather.c:242
+#: ../libgweather/gweather-weather.c:175
 msgid "Freezing drizzle"
 msgstr "ठन्डा सिमसिम"
 
 #. RAIN
-#: ../libgweather/weather.c:243
+#: ../libgweather/gweather-weather.c:176
 msgid "Rain"
 msgstr "वर्षा"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/gweather-weather.c:176
 msgid "Light rain"
 msgstr "हल्का वर्षा"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/gweather-weather.c:176
 msgid "Moderate rain"
 msgstr "मध्यम वर्षा"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/gweather-weather.c:176
 msgid "Heavy rain"
 msgstr "भारी वर्षा"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/gweather-weather.c:176
 msgid "Rain showers"
 msgstr "मुसलधारे वर्षा"
 
-#: ../libgweather/weather.c:243
+#: ../libgweather/gweather-weather.c:176
 msgid "Freezing rain"
 msgstr "ठन्डा वर्षा"
 
 #. SNOW
-#: ../libgweather/weather.c:244
+#: ../libgweather/gweather-weather.c:177
 msgid "Snow"
 msgstr "हिँउ"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/gweather-weather.c:177
 msgid "Light snow"
 msgstr "हल्का हिँउ"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/gweather-weather.c:177
 msgid "Moderate snow"
 msgstr "मध्यम हिँउ"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/gweather-weather.c:177
 msgid "Heavy snow"
 msgstr "भारी हिँउ"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/gweather-weather.c:177
 msgid "Snowstorm"
 msgstr "हिँउतुफान"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/gweather-weather.c:177
 msgid "Blowing snowfall"
 msgstr "उडाउने हिँउ वर्षा"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/gweather-weather.c:177
 msgid "Snow showers"
 msgstr "मुसलधारे हिँउ"
 
-#: ../libgweather/weather.c:244
+#: ../libgweather/gweather-weather.c:177
 msgid "Drifting snow"
 msgstr "बाक्लो हिँउ"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:245
+#: ../libgweather/gweather-weather.c:178
 msgid "Snow grains"
 msgstr "दाना हिँउ"
 
-#: ../libgweather/weather.c:245
+#: ../libgweather/gweather-weather.c:178
 msgid "Light snow grains"
 msgstr "दाना जस्तो हल्का हिँउ"
 
-#: ../libgweather/weather.c:245
+#: ../libgweather/gweather-weather.c:178
 msgid "Moderate snow grains"
 msgstr "मध्यम दाना हिँउ"
 
-#: ../libgweather/weather.c:245
+#: ../libgweather/gweather-weather.c:178
 msgid "Heavy snow grains"
 msgstr "भारी दाना हिँउ"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:246
+#: ../libgweather/gweather-weather.c:179
 msgid "Ice crystals"
 msgstr "बरफ सितमणी"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:247
-msgid "Ice pellets"
-msgstr "बरफ गोलीहरू"
+#: ../libgweather/gweather-weather.c:180
+msgid "Sleet"
+msgstr "असिना"
 
-#: ../libgweather/weather.c:247
-msgid "Few ice pellets"
-msgstr "थोरै बरफ गोलीहरू"
+#: ../libgweather/gweather-weather.c:180
+msgid "Little sleet"
+msgstr "हल्का असिना"
 
-#: ../libgweather/weather.c:247
-msgid "Moderate ice pellets"
-msgstr "मध्यम बरफ गोलीहरू"
+#: ../libgweather/gweather-weather.c:180
+msgid "Moderate sleet"
+msgstr "मध्यम असिना"
 
-#: ../libgweather/weather.c:247
-msgid "Heavy ice pellets"
-msgstr "भारी बरफ गोलीहरू "
+#: ../libgweather/gweather-weather.c:180
+msgid "Heavy sleet"
+msgstr "भारी असिना"
 
-#: ../libgweather/weather.c:247
-msgid "Ice pellet storm"
-msgstr "बरफ गोली तुफान"
+#: ../libgweather/gweather-weather.c:180
+msgid "Sleet storm"
+msgstr "असिना तुफान"
 
-#: ../libgweather/weather.c:247
-msgid "Showers of ice pellets"
-msgstr "मुसलधारे बरफ गोलीहरू "
+#: ../libgweather/gweather-weather.c:180
+msgid "Showers of sleet"
+msgstr "मुसलधारे असिना"
 
 #. HAIL
-#: ../libgweather/weather.c:248
+#: ../libgweather/gweather-weather.c:181
 msgid "Hail"
 msgstr "असिना"
 
-#: ../libgweather/weather.c:248
+#: ../libgweather/gweather-weather.c:181
 msgid "Hailstorm"
 msgstr "आँधी र असिना"
 
-#: ../libgweather/weather.c:248
+#: ../libgweather/gweather-weather.c:181
 msgid "Hail showers"
 msgstr "मुसलधारे असिना"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:249
+#: ../libgweather/gweather-weather.c:182
 msgid "Small hail"
 msgstr "सानो असिना"
 
-#: ../libgweather/weather.c:249
+#: ../libgweather/gweather-weather.c:182
 msgid "Small hailstorm"
 msgstr "सानो आँधी असिना"
 
-#: ../libgweather/weather.c:249
+#: ../libgweather/gweather-weather.c:182
 msgid "Showers of small hail"
 msgstr "मुसलधारे सानो असिना"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:250
+#: ../libgweather/gweather-weather.c:183
 msgid "Unknown precipitation"
 msgstr "अज्ञात अवक्षेपण"
 
 #. MIST
-#: ../libgweather/weather.c:251
+#: ../libgweather/gweather-weather.c:184
 msgid "Mist"
 msgstr "कुइरो"
 
 #. FOG
-#: ../libgweather/weather.c:252
+#: ../libgweather/gweather-weather.c:185
 msgid "Fog"
 msgstr "कुइरो"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/gweather-weather.c:185
 msgid "Fog in the vicinity"
 msgstr "हाताहातीमा कुइरो"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/gweather-weather.c:185
 msgid "Shallow fog"
 msgstr "छिपछिपे कुइरो"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/gweather-weather.c:185
 msgid "Patches of fog"
 msgstr "कुइरोको धब्बा"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/gweather-weather.c:185
 msgid "Partial fog"
 msgstr "आंशिक कुइरो"
 
-#: ../libgweather/weather.c:252
+#: ../libgweather/gweather-weather.c:185
 msgid "Freezing fog"
 msgstr "ठन्डा कुइरो"
 
 #. SMOKE
-#: ../libgweather/weather.c:253
+#: ../libgweather/gweather-weather.c:186
 msgid "Smoke"
 msgstr "धुँवा"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:254
+#: ../libgweather/gweather-weather.c:187
 msgid "Volcanic ash"
 msgstr "ज्वालामुखीय खरानी"
 
 #. SAND
-#: ../libgweather/weather.c:255
+#: ../libgweather/gweather-weather.c:188
 msgid "Sand"
 msgstr "बालुवा"
 
-#: ../libgweather/weather.c:255
+#: ../libgweather/gweather-weather.c:188
 msgid "Blowing sand"
 msgstr "उडाउने बालुवा"
 
-#: ../libgweather/weather.c:255
+#: ../libgweather/gweather-weather.c:188
 msgid "Drifting sand"
 msgstr "थुप्रिने बालुवा"
 
 #. HAZE
-#: ../libgweather/weather.c:256
+#: ../libgweather/gweather-weather.c:189
 msgid "Haze"
 msgstr "तुँवालो"
 
 #. SPRAY
-#: ../libgweather/weather.c:257
+#: ../libgweather/gweather-weather.c:190
 msgid "Blowing sprays"
 msgstr "उडाउने सिर्का"
 
 #. DUST
-#: ../libgweather/weather.c:258
+#: ../libgweather/gweather-weather.c:191
 msgid "Dust"
 msgstr "धुलो"
 
-#: ../libgweather/weather.c:258
+#: ../libgweather/gweather-weather.c:191
 msgid "Blowing dust"
 msgstr "उडाउने धुलो"
 
-#: ../libgweather/weather.c:258
+#: ../libgweather/gweather-weather.c:191
 msgid "Drifting dust"
 msgstr "थुप्रिने धुलो"
 
 #. SQUALL
-#: ../libgweather/weather.c:259
+#: ../libgweather/gweather-weather.c:192
 msgid "Squall"
 msgstr "हिँउ पानीको झोक्का"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:260
+#: ../libgweather/gweather-weather.c:193
 msgid "Sandstorm"
 msgstr "बालुवा तुफान"
 
-#: ../libgweather/weather.c:260
+#: ../libgweather/gweather-weather.c:193
 msgid "Sandstorm in the vicinity"
 msgstr "हाताहाती बालुवा तुफान"
 
-#: ../libgweather/weather.c:260
+#: ../libgweather/gweather-weather.c:193
 msgid "Heavy sandstorm"
 msgstr "भारी बालुवा तुफान"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:261
+#: ../libgweather/gweather-weather.c:194
 msgid "Duststorm"
 msgstr "धुलो तुफान"
 
-#: ../libgweather/weather.c:261
+#: ../libgweather/gweather-weather.c:194
 msgid "Duststorm in the vicinity"
 msgstr "धुलो तुफान हाताहाती"
 
-#: ../libgweather/weather.c:261
+#: ../libgweather/gweather-weather.c:194
 msgid "Heavy duststorm"
 msgstr "भारी धुलो तुफान"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:262
+#: ../libgweather/gweather-weather.c:195
 msgid "Funnel cloud"
 msgstr "सोली बादल"
 
 #. TORNADO
-#: ../libgweather/weather.c:263
+#: ../libgweather/gweather-weather.c:196
 msgid "Tornado"
 msgstr "भुमरी"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:264
+#: ../libgweather/gweather-weather.c:197
 msgid "Dust whirls"
 msgstr "घुमाउरो धुलो"
 
-#: ../libgweather/weather.c:264
+#: ../libgweather/gweather-weather.c:197
 msgid "Dust whirls in the vicinity"
 msgstr "घुमाउरो धुलो हाताहाती"
 
-#. TRANSLATOR: this is a format string for strftime
-#. *             see `man 3 strftime` for more details
-#.
-#: ../libgweather/weather.c:662
-msgid "%a, %b %d / %H:%M"
-msgstr "%a, %b %d / %H:%M"
+#: ../libgweather/gweather-weather.c:709
+#| msgid "%a, %b %d / %H:%M"
+msgid "%a, %b %d / %H∶%M"
+msgstr "%a, %b %d / %H∶%M"
 
-#: ../libgweather/weather.c:677
+#: ../libgweather/gweather-weather.c:715
 msgid "Unknown observation time"
 msgstr "अज्ञात अवलोकन समय"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:710
-#, fuzzy, c-format
-msgid "%.1f ℉"
-msgstr "%.1f K"
+#: ../libgweather/gweather-weather.c:727
+msgctxt "sky conditions"
+msgid "Unknown"
+msgstr "अज्ञात"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:713
-#, fuzzy, c-format
-msgid "%d ℉"
-msgstr "%d K"
+#. Translate to the default units to use for presenting
+#. * lengths to the user. Translate to default:inch if you
+#. * want inches, otherwise translate to default:mm.
+#. * Do *not* translate it to "predefinito:mm", if it
+#. * it isn't default:mm or default:inch it will not work
+#.
+#: ../libgweather/gweather-weather.c:749
+msgid "default:mm"
+msgstr "पूर्वनिर्धारित:mm"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:719
-#, fuzzy, c-format
-msgid "%.1f ℃"
-msgstr "%.1f K"
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/gweather-weather.c:801
+#, c-format
+msgid "%.1f °F"
+msgstr "%.1f F"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:722
-#, fuzzy, c-format
-msgid "%d ℃"
-msgstr "%d K"
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/gweather-weather.c:804
+#, c-format
+msgid "%d °F"
+msgstr "%d °F"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/gweather-weather.c:810
+#, c-format
+msgid "%.1f °C"
+msgstr "%.1f °C"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#: ../libgweather/gweather-weather.c:813
+#, c-format
+msgid "%d °C"
+msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:728
+#: ../libgweather/gweather-weather.c:819
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:731
+#: ../libgweather/gweather-weather.c:822
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
+#: ../libgweather/gweather-weather.c:845 ../libgweather/gweather-weather.c:861 ../libgweather/gweather-weather.c:877
+#: ../libgweather/gweather-weather.c:939
+msgctxt "temperature"
+msgid "Unknown"
+msgstr "अज्ञात"
+
+#: ../libgweather/gweather-weather.c:899
+msgctxt "dew"
+msgid "Unknown"
+msgstr "अज्ञात"
+
+#: ../libgweather/gweather-weather.c:919
+msgctxt "humidity"
+msgid "Unknown"
+msgstr "अज्ञात"
+
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:782
+#: ../libgweather/gweather-weather.c:922
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:807
+#: ../libgweather/gweather-weather.c:968
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f नट्स"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:811
+#: ../libgweather/gweather-weather.c:971
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f एम पि एच"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:815
+#: ../libgweather/gweather-weather.c:974
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f किलोमिटर/घन्टा"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:819
+#: ../libgweather/gweather-weather.c:977
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f मिटर/सेकेन्ड"
@@ -865,82 +556,352 @@ msgstr "%.1f मिटर/सेकेन्ड"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:825
+#: ../libgweather/gweather-weather.c:982
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "ब्युफोर्ट फोर्स %.1f"
 
-#: ../libgweather/weather.c:846
+#: ../libgweather/gweather-weather.c:1003
+msgctxt "wind speed"
+msgid "Unknown"
+msgstr "अज्ञात"
+
+#: ../libgweather/gweather-weather.c:1005
 msgid "Calm"
 msgstr "शान्त"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:850
+#: ../libgweather/gweather-weather.c:1013
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
+#: ../libgweather/gweather-weather.c:1049
+msgctxt "pressure"
+msgid "Unknown"
+msgstr "अज्ञात"
+
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:868
+#: ../libgweather/gweather-weather.c:1055
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inएचजि"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:872
+#: ../libgweather/gweather-weather.c:1058
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f एम एम एच जि"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:876
+#: ../libgweather/gweather-weather.c:1061
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f के पि ए"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:880
+#: ../libgweather/gweather-weather.c:1064
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f एच पि ए"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:884
+#: ../libgweather/gweather-weather.c:1067
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f एम बि"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:888
+#: ../libgweather/gweather-weather.c:1070
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
+#: ../libgweather/gweather-weather.c:1108
+msgctxt "visibility"
+msgid "Unknown"
+msgstr "अज्ञात"
+
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:913
+#: ../libgweather/gweather-weather.c:1114
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f माइल्स"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:917
+#: ../libgweather/gweather-weather.c:1117
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f किलोमिटर"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:921
+#: ../libgweather/gweather-weather.c:1120
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:949 ../libgweather/weather.c:969
-msgid "%H:%M"
-msgstr "%H:%M"
+#: ../libgweather/gweather-weather.c:1148 ../libgweather/gweather-weather.c:1173
+msgid "%H∶%M"
+msgstr "%H∶%M"
 
-#: ../libgweather/weather.c:1002
+#: ../libgweather/gweather-weather.c:1267
 msgid "Retrieval failed"
 msgstr "पुन: प्राप्ती असफल"
+
+#. Translators: %d is an error code, and %s the error string
+#: ../libgweather/weather-metar.c:573
+#, fuzzy, c-format
+#| msgid "Failed to get METAR data.\n"
+msgid "Failed to get METAR data: %d %s.\n"
+msgstr "चाइल्ड प्रक्रिया %d (%s) बाट डेटा पढ्न असफल"
+
+#: ../libgweather/weather-owm.c:383
+msgid "Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map project</a>"
+msgstr ""
+
+#. The new (documented but not advertised) API is less strict in the
+#. format of the attribution, and just requires a generic CC-BY compatible
+#. attribution with a link to their service.
+#.
+#. That's very nice of them!
+#.
+#: ../libgweather/weather-yrno.c:507
+msgid "Weather data from the <a href=\"http://www.met.no/\">Norwegian Meteorological Institute</a>"
+msgstr ""
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:1
+#, fuzzy
+#| msgid "Url for the radar map"
+msgid "URL for the radar map"
+msgstr "...मा मानचित्र्शा"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:2
+#, fuzzy
+#| msgid "The custom url from where to retrieve a radar map."
+msgid "The custom URL from where to retrieve a radar map, or empty for disabling radar maps."
+msgstr "अनुकूलन यु आर एल जहाँ राडार नक्सा पुन: प्राप्त गर्नुहोस"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:3
+msgid "Temperature unit"
+msgstr "तापक्रम एकाइ"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:4
+msgid "The unit of temperature used for showing weather. Valid values are “kelvin”, “centigrade” and “fahrenheit”."
+msgstr ""
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
+msgid "Distance unit"
+msgstr "दूरी एकाइ"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
+msgid ""
+"The unit of distance used for showing weather (for example for visibility or for distance of important events). Valid "
+"values are “meters”, “km” and “miles”."
+msgstr ""
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
+msgid "Speed unit"
+msgstr "गति एकाइ"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:8
+msgid ""
+"The unit of speed used for showing weather (for example for wind speed). Valid values are “ms” (meters per second), "
+"“kph” (kilometers per hour), “mph” (miles per hour), “knots” and “bft” (Beaufort scale)."
+msgstr ""
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:9
+msgid "Pressure unit"
+msgstr "चाप एकाइ"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
+msgid ""
+"The unit of pressure used for showing weather. Valid values are “kpa” (kilopascal), “hpa” (hectopascal), “mb” (millibar, "
+"mathematically equivalent to 1 hPa but shown differently), “mm-hg” (millimiters of mercury), “inch-hg” (inches of "
+"mercury), “atm” (atmospheres)."
+msgstr ""
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
+msgid "Default location"
+msgstr "पूर्वनिर्धारित स्थान"
+
+#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
+msgid ""
+"The default location for the weather applet. The first field is the name that will be shown. If empty, it will be taken "
+"from the locations database. The second field is the METAR code for the default weather station. It must not be empty and "
+"must correspond to a &lt;code&gt; tag in the Locations.xml file. The third field is a tuple of (latitude, longitude), to "
+"override the value taken from the database. This is only used for sunrise and moon phase calculations, not for weather "
+"forecast."
+msgstr ""
+
+#~ msgid "DEFAULT_LOCATION"
+#~ msgstr "काठमाडौं"
+
+#~ msgid "DEFAULT_CODE"
+#~ msgstr "VNKT"
+
+#~ msgid "DEFAULT_ZONE"
+#~ msgstr "----"
+
+#~ msgid "DEFAULT_RADAR"
+#~ msgstr "----"
+
+#~ msgid "DEFAULT_COORDINATES"
+#~ msgstr "27-41N 085-21E"
+
+#~ msgid "m/s"
+#~ msgstr "मिटर/सेकन्ड"
+
+#~ msgid "km/h"
+#~ msgstr "किलोमिटर/सेकन्ड"
+
+#~ msgid "mph"
+#~ msgstr "mph"
+
+#~ msgid "knots"
+#~ msgstr "knots"
+
+#~ msgid "Beaufort scale"
+#~ msgstr "ब्युफोर्ट स्केल"
+
+#~ msgid "kPa"
+#~ msgstr "kPa"
+
+#~ msgid "hPa"
+#~ msgstr "hPa"
+
+#~ msgid "mb"
+#~ msgstr "mb"
+
+#~ msgid "mmHg"
+#~ msgstr "mmHg"
+
+#~ msgid "inHg"
+#~ msgstr "inHg"
+
+#~ msgid "atm"
+#~ msgstr "atm"
+
+#, fuzzy
+#~ msgid "m"
+#~ msgstr "mb"
+
+#~ msgid "km"
+#~ msgstr "km"
+
+#~ msgid "DEFAULT_TEMP_UNIT"
+#~ msgstr "C"
+
+#~ msgid "DEFAULT_SPEED_UNIT"
+#~ msgstr "DEFAULT_SPEED_UNIT"
+
+#~ msgid "DEFAULT_PRESSURE_UNIT"
+#~ msgstr "DEFAULT_PRESSURE_UNIT"
+
+#~ msgid "DEFAULT_DISTANCE_UNIT"
+#~ msgstr "DEFAULT_DISTANCE_UNIT"
+
+#~ msgid "Determines whether the applet automatically updates its weather statistics or not."
+#~ msgstr "एप्लेट स्वचालित मौसम तथ्याङ्कसंगअध्यावधिक हुन्छ कि हुँदैन निर्धारण गर्छ"
+
+#~ msgid "Display radar map"
+#~ msgstr "राडार नक्सा प्रदर्शन गर्नुहोस"
+
+#~ msgid "Fetch a radar map on each update."
+#~ msgstr "प्रत्येक अद्यावधिकमा एउटा राडार नक्सा ल्याउनुहोस"
+
+#~ msgid "If true, then retrieve a radar map from a location specified by the \"radar\" key."
+#~ msgstr "यदि ठिक छ, भने \" कुञ्जी\" निर्दिष्ट रााडार स्थानबाट राडार नक्सा पुन: प्राप्त गर्नुहोस"
+
+#, fuzzy
+#~ msgid "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS[EW]."
+#~ msgstr "तपाईको चौडाइ र लम्बाइ द्रुत गरिएको स्थान DD-MM-SS[NS] DD-MM-SS[EW] मा हुन्छ"
+
+#, fuzzy
+#~ msgid "Location coordinates"
+#~ msgstr "स्थान कोर्डिनेट्स"
+
+#~ msgid "Not used anymore"
+#~ msgstr "धेरै प्रयोगमा छैन"
+
+#, fuzzy
+#~ msgid "Radar location"
+#~ msgstr "स्थान"
+
+#~ msgid "The interval, in seconds, between automatic updates."
+#~ msgstr "स्वचालित अद्यावधिक बिचमा , सेकेन्डहरूमा अन्तराल"
+
+#~ msgid "The unit to use for pressure."
+#~ msgstr "एकाइ चापका लागि प्रयोग"
+
+#~ msgid "The unit to use for temperature."
+#~ msgstr "एकाइ तापमानका लागि प्रयोग"
+
+#~ msgid "The unit to use for visibility."
+#~ msgstr "एकाइ दृश्यात्मकका लागि प्रयोग"
+
+#~ msgid "The unit to use for wind speed."
+#~ msgstr "एकाइ हावा गतिका लागि प्रयोग"
+
+#~ msgid "Update interval"
+#~ msgstr "अन्तराल अद्यावधिक गर्नुहोस"
+
+#~ msgid "Update the data automatically"
+#~ msgstr "स्वचालिततवरले डाटा अद्यावधिक गर्नुहोस"
+
+#~ msgid "Use custom url for the radar map"
+#~ msgstr "राडार नक्साका लागि अनुकूलन यु आर एल प्रयोग गर्नुहोस"
+
+#~ msgid "Use metric units"
+#~ msgstr "मेट्रिक एकाइहरू प्रयोग गर्नुहोस"
+
+#~ msgid "Use metric units instead of english units."
+#~ msgstr "अङ्ग्रेजी एकाइहरुको सट्टा मेट्रिक एकाइहरू प्रयोग गर्नुहोस"
+
+#, fuzzy
+#~ msgid "Weather for a city"
+#~ msgstr "मौसम पूर्वानुमान"
+
+#, fuzzy
+#~ msgid "Weather location information"
+#~ msgstr "मौसम स्थान सूचना"
+
+#, fuzzy
+#~ msgid "Weather location information."
+#~ msgstr "मौसम स्थान सूचना"
+
+#~ msgid "WeatherInfo missing location"
+#~ msgstr "मौसम सूचना स्थान हराइरहेछ"
+
+#~ msgid "Ice pellets"
+#~ msgstr "बरफ गोलीहरू"
+
+#~ msgid "Few ice pellets"
+#~ msgstr "थोरै बरफ गोलीहरू"
+
+#~ msgid "Moderate ice pellets"
+#~ msgstr "मध्यम बरफ गोलीहरू"
+
+#~ msgid "Heavy ice pellets"
+#~ msgstr "भारी बरफ गोलीहरू "
+
+#, fuzzy
+#~ msgid "%.1f ℉"
+#~ msgstr "%.1f K"
+
+#, fuzzy
+#~ msgid "%d ℉"
+#~ msgstr "%d K"
+
+#, fuzzy
+#~ msgid "%.1f ℃"
+#~ msgstr "%.1f K"
+
+#, fuzzy
+#~ msgid "%d ℃"
+#~ msgstr "%d K"
+
+#~ msgid "%H:%M"
+#~ msgstr "%H:%M"
 
 #~ msgid "_About"
 #~ msgstr "बारेमा"
@@ -971,8 +932,8 @@ msgstr "पुन: प्राप्ती असफल"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
-#~ "Mahesh Subedi <submanesh@hotmail.com> Shiva Pokharel "
-#~ "<pokharelshiva@hotmail.com> Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>"
+#~ "Mahesh Subedi <submanesh@hotmail.com> Shiva Pokharel <pokharelshiva@hotmail.com> Shyam Krishna Bal "
+#~ "<shyamkrishna_bal@yahoo.com>"
 
 #~ msgid "There was an error launching the help viewer: %s"
 #~ msgstr "मद्दत दृश्यकर्ता सुरुवातमा त्रुटि भेटियो : %s"
@@ -1037,12 +998,8 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Red value level"
 #~ msgstr "रातो स्तर मान"
 
-#~ msgid ""
-#~ "Show the battery meter draining from the top of the battery. Only "
-#~ "implemented for traditional battery view."
-#~ msgstr ""
-#~ "ब्याट्रीको मिटर माथीबाट ड्रेनिङ भएको देखाउनुहोस् । परम्परागत ब्याट्री दृश्यका लागि "
-#~ "मात्र कार्यन्वयन हुने ।"
+#~ msgid "Show the battery meter draining from the top of the battery. Only implemented for traditional battery view."
+#~ msgstr "ब्याट्रीको मिटर माथीबाट ड्रेनिङ भएको देखाउनुहोस् । परम्परागत ब्याट्री दृश्यका लागि मात्र कार्यन्वयन हुने ।"
 
 #~ msgid "Show the horizontal battery"
 #~ msgstr "तेर्सो ब्याट्री देखाउनुहोस्"
@@ -1057,21 +1014,15 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgstr "प्यानलमा सीधा खडा, सानो ब्याट्री दखाउनुहोस्"
 
 #~ msgid ""
-#~ "The battery level below which the battery is displayed as red. Also the "
-#~ "value at which the low battery warning is displayed."
-#~ msgstr ""
-#~ "ब्याट्रीको स्तर मुनि ब्याट्री रातो रंगमा प्रदर्शन भएको छ । कम ब्याट्री चेतावनीको मान "
-#~ "पनि प्रदर्शित भएको छ ।"
+#~ "The battery level below which the battery is displayed as red. Also the value at which the low battery warning is "
+#~ "displayed."
+#~ msgstr "ब्याट्रीको स्तर मुनि ब्याट्री रातो रंगमा प्रदर्शन भएको छ । कम ब्याट्री चेतावनीको मान पनि प्रदर्शित भएको छ ।"
 
 #~ msgid "Upright (small) battery"
 #~ msgstr "(सानो) ब्याट्री खडा गर्नुहोस्"
 
-#~ msgid ""
-#~ "Use the value defined in red_value as a time remaining to show the "
-#~ "warning dialog rather than a percentage"
-#~ msgstr ""
-#~ "प्रतिशतको सट्टा चेतावनी सम्वाद देखाउन बाँकी समयको रुपमा रातो मानमा परिभाषित मान "
-#~ "प्रयोग गर्नुहोस्"
+#~ msgid "Use the value defined in red_value as a time remaining to show the warning dialog rather than a percentage"
+#~ msgstr "प्रतिशतको सट्टा चेतावनी सम्वाद देखाउन बाँकी समयको रुपमा रातो मानमा परिभाषित मान प्रयोग गर्नुहोस्"
 
 #~ msgid "Warn on low time rather than low percentage"
 #~ msgstr "कम प्रतिशत भन्दा कम समयमा चेतावनी दिनुहोस्"
@@ -1136,12 +1087,8 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Battery Notice"
 #~ msgstr "ब्याट्री सूचना"
 
-#~ msgid ""
-#~ "You have %d minute of battery power remaining (%d%% of the total "
-#~ "capacity)."
-#~ msgid_plural ""
-#~ "You have %d minutes of battery power remaining (%d%% of the total "
-#~ "capacity)."
+#~ msgid "You have %d minute of battery power remaining (%d%% of the total capacity)."
+#~ msgid_plural "You have %d minutes of battery power remaining (%d%% of the total capacity)."
 #~ msgstr[0] "तपाईँ संग %d मिनेटको ब्याट्री क्षमता बाँकी छ (कुल क्षमताको %d%% )"
 #~ msgstr[1] "तपाईँ संग %d मिनेटको ब्याट्री क्षमता बाँकी छ (कुल क्षमताको %d%% )"
 
@@ -1262,11 +1209,10 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgstr "विशेष क्यारेक्टर घुसाउनुहोस् %s"
 
 #~ msgid ""
-#~ "Gnome Panel applet for selecting strange characters that are not on my "
-#~ "keyboard. Released under GNU General Public Licence."
+#~ "Gnome Panel applet for selecting strange characters that are not on my keyboard. Released under GNU General Public "
+#~ "Licence."
 #~ msgstr ""
-#~ "जिनोम प्यानल एप्लेट छानिएका अनौठा क्यारेक्टर मेरो होइन कुञ्जीपाटी. जि एन यु जेनरल "
-#~ "साधारण सार्वजनिक अनुमतिपत्रबाट बिमोचन गरिएको हो ।"
+#~ "जिनोम प्यानल एप्लेट छानिएका अनौठा क्यारेक्टर मेरो होइन कुञ्जीपाटी. जि एन यु जेनरल साधारण सार्वजनिक अनुमतिपत्रबाट बिमोचन गरिएको हो ।"
 
 #~ msgid "Characters shown on applet startup"
 #~ msgstr "क्यारेक्टरहरू एप्लेट स्टार्टअपमा देखाइएको"
@@ -1281,11 +1227,9 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgstr "उपलब्ध रंगदानीहरू समावेश गर्दा स्ट्रिङ्गहरुको सूची"
 
 #~ msgid ""
-#~ "The string that the user had selected when the applet was last used. This "
-#~ "string will be displayed when the user starts the applet."
-#~ msgstr ""
-#~ "प्रयोगकर्ताले अन्तिम प्रयोग गरेको एप्लेटको स्ट्रिङ । यो स्ट्रिङ प्रयोगकर्ताले एप्लेट सुरू "
-#~ "गर्दा प्रदर्शन हुन्छ ।"
+#~ "The string that the user had selected when the applet was last used. This string will be displayed when the user "
+#~ "starts the applet."
+#~ msgstr "प्रयोगकर्ताले अन्तिम प्रयोग गरेको एप्लेटको स्ट्रिङ । यो स्ट्रिङ प्रयोगकर्ताले एप्लेट सुरू गर्दा प्रदर्शन हुन्छ ।"
 
 #~ msgid "_Edit"
 #~ msgstr "सम्पादन"
@@ -1339,19 +1283,15 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgstr "CPU मनिटर आवृत्ति स्केलिङ"
 
 #~ msgid ""
-#~ "A 0 value means to show cpu frequency, 1 to show frequency and units, and "
-#~ "2 to show percentage instead of frequency."
-#~ msgstr ""
-#~ "एउटा 0 मानको अर्थ cpu आवृति देखाउन, १ आवृति र एकाईहरू देखाउन, र २ आवृतिको सट्टामा "
-#~ "प्रतिशत देखाउनका लागि हो । "
+#~ "A 0 value means to show cpu frequency, 1 to show frequency and units, and 2 to show percentage instead of frequency."
+#~ msgstr "एउटा 0 मानको अर्थ cpu आवृति देखाउन, १ आवृति र एकाईहरू देखाउन, र २ आवृतिको सट्टामा प्रतिशत देखाउनका लागि हो । "
 
 #~ msgid ""
-#~ "A 0 value means to show the applet in graphic mode (pixmap only), 1 to "
-#~ "show the applet in text mode (not to show the pixmap) and 2 to show the "
-#~ "applet in graphic and text mode."
+#~ "A 0 value means to show the applet in graphic mode (pixmap only), 1 to show the applet in text mode (not to show the "
+#~ "pixmap) and 2 to show the applet in graphic and text mode."
 #~ msgstr ""
-#~ "एउटा ० मान को अर्थ एप्लेट ग्राफिक मोड (पिक्सम्याप मात्र) देखाउन, १ एप्लेट पाठ मोडमा "
-#~ "देखाउन (पिक्सम्याप नदेखाउन) र २ एप्लेट ग्राफिक र पाठ मोद देखाउनका लागि हो ।"
+#~ "एउटा ० मान को अर्थ एप्लेट ग्राफिक मोड (पिक्सम्याप मात्र) देखाउन, १ एप्लेट पाठ मोडमा देखाउन (पिक्सम्याप नदेखाउन) र २ एप्लेट ग्राफिक र "
+#~ "पाठ मोद देखाउनका लागि हो ।"
 
 #~ msgid "CPU to Monitor"
 #~ msgstr "CPU देखि मनिटर"
@@ -1362,11 +1302,8 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Mode to show the frequency selector drop down menu"
 #~ msgstr "आवृति चयनकर्ता छोड्न तल मेनुमा देखाउने मोड"
 
-#~ msgid ""
-#~ "Set the CPU to monitor. In a single processor system you don't have to "
-#~ "change it."
-#~ msgstr ""
-#~ "CPU लाई मनिटरमा सेट गर्नुहोस् एकल प्रोसेसर प्रणालीमा तपाईँले परिवर्तन गर्नु पर्दैन ।"
+#~ msgid "Set the CPU to monitor. In a single processor system you don't have to change it."
+#~ msgstr "CPU लाई मनिटरमा सेट गर्नुहोस् एकल प्रोसेसर प्रणालीमा तपाईँले परिवर्तन गर्नु पर्दैन ।"
 
 #~ msgid "The type of text to display (if the text is enabled)."
 #~ msgstr "( पाठ सक्षम पार्दा) प्रदर्शन देखाउन पाठको प्रकार ।"
@@ -1438,12 +1375,11 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgstr "CPU आवृत्ति स्केलिङ समर्थन गर्दैन"
 
 #~ msgid ""
-#~ "You will not be able to modify the frequency of your machine.  Your "
-#~ "machine may be misconfigured or not have hardware support for CPU "
-#~ "frequency scaling."
+#~ "You will not be able to modify the frequency of your machine.  Your machine may be misconfigured or not have hardware "
+#~ "support for CPU frequency scaling."
 #~ msgstr ""
-#~ "तपाईँले तपाईँको मेसिनको आवृत्तिलाई परिमार्जन गर्न सक्नुहुन्न.  तपाईको मेसिन पक्कै गलत "
-#~ "कन्फिगर अथवा CPU आवृत्ति स्केलिङ का लागि हार्डवेयरले समर्थन नगर्ने हुन सक्छ ।"
+#~ "तपाईँले तपाईँको मेसिनको आवृत्तिलाई परिमार्जन गर्न सक्नुहुन्न.  तपाईको मेसिन पक्कै गलत कन्फिगर अथवा CPU आवृत्ति स्केलिङ का लागि हार्डवेयरले "
+#~ "समर्थन नगर्ने हुन सक्छ ।"
 
 #~ msgid "Disk Mounter"
 #~ msgstr "डिस्क माउन्टर"
@@ -2118,21 +2054,17 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgstr "अद्यावधिक गर्दै..."
 
 #~ msgid ""
-#~ "This program connects to a popular site and downloads current stock "
-#~ "quotes.\n"
+#~ "This program connects to a popular site and downloads current stock quotes.\n"
 #~ "\n"
-#~ "The GNOME Stock Ticker is a free Internet-based application. It comes "
-#~ "with ABSOLUTELY NO WARRANTY.\n"
+#~ "The GNOME Stock Ticker is a free Internet-based application. It comes with ABSOLUTELY NO WARRANTY.\n"
 #~ "\n"
-#~ "Do not use the GNOME Stock Ticker for making investment decisions; it is "
-#~ "for informational purposes only."
+#~ "Do not use the GNOME Stock Ticker for making investment decisions; it is for informational purposes only."
 #~ msgstr ""
 #~ "यो प्रोगामले प्रसिद्व साइट र डाउनलोड्स हालको स्टक क्वोट्ससंगजडान छ.\n"
 #~ "\n"
 #~ "GNOME स्टक टिकर मुफ्त इन्टरनेट-आधार एप्लिकेसन हो यो एब्सल्युट्ली नो वारेन्टी संगआउँछ.\n"
 #~ "\n"
-#~ "GNOME स्टक टिकर  निर्मित इन्भेष्टमेन्ट छिनोफानो प्रयोग नगर्नु होला,. यो सूचितका लागि "
-#~ "मात्र हो"
+#~ "GNOME स्टक टिकर  निर्मित इन्भेष्टमेन्ट छिनोफानो प्रयोग नगर्नु होला,. यो सूचितका लागि मात्र हो"
 
 #~ msgid "Current _stocks:"
 #~ msgstr "हालको स्टकहरू:"
@@ -2243,12 +2175,8 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Background color"
 #~ msgstr "पृष्ठभूमि रंग"
 
-#~ msgid ""
-#~ "Display only stock symbols along with their value. Do not display changes "
-#~ "in value."
-#~ msgstr ""
-#~ "मौजदात प्रतीक मात्र तिनको मान संगप्रदर्शन भएको छ । मानको परिवर्तन प्रदर्शन "
-#~ "नगर्नुहोस् ।"
+#~ msgid "Display only stock symbols along with their value. Do not display changes in value."
+#~ msgstr "मौजदात प्रतीक मात्र तिनको मान संगप्रदर्शन भएको छ । मानको परिवर्तन प्रदर्शन नगर्नुहोस् ।"
 
 #~ msgid "Display only symbols and price"
 #~ msgstr "प्रतीक र मूल्य मात्र प्रदर्शन गर्नुहोस"
@@ -2256,12 +2184,8 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Font"
 #~ msgstr "फन्ट"
 
-#~ msgid ""
-#~ "List containing the stocks to be displayed. Consists of the stock id "
-#~ "separated by \"+\""
-#~ msgstr ""
-#~ "समावेश गर्दै स्टकहरू प्रदर्शित गर्ने स्टकहरुको सूची सँगको सूची प्रदर्शन स्टक आइ डि सहित "
-#~ "छुट्याउने \"+\""
+#~ msgid "List containing the stocks to be displayed. Consists of the stock id separated by \"+\""
+#~ msgstr "समावेश गर्दै स्टकहरू प्रदर्शित गर्ने स्टकहरुको सूची सँगको सूची प्रदर्शन स्टक आइ डि सहित छुट्याउने \"+\""
 
 #~ msgid "Lowered color"
 #~ msgstr "घट्दो रंग"
@@ -2278,50 +2202,34 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Show arrow buttons"
 #~ msgstr "बाण बटनहरू देखाउनुहोस"
 
-#~ msgid ""
-#~ "Show arrow buttons on the side of the display so that the user can scroll "
-#~ "forward or backward."
-#~ msgstr ""
-#~ "बाण बटन प्रदर्शनको छेउमा देखाउनुहोस् किनभने प्रयोगकर्ताले अगाडि र पछाडि स्क्रोल गर्न "
-#~ "सक्दछ"
+#~ msgid "Show arrow buttons on the side of the display so that the user can scroll forward or backward."
+#~ msgstr "बाण बटन प्रदर्शनको छेउमा देखाउनुहोस् किनभने प्रयोगकर्ताले अगाडि र पछाडि स्क्रोल गर्न सक्दछ"
 
 #~ msgid "Stocks to monitor - must be separated by a +"
 #~ msgstr "मनिटरमा मौजदातहरू- a + बाट विभाजन गरिएको हुनपर्दछ"
 
 #~ msgid ""
-#~ "The color of the background of the display. Has no effect when the user "
-#~ "chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "पृष्ठभूमिको रंग प्रदर्शनमा कुनै असर छैन जब प्रयोगकर्ताले पूर्वनिर्धारित बिषयवस्तु फन्टहरू र "
-#~ "रंगहरू रोज्दछन."
+#~ "The color of the background of the display. Has no effect when the user chooses to use the default theme fonts and "
+#~ "colors."
+#~ msgstr "पृष्ठभूमिको रंग प्रदर्शनमा कुनै असर छैन जब प्रयोगकर्ताले पूर्वनिर्धारित बिषयवस्तु फन्टहरू र रंगहरू रोज्दछन."
 
 #~ msgid ""
-#~ "The color used when the stock's values has lowered. Has no effect when "
-#~ "the user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "स्टकहरू मा्मनहरू घटि हुँदा रंगहरू प्रयोगले कुनै असर छैन जब प्रयोगकर्ताले पूर्वनिर्धारित "
-#~ "बिषयवस्तु फन्टहरू र रंगहरू रोज्दछन"
+#~ "The color used when the stock's values has lowered. Has no effect when the user chooses to use the default theme fonts "
+#~ "and colors."
+#~ msgstr "स्टकहरू मा्मनहरू घटि हुँदा रंगहरू प्रयोगले कुनै असर छैन जब प्रयोगकर्ताले पूर्वनिर्धारित बिषयवस्तु फन्टहरू र रंगहरू रोज्दछन"
 
 #~ msgid ""
-#~ "The color used when the stock's values has not changed. Has no effect "
-#~ "when the user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "स्टकहरू मानहरू परिवर्तन नहुँदा रंगको प्रयोगले कुनै असर छैन जब प्रयोगकर्ताले पूर्वनिर्धारित "
-#~ "रित बिषयवस्तटहरून्ट्स र ररोज्दछनान्दछ"
+#~ "The color used when the stock's values has not changed. Has no effect when the user chooses to use the default theme "
+#~ "fonts and colors."
+#~ msgstr "स्टकहरू मानहरू परिवर्तन नहुँदा रंगको प्रयोगले कुनै असर छैन जब प्रयोगकर्ताले पूर्वनिर्धारित रित बिषयवस्तटहरून्ट्स र ररोज्दछनान्दछ"
 
 #~ msgid ""
-#~ "The color used when the stock's values has raised. Has no effect when the "
-#~ "user chooses to use the default theme fonts and colors."
-#~ msgstr ""
-#~ "स्टकहरू मानहरू बढेको हुँदा रंगको प्रयोगले कुनै असर छैन जब प्रयोगकर्ताले पूर्व निर्धारित "
-#~ "बिषयवस्तु फन्ट्स र रंगहरू छान्छ"
+#~ "The color used when the stock's values has raised. Has no effect when the user chooses to use the default theme fonts "
+#~ "and colors."
+#~ msgstr "स्टकहरू मानहरू बढेको हुँदा रंगको प्रयोगले कुनै असर छैन जब प्रयोगकर्ताले पूर्व निर्धारित बिषयवस्तु फन्ट्स र रंगहरू छान्छ"
 
-#~ msgid ""
-#~ "The font used for the display. Has no effect when the user chooses to use "
-#~ "the default theme fonts and colors."
-#~ msgstr ""
-#~ "फन्ट प्रदर्शन प्रयोगमा कुनै असर छैन जब प्रयोगकर्ताले पूर्वनिर्धारित बिषयवस्तु फन्टहरू र "
-#~ "रंगहरू रोज्दछ."
+#~ msgid "The font used for the display. Has no effect when the user chooses to use the default theme fonts and colors."
+#~ msgstr "फन्ट प्रदर्शन प्रयोगमा कुनै असर छैन जब प्रयोगकर्ताले पूर्वनिर्धारित बिषयवस्तु फन्टहरू र रंगहरू रोज्दछ."
 
 #~ msgid "The time interval until when the applet updates the stock data."
 #~ msgstr "एप्लेटले स्टक डाटा अद्यावधिक गरेको बेला समय अन्तराल हुन्छ"
@@ -2367,9 +2275,6 @@ msgstr "पुन: प्राप्ती असफल"
 
 #~ msgid "A panel application for monitoring local weather conditions."
 #~ msgstr "मनिटरिङ लोकल मौसमको स्थितिका लागि प्यानल अनुप्रयोग"
-
-#~ msgid "GNOME Weather"
-#~ msgstr "GNOME मौसम"
 
 #~ msgid ""
 #~ "City: %s\n"
@@ -2449,9 +2354,6 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Forecast not currently available for this location."
 #~ msgstr "यो स्थानका लागि पूर्वानुमान हाल उपलव्ध छैन."
 
-#~ msgid "Location view"
-#~ msgstr "स्थान दृश्य"
-
 #~ msgid "Select Location from the list"
 #~ msgstr "स्थान सूचीबाट चयन गर्नुहोस"
 
@@ -2467,10 +2369,8 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Enter the URL"
 #~ msgstr "URL प्रविष्ट गर्नुहोस"
 
-#~ msgid ""
-#~ "Failed to load the Locations XML database.  Please report this as a bug."
-#~ msgstr ""
-#~ "स्थानिय XML डाटाबेस लोड गर्न असफल भयो । कृपया यसलाई बगको रुपमा रिपोर्ट गर्नुहोस् ।"
+#~ msgid "Failed to load the Locations XML database.  Please report this as a bug."
+#~ msgstr "स्थानिय XML डाटाबेस लोड गर्न असफल भयो । कृपया यसलाई बगको रुपमा रिपोर्ट गर्नुहोस् ।"
 
 #~ msgid "Weather Preferences"
 #~ msgstr "मौसम प्राथमिकताहरू"
@@ -2526,18 +2426,6 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Find _Next"
 #~ msgstr "पछिल्लो फेला पार्नुहोस्"
 
-#~ msgid "%.1f °F"
-#~ msgstr "%.1f F"
-
-#~ msgid "%d °F"
-#~ msgstr "%d °F"
-
-#~ msgid "%.1f °C"
-#~ msgstr "%.1f °C"
-
-#~ msgid "%d °C"
-#~ msgstr "%d °C"
-
 #~ msgid "There was an error loading an image: %s"
 #~ msgstr "एउटा छवि लोड गर्दा त्रुटि भेटियो : %s "
 
@@ -2557,11 +2445,9 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgstr "सानो आदेश कर्ता एप्लेट कारखाना"
 
 #~ msgid ""
-#~ "This GNOME applet adds a command line to the panel. It features command "
-#~ "completion, command history, and changeable macros."
-#~ msgstr ""
-#~ "यो GNOME एप्लेटले आदेश पंक्ति देखि प्यानल सम्म थप्छ. यसको आदेश पूर्ण, आदेश इतिहास, र "
-#~ "परिवर्तित म्याक्रोज चिन्ह प्रस्तुत गर्दछ"
+#~ "This GNOME applet adds a command line to the panel. It features command completion, command history, and changeable "
+#~ "macros."
+#~ msgstr "यो GNOME एप्लेटले आदेश पंक्ति देखि प्यानल सम्म थप्छ. यसको आदेश पूर्ण, आदेश इतिहास, र परिवर्तित म्याक्रोज चिन्ह प्रस्तुत गर्दछ"
 
 #~ msgid "No items in history"
 #~ msgstr "इतिहासमा कुनै वस्तुहरू छैन"
@@ -2584,10 +2470,8 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Set default list value for %s\n"
 #~ msgstr "पूर्वनिर्धारित सूचीको मान  %s का लागि सेट गर्न सकिएन \n"
 
-#~ msgid ""
-#~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
-#~ msgstr ""
-#~ "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL सेट छन, योजनाहरू स्थापित गरीएको छैन\n"
+#~ msgid "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL is set, not installing schemas\n"
+#~ msgstr "GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL सेट छन, योजनाहरू स्थापित गरीएको छैन\n"
 
 #~ msgid "Must set the GCONF_CONFIG_SOURCE environment variable\n"
 #~ msgstr "GCONF_CONFIG_SOURCE परिवेश चल सेट गर्नु पर्छ\n"
@@ -2598,12 +2482,10 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Error syncing config data: %s"
 #~ msgstr "%s कन्फिगरेसन डाटा स्क्यानिङ्ग गर्दा त्रुटि"
 
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro commands."
+#~ msgid "List of GConfValue entries containing strings for the macro commands."
 #~ msgstr "म्याक्रो आदेशहरूका लागि स्ट्रिङ समावेश गर्दा जिकन्फ मानको सूची"
 
-#~ msgid ""
-#~ "List of GConfValue entries containing strings for the macro patterns."
+#~ msgid "List of GConfValue entries containing strings for the macro patterns."
 #~ msgstr "बान्की आदेशहरूका लागि स्ट्रिङ समावेश गर्दा जिकन्फ मानको सूची"
 
 #~ msgid "Macro command list"
@@ -2663,8 +2545,7 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "_Use default theme colors"
 #~ msgstr "पूर्व निर्धारित बिषयवस्तु प्रयोग गर्नुहोस"
 
-#~ msgid ""
-#~ "Attempt to autocomplete a command from the history of commands entered."
+#~ msgid "Attempt to autocomplete a command from the history of commands entered."
 #~ msgstr "इतिहासको प्रविष्ट गरिएको आदेशहरू बाट स्वत: पूर्ण आदेशमा प्रविष्ट गराउनुहोस"
 
 #~ msgid "Background color, blue component"
@@ -2725,11 +2606,8 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgstr "रातो अवयवको अग्रभूमिको रंग"
 
 #~ msgid ""
-#~ "This per-applet key is deprecated in favour of the global key, /schemas/"
-#~ "apps/mini-commander-global/macro_patterns."
-#~ msgstr ""
-#~ "विश्वब्यापी कुञ्जी, /स्किमास्/एप्स अनुकुल बिरुद्व पर्-एप्लेट कुञ्जी सानो-आदेशकर्ता-ग्लोबल/"
-#~ "म्याक्रो_प्याटर्न्स"
+#~ "This per-applet key is deprecated in favour of the global key, /schemas/apps/mini-commander-global/macro_patterns."
+#~ msgstr "विश्वब्यापी कुञ्जी, /स्किमास्/एप्स अनुकुल बिरुद्व पर्-एप्लेट कुञ्जी सानो-आदेशकर्ता-ग्लोबल/म्याक्रो_प्याटर्न्स"
 
 #~ msgid "Use the default theme colors"
 #~ msgstr "पूर्व निर्धारित बिषयवस्तु रंग प्रयोग गर्नुहोस"
@@ -2792,21 +2670,17 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgstr "आवाज नियन्त्रण खोल्नुहोस"
 
 #~ msgid ""
-#~ "The volume control did not find any elements and/or devices to control. "
-#~ "This means either that you don't have the right GStreamer plugins "
-#~ "installed, or that you don't have a sound card configured."
+#~ "The volume control did not find any elements and/or devices to control. This means either that you don't have the "
+#~ "right GStreamer plugins installed, or that you don't have a sound card configured."
 #~ msgstr ""
-#~ "ध्वनि नियन्त्रकले नियन्त्रण गर्न कुनै तत्वहरू र/वा यन्त्रहरू फेला पारेन । यसको मतलब या "
-#~ "तपाईँ संग सही GStreamer प्लगिनहरू स्थापना भएको छैन, वा तपाईँ संग कनफिगर भएको ध्वनि "
-#~ "कार्ड छैन । "
+#~ "ध्वनि नियन्त्रकले नियन्त्रण गर्न कुनै तत्वहरू र/वा यन्त्रहरू फेला पारेन । यसको मतलब या तपाईँ संग सही GStreamer प्लगिनहरू स्थापना भएको छैन, "
+#~ "वा तपाईँ संग कनफिगर भएको ध्वनि कार्ड छैन । "
 
 #~ msgid ""
-#~ "You can remove the volume control from the panel by right-clicking the "
-#~ "speaker icon on the panel and selecting \"Remove From Panel\" from the "
-#~ "menu."
+#~ "You can remove the volume control from the panel by right-clicking the speaker icon on the panel and selecting "
+#~ "\"Remove From Panel\" from the menu."
 #~ msgstr ""
-#~ "तपाईँले मेनुबाट \"Remove From Panel\" चयन गर्दै र प्यानलमा स्पिकर प्रतिमालाई दाँया "
-#~ "क्लिक गरेर प्यानलबाट भोल्युम नियन्त्रण हटाउन सक्नुहुन्छ ।"
+#~ "तपाईँले मेनुबाट \"Remove From Panel\" चयन गर्दै र प्यानलमा स्पिकर प्रतिमालाई दाँया क्लिक गरेर प्यानलबाट भोल्युम नियन्त्रण हटाउन सक्नुहुन्छ ।"
 
 #~ msgid "Failed to start Volume Control: %s"
 #~ msgstr " आवाज नियन्त्रण सुरू गर्दा असफल: %s"
@@ -2880,24 +2754,17 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Not connected"
 #~ msgstr "जडान गरिएको छैन"
 
-#~ msgid ""
-#~ "To connect to your Internet service provider, you need administrator "
-#~ "privileges"
+#~ msgid "To connect to your Internet service provider, you need administrator privileges"
 #~ msgstr "इन्टरनेट सर्भिस जडान गर्न ,तपाईको ब्यवस्थापकको अधिकार चाहिन्छ"
 
-#~ msgid ""
-#~ "To disconnect from your Internet service provider, you need administrator "
-#~ "privileges"
+#~ msgid "To disconnect from your Internet service provider, you need administrator privileges"
 #~ msgstr "इन्टरनेट सर्भिस प्रोभाइडर जडान, नगर्न ब्यवस्थापकको अधिकार चाहिन्छ"
 
 #~ msgid "The entered password is invalid"
 #~ msgstr "प्रविष्टि पासवर्ड अवैध छ"
 
-#~ msgid ""
-#~ "Check that you have typed it correctly and that you haven't activated the "
-#~ "\"caps lock\" key"
-#~ msgstr ""
-#~ "तपाईले टाइप गर्नु भएको सहि छ कि छैन जाँच्नुहोस् र \"क्याप्स लक\" कुञ्जी सक्रिय छैन"
+#~ msgid "Check that you have typed it correctly and that you haven't activated the \"caps lock\" key"
+#~ msgstr "तपाईले टाइप गर्नु भएको सहि छ कि छैन जाँच्नुहोस् र \"क्याप्स लक\" कुञ्जी सक्रिय छैन"
 
 #~ msgid "Do you want to connect?"
 #~ msgstr "के तपाई जडान गर्न चाहनु हुन्छ?"
@@ -2914,19 +2781,14 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Could not launch network configuration tool"
 #~ msgstr "सञ्जाल कन्फिगरेसन उपकरण सुरुवात गर्न सकिएन"
 
-#~ msgid ""
-#~ "Check that it's installed in the correct path and that it has the correct "
-#~ "permissions"
+#~ msgid "Check that it's installed in the correct path and that it has the correct permissions"
 #~ msgstr "तपाईले स्थापना गर्नु भएको सहि दिशा र सहि अनुमतिहरू ठिक छ कि छैन जाँच्नुहोस"
 
 #~ msgid "Applet for activating and monitoring a dial-up network connection."
 #~ msgstr "एउटा डायल-अप सञ्जाल सक्रिय गर्दा र मनिटर गर्दाका लागि एप्लेट."
 
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Connecting with Internet Service "
-#~ "Provider</span>"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\"> इन्टरनेट सेवा संगजडान गर्दा </span>"
+#~ msgid "<span weight=\"bold\" size=\"larger\">Connecting with Internet Service Provider</span>"
+#~ msgstr "<span weight=\"bold\" size=\"larger\"> इन्टरनेट सेवा संगजडान गर्दा </span>"
 
 #~ msgid "<span weight=\"bold\" size=\"larger\">Root password required</span>"
 #~ msgstr "<span weight=\"bold\" size=\"larger\">रुट पासवर्ड आवश्यकता</span>"
@@ -2946,12 +2808,8 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "_Open System Monitor"
 #~ msgstr "प्रणाली मनिटर खोल्नुहोस"
 
-#~ msgid ""
-#~ "A system load monitor capable of displaying graphs for CPU, ram, and swap "
-#~ "space use, plus network traffic."
-#~ msgstr ""
-#~ "प्रणाली लोड मनिटर प्रदर्शन गर्दा ग्राफ CPU का लागि, र्याम, र स्वाप खाली ठाँउ "
-#~ "प्रयोग जोड सञ्जालट्राफिकको"
+#~ msgid "A system load monitor capable of displaying graphs for CPU, ram, and swap space use, plus network traffic."
+#~ msgstr "प्रणाली लोड मनिटर प्रदर्शन गर्दा ग्राफ CPU का लागि, र्याम, र स्वाप खाली ठाँउ प्रयोग जोड सञ्जालट्राफिकको"
 
 #~ msgid "There was an error executing '%s': %s"
 #~ msgstr "त्यहाँ कार्यान्वयन त्रुटि छन '%s': %s"
@@ -3038,12 +2896,8 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Enable swap load graph"
 #~ msgstr "साटासाट लोड ग्राफ सक्षम पार्नुहोस"
 
-#~ msgid ""
-#~ "For horizontal panels, the width of the graphs in pixels. For vertical "
-#~ "panels, this is the height of the graphs."
-#~ msgstr ""
-#~ "तेर्सो प्यानहरूका लागि, ग्राफको चौडाइ पिक्सेलहरूमा ठाडो प्यानल्हरू, यो ग्राफहरुको उचाइ "
-#~ "हो"
+#~ msgid "For horizontal panels, the width of the graphs in pixels. For vertical panels, this is the height of the graphs."
+#~ msgstr "तेर्सो प्यानहरूका लागि, ग्राफको चौडाइ पिक्सेलहरूमा ठाडो प्यानल्हरू, यो ग्राफहरुको उचाइ हो"
 
 #~ msgid "Graph color for Ethernet network activity"
 #~ msgstr "ईथरनेट सञ्जाल सक्रियका लागि ग्राफ रंग"
@@ -3240,12 +3094,8 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Some panel items are no longer available"
 #~ msgstr "केहि प्यानल वस्तुहरू धेरै समयसम्म उपलब्ध भएन"
 
-#~ msgid ""
-#~ "One or more panel items (also referred to as applets) are no longer "
-#~ "available in the GNOME desktop."
-#~ msgstr ""
-#~ "एक तथा धेरै प्यानल वस्तुहरू (एप्लेट्स समेत प्राथमिकता भएको) धेरै समयसम्म GNOME को "
-#~ "डेस्कटपमा उपलब्ध भएन"
+#~ msgid "One or more panel items (also referred to as applets) are no longer available in the GNOME desktop."
+#~ msgstr "एक तथा धेरै प्यानल वस्तुहरू (एप्लेट्स समेत प्राथमिकता भएको) धेरै समयसम्म GNOME को डेस्कटपमा उपलब्ध भएन"
 
 #~ msgid "These items will now be removed from your configuration:"
 #~ msgstr "यी वस्तुहरू तपाईँको कन्फिगरेसन बाट अहिले हटाईनेछ:"
@@ -3416,12 +3266,11 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgstr "मिनेटहरूमा समुबाहिर स्वत: बचत"
 
 #~ msgid ""
-#~ "By default, sticky notes are given the current date as the title when "
-#~ "they are created. This format is used; anything that can be parsed by "
-#~ "strftime() is valid."
+#~ "By default, sticky notes are given the current date as the title when they are created. This format is used; anything "
+#~ "that can be parsed by strftime() is valid."
 #~ msgstr ""
-#~ "पूर्व निर्धारितबाट, टाँसिएको द्रष्टव्य सृजित हुँदा हालको मिति र शिर्षक दिइन्छ. यो "
-#~ "ढाँचाप्रयोग हुन्छ, कुनै पनि वैध गरिएको स्ट्रिफसमय पदवर्णन गर्न सकिन्छ."
+#~ "पूर्व निर्धारितबाट, टाँसिएको द्रष्टव्य सृजित हुँदा हालको मिति र शिर्षक दिइन्छ. यो ढाँचाप्रयोग हुन्छ, कुनै पनि वैध गरिएको स्ट्रिफसमय पदवर्णन "
+#~ "गर्न सकिन्छ."
 
 #~ msgid "Date format of note's title"
 #~ msgstr "द्रष्टव्यको शीर्षकको मिति ढाँचा"
@@ -3432,29 +3281,17 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Default color for new notes"
 #~ msgstr "नयाँ द्रष्टव्यहरूका लागि पूर्वनिर्धारित रंग "
 
-#~ msgid ""
-#~ "Default color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#30FF50\"."
-#~ msgstr ""
-#~ "पूर्वनिर्धारित रंग नयाँ टाँसिएको द्रष्टव्यका लागि. यो एच टि एम एल हेक्समा हुनुपर्छ "
-#~ "निर्दिष्टिकरण, उदाहरणका लागि \"#30FF50\"."
+#~ msgid "Default color for new sticky notes. This should be in html hex specification, for example \"#30FF50\"."
+#~ msgstr "पूर्वनिर्धारित रंग नयाँ टाँसिएको द्रष्टव्यका लागि. यो एच टि एम एल हेक्समा हुनुपर्छ निर्दिष्टिकरण, उदाहरणका लागि \"#30FF50\"."
 
-#~ msgid ""
-#~ "Default font color for new sticky notes. This should be in html hex "
-#~ "specification, for example \"#000000\"."
-#~ msgstr ""
-#~ "पूर्वनिर्धारित रंग नयाँ टाँसिएको द्रष्टव्यका लागि. यो एच टि एम एल हेक्समा हुनुपर्छ "
-#~ "निर्दिष्टिकरण, उदाहरणका लागि \"#000000\"."
+#~ msgid "Default font color for new sticky notes. This should be in html hex specification, for example \"#000000\"."
+#~ msgstr "पूर्वनिर्धारित रंग नयाँ टाँसिएको द्रष्टव्यका लागि. यो एच टि एम एल हेक्समा हुनुपर्छ निर्दिष्टिकरण, उदाहरणका लागि \"#000000\"."
 
 #~ msgid "Default font for new notes"
 #~ msgstr "नयाँ द्रष्टव्यहरूका लागि पूर्वनिर्धारित फन्ट "
 
-#~ msgid ""
-#~ "Default font for new sticky notes. This should be a Pango Font Name, for "
-#~ "example \"Sans Italic 10\""
-#~ msgstr ""
-#~ "पूर्वनिर्धारित फन्ट नयाँ टाँसिएको द्रष्टव्यका लागि. यो प्याङ्गो फन्टको नाममा हुनुपर्छ "
-#~ "उदाहरणका लागि \"स्यान्स बाङ्गो १०\""
+#~ msgid "Default font for new sticky notes. This should be a Pango Font Name, for example \"Sans Italic 10\""
+#~ msgstr "पूर्वनिर्धारित फन्ट नयाँ टाँसिएको द्रष्टव्यका लागि. यो प्याङ्गो फन्टको नाममा हुनुपर्छ उदाहरणका लागि \"स्यान्स बाङ्गो १०\""
 
 #~ msgid "Default height for new notes"
 #~ msgstr "पूर्वनिर्धारित उचाइ नयाँ द्रष्टव्यहरूका लागि"
@@ -3471,44 +3308,24 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Empty notes are always deleted without confirmation"
 #~ msgstr "खाली द्रष्टव्यहरू जहिले पनि यकिनका साथ मेटिएको हुन्छ"
 
-#~ msgid ""
-#~ "Every time the specified number of minutes pass, the sticky notes are "
-#~ "automatically saved."
-#~ msgstr ""
-#~ "प्रत्येक मिनेटहरू.निर्दिष्ट संख्या टाँसिएको द्रष्टव्यहरूमा पठाइन्छ र त्यो स्वत: सुरक्षित हुन्छ"
+#~ msgid "Every time the specified number of minutes pass, the sticky notes are automatically saved."
+#~ msgstr "प्रत्येक मिनेटहरू.निर्दिष्ट संख्या टाँसिएको द्रष्टव्यहरूमा पठाइन्छ र त्यो स्वत: सुरक्षित हुन्छ"
+
+#~ msgid "If this option is disabled, a custom color can be used as the default color for all sticky notes."
+#~ msgstr "यदि यो विकल्प असमर्थ छ भने, बिषयवस्तु रंग पूर्वनिर्धारित रंग टाँसिएको द्रष्टव्यहरूका लागि प्रयोग हुन्छ"
+
+#~ msgid "If this option is disabled, a custom font can be used as the default font for all sticky notes."
+#~ msgstr "यदि यो विकल्प असमर्थ छ भने, बिषयवस्तु रंग पूर्व निर्धारित फन्ट टाँसिएको द्रष्टव्यहरूका लागि प्रयोग हुन्छ"
 
 #~ msgid ""
-#~ "If this option is disabled, a custom color can be used as the default "
-#~ "color for all sticky notes."
-#~ msgstr ""
-#~ "यदि यो विकल्प असमर्थ छ भने, बिषयवस्तु रंग पूर्वनिर्धारित रंग टाँसिएको द्रष्टव्यहरूका "
-#~ "लागि प्रयोग हुन्छ"
-
-#~ msgid ""
-#~ "If this option is disabled, a custom font can be used as the default font "
-#~ "for all sticky notes."
-#~ msgstr ""
-#~ "यदि यो विकल्प असमर्थ छ भने, बिषयवस्तु रंग पूर्व निर्धारित फन्ट टाँसिएको द्रष्टव्यहरूका "
-#~ "लागि प्रयोग हुन्छ"
-
-#~ msgid ""
-#~ "If this option is enabled, the custom colors and fonts that have been "
-#~ "assigned to individual notes will be ignored."
-#~ msgstr ""
-#~ "यदि यो छनोट सक्षम छ भने, बिषयवस्तुको रंग र फन्ट्हरू निर्दिष्ट ब्यक्त्तित्व द्रष्टव्यहरू "
-#~ "हटाइन्छ"
+#~ "If this option is enabled, the custom colors and fonts that have been assigned to individual notes will be ignored."
+#~ msgstr "यदि यो छनोट सक्षम छ भने, बिषयवस्तुको रंग र फन्ट्हरू निर्दिष्ट ब्यक्त्तित्व द्रष्टव्यहरू हटाइन्छ"
 
 #~ msgid "Specifies whether the sticky notes are locked (non-editable) or not."
-#~ msgstr ""
-#~ "या टाँसिएको द्रष्टव्यहरू ताल्चा लगाइएक छन (छाप्न-अयोग्य) वा छैनन निर्दिष्ट गर्छ वा "
-#~ "गर्दैन"
+#~ msgstr "या टाँसिएको द्रष्टव्यहरू ताल्चा लगाइएक छन (छाप्न-अयोग्य) वा छैनन निर्दिष्ट गर्छ वा गर्दैन"
 
-#~ msgid ""
-#~ "Specifies whether the sticky notes are visible on ALL workspaces on the "
-#~ "desktop, or not."
-#~ msgstr ""
-#~ "या कार्यस्थान डेस्कटपमा टाँसिएको द्रष्टव्यहरू दृश्य छन भने सबै डेस्कटपमा कार्यस्थानहरू,"
-#~ "निर्दिष्ट गर्छ वा गर्दैन."
+#~ msgid "Specifies whether the sticky notes are visible on ALL workspaces on the desktop, or not."
+#~ msgstr "या कार्यस्थान डेस्कटपमा टाँसिएको द्रष्टव्यहरू दृश्य छन भने सबै डेस्कटपमा कार्यस्थानहरू,निर्दिष्ट गर्छ वा गर्दैन."
 
 #~ msgid "Sticky notes' locked state"
 #~ msgstr "टाँसिएको द्रष्टव्यहरू ताल्चा लगाईएको अवस्थामा छन"
@@ -3572,11 +3389,11 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgstr "के सबैवस्तुहरू रद्दीटोकरीबाट रित्याउनुहुन्छ?"
 
 #~ msgid ""
-#~ "If you choose to empty the trash, all items in it will be permanently "
-#~ "lost. Please note that you can also delete them separately."
+#~ "If you choose to empty the trash, all items in it will be permanently lost. Please note that you can also delete them "
+#~ "separately."
 #~ msgstr ""
-#~ "यदि तपाईले रद्दीटोकरी रित्याउन रोज्नुहुन्छ हुन्छ भने , यसमा भएको सबै वस्तुहरू सधैँका लागि "
-#~ "मेटन सक्छ. कृपया तपाईले ती वस्तयहरुलाई छुट्टै मेट्न सक्नु हुन्छ भन्ने मनन गर्नुहोस."
+#~ "यदि तपाईले रद्दीटोकरी रित्याउन रोज्नुहुन्छ हुन्छ भने , यसमा भएको सबै वस्तुहरू सधैँका लागि मेटन सक्छ. कृपया तपाईले ती वस्तयहरुलाई छुट्टै मेट्न सक्नु "
+#~ "हुन्छ भन्ने मनन गर्नुहोस."
 
 #~ msgid ""
 #~ "Error while spawning nautilus:\n"
@@ -3589,11 +3406,10 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgstr "रद्दीटोकरी एप्लेट"
 
 #~ msgid ""
-#~ "A GNOME trash bin that lives in your panel. You can use it to view the "
-#~ "trash or drag and drop items into the trash."
+#~ "A GNOME trash bin that lives in your panel. You can use it to view the trash or drag and drop items into the trash."
 #~ msgstr ""
-#~ "GNOME रद्दीटोकरी बीन जुन तपाईको प्यानलमा बसेको छ. तपाईले यो प्रयोग गरेर "
-#~ "रद्दीटोकरी हेर्न सक्नुहुन्छ वा चीजहरू लगेर रद्दीटोरीमा राख्न सक्नुहुन्छ"
+#~ "GNOME रद्दीटोकरी बीन जुन तपाईको प्यानलमा बसेको छ. तपाईले यो प्रयोग गरेर रद्दीटोकरी हेर्न सक्नुहुन्छ वा चीजहरू लगेर रद्दीटोरीमा राख्न "
+#~ "सक्नुहुन्छ"
 
 #~ msgid "Delete Immediately?"
 #~ msgstr "तुरुन्त मेट्ने हो?"
@@ -3601,8 +3417,7 @@ msgstr "पुन: प्राप्ती असफल"
 #~ msgid "Cannot move items to trash, do you want to delete them immediately?"
 #~ msgstr "रद्दीटोकरीमा आइटम सार्न सकिएन के तपाई त्यसलाई तुरुन्तै मेट्न चाहनुहुन्छ?"
 
-#~ msgid ""
-#~ "Cannot move some items to trash, do you want to delete these immediately?"
+#~ msgid "Cannot move some items to trash, do you want to delete these immediately?"
 #~ msgstr "रद्दीटोकरीमा केहि वस्तुहरू सार्न सकिएन के तपाई तिनिहरूलाइ तुरुन्तै मेट्न चाहनुहुन्छ?"
 
 #~ msgid ""
