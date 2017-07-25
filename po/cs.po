@@ -14,15 +14,15 @@
 # Jakub Friedl <jfriedl@suse.cz>, 2006, 2007.
 # Petr Kovar <pknbe@volny.cz>, 2008, 2009.
 # Pavel Šefránek <pavel.sefranek@gmail.com>, 2008, 2009.
-# Marek Černocký <marek@manet.cz>, 2012, 2013, 2014, 2015, 2016.
+# Marek Černocký <marek@manet.cz>, 2012, 2013, 2014, 2015, 2016, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-12-22 16:00+0000\n"
-"PO-Revision-Date: 2016-12-23 00:10+0100\n"
+"POT-Creation-Date: 2017-07-23 19:42+0000\n"
+"PO-Revision-Date: 2017-07-25 10:48+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -473,41 +473,41 @@ msgstr "Neznámé"
 msgid "default:mm"
 msgstr "default:mm"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
 #: ../libgweather/gweather-weather.c:801
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+msgid "%.1f ℉"
+msgstr "%.1f ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
 #: ../libgweather/gweather-weather.c:804
 #, c-format
-msgid "%d °F"
-msgstr "%d °F"
+msgid "%d ℉"
+msgstr "%d ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
 #: ../libgweather/gweather-weather.c:810
 #, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
+msgid "%.1f ℃"
+msgstr "%.1f ℃"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
 #: ../libgweather/gweather-weather.c:813
 #, c-format
-msgid "%d °C"
-msgstr "%d °C"
+msgid "%d ℃"
+msgstr "%d ℃"
 
-#. TRANSLATOR: This is the temperature in kelvin
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #: ../libgweather/gweather-weather.c:819
 #, c-format
-msgid "%.1f K"
-msgstr "%.1f K"
+msgid "%.1f K"
+msgstr "%.1f K"
 
-#. TRANSLATOR: This is the temperature in kelvin
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #: ../libgweather/gweather-weather.c:822
 #, c-format
-msgid "%d K"
-msgstr "%d K"
+msgid "%d K"
+msgstr "%d K"
 
 #: ../libgweather/gweather-weather.c:845 ../libgweather/gweather-weather.c:861
 #: ../libgweather/gweather-weather.c:877 ../libgweather/gweather-weather.c:939
@@ -651,6 +651,7 @@ msgstr "%H∶%M"
 msgid "Retrieval failed"
 msgstr "Stahování selhalo"
 
+#. Translators: %d is an error code, and %s the error string
 #: ../libgweather/weather-metar.c:573
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
