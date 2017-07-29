@@ -4,17 +4,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets 0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-23 23:43+0000\n"
-"PO-Revision-Date: 2017-04-13 01:18+0200\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgweather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-07-23 19:42+0000\n"
+"PO-Revision-Date: 2017-07-29 19:24+0200\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2017-04-12 22:32+0000\n"
-"X-Generator: Poedit 1.8.7.1\n"
-"Language: hr\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #: ../data/glade/libgweather.xml.in.h:1
 msgid "Location Entry"
@@ -34,7 +35,7 @@ msgstr "GWeather"
 
 #: ../libgweather/gweather-location-entry.c:792
 msgid "Loading…"
-msgstr "Učitavanje..."
+msgstr "Učitavanje…"
 
 #: ../libgweather/gweather-timezone.c:341
 msgid "Greenwich Mean Time"
@@ -457,41 +458,41 @@ msgstr "Nepoznato"
 msgid "default:mm"
 msgstr "default:mm"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
 #: ../libgweather/gweather-weather.c:801
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+msgid "%.1f ℉"
+msgstr "%.1f ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
 #: ../libgweather/gweather-weather.c:804
 #, c-format
-msgid "%d °F"
-msgstr "%d °F"
+msgid "%d ℉"
+msgstr "%d ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
 #: ../libgweather/gweather-weather.c:810
 #, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
+msgid "%.1f ℃"
+msgstr "%.1f ℃"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
 #: ../libgweather/gweather-weather.c:813
 #, c-format
-msgid "%d °C"
-msgstr "%d °C"
+msgid "%d ℃"
+msgstr "%d ℃"
 
-#. TRANSLATOR: This is the temperature in kelvin
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #: ../libgweather/gweather-weather.c:819
 #, c-format
-msgid "%.1f K"
-msgstr "%.1f K"
+msgid "%.1f K"
+msgstr "%.1f K"
 
-#. TRANSLATOR: This is the temperature in kelvin
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #: ../libgweather/gweather-weather.c:822
 #, c-format
-msgid "%d K"
-msgstr "%d K"
+msgid "%d K"
+msgstr "%d K"
 
 #: ../libgweather/gweather-weather.c:845 ../libgweather/gweather-weather.c:861
 #: ../libgweather/gweather-weather.c:877 ../libgweather/gweather-weather.c:939
@@ -626,7 +627,8 @@ msgstr "%.1f km"
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/gweather-weather.c:1148 ../libgweather/gweather-weather.c:1173
+#: ../libgweather/gweather-weather.c:1148
+#: ../libgweather/gweather-weather.c:1173
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
@@ -656,8 +658,8 @@ msgstr ""
 #.
 #: ../libgweather/weather-yrno.c:507
 msgid ""
-"Weather data from the <a href=\"http://www.met.no/\">Norwegian Meteorological "
-"Institute</a>"
+"Weather data from the <a href=\"http://www.met.no/\">Norwegian "
+"Meteorological Institute</a>"
 msgstr ""
 "Vremenski podaci s <a href=\"http://www.met.no/\">Norveškog meteorološkog "
 "instituta</a>"
@@ -668,11 +670,11 @@ msgstr "URL za radarsku mapu"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:2
 msgid ""
-"The custom URL from where to retrieve a radar map, or empty for disabling radar "
-"maps."
+"The custom URL from where to retrieve a radar map, or empty for disabling "
+"radar maps."
 msgstr ""
-"Prilagođeni URL s kojega želite primati radarsku mapu, ili ostavite prazno za "
-"onemogućavanje radarske mape."
+"Prilagođeni URL s kojega želite primati radarsku mapu, ili ostavite prazno "
+"za onemogućavanje radarske mape."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:3
 msgid "Temperature unit"
@@ -683,8 +685,8 @@ msgid ""
 "The unit of temperature used for showing weather. Valid values are “kelvin”, "
 "“centigrade” and “fahrenheit”."
 msgstr ""
-"Jedinica temperature koja se koristi za prikaz vremena “kelvin”, “celzijus” i "
-"“farenhajt”."
+"Jedinica temperature koja se koristi za prikaz vremena “kelvin”, “celzijus” "
+"i “farenhajt”."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:5
 msgid "Distance unit"
@@ -693,7 +695,8 @@ msgstr "Jedinica udaljenosti"
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:6
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or "
-"for distance of important events). Valid values are “meters”, “km” and “miles”."
+"for distance of important events). Valid values are “meters”, “km” and "
+"“miles”."
 msgstr ""
 "Jedinica udaljenosti koja se koristi za prikaz vjetra (na primjer: za prikaz "
 "vidljivosti ili udaljenosti pojava). Valjane vrijednosti su “metri”, “km” i "
@@ -705,13 +708,13 @@ msgstr "Jedinica brzine"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:8
 msgid ""
-"The unit of speed used for showing weather (for example for wind speed). Valid "
-"values are “ms” (meters per second), “kph” (kilometers per hour), “mph” (miles "
-"per hour), “knots” and “bft” (Beaufort scale)."
+"The unit of speed used for showing weather (for example for wind speed). "
+"Valid values are “ms” (meters per second), “kph” (kilometers per hour), "
+"“mph” (miles per hour), “knots” and “bft” (Beaufort scale)."
 msgstr ""
-"Jedinica brzine koja se koristi za prikaz vremena (na primjer: brzina vjetra). "
-"Valjane vrijednosti su “ms” (metra u sekundi), “kph” (kilometra na satu), "
-"“mph” (miles na sat), “čvorovi” i “bft” (Boforova ljestvica)."
+"Jedinica brzine koja se koristi za prikaz vremena (na primjer: brzina "
+"vjetra). Valjane vrijednosti su “ms” (metra u sekundi), “kph” (kilometra na "
+"satu), “mph” (miles na sat), “čvorovi” i “bft” (Boforova ljestvica)."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:9
 msgid "Pressure unit"
@@ -721,13 +724,13 @@ msgstr "Jedinica tlaka"
 msgid ""
 "The unit of pressure used for showing weather. Valid values are "
 "“kpa” (kilopascal), “hpa” (hectopascal), “mb” (millibar, mathematically "
-"equivalent to 1 hPa but shown differently), “mm-hg” (millimiters of mercury), "
-"“inch-hg” (inches of mercury), “atm” (atmospheres)."
+"equivalent to 1 hPa but shown differently), “mm-hg” (millimiters of "
+"mercury), “inch-hg” (inches of mercury), “atm” (atmospheres)."
 msgstr ""
 "Jedinica tlaka koja se koristi za prikaz vremena . Valjane vrijednosti su "
-"“kpa” (kilopaskal), “hpa” (hektopaskal), “mb” (millibar, matematički ekvivalent "
-"1 hPa ali prikazan drugačije), “mm-hg” (millimiteara žive), “inch-hg” (inča "
-"žive), “atm” (atmosfera)."
+"“kpa” (kilopaskal), “hpa” (hektopaskal), “mb” (millibar, matematički "
+"ekvivalent 1 hPa ali prikazan drugačije), “mm-hg” (millimiteara žive), “inch-"
+"hg” (inča žive), “atm” (atmosfera)."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:11
 msgid "Default location"
@@ -735,21 +738,36 @@ msgstr "Zadana lokacija"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:12
 msgid ""
-"The default location for the weather applet. The first field is the name that "
-"will be shown. If empty, it will be taken from the locations database. The "
-"second field is the METAR code for the default weather station. It must not be "
-"empty and must correspond to a &lt;code&gt; tag in the Locations.xml file. The "
-"third field is a tuple of (latitude, longitude), to override the value taken "
-"from the database. This is only used for sunrise and moon phase calculations, "
-"not for weather forecast."
+"The default location for the weather applet. The first field is the name "
+"that will be shown. If empty, it will be taken from the locations database. "
+"The second field is the METAR code for the default weather station. It must "
+"not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml "
+"file. The third field is a tuple of (latitude, longitude), to override the "
+"value taken from the database. This is only used for sunrise and moon phase "
+"calculations, not for weather forecast."
 msgstr ""
 "Zadana lokacija za aplet vremena. Prvo polje je naziv koji će biti prikazan. "
-"Ako je prazno, biti će određeno iz baze podataka lokacije. Drugo polje je METAR "
-"kôd za zadanu vremensku stanicu. Ne smije biti prazno i mora se podudarati s "
-"oznakom &lt;kôda&gt; u Locations.xml datoteci. Treće polje je popis "
-"(zemljopisna širina i dužina), za zaobilaženje vrijednosti preuzete iz baze "
-"podataka. To se jedino koristi za proračun izlazka sunca i mjesečevih mijena, "
-"ne za vremensku prognozu."
+"Ako je prazno, biti će određeno iz baze podataka lokacije. Drugo polje je "
+"METAR kôd za zadanu vremensku stanicu. Ne smije biti prazno i mora se "
+"podudarati s oznakom &lt;kôda&gt; u Locations.xml datoteci. Treće polje je "
+"popis (zemljopisna širina i dužina), za zaobilaženje vrijednosti preuzete iz "
+"baze podataka. To se jedino koristi za proračun izlazka sunca i mjesečevih "
+"mijena, ne za vremensku prognozu."
+
+#~ msgid "%.1f °F"
+#~ msgstr "%.1f °F"
+
+#~ msgid "%d °F"
+#~ msgstr "%d °F"
+
+#~ msgid "%.1f °C"
+#~ msgstr "%.1f °C"
+
+#~ msgid "%d °C"
+#~ msgstr "%d °C"
+
+#~ msgid "%d K"
+#~ msgstr "%d K"
 
 #~ msgid "North - Northwest"
 #~ msgstr "Sjever - sjeverozapad"
@@ -779,8 +797,8 @@ msgstr ""
 #~ msgstr "Učitavam…"
 
 #~ msgid ""
-#~ "The unit of distance used for showing weather (for example for visibility or "
-#~ "for distance of important events). Valid values are 'meters', 'km' and "
+#~ "The unit of distance used for showing weather (for example for visibility "
+#~ "or for distance of important events). Valid values are 'meters', 'km' and "
 #~ "'miles'."
 #~ msgstr ""
 #~ "Jedinica udaljenosti korištena za prikazivanje vremena (na primjer za "
@@ -793,12 +811,13 @@ msgstr ""
 #~ "'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
 #~ msgstr ""
 #~ "Jedinica brzine korištena za prikazivanje vremena (na primjer za brzinu "
-#~ "vjetra). Valjane vrijednosti su 'ms' (metera po sekundi), 'kmh' (kilometara "
-#~ "na sat), 'mph' (milja po satu), 'čvora' i 'bft' (Bufortova skala)."
+#~ "vjetra). Valjane vrijednosti su 'ms' (metera po sekundi), "
+#~ "'kmh' (kilometara na sat), 'mph' (milja po satu), 'čvora' i "
+#~ "'bft' (Bufortova skala)."
 
 #~ msgid ""
-#~ "The unit of temperature used for showing weather. Valid values are 'kelvin', "
-#~ "'centigrade' and 'fahrenheit'."
+#~ "The unit of temperature used for showing weather. Valid values are "
+#~ "'kelvin', 'centigrade' and 'fahrenheit'."
 #~ msgstr ""
 #~ "Jedinica temperature korištena za prikaz vremena. Valjane vrijednosti su "
 #~ "'kelvin', 'stupanj celzija' i 'farenhajt'."
@@ -811,5 +830,5 @@ msgstr ""
 #~ msgstr ""
 #~ "Jedinica tlaka korištena za prikaz vremena. Valjane vrijednosti su "
 #~ "'kpa' (kilopaskal), 'hpa' (hektopaskal), 'mb' (millibar, matematički "
-#~ "ekvivalent za 1 hPa ali drugačije prikazan), 'mm-hg' (živin milimetar), 'inč-"
-#~ "hg' (živin inč), 'atm' (atmosfera)."
+#~ "ekvivalent za 1 hPa ali drugačije prikazan), 'mm-hg' (živin milimetar), "
+#~ "'inč-hg' (živin inč), 'atm' (atmosfera)."
