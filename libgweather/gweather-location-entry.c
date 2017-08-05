@@ -529,7 +529,11 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 
     case GWEATHER_LOCATION_ADM1:
 	/* Recurse, adding the ADM1 name to the country name */
-	display_name = g_strdup_printf ("%s, %s", loc->local_name, parent_display_name);
+	/* Translators: this is the name of a location followed by a region, for example:
+	 * 'London, United Kingdom'
+	 * You shouldn't need to translate this string unless the language has a different comma.
+	 */
+	display_name = g_strdup_printf (_("%s, %s"), loc->local_name, parent_display_name);
 	local_compare_name = g_strdup_printf ("%s, %s", loc->local_sort_name, parent_compare_local_name);
 	english_compare_name = g_strdup_printf ("%s, %s", loc->english_sort_name, parent_compare_english_name);
 
@@ -553,7 +557,11 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	 */
     case GWEATHER_LOCATION_WEATHER_STATION:
 	/* <location> with no parent <city> */
-	display_name = g_strdup_printf ("%s, %s",
+	/* Translators: this is the name of a location followed by a region, for example:
+	 * 'London, United Kingdom'
+	 * You shouldn't need to translate this string unless the language has a different comma.
+	 */
+	display_name = g_strdup_printf (_("%s, %s"),
 					loc->local_name, parent_display_name);
 	local_compare_name = g_strdup_printf ("%s, %s",
 					      loc->local_sort_name, parent_compare_local_name);
