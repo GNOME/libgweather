@@ -529,9 +529,12 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 
     case GWEATHER_LOCATION_ADM1:
 	/* Recurse, adding the ADM1 name to the country name */
-	display_name = g_strdup_printf ("%s, %s", loc->local_name, parent_display_name);
-	local_compare_name = g_strdup_printf ("%s, %s", loc->local_sort_name, parent_compare_local_name);
-	english_compare_name = g_strdup_printf ("%s, %s", loc->english_sort_name, parent_compare_english_name);
+	/* TRANSLATOR: translatable for languages that use a different comma, e.g. Arabic */
+	display_name = g_strdup_printf (_("%s, %s"), loc->local_name, parent_display_name);
+	/* TRANSLATOR: translatable for languages that use a different comma, e.g. Arabic */
+	local_compare_name = g_strdup_printf (_("%s, %s"), loc->local_sort_name, parent_compare_local_name);
+	/* TRANSLATOR: translatable for languages that use a different comma, e.g. Arabic */
+	english_compare_name = g_strdup_printf (_("%s, %s"), loc->english_sort_name, parent_compare_english_name);
 
 	for (i = 0; children[i]; i++) {
 	    fill_location_entry_model (store, children[i],
@@ -553,11 +556,14 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	 */
     case GWEATHER_LOCATION_WEATHER_STATION:
 	/* <location> with no parent <city> */
-	display_name = g_strdup_printf ("%s, %s",
+	/* TRANSLATOR: translatable for languages that use a different comma, e.g. Arabic */
+	display_name = g_strdup_printf (_("%s, %s"),
 					loc->local_name, parent_display_name);
-	local_compare_name = g_strdup_printf ("%s, %s",
+	/* TRANSLATOR: translatable for languages that use a different comma, e.g. Arabic */
+	local_compare_name = g_strdup_printf (_("%s, %s"),
 					      loc->local_sort_name, parent_compare_local_name);
-	english_compare_name = g_strdup_printf ("%s, %s",
+	/* TRANSLATOR: translatable for languages that use a different comma, e.g. Arabic */
+	english_compare_name = g_strdup_printf (_("%s, %s"),
 						loc->english_sort_name, parent_compare_english_name);
 
 	gtk_tree_store_insert_with_values (store, NULL, NULL, -1,
