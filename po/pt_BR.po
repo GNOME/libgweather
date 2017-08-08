@@ -13,14 +13,13 @@
 # Djavan Fagundes <dnoway@gmail.com>, 2009, 2012.
 # Enrico Nicoletto <liverig@gmail.com>, 2009, 2013, 2015, 2016.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2013, 2014, 2017.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgwea"
-"ther&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-12-22 16:00+0000\n"
-"PO-Revision-Date: 2017-01-15 16:53-0200\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=libgwe"
+"ather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-07-23 19:42+0000\n"
+"PO-Revision-Date: 2017-08-08 08:47-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -473,41 +472,44 @@ msgstr "Desconhecidas"
 msgid "default:mm"
 msgstr "default:mm"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
 #: ../libgweather/gweather-weather.c:801
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+#| msgid "%.1f K"
+msgid "%.1f ℉"
+msgstr "%.1f ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
 #: ../libgweather/gweather-weather.c:804
 #, c-format
-msgid "%d °F"
-msgstr "%d °F"
+msgid "%d ℉"
+msgstr "%d ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
 #: ../libgweather/gweather-weather.c:810
 #, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
+#| msgid "%.1f K"
+msgid "%.1f ℃"
+msgstr "%.1f ℃"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
 #: ../libgweather/gweather-weather.c:813
 #, c-format
-msgid "%d °C"
-msgstr "%d °C"
+msgid "%d ℃"
+msgstr "%d ℃"
 
-#. TRANSLATOR: This is the temperature in kelvin
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #: ../libgweather/gweather-weather.c:819
 #, c-format
-msgid "%.1f K"
-msgstr "%.1f K"
+#| msgid "%.1f K"
+msgid "%.1f K"
+msgstr "%.1f K"
 
-#. TRANSLATOR: This is the temperature in kelvin
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #: ../libgweather/gweather-weather.c:822
 #, c-format
-msgid "%d K"
-msgstr "%d K"
+msgid "%d K"
+msgstr "%d K"
 
 #: ../libgweather/gweather-weather.c:845 ../libgweather/gweather-weather.c:861
 #: ../libgweather/gweather-weather.c:877 ../libgweather/gweather-weather.c:939
@@ -651,6 +653,7 @@ msgstr "%H∶%M"
 msgid "Retrieval failed"
 msgstr "Obtenção falhou"
 
+#. Translators: %d is an error code, and %s the error string
 #: ../libgweather/weather-metar.c:573
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
@@ -727,9 +730,9 @@ msgid ""
 "“mph” (miles per hour), “knots” and “bft” (Beaufort scale)."
 msgstr ""
 "A unidade de velocidade usada para exibir o clima (por exemplo, para "
-"velocidade do vento). Valores válidos são “ms” (metros por segundo), “kph” ("
-"quilômetros por hora), “mph” (milhas por hora), “knots” (nós) e “bft” ("
-"escala Beaufort)."
+"velocidade do vento). Valores válidos são “ms” (metros por segundo), "
+"“kph” (quilômetros por hora), “mph” (milhas por hora), “knots” (nós) e "
+"“bft” (escala Beaufort)."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:9
 msgid "Pressure unit"
@@ -742,10 +745,10 @@ msgid ""
 "equivalent to 1 hPa but shown differently), “mm-hg” (millimiters of "
 "mercury), “inch-hg” (inches of mercury), “atm” (atmospheres)."
 msgstr ""
-"A unidade de pressão usada para exibir o clima. Valores válidos são “kpa” "
-"(kilopascal), “hpa” (hectopascal), “mb” (milibar, matematicamente "
-"equivalente a 1hPa, mas exibido diferente), “mm-hg” (milímetros de mercúrio)"
-", “inch-hg” (polegadas de mercúrio), “atm” (atmosferas)."
+"A unidade de pressão usada para exibir o clima. Valores válidos são "
+"“kpa” (kilopascal), “hpa” (hectopascal), “mb” (milibar, matematicamente "
+"equivalente a 1hPa, mas exibido diferente), “mm-hg” (milímetros de "
+"mercúrio), “inch-hg” (polegadas de mercúrio), “atm” (atmosferas)."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:11
 msgid "Default location"
@@ -764,10 +767,25 @@ msgstr ""
 "O local padrão do miniaplicativo do clima. O primeiro campo é o nome que "
 "será exibido. Se vazio, irá pegar do banco de dados de locais. O segundo "
 "campo é o código METAR para a estação padrão de clima. Ele não deve ser "
-"vazio e deve corresponder a uma etiqueta &lt;code&gt; no arquivo "
-"Locations.xml. O terceiro campo é uma tupla (latitude, longitude), para "
-"sobrescrever o valor dado pelo banco. Este somente é usado para cálculos de "
-"pôr do sol e fases da lua, não para questões de clima."
+"vazio e deve corresponder a uma etiqueta &lt;code&gt; no arquivo Locations."
+"xml. O terceiro campo é uma tupla (latitude, longitude), para sobrescrever o "
+"valor dado pelo banco. Este somente é usado para cálculos de pôr do sol e "
+"fases da lua, não para questões de clima."
+
+#~ msgid "%.1f °F"
+#~ msgstr "%.1f °F"
+
+#~ msgid "%d °F"
+#~ msgstr "%d °F"
+
+#~ msgid "%.1f °C"
+#~ msgstr "%.1f °C"
+
+#~ msgid "%d °C"
+#~ msgstr "%d °C"
+
+#~ msgid "%d K"
+#~ msgstr "%d K"
 
 #~ msgid "Ice pellets"
 #~ msgstr "Cápsulas de gelo"
