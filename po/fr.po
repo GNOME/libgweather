@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: libgweather\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-02-22 01:37+0000\n"
+"POT-Creation-Date: 2017-07-23 19:42+0000\n"
 "PO-Revision-Date: 2017-02-22 12:46+0100\n"
 "Last-Translator: Charles Monzat <superboa@hotmail.fr>\n"
 "Language-Team: français <gnomefr@traduc.org>\n"
@@ -49,7 +49,6 @@ msgid "GWeather"
 msgstr "GWeather"
 
 #: ../libgweather/gweather-location-entry.c:792
-#| msgid "Loading..."
 msgid "Loading…"
 msgstr "Chargement…"
 
@@ -72,7 +71,6 @@ msgid "North"
 msgstr "Nord"
 
 #: ../libgweather/gweather-weather.c:115
-#| msgid "North - NorthEast"
 msgid "North — NorthEast"
 msgstr "Nord — Nord-Est"
 
@@ -81,7 +79,6 @@ msgid "Northeast"
 msgstr "Nord-Est"
 
 #: ../libgweather/gweather-weather.c:115
-#| msgid "East - NorthEast"
 msgid "East — NorthEast"
 msgstr "Est — Nord-Est"
 
@@ -90,7 +87,6 @@ msgid "East"
 msgstr "Est"
 
 #: ../libgweather/gweather-weather.c:116
-#| msgid "East - Southeast"
 msgid "East — Southeast"
 msgstr "Est — Sud-Est"
 
@@ -99,7 +95,6 @@ msgid "Southeast"
 msgstr "Sud-Est"
 
 #: ../libgweather/gweather-weather.c:116
-#| msgid "South - Southeast"
 msgid "South — Southeast"
 msgstr "Sud — Sud-Est"
 
@@ -108,7 +103,6 @@ msgid "South"
 msgstr "Sud"
 
 #: ../libgweather/gweather-weather.c:117
-#| msgid "South - Southwest"
 msgid "South — Southwest"
 msgstr "Sud — Sud-Ouest"
 
@@ -117,7 +111,6 @@ msgid "Southwest"
 msgstr "Sud-Ouest"
 
 #: ../libgweather/gweather-weather.c:117
-#| msgid "West - Southwest"
 msgid "West — Southwest"
 msgstr "Ouest — Sud-Ouest"
 
@@ -126,7 +119,6 @@ msgid "West"
 msgstr "Ouest"
 
 #: ../libgweather/gweather-weather.c:118
-#| msgid "West - Northwest"
 msgid "West — Northwest"
 msgstr "Ouest — Nord-Ouest"
 
@@ -135,7 +127,6 @@ msgid "Northwest"
 msgstr "Nord-Ouest"
 
 #: ../libgweather/gweather-weather.c:118
-#| msgid "North - Northwest"
 msgid "North — Northwest"
 msgstr "Nord — Nord-Ouest"
 
@@ -483,41 +474,41 @@ msgstr "Inconnues"
 msgid "default:mm"
 msgstr "default:mm"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
 #: ../libgweather/gweather-weather.c:801
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+msgid "%.1f ℉"
+msgstr "%.1f ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
 #: ../libgweather/gweather-weather.c:804
 #, c-format
-msgid "%d °F"
-msgstr "%d °F"
+msgid "%d ℉"
+msgstr "%d ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
 #: ../libgweather/gweather-weather.c:810
 #, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
+msgid "%.1f ℃"
+msgstr "%.1f ℃"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
 #: ../libgweather/gweather-weather.c:813
 #, c-format
-msgid "%d °C"
-msgstr "%d °C"
+msgid "%d ℃"
+msgstr "%d ℃"
 
-#. TRANSLATOR: This is the temperature in kelvin
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #: ../libgweather/gweather-weather.c:819
 #, c-format
-msgid "%.1f K"
-msgstr "%.1f K"
+msgid "%.1f K"
+msgstr "%.1f K"
 
-#. TRANSLATOR: This is the temperature in kelvin
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #: ../libgweather/gweather-weather.c:822
 #, c-format
-msgid "%d K"
-msgstr "%d K"
+msgid "%d K"
+msgstr "%d K"
 
 #: ../libgweather/gweather-weather.c:845 ../libgweather/gweather-weather.c:861
 #: ../libgweather/gweather-weather.c:877 ../libgweather/gweather-weather.c:939
@@ -706,9 +697,6 @@ msgid "Temperature unit"
 msgstr "Unité de température"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:4
-#| msgid ""
-#| "The unit of temperature used for showing weather. Valid values are "
-#| "'kelvin', 'centigrade' and 'fahrenheit'."
 msgid ""
 "The unit of temperature used for showing weather. Valid values are “kelvin”, "
 "“centigrade” and “fahrenheit”."
@@ -721,10 +709,6 @@ msgid "Distance unit"
 msgstr "Unité de distance"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:6
-#| msgid ""
-#| "The unit of distance used for showing weather (for example for visibility "
-#| "or for distance of important events). Valid values are 'meters', 'km' and "
-#| "'miles'."
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or "
 "for distance of important events). Valid values are “meters”, “km” and "
@@ -739,10 +723,6 @@ msgid "Speed unit"
 msgstr "Unité de vitesse"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:8
-#| msgid ""
-#| "The unit of speed used for showing weather (for example for wind speed). "
-#| "Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
-#| "'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
 msgid ""
 "The unit of speed used for showing weather (for example for wind speed). "
 "Valid values are “ms” (meters per second), “kph” (kilometers per hour), "
@@ -758,11 +738,6 @@ msgid "Pressure unit"
 msgstr "Unité de pression"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:10
-#| msgid ""
-#| "The unit of pressure used for showing weather. Valid values are "
-#| "'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
-#| "equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
-#| "mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
 msgid ""
 "The unit of pressure used for showing weather. Valid values are "
 "“kpa” (kilopascal), “hpa” (hectopascal), “mb” (millibar, mathematically "
@@ -797,3 +772,18 @@ msgstr ""
 "(latitude, longitude) qui prend la place de la valeur prise dans la base de "
 "données. Ce dernier n'est utilisé que pour les calculs de levée du soleil et "
 "phase de la lune, pas pour les prévisions météorologiques."
+
+#~ msgid "%.1f °F"
+#~ msgstr "%.1f °F"
+
+#~ msgid "%d °F"
+#~ msgstr "%d °F"
+
+#~ msgid "%.1f °C"
+#~ msgstr "%.1f °C"
+
+#~ msgid "%d °C"
+#~ msgstr "%d °C"
+
+#~ msgid "%d K"
+#~ msgstr "%d K"
