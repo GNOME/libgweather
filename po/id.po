@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: libgweather master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-07-23 19:42+0000\n"
-"PO-Revision-Date: 2017-07-24 10:44+0700\n"
+"POT-Creation-Date: 2017-08-20 13:24+0000\n"
+"PO-Revision-Date: 2017-08-21 10:00+0700\n"
 "Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian <gnome@i15n.org>\n"
 "Language: id\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #: ../data/glade/libgweather.xml.in.h:1
 msgid "Location Entry"
@@ -39,7 +39,7 @@ msgstr "GWeather"
 
 #: ../libgweather/gweather-location-entry.c:792
 msgid "Loading…"
-msgstr "Memuat..."
+msgstr "Memuat…"
 
 #: ../libgweather/gweather-timezone.c:341
 msgid "Greenwich Mean Time"
@@ -50,404 +50,793 @@ msgctxt "timezone"
 msgid "Unknown"
 msgstr "Tak diketahui"
 
-#: ../libgweather/gweather-weather.c:114
+#: ../libgweather/gweather-weather.c:120
+msgid "variable"
+msgstr "variabel"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "north"
+msgstr "utara"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "north — northeast"
+msgstr "utara — timur laut"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "northeast"
+msgstr "timur laut"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "east — northeast"
+msgstr "timur — tenggara"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "east"
+msgstr "timur laut"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "east — southeast"
+msgstr "timur — tenggara"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "southeast"
+msgstr "tenggara"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "south — southeast"
+msgstr "selatan — tenggara"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "south"
+msgstr "selatan"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "south — southwest"
+msgstr "selatan — barat daya"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "southwest"
+msgstr "barat daya"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "west — southwest"
+msgstr "barat — barat daya"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "west"
+msgstr "barat daya"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "west — northwest"
+msgstr "barat — barat laut"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "northwest"
+msgstr "barat laut"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "north — northwest"
+msgstr "utara — barat laut"
+
+#: ../libgweather/gweather-weather.c:128
 msgid "Variable"
 msgstr "Variabel"
 
-#: ../libgweather/gweather-weather.c:115
+#: ../libgweather/gweather-weather.c:129
 msgid "North"
 msgstr "Utara"
 
-#: ../libgweather/gweather-weather.c:115
-msgid "North — NorthEast"
+#: ../libgweather/gweather-weather.c:129
+msgid "North — Northeast"
 msgstr "Utara — Timur Laut"
 
-#: ../libgweather/gweather-weather.c:115
+#: ../libgweather/gweather-weather.c:129
 msgid "Northeast"
 msgstr "Timur Laut"
 
-#: ../libgweather/gweather-weather.c:115
-msgid "East — NorthEast"
+#: ../libgweather/gweather-weather.c:129
+msgid "East — Northeast"
 msgstr "Timur — Timur Laut"
 
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:130
 msgid "East"
 msgstr "Timur"
 
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:130
 msgid "East — Southeast"
 msgstr "Timur — Tenggara"
 
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:130
 msgid "Southeast"
 msgstr "Tenggara"
 
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:130
 msgid "South — Southeast"
 msgstr "Selatan — Tenggara"
 
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:131
 msgid "South"
 msgstr "Selatan"
 
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:131
 msgid "South — Southwest"
 msgstr "Selatan — Barat Daya"
 
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:131
 msgid "Southwest"
 msgstr "Barat Daya"
 
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:131
 msgid "West — Southwest"
 msgstr "Barat — Barat Daya"
 
-#: ../libgweather/gweather-weather.c:118
+#: ../libgweather/gweather-weather.c:132
 msgid "West"
 msgstr "Barat"
 
-#: ../libgweather/gweather-weather.c:118
+#: ../libgweather/gweather-weather.c:132
 msgid "West — Northwest"
 msgstr "Barat — Barat Laut"
 
-#: ../libgweather/gweather-weather.c:118
+#: ../libgweather/gweather-weather.c:132
 msgid "Northwest"
 msgstr "Barat Laut"
 
-#: ../libgweather/gweather-weather.c:118
+#: ../libgweather/gweather-weather.c:132
 msgid "North — Northwest"
 msgstr "Utara — Barat Laut"
 
-#: ../libgweather/gweather-weather.c:125
+#: ../libgweather/gweather-weather.c:142
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Salah"
 
-#: ../libgweather/gweather-weather.c:131
-msgid "Clear Sky"
-msgstr "Langit Cerah"
+#: ../libgweather/gweather-weather.c:143
+msgctxt "wind direction"
+msgid "invalid"
+msgstr "salah"
 
-#: ../libgweather/gweather-weather.c:132
+#: ../libgweather/gweather-weather.c:156
+msgid "clear sky"
+msgstr "langit cerah"
+
+#: ../libgweather/gweather-weather.c:157
+msgid "broken clouds"
+msgstr "berawan sebagian"
+
+#: ../libgweather/gweather-weather.c:158
+msgid "scattered clouds"
+msgstr "berawan terpencar"
+
+#: ../libgweather/gweather-weather.c:159
+msgid "few clouds"
+msgstr "berawan sedikit"
+
+#: ../libgweather/gweather-weather.c:160
+msgid "overcast"
+msgstr "mendung"
+
+#: ../libgweather/gweather-weather.c:164
+msgid "Clear sky"
+msgstr "Langit cerah"
+
+#: ../libgweather/gweather-weather.c:165
 msgid "Broken clouds"
 msgstr "Berawan sebagian"
 
-#: ../libgweather/gweather-weather.c:133
+#: ../libgweather/gweather-weather.c:166
 msgid "Scattered clouds"
 msgstr "Berawan terpencar"
 
-#: ../libgweather/gweather-weather.c:134
+#: ../libgweather/gweather-weather.c:167
 msgid "Few clouds"
 msgstr "Berawan sedikit"
 
-#: ../libgweather/gweather-weather.c:135
+#: ../libgweather/gweather-weather.c:168
 msgid "Overcast"
 msgstr "Mendung"
 
-#: ../libgweather/gweather-weather.c:142 ../libgweather/gweather-weather.c:214
+#: ../libgweather/gweather-weather.c:184 ../libgweather/gweather-weather.c:298
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "Salah"
+
+#: ../libgweather/gweather-weather.c:185 ../libgweather/gweather-weather.c:299
+msgctxt "sky conditions"
+msgid "invalid"
+msgstr "salah"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/gweather-weather.c:174 ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:218 ../libgweather/gweather-weather.c:220
+msgid "thunderstorm"
+msgstr "hujan badai"
+
+#. DRIZZLE
+#: ../libgweather/gweather-weather.c:219
+msgid "drizzle"
+msgstr "gerimis"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "light drizzle"
+msgstr "gerimis tipis"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "moderate drizzle"
+msgstr "gerimis sedang"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "heavy drizzle"
+msgstr "gerimis lebat"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "freezing drizzle"
+msgstr "gerimis salju"
+
+#. RAIN
+#: ../libgweather/gweather-weather.c:220
+msgid "rain"
+msgstr "hujan"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "light rain"
+msgstr "hujan gerimis"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "moderate rain"
+msgstr "hujan sedang"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "heavy rain"
+msgstr "hujan lebat"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "rain showers"
+msgstr "hujan pancuran kamar mandi"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "freezing rain"
+msgstr "hujan membekukan"
+
+#. SNOW
+#: ../libgweather/gweather-weather.c:221
+msgid "snow"
+msgstr "salju"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "light snow"
+msgstr "salju ringan"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "moderate snow"
+msgstr "salju sedang"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "heavy snow"
+msgstr "salju lebat"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "snowstorm"
+msgstr "badai salju"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "blowing snowfall"
+msgstr "hujan salju berangin"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "snow showers"
+msgstr "mandi salju"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "drifting snow"
+msgstr "salju hanyut"
+
+#. SNOW_GRAINS
+#: ../libgweather/gweather-weather.c:222
+msgid "snow grains"
+msgstr "butir-butir salju"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "light snow grains"
+msgstr "butir-butir salju halus"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "moderate snow grains"
+msgstr "butir-butir salju sedang"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "heavy snow grains"
+msgstr "butir salju tebal"
+
+#. ICE_CRYSTALS
+#: ../libgweather/gweather-weather.c:223
+msgid "ice crystals"
+msgstr "kristal es"
+
+#. ICE_PELLETS
+#: ../libgweather/gweather-weather.c:224
+msgid "sleet"
+msgstr "butir es"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "little sleet"
+msgstr "butir es kecil"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "moderate sleet"
+msgstr "butir es sedang"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "heavy sleet"
+msgstr "butir es lebat"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "sleet storm"
+msgstr "badai butir es"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "showers of sleet"
+msgstr "gerimis butir es"
+
+#. HAIL
+#: ../libgweather/gweather-weather.c:225
+msgid "hail"
+msgstr "badai"
+
+#: ../libgweather/gweather-weather.c:225
+msgid "hailstorm"
+msgstr "badai es"
+
+#: ../libgweather/gweather-weather.c:225
+msgid "hail showers"
+msgstr "hujan badai es"
+
+#. SMALL_HAIL
+#: ../libgweather/gweather-weather.c:226
+msgid "small hail"
+msgstr "badai kecil"
+
+#: ../libgweather/gweather-weather.c:226
+msgid "small hailstorm"
+msgstr "hujan badai kecil"
+
+#: ../libgweather/gweather-weather.c:226
+msgid "showers of small hail"
+msgstr "mandi hujan badai kecil"
+
+#. PRECIPITATION
+#: ../libgweather/gweather-weather.c:227
+msgid "unknown precipitation"
+msgstr "hujan tak dikenal"
+
+#. MIST
+#: ../libgweather/gweather-weather.c:228
+msgid "mist"
+msgstr "kabut"
+
+#. FOG
+#: ../libgweather/gweather-weather.c:229
+msgid "fog"
+msgstr "kabut"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "fog in the vicinity"
+msgstr "kabut di sekitar"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "shallow fog"
+msgstr "kabut tipis"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "patches of fog"
+msgstr "tambalan kabut"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "partial fog"
+msgstr "kabut sebagian"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "freezing fog"
+msgstr "kabut tebal"
+
+#. SMOKE
+#: ../libgweather/gweather-weather.c:230
+msgid "smoke"
+msgstr "asap"
+
+#. VOLCANIC_ASH
+#: ../libgweather/gweather-weather.c:231
+msgid "volcanic ash"
+msgstr "debu vulkanik"
+
+#. SAND
+#: ../libgweather/gweather-weather.c:232
+msgid "sand"
+msgstr "pasir"
+
+#: ../libgweather/gweather-weather.c:232
+msgid "blowing sand"
+msgstr "angin berpasir"
+
+#: ../libgweather/gweather-weather.c:232
+msgid "drifting sand"
+msgstr "angin berpasir"
+
+#. HAZE
+#: ../libgweather/gweather-weather.c:233
+msgid "haze"
+msgstr "kabut"
+
+#. SPRAY
+#: ../libgweather/gweather-weather.c:234
+msgid "blowing sprays"
+msgstr "tiupan air"
+
+#. DUST
+#: ../libgweather/gweather-weather.c:235
+msgid "dust"
+msgstr "debu"
+
+#: ../libgweather/gweather-weather.c:235
+msgid "blowing dust"
+msgstr "angin debu"
+
+#: ../libgweather/gweather-weather.c:235
+msgid "drifting dust"
+msgstr "berpasir"
+
+#. SQUALL
+#: ../libgweather/gweather-weather.c:236
+msgid "squall"
+msgstr "angin kencang"
+
+#. SANDSTORM
+#: ../libgweather/gweather-weather.c:237
+msgid "sandstorm"
+msgstr "badai pasir"
+
+#: ../libgweather/gweather-weather.c:237
+msgid "sandstorm in the vicinity"
+msgstr "badai pasir pada angin kencang"
+
+#: ../libgweather/gweather-weather.c:237
+msgid "heavy sandstorm"
+msgstr "badai pasir yang berat"
+
+#. DUSTSTORM
+#: ../libgweather/gweather-weather.c:238
+msgid "duststorm"
+msgstr "badai debu"
+
+#: ../libgweather/gweather-weather.c:238
+msgid "duststorm in the vicinity"
+msgstr "badai debu pada angin kencang"
+
+#: ../libgweather/gweather-weather.c:238
+msgid "heavy duststorm"
+msgstr "badai debu yang berat"
+
+#. FUNNEL_CLOUD
+#: ../libgweather/gweather-weather.c:239
+msgid "funnel cloud"
+msgstr "awan corong"
+
+#. TORNADO
+#: ../libgweather/gweather-weather.c:240
+msgid "tornado"
+msgstr "tornado"
+
+#. DUST_WHIRLS
+#: ../libgweather/gweather-weather.c:241
+msgid "dust whirls"
+msgstr "debu berputar"
+
+#: ../libgweather/gweather-weather.c:241
+msgid "dust whirls in the vicinity"
+msgstr "debu berputar dalam angin"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
+#. NONE
+#: ../libgweather/gweather-weather.c:254 ../libgweather/gweather-weather.c:256
 msgid "Thunderstorm"
 msgstr "Hujan badai"
 
 #. DRIZZLE
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Drizzle"
 msgstr "Gerimis"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Light drizzle"
 msgstr "Gerimis tipis"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Moderate drizzle"
 msgstr "Gerimis sedang"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Heavy drizzle"
 msgstr "Gerimis lebat"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Freezing drizzle"
 msgstr "Gerimis salju"
 
 #. RAIN
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Rain"
 msgstr "Hujan"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Light rain"
 msgstr "Hujan gerimis"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Moderate rain"
 msgstr "Hujan sedang"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Heavy rain"
 msgstr "Hujan lebat"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Rain showers"
 msgstr "Hujan pancuran kamar mandi"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Freezing rain"
 msgstr "Hujan membekukan"
 
 #. SNOW
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Snow"
 msgstr "Salju"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Light snow"
 msgstr "Salju ringan"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Moderate snow"
 msgstr "Salju sedang"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Heavy snow"
 msgstr "Salju lebat"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Snowstorm"
 msgstr "Badai salju"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Blowing snowfall"
 msgstr "Hujan salju berangin"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Snow showers"
 msgstr "Mandi salju"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Drifting snow"
 msgstr "Salju hanyut"
 
 #. SNOW_GRAINS
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Snow grains"
 msgstr "Butir-butir salju"
 
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Light snow grains"
 msgstr "Butir-butir salju halus"
 
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Moderate snow grains"
 msgstr "Butir-butir salju sedang"
 
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Heavy snow grains"
 msgstr "Butir salju tebal"
 
 #. ICE_CRYSTALS
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:259
 msgid "Ice crystals"
 msgstr "Kristal es"
 
 #. ICE_PELLETS
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Sleet"
 msgstr "Butir es"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Little sleet"
 msgstr "Butir es kecil"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Moderate sleet"
 msgstr "Butir es sedang"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Heavy sleet"
 msgstr "Butir es lebat"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Sleet storm"
 msgstr "Badai butir es"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Showers of sleet"
 msgstr "Gerimis butir es"
 
 #. HAIL
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:261
 msgid "Hail"
 msgstr "Hujan es"
 
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:261
 msgid "Hailstorm"
 msgstr "Badai es"
 
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:261
 msgid "Hail showers"
 msgstr "Hujan badai es"
 
 #. SMALL_HAIL
-#: ../libgweather/gweather-weather.c:182
+#: ../libgweather/gweather-weather.c:262
 msgid "Small hail"
 msgstr "Badai kecil"
 
-#: ../libgweather/gweather-weather.c:182
+#: ../libgweather/gweather-weather.c:262
 msgid "Small hailstorm"
 msgstr "Hujan badai kecil"
 
-#: ../libgweather/gweather-weather.c:182
+#: ../libgweather/gweather-weather.c:262
 msgid "Showers of small hail"
 msgstr "Mandi hujan badai kecil"
 
 #. PRECIPITATION
-#: ../libgweather/gweather-weather.c:183
+#: ../libgweather/gweather-weather.c:263
 msgid "Unknown precipitation"
 msgstr "Hujan tak dikenal"
 
 #. MIST
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:264
 msgid "Mist"
 msgstr "Kabut"
 
 #. FOG
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Fog"
 msgstr "Kabut"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Fog in the vicinity"
 msgstr "Kabut di sekitar"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Shallow fog"
 msgstr "Kabut tipis"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Patches of fog"
 msgstr "Tambalan kabut"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Partial fog"
 msgstr "Kabut sebagian"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Freezing fog"
 msgstr "Kabut tebal"
 
 #. SMOKE
-#: ../libgweather/gweather-weather.c:186
+#: ../libgweather/gweather-weather.c:266
 msgid "Smoke"
 msgstr "Asap"
 
 #. VOLCANIC_ASH
-#: ../libgweather/gweather-weather.c:187
+#: ../libgweather/gweather-weather.c:267
 msgid "Volcanic ash"
 msgstr "Debu vulkanik"
 
 #. SAND
-#: ../libgweather/gweather-weather.c:188
+#: ../libgweather/gweather-weather.c:268
 msgid "Sand"
 msgstr "Pasir"
 
-#: ../libgweather/gweather-weather.c:188
+#: ../libgweather/gweather-weather.c:268
 msgid "Blowing sand"
 msgstr "Angir berpasir"
 
-#: ../libgweather/gweather-weather.c:188
+#: ../libgweather/gweather-weather.c:268
 msgid "Drifting sand"
 msgstr "Angir berpasir"
 
 #. HAZE
-#: ../libgweather/gweather-weather.c:189
+#: ../libgweather/gweather-weather.c:269
 msgid "Haze"
 msgstr "Kabut"
 
 #. SPRAY
-#: ../libgweather/gweather-weather.c:190
+#: ../libgweather/gweather-weather.c:270
 msgid "Blowing sprays"
 msgstr "Tiupan air"
 
 #. DUST
-#: ../libgweather/gweather-weather.c:191
+#: ../libgweather/gweather-weather.c:271
 msgid "Dust"
 msgstr "Debu"
 
-#: ../libgweather/gweather-weather.c:191
+#: ../libgweather/gweather-weather.c:271
 msgid "Blowing dust"
 msgstr "Angin debu"
 
-#: ../libgweather/gweather-weather.c:191
+#: ../libgweather/gweather-weather.c:271
 msgid "Drifting dust"
 msgstr "Berpasir"
 
 #. SQUALL
-#: ../libgweather/gweather-weather.c:192
+#: ../libgweather/gweather-weather.c:272
 msgid "Squall"
 msgstr "Angin Kencang"
 
 #. SANDSTORM
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:273
 msgid "Sandstorm"
 msgstr "Badai pasir"
 
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:273
 msgid "Sandstorm in the vicinity"
 msgstr "Badai pasir pada angin kencang"
 
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:273
 msgid "Heavy sandstorm"
 msgstr "Badai pasir yang berat"
 
 #. DUSTSTORM
-#: ../libgweather/gweather-weather.c:194
+#: ../libgweather/gweather-weather.c:274
 msgid "Duststorm"
 msgstr "Badai debu"
 
-#: ../libgweather/gweather-weather.c:194
+#: ../libgweather/gweather-weather.c:274
 msgid "Duststorm in the vicinity"
 msgstr "Badai debu pada angin kencang"
 
-#: ../libgweather/gweather-weather.c:194
+#: ../libgweather/gweather-weather.c:274
 msgid "Heavy duststorm"
 msgstr "Badai debu yang berat"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/gweather-weather.c:195
+#: ../libgweather/gweather-weather.c:275
 msgid "Funnel cloud"
 msgstr "Awan corong"
 
 #. TORNADO
-#: ../libgweather/gweather-weather.c:196
+#: ../libgweather/gweather-weather.c:276
 msgid "Tornado"
 msgstr "Tornado"
 
 #. DUST_WHIRLS
-#: ../libgweather/gweather-weather.c:197
+#: ../libgweather/gweather-weather.c:277
 msgid "Dust whirls"
 msgstr "Debu berputar"
 
-#: ../libgweather/gweather-weather.c:197
+#: ../libgweather/gweather-weather.c:277
 msgid "Dust whirls in the vicinity"
 msgstr "Debu berputar dalam angin"
 
-#: ../libgweather/gweather-weather.c:709
+#: ../libgweather/gweather-weather.c:800
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a, %d %b/ %H:%M"
 
-#: ../libgweather/gweather-weather.c:715
+#: ../libgweather/gweather-weather.c:806
 msgid "Unknown observation time"
 msgstr "Waktu pengamatan tidak diketahui"
 
-#: ../libgweather/gweather-weather.c:727
+#: ../libgweather/gweather-weather.c:818
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Tak diketahui"
@@ -458,88 +847,88 @@ msgstr "Tak diketahui"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: ../libgweather/gweather-weather.c:749
+#: ../libgweather/gweather-weather.c:840
 msgid "default:mm"
 msgstr "default:mm"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
-#: ../libgweather/gweather-weather.c:801
+#: ../libgweather/gweather-weather.c:892
 #, c-format
 msgid "%.1f ℉"
 msgstr "%.1f ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
-#: ../libgweather/gweather-weather.c:804
+#: ../libgweather/gweather-weather.c:895
 #, c-format
 msgid "%d ℉"
 msgstr "%d ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
-#: ../libgweather/gweather-weather.c:810
+#: ../libgweather/gweather-weather.c:901
 #, c-format
 msgid "%.1f ℃"
 msgstr "%.1f ℃"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
-#: ../libgweather/gweather-weather.c:813
+#: ../libgweather/gweather-weather.c:904
 #, c-format
 msgid "%d ℃"
 msgstr "%d ℃"
 
 #. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
-#: ../libgweather/gweather-weather.c:819
+#: ../libgweather/gweather-weather.c:910
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
-#: ../libgweather/gweather-weather.c:822
+#: ../libgweather/gweather-weather.c:913
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: ../libgweather/gweather-weather.c:845 ../libgweather/gweather-weather.c:861
-#: ../libgweather/gweather-weather.c:877 ../libgweather/gweather-weather.c:939
+#: ../libgweather/gweather-weather.c:936 ../libgweather/gweather-weather.c:952
+#: ../libgweather/gweather-weather.c:968 ../libgweather/gweather-weather.c:1030
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Tak diketahui"
 
-#: ../libgweather/gweather-weather.c:899
+#: ../libgweather/gweather-weather.c:990
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Tak diketahui"
 
-#: ../libgweather/gweather-weather.c:919
+#: ../libgweather/gweather-weather.c:1010
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Tak diketahui"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/gweather-weather.c:922
+#: ../libgweather/gweather-weather.c:1013
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/gweather-weather.c:968
+#: ../libgweather/gweather-weather.c:1059
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f knot"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/gweather-weather.c:971
+#: ../libgweather/gweather-weather.c:1062
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mil/jam"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/gweather-weather.c:974
+#: ../libgweather/gweather-weather.c:1065
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/gweather-weather.c:977
+#: ../libgweather/gweather-weather.c:1068
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/detik"
@@ -547,96 +936,96 @@ msgstr "%.1f m/detik"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/gweather-weather.c:982
+#: ../libgweather/gweather-weather.c:1073
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Tekanan Beaufort %.1f"
 
-#: ../libgweather/gweather-weather.c:1003
+#: ../libgweather/gweather-weather.c:1094
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Tak diketahui"
 
-#: ../libgweather/gweather-weather.c:1005
+#: ../libgweather/gweather-weather.c:1096
 msgid "Calm"
 msgstr "Tenang"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/gweather-weather.c:1013
+#: ../libgweather/gweather-weather.c:1104
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/gweather-weather.c:1049
+#: ../libgweather/gweather-weather.c:1140
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Tak diketahui"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/gweather-weather.c:1055
+#: ../libgweather/gweather-weather.c:1146
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/gweather-weather.c:1058
+#: ../libgweather/gweather-weather.c:1149
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/gweather-weather.c:1061
+#: ../libgweather/gweather-weather.c:1152
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/gweather-weather.c:1064
+#: ../libgweather/gweather-weather.c:1155
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/gweather-weather.c:1067
+#: ../libgweather/gweather-weather.c:1158
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/gweather-weather.c:1070
+#: ../libgweather/gweather-weather.c:1161
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#: ../libgweather/gweather-weather.c:1108
+#: ../libgweather/gweather-weather.c:1199
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Tak diketahui"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/gweather-weather.c:1114
+#: ../libgweather/gweather-weather.c:1205
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f mil"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/gweather-weather.c:1117
+#: ../libgweather/gweather-weather.c:1208
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/gweather-weather.c:1120
+#: ../libgweather/gweather-weather.c:1211
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/gweather-weather.c:1148
-#: ../libgweather/gweather-weather.c:1173
+#: ../libgweather/gweather-weather.c:1239
+#: ../libgweather/gweather-weather.c:1264
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
-#: ../libgweather/gweather-weather.c:1267
+#: ../libgweather/gweather-weather.c:1358
 msgid "Retrieval failed"
 msgstr "Data gagal diambil"
 
@@ -676,7 +1065,7 @@ msgstr "URL untuk peta radar"
 msgid ""
 "The custom URL from where to retrieve a radar map, or empty for disabling "
 "radar maps."
-msgstr "URL ubahan untuk mengambil peta radar, atau kosongkan jika tidak ada "
+msgstr "URL ubahan untuk mengambil peta radar, atau kosongkan jika tidak ada."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:3
 msgid "Temperature unit"
