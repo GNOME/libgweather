@@ -50,16 +50,22 @@ struct _GWeatherLocationEntryClass {
     GtkSearchEntryClass parent_class;
 };
 
+GWEATHER_EXTERN
 GType             gweather_location_entry_get_type     (void);
 
+GWEATHER_EXTERN
 GtkWidget        *gweather_location_entry_new          (GWeatherLocation      *top);
 
+GWEATHER_EXTERN
 void              gweather_location_entry_set_location (GWeatherLocationEntry *entry,
 							GWeatherLocation      *loc);
+GWEATHER_EXTERN
 GWeatherLocation *gweather_location_entry_get_location (GWeatherLocationEntry *entry);
 
+GWEATHER_EXTERN
 gboolean          gweather_location_entry_has_custom_text (GWeatherLocationEntry *entry);
 
+GWEATHER_EXTERN
 gboolean          gweather_location_entry_set_city     (GWeatherLocationEntry *entry,
 							const char            *city_name,
 							const char            *code);

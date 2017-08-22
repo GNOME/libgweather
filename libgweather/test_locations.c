@@ -1,4 +1,5 @@
 
+#include <gweather-version.h>
 #include "gweather-location-entry.h"
 #include "gweather-timezone-menu.h"
 

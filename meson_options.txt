@@ -1,0 +1,8 @@
+option('with-zoneinfo-dir', type: 'string', value: '/usr/share/zoneinfo',
+       description: 'zoneinfo directory')
+option('with-owm-apikey', type: 'string', value: '',
+       description: 'Specify an API key for OpenWeatherMap (optional)')
+option('enable-glade-catalog', type: 'combo', choices : ['yes', 'no', 'auto'], value : 'auto',
+       description: 'Install a glade catalog file')
+option('enable-vala', type: 'combo', choices : ['yes', 'no', 'auto'], value : 'auto',
+       description: 'Install vala bindings')

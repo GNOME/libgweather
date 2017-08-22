@@ -28,6 +28,10 @@
 #error "gweather-version.h must not be included individually, include gweather.h instead"
 #endif
 
+#ifndef GWEATHER_EXTERN
+#define GWEATHER_EXTERN extern
+#endif
+
 /**
  * SECTION:gweatherversion
  * @short_description: libgweather version checking
@@ -43,7 +47,7 @@
  *
  * Since: 3.12
  */
-#define GWEATHER_MAJOR_VERSION              (@LIBGWEATHER_MAJOR_VERSION@)
+#mesondefine GWEATHER_MAJOR_VERSION
 
 /**
  * GWEATHER_MINOR_VERSION:
@@ -52,7 +56,7 @@
  *
  * Since: 3.12
  */
-#define GWEATHER_MINOR_VERSION              (@LIBGWEATHER_MINOR_VERSION@)
+#mesondefine GWEATHER_MINOR_VERSION
 
 /**
  * GWEATHER_MICRO_VERSION:
@@ -61,7 +65,7 @@
  *
  * Since: 3.12
  */
-#define GWEATHER_MICRO_VERSION              (@LIBGWEATHER_MICRO_VERSION@)
+#mesondefine GWEATHER_MICRO_VERSION
 
 /**
  * GWEATHER_VERSION
@@ -70,17 +74,7 @@
  *
  * Since: 3.12
  */
-#define GWEATHER_VERSION                    (@LIBGWEATHER_VERSION@)
-
-/**
- * GWEATHER_VERSION_S:
- *
- * LibGweather version, encoded as a string, useful for printing and
- * concatenation.
- *
- * Since: 3.12
- */
-#define GWEATHER_VERSION_S                  "@LIBGWEATHER_VERSION@"
+#mesondefine GWEATHER_VERSION
 
 /**
  * GWEATHER_VERSION_HEX:

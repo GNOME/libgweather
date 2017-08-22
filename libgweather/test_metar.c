@@ -3,6 +3,10 @@
  * Simple program to reproduce METAR parsing results from command line
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <glib.h>
 #include <string.h>
 #include <stdio.h>

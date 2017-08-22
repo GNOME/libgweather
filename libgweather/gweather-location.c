@@ -159,7 +159,7 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 	}
 
 	tagname = (const char *) xmlTextReaderConstName (parser->xml);
-	if (!strcmp (tagname, "name") && !loc->english_name) {
+	if ((!strcmp (tagname, "name") || !strcmp (tagname, "_name")) && !loc->english_name) {
             loc->msgctxt = _gweather_parser_get_msgctxt_value (parser);
 	    value = _gweather_parser_get_value (parser);
 	    if (!value)

@@ -50,12 +50,16 @@ struct _GWeatherTimezoneMenuClass {
 
 };
 
+GWEATHER_EXTERN
 GType       gweather_timezone_menu_get_type         (void);
 
+GWEATHER_EXTERN
 GtkWidget  *gweather_timezone_menu_new              (GWeatherLocation     *top);
 
+GWEATHER_EXTERN
 void        gweather_timezone_menu_set_tzid         (GWeatherTimezoneMenu *menu,
 						     const char           *tzid);
+GWEATHER_EXTERN
 const char *gweather_timezone_menu_get_tzid         (GWeatherTimezoneMenu *menu);
 
 #endif

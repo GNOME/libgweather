@@ -7,6 +7,7 @@
 #endif
 
 #include <glib-object.h>
+#include <libgweather/gweather-version.h>
 
 G_BEGIN_DECLS
 /*** END file-header ***/
@@ -17,6 +18,7 @@ G_BEGIN_DECLS
 /*** END file-production ***/
 
 /*** BEGIN value-header ***/
+GWEATHER_EXTERN
 GType @enum_name@_get_type (void) G_GNUC_CONST;
 #define GWEATHER_TYPE_@ENUMSHORT@ (@enum_name@_get_type ())
 /*** END value-header ***/
