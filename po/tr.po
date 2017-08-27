@@ -5,23 +5,24 @@
 # Sinan Imamoglu <sinan@myrealbox.com>, 2003.
 # Emre Kadıoğlu <emrek@gawab.com>, 2005.
 # Baris Cicek <baris@teamforce.name.tr>, 2004, 2005, 2008, 2009.
-# Muhammet Kara <muhammetk@gmail.com>, 2014, 2015, 2016.
+# Osman Karagöz <osmank3@gmail.com>, 2017.
+# Muhammet Kara <muhammetk@gmail.com>, 2014, 2015, 2016, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-05-05 13:15+0000\n"
-"PO-Revision-Date: 2016-05-27 17:48+0300\n"
+"POT-Creation-Date: 2017-08-26 23:58+0000\n"
+"PO-Revision-Date: 2017-08-27 20:58+0300\n"
 "Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
-"Language-Team: Turkish <gnome-turk@gnome.org>\n"
+"Language-Team: Turkish <gnometurk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #: ../data/glade/libgweather.xml.in.h:1
 msgid "Location Entry"
@@ -39,9 +40,9 @@ msgstr "Saat Dilimi"
 msgid "GWeather"
 msgstr "GWeather"
 
-#: ../libgweather/gweather-location-entry.c:784
-msgid "Loading..."
-msgstr "Yükleniyor..."
+#: ../libgweather/gweather-location-entry.c:792
+msgid "Loading…"
+msgstr "Yükleniyor…"
 
 #: ../libgweather/gweather-timezone.c:341
 msgid "Greenwich Mean Time"
@@ -50,406 +51,795 @@ msgstr "Greenwich Ortalama Zamanı"
 #: ../libgweather/gweather-timezone-menu.c:274
 msgctxt "timezone"
 msgid "Unknown"
-msgstr "Bilinmiyen"
+msgstr "Bilinmiyor"
 
-#: ../libgweather/gweather-weather.c:113
+#: ../libgweather/gweather-weather.c:120
+msgid "variable"
+msgstr "değişken"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "north"
+msgstr "kuzey"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "north — northeast"
+msgstr "kuzey — kuzeydoğu"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "northeast"
+msgstr "kuzeydoğu"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "east — northeast"
+msgstr "doğu — kuzeydoğu"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "east"
+msgstr "doğu"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "east — southeast"
+msgstr "doğu — güneydoğu"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "southeast"
+msgstr "güneydoğu"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "south — southeast"
+msgstr "güney — güneydoğu"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "south"
+msgstr "güney"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "south — southwest"
+msgstr "güney — güneybatı"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "southwest"
+msgstr "güneybatı"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "west — southwest"
+msgstr "batı — güneybatı"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "west"
+msgstr "batı"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "west — northwest"
+msgstr "batı — kuzeybatı"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "northwest"
+msgstr "kuzeybatı"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "north — northwest"
+msgstr "kuzey — kuzeybatı"
+
+#: ../libgweather/gweather-weather.c:128
 msgid "Variable"
 msgstr "Değişken"
 
-#: ../libgweather/gweather-weather.c:114
+#: ../libgweather/gweather-weather.c:129
 msgid "North"
 msgstr "Kuzey"
 
-#: ../libgweather/gweather-weather.c:114
-msgid "North - NorthEast"
-msgstr "Kuzey - Kuzeydoğu"
+#: ../libgweather/gweather-weather.c:129
+msgid "North — Northeast"
+msgstr "Kuzey — Kuzeydoğu"
 
-#: ../libgweather/gweather-weather.c:114
+#: ../libgweather/gweather-weather.c:129
 msgid "Northeast"
 msgstr "Kuzeydoğu"
 
-#: ../libgweather/gweather-weather.c:114
-msgid "East - NorthEast"
-msgstr "Doğu - Kuzeydoğu"
+#: ../libgweather/gweather-weather.c:129
+msgid "East — Northeast"
+msgstr "Doğu — Kuzeydoğu"
 
-#: ../libgweather/gweather-weather.c:115
+#: ../libgweather/gweather-weather.c:130
 msgid "East"
 msgstr "Doğu"
 
-#: ../libgweather/gweather-weather.c:115
-msgid "East - Southeast"
-msgstr "Doğu - Güneydoğu"
+#: ../libgweather/gweather-weather.c:130
+msgid "East — Southeast"
+msgstr "Doğu — Güneydoğu"
 
-#: ../libgweather/gweather-weather.c:115
+#: ../libgweather/gweather-weather.c:130
 msgid "Southeast"
 msgstr "Güneydoğu"
 
-#: ../libgweather/gweather-weather.c:115
-msgid "South - Southeast"
-msgstr "Güney - Güneydoğu"
+#: ../libgweather/gweather-weather.c:130
+msgid "South — Southeast"
+msgstr "Güney — Güneydoğu"
 
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:131
 msgid "South"
 msgstr "Güney"
 
-#: ../libgweather/gweather-weather.c:116
-msgid "South - Southwest"
-msgstr "Güney - Güneybatı"
+#: ../libgweather/gweather-weather.c:131
+msgid "South — Southwest"
+msgstr "Güney — Güneybatı"
 
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:131
 msgid "Southwest"
 msgstr "Güneybatı"
 
-#: ../libgweather/gweather-weather.c:116
-msgid "West - Southwest"
-msgstr "Batı - Güneybatı"
+#: ../libgweather/gweather-weather.c:131
+msgid "West — Southwest"
+msgstr "Batı — Güneybatı"
 
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:132
 msgid "West"
 msgstr "Batı"
 
-#: ../libgweather/gweather-weather.c:117
-msgid "West - Northwest"
-msgstr "Batı - Kuzeybatı"
+#: ../libgweather/gweather-weather.c:132
+msgid "West — Northwest"
+msgstr "Batı — Kuzeybatı"
 
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:132
 msgid "Northwest"
 msgstr "Kuzeybatı"
 
-#: ../libgweather/gweather-weather.c:117
-msgid "North - Northwest"
-msgstr "Kuzey - Kuzeybatı"
+#: ../libgweather/gweather-weather.c:132
+msgid "North — Northwest"
+msgstr "Kuzey — Kuzeybatı"
 
-#: ../libgweather/gweather-weather.c:124
+#: ../libgweather/gweather-weather.c:142
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Geçersiz"
 
-#: ../libgweather/gweather-weather.c:130
-msgid "Clear Sky"
-msgstr "Açık Gökyüzü"
+#: ../libgweather/gweather-weather.c:143
+msgctxt "wind direction"
+msgid "invalid"
+msgstr "geçersiz"
 
-#: ../libgweather/gweather-weather.c:131
+#: ../libgweather/gweather-weather.c:156
+msgid "clear sky"
+msgstr "açık gökyüzü"
+
+#: ../libgweather/gweather-weather.c:157
+msgid "broken clouds"
+msgstr "parçalı bulutlu"
+
+#: ../libgweather/gweather-weather.c:158
+msgid "scattered clouds"
+msgstr "dağınık bulutlu"
+
+#: ../libgweather/gweather-weather.c:159
+msgid "few clouds"
+msgstr "hafif bulutlu"
+
+#: ../libgweather/gweather-weather.c:160
+msgid "overcast"
+msgstr "aşırı bulutlu"
+
+#: ../libgweather/gweather-weather.c:164
+msgid "Clear sky"
+msgstr "Açık gökyüzü"
+
+#: ../libgweather/gweather-weather.c:165
 msgid "Broken clouds"
 msgstr "Parçalı bulutlu"
 
-#: ../libgweather/gweather-weather.c:132
+#: ../libgweather/gweather-weather.c:166
 msgid "Scattered clouds"
 msgstr "Dağınık bulutlu"
 
-#: ../libgweather/gweather-weather.c:133
+#: ../libgweather/gweather-weather.c:167
 msgid "Few clouds"
 msgstr "Hafif bulutlu"
 
-#: ../libgweather/gweather-weather.c:134
+#: ../libgweather/gweather-weather.c:168
 msgid "Overcast"
 msgstr "Aşırı bulutlu"
 
-#: ../libgweather/gweather-weather.c:141 ../libgweather/gweather-weather.c:213
+#: ../libgweather/gweather-weather.c:184 ../libgweather/gweather-weather.c:298
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "Geçersiz"
+
+#: ../libgweather/gweather-weather.c:185 ../libgweather/gweather-weather.c:299
+msgctxt "sky conditions"
+msgid "invalid"
+msgstr "geçersiz"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/gweather-weather.c:173 ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:218 ../libgweather/gweather-weather.c:220
+msgid "thunderstorm"
+msgstr "fırtına"
+
+#. DRIZZLE
+#: ../libgweather/gweather-weather.c:219
+msgid "drizzle"
+msgstr "çise"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "light drizzle"
+msgstr "hafif çise"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "moderate drizzle"
+msgstr "ılımlı çise"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "heavy drizzle"
+msgstr "ağır çise"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "freezing drizzle"
+msgstr "dondurucu çise"
+
+#. RAIN
+#: ../libgweather/gweather-weather.c:220
+msgid "rain"
+msgstr "yağmur"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "light rain"
+msgstr "lafif yağmur"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "moderate rain"
+msgstr "ılımlı yağmur"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "heavy rain"
+msgstr "ağır yağmur"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "rain showers"
+msgstr "kısa yoğun yağmur"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "freezing rain"
+msgstr "dondurucu yağmur"
+
+#. SNOW
+#: ../libgweather/gweather-weather.c:221
+msgid "snow"
+msgstr "kar"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "light snow"
+msgstr "hafif kar"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "moderate snow"
+msgstr "ılımlı kar"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "heavy snow"
+msgstr "ağır kar"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "snowstorm"
+msgstr "kar fırtınası"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "blowing snowfall"
+msgstr "rüzgarlı kar fırtınası"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "snow showers"
+msgstr "kısa yoğun kar"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "drifting snow"
+msgstr "kaygan kar"
+
+#. SNOW_GRAINS
+#: ../libgweather/gweather-weather.c:222
+msgid "snow grains"
+msgstr "karla karışık yağmur"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "light snow grains"
+msgstr "hafif kar taneleri var"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "moderate snow grains"
+msgstr "ılımlı kar taneleri var"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "heavy snow grains"
+msgstr "ağır kar taneleri var"
+
+#. ICE_CRYSTALS
+#: ../libgweather/gweather-weather.c:223
+msgid "ice crystals"
+msgstr "buz kristalleri"
+
+#. ICE_PELLETS
+#: ../libgweather/gweather-weather.c:224
+msgid "sleet"
+msgstr "karla karışık yağmur"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "little sleet"
+msgstr "hafif karla karışık yağmur"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "moderate sleet"
+msgstr "ılımlı karla karışık yağmur"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "heavy sleet"
+msgstr "ağır karla karışık yağmur"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "sleet storm"
+msgstr "karla karışık yağmur fırtınası"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "showers of sleet"
+msgstr "karla karışık sağanak yağmur"
+
+#. HAIL
+#: ../libgweather/gweather-weather.c:225
+msgid "hail"
+msgstr "dolu"
+
+#: ../libgweather/gweather-weather.c:225
+msgid "hailstorm"
+msgstr "dolu fırtınası"
+
+#: ../libgweather/gweather-weather.c:225
+msgid "hail showers"
+msgstr "dolu yağmuru"
+
+#. SMALL_HAIL
+#: ../libgweather/gweather-weather.c:226
+msgid "small hail"
+msgstr "ufak dolu taneleri"
+
+#: ../libgweather/gweather-weather.c:226
+msgid "small hailstorm"
+msgstr "ufak dolu taneleri fırtınası"
+
+#: ../libgweather/gweather-weather.c:226
+msgid "showers of small hail"
+msgstr "ufak dolu taneleri yağmuru"
+
+#. PRECIPITATION
+#: ../libgweather/gweather-weather.c:227
+msgid "unknown precipitation"
+msgstr "bilinmeyen çökelme"
+
+#. MIST
+#: ../libgweather/gweather-weather.c:228
+msgid "mist"
+msgstr "sis"
+
+#. FOG
+#: ../libgweather/gweather-weather.c:229
+msgid "fog"
+msgstr "sis"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "fog in the vicinity"
+msgstr "çevrede sis var"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "shallow fog"
+msgstr "alçak sis"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "patches of fog"
+msgstr "sis'in izleri var"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "partial fog"
+msgstr "yer yer sis var"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "freezing fog"
+msgstr "dondurucu sis"
+
+#. SMOKE
+#: ../libgweather/gweather-weather.c:230
+msgid "smoke"
+msgstr "duman"
+
+#. VOLCANIC_ASH
+#: ../libgweather/gweather-weather.c:231
+msgid "volcanic ash"
+msgstr "volkan külü"
+
+#. SAND
+#: ../libgweather/gweather-weather.c:232
+msgid "sand"
+msgstr "kum"
+
+#: ../libgweather/gweather-weather.c:232
+msgid "blowing sand"
+msgstr "rüzgarlı kum"
+
+#: ../libgweather/gweather-weather.c:232
+msgid "drifting sand"
+msgstr "kaygan kum"
+
+#. HAZE
+#: ../libgweather/gweather-weather.c:233
+msgid "haze"
+msgstr "pus"
+
+#. SPRAY
+#: ../libgweather/gweather-weather.c:234
+msgid "blowing sprays"
+msgstr "rüzgarlı püskürtmeli yağış"
+
+#. DUST
+#: ../libgweather/gweather-weather.c:235
+msgid "dust"
+msgstr "toz"
+
+#: ../libgweather/gweather-weather.c:235
+msgid "blowing dust"
+msgstr "rüzgarlı toz"
+
+#: ../libgweather/gweather-weather.c:235
+msgid "drifting dust"
+msgstr "kaygan toz"
+
+#. SQUALL
+#: ../libgweather/gweather-weather.c:236
+msgid "squall"
+msgstr "fırtına"
+
+#. SANDSTORM
+#: ../libgweather/gweather-weather.c:237
+msgid "sandstorm"
+msgstr "kum fırtınası"
+
+#: ../libgweather/gweather-weather.c:237
+msgid "sandstorm in the vicinity"
+msgstr "çevrede kum fırtınası var"
+
+#: ../libgweather/gweather-weather.c:237
+msgid "heavy sandstorm"
+msgstr "ağır kum fırtınası"
+
+#. DUSTSTORM
+#: ../libgweather/gweather-weather.c:238
+msgid "duststorm"
+msgstr "toz fırtınası"
+
+#: ../libgweather/gweather-weather.c:238
+msgid "duststorm in the vicinity"
+msgstr "çevrede toz fırtınası var"
+
+#: ../libgweather/gweather-weather.c:238
+msgid "heavy duststorm"
+msgstr "ağır toz fırtınası"
+
+#. FUNNEL_CLOUD
+#: ../libgweather/gweather-weather.c:239
+msgid "funnel cloud"
+msgstr "döneç bulutu"
+
+#. TORNADO
+#: ../libgweather/gweather-weather.c:240
+msgid "tornado"
+msgstr "kasırga"
+
+#. DUST_WHIRLS
+#: ../libgweather/gweather-weather.c:241
+msgid "dust whirls"
+msgstr "toz kasırgaları"
+
+#: ../libgweather/gweather-weather.c:241
+msgid "dust whirls in the vicinity"
+msgstr "çevrede toz kasırgaları var"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
+#. NONE
+#: ../libgweather/gweather-weather.c:254 ../libgweather/gweather-weather.c:256
 msgid "Thunderstorm"
 msgstr "Fırtına"
 
 #. DRIZZLE
-#: ../libgweather/gweather-weather.c:174
+#: ../libgweather/gweather-weather.c:255
 msgid "Drizzle"
 msgstr "Çise"
 
-#: ../libgweather/gweather-weather.c:174
+#: ../libgweather/gweather-weather.c:255
 msgid "Light drizzle"
 msgstr "Hafif yağmur"
 
-#: ../libgweather/gweather-weather.c:174
+#: ../libgweather/gweather-weather.c:255
 msgid "Moderate drizzle"
 msgstr "Vasat çise"
 
-#: ../libgweather/gweather-weather.c:174
+#: ../libgweather/gweather-weather.c:255
 msgid "Heavy drizzle"
 msgstr "Ağır çise"
 
-#: ../libgweather/gweather-weather.c:174
+#: ../libgweather/gweather-weather.c:255
 msgid "Freezing drizzle"
 msgstr "Dondurucu çise"
 
 #. RAIN
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:256
 msgid "Rain"
 msgstr "Yağmur"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:256
 msgid "Light rain"
 msgstr "Hafif yağmur"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:256
 msgid "Moderate rain"
 msgstr "Vasat yağmur"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:256
 msgid "Heavy rain"
 msgstr "Ağır yağmur"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:256
 msgid "Rain showers"
 msgstr "Kısa yoğun yağmur"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:256
 msgid "Freezing rain"
 msgstr "Dondurucu yağmur"
 
 #. SNOW
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Snow"
 msgstr "Kar"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Light snow"
 msgstr "Hafif kar yağışı"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Moderate snow"
 msgstr "Vasat kar yadışı"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Heavy snow"
 msgstr "Ağır kar yağışı"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Snowstorm"
 msgstr "Kar fırtınası"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Blowing snowfall"
 msgstr "Rüzgarlı kar fırtınası"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Snow showers"
 msgstr "Kısa yoğun kar"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Drifting snow"
 msgstr "Kaygan kar"
 
 #. SNOW_GRAINS
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:258
 msgid "Snow grains"
 msgstr "Karla karışık yağmur"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:258
 msgid "Light snow grains"
 msgstr "Hafif kar taneleri var"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:258
 msgid "Moderate snow grains"
 msgstr "Vasat kar taneleri var"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:258
 msgid "Heavy snow grains"
 msgstr "Ağır kar taneleri var"
 
 #. ICE_CRYSTALS
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:259
 msgid "Ice crystals"
 msgstr "Buz kristalleri"
 
 #. ICE_PELLETS
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:260
 msgid "Sleet"
 msgstr "Karla karışık yağmur"
 
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:260
 msgid "Little sleet"
 msgstr "Hafif karla karışık yağmur"
 
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:260
 msgid "Moderate sleet"
 msgstr "Ilımlı karla karışık yağmur"
 
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:260
 msgid "Heavy sleet"
 msgstr "Ağır karla karışık yağmur"
 
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:260
 msgid "Sleet storm"
 msgstr "Karla karışık yağmur fırtınası"
 
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:260
 msgid "Showers of sleet"
 msgstr "Karla karışık sağanak yağmur"
 
 #. HAIL
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:261
 msgid "Hail"
 msgstr "Dolu"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:261
 msgid "Hailstorm"
 msgstr "Dolu fırtınası"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:261
 msgid "Hail showers"
 msgstr "Dolu yağmuru"
 
 #. SMALL_HAIL
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:262
 msgid "Small hail"
 msgstr "Ufak dolu taneleri"
 
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:262
 msgid "Small hailstorm"
 msgstr "Ufak dolu taneleri fırtınası"
 
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:262
 msgid "Showers of small hail"
 msgstr "Ufak dolu taneleri yağmuru"
 
 #. PRECIPITATION
-#: ../libgweather/gweather-weather.c:182
+#: ../libgweather/gweather-weather.c:263
 msgid "Unknown precipitation"
 msgstr "Bilinmeyen çökelme"
 
 #. MIST
-#: ../libgweather/gweather-weather.c:183
+#: ../libgweather/gweather-weather.c:264
 msgid "Mist"
 msgstr "Sislik"
 
 #. FOG
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:265
 msgid "Fog"
 msgstr "Sis"
 
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:265
 msgid "Fog in the vicinity"
 msgstr "Çevrede sis var"
 
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:265
 msgid "Shallow fog"
 msgstr "Alçak sis"
 
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:265
 msgid "Patches of fog"
 msgstr "Sis'in izleri var"
 
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:265
 msgid "Partial fog"
 msgstr "Yer yer sis var"
 
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:265
 msgid "Freezing fog"
 msgstr "Dondurucu sis"
 
 #. SMOKE
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:266
 msgid "Smoke"
 msgstr "Duman"
 
 #. VOLCANIC_ASH
-#: ../libgweather/gweather-weather.c:186
+#: ../libgweather/gweather-weather.c:267
 msgid "Volcanic ash"
 msgstr "Volkan külü"
 
 #. SAND
-#: ../libgweather/gweather-weather.c:187
+#: ../libgweather/gweather-weather.c:268
 msgid "Sand"
 msgstr "Kum"
 
-#: ../libgweather/gweather-weather.c:187
+#: ../libgweather/gweather-weather.c:268
 msgid "Blowing sand"
 msgstr "Rüzgarlı kum"
 
-#: ../libgweather/gweather-weather.c:187
+#: ../libgweather/gweather-weather.c:268
 msgid "Drifting sand"
 msgstr "Kaygan kum"
 
 #. HAZE
-#: ../libgweather/gweather-weather.c:188
+#: ../libgweather/gweather-weather.c:269
 msgid "Haze"
 msgstr "Hafif pus"
 
 #. SPRAY
-#: ../libgweather/gweather-weather.c:189
+#: ../libgweather/gweather-weather.c:270
 msgid "Blowing sprays"
 msgstr "Rüzgarlı püskürtmeli yağış"
 
 #. DUST
-#: ../libgweather/gweather-weather.c:190
+#: ../libgweather/gweather-weather.c:271
 msgid "Dust"
 msgstr "Toz"
 
-#: ../libgweather/gweather-weather.c:190
+#: ../libgweather/gweather-weather.c:271
 msgid "Blowing dust"
 msgstr "Rüzgarlı toz"
 
-#: ../libgweather/gweather-weather.c:190
+#: ../libgweather/gweather-weather.c:271
 msgid "Drifting dust"
 msgstr "Kaygan toz"
 
 #. SQUALL
-#: ../libgweather/gweather-weather.c:191
+#: ../libgweather/gweather-weather.c:272
 msgid "Squall"
 msgstr "Fırtına"
 
 #. SANDSTORM
-#: ../libgweather/gweather-weather.c:192
+#: ../libgweather/gweather-weather.c:273
 msgid "Sandstorm"
 msgstr "Kum fırtınası"
 
-#: ../libgweather/gweather-weather.c:192
+#: ../libgweather/gweather-weather.c:273
 msgid "Sandstorm in the vicinity"
 msgstr "Çevrede kum fırtınası var"
 
-#: ../libgweather/gweather-weather.c:192
+#: ../libgweather/gweather-weather.c:273
 msgid "Heavy sandstorm"
 msgstr "Ağır kum fırtınası"
 
 #. DUSTSTORM
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:274
 msgid "Duststorm"
 msgstr "Toz fırtınası"
 
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:274
 msgid "Duststorm in the vicinity"
 msgstr "Çevrede toz fırtınası var"
 
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:274
 msgid "Heavy duststorm"
 msgstr "Ağır toz fırtınası"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/gweather-weather.c:194
+#: ../libgweather/gweather-weather.c:275
 msgid "Funnel cloud"
 msgstr "Döneç bulutu"
 
 #. TORNADO
-#: ../libgweather/gweather-weather.c:195
+#: ../libgweather/gweather-weather.c:276
 msgid "Tornado"
 msgstr "Kasırga"
 
 #. DUST_WHIRLS
-#: ../libgweather/gweather-weather.c:196
+#: ../libgweather/gweather-weather.c:277
 msgid "Dust whirls"
 msgstr "Toz kasırgaları"
 
-#: ../libgweather/gweather-weather.c:196
+#: ../libgweather/gweather-weather.c:277
 msgid "Dust whirls in the vicinity"
 msgstr "Çevrede toz kasırgaları var"
 
-#: ../libgweather/gweather-weather.c:705
+#: ../libgweather/gweather-weather.c:800
 msgid "%a, %b %d / %H∶%M"
 msgstr "%d %b, %a / %H∶%M"
 
-#: ../libgweather/gweather-weather.c:711
+#: ../libgweather/gweather-weather.c:806
 msgid "Unknown observation time"
 msgstr "Bilinmeyen gözetleme zamanı"
 
-#: ../libgweather/gweather-weather.c:723
+#: ../libgweather/gweather-weather.c:818
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Bilinmiyor"
@@ -460,88 +850,88 @@ msgstr "Bilinmiyor"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: ../libgweather/gweather-weather.c:745
+#: ../libgweather/gweather-weather.c:840
 msgid "default:mm"
 msgstr "default:mm"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:797
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
+#: ../libgweather/gweather-weather.c:892
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+msgid "%.1f ℉"
+msgstr "%.1f ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:800
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
+#: ../libgweather/gweather-weather.c:895
 #, c-format
-msgid "%d °F"
-msgstr "%d °F"
+msgid "%d ℉"
+msgstr "%d ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:806
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#: ../libgweather/gweather-weather.c:901
 #, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
+msgid "%.1f ℃"
+msgstr "%.1f ℃"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:809
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#: ../libgweather/gweather-weather.c:904
 #, c-format
-msgid "%d °C"
-msgstr "%d °C"
+msgid "%d ℃"
+msgstr "%d ℃"
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/gweather-weather.c:815
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#: ../libgweather/gweather-weather.c:910
 #, c-format
-msgid "%.1f K"
-msgstr "%.1f K"
+msgid "%.1f K"
+msgstr "%.1f K"
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/gweather-weather.c:818
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#: ../libgweather/gweather-weather.c:913
 #, c-format
-msgid "%d K"
-msgstr "%d K"
+msgid "%d K"
+msgstr "%d K"
 
-#: ../libgweather/gweather-weather.c:841 ../libgweather/gweather-weather.c:857
-#: ../libgweather/gweather-weather.c:873 ../libgweather/gweather-weather.c:935
+#: ../libgweather/gweather-weather.c:936 ../libgweather/gweather-weather.c:952
+#: ../libgweather/gweather-weather.c:968 ../libgweather/gweather-weather.c:1030
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Bilinmiyor"
 
-#: ../libgweather/gweather-weather.c:895
+#: ../libgweather/gweather-weather.c:990
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Bilinmiyor"
 
-#: ../libgweather/gweather-weather.c:915
+#: ../libgweather/gweather-weather.c:1010
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Bilinmiyor"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/gweather-weather.c:918
+#: ../libgweather/gweather-weather.c:1013
 #, c-format
 msgid "%.f%%"
 msgstr "%%%.f"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/gweather-weather.c:964
+#: ../libgweather/gweather-weather.c:1059
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f knot"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/gweather-weather.c:967
+#: ../libgweather/gweather-weather.c:1062
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/gweather-weather.c:970
+#: ../libgweather/gweather-weather.c:1065
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/gweather-weather.c:973
+#: ../libgweather/gweather-weather.c:1068
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -549,99 +939,100 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/gweather-weather.c:978
+#: ../libgweather/gweather-weather.c:1073
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "%.1f Beaufort gücü"
 
-#: ../libgweather/gweather-weather.c:999
+#: ../libgweather/gweather-weather.c:1094
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Bilinmiyor"
 
-#: ../libgweather/gweather-weather.c:1001
+#: ../libgweather/gweather-weather.c:1096
 msgid "Calm"
 msgstr "Sakin"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/gweather-weather.c:1009
+#: ../libgweather/gweather-weather.c:1104
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/gweather-weather.c:1045
+#: ../libgweather/gweather-weather.c:1140
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Bilinmiyor"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/gweather-weather.c:1051
+#: ../libgweather/gweather-weather.c:1146
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/gweather-weather.c:1054
+#: ../libgweather/gweather-weather.c:1149
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/gweather-weather.c:1057
+#: ../libgweather/gweather-weather.c:1152
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/gweather-weather.c:1060
+#: ../libgweather/gweather-weather.c:1155
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/gweather-weather.c:1063
+#: ../libgweather/gweather-weather.c:1158
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/gweather-weather.c:1066
+#: ../libgweather/gweather-weather.c:1161
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#: ../libgweather/gweather-weather.c:1104
+#: ../libgweather/gweather-weather.c:1199
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Bilinmiyor"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/gweather-weather.c:1110
+#: ../libgweather/gweather-weather.c:1205
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f mil"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/gweather-weather.c:1113
+#: ../libgweather/gweather-weather.c:1208
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/gweather-weather.c:1116
+#: ../libgweather/gweather-weather.c:1211
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/gweather-weather.c:1144
-#: ../libgweather/gweather-weather.c:1169
+#: ../libgweather/gweather-weather.c:1239
+#: ../libgweather/gweather-weather.c:1264
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
-#: ../libgweather/gweather-weather.c:1263
+#: ../libgweather/gweather-weather.c:1358
 msgid "Retrieval failed"
 msgstr "Alım başarısız oldu"
 
+#. Translators: %d is an error code, and %s the error string
 #: ../libgweather/weather-metar.c:573
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
@@ -662,9 +1053,6 @@ msgstr ""
 #. That's very nice of them!
 #.
 #: ../libgweather/weather-yrno.c:507
-#| msgid ""
-#| "Weather data from the <a href=\"http://yr.no/\">Norwegian Meteorological "
-#| "Institute</a>"
 msgid ""
 "Weather data from the <a href=\"http://www.met.no/\">Norwegian "
 "Meteorological Institute</a>"
@@ -690,11 +1078,11 @@ msgstr "Sıcaklık birimi"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:4
 msgid ""
-"The unit of temperature used for showing weather. Valid values are 'kelvin', "
-"'centigrade' and 'fahrenheit'."
+"The unit of temperature used for showing weather. Valid values are “kelvin”, "
+"“centigrade” and “fahrenheit”."
 msgstr ""
-"Hava durumunu göstermek için kullanılan sıcaklık birimi. 'Kelvin', "
-"'santigrat' ve 'fahrenheit' geçerli değerlerdir."
+"Hava durumunu göstermek için kullanılan sıcaklık birimi. "
+"“kelvin”,“santigrat” ve “fahrenheit” geçerli değerlerdir."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:5
 msgid "Distance unit"
@@ -703,12 +1091,12 @@ msgstr "Uzaklık birimi"
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:6
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or "
-"for distance of important events). Valid values are 'meters', 'km' and "
-"'miles'."
+"for distance of important events). Valid values are “meters”, “km” and "
+"“miles”."
 msgstr ""
 "Hava durumunu (örneğin görüş mesafesi ya da önemli olaylara olan uzaklık) "
-"göstermek için kullanılan mesafe birimi. Geçerli değerler 'metre', 'km' ve "
-"'mil' dir."
+"göstermek için kullanılan mesafe birimi. Geçerli değerler “metre”, “km” ve "
+"“mil” dir."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:7
 msgid "Speed unit"
@@ -717,12 +1105,12 @@ msgstr "Hız birimi"
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:8
 msgid ""
 "The unit of speed used for showing weather (for example for wind speed). "
-"Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
-"'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+"Valid values are “ms” (meters per second), “kph” (kilometers per hour), "
+"“mph” (miles per hour), “knots” and “bft” (Beaufort scale)."
 msgstr ""
 "Hava durumunda (örneğin rüzgar hızını) göstermek için kullanılan hız birimi. "
-"'m/s' (metre / saniye), 'km/h' (kilometre / saat), 'mil/h' (mil / saat), "
-"'knot' ve 'bft' (Beaufort ölçeği) geçerli değerlerdir."
+"“m/s” (metre / saniye), “km/h” (kilometre / saat), “mil/h” (mil / saat), "
+"“knot” ve “bft” (Beaufort ölçeği) geçerli değerlerdir."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:9
 msgid "Pressure unit"
@@ -731,14 +1119,14 @@ msgstr "Basınç birimi"
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:10
 msgid ""
 "The unit of pressure used for showing weather. Valid values are "
-"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
-"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
-"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+"“kpa” (kilopascal), “hpa” (hectopascal), “mb” (millibar, mathematically "
+"equivalent to 1 hPa but shown differently), “mm-hg” (millimiters of "
+"mercury), “inch-hg” (inches of mercury), “atm” (atmospheres)."
 msgstr ""
 "Hava durumunda basıncı göstermek için kullanılan birim. Geçerli değerler "
-"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (milibar, matematiksel olarak "
-"1hPa'a eşittir ama farklı yazılır), 'mm-hg' (milimetre civa), 'inç-"
-"hg' (milimetre inç), 'atm' (atmosfer) dir."
+"“kpa” (kilopascal), “hpa” (hectopascal), “mb” (milibar, matematiksel olarak "
+"1hPa'a eşittir ama farklı yazılır), “mm-hg” (milimetre civa), “inç-"
+"hg” (milimetre inç), “atm” (atmosfer) dir."
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:11
 msgid "Default location"
@@ -761,3 +1149,18 @@ msgstr ""
 "veritabanından alınan değeri geçersiz kılmak için bir (enlem, boylam) "
 "çiftidir. Bu hava tahmini için değil sadece gündoğumu ve ayın evrelerinin "
 "hesaplanmasında kullanılır."
+
+#~ msgid "%.1f °F"
+#~ msgstr "%.1f °F"
+
+#~ msgid "%d °F"
+#~ msgstr "%d °F"
+
+#~ msgid "%.1f °C"
+#~ msgstr "%.1f °C"
+
+#~ msgid "%d °C"
+#~ msgstr "%d °C"
+
+#~ msgid "%d K"
+#~ msgstr "%d K"
