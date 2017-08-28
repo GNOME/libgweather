@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: lv\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=libgwea"
 "ther&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-02-23 11:45+0000\n"
-"PO-Revision-Date: 2017-03-20 21:23+0200\n"
+"POT-Creation-Date: 2017-08-20 13:24+0000\n"
+"PO-Revision-Date: 2017-08-28 12:59+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -41,7 +41,6 @@ msgid "GWeather"
 msgstr "GWeather"
 
 #: ../libgweather/gweather-location-entry.c:792
-#| msgid "Loading..."
 msgid "Loading…"
 msgstr "Ielādē…"
 
@@ -54,412 +53,881 @@ msgctxt "timezone"
 msgid "Unknown"
 msgstr "Nezināms"
 
-#: ../libgweather/gweather-weather.c:114
+#: ../libgweather/gweather-weather.c:120
+#| msgid "Variable"
+msgid "variable"
+msgstr "mainīgais"
+
+#: ../libgweather/gweather-weather.c:121
+#| msgid "North"
+msgid "north"
+msgstr "ziemeļu"
+
+#: ../libgweather/gweather-weather.c:121
+#| msgid "North — NorthEast"
+msgid "north — northeast"
+msgstr "ziemeļu — ziemeļaustrumu"
+
+#: ../libgweather/gweather-weather.c:121
+#| msgid "Northeast"
+msgid "northeast"
+msgstr "ziemeļaustrumu"
+
+#: ../libgweather/gweather-weather.c:121
+#| msgid "East — Southeast"
+msgid "east — northeast"
+msgstr "austrumu - ziemeļaustrumu"
+
+#: ../libgweather/gweather-weather.c:122
+#| msgid "Northeast"
+msgid "east"
+msgstr "austrumu"
+
+#: ../libgweather/gweather-weather.c:122
+#| msgid "East — Southeast"
+msgid "east — southeast"
+msgstr "austrumu — dienvidaustrumu"
+
+#: ../libgweather/gweather-weather.c:122
+#| msgid "Southeast"
+msgid "southeast"
+msgstr "dienvidaustrumu"
+
+#: ../libgweather/gweather-weather.c:122
+#| msgid "South — Southeast"
+msgid "south — southeast"
+msgstr "dienvidu — dienvidaustrumu"
+
+#: ../libgweather/gweather-weather.c:123
+#| msgid "South"
+msgid "south"
+msgstr "dienvidu"
+
+#: ../libgweather/gweather-weather.c:123
+#| msgid "South — Southwest"
+msgid "south — southwest"
+msgstr "dienvidu — dienvidrietumu"
+
+#: ../libgweather/gweather-weather.c:123
+#| msgid "Southwest"
+msgid "southwest"
+msgstr "dienvidrietumu"
+
+#: ../libgweather/gweather-weather.c:123
+#| msgid "West — Southwest"
+msgid "west — southwest"
+msgstr "rietumu — dienvidrietumu"
+
+#: ../libgweather/gweather-weather.c:124
+#| msgid "Southwest"
+msgid "west"
+msgstr "dienvidrietumu"
+
+#: ../libgweather/gweather-weather.c:124
+#| msgid "West — Northwest"
+msgid "west — northwest"
+msgstr "rietumu — ziemeļrietumu"
+
+#: ../libgweather/gweather-weather.c:124
+#| msgid "Northwest"
+msgid "northwest"
+msgstr "ziemeļrietumu"
+
+#: ../libgweather/gweather-weather.c:124
+#| msgid "North — Northwest"
+msgid "north — northwest"
+msgstr "ziemeļu — ziemeļrietumu"
+
+#: ../libgweather/gweather-weather.c:128
 msgid "Variable"
 msgstr "Mainīgais"
 
-#: ../libgweather/gweather-weather.c:115
+#: ../libgweather/gweather-weather.c:129
 msgid "North"
 msgstr "Ziemeļu"
 
-#: ../libgweather/gweather-weather.c:115
-#| msgid "North - NorthEast"
-msgid "North — NorthEast"
-msgstr "Ziemeļu — ziemeļaustrumu"
+#: ../libgweather/gweather-weather.c:129
+#| msgid "North — NorthEast"
+msgid "North — Northeast"
+msgstr "ziemeļu — ziemeļaustrumu"
 
-#: ../libgweather/gweather-weather.c:115
+#: ../libgweather/gweather-weather.c:129
 msgid "Northeast"
 msgstr "Ziemeļaustrumu"
 
-#: ../libgweather/gweather-weather.c:115
-#| msgid "East - NorthEast"
-msgid "East — NorthEast"
-msgstr "Austrumu — ziemeļaustrumu"
+#: ../libgweather/gweather-weather.c:129
+#| msgid "East — NorthEast"
+msgid "East — Northeast"
+msgstr "austrumu — ziemeļaustrumu"
 
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:130
 msgid "East"
 msgstr "Austrumu"
 
-#: ../libgweather/gweather-weather.c:116
-#| msgid "East - Southeast"
+#: ../libgweather/gweather-weather.c:130
 msgid "East — Southeast"
 msgstr "Austrumu — dienvidaustrumu"
 
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:130
 msgid "Southeast"
 msgstr "Dienvidaustrumu"
 
-#: ../libgweather/gweather-weather.c:116
-#| msgid "South - Southeast"
+#: ../libgweather/gweather-weather.c:130
 msgid "South — Southeast"
 msgstr "Dienvidu — dienvidaustrumu"
 
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:131
 msgid "South"
 msgstr "Dienvidu"
 
-#: ../libgweather/gweather-weather.c:117
-#| msgid "South - Southwest"
+#: ../libgweather/gweather-weather.c:131
 msgid "South — Southwest"
 msgstr "Dienvidu — dienvidrietumu"
 
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:131
 msgid "Southwest"
 msgstr "Dienvidrietumu"
 
-#: ../libgweather/gweather-weather.c:117
-#| msgid "West - Southwest"
+#: ../libgweather/gweather-weather.c:131
 msgid "West — Southwest"
 msgstr "Rietumu — dienvidrietumu"
 
-#: ../libgweather/gweather-weather.c:118
+#: ../libgweather/gweather-weather.c:132
 msgid "West"
 msgstr "Rietumu"
 
-#: ../libgweather/gweather-weather.c:118
-#| msgid "West - Northwest"
+#: ../libgweather/gweather-weather.c:132
 msgid "West — Northwest"
 msgstr "Rietumu — ziemeļrietumu"
 
-#: ../libgweather/gweather-weather.c:118
+#: ../libgweather/gweather-weather.c:132
 msgid "Northwest"
 msgstr "Ziemeļrietumu"
 
-#: ../libgweather/gweather-weather.c:118
-#| msgid "North - Northwest"
+#: ../libgweather/gweather-weather.c:132
 msgid "North — Northwest"
 msgstr "Ziemeļu — ziemeļrietumu"
 
-#: ../libgweather/gweather-weather.c:125
+#: ../libgweather/gweather-weather.c:142
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Nederīgs"
 
-#: ../libgweather/gweather-weather.c:131
-msgid "Clear Sky"
-msgstr "Tīras debesis"
+#: ../libgweather/gweather-weather.c:143
+#| msgctxt "wind direction"
+#| msgid "Invalid"
+msgctxt "wind direction"
+msgid "invalid"
+msgstr "nederīgs"
 
-#: ../libgweather/gweather-weather.c:132
+#: ../libgweather/gweather-weather.c:156
+#| msgid "Clear Sky"
+msgid "clear sky"
+msgstr "skaidras debesis"
+
+#: ../libgweather/gweather-weather.c:157
+#| msgid "Broken clouds"
+msgid "broken clouds"
+msgstr "mainīgs mākoņu daudzums"
+
+#: ../libgweather/gweather-weather.c:158
+#| msgid "Scattered clouds"
+msgid "scattered clouds"
+msgstr "izkliedēti mākoņi"
+
+#: ../libgweather/gweather-weather.c:159
+#| msgid "Few clouds"
+msgid "few clouds"
+msgstr "daži mākoņi"
+
+#: ../libgweather/gweather-weather.c:160
+#| msgid "Overcast"
+msgid "overcast"
+msgstr "apmācies"
+
+#: ../libgweather/gweather-weather.c:164
+#| msgid "Clear Sky"
+msgid "Clear sky"
+msgstr "Skaidras debesis"
+
+#: ../libgweather/gweather-weather.c:165
 msgid "Broken clouds"
 msgstr "Mainīgs mākoņu daudzums"
 
-#: ../libgweather/gweather-weather.c:133
+#: ../libgweather/gweather-weather.c:166
 msgid "Scattered clouds"
 msgstr "Izkliedēti mākoņi"
 
-#: ../libgweather/gweather-weather.c:134
+#: ../libgweather/gweather-weather.c:167
 msgid "Few clouds"
 msgstr "Daži mākoņi"
 
-#: ../libgweather/gweather-weather.c:135
+#: ../libgweather/gweather-weather.c:168
 msgid "Overcast"
 msgstr "Apmācies"
 
-#: ../libgweather/gweather-weather.c:142 ../libgweather/gweather-weather.c:214
+#: ../libgweather/gweather-weather.c:184 ../libgweather/gweather-weather.c:298
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "Nederīgs"
+
+#: ../libgweather/gweather-weather.c:185 ../libgweather/gweather-weather.c:299
+#| msgctxt "sky conditions"
+#| msgid "Invalid"
+msgctxt "sky conditions"
+msgid "invalid"
+msgstr "nederīgs"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/gweather-weather.c:174 ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:218 ../libgweather/gweather-weather.c:220
+#| msgid "Thunderstorm"
+msgid "thunderstorm"
+msgstr "pērkona negaiss"
+
+#. DRIZZLE
+#: ../libgweather/gweather-weather.c:219
+#| msgid "Drizzle"
+msgid "drizzle"
+msgstr "smalks lietus"
+
+#: ../libgweather/gweather-weather.c:219
+#| msgid "Light drizzle"
+msgid "light drizzle"
+msgstr "neliels smalks lietus"
+
+#: ../libgweather/gweather-weather.c:219
+#| msgid "Moderate drizzle"
+msgid "moderate drizzle"
+msgstr "mērens smalks lietus"
+
+#: ../libgweather/gweather-weather.c:219
+#| msgid "Heavy drizzle"
+msgid "heavy drizzle"
+msgstr "spēcīgs smalks lietus"
+
+#: ../libgweather/gweather-weather.c:219
+#| msgid "Freezing drizzle"
+msgid "freezing drizzle"
+msgstr "saldējošs smalks lietus"
+
+#. RAIN
+#: ../libgweather/gweather-weather.c:220
+msgid "rain"
+msgstr "lietus"
+
+#: ../libgweather/gweather-weather.c:220
+#| msgid "Light rain"
+msgid "light rain"
+msgstr "neliels lietus"
+
+#: ../libgweather/gweather-weather.c:220
+#| msgid "Moderate rain"
+msgid "moderate rain"
+msgstr "mērens lietus"
+
+#: ../libgweather/gweather-weather.c:220
+#| msgid "Heavy rain"
+msgid "heavy rain"
+msgstr "spēcīgs lietus"
+
+#: ../libgweather/gweather-weather.c:220
+#| msgid "Rain showers"
+msgid "rain showers"
+msgstr "lietusgāzes"
+
+#: ../libgweather/gweather-weather.c:220
+#| msgid "Freezing rain"
+msgid "freezing rain"
+msgstr "saldējošs lietus"
+
+#. SNOW
+#: ../libgweather/gweather-weather.c:221
+msgid "snow"
+msgstr "sniegs"
+
+#: ../libgweather/gweather-weather.c:221
+#| msgid "Light snow"
+msgid "light snow"
+msgstr "viegla snigšana"
+
+#: ../libgweather/gweather-weather.c:221
+#| msgid "Moderate snow"
+msgid "moderate snow"
+msgstr "mērena snigšana"
+
+#: ../libgweather/gweather-weather.c:221
+#| msgid "Heavy snow"
+msgid "heavy snow"
+msgstr "spēcīga snigšana"
+
+#: ../libgweather/gweather-weather.c:221
+#| msgid "Snowstorm"
+msgid "snowstorm"
+msgstr "sniega vētra"
+
+#: ../libgweather/gweather-weather.c:221
+#| msgid "Blowing snowfall"
+msgid "blowing snowfall"
+msgstr "ļoti spēcīgs sniegputenis"
+
+#: ../libgweather/gweather-weather.c:221
+#| msgid "Snow showers"
+msgid "snow showers"
+msgstr "sniegputenis"
+
+#: ../libgweather/gweather-weather.c:221
+#| msgid "Drifting snow"
+msgid "drifting snow"
+msgstr "mainīgs sniega daudzums"
+
+#. SNOW_GRAINS
+#: ../libgweather/gweather-weather.c:222
+#| msgid "Snow grains"
+msgid "snow grains"
+msgstr "sniega graudi"
+
+#: ../libgweather/gweather-weather.c:222
+#| msgid "Light snow grains"
+msgid "light snow grains"
+msgstr "viegli sniega graudi"
+
+#: ../libgweather/gweather-weather.c:222
+#| msgid "Moderate snow grains"
+msgid "moderate snow grains"
+msgstr "mēreni sniega graudi"
+
+#: ../libgweather/gweather-weather.c:222
+#| msgid "Heavy snow grains"
+msgid "heavy snow grains"
+msgstr "spēcīgi sniega graudi"
+
+#. ICE_CRYSTALS
+#: ../libgweather/gweather-weather.c:223
+#| msgid "Ice crystals"
+msgid "ice crystals"
+msgstr "ledus kristāli"
+
+#. ICE_PELLETS
+#: ../libgweather/gweather-weather.c:224
+#| msgid "Sleet"
+msgid "sleet"
+msgstr "alapjdraņķis"
+
+#: ../libgweather/gweather-weather.c:224
+#| msgid "Little sleet"
+msgid "little sleet"
+msgstr "neliels slapjdraņķis"
+
+#: ../libgweather/gweather-weather.c:224
+#| msgid "Moderate sleet"
+msgid "moderate sleet"
+msgstr "mērens slapjdraņķis"
+
+#: ../libgweather/gweather-weather.c:224
+#| msgid "Heavy sleet"
+msgid "heavy sleet"
+msgstr "spēcīgs slapjdraņķis"
+
+#: ../libgweather/gweather-weather.c:224
+#| msgid "Sleet storm"
+msgid "sleet storm"
+msgstr "slapjdraņķa negaiss"
+
+#: ../libgweather/gweather-weather.c:224
+#| msgid "Showers of sleet"
+msgid "showers of sleet"
+msgstr "slapjdraņķa putenis"
+
+#. HAIL
+#: ../libgweather/gweather-weather.c:225
+msgid "hail"
+msgstr "krusa"
+
+#: ../libgweather/gweather-weather.c:225
+#| msgid "Hailstorm"
+msgid "hailstorm"
+msgstr "krusas vētra"
+
+#: ../libgweather/gweather-weather.c:225
+#| msgid "Hail showers"
+msgid "hail showers"
+msgstr "krusas birums"
+
+#. SMALL_HAIL
+#: ../libgweather/gweather-weather.c:226
+#| msgid "Small hail"
+msgid "small hail"
+msgstr "neliela krusa"
+
+#: ../libgweather/gweather-weather.c:226
+#| msgid "Small hailstorm"
+msgid "small hailstorm"
+msgstr "neliela krusas vētra"
+
+#: ../libgweather/gweather-weather.c:226
+#| msgid "Showers of small hail"
+msgid "showers of small hail"
+msgstr "krusas gāzes"
+
+#. PRECIPITATION
+#: ../libgweather/gweather-weather.c:227
+#| msgid "Unknown precipitation"
+msgid "unknown precipitation"
+msgstr "nezināmi nokrišņi"
+
+#. MIST
+#: ../libgweather/gweather-weather.c:228
+msgid "mist"
+msgstr "dūmaka"
+
+#. FOG
+#: ../libgweather/gweather-weather.c:229
+#| msgid "Fog"
+msgid "fog"
+msgstr "migla"
+
+#: ../libgweather/gweather-weather.c:229
+#| msgid "Fog in the vicinity"
+msgid "fog in the vicinity"
+msgstr "gaidāma migla"
+
+#: ../libgweather/gweather-weather.c:229
+#| msgid "Shallow fog"
+msgid "shallow fog"
+msgstr "neliela migla"
+
+#: ../libgweather/gweather-weather.c:229
+#| msgid "Patches of fog"
+msgid "patches of fog"
+msgstr "vietām migla"
+
+#: ../libgweather/gweather-weather.c:229
+#| msgid "Partial fog"
+msgid "partial fog"
+msgstr "daļēja migla"
+
+#: ../libgweather/gweather-weather.c:229
+#| msgid "Freezing fog"
+msgid "freezing fog"
+msgstr "saldējoša migla"
+
+#. SMOKE
+#: ../libgweather/gweather-weather.c:230
+#| msgid "Smoke"
+msgid "smoke"
+msgstr "dūmi"
+
+#. VOLCANIC_ASH
+#: ../libgweather/gweather-weather.c:231
+#| msgid "Volcanic ash"
+msgid "volcanic ash"
+msgstr "vulkāniskie pelni"
+
+#. SAND
+#: ../libgweather/gweather-weather.c:232
+msgid "sand"
+msgstr "smiltis"
+
+#: ../libgweather/gweather-weather.c:232
+#| msgid "Blowing sand"
+msgid "blowing sand"
+msgstr "smilšu putenis"
+
+#: ../libgweather/gweather-weather.c:232
+#| msgid "Drifting sand"
+msgid "drifting sand"
+msgstr "klejojošās smiltis"
+
+#. HAZE
+#: ../libgweather/gweather-weather.c:233
+msgid "haze"
+msgstr "dūmaka"
+
+#. SPRAY
+#: ../libgweather/gweather-weather.c:234
+#| msgid "Blowing sprays"
+msgid "blowing sprays"
+msgstr "smidzināšana ar vēju"
+
+#. DUST
+#: ../libgweather/gweather-weather.c:235
+msgid "dust"
+msgstr "putekļi"
+
+#: ../libgweather/gweather-weather.c:235
+#| msgid "Blowing dust"
+msgid "blowing dust"
+msgstr "ļoti spēcīgi putekļi"
+
+#: ../libgweather/gweather-weather.c:235
+#| msgid "Drifting dust"
+msgid "drifting dust"
+msgstr "mainīgs putekļu daudzums"
+
+#. SQUALL
+#: ../libgweather/gweather-weather.c:236
+#| msgid "Squall"
+msgid "squall"
+msgstr "brāzmas"
+
+#. SANDSTORM
+#: ../libgweather/gweather-weather.c:237
+#| msgid "Sandstorm"
+msgid "sandstorm"
+msgstr "smilšu vētra"
+
+#: ../libgweather/gweather-weather.c:237
+#| msgid "Sandstorm in the vicinity"
+msgid "sandstorm in the vicinity"
+msgstr "gaidāma smilšu vētra"
+
+#: ../libgweather/gweather-weather.c:237
+#| msgid "Heavy sandstorm"
+msgid "heavy sandstorm"
+msgstr "spēcīga smilšu vētra"
+
+#. DUSTSTORM
+#: ../libgweather/gweather-weather.c:238
+#| msgid "Duststorm"
+msgid "duststorm"
+msgstr "putekļu vētra"
+
+#: ../libgweather/gweather-weather.c:238
+#| msgid "Duststorm in the vicinity"
+msgid "duststorm in the vicinity"
+msgstr "gaidāma putekļu vētra"
+
+#: ../libgweather/gweather-weather.c:238
+#| msgid "Heavy duststorm"
+msgid "heavy duststorm"
+msgstr "spēcīga putekļu vētra"
+
+#. FUNNEL_CLOUD
+#: ../libgweather/gweather-weather.c:239
+#| msgid "Funnel cloud"
+msgid "funnel cloud"
+msgstr "dūmu mākonis"
+
+#. TORNADO
+#: ../libgweather/gweather-weather.c:240
+#| msgid "Tornado"
+msgid "tornado"
+msgstr "viesuļvētra"
+
+#. DUST_WHIRLS
+#: ../libgweather/gweather-weather.c:241
+#| msgid "Dust whirls"
+msgid "dust whirls"
+msgstr "putekļu virpuļi"
+
+#: ../libgweather/gweather-weather.c:241
+#| msgid "Dust whirls in the vicinity"
+msgid "dust whirls in the vicinity"
+msgstr "gaidāmi putekļu virpuļi"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
+#. NONE
+#: ../libgweather/gweather-weather.c:254 ../libgweather/gweather-weather.c:256
 msgid "Thunderstorm"
 msgstr "Pērkona negaiss"
 
 #. DRIZZLE
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Drizzle"
 msgstr "Smalks lietus"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Light drizzle"
 msgstr "Neliels smalks lietus"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Moderate drizzle"
 msgstr "Mērens smalks lietus"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Heavy drizzle"
 msgstr "Spēcīgs smalks lietus"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Freezing drizzle"
 msgstr "Saldējošs smalks lietus"
 
 #. RAIN
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Rain"
 msgstr "Lietus"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Light rain"
 msgstr "Neliels lietus"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Moderate rain"
 msgstr "Mērens lietus"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Heavy rain"
 msgstr "Spēcīgs lietus"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Rain showers"
 msgstr "Lietusgāzes"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Freezing rain"
 msgstr "Saldējošs lietus"
 
 #. SNOW
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Snow"
 msgstr "Sniegs"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Light snow"
 msgstr "Viegla snigšana"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Moderate snow"
 msgstr "Mērena snigšana"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Heavy snow"
 msgstr "Spēcīga snigšana"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Snowstorm"
 msgstr "Sniega vētra"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Blowing snowfall"
 msgstr "Ļoti spēcīgs sniegputenis"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Snow showers"
 msgstr "Sniega gāzes"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Drifting snow"
 msgstr "Mainīgs sniega daudzums"
 
 #. SNOW_GRAINS
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Snow grains"
 msgstr "Sniega graudi"
 
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Light snow grains"
 msgstr "Viegli sniega graudi"
 
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Moderate snow grains"
 msgstr "Mēreni sniega graudi"
 
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Heavy snow grains"
 msgstr "Spēcīgi sniega graudi"
 
 #. ICE_CRYSTALS
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:259
 msgid "Ice crystals"
 msgstr "Ledus kristāli"
 
 #. ICE_PELLETS
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Sleet"
 msgstr "Slapjdraņķis"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Little sleet"
 msgstr "Neliels slapjdraņķis"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Moderate sleet"
 msgstr "Mērens slapjdraņķis"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Heavy sleet"
 msgstr "Spēcīgs slapjdraņķis"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Sleet storm"
 msgstr "Slapjdraņķa negaiss"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Showers of sleet"
 msgstr "Slapjdraņķa nogāzes"
 
 #. HAIL
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:261
 msgid "Hail"
 msgstr "Krusa"
 
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:261
 msgid "Hailstorm"
 msgstr "Krusas vētra"
 
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:261
 msgid "Hail showers"
 msgstr "Krusas birums"
 
 #. SMALL_HAIL
-#: ../libgweather/gweather-weather.c:182
+#: ../libgweather/gweather-weather.c:262
 msgid "Small hail"
 msgstr "Neliela krusa"
 
-#: ../libgweather/gweather-weather.c:182
+#: ../libgweather/gweather-weather.c:262
 msgid "Small hailstorm"
 msgstr "Neliela krusas vētra"
 
-#: ../libgweather/gweather-weather.c:182
+#: ../libgweather/gweather-weather.c:262
 msgid "Showers of small hail"
 msgstr "Krusas gāzes"
 
 #. PRECIPITATION
-#: ../libgweather/gweather-weather.c:183
+#: ../libgweather/gweather-weather.c:263
 msgid "Unknown precipitation"
 msgstr "Nezināmi nokrišņi"
 
 #. MIST
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:264
 msgid "Mist"
 msgstr "Dūmaka"
 
 #. FOG
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Fog"
 msgstr "Migla"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Fog in the vicinity"
 msgstr "Gaidāma migla"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Shallow fog"
 msgstr "Neliela migla"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Patches of fog"
 msgstr "Vietām migla"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Partial fog"
 msgstr "Pa daļai migla"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Freezing fog"
 msgstr "Saldējoša migla"
 
 #. SMOKE
-#: ../libgweather/gweather-weather.c:186
+#: ../libgweather/gweather-weather.c:266
 msgid "Smoke"
 msgstr "Dūmi"
 
 #. VOLCANIC_ASH
-#: ../libgweather/gweather-weather.c:187
+#: ../libgweather/gweather-weather.c:267
 msgid "Volcanic ash"
 msgstr "Vulkāniskie pelni"
 
 #. SAND
-#: ../libgweather/gweather-weather.c:188
+#: ../libgweather/gweather-weather.c:268
 msgid "Sand"
 msgstr "Smiltis"
 
-#: ../libgweather/gweather-weather.c:188
+#: ../libgweather/gweather-weather.c:268
 msgid "Blowing sand"
 msgstr "Smilšu putenis"
 
-#: ../libgweather/gweather-weather.c:188
+#: ../libgweather/gweather-weather.c:268
 msgid "Drifting sand"
 msgstr "Klejojošās smiltis"
 
 #. HAZE
-#: ../libgweather/gweather-weather.c:189
+#: ../libgweather/gweather-weather.c:269
 msgid "Haze"
 msgstr "Dūmaka"
 
 #. SPRAY
-#: ../libgweather/gweather-weather.c:190
+#: ../libgweather/gweather-weather.c:270
 msgid "Blowing sprays"
 msgstr "Smidzināšana ar vēju"
 
 #. DUST
-#: ../libgweather/gweather-weather.c:191
+#: ../libgweather/gweather-weather.c:271
 msgid "Dust"
 msgstr "Putekļi"
 
-#: ../libgweather/gweather-weather.c:191
+#: ../libgweather/gweather-weather.c:271
 msgid "Blowing dust"
 msgstr "Ļoti spēcīgi putekļi"
 
-#: ../libgweather/gweather-weather.c:191
+#: ../libgweather/gweather-weather.c:271
 msgid "Drifting dust"
 msgstr "Mainīgs putekļu daudzums"
 
 #. SQUALL
-#: ../libgweather/gweather-weather.c:192
+#: ../libgweather/gweather-weather.c:272
 msgid "Squall"
 msgstr "Brāzmas"
 
 #. SANDSTORM
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:273
 msgid "Sandstorm"
 msgstr "Smilšu vētra"
 
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:273
 msgid "Sandstorm in the vicinity"
 msgstr "Gaidāma smilšu vētra"
 
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:273
 msgid "Heavy sandstorm"
 msgstr "Spēcīga smilšu vētra"
 
 #. DUSTSTORM
-#: ../libgweather/gweather-weather.c:194
+#: ../libgweather/gweather-weather.c:274
 msgid "Duststorm"
 msgstr "Putekļu vētra"
 
-#: ../libgweather/gweather-weather.c:194
+#: ../libgweather/gweather-weather.c:274
 msgid "Duststorm in the vicinity"
 msgstr "Gaidāma putekļu vētra"
 
-#: ../libgweather/gweather-weather.c:194
+#: ../libgweather/gweather-weather.c:274
 msgid "Heavy duststorm"
 msgstr "Spēcīga putekļu vētra"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/gweather-weather.c:195
+#: ../libgweather/gweather-weather.c:275
 msgid "Funnel cloud"
 msgstr "Dūmu mākonis"
 
 #. TORNADO
-#: ../libgweather/gweather-weather.c:196
+#: ../libgweather/gweather-weather.c:276
 msgid "Tornado"
 msgstr "Viesuļvētra"
 
 #. DUST_WHIRLS
-#: ../libgweather/gweather-weather.c:197
+#: ../libgweather/gweather-weather.c:277
 msgid "Dust whirls"
 msgstr "Putekļu virpuļi"
 
-#: ../libgweather/gweather-weather.c:197
+#: ../libgweather/gweather-weather.c:277
 msgid "Dust whirls in the vicinity"
 msgstr "Gaidāmi putekļu virpuļi"
 
-#: ../libgweather/gweather-weather.c:709
+#: ../libgweather/gweather-weather.c:800
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a, %d. %b / %H.%M"
 
-#: ../libgweather/gweather-weather.c:715
+#: ../libgweather/gweather-weather.c:806
 msgid "Unknown observation time"
 msgstr "Nezināms novērojuma laiks"
 
-#: ../libgweather/gweather-weather.c:727
+#: ../libgweather/gweather-weather.c:818
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Nezināmi"
@@ -470,88 +938,91 @@ msgstr "Nezināmi"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: ../libgweather/gweather-weather.c:749
+#: ../libgweather/gweather-weather.c:840
 msgid "default:mm"
 msgstr "default:mm"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:801
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
+#: ../libgweather/gweather-weather.c:892
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+#| msgid "%.1f K"
+msgid "%.1f ℉"
+msgstr "%.1f ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:804
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
+#: ../libgweather/gweather-weather.c:895
 #, c-format
-msgid "%d °F"
-msgstr "%d °F"
+msgid "%d ℉"
+msgstr "%d ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:810
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#: ../libgweather/gweather-weather.c:901
 #, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
+#| msgid "%.1f K"
+msgid "%.1f ℃"
+msgstr "%.1f ℃"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:813
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#: ../libgweather/gweather-weather.c:904
 #, c-format
-msgid "%d °C"
-msgstr "%d °C"
+msgid "%d ℃"
+msgstr "%d ℃"
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/gweather-weather.c:819
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#: ../libgweather/gweather-weather.c:910
 #, c-format
-msgid "%.1f K"
-msgstr "%.1f K"
+#| msgid "%.1f K"
+msgid "%.1f K"
+msgstr "%.1f K"
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/gweather-weather.c:822
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#: ../libgweather/gweather-weather.c:913
 #, c-format
-msgid "%d K"
-msgstr "%d K"
+msgid "%d K"
+msgstr "%d K"
 
-#: ../libgweather/gweather-weather.c:845 ../libgweather/gweather-weather.c:861
-#: ../libgweather/gweather-weather.c:877 ../libgweather/gweather-weather.c:939
+#: ../libgweather/gweather-weather.c:936 ../libgweather/gweather-weather.c:952
+#: ../libgweather/gweather-weather.c:968 ../libgweather/gweather-weather.c:1030
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Nezināma"
 
-#: ../libgweather/gweather-weather.c:899
+#: ../libgweather/gweather-weather.c:990
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Nezināma"
 
-#: ../libgweather/gweather-weather.c:919
+#: ../libgweather/gweather-weather.c:1010
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Nezināms"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/gweather-weather.c:922
+#: ../libgweather/gweather-weather.c:1013
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/gweather-weather.c:968
+#: ../libgweather/gweather-weather.c:1059
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f mezgli"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/gweather-weather.c:971
+#: ../libgweather/gweather-weather.c:1062
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/gweather-weather.c:974
+#: ../libgweather/gweather-weather.c:1065
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/gweather-weather.c:977
+#: ../libgweather/gweather-weather.c:1068
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -559,96 +1030,96 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/gweather-weather.c:982
+#: ../libgweather/gweather-weather.c:1073
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Boforta skala %.1f"
 
-#: ../libgweather/gweather-weather.c:1003
+#: ../libgweather/gweather-weather.c:1094
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Nezināms"
 
-#: ../libgweather/gweather-weather.c:1005
+#: ../libgweather/gweather-weather.c:1096
 msgid "Calm"
 msgstr "Mierīgs"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/gweather-weather.c:1013
+#: ../libgweather/gweather-weather.c:1104
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/gweather-weather.c:1049
+#: ../libgweather/gweather-weather.c:1140
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Nezināms"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/gweather-weather.c:1055
+#: ../libgweather/gweather-weather.c:1146
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/gweather-weather.c:1058
+#: ../libgweather/gweather-weather.c:1149
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/gweather-weather.c:1061
+#: ../libgweather/gweather-weather.c:1152
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/gweather-weather.c:1064
+#: ../libgweather/gweather-weather.c:1155
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/gweather-weather.c:1067
+#: ../libgweather/gweather-weather.c:1158
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/gweather-weather.c:1070
+#: ../libgweather/gweather-weather.c:1161
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#: ../libgweather/gweather-weather.c:1108
+#: ../libgweather/gweather-weather.c:1199
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Nezināma"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/gweather-weather.c:1114
+#: ../libgweather/gweather-weather.c:1205
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f jūdzes"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/gweather-weather.c:1117
+#: ../libgweather/gweather-weather.c:1208
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/gweather-weather.c:1120
+#: ../libgweather/gweather-weather.c:1211
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/gweather-weather.c:1148
-#: ../libgweather/gweather-weather.c:1173
+#: ../libgweather/gweather-weather.c:1239
+#: ../libgweather/gweather-weather.c:1264
 msgid "%H∶%M"
 msgstr "%H.%M"
 
-#: ../libgweather/gweather-weather.c:1267
+#: ../libgweather/gweather-weather.c:1358
 msgid "Retrieval failed"
 msgstr "Ieguve neizdevās"
 
@@ -697,9 +1168,6 @@ msgid "Temperature unit"
 msgstr "Temperatūras mērvienība"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:4
-#| msgid ""
-#| "The unit of temperature used for showing weather. Valid values are "
-#| "'kelvin', 'centigrade' and 'fahrenheit'."
 msgid ""
 "The unit of temperature used for showing weather. Valid values are “kelvin”, "
 "“centigrade” and “fahrenheit”."
@@ -712,10 +1180,6 @@ msgid "Distance unit"
 msgstr "Attālumu mērvienība"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:6
-#| msgid ""
-#| "The unit of distance used for showing weather (for example for visibility "
-#| "or for distance of important events). Valid values are 'meters', 'km' and "
-#| "'miles'."
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or "
 "for distance of important events). Valid values are “meters”, “km” and "
@@ -730,10 +1194,6 @@ msgid "Speed unit"
 msgstr "Ātruma mērvienība"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:8
-#| msgid ""
-#| "The unit of speed used for showing weather (for example for wind speed). "
-#| "Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
-#| "'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
 msgid ""
 "The unit of speed used for showing weather (for example for wind speed). "
 "Valid values are “ms” (meters per second), “kph” (kilometers per hour), "
@@ -748,11 +1208,6 @@ msgid "Pressure unit"
 msgstr "Spiediena mērvienība"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:10
-#| msgid ""
-#| "The unit of pressure used for showing weather. Valid values are "
-#| "'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
-#| "equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of "
-#| "mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
 msgid ""
 "The unit of pressure used for showing weather. Valid values are "
 "“kpa” (kilopascal), “hpa” (hectopascal), “mb” (millibar, mathematically "
@@ -786,3 +1241,17 @@ msgstr ""
 "izmanto tikai saullēktu, saulrietu un mēness fāžu aprēķiniem, nevis laika "
 "prognozēm."
 
+#~ msgid "%.1f °F"
+#~ msgstr "%.1f °F"
+
+#~ msgid "%d °F"
+#~ msgstr "%d °F"
+
+#~ msgid "%.1f °C"
+#~ msgstr "%.1f °C"
+
+#~ msgid "%d °C"
+#~ msgstr "%d °C"
+
+#~ msgid "%d K"
+#~ msgstr "%d K"
