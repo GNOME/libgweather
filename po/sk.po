@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: libgweather\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-07-23 19:42+0000\n"
-"PO-Revision-Date: 2017-08-06 18:17+0200\n"
+"POT-Creation-Date: 2017-08-20 13:24+0000\n"
+"PO-Revision-Date: 2017-09-01 15:49+0200\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: slovenčina <>\n"
 "Language: sk\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #: ../data/glade/libgweather.xml.in.h:1
 msgid "Location Entry"
@@ -51,420 +51,825 @@ msgctxt "timezone"
 msgid "Unknown"
 msgstr "Neznáme"
 
-#: ../libgweather/gweather-weather.c:114
+#: ../libgweather/gweather-weather.c:120
+msgid "variable"
+msgstr "premenlivo"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:121
+msgid "north"
+msgstr "severný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:121
+msgid "north — northeast"
+msgstr "severný — severovýchodný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:121
+msgid "northeast"
+msgstr "severovýchodný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:121
+msgid "east — northeast"
+msgstr "východný — juhovýchodný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:122
+msgid "east"
+msgstr "východný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:122
+msgid "east — southeast"
+msgstr "východný — juhovýchodný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:122
+msgid "southeast"
+msgstr "juhovýchodný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:122
+msgid "south — southeast"
+msgstr "južný — juhovýchodný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:123
+msgid "south"
+msgstr "južný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:123
+msgid "south — southwest"
+msgstr "južný — juhozápadný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:123
+msgid "southwest"
+msgstr "juhozápadný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:123
+msgid "west — southwest"
+msgstr "západný — juhozápadný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:124
+msgid "west"
+msgstr "západný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:124
+msgid "west — northwest"
+msgstr "západný — severozápadný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:124
+msgid "northwest"
+msgstr "severozápadný"
+
+#  wind direction
+#: ../libgweather/gweather-weather.c:124
+msgid "north — northwest"
+msgstr "severný — severozápadný"
+
+#: ../libgweather/gweather-weather.c:128
 msgid "Variable"
 msgstr "Premenlivo"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:115
+#: ../libgweather/gweather-weather.c:129
 msgid "North"
 msgstr "Severný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:115
-msgid "North — NorthEast"
-msgstr "Severo — severovýchodný"
+#: ../libgweather/gweather-weather.c:129
+msgid "North — Northeast"
+msgstr "Severný — severovýchodný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:115
+#: ../libgweather/gweather-weather.c:129
 msgid "Northeast"
 msgstr "Severovýchodný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:115
-msgid "East — NorthEast"
-msgstr "Východo — severovýchodný"
+#: ../libgweather/gweather-weather.c:129
+msgid "East — Northeast"
+msgstr "Východný — severovýchodný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:130
 msgid "East"
 msgstr "Východný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:130
 msgid "East — Southeast"
 msgstr "Východo — juhovýchodný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:130
 msgid "Southeast"
 msgstr "Juhovýchodný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:130
 msgid "South — Southeast"
 msgstr "Juho — juhovýchodný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:131
 msgid "South"
 msgstr "Južný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:131
 msgid "South — Southwest"
 msgstr "Juho — juhozápadný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:131
 msgid "Southwest"
 msgstr "Juhozápadný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:131
 msgid "West — Southwest"
 msgstr "Západo — juhozápadný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:118
+#: ../libgweather/gweather-weather.c:132
 msgid "West"
 msgstr "Západný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:118
+#: ../libgweather/gweather-weather.c:132
 msgid "West — Northwest"
 msgstr "Západo — severozápadný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:118
+#: ../libgweather/gweather-weather.c:132
 msgid "Northwest"
 msgstr "Severozápadný"
 
 #  wind direction
-#: ../libgweather/gweather-weather.c:118
+#: ../libgweather/gweather-weather.c:132
 msgid "North — Northwest"
 msgstr "Severo — severozápadný"
 
-#: ../libgweather/gweather-weather.c:125
+#: ../libgweather/gweather-weather.c:142
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Neplatný údaj"
 
-#: ../libgweather/gweather-weather.c:131
-msgid "Clear Sky"
+#: ../libgweather/gweather-weather.c:143
+msgctxt "wind direction"
+msgid "invalid"
+msgstr "neplatný"
+
+#: ../libgweather/gweather-weather.c:156
+msgid "clear sky"
+msgstr "jasno"
+
+#: ../libgweather/gweather-weather.c:157
+msgid "broken clouds"
+msgstr "veľká oblačnosť"
+
+#: ../libgweather/gweather-weather.c:158
+msgid "scattered clouds"
+msgstr "polooblačno"
+
+#: ../libgweather/gweather-weather.c:159
+msgid "few clouds"
+msgstr "malá oblačnosť"
+
+#: ../libgweather/gweather-weather.c:160
+msgid "overcast"
+msgstr "zamračené"
+
+#: ../libgweather/gweather-weather.c:164
+msgid "Clear sky"
 msgstr "Jasno"
 
-#: ../libgweather/gweather-weather.c:132
+#: ../libgweather/gweather-weather.c:165
 msgid "Broken clouds"
 msgstr "Veľká oblačnosť"
 
-#: ../libgweather/gweather-weather.c:133
+#: ../libgweather/gweather-weather.c:166
 msgid "Scattered clouds"
 msgstr "Polooblačno"
 
-#: ../libgweather/gweather-weather.c:134
+#: ../libgweather/gweather-weather.c:167
 msgid "Few clouds"
 msgstr "Malá oblačnosť"
 
-#: ../libgweather/gweather-weather.c:135
+#: ../libgweather/gweather-weather.c:168
 msgid "Overcast"
 msgstr "Zamračené"
 
-#: ../libgweather/gweather-weather.c:142 ../libgweather/gweather-weather.c:214
+#: ../libgweather/gweather-weather.c:184 ../libgweather/gweather-weather.c:298
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "Neplatný údaj"
+
+#: ../libgweather/gweather-weather.c:185 ../libgweather/gweather-weather.c:299
+msgctxt "sky conditions"
+msgid "invalid"
+msgstr "neplatné"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/gweather-weather.c:174 ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:218 ../libgweather/gweather-weather.c:220
+msgid "thunderstorm"
+msgstr "búrka"
+
+#. DRIZZLE
+#: ../libgweather/gweather-weather.c:219
+msgid "drizzle"
+msgstr "mrholenie"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "light drizzle"
+msgstr "slabé mrholenie"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "moderate drizzle"
+msgstr "mierne mrholenie"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "heavy drizzle"
+msgstr "husté mrholenie"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "freezing drizzle"
+msgstr "mrznúce mrholenie"
+
+#. RAIN
+#: ../libgweather/gweather-weather.c:220
+msgid "rain"
+msgstr "dážď"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "light rain"
+msgstr "slabý dážď"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "moderate rain"
+msgstr "mierny dážď"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "heavy rain"
+msgstr "hustý dážď"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "rain showers"
+msgstr "prehánky"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "freezing rain"
+msgstr "mrznúci dážď"
+
+#. SNOW
+#: ../libgweather/gweather-weather.c:221
+msgid "snow"
+msgstr "sneženie"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "light snow"
+msgstr "slabé sneženie"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "moderate snow"
+msgstr "mierne sneženie"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "heavy snow"
+msgstr "husté sneženie"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "snowstorm"
+msgstr "fujavica"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "blowing snowfall"
+msgstr "záveje"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "snow showers"
+msgstr "snehové prehánky"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "drifting snow"
+msgstr "snehové jazyky"
+
+#. SNOW_GRAINS
+#: ../libgweather/gweather-weather.c:222
+msgid "snow grains"
+msgstr "zľadovatelý sneh"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "light snow grains"
+msgstr "slabo zľadovatelý sneh"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "moderate snow grains"
+msgstr "mierne zľadovatelý sneh"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "heavy snow grains"
+msgstr "silno zľadovatelý sneh"
+
+#. ICE_CRYSTALS
+#: ../libgweather/gweather-weather.c:223
+msgid "ice crystals"
+msgstr "ľadové kryštály"
+
+#. ICE_PELLETS
+#: ../libgweather/gweather-weather.c:224
+msgid "sleet"
+msgstr "snehové krúpky"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "little sleet"
+msgstr "slabé snehové krúpky"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "moderate sleet"
+msgstr "mierne snehové krúpky"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "heavy sleet"
+msgstr "husté snehové krúpky"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "sleet storm"
+msgstr "búrka snehových krúpkov"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "showers of sleet"
+msgstr "prehánky snehových krúpov"
+
+#. HAIL
+#: ../libgweather/gweather-weather.c:225
+msgid "hail"
+msgstr "krúpy"
+
+#: ../libgweather/gweather-weather.c:225
+msgid "hailstorm"
+msgstr "krupobitie"
+
+#: ../libgweather/gweather-weather.c:225
+msgid "hail showers"
+msgstr "spŕšky krúp"
+
+#. SMALL_HAIL
+#: ../libgweather/gweather-weather.c:226
+msgid "small hail"
+msgstr "malé krúpy"
+
+#: ../libgweather/gweather-weather.c:226
+msgid "small hailstorm"
+msgstr "krupobitie s malými krúpami"
+
+#: ../libgweather/gweather-weather.c:226
+msgid "showers of small hail"
+msgstr "spŕšky malých krúp"
+
+#. PRECIPITATION
+#: ../libgweather/gweather-weather.c:227
+msgid "unknown precipitation"
+msgstr "neznáme zrážky"
+
+#. MIST
+#: ../libgweather/gweather-weather.c:228
+msgid "mist"
+msgstr "opar"
+
+#. FOG
+#: ../libgweather/gweather-weather.c:229
+msgid "fog"
+msgstr "hmla"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "fog in the vicinity"
+msgstr "hmla v okolí"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "shallow fog"
+msgstr "slabá hmla"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "patches of fog"
+msgstr "občasná hmla"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "partial fog"
+msgstr "čiastočná hmla"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "freezing fog"
+msgstr "mrznúca hmla"
+
+#. SMOKE
+#: ../libgweather/gweather-weather.c:230
+msgid "smoke"
+msgstr "dym"
+
+#. VOLCANIC_ASH
+#: ../libgweather/gweather-weather.c:231
+msgid "volcanic ash"
+msgstr "sopečný popol"
+
+#. SAND
+#: ../libgweather/gweather-weather.c:232
+msgid "sand"
+msgstr "piesok"
+
+#: ../libgweather/gweather-weather.c:232
+msgid "blowing sand"
+msgstr "viaty piesok"
+
+#: ../libgweather/gweather-weather.c:232
+msgid "drifting sand"
+msgstr "zvírený piesok"
+
+#. HAZE
+#: ../libgweather/gweather-weather.c:233
+msgid "haze"
+msgstr "opar"
+
+#. SPRAY
+#: ../libgweather/gweather-weather.c:234
+msgid "blowing sprays"
+msgstr "viate jemné spŕšky"
+
+#. DUST
+#: ../libgweather/gweather-weather.c:235
+msgid "dust"
+msgstr "prach"
+
+#: ../libgweather/gweather-weather.c:235
+msgid "blowing dust"
+msgstr "viaty prach"
+
+#: ../libgweather/gweather-weather.c:235
+msgid "drifting dust"
+msgstr "zvírený prach"
+
+#. SQUALL
+#: ../libgweather/gweather-weather.c:236
+msgid "squall"
+msgstr "víchor"
+
+#. SANDSTORM
+#: ../libgweather/gweather-weather.c:237
+msgid "sandstorm"
+msgstr "piesočná búrka"
+
+#: ../libgweather/gweather-weather.c:237
+msgid "sandstorm in the vicinity"
+msgstr "piesočná búrka v okolí"
+
+#: ../libgweather/gweather-weather.c:237
+msgid "heavy sandstorm"
+msgstr "silná piesočná búrka"
+
+#. DUSTSTORM
+#: ../libgweather/gweather-weather.c:238
+msgid "duststorm"
+msgstr "prachová búrka"
+
+#: ../libgweather/gweather-weather.c:238
+msgid "duststorm in the vicinity"
+msgstr "prachová búrka v okolí"
+
+#: ../libgweather/gweather-weather.c:238
+msgid "heavy duststorm"
+msgstr "silná prachová búrka"
+
+#. FUNNEL_CLOUD
+#: ../libgweather/gweather-weather.c:239
+msgid "funnel cloud"
+msgstr "vzdušné tornádo"
+
+#. TORNADO
+#: ../libgweather/gweather-weather.c:240
+msgid "tornado"
+msgstr "tornádo"
+
+#. DUST_WHIRLS
+#: ../libgweather/gweather-weather.c:241
+msgid "dust whirls"
+msgstr "prachové víry"
+
+#: ../libgweather/gweather-weather.c:241
+msgid "dust whirls in the vicinity"
+msgstr "prachové víry v okolí"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
+#. NONE
+#: ../libgweather/gweather-weather.c:254 ../libgweather/gweather-weather.c:256
 msgid "Thunderstorm"
 msgstr "Búrka"
 
 #. DRIZZLE
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Drizzle"
 msgstr "Mrholenie"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Light drizzle"
 msgstr "Slabé mrholenie"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Moderate drizzle"
 msgstr "Mierne mrholenie"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Heavy drizzle"
 msgstr "Husté mrholenie"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Freezing drizzle"
 msgstr "Mrznúce mrholenie"
 
 #. RAIN
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Rain"
 msgstr "Dážď"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Light rain"
 msgstr "Slabý dážď"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Moderate rain"
 msgstr "Mierny dážď"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Heavy rain"
 msgstr "Hustý dážď"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Rain showers"
 msgstr "Prehánky"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Freezing rain"
 msgstr "Mrznúci dážď"
 
 #. SNOW
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Snow"
 msgstr "Sneženie"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Light snow"
 msgstr "Slabé sneženie"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Moderate snow"
 msgstr "Mierne sneženie"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Heavy snow"
 msgstr "Husté sneženie"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Snowstorm"
 msgstr "Fujavica"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Blowing snowfall"
 msgstr "Záveje"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Snow showers"
 msgstr "Snehové prehánky"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Drifting snow"
 msgstr "Snehové jazyky"
 
 #. SNOW_GRAINS
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Snow grains"
 msgstr "Zľadovatelý sneh"
 
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Light snow grains"
 msgstr "Slabo zľadovatelý sneh"
 
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Moderate snow grains"
 msgstr "Mierne zľadovatelý sneh"
 
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Heavy snow grains"
 msgstr "Silno zľadovatelý sneh"
 
 #. ICE_CRYSTALS
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:259
 msgid "Ice crystals"
 msgstr "Ľadové kryštály"
 
 #. ICE_PELLETS
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Sleet"
 msgstr "Snehové krúpky"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Little sleet"
 msgstr "Slabé snehové krúpky"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Moderate sleet"
 msgstr "Mierne snehové krúpky"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Heavy sleet"
 msgstr "Husté snehové krúpky"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Sleet storm"
 msgstr "Búrka snehových krúpkov"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Showers of sleet"
 msgstr "Prehánky snehových krúpkov"
 
 #. HAIL
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:261
 msgid "Hail"
 msgstr "Krúpy"
 
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:261
 msgid "Hailstorm"
 msgstr "Krupobitie"
 
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:261
 msgid "Hail showers"
 msgstr "Spŕšky krúp"
 
 #. SMALL_HAIL
-#: ../libgweather/gweather-weather.c:182
+#: ../libgweather/gweather-weather.c:262
 msgid "Small hail"
 msgstr "Malé krúpy"
 
-#: ../libgweather/gweather-weather.c:182
+#: ../libgweather/gweather-weather.c:262
 msgid "Small hailstorm"
 msgstr "Krupobitie s malými krúpami"
 
-#: ../libgweather/gweather-weather.c:182
+#: ../libgweather/gweather-weather.c:262
 msgid "Showers of small hail"
 msgstr "Spŕšky malých krúp"
 
 #. PRECIPITATION
-#: ../libgweather/gweather-weather.c:183
+#: ../libgweather/gweather-weather.c:263
 msgid "Unknown precipitation"
 msgstr "Neznáme zrážky"
 
 #. MIST
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:264
 msgid "Mist"
 msgstr "Opar"
 
 #. FOG
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Fog"
 msgstr "Hmla"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Fog in the vicinity"
 msgstr "Hmla v okolí"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Shallow fog"
 msgstr "Slabá hmla"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Patches of fog"
 msgstr "Občasná hmla"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Partial fog"
 msgstr "Čiastočná hmla"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Freezing fog"
 msgstr "Mrznúca hmla"
 
 #. SMOKE
-#: ../libgweather/gweather-weather.c:186
+#: ../libgweather/gweather-weather.c:266
 msgid "Smoke"
 msgstr "Dym"
 
 #. VOLCANIC_ASH
-#: ../libgweather/gweather-weather.c:187
+#: ../libgweather/gweather-weather.c:267
 msgid "Volcanic ash"
 msgstr "Sopečný popol"
 
 #. SAND
-#: ../libgweather/gweather-weather.c:188
+#: ../libgweather/gweather-weather.c:268
 msgid "Sand"
 msgstr "Piesok"
 
-#: ../libgweather/gweather-weather.c:188
+#: ../libgweather/gweather-weather.c:268
 msgid "Blowing sand"
 msgstr "Viaty piesok"
 
-#: ../libgweather/gweather-weather.c:188
+#: ../libgweather/gweather-weather.c:268
 msgid "Drifting sand"
 msgstr "Zvírený piesok"
 
 #. HAZE
-#: ../libgweather/gweather-weather.c:189
+#: ../libgweather/gweather-weather.c:269
 msgid "Haze"
 msgstr "Opar"
 
 #. SPRAY
-#: ../libgweather/gweather-weather.c:190
+#: ../libgweather/gweather-weather.c:270
 msgid "Blowing sprays"
 msgstr "Viate jemné spŕšky"
 
 #. DUST
-#: ../libgweather/gweather-weather.c:191
+#: ../libgweather/gweather-weather.c:271
 msgid "Dust"
 msgstr "Prach"
 
-#: ../libgweather/gweather-weather.c:191
+#: ../libgweather/gweather-weather.c:271
 msgid "Blowing dust"
 msgstr "Viaty prach"
 
-#: ../libgweather/gweather-weather.c:191
+#: ../libgweather/gweather-weather.c:271
 msgid "Drifting dust"
 msgstr "Zvírený prach"
 
 #. SQUALL
-#: ../libgweather/gweather-weather.c:192
+#: ../libgweather/gweather-weather.c:272
 msgid "Squall"
 msgstr "Víchor"
 
 #. SANDSTORM
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:273
 msgid "Sandstorm"
 msgstr "Piesočná búrka"
 
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:273
 msgid "Sandstorm in the vicinity"
 msgstr "Piesočná búrka v okolí"
 
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:273
 msgid "Heavy sandstorm"
 msgstr "Silná piesočná búrka"
 
 #. DUSTSTORM
-#: ../libgweather/gweather-weather.c:194
+#: ../libgweather/gweather-weather.c:274
 msgid "Duststorm"
 msgstr "Prachová búrka"
 
-#: ../libgweather/gweather-weather.c:194
+#: ../libgweather/gweather-weather.c:274
 msgid "Duststorm in the vicinity"
 msgstr "Prachová búrka v okolí"
 
-#: ../libgweather/gweather-weather.c:194
+#: ../libgweather/gweather-weather.c:274
 msgid "Heavy duststorm"
 msgstr "Silná prachová búrka"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/gweather-weather.c:195
+#: ../libgweather/gweather-weather.c:275
 msgid "Funnel cloud"
 msgstr "Vzdušné tornádo"
 
 #. TORNADO
-#: ../libgweather/gweather-weather.c:196
+#: ../libgweather/gweather-weather.c:276
 msgid "Tornado"
 msgstr "Tornádo"
 
 #. DUST_WHIRLS
-#: ../libgweather/gweather-weather.c:197
+#: ../libgweather/gweather-weather.c:277
 msgid "Dust whirls"
 msgstr "Prachové víry"
 
-#: ../libgweather/gweather-weather.c:197
+#: ../libgweather/gweather-weather.c:277
 msgid "Dust whirls in the vicinity"
 msgstr "Prachové víry v okolí"
 
-#: ../libgweather/gweather-weather.c:709
+#: ../libgweather/gweather-weather.c:800
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a, %e. %b / %H∶%M"
 
-#: ../libgweather/gweather-weather.c:715
+#: ../libgweather/gweather-weather.c:806
 msgid "Unknown observation time"
 msgstr "Neznámy čas pozorovania"
 
-#: ../libgweather/gweather-weather.c:727
+#: ../libgweather/gweather-weather.c:818
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Neznáme"
@@ -475,92 +880,89 @@ msgstr "Neznáme"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: ../libgweather/gweather-weather.c:749
+#: ../libgweather/gweather-weather.c:840
 msgid "default:mm"
 msgstr "default:mm"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
-#: ../libgweather/gweather-weather.c:801
+#: ../libgweather/gweather-weather.c:892
 #, c-format
-#| msgid "%.1f K"
 msgid "%.1f ℉"
 msgstr "%.1f ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
-#: ../libgweather/gweather-weather.c:804
+#: ../libgweather/gweather-weather.c:895
 #, c-format
 msgid "%d ℉"
 msgstr "%d ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
-#: ../libgweather/gweather-weather.c:810
+#: ../libgweather/gweather-weather.c:901
 #, c-format
-#| msgid "%.1f K"
 msgid "%.1f ℃"
 msgstr "%.1f ℃"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
-#: ../libgweather/gweather-weather.c:813
+#: ../libgweather/gweather-weather.c:904
 #, c-format
 msgid "%d ℃"
 msgstr "%d ℃"
 
 #. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
-#: ../libgweather/gweather-weather.c:819
+#: ../libgweather/gweather-weather.c:910
 #, c-format
-#| msgid "%.1f K"
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
-#: ../libgweather/gweather-weather.c:822
+#: ../libgweather/gweather-weather.c:913
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: ../libgweather/gweather-weather.c:845 ../libgweather/gweather-weather.c:861
-#: ../libgweather/gweather-weather.c:877 ../libgweather/gweather-weather.c:939
+#: ../libgweather/gweather-weather.c:936 ../libgweather/gweather-weather.c:952
+#: ../libgweather/gweather-weather.c:968 ../libgweather/gweather-weather.c:1030
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Neznáma"
 
-#: ../libgweather/gweather-weather.c:899
+#: ../libgweather/gweather-weather.c:990
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Neznáma"
 
 # * https://bugzilla.gnome.org/show_bug.cgi?id=693274
-#: ../libgweather/gweather-weather.c:919
+#: ../libgweather/gweather-weather.c:1010
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Neznáma"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/gweather-weather.c:922
+#: ../libgweather/gweather-weather.c:1013
 #, c-format
 msgid "%.f%%"
 msgstr "%.f %%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/gweather-weather.c:968
+#: ../libgweather/gweather-weather.c:1059
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f uzlov"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/gweather-weather.c:971
+#: ../libgweather/gweather-weather.c:1062
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/gweather-weather.c:974
+#: ../libgweather/gweather-weather.c:1065
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/gweather-weather.c:977
+#: ../libgweather/gweather-weather.c:1068
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -568,96 +970,96 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/gweather-weather.c:982
+#: ../libgweather/gweather-weather.c:1073
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Beaufortova sila %.1f"
 
-#: ../libgweather/gweather-weather.c:1003
+#: ../libgweather/gweather-weather.c:1094
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Neznáma"
 
-#: ../libgweather/gweather-weather.c:1005
+#: ../libgweather/gweather-weather.c:1096
 msgid "Calm"
 msgstr "Bezvetrie"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/gweather-weather.c:1013
+#: ../libgweather/gweather-weather.c:1104
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/gweather-weather.c:1049
+#: ../libgweather/gweather-weather.c:1140
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Neznámy"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/gweather-weather.c:1055
+#: ../libgweather/gweather-weather.c:1146
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/gweather-weather.c:1058
+#: ../libgweather/gweather-weather.c:1149
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/gweather-weather.c:1061
+#: ../libgweather/gweather-weather.c:1152
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/gweather-weather.c:1064
+#: ../libgweather/gweather-weather.c:1155
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/gweather-weather.c:1067
+#: ../libgweather/gweather-weather.c:1158
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mbar"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/gweather-weather.c:1070
+#: ../libgweather/gweather-weather.c:1161
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#: ../libgweather/gweather-weather.c:1108
+#: ../libgweather/gweather-weather.c:1199
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Neznáma"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/gweather-weather.c:1114
+#: ../libgweather/gweather-weather.c:1205
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f míľ"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/gweather-weather.c:1117
+#: ../libgweather/gweather-weather.c:1208
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/gweather-weather.c:1120
+#: ../libgweather/gweather-weather.c:1211
 #, c-format
 msgid "%.0fm"
 msgstr "%.0f m"
 
-#: ../libgweather/gweather-weather.c:1148
-#: ../libgweather/gweather-weather.c:1173
+#: ../libgweather/gweather-weather.c:1239
+#: ../libgweather/gweather-weather.c:1264
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
-#: ../libgweather/gweather-weather.c:1267
+#: ../libgweather/gweather-weather.c:1358
 msgid "Retrieval failed"
 msgstr "Získanie zlyhalo"
 
