@@ -61,10 +61,9 @@ libgweather_internal_3_la_CPPFLAGS = \
 
 libgweather_internal_3_la_LIBADD = \
 	$(LIBM)		\
-	$(DEPS_LIBS)	\
-	$(REGEX_LIBS)
+	$(DEPS_LIBS)
 
-libgweather_3_la_SOURCES = 
+libgweather_3_la_SOURCES =
 libgweather_3_la_LIBADD = libgweather-internal-3.la
 libgweather_3_la_LDFLAGS = \
 	-export-symbols-regex "^gweather_(.*)" \

@@ -77,15 +77,6 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Gettext Package])
 
 dnl ***************************************************************************
-dnl ***  REGEX                                                              ***
-dnl ***************************************************************************
-AC_CHECK_FUNCS(regexec,,[AC_CHECK_LIB(regex,regexec,
-               [REGEX_LIBS=-lregex],
-               [AC_MSG_ERROR([No regex library found])])])
-AC_SUBST(REGEX_LIBS)
-
-
-dnl ***************************************************************************
 dnl *** Check for presence of tm.tm_gmtoff on the system                    ***
 dnl ***************************************************************************
 AC_CHECK_MEMBER([struct tm.tm_gmtoff],[struct_tm_tm_gmtoff=true],[struct_tm_tm_gmtoff=false],[#include <time.h>])

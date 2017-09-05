@@ -1,4 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /* weather-metar.c - Weather server functions (METAR)
  *
  * This program is free software; you can redistribute it and/or
@@ -23,7 +23,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
-#include <regex.h>
 
 #include "gweather-private.h"
 
@@ -463,7 +462,7 @@ metar_tok_cond (gchar *tokp, GWeatherInfo *info)
 #define RE_PREFIX "(^| )("
 #define RE_SUFFIX ")( |$)"
 
-static regex_t metar_re[RE_NUM];
+static GRegex *metar_re[RE_NUM];
 static void (*metar_f[RE_NUM]) (gchar *tokp, GWeatherInfo *info);
 
 static void
@@ -474,13 +473,13 @@ metar_init_re (void)
         return;
     initialized = TRUE;
 
-    regcomp (&metar_re[TIME_RE], RE_PREFIX TIME_RE_STR RE_SUFFIX, REG_EXTENDED);
-    regcomp (&metar_re[WIND_RE], RE_PREFIX WIND_RE_STR RE_SUFFIX, REG_EXTENDED);
-    regcomp (&metar_re[VIS_RE], RE_PREFIX VIS_RE_STR RE_SUFFIX, REG_EXTENDED);
-    regcomp (&metar_re[COND_RE], RE_PREFIX COND_RE_STR RE_SUFFIX, REG_EXTENDED);
-    regcomp (&metar_re[CLOUD_RE], RE_PREFIX CLOUD_RE_STR RE_SUFFIX, REG_EXTENDED);
-    regcomp (&metar_re[TEMP_RE], RE_PREFIX TEMP_RE_STR RE_SUFFIX, REG_EXTENDED);
-    regcomp (&metar_re[PRES_RE], RE_PREFIX PRES_RE_STR RE_SUFFIX, REG_EXTENDED);
+    metar_re[TIME_RE] = g_regex_new (RE_PREFIX TIME_RE_STR RE_SUFFIX, G_REGEX_OPTIMIZE, 0, NULL);
+    metar_re[WIND_RE] = g_regex_new (RE_PREFIX WIND_RE_STR RE_SUFFIX, G_REGEX_OPTIMIZE, 0, NULL);
+    metar_re[VIS_RE] = g_regex_new (RE_PREFIX VIS_RE_STR RE_SUFFIX, G_REGEX_OPTIMIZE, 0, NULL);
+    metar_re[COND_RE] = g_regex_new (RE_PREFIX COND_RE_STR RE_SUFFIX, G_REGEX_OPTIMIZE, 0, NULL);
+    metar_re[CLOUD_RE] = g_regex_new (RE_PREFIX CLOUD_RE_STR RE_SUFFIX, G_REGEX_OPTIMIZE, 0, NULL);
+    metar_re[TEMP_RE] = g_regex_new (RE_PREFIX TEMP_RE_STR RE_SUFFIX, G_REGEX_OPTIMIZE, 0, NULL);
+    metar_re[PRES_RE] = g_regex_new (RE_PREFIX PRES_RE_STR RE_SUFFIX, G_REGEX_OPTIMIZE, 0, NULL);
 
     metar_f[TIME_RE] = metar_tok_time;
     metar_f[WIND_RE] = metar_tok_wind;
@@ -497,7 +496,6 @@ metar_parse (gchar *metar, GWeatherInfo *info)
     gchar *p;
     //gchar *rmk;
     gint i, i2;
-    regmatch_t rm, rm2;
     gchar *tokp;
 
     g_return_val_if_fail (info != NULL, FALSE);
@@ -512,40 +510,50 @@ metar_parse (gchar *metar, GWeatherInfo *info)
      */
     if (0 != (p = strstr (metar, " RMK "))) {
         *p = '\0';
-	//rmk = p + 5;   // uncomment this if RMK data becomes useful
+        //rmk = p + 5;   // uncomment this if RMK data becomes useful
     }
 
     p = metar;
     i = TIME_RE;
     while (*p) {
+        int token_start, token_end;
 
         i2 = RE_NUM;
-	rm2.rm_so = strlen (p);
-	rm2.rm_eo = rm2.rm_so;
+        token_start = strlen(p);
+        token_end = token_start;
 
-        for (i = 0; i < RE_NUM && rm2.rm_so > 0; i++) {
-	    if (0 == regexec (&metar_re[i], p, 1, &rm, 0)
-		&& rm.rm_so < rm2.rm_so)
-	    {
-	        i2 = i;
-		/* Skip leading and trailing space characters, if present.
-		   (the regular expressions include those characters to
-		   only get matches limited to whole words). */
-		if (p[rm.rm_so] == ' ') rm.rm_so++;
-		if (p[rm.rm_eo - 1] == ' ') rm.rm_eo--;
-	        rm2.rm_so = rm.rm_so;
-		rm2.rm_eo = rm.rm_eo;
-	    }
-	}
+        for (i = 0; i < RE_NUM; i++) {
+            GMatchInfo *match_info;
 
-	if (i2 != RE_NUM) {
-	    tokp = g_strndup (p + rm2.rm_so, rm2.rm_eo - rm2.rm_so);
-	    metar_f[i2] (tokp, info);
-	    g_free (tokp);
-	}
+            if (g_regex_match_full (metar_re[i], p, -1, 0, 0, &match_info, NULL))
+            {
+                int tmp_token_start, tmp_token_end;
+                /* Skip leading and trailing space characters, if present.
+                   (the regular expressions include those characters to
+                   only get matches limited to whole words). */
+                g_match_info_fetch_pos (match_info, 0, &tmp_token_start, &tmp_token_end);
+                if (p[tmp_token_start] == ' ') tmp_token_start++;
+                if (p[tmp_token_end - 1] == ' ') tmp_token_end--;
 
-	p += rm2.rm_eo;
-	p += strspn (p, " ");
+                /* choose the regular expression with the earliest match */
+                if (tmp_token_start < token_start) {
+                    i2 = i;
+                    token_start = tmp_token_start;
+                    token_end = tmp_token_end;
+                }
+            }
+
+            g_match_info_unref (match_info);
+        }
+
+        if (i2 != RE_NUM) {
+            tokp = g_strndup (p + token_start, token_end - token_start);
+            metar_f[i2] (tokp, info);
+            g_free (tokp);
+        }
+
+        p += token_end;
+        p += strspn (p, " ");
     }
     return TRUE;
 }
