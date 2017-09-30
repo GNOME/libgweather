@@ -12,10 +12,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets gnome-2-12\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-15 23:38+0000\n"
-"PO-Revision-Date: 2016-09-13 14:57+0430\n"
+"POT-Creation-Date: 2017-08-20 13:24+0000\n"
+"PO-Revision-Date: 2017-10-01 00:33+0330\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: Persian\n"
 "Language: fa\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 2.0.4\n"
 
 #: ../data/glade/libgweather.xml.in.h:1
 msgid "Location Entry"
@@ -41,9 +41,9 @@ msgstr "منطقه زمانی"
 msgid "GWeather"
 msgstr "آب و هوای گنوم"
 
-#: ../libgweather/gweather-location-entry.c:784
-msgid "Loading..."
-msgstr "در حال بارگیری..."
+#: ../libgweather/gweather-location-entry.c:792
+msgid "Loading…"
+msgstr "در حال بارگیری…"
 
 #: ../libgweather/gweather-timezone.c:341
 msgid "Greenwich Mean Time"
@@ -54,404 +54,793 @@ msgctxt "timezone"
 msgid "Unknown"
 msgstr "ناشناخته"
 
-#: ../libgweather/gweather-weather.c:113
+#: ../libgweather/gweather-weather.c:120
+msgid "variable"
+msgstr "متغیر"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "north"
+msgstr "شمال"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "north — northeast"
+msgstr "شمال — شمال شرقی"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "northeast"
+msgstr "شمال شرقی"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "east — northeast"
+msgstr "شرق — جنوب شرقی"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "east"
+msgstr "شمال شرقی"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "east — southeast"
+msgstr "شرق — جنوب شرقی"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "southeast"
+msgstr "جنوب شرقی"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "south — southeast"
+msgstr "جنوب — جنوب شرقی"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "south"
+msgstr "جنوب"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "south — southwest"
+msgstr "جنوب — جنوب غربی"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "southwest"
+msgstr "جنوب غربی"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "west — southwest"
+msgstr "غرب — جنوب غربی"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "west"
+msgstr "جنوب غربی"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "west — northwest"
+msgstr "غرب — شمال غربی"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "northwest"
+msgstr "شمال غربی"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "north — northwest"
+msgstr "شمال — شمال غربی"
+
+#: ../libgweather/gweather-weather.c:128
 msgid "Variable"
 msgstr "متغیر"
 
-#: ../libgweather/gweather-weather.c:114
+#: ../libgweather/gweather-weather.c:129
 msgid "North"
 msgstr "شمال"
 
-#: ../libgweather/gweather-weather.c:114
-msgid "North - NorthEast"
-msgstr "شمال ‐ شمال شرقی"
+#: ../libgweather/gweather-weather.c:129
+msgid "North — Northeast"
+msgstr "شمال — شمال شرقی"
 
-#: ../libgweather/gweather-weather.c:114
+#: ../libgweather/gweather-weather.c:129
 msgid "Northeast"
 msgstr "شمال شرقی"
 
-#: ../libgweather/gweather-weather.c:114
-msgid "East - NorthEast"
-msgstr "شرق ‐ شمال شرقی"
+#: ../libgweather/gweather-weather.c:129
+msgid "East — Northeast"
+msgstr "شرق — شمال شرقی"
 
-#: ../libgweather/gweather-weather.c:115
+#: ../libgweather/gweather-weather.c:130
 msgid "East"
 msgstr "شرق"
 
-#: ../libgweather/gweather-weather.c:115
-msgid "East - Southeast"
-msgstr "شرق ‐ جنوب شرقی"
+#: ../libgweather/gweather-weather.c:130
+msgid "East — Southeast"
+msgstr "شرق — جنوب شرقی"
 
-#: ../libgweather/gweather-weather.c:115
+#: ../libgweather/gweather-weather.c:130
 msgid "Southeast"
 msgstr "جنوب شرقی"
 
-#: ../libgweather/gweather-weather.c:115
-msgid "South - Southeast"
-msgstr "جنوب ‐ جنوب شرقی"
+#: ../libgweather/gweather-weather.c:130
+msgid "South — Southeast"
+msgstr "جنوب — جنوب شرقی"
 
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:131
 msgid "South"
 msgstr "جنوب"
 
-#: ../libgweather/gweather-weather.c:116
-msgid "South - Southwest"
-msgstr "جنوب ‐ جنوب غربی"
+#: ../libgweather/gweather-weather.c:131
+msgid "South — Southwest"
+msgstr "جنوب — جنوب غربی"
 
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:131
 msgid "Southwest"
 msgstr "جنوب غربی"
 
-#: ../libgweather/gweather-weather.c:116
-msgid "West - Southwest"
-msgstr "غرب ‐ جنوب غربی"
+#: ../libgweather/gweather-weather.c:131
+msgid "West — Southwest"
+msgstr "غرب — جنوب غربی"
 
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:132
 msgid "West"
 msgstr "غرب"
 
-#: ../libgweather/gweather-weather.c:117
-msgid "West - Northwest"
-msgstr "غرب ‐ شمال غربی"
+#: ../libgweather/gweather-weather.c:132
+msgid "West — Northwest"
+msgstr "غرب — شمال غربی"
 
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:132
 msgid "Northwest"
 msgstr "شمال غربی"
 
-#: ../libgweather/gweather-weather.c:117
-msgid "North - Northwest"
-msgstr "شمال ‐ شمال غربی"
+#: ../libgweather/gweather-weather.c:132
+msgid "North — Northwest"
+msgstr "شمال — شمال غربی"
 
-#: ../libgweather/gweather-weather.c:124
+#: ../libgweather/gweather-weather.c:142
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "نامعتبر"
 
-#: ../libgweather/gweather-weather.c:130
-msgid "Clear Sky"
+#: ../libgweather/gweather-weather.c:143
+msgctxt "wind direction"
+msgid "invalid"
+msgstr "نامعتبر"
+
+#: ../libgweather/gweather-weather.c:156
+msgid "clear sky"
 msgstr "آسمان صاف"
 
-#: ../libgweather/gweather-weather.c:131
+#: ../libgweather/gweather-weather.c:157
+msgid "broken clouds"
+msgstr "نیمه‌ابری"
+
+#: ../libgweather/gweather-weather.c:158
+msgid "scattered clouds"
+msgstr "ابرهای پراکنده"
+
+#: ../libgweather/gweather-weather.c:159
+msgid "few clouds"
+msgstr "ابرهای اندک"
+
+#: ../libgweather/gweather-weather.c:160
+msgid "overcast"
+msgstr "ابری"
+
+#: ../libgweather/gweather-weather.c:164
+msgid "Clear sky"
+msgstr "آسمان صاف"
+
+#: ../libgweather/gweather-weather.c:165
 msgid "Broken clouds"
 msgstr "نیمه‌ابری"
 
-#: ../libgweather/gweather-weather.c:132
+#: ../libgweather/gweather-weather.c:166
 msgid "Scattered clouds"
 msgstr "ابرهای پراکنده"
 
-#: ../libgweather/gweather-weather.c:133
+#: ../libgweather/gweather-weather.c:167
 msgid "Few clouds"
 msgstr "ابرهای اندک"
 
-#: ../libgweather/gweather-weather.c:134
+#: ../libgweather/gweather-weather.c:168
 msgid "Overcast"
 msgstr "ابری"
 
-#: ../libgweather/gweather-weather.c:141 ../libgweather/gweather-weather.c:213
+#: ../libgweather/gweather-weather.c:184 ../libgweather/gweather-weather.c:298
 msgctxt "sky conditions"
 msgid "Invalid"
+msgstr "نامعتبر"
+
+#: ../libgweather/gweather-weather.c:185 ../libgweather/gweather-weather.c:299
+msgctxt "sky conditions"
+msgid "invalid"
 msgstr "نامعتبر"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/gweather-weather.c:173 ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:218 ../libgweather/gweather-weather.c:220
+msgid "thunderstorm"
+msgstr "طوفان و رعد و برق"
+
+#. DRIZZLE
+#: ../libgweather/gweather-weather.c:219
+msgid "drizzle"
+msgstr "باران ریز"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "light drizzle"
+msgstr "باران ریز سبک"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "moderate drizzle"
+msgstr "باران ریز متوسط"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "heavy drizzle"
+msgstr "باران ریز سنگین"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "freezing drizzle"
+msgstr "باران ریز یخ زده"
+
+#. RAIN
+#: ../libgweather/gweather-weather.c:220
+msgid "rain"
+msgstr "باران"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "light rain"
+msgstr "باران سبک"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "moderate rain"
+msgstr "باران معتدل"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "heavy rain"
+msgstr "باران سنگین"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "rain showers"
+msgstr "رگبار باران"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "freezing rain"
+msgstr "باران یخ زده"
+
+#. SNOW
+#: ../libgweather/gweather-weather.c:221
+msgid "snow"
+msgstr "برف"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "light snow"
+msgstr "برف سبک"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "moderate snow"
+msgstr "برف معتدل"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "heavy snow"
+msgstr "برف سنگین"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "snowstorm"
+msgstr "کولاک"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "blowing snowfall"
+msgstr "ریزش برف همراه با باد"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "snow showers"
+msgstr "رگبار برف"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "drifting snow"
+msgstr "برف خیزان"
+
+#. SNOW_GRAINS
+#: ../libgweather/gweather-weather.c:222
+msgid "snow grains"
+msgstr "برف یخ‌زده"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "light snow grains"
+msgstr "برف یخ‌زده‌ی سبک"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "moderate snow grains"
+msgstr "برف یخ‌زده‌ی متوسط"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "heavy snow grains"
+msgstr "برف یخ‌زده‌ی سنگین"
+
+#. ICE_CRYSTALS
+#: ../libgweather/gweather-weather.c:223
+msgid "ice crystals"
+msgstr "بلور‌های یخ"
+
+#. ICE_PELLETS
+#: ../libgweather/gweather-weather.c:224
+msgid "sleet"
+msgstr "بوران"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "little sleet"
+msgstr "بوران اندک"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "moderate sleet"
+msgstr "بوران معتدل"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "heavy sleet"
+msgstr "بوران سنگین"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "sleet storm"
+msgstr "بوران طوفانی"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "showers of sleet"
+msgstr "تگرگ و بوران"
+
+#. HAIL
+#: ../libgweather/gweather-weather.c:225
+msgid "hail"
+msgstr "تگرگ"
+
+#: ../libgweather/gweather-weather.c:225
+msgid "hailstorm"
+msgstr "طوفان تگرگ"
+
+#: ../libgweather/gweather-weather.c:225
+msgid "hail showers"
+msgstr "رگبار تگرگ"
+
+#. SMALL_HAIL
+#: ../libgweather/gweather-weather.c:226
+msgid "small hail"
+msgstr "تگرگ ریز"
+
+#: ../libgweather/gweather-weather.c:226
+msgid "small hailstorm"
+msgstr "طوفان تگرگ ریز"
+
+#: ../libgweather/gweather-weather.c:226
+msgid "showers of small hail"
+msgstr "رگبار تگرگ ریز"
+
+#. PRECIPITATION
+#: ../libgweather/gweather-weather.c:227
+msgid "unknown precipitation"
+msgstr "بارش نامعلوم"
+
+#. MIST
+#: ../libgweather/gweather-weather.c:228
+msgid "mist"
+msgstr "مه"
+
+#. FOG
+#: ../libgweather/gweather-weather.c:229
+msgid "fog"
+msgstr "مه"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "fog in the vicinity"
+msgstr "مه در حوالی"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "shallow fog"
+msgstr "مه کم عمق"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "patches of fog"
+msgstr "مه تکه تکه"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "partial fog"
+msgstr "مه ناتمام"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "freezing fog"
+msgstr "مه یخ زده"
+
+#. SMOKE
+#: ../libgweather/gweather-weather.c:230
+msgid "smoke"
+msgstr "دود"
+
+#. VOLCANIC_ASH
+#: ../libgweather/gweather-weather.c:231
+msgid "volcanic ash"
+msgstr "خاکستر آتشفشانی"
+
+#. SAND
+#: ../libgweather/gweather-weather.c:232
+msgid "sand"
+msgstr "شن"
+
+#: ../libgweather/gweather-weather.c:232
+msgid "blowing sand"
+msgstr "شن‌باد"
+
+#: ../libgweather/gweather-weather.c:232
+msgid "drifting sand"
+msgstr "شن خیزان"
+
+#. HAZE
+#: ../libgweather/gweather-weather.c:233
+msgid "haze"
+msgstr "مه کم"
+
+#. SPRAY
+#: ../libgweather/gweather-weather.c:234
+msgid "blowing sprays"
+msgstr "قطرات ریز باران همراه با باد"
+
+#. DUST
+#: ../libgweather/gweather-weather.c:235
+msgid "dust"
+msgstr "گرد و خاک"
+
+#: ../libgweather/gweather-weather.c:235
+msgid "blowing dust"
+msgstr "گرد و خاک با باد"
+
+#: ../libgweather/gweather-weather.c:235
+msgid "drifting dust"
+msgstr "غبار خیزان"
+
+#. SQUALL
+#: ../libgweather/gweather-weather.c:236
+msgid "squall"
+msgstr "باد و بوران"
+
+#. SANDSTORM
+#: ../libgweather/gweather-weather.c:237
+msgid "sandstorm"
+msgstr "توفان شن"
+
+#: ../libgweather/gweather-weather.c:237
+msgid "sandstorm in the vicinity"
+msgstr "توفان شن در حوالی"
+
+#: ../libgweather/gweather-weather.c:237
+msgid "heavy sandstorm"
+msgstr "توفان شن سنگین"
+
+#. DUSTSTORM
+#: ../libgweather/gweather-weather.c:238
+msgid "duststorm"
+msgstr "دیوباد"
+
+#: ../libgweather/gweather-weather.c:238
+msgid "duststorm in the vicinity"
+msgstr "دیوباد در حومه"
+
+#: ../libgweather/gweather-weather.c:238
+msgid "heavy duststorm"
+msgstr "دیوباد سنگین"
+
+#. FUNNEL_CLOUD
+#: ../libgweather/gweather-weather.c:239
+msgid "funnel cloud"
+msgstr "ابر فونل(دودکشی)"
+
+#. TORNADO
+#: ../libgweather/gweather-weather.c:240
+msgid "tornado"
+msgstr "توفان پیچنده"
+
+#. DUST_WHIRLS
+#: ../libgweather/gweather-weather.c:241
+msgid "dust whirls"
+msgstr "گرداب‌های گرد و خاک"
+
+#: ../libgweather/gweather-weather.c:241
+msgid "dust whirls in the vicinity"
+msgstr "گرداب‌های گرد و خاک در حومه"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
+#. NONE
+#: ../libgweather/gweather-weather.c:254 ../libgweather/gweather-weather.c:256
 msgid "Thunderstorm"
 msgstr "طوفان و رعد و برق"
 
 #. DRIZZLE
-#: ../libgweather/gweather-weather.c:174
+#: ../libgweather/gweather-weather.c:255
 msgid "Drizzle"
 msgstr "باران ریز"
 
-#: ../libgweather/gweather-weather.c:174
+#: ../libgweather/gweather-weather.c:255
 msgid "Light drizzle"
 msgstr "باران ریز سبک"
 
-#: ../libgweather/gweather-weather.c:174
+#: ../libgweather/gweather-weather.c:255
 msgid "Moderate drizzle"
 msgstr "باران ریز متوسط"
 
-#: ../libgweather/gweather-weather.c:174
+#: ../libgweather/gweather-weather.c:255
 msgid "Heavy drizzle"
 msgstr "باران ریز سنگین"
 
-#: ../libgweather/gweather-weather.c:174
+#: ../libgweather/gweather-weather.c:255
 msgid "Freezing drizzle"
 msgstr "باران ریز یخ زده"
 
 #. RAIN
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:256
 msgid "Rain"
 msgstr "باران"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:256
 msgid "Light rain"
 msgstr "باران سبک"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:256
 msgid "Moderate rain"
 msgstr "باران معتدل"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:256
 msgid "Heavy rain"
 msgstr "باران سنگین"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:256
 msgid "Rain showers"
 msgstr "رگبار باران"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:256
 msgid "Freezing rain"
 msgstr "باران یخ زده"
 
 #. SNOW
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Snow"
 msgstr "برف"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Light snow"
 msgstr "برف سبک"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Moderate snow"
 msgstr "برف معتدل"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Heavy snow"
 msgstr "برف سنگین"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Snowstorm"
 msgstr "کولاک"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Blowing snowfall"
 msgstr "ریزش برف همراه با باد"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Snow showers"
 msgstr "رگبار برف"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:257
 msgid "Drifting snow"
 msgstr "برف خیزان"
 
 #. SNOW_GRAINS
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:258
 msgid "Snow grains"
 msgstr "برف یخ‌زده"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:258
 msgid "Light snow grains"
 msgstr "برف یخ‌زده‌ی سبک"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:258
 msgid "Moderate snow grains"
 msgstr "برف یخ‌زده‌ی متوسط"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:258
 msgid "Heavy snow grains"
 msgstr "برف یخ‌زده‌ی سنگین"
 
 #. ICE_CRYSTALS
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:259
 msgid "Ice crystals"
 msgstr "بلور‌های یخ"
 
 #. ICE_PELLETS
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:260
 msgid "Sleet"
 msgstr "بوران"
 
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:260
 msgid "Little sleet"
 msgstr "بوران اندک"
 
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:260
 msgid "Moderate sleet"
 msgstr "بوران معتدل"
 
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:260
 msgid "Heavy sleet"
 msgstr "بوران سنگین"
 
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:260
 msgid "Sleet storm"
 msgstr "بوران طوفانی"
 
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:260
 msgid "Showers of sleet"
 msgstr "تگرگ و بوران"
 
 #. HAIL
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:261
 msgid "Hail"
 msgstr "تگرگ"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:261
 msgid "Hailstorm"
 msgstr "طوفان تگرگ"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:261
 msgid "Hail showers"
 msgstr "رگبار تگرگ"
 
 #. SMALL_HAIL
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:262
 msgid "Small hail"
 msgstr "تگرگ ریز"
 
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:262
 msgid "Small hailstorm"
 msgstr "طوفان تگرگ ریز"
 
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:262
 msgid "Showers of small hail"
 msgstr "رگبار تگرگ ریز"
 
 #. PRECIPITATION
-#: ../libgweather/gweather-weather.c:182
+#: ../libgweather/gweather-weather.c:263
 msgid "Unknown precipitation"
 msgstr "بارش نامعلوم"
 
 #. MIST
-#: ../libgweather/gweather-weather.c:183
+#: ../libgweather/gweather-weather.c:264
 msgid "Mist"
 msgstr "مه رقیق"
 
 #. FOG
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:265
 msgid "Fog"
 msgstr "مه"
 
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:265
 msgid "Fog in the vicinity"
 msgstr "مه در حوالی"
 
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:265
 msgid "Shallow fog"
 msgstr "مه کم عمق"
 
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:265
 msgid "Patches of fog"
 msgstr "مه تکه تکه"
 
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:265
 msgid "Partial fog"
 msgstr "مه ناتمام"
 
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:265
 msgid "Freezing fog"
 msgstr "مه یخ زده"
 
 #. SMOKE
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:266
 msgid "Smoke"
 msgstr "دود"
 
 #. VOLCANIC_ASH
-#: ../libgweather/gweather-weather.c:186
+#: ../libgweather/gweather-weather.c:267
 msgid "Volcanic ash"
 msgstr "خاکستر آتشفشانی"
 
 #. SAND
-#: ../libgweather/gweather-weather.c:187
+#: ../libgweather/gweather-weather.c:268
 msgid "Sand"
 msgstr "شن"
 
-#: ../libgweather/gweather-weather.c:187
+#: ../libgweather/gweather-weather.c:268
 msgid "Blowing sand"
 msgstr "شن‌باد"
 
-#: ../libgweather/gweather-weather.c:187
+#: ../libgweather/gweather-weather.c:268
 msgid "Drifting sand"
 msgstr "شن خیزان"
 
 #. HAZE
-#: ../libgweather/gweather-weather.c:188
+#: ../libgweather/gweather-weather.c:269
 msgid "Haze"
 msgstr "تیرگی هوا"
 
 #. SPRAY
-#: ../libgweather/gweather-weather.c:189
+#: ../libgweather/gweather-weather.c:270
 msgid "Blowing sprays"
 msgstr "قطرات ریز باران همراه با باد"
 
 #. DUST
-#: ../libgweather/gweather-weather.c:190
+#: ../libgweather/gweather-weather.c:271
 msgid "Dust"
 msgstr "غبار"
 
-#: ../libgweather/gweather-weather.c:190
+#: ../libgweather/gweather-weather.c:271
 msgid "Blowing dust"
 msgstr "گرد و خاک با باد"
 
-#: ../libgweather/gweather-weather.c:190
+#: ../libgweather/gweather-weather.c:271
 msgid "Drifting dust"
 msgstr "غبار خیزان"
 
 #. SQUALL
-#: ../libgweather/gweather-weather.c:191
+#: ../libgweather/gweather-weather.c:272
 msgid "Squall"
 msgstr "باد و بوران"
 
 #. SANDSTORM
-#: ../libgweather/gweather-weather.c:192
+#: ../libgweather/gweather-weather.c:273
 msgid "Sandstorm"
 msgstr "توفان شن"
 
-#: ../libgweather/gweather-weather.c:192
+#: ../libgweather/gweather-weather.c:273
 msgid "Sandstorm in the vicinity"
 msgstr "توفان شن در حوالی"
 
-#: ../libgweather/gweather-weather.c:192
+#: ../libgweather/gweather-weather.c:273
 msgid "Heavy sandstorm"
 msgstr "توفان شن سنگین"
 
 #. DUSTSTORM
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:274
 msgid "Duststorm"
 msgstr "دیوباد"
 
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:274
 msgid "Duststorm in the vicinity"
 msgstr "دیوباد در حومه"
 
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:274
 msgid "Heavy duststorm"
 msgstr "دیوباد سنگین"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/gweather-weather.c:194
+#: ../libgweather/gweather-weather.c:275
 msgid "Funnel cloud"
 msgstr "ابر فونل(دودکشی)"
 
 #. TORNADO
-#: ../libgweather/gweather-weather.c:195
+#: ../libgweather/gweather-weather.c:276
 msgid "Tornado"
 msgstr "توفان پیچنده"
 
 #. DUST_WHIRLS
-#: ../libgweather/gweather-weather.c:196
+#: ../libgweather/gweather-weather.c:277
 msgid "Dust whirls"
 msgstr "گرداب‌های گرد و خاک"
 
-#: ../libgweather/gweather-weather.c:196
+#: ../libgweather/gweather-weather.c:277
 msgid "Dust whirls in the vicinity"
 msgstr "گرداب‌های گرد و خاک در حومه"
 
-#: ../libgweather/gweather-weather.c:705
+#: ../libgweather/gweather-weather.c:800
 msgid "%a, %b %d / %H∶%M"
 msgstr "%A %Od %B / %OH:%OM"
 
-#: ../libgweather/gweather-weather.c:711
+#: ../libgweather/gweather-weather.c:806
 msgid "Unknown observation time"
 msgstr "زمان رصد نامشخص"
 
-#: ../libgweather/gweather-weather.c:723
+#: ../libgweather/gweather-weather.c:818
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "نامعلوم"
@@ -462,88 +851,88 @@ msgstr "نامعلوم"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: ../libgweather/gweather-weather.c:745
+#: ../libgweather/gweather-weather.c:840
 msgid "default:mm"
 msgstr "default:mm"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:797
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
+#: ../libgweather/gweather-weather.c:892
 #, c-format
-msgid "%.1f °F"
-msgstr "‏%I.1f درجه‌ی فارنهایت‬"
+msgid "%.1f ℉"
+msgstr "%I.1f ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:800
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
+#: ../libgweather/gweather-weather.c:895
 #, c-format
-msgid "%d °F"
-msgstr "‎%Id °F‬"
+msgid "%d ℉"
+msgstr "‎%Id ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:806
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#: ../libgweather/gweather-weather.c:901
 #, c-format
-msgid "%.1f °C"
-msgstr "‏%I.1f درجه‌ی سلسیوس‬"
+msgid "%.1f ℃"
+msgstr "%I.1f ℃"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:809
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#: ../libgweather/gweather-weather.c:904
 #, c-format
-msgid "%d °C"
-msgstr "‎%Id ‬°C"
+msgid "%d ℃"
+msgstr "‎%Id ℃"
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/gweather-weather.c:815
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#: ../libgweather/gweather-weather.c:910
 #, c-format
-msgid "%.1f K"
-msgstr "‏%I.1f درجه‌ی کلوین‬"
+msgid "%.1f K"
+msgstr "%I.1f K"
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/gweather-weather.c:818
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#: ../libgweather/gweather-weather.c:913
 #, c-format
-msgid "%d K"
-msgstr "‎%Id K"
+msgid "%d K"
+msgstr "%Id K"
 
-#: ../libgweather/gweather-weather.c:841 ../libgweather/gweather-weather.c:857
-#: ../libgweather/gweather-weather.c:873 ../libgweather/gweather-weather.c:935
+#: ../libgweather/gweather-weather.c:936 ../libgweather/gweather-weather.c:952
+#: ../libgweather/gweather-weather.c:968 ../libgweather/gweather-weather.c:1030
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "نامعلوم"
 
-#: ../libgweather/gweather-weather.c:895
+#: ../libgweather/gweather-weather.c:990
 msgctxt "dew"
 msgid "Unknown"
 msgstr "نامعلوم"
 
-#: ../libgweather/gweather-weather.c:915
+#: ../libgweather/gweather-weather.c:1010
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "نامعلوم"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/gweather-weather.c:918
+#: ../libgweather/gweather-weather.c:1013
 #, c-format
 msgid "%.f%%"
 msgstr "‪٪%I.f‬"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/gweather-weather.c:964
+#: ../libgweather/gweather-weather.c:1059
 #, c-format
 msgid "%0.1f knots"
 msgstr "%I0.1f گره‌"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/gweather-weather.c:967
+#: ../libgweather/gweather-weather.c:1062
 #, c-format
 msgid "%.1f mph"
 msgstr "%I.1f مایل بر ساعت"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/gweather-weather.c:970
+#: ../libgweather/gweather-weather.c:1065
 #, c-format
 msgid "%.1f km/h"
 msgstr "%I.1f کیلومتر بر ساعت"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/gweather-weather.c:973
+#: ../libgweather/gweather-weather.c:1068
 #, c-format
 msgid "%.1f m/s"
 msgstr "%I.1f متر بر ساعت"
@@ -551,98 +940,99 @@ msgstr "%I.1f متر بر ساعت"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/gweather-weather.c:978
+#: ../libgweather/gweather-weather.c:1073
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "نیروی بوفورت %.1f"
 
-#: ../libgweather/gweather-weather.c:999
+#: ../libgweather/gweather-weather.c:1094
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "نامعلوم"
 
-#: ../libgweather/gweather-weather.c:1001
+#: ../libgweather/gweather-weather.c:1096
 msgid "Calm"
 msgstr "آرام"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/gweather-weather.c:1009
+#: ../libgweather/gweather-weather.c:1104
 #, c-format
 msgid "%s / %s"
 msgstr "‏%s‏ / ‏%s‏"
 
-#: ../libgweather/gweather-weather.c:1045
+#: ../libgweather/gweather-weather.c:1140
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "نامعلوم"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/gweather-weather.c:1051
+#: ../libgweather/gweather-weather.c:1146
 #, c-format
 msgid "%.2f inHg"
 msgstr "%I.2f اینچ جیوه"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/gweather-weather.c:1054
+#: ../libgweather/gweather-weather.c:1149
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%I.1f میلی‌متر جیوه"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/gweather-weather.c:1057
+#: ../libgweather/gweather-weather.c:1152
 #, c-format
 msgid "%.2f kPa"
 msgstr "%I.2f کیلوپاسکال"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/gweather-weather.c:1060
+#: ../libgweather/gweather-weather.c:1155
 #, c-format
 msgid "%.2f hPa"
 msgstr "%I.2f هکتوپاسکال"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/gweather-weather.c:1063
+#: ../libgweather/gweather-weather.c:1158
 #, c-format
 msgid "%.2f mb"
 msgstr "%I.2f میلی‌بار"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/gweather-weather.c:1066
+#: ../libgweather/gweather-weather.c:1161
 #, c-format
 msgid "%.3f atm"
 msgstr "%I.3f اتمسفر"
 
-#: ../libgweather/gweather-weather.c:1104
+#: ../libgweather/gweather-weather.c:1199
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "نامعلوم"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/gweather-weather.c:1110
+#: ../libgweather/gweather-weather.c:1205
 #, c-format
 msgid "%.1f miles"
 msgstr "%I.1f مایل"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/gweather-weather.c:1113
+#: ../libgweather/gweather-weather.c:1208
 #, c-format
 msgid "%.1f km"
 msgstr "%I.1f کیلومتر"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/gweather-weather.c:1116
+#: ../libgweather/gweather-weather.c:1211
 #, c-format
 msgid "%.0fm"
 msgstr "%I.0f متر"
 
-#: ../libgweather/gweather-weather.c:1144 ../libgweather/gweather-weather.c:1169
+#: ../libgweather/gweather-weather.c:1239 ../libgweather/gweather-weather.c:1264
 msgid "%H∶%M"
 msgstr "%OH∶%OM"
 
-#: ../libgweather/gweather-weather.c:1263
+#: ../libgweather/gweather-weather.c:1358
 msgid "Retrieval failed"
 msgstr "بازیابی شکست خورد"
 
+#. Translators: %d is an error code, and %s the error string
 #: ../libgweather/weather-metar.c:573
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
@@ -687,8 +1077,8 @@ msgstr "واحد دما"
 
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:4
 msgid ""
-"The unit of temperature used for showing weather. Valid values are 'kelvin', "
-"'centigrade' and 'fahrenheit'."
+"The unit of temperature used for showing weather. Valid values are “kelvin”, "
+"“centigrade” and “fahrenheit”."
 msgstr ""
 "واحد دما جهت نمایش آب‌وهوا. مقادیر معتبر عبارتند از 'kelvin' ،'centigrade' و "
 "'fahrenheit'."
@@ -700,7 +1090,7 @@ msgstr "واحد فاصله"
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:6
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or "
-"for distance of important events). Valid values are 'meters', 'km' and 'miles'."
+"for distance of important events). Valid values are “meters”, “km” and “miles”."
 msgstr ""
 "واحد مسافت که برای نمایش آب‌وهوا استفاده می‌شود (برای مثال جهت قابلیت دید و یا "
 "مسافت رویدادهای مهم). مقادیر معتبر عبارتند از 'meters' ،'km' و 'miles'."
@@ -712,8 +1102,8 @@ msgstr "واحد سرعت"
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:8
 msgid ""
 "The unit of speed used for showing weather (for example for wind speed). Valid "
-"values are 'ms' (meters per second), 'kph' (kilometers per hour), 'mph' (miles "
-"per hour), 'knots' and 'bft' (Beaufort scale)."
+"values are “ms” (meters per second), “kph” (kilometers per hour), “mph” (miles "
+"per hour), “knots” and “bft” (Beaufort scale)."
 msgstr ""
 "واحد سرعت که برای نمایش آب‌وهوا استفاده می‌شود (برای مثال جهت سرعت باد). مقادیر "
 "معتبر عبارتند از 'ms' (متر بر ثانبه)، 'kph' (کیلومتر بر ساعت)، 'mph' (مایل بر "
@@ -726,9 +1116,9 @@ msgstr "واحد فشار"
 #: ../schemas/org.gnome.GWeather.gschema.xml.h:10
 msgid ""
 "The unit of pressure used for showing weather. Valid values are "
-"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
-"equivalent to 1 hPa but shown differently), 'mm-hg' (millimiters of mercury), "
-"'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+"“kpa” (kilopascal), “hpa” (hectopascal), “mb” (millibar, mathematically "
+"equivalent to 1 hPa but shown differently), “mm-hg” (millimiters of mercury), "
+"“inch-hg” (inches of mercury), “atm” (atmospheres)."
 msgstr ""
 "واحد فشار که برای نمایش آب‌وهوا مورد استفاده قرار می‌گیرد. مقادیر معتبر عبارتند "
 "از 'kpa' (کلیوپاسکال), 'hpa' (هکتوپاسکال), 'mb' (میلی‌بار، از لحاظ ریاضی معادل "
@@ -756,6 +1146,24 @@ msgstr ""
 "longitude) است، تا مقادیر دریافت شده از بانک اطلاعاتی را بازنویسی کند. این "
 "تنها فقط برای محاسبات غروب و حالت ماه استفاده می‌شود و در پیش‌بینی هوا تاثیری "
 "ندارد."
+
+#~ msgid "%.1f °F"
+#~ msgstr "‏%I.1f درجه‌ی فارنهایت‬"
+
+#~ msgid "%d °F"
+#~ msgstr "‎%Id °F‬"
+
+#~ msgid "%.1f °C"
+#~ msgstr "‏%I.1f درجه‌ی سلسیوس‬"
+
+#~ msgid "%d °C"
+#~ msgstr "‎%Id ‬°C"
+
+#~ msgid "%.1f K"
+#~ msgstr "‏%I.1f درجه‌ی کلوین‬"
+
+#~ msgid "%d K"
+#~ msgstr "‎%Id K"
 
 #~ msgid "Ice pellets"
 #~ msgstr "گلوله‌های یخ"
@@ -982,22 +1390,6 @@ msgstr ""
 
 #~ msgid "Weather location information."
 #~ msgstr "اطلاعات مکان آب و هوا."
-
-#, fuzzy
-#~ msgid "%.1f ℉"
-#~ msgstr "‏%I.1f درجه‌ی کلوین‬"
-
-#, fuzzy
-#~ msgid "%d ℉"
-#~ msgstr "‎%Id K"
-
-#, fuzzy
-#~ msgid "%.1f ℃"
-#~ msgstr "‏%I.1f درجه‌ی کلوین‬"
-
-#, fuzzy
-#~ msgid "%d ℃"
-#~ msgstr "‎%Id K"
 
 #~ msgid "_About"
 #~ msgstr "_درباره"
