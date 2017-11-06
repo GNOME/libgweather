@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgweather 3.23.x\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-12-22 16:00+0000\n"
-"PO-Revision-Date: 2017-02-18 11:25+0100\n"
+"Project-Id-Version: libgweather 3.26.x\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=libgweather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-08-20 13:24+0000\n"
+"PO-Revision-Date: 2017-11-06 14:07+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -46,404 +46,793 @@ msgctxt "timezone"
 msgid "Unknown"
 msgstr "Ukjent"
 
-#: ../libgweather/gweather-weather.c:114
+#: ../libgweather/gweather-weather.c:120
+msgid "variable"
+msgstr "variabel"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "north"
+msgstr "nord"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "north — northeast"
+msgstr "nord – nordøst"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "northeast"
+msgstr "nordøst"
+
+#: ../libgweather/gweather-weather.c:121
+msgid "east — northeast"
+msgstr "øst – nordøst"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "east"
+msgstr "øst"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "east — southeast"
+msgstr "øst – sørøst"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "southeast"
+msgstr "sørøst"
+
+#: ../libgweather/gweather-weather.c:122
+msgid "south — southeast"
+msgstr "sør – sørøst"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "south"
+msgstr "sør"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "south — southwest"
+msgstr "sør – sørvest"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "southwest"
+msgstr "sørvest"
+
+#: ../libgweather/gweather-weather.c:123
+msgid "west — southwest"
+msgstr "vest – sørvest"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "west"
+msgstr "vest"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "west — northwest"
+msgstr "vest – nordvest"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "northwest"
+msgstr "nordvest"
+
+#: ../libgweather/gweather-weather.c:124
+msgid "north — northwest"
+msgstr "nord – nordvest"
+
+#: ../libgweather/gweather-weather.c:128
 msgid "Variable"
 msgstr "Variabel"
 
-#: ../libgweather/gweather-weather.c:115
+#: ../libgweather/gweather-weather.c:129
 msgid "North"
 msgstr "Nord"
 
-#: ../libgweather/gweather-weather.c:115
-msgid "North — NorthEast"
-msgstr "Nord – nordøst"
+#: ../libgweather/gweather-weather.c:129
+msgid "North — Northeast"
+msgstr "Nord – Nordøst"
 
-#: ../libgweather/gweather-weather.c:115
+#: ../libgweather/gweather-weather.c:129
 msgid "Northeast"
 msgstr "Nordøst"
 
-#: ../libgweather/gweather-weather.c:115
-msgid "East — NorthEast"
+#: ../libgweather/gweather-weather.c:129
+msgid "East — Northeast"
 msgstr "Øst – nordøst"
 
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:130
 msgid "East"
 msgstr "Øst"
 
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:130
 msgid "East — Southeast"
 msgstr "Øst – sørøst"
 
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:130
 msgid "Southeast"
 msgstr "Sørøst"
 
-#: ../libgweather/gweather-weather.c:116
+#: ../libgweather/gweather-weather.c:130
 msgid "South — Southeast"
 msgstr "Sør – sørøst"
 
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:131
 msgid "South"
 msgstr "Sør"
 
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:131
 msgid "South — Southwest"
 msgstr "Sør – sørvest"
 
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:131
 msgid "Southwest"
 msgstr "Sørvest"
 
-#: ../libgweather/gweather-weather.c:117
+#: ../libgweather/gweather-weather.c:131
 msgid "West — Southwest"
 msgstr "Vest – sørvest"
 
-#: ../libgweather/gweather-weather.c:118
+#: ../libgweather/gweather-weather.c:132
 msgid "West"
 msgstr "Vest"
 
-#: ../libgweather/gweather-weather.c:118
+#: ../libgweather/gweather-weather.c:132
 msgid "West — Northwest"
 msgstr "Vest – nordvest"
 
-#: ../libgweather/gweather-weather.c:118
+#: ../libgweather/gweather-weather.c:132
 msgid "Northwest"
 msgstr "Nordvest"
 
-#: ../libgweather/gweather-weather.c:118
+#: ../libgweather/gweather-weather.c:132
 msgid "North — Northwest"
 msgstr "Nord – nordvest"
 
-#: ../libgweather/gweather-weather.c:125
+#: ../libgweather/gweather-weather.c:142
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "Ugyldig"
 
-#: ../libgweather/gweather-weather.c:131
-msgid "Clear Sky"
+#: ../libgweather/gweather-weather.c:143
+msgctxt "wind direction"
+msgid "invalid"
+msgstr "ugyldig"
+
+#: ../libgweather/gweather-weather.c:156
+msgid "clear sky"
+msgstr "klar himmel"
+
+#: ../libgweather/gweather-weather.c:157
+msgid "broken clouds"
+msgstr "brutte skyer"
+
+#: ../libgweather/gweather-weather.c:158
+msgid "scattered clouds"
+msgstr "spredte skyer"
+
+#: ../libgweather/gweather-weather.c:159
+msgid "few clouds"
+msgstr "få skyer"
+
+#: ../libgweather/gweather-weather.c:160
+msgid "overcast"
+msgstr "overskyet"
+
+#: ../libgweather/gweather-weather.c:164
+msgid "Clear sky"
 msgstr "Klar himmel"
 
-#: ../libgweather/gweather-weather.c:132
+#: ../libgweather/gweather-weather.c:165
 msgid "Broken clouds"
 msgstr "Brutte skyer"
 
-#: ../libgweather/gweather-weather.c:133
+#: ../libgweather/gweather-weather.c:166
 msgid "Scattered clouds"
 msgstr "Spredte skyer"
 
-#: ../libgweather/gweather-weather.c:134
+#: ../libgweather/gweather-weather.c:167
 msgid "Few clouds"
 msgstr "Få skyer"
 
-#: ../libgweather/gweather-weather.c:135
+#: ../libgweather/gweather-weather.c:168
 msgid "Overcast"
 msgstr "Overskyet"
 
-#: ../libgweather/gweather-weather.c:142 ../libgweather/gweather-weather.c:214
+#: ../libgweather/gweather-weather.c:184 ../libgweather/gweather-weather.c:298
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "Ugyldig"
+
+#: ../libgweather/gweather-weather.c:185 ../libgweather/gweather-weather.c:299
+msgctxt "sky conditions"
+msgid "invalid"
+msgstr "ugyldig"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/gweather-weather.c:174 ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:218 ../libgweather/gweather-weather.c:220
+msgid "thunderstorm"
+msgstr "tordenstorm"
+
+#. DRIZZLE
+#: ../libgweather/gweather-weather.c:219
+msgid "drizzle"
+msgstr "småregn"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "light drizzle"
+msgstr "lett småregn"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "moderate drizzle"
+msgstr "moderat småregn"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "heavy drizzle"
+msgstr "tungt småregn"
+
+#: ../libgweather/gweather-weather.c:219
+msgid "freezing drizzle"
+msgstr "frysende småregn"
+
+#. RAIN
+#: ../libgweather/gweather-weather.c:220
+msgid "rain"
+msgstr "regn"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "light rain"
+msgstr "lett regn"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "moderate rain"
+msgstr "moderat regn"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "heavy rain"
+msgstr "tungt regn"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "rain showers"
+msgstr "regnbyger"
+
+#: ../libgweather/gweather-weather.c:220
+msgid "freezing rain"
+msgstr "frysende regn"
+
+#. SNOW
+#: ../libgweather/gweather-weather.c:221
+msgid "snow"
+msgstr "snø"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "light snow"
+msgstr "lett snø"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "moderate snow"
+msgstr "moderat snø"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "heavy snow"
+msgstr "tung snø"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "snowstorm"
+msgstr "snøstorm"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "blowing snowfall"
+msgstr "snø og vind"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "snow showers"
+msgstr "snøbyger"
+
+#: ../libgweather/gweather-weather.c:221
+msgid "drifting snow"
+msgstr "drivende snø"
+
+#. SNOW_GRAINS
+#: ../libgweather/gweather-weather.c:222
+msgid "snow grains"
+msgstr "snøkorn"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "light snow grains"
+msgstr "lette snøkorn"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "moderate snow grains"
+msgstr "moderate snøkorn"
+
+#: ../libgweather/gweather-weather.c:222
+msgid "heavy snow grains"
+msgstr "tunge snøkorn"
+
+#. ICE_CRYSTALS
+#: ../libgweather/gweather-weather.c:223
+msgid "ice crystals"
+msgstr "iskrystaller"
+
+#. ICE_PELLETS
+#: ../libgweather/gweather-weather.c:224
+msgid "sleet"
+msgstr "sludd"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "little sleet"
+msgstr "litt sludd"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "moderate sleet"
+msgstr "moderat sludd"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "heavy sleet"
+msgstr "tungt sludd"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "sleet storm"
+msgstr "sluddstorm"
+
+#: ../libgweather/gweather-weather.c:224
+msgid "showers of sleet"
+msgstr "dusjer med sludd"
+
+#. HAIL
+#: ../libgweather/gweather-weather.c:225
+msgid "hail"
+msgstr "hagl"
+
+#: ../libgweather/gweather-weather.c:225
+msgid "hailstorm"
+msgstr "haglstorm"
+
+#: ../libgweather/gweather-weather.c:225
+msgid "hail showers"
+msgstr "haglbyger"
+
+#. SMALL_HAIL
+#: ../libgweather/gweather-weather.c:226
+msgid "small hail"
+msgstr "småhagl"
+
+#: ../libgweather/gweather-weather.c:226
+msgid "small hailstorm"
+msgstr "liten haglstorm"
+
+#: ../libgweather/gweather-weather.c:226
+msgid "showers of small hail"
+msgstr "byger med småhagl"
+
+#. PRECIPITATION
+#: ../libgweather/gweather-weather.c:227
+msgid "unknown precipitation"
+msgstr "ukjent nedbør"
+
+#. MIST
+#: ../libgweather/gweather-weather.c:228
+msgid "mist"
+msgstr "tåke"
+
+#. FOG
+#: ../libgweather/gweather-weather.c:229
+msgid "fog"
+msgstr "dis"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "fog in the vicinity"
+msgstr "dis i området"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "shallow fog"
+msgstr "grunn dis"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "patches of fog"
+msgstr "områder med dis"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "partial fog"
+msgstr "delvis dis"
+
+#: ../libgweather/gweather-weather.c:229
+msgid "freezing fog"
+msgstr "frysende dis"
+
+#. SMOKE
+#: ../libgweather/gweather-weather.c:230
+msgid "smoke"
+msgstr "røyk"
+
+#. VOLCANIC_ASH
+#: ../libgweather/gweather-weather.c:231
+msgid "volcanic ash"
+msgstr "vulkansk aske"
+
+#. SAND
+#: ../libgweather/gweather-weather.c:232
+msgid "sand"
+msgstr "sand"
+
+#: ../libgweather/gweather-weather.c:232
+msgid "blowing sand"
+msgstr "blåsende sand"
+
+#: ../libgweather/gweather-weather.c:232
+msgid "drifting sand"
+msgstr "drivende sand"
+
+#. HAZE
+#: ../libgweather/gweather-weather.c:233
+msgid "haze"
+msgstr "dis"
+
+#. SPRAY
+#: ../libgweather/gweather-weather.c:234
+msgid "blowing sprays"
+msgstr "blåsende yr"
+
+#. DUST
+#: ../libgweather/gweather-weather.c:235
+msgid "dust"
+msgstr "støv"
+
+#: ../libgweather/gweather-weather.c:235
+msgid "blowing dust"
+msgstr "blåsende støv"
+
+#: ../libgweather/gweather-weather.c:235
+msgid "drifting dust"
+msgstr "drivende støv"
+
+#. SQUALL
+#: ../libgweather/gweather-weather.c:236
+msgid "squall"
+msgstr "bygekast"
+
+#. SANDSTORM
+#: ../libgweather/gweather-weather.c:237
+msgid "sandstorm"
+msgstr "sandstorm"
+
+#: ../libgweather/gweather-weather.c:237
+msgid "sandstorm in the vicinity"
+msgstr "sandstorm i omegnen"
+
+#: ../libgweather/gweather-weather.c:237
+msgid "heavy sandstorm"
+msgstr "tung sandstorm"
+
+#. DUSTSTORM
+#: ../libgweather/gweather-weather.c:238
+msgid "duststorm"
+msgstr "støvstorm"
+
+#: ../libgweather/gweather-weather.c:238
+msgid "duststorm in the vicinity"
+msgstr "støvstorm i omegnen"
+
+#: ../libgweather/gweather-weather.c:238
+msgid "heavy duststorm"
+msgstr "tung støvstorm"
+
+#. FUNNEL_CLOUD
+#: ../libgweather/gweather-weather.c:239
+msgid "funnel cloud"
+msgstr "røyksky"
+
+#. TORNADO
+#: ../libgweather/gweather-weather.c:240
+msgid "tornado"
+msgstr "tornado"
+
+#. DUST_WHIRLS
+#: ../libgweather/gweather-weather.c:241
+msgid "dust whirls"
+msgstr "støvvirvler"
+
+#: ../libgweather/gweather-weather.c:241
+msgid "dust whirls in the vicinity"
+msgstr "støvvirvler i omegnen"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
+#. NONE
+#: ../libgweather/gweather-weather.c:254 ../libgweather/gweather-weather.c:256
 msgid "Thunderstorm"
 msgstr "Tordenstorm"
 
 #. DRIZZLE
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Drizzle"
 msgstr "Småregn"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Light drizzle"
 msgstr "Lett regn"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Moderate drizzle"
 msgstr "Moderat småregn"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Heavy drizzle"
 msgstr "Tungt småregn"
 
-#: ../libgweather/gweather-weather.c:175
+#: ../libgweather/gweather-weather.c:255
 msgid "Freezing drizzle"
 msgstr "Frysende småregn"
 
 #. RAIN
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Rain"
 msgstr "Regn"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Light rain"
 msgstr "Lett regn"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Moderate rain"
 msgstr "Moderat regn"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Heavy rain"
 msgstr "Tungt regn"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Rain showers"
 msgstr "Regnbyger"
 
-#: ../libgweather/gweather-weather.c:176
+#: ../libgweather/gweather-weather.c:256
 msgid "Freezing rain"
 msgstr "Frysende regn"
 
 #. SNOW
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Snow"
 msgstr "Snø"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Light snow"
 msgstr "Lett snø"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Moderate snow"
 msgstr "Moderat snø"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Heavy snow"
 msgstr "Tung snø"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Snowstorm"
 msgstr "Snøstorm"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Blowing snowfall"
 msgstr "Snø og vind"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Snow showers"
 msgstr "Snøbyger"
 
-#: ../libgweather/gweather-weather.c:177
+#: ../libgweather/gweather-weather.c:257
 msgid "Drifting snow"
 msgstr "Drivende snø"
 
 #. SNOW_GRAINS
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Snow grains"
 msgstr "Snøkorn"
 
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Light snow grains"
 msgstr "Lette snøkorn"
 
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Moderate snow grains"
 msgstr "Moderate snøkorn"
 
-#: ../libgweather/gweather-weather.c:178
+#: ../libgweather/gweather-weather.c:258
 msgid "Heavy snow grains"
 msgstr "Tunge snøkorn"
 
 #. ICE_CRYSTALS
-#: ../libgweather/gweather-weather.c:179
+#: ../libgweather/gweather-weather.c:259
 msgid "Ice crystals"
 msgstr "Iskrystaller"
 
 #. ICE_PELLETS
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Sleet"
 msgstr "Sludd"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Little sleet"
 msgstr "Litt sludd"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Moderate sleet"
 msgstr "Moderat sludd"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Heavy sleet"
 msgstr "Tungt sludd"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Sleet storm"
 msgstr "Sluddstorm"
 
-#: ../libgweather/gweather-weather.c:180
+#: ../libgweather/gweather-weather.c:260
 msgid "Showers of sleet"
 msgstr "Dusjer med sludd"
 
 #. HAIL
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:261
 msgid "Hail"
 msgstr "Hagl"
 
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:261
 msgid "Hailstorm"
 msgstr "Haglstorm"
 
-#: ../libgweather/gweather-weather.c:181
+#: ../libgweather/gweather-weather.c:261
 msgid "Hail showers"
 msgstr "Haglbyger"
 
 #. SMALL_HAIL
-#: ../libgweather/gweather-weather.c:182
+#: ../libgweather/gweather-weather.c:262
 msgid "Small hail"
 msgstr "Småhagl"
 
-#: ../libgweather/gweather-weather.c:182
+#: ../libgweather/gweather-weather.c:262
 msgid "Small hailstorm"
 msgstr "Liten haglstorm"
 
-#: ../libgweather/gweather-weather.c:182
+#: ../libgweather/gweather-weather.c:262
 msgid "Showers of small hail"
 msgstr "Byger med småhagl"
 
 #. PRECIPITATION
-#: ../libgweather/gweather-weather.c:183
+#: ../libgweather/gweather-weather.c:263
 msgid "Unknown precipitation"
 msgstr "Ukjent nedbør"
 
 #. MIST
-#: ../libgweather/gweather-weather.c:184
+#: ../libgweather/gweather-weather.c:264
 msgid "Mist"
 msgstr "Tåke"
 
 #. FOG
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Fog"
 msgstr "Dis"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Fog in the vicinity"
 msgstr "Dis i området"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Shallow fog"
 msgstr "Grunn dis"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Patches of fog"
 msgstr "Områder med dis"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Partial fog"
 msgstr "Delvis dis"
 
-#: ../libgweather/gweather-weather.c:185
+#: ../libgweather/gweather-weather.c:265
 msgid "Freezing fog"
 msgstr "Frysende dis"
 
 #. SMOKE
-#: ../libgweather/gweather-weather.c:186
+#: ../libgweather/gweather-weather.c:266
 msgid "Smoke"
 msgstr "Røyk"
 
 #. VOLCANIC_ASH
-#: ../libgweather/gweather-weather.c:187
+#: ../libgweather/gweather-weather.c:267
 msgid "Volcanic ash"
 msgstr "Vulkansk aske"
 
 #. SAND
-#: ../libgweather/gweather-weather.c:188
+#: ../libgweather/gweather-weather.c:268
 msgid "Sand"
 msgstr "Sand"
 
-#: ../libgweather/gweather-weather.c:188
+#: ../libgweather/gweather-weather.c:268
 msgid "Blowing sand"
 msgstr "Blåsende sand"
 
-#: ../libgweather/gweather-weather.c:188
+#: ../libgweather/gweather-weather.c:268
 msgid "Drifting sand"
 msgstr "Drivende sand"
 
 #. HAZE
-#: ../libgweather/gweather-weather.c:189
+#: ../libgweather/gweather-weather.c:269
 msgid "Haze"
 msgstr "Dis"
 
 #. SPRAY
-#: ../libgweather/gweather-weather.c:190
+#: ../libgweather/gweather-weather.c:270
 msgid "Blowing sprays"
 msgstr "Blåsende yr"
 
 #. DUST
-#: ../libgweather/gweather-weather.c:191
+#: ../libgweather/gweather-weather.c:271
 msgid "Dust"
 msgstr "Støv"
 
-#: ../libgweather/gweather-weather.c:191
+#: ../libgweather/gweather-weather.c:271
 msgid "Blowing dust"
 msgstr "Blåsende støv"
 
-#: ../libgweather/gweather-weather.c:191
+#: ../libgweather/gweather-weather.c:271
 msgid "Drifting dust"
 msgstr "Drivende støv"
 
 #. SQUALL
-#: ../libgweather/gweather-weather.c:192
+#: ../libgweather/gweather-weather.c:272
 msgid "Squall"
 msgstr "Bygekast"
 
 #. SANDSTORM
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:273
 msgid "Sandstorm"
 msgstr "Sandstorm"
 
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:273
 msgid "Sandstorm in the vicinity"
 msgstr "Sandstorm i omegnen"
 
-#: ../libgweather/gweather-weather.c:193
+#: ../libgweather/gweather-weather.c:273
 msgid "Heavy sandstorm"
 msgstr "Tung sandstorm"
 
 #. DUSTSTORM
-#: ../libgweather/gweather-weather.c:194
+#: ../libgweather/gweather-weather.c:274
 msgid "Duststorm"
 msgstr "Støvstorm"
 
-#: ../libgweather/gweather-weather.c:194
+#: ../libgweather/gweather-weather.c:274
 msgid "Duststorm in the vicinity"
 msgstr "Støvstorm i omegnen"
 
-#: ../libgweather/gweather-weather.c:194
+#: ../libgweather/gweather-weather.c:274
 msgid "Heavy duststorm"
 msgstr "Tung støvstorm"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/gweather-weather.c:195
+#: ../libgweather/gweather-weather.c:275
 msgid "Funnel cloud"
 msgstr "Røyksky"
 
 #. TORNADO
-#: ../libgweather/gweather-weather.c:196
+#: ../libgweather/gweather-weather.c:276
 msgid "Tornado"
 msgstr "Tornado"
 
 #. DUST_WHIRLS
-#: ../libgweather/gweather-weather.c:197
+#: ../libgweather/gweather-weather.c:277
 msgid "Dust whirls"
 msgstr "Støvvirvler"
 
-#: ../libgweather/gweather-weather.c:197
+#: ../libgweather/gweather-weather.c:277
 msgid "Dust whirls in the vicinity"
 msgstr "Støvvirvler i omegnen"
 
-#: ../libgweather/gweather-weather.c:709
+#: ../libgweather/gweather-weather.c:800
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a, %d %b / %H.%M"
 
-#: ../libgweather/gweather-weather.c:715
+#: ../libgweather/gweather-weather.c:806
 msgid "Unknown observation time"
 msgstr "Ukjent observasjonstid"
 
-#: ../libgweather/gweather-weather.c:727
+#: ../libgweather/gweather-weather.c:818
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Ukjent"
@@ -454,88 +843,88 @@ msgstr "Ukjent"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: ../libgweather/gweather-weather.c:749
+#: ../libgweather/gweather-weather.c:840
 msgid "default:mm"
 msgstr "default:mm"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:801
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
+#: ../libgweather/gweather-weather.c:892
 #, c-format
-msgid "%.1f °F"
+msgid "%.1f ℉"
 msgstr "%.1f °F"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:804
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
+#: ../libgweather/gweather-weather.c:895
 #, c-format
-msgid "%d °F"
+msgid "%d ℉"
 msgstr "%d °F"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:810
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#: ../libgweather/gweather-weather.c:901
 #, c-format
-msgid "%.1f °C"
+msgid "%.1f ℃"
 msgstr "%.1f °C"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:813
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#: ../libgweather/gweather-weather.c:904
 #, c-format
-msgid "%d °C"
+msgid "%d ℃"
 msgstr "%d °C"
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/gweather-weather.c:819
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#: ../libgweather/gweather-weather.c:910
 #, c-format
-msgid "%.1f K"
+msgid "%.1f K"
 msgstr "%.1f K"
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/gweather-weather.c:822
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#: ../libgweather/gweather-weather.c:913
 #, c-format
-msgid "%d K"
+msgid "%d K"
 msgstr "%d K"
 
-#: ../libgweather/gweather-weather.c:845 ../libgweather/gweather-weather.c:861
-#: ../libgweather/gweather-weather.c:877 ../libgweather/gweather-weather.c:939
+#: ../libgweather/gweather-weather.c:936 ../libgweather/gweather-weather.c:952
+#: ../libgweather/gweather-weather.c:968 ../libgweather/gweather-weather.c:1030
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Ukjent"
 
-#: ../libgweather/gweather-weather.c:899
+#: ../libgweather/gweather-weather.c:990
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Ukjent"
 
-#: ../libgweather/gweather-weather.c:919
+#: ../libgweather/gweather-weather.c:1010
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Ukjent"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/gweather-weather.c:922
+#: ../libgweather/gweather-weather.c:1013
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/gweather-weather.c:968
+#: ../libgweather/gweather-weather.c:1059
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f knop"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/gweather-weather.c:971
+#: ../libgweather/gweather-weather.c:1062
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mpg"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/gweather-weather.c:974
+#: ../libgweather/gweather-weather.c:1065
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/t"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/gweather-weather.c:977
+#: ../libgweather/gweather-weather.c:1068
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -543,99 +932,100 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/gweather-weather.c:982
+#: ../libgweather/gweather-weather.c:1073
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Beaufort styrke %.1f"
 
-#: ../libgweather/gweather-weather.c:1003
+#: ../libgweather/gweather-weather.c:1094
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Ukjent"
 
-#: ../libgweather/gweather-weather.c:1005
+#: ../libgweather/gweather-weather.c:1096
 msgid "Calm"
 msgstr "Rolig"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/gweather-weather.c:1013
+#: ../libgweather/gweather-weather.c:1104
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/gweather-weather.c:1049
+#: ../libgweather/gweather-weather.c:1140
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Ukjent"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/gweather-weather.c:1055
+#: ../libgweather/gweather-weather.c:1146
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/gweather-weather.c:1058
+#: ../libgweather/gweather-weather.c:1149
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/gweather-weather.c:1061
+#: ../libgweather/gweather-weather.c:1152
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/gweather-weather.c:1064
+#: ../libgweather/gweather-weather.c:1155
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/gweather-weather.c:1067
+#: ../libgweather/gweather-weather.c:1158
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/gweather-weather.c:1070
+#: ../libgweather/gweather-weather.c:1161
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
-#: ../libgweather/gweather-weather.c:1108
+#: ../libgweather/gweather-weather.c:1199
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Ukjent"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/gweather-weather.c:1114
+#: ../libgweather/gweather-weather.c:1205
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f engelske mil"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/gweather-weather.c:1117
+#: ../libgweather/gweather-weather.c:1208
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/gweather-weather.c:1120
+#: ../libgweather/gweather-weather.c:1211
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/gweather-weather.c:1148
-#: ../libgweather/gweather-weather.c:1173
+#: ../libgweather/gweather-weather.c:1239
+#: ../libgweather/gweather-weather.c:1264
 msgid "%H∶%M"
 msgstr "%H.%M"
 
-#: ../libgweather/gweather-weather.c:1267
+#: ../libgweather/gweather-weather.c:1358
 msgid "Retrieval failed"
 msgstr "Henting feilet"
 
+#. Translators: %d is an error code, and %s the error string
 #: ../libgweather/weather-metar.c:573
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
