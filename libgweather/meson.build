@@ -36,7 +36,7 @@ gweather_enum_types = gnome.mkenums('gweather-enum-types',
   install_header: true,
   install_dir: join_paths(includedir, header_subdir))
 install_headers(gweather_new_headers,
-  install_dir: header_subdir)
+  subdir: header_subdir)
 
 gweather_c_sources = [
   gweather_enum_types,
