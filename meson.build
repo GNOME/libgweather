@@ -74,11 +74,11 @@ if get_option('default_library') != 'static'
     config_h.set('DLL_EXPORT', true)
     config_h.set('GWEATHER_EXTERN', '__declspec(dllexport) extern')
     if cc.get_id() != 'msvc'
-      add_global_arguments(['-fvisibility=hidden'], language: 'c')
+      add_project_arguments(['-fvisibility=hidden'], language: 'c')
     endif
   else
     config_h.set('GWEATHER_EXTERN', '__attribute__((visibility("default"))) extern')
-    add_global_arguments(['-fvisibility=hidden'], language: 'c')
+    add_project_arguments(['-fvisibility=hidden'], language: 'c')
   endif
 endif
 
@@ -104,6 +104,8 @@ if enable_vala == 'auto'
 else
   enable_vala = enable_vala != 'false'
 endif
+
+root_inc = include_directories('.')
 
 subdir('libgweather')
 subdir('data')
