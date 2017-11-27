@@ -64,8 +64,8 @@ if c_compiler.links('char c; c = *((unsigned char *) nl_langinfo(_NL_MEASUREMENT
   config_h.set('HAVE__NL_MEASUREMENT_MEASUREMENT', 1)
 endif
 
-config_h.set_quoted('ZONEINFO_DIR', get_option('with-zoneinfo-dir'))
-config_h.set_quoted('OWM_APIKEY', get_option('with-owm-apikey'))
+config_h.set_quoted('ZONEINFO_DIR', get_option('zoneinfo_dir'))
+config_h.set_quoted('OWM_APIKEY', get_option('owm_apikey'))
 
 if get_option('default_library') != 'static'
   if host_machine.system() == 'windows'
@@ -88,27 +88,29 @@ configure_file(
   configuration: config_h,
 )
 
-if get_option('enable-glade-catalog') == 'no'
+if get_option('glade_catalog') == 'false'
   enable_glade_catalog = false
 else
-  glade_dep = dependency('gladeui-2.0', required: (get_option('enable-glade-catalog') == 'yes'))
+  glade_dep = dependency('gladeui-2.0', required: (get_option('glade_catalog') == 'true'))
   enable_glade_catalog = glade_dep.found()
   if enable_glade_catalog
-    glade_catalogdir = glade_dep.get_pkgconfig_variable('catalogdir')
+    glade_catalogdir = join_paths(datadir, 'glade', 'catalogs')
   endif
 endif
 
-enable_vala = get_option('enable-vala')
+enable_vala = get_option('enable_vala')
 if enable_vala == 'auto'
   enable_vala = find_program('vapigen', required: false).found()
 else
-  enable_vala = enable_vala != 'no'
+  enable_vala = enable_vala != 'false'
 endif
 
 subdir('libgweather')
 subdir('data')
 subdir('schemas')
-subdir('doc')
+if get_option('gtk_doc')
+  subdir('doc')
+endif
 subdir('po')
 subdir('po-locations')
 meson.add_install_script('meson/meson_post_install.py')
