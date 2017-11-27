@@ -60,7 +60,9 @@ if c_compiler.has_header_symbol('time.h', 'timezone')
   config_h.set('HAVE_TIMEZONE', 1)
 endif
 
-if c_compiler.links('char c; c = *((unsigned char *) nl_langinfo(_NL_MEASUREMENT_MEASUREMENT));', prefix: '#include <langinfo.h>')
+if c_compiler.links('char c; c = *((unsigned char *) nl_langinfo(_NL_MEASUREMENT_MEASUREMENT));',
+                    prefix: '#include <langinfo.h>',
+                    name: '_NL_MEASUREMENT_MEASUREMENT')
   config_h.set('HAVE__NL_MEASUREMENT_MEASUREMENT', 1)
 endif
 
