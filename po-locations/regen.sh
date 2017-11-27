@@ -1,24 +1,24 @@
 #!/bin/sh
 
-# Find a file called Locations.xml.in.h which is newer than both
-# ../data/Locations.xml.in and extract.xsl, and if it's not found,
-# build it. In other words, regenerate Locations.xml.in.h if it's
+# Find a file called Locations.xml.h which is newer than both
+# ../data/Locations.xml and extract.xsl, and if it's not found,
+# build it. In other words, regenerate Locations.xml.h if it's
 # missing or out of date.
-find . -name Locations.xml.in.h \
-       -newer ../data/Locations.xml.in \
+find . -name Locations.xml.h \
+       -newer ../data/Locations.xml \
        -newer extract.xsl \
        -print | grep -q . || {
-    echo "Rebuilding Locations.xml.in.h"
-    xsltproc extract.xsl ../data/Locations.xml.in > Locations.xml.in.h
+    echo "Rebuilding Locations.xml.h"
+    xsltproc extract.xsl ../data/Locations.xml > Locations.xml.h
 }
 
 # Likewise locations.pot
 find . -name locations.pot \
-       -newer Locations.xml.in.h \
+       -newer Locations.xml.h \
        -print | grep -q . || {
     echo "Rebuilding locations.pot"
     xgettext --add-comments --output=locations.pot --from-code=utf-8 \
-        --keyword=N_ --keyword=NC_:1c,2 --no-location Locations.xml.in.h
+        --keyword=N_ --keyword=NC_:1c,2 --no-location Locations.xml.h
 }
 
 # Now rebuild po files given on command line, if any
