@@ -35,11 +35,16 @@ libexecdir = join_paths(prefix, get_option('libexecdir'))
 sysconfdir = join_paths(prefix, get_option('sysconfdir'))
 pkgdatadir = join_paths(datadir, 'libgweather')
 
+glib_req_version = '>= 2.35.1'
+gtk_req_version = '>= 3.13.5'
+libsoup_req_version = '>= 2.44.0'
+libxml_req_version = '>= 2.6.0'
+
 c_compiler = meson.get_compiler('c')
-gtk_dep = dependency('gtk+-3.0', version: '>=3.13.5')
-glib_dep = dependency('gio-2.0', version: '>=2.35.1')
-libsoup_dep = dependency('libsoup-2.4', version: '>=2.44.0')
-libxml_dep = dependency('libxml-2.0', version: '>=2.6.0')
+gtk_dep = dependency('gtk+-3.0', version: gtk_req_version)
+glib_dep = dependency('gio-2.0', version: glib_req_version)
+libsoup_dep = dependency('libsoup-2.4', version: libsoup_req_version)
+libxml_dep = dependency('libxml-2.0', version: libxml_req_version)
 geocode_glib_dep = dependency('geocode-glib-1.0')
 math_dep = c_compiler.find_library('m', required : false)
 deps_libgweather = [math_dep, gtk_dep, glib_dep, libsoup_dep, libxml_dep, geocode_glib_dep]
