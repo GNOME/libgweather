@@ -22,10 +22,26 @@ if enable_glade_catalog
   )
 endif
 
-# FIXME check syntax of Locations.xml
+xmllint = find_program('xmllint', required: false)
+if xmllint.found()
+  test('Valid Locations file',
+       xmllint,
+       args: [
+         '--path', '@0@'.format(meson.current_source_dir()),
+         '--noout',
+         'Locations.xml',
+       ])
+
+  check_timezones = find_program('check-timezones.sh')
+  test('Timezones check',
+       check_timezones,
+       args: ['Locations.xml'])
+endif
+
 install_data('Locations.xml',
   install_dir: pkgdatadir,
 )
+
 install_data('locations.dtd',
   install_dir: pkgdatadir,
 )
