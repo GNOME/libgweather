@@ -6,12 +6,12 @@ pkgconfig.generate(
   libraries: lib_libgweather,
   subdirs: 'libgweather-3.0',
   requires: [
-    'gtk+-3.0 ' + gtk_req_version,
+    'gtk+-3.0',
   ],
   requires_private: [
-    'gio-2.0 ' + glib_req_version,
-    'libsoup-2.4 ' + libsoup_req_version,
-    'libxml-2.0 ' + libxml_req_version,
+    'gio-2.0',
+    'libsoup-2.4',
+    'libxml-2.0',
     'geocode-glib-1.0',
   ],
 )
