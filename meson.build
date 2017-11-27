@@ -72,10 +72,8 @@ config_h.set_quoted('OWM_APIKEY', get_option('owm_apikey'))
 if get_option('default_library') != 'static'
   if host_machine.system() == 'windows'
     config_h.set('DLL_EXPORT', true)
-    if cc.get_id() == 'msvc'
-      config_h.set('GWEATHER_EXTERN', '__declspec(dllexport) extern')
-    else
-      config_h.set('GWEATHER_EXTERN', '__attribute__((visibility("default"))) __declspec(dllexport) extern')
+    config_h.set('GWEATHER_EXTERN', '__declspec(dllexport) extern')
+    if cc.get_id() != 'msvc'
       add_global_arguments(['-fvisibility=hidden'], language: 'c')
     endif
   else
