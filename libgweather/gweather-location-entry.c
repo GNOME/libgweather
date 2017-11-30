@@ -452,7 +452,6 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 {
     GWeatherLocation **children;
     char *display_name, *local_compare_name, *english_compare_name;
-    GtkTreeIter iter;
     int i;
 
     children = gweather_location_get_children (loc);
@@ -514,13 +513,12 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	english_compare_name = g_strdup_printf ("%s, %s",
 						loc->english_sort_name, parent_compare_english_name);
 
-	gtk_tree_store_append (store, &iter, NULL);
-	gtk_tree_store_set (store, &iter,
-			    LOC_GWEATHER_LOCATION_ENTRY_COL_LOCATION, loc,
-			    LOC_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
-			    LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, local_compare_name,
-			    LOC_GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME, english_compare_name,
-			    -1);
+	gtk_tree_store_insert_with_values (store, NULL, NULL, -1,
+					   LOC_GWEATHER_LOCATION_ENTRY_COL_LOCATION, loc,
+					   LOC_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
+					   LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, local_compare_name,
+					   LOC_GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME, english_compare_name,
+					   -1);
 
 	g_free (display_name);
 	g_free (local_compare_name);
@@ -719,7 +717,6 @@ fill_store (gpointer data, gpointer user_data)
 {
     GeocodePlace *place = GEOCODE_PLACE (data);
     GeocodeLocation *loc = geocode_place_get_location (place);
-    GtkTreeIter iter;
     char *display_name;
     char *normalized;
     char *compare_name;
@@ -728,12 +725,11 @@ fill_store (gpointer data, gpointer user_data)
     normalized = g_utf8_normalize (display_name, -1, G_NORMALIZE_ALL);
     compare_name = g_utf8_casefold (normalized, -1);
 
-    gtk_tree_store_append (user_data, &iter, NULL);
-    gtk_tree_store_set (user_data, &iter,
-			PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE, place,
-			PLACE_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
-			PLACE_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, compare_name,
-			-1);
+    gtk_tree_store_insert_with_values (user_data, NULL, NULL, -1,
+				       PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE, place,
+				       PLACE_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
+				       PLACE_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, compare_name,
+				       -1);
 
     g_free (display_name);
     g_free (normalized);
