@@ -125,6 +125,19 @@ parse_coordinates (const char *coordinates,
 }
 
 static GWeatherLocation *
+location_new (GWeatherLocationLevel level)
+{
+    GWeatherLocation *loc;
+
+    loc = g_slice_new0 (GWeatherLocation);
+    loc->latitude = loc->longitude = DBL_MAX;
+    loc->level = level;
+    loc->ref_count = 1;
+
+    return loc;
+}
+
+static GWeatherLocation *
 location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 		       GWeatherLocation *parent)
 {
@@ -135,12 +148,8 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
     int tagtype;
     unsigned int i;
 
-    loc = g_slice_new0 (GWeatherLocation);
-    loc->latitude = loc->longitude = DBL_MAX;
+    loc = location_new (level);
     loc->parent = parent;
-    loc->level = level;
-    loc->ref_count = 1;
-    loc->msgctxt = NULL;
     if (level == GWEATHER_LOCATION_WORLD) {
 	loc->metar_code_cache = g_hash_table_ref (parser->metar_code_cache);
 	loc->country_code_cache = g_hash_table_ref (parser->country_code_cache);
