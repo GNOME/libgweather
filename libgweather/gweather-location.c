@@ -758,8 +758,6 @@ _got_place (GObject      *source_object,
  * @loc must be at most a %GWEATHER_LOCATION_ADM2 location.
  * This restriction may be lifted in a future version.
  *
- * Returns: void
- *
  * Since: 3.12
  */
 void
