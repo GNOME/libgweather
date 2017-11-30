@@ -649,7 +649,10 @@ matcher (GtkEntryCompletion *completion, const char *key,
 			LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, &local_compare_name,
 			LOC_GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME, &english_compare_name,
 			-1);
-    match = match_compare_name (key, local_compare_name) || match_compare_name (key, english_compare_name);
+
+    match = match_compare_name (key, local_compare_name) ||
+	    match_compare_name (key, english_compare_name) ||
+	    g_ascii_strcasecmp (key, english_compare_name) == 0;
 
     g_free (local_compare_name);
     g_free (english_compare_name);
