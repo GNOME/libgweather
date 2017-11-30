@@ -99,6 +99,10 @@ executable('test_locations',
   ['test_locations.c'],
   dependencies: libgweather_dep,
   install: false)
+executable('test_locations_utc',
+  ['test_locations_utc.c'],
+  dependencies: libgweather_dep,
+  install: false)
 #executable('test_metar',
 #  ['test_metar.c', 'weather-metar.c'],
 #  dependencies: libgweather_dep,
