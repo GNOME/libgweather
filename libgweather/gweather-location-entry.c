@@ -56,8 +56,6 @@ enum {
     LAST_PROP
 };
 
-static void gweather_location_entry_build_model (GWeatherLocationEntry *entry,
-						 GWeatherLocation *top);
 static void set_property (GObject *object, guint prop_id,
 			  const GValue *value, GParamSpec *pspec);
 static void get_property (GObject *object, guint prop_id,
@@ -73,6 +71,11 @@ create_new_detached_location (GWeatherLocation *nearest_station,
                               gboolean          latlon_valid,
                               gdouble           latitude,
                               gdouble           longitude);
+static void
+fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
+			   const char *parent_display_name,
+			   const char *parent_compare_local_name,
+			   const char *parent_compare_english_name);
 
 enum LOC
 {
@@ -166,10 +169,34 @@ dispose (GObject *object)
 }
 
 static void
+constructed (GObject *object)
+{
+    GWeatherLocationEntry *entry;
+    GtkTreeStore *store = NULL;
+    GtkEntryCompletion *completion;
+
+    entry = GWEATHER_LOCATION_ENTRY (object);
+
+    if (!entry->priv->top)
+	entry->priv->top = gweather_location_ref (gweather_location_get_world ());
+
+    store = gtk_tree_store_new (4, G_TYPE_STRING, GWEATHER_TYPE_LOCATION, G_TYPE_STRING, G_TYPE_STRING);
+    fill_location_entry_model (store, entry->priv->top, NULL, NULL, NULL);
+
+    entry->priv->model = GTK_TREE_MODEL (store);
+    completion = gtk_entry_get_completion (GTK_ENTRY (entry));
+    gtk_entry_completion_set_match_func (completion, matcher, NULL, NULL);
+    gtk_entry_completion_set_model (completion, GTK_TREE_MODEL (store));
+
+    G_OBJECT_CLASS (gweather_location_entry_parent_class)->constructed (object);
+}
+
+static void
 gweather_location_entry_class_init (GWeatherLocationEntryClass *location_entry_class)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (location_entry_class);
 
+    object_class->constructed = constructed;
     object_class->finalize = finalize;
     object_class->set_property = set_property;
     object_class->get_property = get_property;
@@ -198,10 +225,11 @@ static void
 set_property (GObject *object, guint prop_id,
 	      const GValue *value, GParamSpec *pspec)
 {
+    GWeatherLocationEntry *entry = GWEATHER_LOCATION_ENTRY (object);
+
     switch (prop_id) {
     case PROP_TOP:
-	gweather_location_entry_build_model (GWEATHER_LOCATION_ENTRY (object),
-					     g_value_get_boxed (value));
+        entry->priv->top = g_value_dup_boxed (value);
 	break;
     case PROP_LOCATION:
 	gweather_location_entry_set_location (GWEATHER_LOCATION_ENTRY (object),
@@ -528,27 +556,6 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
     case GWEATHER_LOCATION_DETACHED:
 	g_assert_not_reached ();
     }
-}
-
-static void
-gweather_location_entry_build_model (GWeatherLocationEntry *entry,
-				     GWeatherLocation *top)
-{
-    GtkTreeStore *store = NULL;
-    GtkEntryCompletion *completion;
-
-    if (top)
-	entry->priv->top = gweather_location_ref (top);
-    else
-	entry->priv->top = gweather_location_ref (gweather_location_get_world ());
-
-    store = gtk_tree_store_new (4, G_TYPE_STRING, GWEATHER_TYPE_LOCATION, G_TYPE_STRING, G_TYPE_STRING);
-    fill_location_entry_model (store, entry->priv->top, NULL, NULL, NULL);
-
-    entry->priv->model = GTK_TREE_MODEL (store);
-    completion = gtk_entry_get_completion (GTK_ENTRY (entry));
-    gtk_entry_completion_set_match_func (completion, matcher, NULL, NULL);
-    gtk_entry_completion_set_model (completion, GTK_TREE_MODEL (store));
 }
 
 static char *
