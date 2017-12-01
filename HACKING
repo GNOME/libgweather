@@ -29,3 +29,51 @@ Hacking on libgweather
      setup.
    - Build sheriff are welcome - in accordance with the relevant build
      sheriff constraints.
+
+
+Adding new weather sources
+==========================
+
+To add new weather sources, a number of requirements must be considered:
+- the API should be documented
+- access to the API can require the use of a freely available application
+  token ID. See the requirements below.
+- there must not be hard usage limits, or they must be high enough not to
+  cause disruption with weather support being builtin to the OS/desktop
+- the requests must be made over HTTPS, or an equivalent, encrypted network
+  connection.
+- the result of requests must be machine parseable, and the parsing code
+  must have unit tests to prevent regressions, and make it easy to root-cause
+  crashes
+- the user’s privacy must be maintained as much as possible, see section below
+- the user’s bandwidth must be preserved where possible, making use of caching,
+  use HEAD requests and caching headers to minimise downloads when polling and
+  nothing has changed on the server
+- the data gathered can require a attribution (in which case the patch must
+  contain code to implement this) and must not be restricted to non-commercial
+  usage, as we cannot police users of the libgweather API, or in what
+  context they would be deployed
+- finally, a working and applicable patch must be provided
+
+Privacy
+-------
+
+The user’s privacy must be maintained as much as possible:
+- don’t include unnecessary detail in requests
+- don’t allow fine-grained location tracking
+- don’t include other identifying information in the requests if possible
+- service must have a data usage policy that's reasonable compared to
+  equivalent services, eg. not use requests as a way to feed into user tracking
+  for an advertisment business
+
+Application token usage
+-----------------------
+
+Not using tokens is preferable, but some data sources don't offer the option.
+There are a number of requirements for those tokens:
+- One should be provided in the patch for testing purposes, and be easily
+  overridable by distributions wishing to have a separate identifier and limits
+- The test token should have high enough limits that you're reasonably confident
+  that lots of people running `make check` won’t cause the token to be revoked
+  and break everyone’s tests
+- Instructions on how to get a token for the application must be provided
