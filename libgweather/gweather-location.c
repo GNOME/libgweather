@@ -213,12 +213,6 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 		goto error_out;
 	    loc->forecast_zone = g_strdup (value);
 	    xmlFree (value);
-	} else if (!strcmp (tagname, "yahoo-woeid") && !loc->yahoo_id) {
-	    value = _gweather_parser_get_value (parser);
-	    if (!value)
-		goto error_out;
-	    loc->yahoo_id = g_strdup (value);
-	    xmlFree (value);
 	} else if (!strcmp (tagname, "radar") && !loc->radar) {
 	    value = _gweather_parser_get_value (parser);
 	    if (!value)
@@ -403,7 +397,6 @@ gweather_location_unref (GWeatherLocation *loc)
     g_free (loc->tz_hint);
     g_free (loc->station_code);
     g_free (loc->forecast_zone);
-    g_free (loc->yahoo_id);
     g_free (loc->radar);
 
     if (loc->children) {
@@ -1084,7 +1077,7 @@ void
 _gweather_location_update_weather_location (GWeatherLocation *gloc,
 					    WeatherLocation  *loc)
 {
-    const char *code = NULL, *zone = NULL, *yahoo_id = NULL, *radar = NULL, *tz_hint = NULL, *country = NULL;
+    const char *code = NULL, *zone = NULL, *radar = NULL, *tz_hint = NULL, *country = NULL;
     gboolean latlon_valid = FALSE;
     gdouble lat = DBL_MAX, lon = DBL_MAX;
     GWeatherLocation *l;
@@ -1099,8 +1092,6 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
 	    code = l->station_code;
 	if (!zone && l->forecast_zone)
 	    zone = l->forecast_zone;
-	if (!yahoo_id && l->yahoo_id)
-	    yahoo_id = l->yahoo_id;
 	if (!radar && l->radar)
 	    radar = l->radar;
 	if (!tz_hint && l->tz_hint)
@@ -1118,7 +1109,6 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
     loc->name = g_strdup (gloc->local_name),
     loc->code = g_strdup (code);
     loc->zone = g_strdup (zone);
-    loc->yahoo_id = g_strdup (yahoo_id);
     loc->radar = g_strdup (radar);
     loc->country_code = g_strdup (country);
     loc->tz_hint = g_strdup (tz_hint);

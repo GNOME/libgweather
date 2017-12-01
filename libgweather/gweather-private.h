@@ -38,7 +38,7 @@ struct _GWeatherLocation {
     GWeatherLocation *parent, **children;
     GWeatherLocationLevel level;
     char *country_code, *tz_hint;
-    char *station_code, *forecast_zone, *yahoo_id, *radar;
+    char *station_code, *forecast_zone, *radar;
     double latitude, longitude;
     gboolean latlon_valid;
     GWeatherTimezone **zones;
@@ -55,7 +55,6 @@ typedef struct {
     gchar *name;
     gchar *code;
     gchar *zone;
-    gchar *yahoo_id;
     gchar *radar;
     gboolean latlon_valid;
     gdouble  latitude;
@@ -181,7 +180,6 @@ struct _GWeatherInfoPrivate {
 void		metar_start_open	(GWeatherInfo *info);
 gboolean	iwin_start_open		(GWeatherInfo *info);
 void		wx_start_open		(GWeatherInfo *info);
-gboolean        yahoo_start_open        (GWeatherInfo *info);
 gboolean        yrno_start_open         (GWeatherInfo *info);
 gboolean        owm_start_open          (GWeatherInfo *info);
 

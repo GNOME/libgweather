@@ -104,7 +104,6 @@ _weather_location_free (WeatherLocation *location)
     g_free (location->name);
     g_free (location->code);
     g_free (location->zone);
-    g_free (location->yahoo_id);
     g_free (location->radar);
     g_free (location->country_code);
     g_free (location->tz_hint);
@@ -672,12 +671,6 @@ gweather_info_update (GWeatherInfo *info)
     /* Try national forecast services first */
     if (priv->providers & GWEATHER_PROVIDER_IWIN)
 	ok = iwin_start_open (info);
-    if (ok)
-	return;
-
-    /* Try Yahoo! Weather next */
-    if (priv->providers & GWEATHER_PROVIDER_YAHOO)
-	ok = yahoo_start_open (info);
     if (ok)
 	return;
 
