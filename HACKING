@@ -46,13 +46,11 @@ To add new weather sources, a number of requirements must be considered:
   must have unit tests to prevent regressions, and make it easy to root-cause
   crashes
 - the user’s privacy must be maintained as much as possible, see section below
-- the user’s bandwidth must be preserved where possible, making use of caching,
-  use HEAD requests and caching headers to minimise downloads when polling and
-  nothing has changed on the server
+- the user’s bandwidth must be preserved where possible, with the server offering
+  enough information to avoid downloads through libsoup, our HTTP library.
 - the data gathered can require a attribution (in which case the patch must
-  contain code to implement this) and must not be restricted to non-commercial
-  usage, as we cannot police users of the libgweather API, or in what
-  context they would be deployed
+  contain code to implement this) and if restricted to non-commercial usage,
+  must have a comment mentioning that fact in the GWeatherWeather API documentation
 - finally, a working and applicable patch must be provided
 
 Privacy
