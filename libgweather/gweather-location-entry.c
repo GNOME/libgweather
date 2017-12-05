@@ -612,13 +612,16 @@ find_word (const char *full_name, const char *word, int word_len,
 
 	    /* If we're matching the first word of the key, it has to
 	     * match the first word of the location, city, state, or
-	     * country. Eg, it either matches the start of the string
+	     * country, or the abbreviation (in parenthesis).
+	     * Eg, it either matches the start of the string
 	     * (which we already know it doesn't at this point) or
-	     * it is preceded by the string ", " (which isn't actually
+	     * it is preceded by the string ", " or "(" (which isn't actually
 	     * a perfect test. FIXME)
 	     */
 	    if (is_first_word) {
-		if (prev == (char *)full_name || strncmp (prev - 1, ", ", 2) != 0)
+		if (prev == (char *)full_name ||
+		    ((prev - 1 <= full_name && strncmp (prev - 1, ", ", 2) != 0)
+		      && *prev != '('))
 		    continue;
 	    }
 	}
