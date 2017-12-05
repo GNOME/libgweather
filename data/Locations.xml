@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE gweather SYSTEM "locations.dtd">
 <gweather format="1.0">
+  <named-timezone>
+    <_name>Coordinated Universal Time (UTC)</_name>
+    <timezones>
+      <timezone id="UTC" />
+    </timezones>
+    <tz-hint>UTC</tz-hint>
+    <code>@UTC</code>
+  </named-timezone>
+  <named-timezone>
+    <!-- TRANSLATORS: This is the designation for the last (most west) timezone on Earth -->
+    <_name>Anywhere on Earth (AoE)</_name>
+    <timezones>
+      <timezone id="Etc/UTC-12" />
+    </timezones>
+    <tz-hint>Etc/UTC-12</tz-hint>
+    <code>@AoE</code>
+  </named-timezone>
   <region>
     <_name>Africa</_name>
     <country>

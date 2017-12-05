@@ -1,4 +1,4 @@
-<!ELEMENT gweather (region+) >
+<!ELEMENT gweather (named-timezone*, region+) >
 <!ATTLIST gweather
   format CDATA #FIXED '1.0' >
 
@@ -10,6 +10,7 @@
 <!ELEMENT province (%name;, (location|city)*) >
 <!ELEMENT city (%name;, coordinates?, tz-hint?, location+) >
 <!ELEMENT location (%name;, code, zone?, radar?, coordinates?) >
+<!ELEMENT named-timezone (%name;, timezones, tz-hint, code)>
 
 <!ELEMENT timezones (timezone+) >
 <!ELEMENT timezone (_name?, name*, obsoletes*) >

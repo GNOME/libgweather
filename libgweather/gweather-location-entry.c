@@ -553,6 +553,9 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	g_free (english_compare_name);
 	break;
 
+    case GWEATHER_LOCATION_NAMED_TIMEZONE:
+		break;
+
     case GWEATHER_LOCATION_DETACHED:
 	g_assert_not_reached ();
     }

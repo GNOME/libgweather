@@ -68,6 +68,8 @@
  * database, for example because it was loaded from external storage
  * and could not be fully recovered. The parent of this location is
  * the nearest weather station.
+ * @GWEATHER_LOCATION_NAMED_TIMEZONE: A location representing a named
+ * or special timezone in the world, such as UTC
  *
  * The size/scope of a particular #GWeatherLocation.
  *
@@ -260,6 +262,12 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 		goto error_out;
 	    g_ptr_array_add (children, child);
 
+	} else if (!strcmp (tagname, "named-timezone")) {
+	    child = location_new_from_xml (parser, GWEATHER_LOCATION_NAMED_TIMEZONE, loc);
+	    if (!child)
+		goto error_out;
+	    g_ptr_array_add (children, child);
+
 	} else if (!strcmp (tagname, "timezones")) {
 	    loc->zones = _gweather_timezones_parse_xml (parser);
 	    if (!loc->zones)
@@ -273,7 +281,8 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
     if (xmlTextReaderRead (parser->xml) != 1 && parent)
 	goto error_out;
 
-    if (level == GWEATHER_LOCATION_WEATHER_STATION) {
+    if (level == GWEATHER_LOCATION_WEATHER_STATION ||
+	level == GWEATHER_LOCATION_NAMED_TIMEZONE) {
 	/* Cache weather stations by METAR code */
 	GList *a, *b;
 
@@ -690,7 +699,8 @@ gweather_location_find_nearest_city_full (GWeatherLocation  *loc,
      * an O(n) search. */
     struct FindNearestCityData data;
 
-    g_return_val_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY, NULL);
+    g_return_val_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY ||
+			  loc->level == GWEATHER_LOCATION_NAMED_TIMEZONE, NULL);
 
     if (loc == NULL)
         loc = gweather_location_get_world ();
@@ -782,7 +792,8 @@ gweather_location_detect_nearest_city (GWeatherLocation    *loc,
     GeocodeReverse *reverse;
     GTask *task;
 
-    g_return_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY);
+    g_return_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY ||
+		      loc->level == GWEATHER_LOCATION_NAMED_TIMEZONE);
 
     if (loc == NULL)
         loc = gweather_location_get_world ();
@@ -1328,6 +1339,12 @@ gweather_location_common_deserialize (GWeatherLocation *world,
 
     /* First find the list of candidate locations */
     candidates = g_hash_table_lookup (world->metar_code_cache, station_code);
+
+    /* A station code beginning with @ indicates a named timezone entry, just
+     * return it directly
+     */
+    if (station_code[0] == '@')
+       return candidates->data;
 
     /* If we don't have coordinates, fallback immediately to making up
      * a location
