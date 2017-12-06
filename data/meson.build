@@ -31,11 +31,6 @@ if xmllint.found()
          '--noout',
          'Locations.xml',
        ])
-
-  check_timezones = find_program('check-timezones.sh')
-  test('Timezones check',
-       check_timezones,
-       args: ['Locations.xml'])
 endif
 
 install_data('Locations.xml',
