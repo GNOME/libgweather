@@ -29,6 +29,7 @@ if xmllint.found()
        args: [
          '--path', '@0@'.format(meson.current_source_dir()),
          '--noout',
+         '--valid',
          'Locations.xml',
        ])
 endif
