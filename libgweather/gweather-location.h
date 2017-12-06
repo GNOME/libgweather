@@ -113,6 +113,8 @@ const char            *gweather_location_get_country    (GWeatherLocation  *loc)
 GWEATHER_EXTERN
 GWeatherTimezone      *gweather_location_get_timezone   (GWeatherLocation  *loc);
 GWEATHER_EXTERN
+const char            *gweather_location_get_timezone_str (GWeatherLocation *loc);
+GWEATHER_EXTERN
 GWeatherTimezone     **gweather_location_get_timezones  (GWeatherLocation  *loc);
 GWEATHER_EXTERN
 void                   gweather_location_free_timezones (GWeatherLocation  *loc,

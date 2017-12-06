@@ -961,6 +961,34 @@ gweather_location_get_timezone (GWeatherLocation *loc)
     return NULL;
 }
 
+/**
+ * gweather_location_get_timezone_str:
+ * @loc: a #GWeatherLocation
+ *
+ * Gets the timezone associated with @loc, if known, as a string.
+ *
+ * The timezone string is owned either by @loc or by one of its
+ * parents, do not free it.
+ *
+ * Return value: (transfer none) (allow-none): @loc's timezone as
+ * a string, or %NULL
+ **/
+const char *
+gweather_location_get_timezone_str (GWeatherLocation *loc)
+{
+    const char *tz_hint;
+
+    g_return_val_if_fail (loc != NULL, NULL);
+
+    while (loc && !loc->tz_hint)
+	loc = loc->parent;
+    if (!loc)
+	return NULL;
+    tz_hint = loc->tz_hint;
+
+    return tz_hint;
+}
+
 static void
 add_timezones (GWeatherLocation *loc, GPtrArray *zones)
 {
