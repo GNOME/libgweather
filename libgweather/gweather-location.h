@@ -56,9 +56,6 @@ GWEATHER_EXTERN
 GWeatherLocation      *gweather_location_get_world      (void);
 
 GWEATHER_EXTERN
-GWeatherLocation      *gweather_location_new_world_for_path (const char *path);
-
-GWEATHER_EXTERN
 GWeatherLocation      *gweather_location_ref            (GWeatherLocation  *loc);
 GWEATHER_EXTERN
 void                   gweather_location_unref          (GWeatherLocation  *loc);

@@ -29,7 +29,7 @@ test_named_timezones (void)
     GWeatherLocation *world, **children;
     guint i;
 
-    world = gweather_location_new_world_for_path (TEST_SRCDIR "../data/Locations.xml");
+    world = gweather_location_get_world ();
     g_assert (world);
 
     children = gweather_location_get_children (world);
@@ -46,8 +46,6 @@ test_named_timezones (void)
         g_assert_nonnull (code);
         g_assert_true (code[0] == '@');
     }
-
-    gweather_location_unref (world);
 }
 
 static void
@@ -103,11 +101,10 @@ test_timezones (void)
 {
     GWeatherLocation *world;
 
-    world = gweather_location_new_world_for_path (TEST_SRCDIR "../data/Locations.xml");
+    world = gweather_location_get_world ();
     g_assert (world);
 
     test_timezones_children (world);
-    gweather_location_unref (world);
 }
 
 static void
@@ -126,6 +123,10 @@ main (int argc, char *argv[])
 
 	/* We need to handle log messages produced by g_message so they're interpreted correctly by the GTester framework */
 	g_log_set_handler (NULL, G_LOG_LEVEL_MESSAGE | G_LOG_LEVEL_INFO | G_LOG_LEVEL_DEBUG, log_handler, NULL);
+
+	g_setenv ("LIBGWEATHER_LOCATIONS_PATH",
+		  TEST_SRCDIR "../data/Locations.xml",
+		  FALSE);
 
 	g_test_add_func ("/weather/named-timezones", test_named_timezones);
 	g_test_add_func ("/weather/timezones", test_timezones);
