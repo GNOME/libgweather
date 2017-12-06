@@ -103,6 +103,15 @@ executable('test_locations_utc',
   ['test_locations_utc.c'],
   dependencies: libgweather_dep,
   install: false)
+
+test_cargs = ['-DTEST_SRCDIR="@0@/"'.format(meson.current_source_dir())]
+exe = executable('test_libgweather',
+  ['test_libgweather.c'],
+  c_args: test_cargs,
+  dependencies: libgweather_dep,
+  install: false)
+test('test_named_timezones', exe)
+
 #executable('test_metar',
 #  ['test_metar.c', 'weather-metar.c'],
 #  dependencies: libgweather_dep,
