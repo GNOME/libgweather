@@ -23,6 +23,11 @@ char *s = NC_("<xsl:call-template name="escape"><xsl:with-param name="string" se
 char *s = N_("<xsl:call-template name="escape"><xsl:with-param name="string" select="."/></xsl:call-template>");</xsl:otherwise></xsl:choose></xsl:template>
 
   <xsl:template match="gweather">
+      <!-- named-timezone names -->
+      <xsl:for-each select="//named-timezone/_name">
+	<xsl:sort select="."/>
+	<xsl:call-template name="output_name" /></xsl:for-each>
+
       <!-- region names -->
       <xsl:for-each select="//region/_name">
 	<xsl:sort select="."/>
