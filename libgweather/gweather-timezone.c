@@ -165,6 +165,8 @@ gweather_timezone_get_by_tzid (const char *tzid)
 {
     GWeatherLocation *world;
 
+    g_return_val_if_fail (tzid != NULL, NULL);
+
     world = gweather_location_get_world ();
 
     return g_hash_table_lookup (world->timezone_cache, tzid);
