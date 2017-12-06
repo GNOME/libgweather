@@ -2269,7 +2269,6 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 /**
  * gweather_info_new:
  * @location: (allow-none): the desidered #GWeatherLocation (%NULL for default)
- * @type: deprecated and ignored
  *
  * Builds a new #GWeatherInfo that will provide weather information about
  * @location.
@@ -2277,8 +2276,7 @@ gweather_info_class_init (GWeatherInfoClass *klass)
  * Returns: (transfer full): a new #GWeatherInfo
  */
 GWeatherInfo *
-gweather_info_new (GWeatherLocation     *location,
-		   GWeatherForecastType  type)
+gweather_info_new (GWeatherLocation     *location)
 {
     GWeatherInfo *self;
 

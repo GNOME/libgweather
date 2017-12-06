@@ -112,12 +112,6 @@ typedef enum { /*< underscore_name=gweather_distance_unit >*/
     GWEATHER_DISTANCE_UNIT_MILES
 } GWeatherDistanceUnit;
 
-typedef enum { /*< underscore_name=gweather_forecast_type >*/
-    GWEATHER_FORECAST_STATE,
-    GWEATHER_FORECAST_ZONE,
-    GWEATHER_FORECAST_LIST
-} GWeatherForecastType;
-
 /**
  * GWeatherFormatOptions:
  * @GWEATHER_FORMAT_OPTION_DEFAULT: The default string format

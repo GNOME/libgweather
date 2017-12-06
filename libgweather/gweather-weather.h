@@ -78,8 +78,7 @@ struct _GWeatherInfoClass {
 GWEATHER_EXTERN
 GType                    gweather_info_get_type            (void) G_GNUC_CONST;
 GWEATHER_EXTERN
-GWeatherInfo *           gweather_info_new                 (GWeatherLocation     *location,
-							    GWeatherForecastType  type);
+GWeatherInfo *           gweather_info_new                 (GWeatherLocation *location);
 GWEATHER_EXTERN
 void                     gweather_info_update              (GWeatherInfo *info);
 GWEATHER_EXTERN
