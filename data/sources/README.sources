@@ -8,10 +8,10 @@ Locations.xml.in is generated from 6 primary sources:
     data/sources/US_CONCISE.txt
     data/sources/geonames_dd_dms_date_*.txt
 
-The first two are maintained by us and are checked in to subversion.
+The first two are maintained by us and are checked in to git.
 The other four are produced by the US government and can be downloaded
 off the web. Since they are very large, and only needed when
-regenerating Locations.xml.in, they are not checked in to subversion
+regenerating Locations.xml.in, they are not checked in to git
 and must be downloaded to data/sources by hand if you want to rebuild
 Locations.xml.in.
 
