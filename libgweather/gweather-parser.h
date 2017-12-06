@@ -33,6 +33,7 @@ typedef struct {
 } GWeatherParser;
 
 GWeatherParser *_gweather_parser_new                 (void);
+GWeatherParser *_gweather_parser_new_for_path        (const char *path);
 void            _gweather_parser_free                (GWeatherParser *parser);
 
 char           *_gweather_parser_get_value           (GWeatherParser *parser);

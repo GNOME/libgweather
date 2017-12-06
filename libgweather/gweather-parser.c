@@ -122,17 +122,9 @@ gweather_location_list_free (gpointer list)
 GWeatherParser *
 _gweather_parser_new (void)
 {
-    GWeatherParser *parser;
     int zlib_support;
-    int keep_going;
     char *filename;
-    char *tagname, *format;
-    time_t now;
-    struct tm tm;
-
-    _gweather_gettext_init ();
-
-    parser = g_slice_new0 (GWeatherParser);
+    GWeatherParser *parser;
 
     zlib_support = xmlHasFeature (XML_WITH_ZLIB);
 
@@ -143,9 +135,28 @@ _gweather_parser_new (void)
 	filename = g_build_filename (GWEATHER_XML_LOCATION_DIR, "Locations.xml.gz", NULL);
     }
 
-    /* Open the xml file containing the different locations */
-    parser->xml = xmlNewTextReaderFilename (filename);
+    parser = _gweather_parser_new_for_path (filename);
+
     g_free (filename);
+
+    return parser;
+}
+
+GWeatherParser *
+_gweather_parser_new_for_path (const char *path)
+{
+    GWeatherParser *parser;
+    int keep_going;
+    char *tagname, *format;
+    time_t now;
+    struct tm tm;
+
+    _gweather_gettext_init ();
+
+    parser = g_slice_new0 (GWeatherParser);
+
+    /* Open the xml file containing the different locations */
+    parser->xml = xmlNewTextReaderFilename (path);
 
     if (parser->xml == NULL)
 	goto error_out;

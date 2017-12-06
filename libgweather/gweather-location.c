@@ -352,6 +352,31 @@ gweather_location_get_world (void)
 }
 
 /**
+ * gweather_location_new_world_for_path:
+ *
+ * The same as gweather_location_get_world() but for a specific Locations.xml
+ * file. This is usually only needed for debugging and testing purposes.
+ *
+ * Return value: (allow-none) (transfer full): a %GWEATHER_LOCATION_WORLD
+ * location, or %NULL if Locations.xml could not be found or could not be parsed.
+ **/
+GWeatherLocation *
+gweather_location_new_world_for_path (const char *path)
+{
+    GWeatherParser *parser;
+    GWeatherLocation *world;
+
+    parser = _gweather_parser_new_for_path (path);
+    if (!parser)
+        return NULL;
+
+    world = location_new_from_xml (parser, GWEATHER_LOCATION_WORLD, NULL);
+    _gweather_parser_free (parser);
+
+    return world;
+}
+
+/**
  * gweather_location_new_world:
  * @use_regions: whether or not to divide the world into regions
  *
@@ -403,8 +428,6 @@ gweather_location_unref (GWeatherLocation *loc)
 
     if (--loc->ref_count)
 	return;
-
-    g_return_if_fail (loc->level != GWEATHER_LOCATION_WORLD);
 
     g_free (loc->english_name);
     g_free (loc->local_name);
