@@ -377,25 +377,6 @@ gweather_location_new_world_for_path (const char *path)
 }
 
 /**
- * gweather_location_new_world:
- * @use_regions: whether or not to divide the world into regions
- *
- * Creates a new #GWeatherLocation of type %GWEATHER_LOCATION_WORLD,
- * representing a hierarchy containing all of the locations from
- * Locations.xml.
- *
- * Returns: (allow-none): a %GWEATHER_LOCATION_WORLD location, or
- *   %NULL if Locations.xml could not be found or could not be parsed.
- *
- * Deprecated: 3.10: Use gweather_location_get_world() instead.
- */
-GWeatherLocation *
-gweather_location_new_world (gboolean use_regions)
-{
-    return gweather_location_ref (gweather_location_get_world ());
-}
-
-/**
  * gweather_location_ref:
  * @loc: a #GWeatherLocation
  *

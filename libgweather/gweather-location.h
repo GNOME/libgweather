@@ -55,8 +55,6 @@ GType gweather_location_get_type (void);
 GWEATHER_EXTERN
 GWeatherLocation      *gweather_location_get_world      (void);
 
-GWEATHER_EXTERN G_DEPRECATED_FOR(gweather_location_get_world)
-GWeatherLocation      *gweather_location_new_world      (gboolean use_regions);
 GWEATHER_EXTERN
 GWeatherLocation      *gweather_location_new_world_for_path (const char *path);
 

@@ -112,9 +112,6 @@ gchar * 		 gweather_info_get_sky		   (GWeatherInfo *info);
 GWEATHER_EXTERN
 gchar *	                 gweather_info_get_conditions	   (GWeatherInfo *info);
 
-GWEATHER_EXTERN G_DEPRECATED_FOR(gweather_info_get_forecast_list)
-gchar *                  gweather_info_get_forecast        (GWeatherInfo *info);
-
 GWEATHER_EXTERN
 gchar * 	  	 gweather_info_get_temp		   (GWeatherInfo *info);
 GWEATHER_EXTERN
