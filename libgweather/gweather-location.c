@@ -217,6 +217,8 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 		goto error_out;
 	    if (parse_coordinates (value, &loc->latitude, &loc->longitude))
 		loc->latlon_valid = TRUE;
+	    else
+	        g_warning ("Coordinates could not be parsed: '%s'", value);
 	    xmlFree (value);
 	} else if (!strcmp (tagname, "zone") && !loc->forecast_zone) {
 	    value = _gweather_parser_get_value (parser);
