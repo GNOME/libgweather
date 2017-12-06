@@ -41,6 +41,7 @@ test_named_timezones (void)
         if (level != GWEATHER_LOCATION_NAMED_TIMEZONE)
             continue;
 
+        /* Verify that timezone codes start with a '@' */
         code = gweather_location_get_code (children[i]);
         g_assert_nonnull (code);
         g_assert_true (code[0] == '@');
