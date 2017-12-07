@@ -23,6 +23,10 @@
 #include <gweather-version.h>
 #include "gweather-location.h"
 
+/* Maximum for test_airport_distance_sanity() */
+#define TOO_FAR 100.0
+static double max_distance = 0.0;
+
 static void
 test_named_timezones (void)
 {
@@ -108,6 +112,54 @@ test_timezones (void)
 }
 
 static void
+test_distance (GWeatherLocation *location)
+{
+    GWeatherLocation *parent;
+    double distance;
+
+    parent = gweather_location_get_parent (location);
+    distance = gweather_location_get_distance (location, parent);
+
+    if (distance > TOO_FAR) {
+        g_test_message ("Airport '%s' is too far from city '%s' (%.1lf km)",
+                        gweather_location_get_name (location),
+                        gweather_location_get_name (parent),
+                        distance);
+        max_distance = MAX(max_distance, distance);
+        g_test_fail ();
+    }
+}
+
+static void
+test_airport_distance_children (GWeatherLocation *location)
+{
+    GWeatherLocation **children;
+    guint i;
+
+    children = gweather_location_get_children (location);
+    for (i = 0; children[i] != NULL; i++) {
+        if (gweather_location_get_level (children[i]) == GWEATHER_LOCATION_WEATHER_STATION)
+            test_distance (children[i]);
+        else
+            test_airport_distance_children (children[i]);
+    }
+}
+
+static void
+test_airport_distance_sanity (void)
+{
+    GWeatherLocation *world;
+
+    world = gweather_location_get_world ();
+    g_assert (world);
+
+    test_airport_distance_children (world);
+
+    if (g_test_failed ())
+        g_warning ("Maximum city to airport distance is %.1f km", max_distance);
+}
+
+static void
 log_handler (const char *log_domain, GLogLevelFlags log_level, const char *message, gpointer user_data)
 {
 	g_test_message ("%s", message);
@@ -130,6 +182,7 @@ main (int argc, char *argv[])
 
 	g_test_add_func ("/weather/named-timezones", test_named_timezones);
 	g_test_add_func ("/weather/timezones", test_timezones);
+	g_test_add_func ("/weather/airport_distance_sanity", test_airport_distance_sanity);
 
 	return g_test_run ();
 }
