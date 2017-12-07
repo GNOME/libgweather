@@ -95,16 +95,19 @@ if enable_vala
   )
 endif
 
+test_cargs = ['-DTEST_SRCDIR="@0@/"'.format(meson.current_source_dir())]
+
 executable('test_locations',
   ['test_locations.c'],
+  c_args: test_cargs,
   dependencies: libgweather_dep,
   install: false)
 executable('test_locations_utc',
   ['test_locations_utc.c'],
+  c_args: test_cargs,
   dependencies: libgweather_dep,
   install: false)
 
-test_cargs = ['-DTEST_SRCDIR="@0@/"'.format(meson.current_source_dir())]
 exe = executable('test_libgweather',
   ['test_libgweather.c'],
   c_args: test_cargs,

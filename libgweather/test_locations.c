@@ -37,6 +37,10 @@ main (int argc, char **argv)
     GtkWidget *combo;
     gtk_init (&argc, &argv);
 
+    g_setenv ("LIBGWEATHER_LOCATIONS_PATH",
+              TEST_SRCDIR "../data/Locations.xml",
+              FALSE);
+
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title (GTK_WINDOW (window), "location");
     gtk_container_set_border_width (GTK_CONTAINER (window), 8);
