@@ -115,11 +115,13 @@ exe = executable('test_libgweather',
   install: false)
 test('test_named_timezones', exe)
 
-#executable('test_metar',
-#  ['test_metar.c', 'weather-metar.c'],
-#  dependencies: libgweather_dep,
-#  install: false)
-#executable('test_sun_moon',
-#  ['test_sun_moon.c', 'weather-sun.c', 'weather-moon.c'],
-#  dependencies: libgweather_dep,
-#  install: false)
+executable('test_metar',
+  ['test_metar.c', gweather_c_sources],
+  c_args: test_cargs,
+  dependencies: libgweather_dep,
+  install: false)
+executable('test_sun_moon',
+  ['test_sun_moon.c', 'weather-sun.c', 'weather-moon.c'],
+  c_args: test_cargs,
+  dependencies: libgweather_dep,
+  install: false)
