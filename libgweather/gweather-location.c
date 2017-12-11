@@ -139,6 +139,58 @@ location_new (GWeatherLocationLevel level)
     return loc;
 }
 
+static void
+add_nearest_weather_station (GWeatherLocation *location)
+{
+    GWeatherLocation **siblings;
+    GWeatherLocation *closest = NULL;
+    double min_distance = G_MAXDOUBLE;
+    guint i;
+
+    g_assert (location->parent);
+    g_assert (gweather_location_get_level (location) == GWEATHER_LOCATION_CITY);
+
+    if (location->children != NULL)
+        return;
+
+    siblings = location->parent->children;
+    for (i = 0; siblings[i] != NULL; i++) {
+        double distance;
+
+        if (siblings[i] == location)
+            continue;
+
+        distance = gweather_location_get_distance (location, siblings[i]);
+        if (distance < min_distance)
+            closest = siblings[i];
+    }
+
+    if (!closest) {
+        g_critical ("Location '%s' has no valid airports attached", location->english_name);
+        return;
+    }
+
+    location->children = g_new0 (GWeatherLocation *, 2);
+    location->children[0] = g_memdup (closest, sizeof(GWeatherLocation));
+}
+
+static void
+add_nearest_weather_stations (GWeatherLocation *location)
+{
+    GWeatherLocation **children;
+    guint i;
+
+    /* For each city without a <location>, add the nearest airport in the
+     * same country or state to it */
+    children = gweather_location_get_children (location);
+    for (i = 0; children[i] != NULL; i++) {
+        if (gweather_location_get_level (children[i]) == GWEATHER_LOCATION_CITY)
+            add_nearest_weather_station (children[i]);
+        else
+            add_nearest_weather_stations (children[i]);
+    }
+}
+
 static GWeatherLocation *
 location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 		       GWeatherLocation *parent)
@@ -359,6 +411,7 @@ gweather_location_get_world (void)
 	    return NULL;
 
 	global_world = location_new_from_xml (parser, GWEATHER_LOCATION_WORLD, NULL);
+	add_nearest_weather_stations (global_world);
 	_gweather_parser_free (parser);
     }
 
