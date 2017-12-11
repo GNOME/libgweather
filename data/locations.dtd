@@ -13,7 +13,7 @@
 <!ELEMENT named-timezone (%name;, timezones, tz-hint, code)>
 
 <!ELEMENT timezones (timezone+) >
-<!ELEMENT timezone (_name?, name*, obsoletes*) >
+<!ELEMENT timezone (_name?, obsoletes*) >
 <!ATTLIST timezone
   id CDATA #REQUIRED >
 <!ELEMENT obsoletes (#PCDATA) >

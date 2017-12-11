@@ -200,7 +200,7 @@ parse_timezone (GWeatherParser *parser)
 		continue;
 	    }
 
-	    if (!strcmp ((const char *) xmlTextReaderConstName (parser->xml), "name"))
+	    if (!strcmp ((const char *) xmlTextReaderConstName (parser->xml), "_name"))
 		name = _gweather_parser_get_localized_value (parser);
 	    else {
 		if (xmlTextReaderNext (parser->xml) != 1)
