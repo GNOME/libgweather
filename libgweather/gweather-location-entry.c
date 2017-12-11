@@ -742,30 +742,16 @@ new_matcher (GtkEntryCompletion *completion, const char *key,
     return TRUE;
 }
 
-static char *
-sanitize_display_name (GeocodeLocation *loc)
-{
-    const char *display_name;
-    const char *last_comma;
-
-    display_name = geocode_location_get_description (loc);
-    last_comma = g_utf8_strrchr (display_name, -1, ',');
-    if (last_comma == NULL)
-	return g_strdup (display_name);
-    else
-	return g_strndup (display_name, last_comma - display_name);
-}
-
 static void
 fill_store (gpointer data, gpointer user_data)
 {
     GeocodePlace *place = GEOCODE_PLACE (data);
     GeocodeLocation *loc = geocode_place_get_location (place);
-    char *display_name;
+    const char *display_name;
     char *normalized;
     char *compare_name;
 
-    display_name = sanitize_display_name (loc);
+    display_name = geocode_location_get_description (loc);
     normalized = g_utf8_normalize (display_name, -1, G_NORMALIZE_ALL);
     compare_name = g_utf8_casefold (normalized, -1);
 
@@ -775,7 +761,6 @@ fill_store (gpointer data, gpointer user_data)
 				       PLACE_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, compare_name,
 				       -1);
 
-    g_free (display_name);
     g_free (normalized);
     g_free (compare_name);
 }
