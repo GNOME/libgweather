@@ -290,6 +290,83 @@ test_metar_weather_stations (void)
 }
 
 static void
+check_duplicate_weather_stations (gpointer key,
+                                  gpointer value,
+                                  gpointer user_data)
+{
+    GPtrArray *stations = value;
+    GHashTable *dedup;
+    guint i;
+
+    if (stations->len == 1)
+        goto out;
+
+    dedup = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
+    for (i = 0; i < stations->len; i++) {
+        double latitude, longitude;
+
+        gweather_location_get_coords (g_ptr_array_index (stations, i),
+                                      &latitude, &longitude);
+        g_hash_table_insert (dedup,
+                             g_strdup_printf ("%.10lf %.10lf", latitude, longitude),
+                             GUINT_TO_POINTER (1));
+    }
+
+    if (g_hash_table_size (dedup) > 1) {
+        g_test_message ("Airport '%s' is defined %u times in different ways",
+                        (const char *) key, stations->len);
+        g_test_fail ();
+    }
+
+    g_hash_table_destroy (dedup);
+
+out:
+    g_ptr_array_free (stations, TRUE);
+}
+
+static void
+test_duplicate_weather_stations_children (GWeatherLocation *location,
+                                          GHashTable       *stations_ht)
+{
+    GWeatherLocation **children;
+    guint i;
+
+    children = gweather_location_get_children (location);
+    for (i = 0; children[i] != NULL; i++) {
+        if (gweather_location_get_level (children[i]) == GWEATHER_LOCATION_WEATHER_STATION) {
+            GPtrArray *stations;
+            const char *code;
+
+            code = gweather_location_get_code (children[i]);
+
+            stations = g_hash_table_lookup (stations_ht, code);
+            if (!stations)
+                stations = g_ptr_array_new ();
+            g_ptr_array_add (stations, children[i]);
+            g_hash_table_insert (stations_ht, g_strdup (code), stations);
+        } else {
+            test_duplicate_weather_stations_children (children[i], stations_ht);
+        }
+    }
+}
+
+static void
+test_duplicate_weather_stations (void)
+{
+    GWeatherLocation *world;
+    GHashTable *stations_ht;
+
+    world = gweather_location_get_world ();
+    g_assert (world);
+
+    stations_ht = g_hash_table_new_full (g_str_hash, g_str_equal,
+                                         g_free, (GDestroyNotify) NULL);
+    test_duplicate_weather_stations_children (world, stations_ht);
+
+    g_hash_table_foreach (stations_ht, check_duplicate_weather_stations, NULL);
+}
+
+static void
 log_handler (const char *log_domain, GLogLevelFlags log_level, const char *message, gpointer user_data)
 {
 	g_test_message ("%s", message);
@@ -314,6 +391,7 @@ main (int argc, char *argv[])
 	g_test_add_func ("/weather/timezones", test_timezones);
 	g_test_add_func ("/weather/airport_distance_sanity", test_airport_distance_sanity);
 	g_test_add_func ("/weather/metar_weather_stations", test_metar_weather_stations);
+	g_test_add_func ("/weather/duplicate_weather_stations", test_duplicate_weather_stations);
 
 	return g_test_run ();
 }
