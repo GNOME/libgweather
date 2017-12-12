@@ -173,6 +173,7 @@ parse_metar_stations (const char *contents)
     guint i, num_stations;
 
     stations_ht = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
+    num_stations = 0;
     lines = g_strsplit (contents, "\n", -1);
 
     for (i = 0; lines[i] != NULL; i++) {
