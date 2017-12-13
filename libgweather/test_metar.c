@@ -19,11 +19,11 @@
 int
 main (int argc, char **argv)
 {
-    FILE*  stream = stdin;
+    FILE *stream = stdin;
     gchar* filename = NULL;
     GOptionEntry entries[] = {
 	{ "file", 'f', 0, G_OPTION_ARG_FILENAME, &filename,
-	  "file constaining metar observations", NULL },
+	  "file containing METAR observations", NULL },
 	{ NULL }
     };
     GOptionContext* context;
