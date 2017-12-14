@@ -348,6 +348,12 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 
     if (level == GWEATHER_LOCATION_COUNTRY) {
 	if (loc->country_code) {
+	    GWeatherLocation *existing;
+
+	    existing = g_hash_table_lookup (parser->country_code_cache, loc->country_code);
+	    if (existing)
+	        g_warning ("A country with country code '%s' is already in the database",
+	                   loc->country_code);
 	    g_hash_table_replace (parser->country_code_cache, loc->country_code,
 				  gweather_location_ref (loc));
 	}
