@@ -4,5 +4,5 @@ build-fedora:
     - dnf install -y redhat-rpm-config meson libxml2-devel vala gettext itstool gtk3-devel geocode-glib-devel gobject-introspection-devel libsoup-devel
   script:
     - meson _build
-    - ninja -C _build test || cat _build/meson-logs/testlog.txt
+    - ninja -C _build test
     - ninja -C _build install
