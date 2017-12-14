@@ -1,3 +1,5 @@
+[![Build Status](https://gitlab.gnome.org/GNOME/libgweather/badges/master/build.svg)](https://gitlab.gnome.org/GNOME/libgweather/pipelines)
+
 libgweather
 ===========
 
