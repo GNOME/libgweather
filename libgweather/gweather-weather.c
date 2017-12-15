@@ -881,29 +881,35 @@ temperature_string (gfloat temp_f, GWeatherTemperatureUnit to_unit, gboolean wan
     switch (to_unit) {
     case GWEATHER_TEMP_UNIT_FAHRENHEIT:
 	if (!want_round) {
-	    /* TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT) */
-	    return g_strdup_printf (_("%.1f \u2109"), temp_f);
+	    /* TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
+	     * with a non-break space (U+00A0) between the digits and the degrees sign */
+	    return g_strdup_printf (_("%.1f\u00A0\u2109"), temp_f);
 	} else {
-	    /* TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT) */
-	    return g_strdup_printf (_("%d \u2109"), (int)floor (temp_f + 0.5));
+	    /* TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)i
+	     * with a non-break space (U+00A0) between the digits and the degrees sign */
+	    return g_strdup_printf (_("%d\u00A0\u2109"), (int)floor (temp_f + 0.5));
 	}
 	break;
     case GWEATHER_TEMP_UNIT_CENTIGRADE:
 	if (!want_round) {
-	    /* TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS) */
-	    return g_strdup_printf (_("%.1f \u2103"), TEMP_F_TO_C (temp_f));
+	    /* TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+	     * with a non-break space (U+00A0) between the digits and the degrees sign */
+	    return g_strdup_printf (_("%.1f\u00A0\u2103"), TEMP_F_TO_C (temp_f));
 	} else {
-	    /* TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS) */
-	    return g_strdup_printf (_("%d \u2103"), (int)floor (TEMP_F_TO_C (temp_f) + 0.5));
+	    /* TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+	     * with a non-break space (U+00A0) between the digits and the degrees sign */
+	    return g_strdup_printf (_("%d\u00A0\u2103"), (int)floor (TEMP_F_TO_C (temp_f) + 0.5));
 	}
 	break;
     case GWEATHER_TEMP_UNIT_KELVIN:
 	if (!want_round) {
-	    /* TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN) */
-	    return g_strdup_printf (_("%.1f \u212A"), TEMP_F_TO_K (temp_f));
+	    /* TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+	     * with a non-break space (U+00A0) between the digits and the degrees sign */
+	    return g_strdup_printf (_("%.1f\u00A0\u212A"), TEMP_F_TO_K (temp_f));
 	} else {
-	    /* TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN) */
-	    return g_strdup_printf (_("%d \u212A"), (int)floor (TEMP_F_TO_K (temp_f)));
+	    /* TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+	     * with a non-break space (U+00A0) between the digits and the degrees sign */
+	    return g_strdup_printf (_("%d\u00A0\u212A"), (int)floor (TEMP_F_TO_K (temp_f)));
 	}
 	break;
 
