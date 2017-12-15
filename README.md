@@ -26,14 +26,6 @@ To discuss libgweather, you may use the desktop-devel-list mailing list:
   http://mail.gnome.org/mailman/listinfo/desktop-devel-list
 
 
-Installation
-============
-
-See the file 'INSTALL'. If you are not using a released version of
-libgweather (for example, if you checked out the code from git), you
-first need to run './autogen.sh'.
-
-
 How to report bugs
 ==================
 
