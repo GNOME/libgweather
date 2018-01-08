@@ -1,4 +1,28 @@
 ==============
+Version 3.27.4
+==============
+
+* Deprecated API was removed; this caused a soname bump. All dependent software must
+  be rebuilt [Bastien Nocera, #791313]
+* New API: a new level of locations, called "named timezones" was added, to represent
+  well known timezones with no associated location. Two named timezones are included:
+  UTC and AoE (Anywhere on Earth) [Bastien Nocera, Giovanni Campagna, #791066]
+* It is now possible to have cities in the database with no associated weather station;
+  the nearest weather station is chosen if necessary
+* Matching of search terms to location names was improved [#791066, #791403]
+* The Yahoo Weather backend was removed; it was not well tested and unused by
+  most applications and distributions [Bastien Nocera, #791084]
+* More tests were added [Bastien Nocera, #791307, #791313, #791317, #791319, #791402]
+* Misc bug fixes [Bastien Nocera, #789080]
+* Build system fixes [Piotr Drag; Emmanuele Bassi; Bastien Nocera, #791088, #791086]
+* Translation bug fixes [Piotr Drag, #781364]
+* Location database updates and fixes [Bastien Nocera, #791095, #620897, #727186,
+  #643928, #789951, #791323, #599880, #642634, #606557, #617689, #768309, #635534,
+  #597989, #625270, #625270, #583644, #534047, #572675; Amit Pundir, #611945;
+  Fabio Duran Verdugo, #640877; Silvara, #778707]
+* Updated translations
+
+==============
 Version 3.27.1
 ==============
 
