@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgweather master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgweather/issues\n"
-"POT-Creation-Date: 2017-12-14 10:03+0000\n"
-"PO-Revision-Date: 2017-12-15 09:53+0100\n"
+"POT-Creation-Date: 2017-12-20 19:48+0000\n"
+"PO-Revision-Date: 2018-01-10 13:14+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -832,83 +832,92 @@ msgid "default:mm"
 msgstr "default:mm"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
-#: libgweather/gweather-weather.c:885
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:886
 #, c-format
-msgid "%.1f ℉"
-msgstr "%.1f ℉"
+#| msgid "%.1f ℉"
+msgid "%.1f ℉"
+msgstr "%.1f ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
-#: libgweather/gweather-weather.c:888
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)i
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:890
 #, c-format
-msgid "%d ℉"
-msgstr "%d ℉"
-
-#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
-#: libgweather/gweather-weather.c:894
-#, c-format
-msgid "%.1f ℃"
-msgstr "%.1f ℃"
+msgid "%d ℉"
+msgstr "%d ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
 #: libgweather/gweather-weather.c:897
 #, c-format
-msgid "%d ℃"
-msgstr "%d ℃"
+#| msgid "%.1f ℃"
+msgid "%.1f ℃"
+msgstr "%.1f ℃"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:901
+#, c-format
+msgid "%d ℃"
+msgstr "%d ℃"
 
 #. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
-#: libgweather/gweather-weather.c:903
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:908
 #, c-format
-msgid "%.1f K"
-msgstr "%.1f K"
+#| msgid "%.1f K"
+msgid "%.1f K"
+msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
-#: libgweather/gweather-weather.c:906
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:912
 #, c-format
-msgid "%d K"
-msgstr "%d K"
+msgid "%d K"
+msgstr "%d K"
 
-#: libgweather/gweather-weather.c:929 libgweather/gweather-weather.c:945
-#: libgweather/gweather-weather.c:961 libgweather/gweather-weather.c:1023
+#: libgweather/gweather-weather.c:935 libgweather/gweather-weather.c:951
+#: libgweather/gweather-weather.c:967 libgweather/gweather-weather.c:1029
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "No cognossude"
 
-#: libgweather/gweather-weather.c:983
+#: libgweather/gweather-weather.c:989
 msgctxt "dew"
 msgid "Unknown"
 msgstr "No cognossude"
 
-#: libgweather/gweather-weather.c:1003
+#: libgweather/gweather-weather.c:1009
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "No cognossude"
 
 #. TRANSLATOR: This is the humidity in percent
-#: libgweather/gweather-weather.c:1006
+#: libgweather/gweather-weather.c:1012
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: libgweather/gweather-weather.c:1052
+#: libgweather/gweather-weather.c:1058
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f grops"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: libgweather/gweather-weather.c:1055
+#: libgweather/gweather-weather.c:1061
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: libgweather/gweather-weather.c:1058
+#: libgweather/gweather-weather.c:1064
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: libgweather/gweather-weather.c:1061
+#: libgweather/gweather-weather.c:1067
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -916,95 +925,95 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: libgweather/gweather-weather.c:1066
+#: libgweather/gweather-weather.c:1072
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Beaufort fuarce %.1f"
 
-#: libgweather/gweather-weather.c:1087
+#: libgweather/gweather-weather.c:1093
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "No cognossude"
 
-#: libgweather/gweather-weather.c:1089
+#: libgweather/gweather-weather.c:1095
 msgid "Calm"
 msgstr "Calme"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: libgweather/gweather-weather.c:1097
+#: libgweather/gweather-weather.c:1103
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: libgweather/gweather-weather.c:1133
+#: libgweather/gweather-weather.c:1139
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "No cognossude"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: libgweather/gweather-weather.c:1139
+#: libgweather/gweather-weather.c:1145
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: libgweather/gweather-weather.c:1142
+#: libgweather/gweather-weather.c:1148
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: libgweather/gweather-weather.c:1145
+#: libgweather/gweather-weather.c:1151
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: libgweather/gweather-weather.c:1148
+#: libgweather/gweather-weather.c:1154
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: libgweather/gweather-weather.c:1151
+#: libgweather/gweather-weather.c:1157
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: libgweather/gweather-weather.c:1154
+#: libgweather/gweather-weather.c:1160
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atmosferis"
 
-#: libgweather/gweather-weather.c:1192
+#: libgweather/gweather-weather.c:1198
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "No cognossude"
 
 #. TRANSLATOR: This is the visibility in miles
-#: libgweather/gweather-weather.c:1198
+#: libgweather/gweather-weather.c:1204
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f miis"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: libgweather/gweather-weather.c:1201
+#: libgweather/gweather-weather.c:1207
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: libgweather/gweather-weather.c:1204
+#: libgweather/gweather-weather.c:1210
 #, c-format
 msgid "%.0fm"
 msgstr "%.0f m"
 
-#: libgweather/gweather-weather.c:1232 libgweather/gweather-weather.c:1257
+#: libgweather/gweather-weather.c:1238 libgweather/gweather-weather.c:1263
 msgid "%H∶%M"
 msgstr "%k.%M"
 
-#: libgweather/gweather-weather.c:1351
+#: libgweather/gweather-weather.c:1357
 msgid "Retrieval failed"
 msgstr "Recupar falît"
 
@@ -1104,12 +1113,13 @@ msgstr ""
 "compagn a 1 hPa ma mostrât in maniere divierse), “mm-hg” (milimetri di "
 "mercuri), “inch-hg” (oncis di mercuri), “atm” (atmosferis)."
 
+# as shown here https://en.wikipedia.org/wiki/List_of_airports_by_ICAO_code:_L#LI_%E2%80%93_Italy
 #. TRANSLATORS: pick a default location to use in the weather applet. This should
 #. usually be the largest city or the capital of your country. If you're not picking
 #. a <location> in the database, don't forget to set name and coordinates.
 #: schemas/org.gnome.GWeather.gschema.xml:50
 msgid "('', 'KNYC', nothing)"
-msgstr ""
+msgstr "('Roncjis', 'LIPQ', nuie)"
 
 #: schemas/org.gnome.GWeather.gschema.xml:51
 msgid "Default location"
@@ -1132,6 +1142,15 @@ msgstr ""
 "è une tuple (latitudin, longjitudin) par passâ parsore al valôr cjapât de "
 "base di dâts. Chest al ven doprât nome pal calcul dal cricâ dal dì e pes "
 "fasis lunârs, no par previsions meteorologjichis."
+
+#~ msgid "%d ℉"
+#~ msgstr "%d ℉"
+
+#~ msgid "%d ℃"
+#~ msgstr "%d ℃"
+
+#~ msgid "%d K"
+#~ msgstr "%d K"
 
 #~ msgid "Location Entry"
 #~ msgstr "Vôs posizion"
