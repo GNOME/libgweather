@@ -75,7 +75,7 @@ typedef enum { /*< underscore_name=gweather_speed_unit >*/
  * @GWEATHER_PRESSURE_UNIT_HPA: hectoPascal (* 10^2 Pa); also known
  *                              as millibars, but formatted differently
  * @GWEATHER_PRESSURE_UNIT_MB: millibars; same as %GWEATHER_PRESSURE_UNIT_HPA
- * @GWEATHER_PRESSURE_UNIT_MM_HG: millimiters of mercury
+ * @GWEATHER_PRESSURE_UNIT_MM_HG: millimeters of mercury
  * @GWEATHER_PRESSURE_UNIT_INCH_HG: inches of mercury
  * @GWEATHER_PRESSURE_UNIT_ATM: atmospheres
  *
