@@ -50,7 +50,7 @@ math_dep = c_compiler.find_library('m', required : false)
 deps_libgweather = [math_dep, gtk_dep, glib_dep, libsoup_dep, libxml_dep, geocode_glib_dep]
 
 config_h = configuration_data()
-GETTEXT_PACKAGE = 'gweather-3.0'
+GETTEXT_PACKAGE = 'libgweather-3.0'
 config_h.set_quoted('GETTEXT_PACKAGE', GETTEXT_PACKAGE)
 config_h.set_quoted('LOCALEDIR', join_paths(datadir, 'locale'))
 config_h.set_quoted('GNOMELOCALEDIR', join_paths(datadir, 'locale'))
