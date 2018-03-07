@@ -60,7 +60,8 @@
  * division.
  * @GWEATHER_LOCATION_ADM2: A location representing a subdivision of a
  * %GWEATHER_LOCATION_ADM1 location, or a direct subdivision of
- * a country that is not represented in a #GWeatherLocationEntry.
+ * a country that is not represented in a #GWeatherLocationEntry. This
+ * is not used.
  * @GWEATHER_LOCATION_CITY: A location representing a city
  * @GWEATHER_LOCATION_WEATHER_STATION: A location representing a
  * weather station.
@@ -297,11 +298,6 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 	    g_ptr_array_add (children, child);
 	} else if (!strcmp (tagname, "state")) {
 	    child = location_new_from_xml (parser, GWEATHER_LOCATION_ADM1, loc);
-	    if (!child)
-		goto error_out;
-	    g_ptr_array_add (children, child);
-	} else if (!strcmp (tagname, "province")) {
-	    child = location_new_from_xml (parser, GWEATHER_LOCATION_ADM2, loc);
 	    if (!child)
 		goto error_out;
 	    g_ptr_array_add (children, child);
