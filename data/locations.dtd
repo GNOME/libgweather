@@ -7,7 +7,7 @@
 <!ELEMENT region (%name;, country+) >
 <!ELEMENT country (%name;, iso-code, fips-code+, pref-lang?, timezones, tz-hint?, (location|state|city)*) >
 <!ELEMENT state (%name;, fips-code*, tz-hint?, (location|city)*) >
-<!ELEMENT city (%name;, coordinates?, tz-hint?, location*) >
+<!ELEMENT city (%name;, coordinates?, tz-hint?) >
 <!ELEMENT location (name, code, zone?, radar?, coordinates?) >
 <!ELEMENT named-timezone (%name;, timezones, tz-hint, code)>
 
