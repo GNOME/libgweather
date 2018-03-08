@@ -145,6 +145,9 @@ GWeatherLocation      *gweather_location_new_detached   (const char        *name
 							 gdouble            latitude,
 							 gdouble            longitude);
 
+GWEATHER_EXTERN
+const char            *gweather_location_level_to_string (GWeatherLocationLevel level);
+
 G_END_DECLS
 
 #endif /* __GWEATHER_LOCATIONS_H__ */
