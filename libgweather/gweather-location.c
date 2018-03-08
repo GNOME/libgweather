@@ -940,11 +940,11 @@ gweather_location_get_coords (GWeatherLocation *loc,
 double
 gweather_location_get_distance (GWeatherLocation *loc, GWeatherLocation *loc2)
 {
-    g_return_val_if_fail (loc != NULL, 0);
-    g_return_val_if_fail (loc2 != NULL, 0);
+    g_return_val_if_fail (loc != NULL, G_MAXDOUBLE);
+    g_return_val_if_fail (loc2 != NULL, G_MAXDOUBLE);
 
-    //g_return_val_if_fail (loc->latlon_valid, 0.0);
-    //g_return_val_if_fail (loc2->latlon_valid, 0.0);
+    g_return_val_if_fail (loc->latlon_valid, G_MAXDOUBLE);
+    g_return_val_if_fail (loc2->latlon_valid, G_MAXDOUBLE);
 
     return location_distance (loc->latitude, loc->longitude,
 			      loc2->latitude, loc2->longitude);
