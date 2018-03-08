@@ -292,9 +292,9 @@ test_metar_weather_stations (void)
 }
 
 static void
-check_duplicate_weather_stations (gpointer key,
-                                  gpointer value,
-                                  gpointer user_data)
+check_bad_duplicate_weather_stations (gpointer key,
+                                      gpointer value,
+                                      gpointer user_data)
 {
     GPtrArray *stations = value;
     GHashTable *dedup;
@@ -327,8 +327,8 @@ out:
 }
 
 static void
-test_duplicate_weather_stations_children (GWeatherLocation *location,
-                                          GHashTable       *stations_ht)
+test_bad_duplicate_weather_stations_children (GWeatherLocation *location,
+                                              GHashTable       *stations_ht)
 {
     GWeatherLocation **children;
     guint i;
@@ -347,25 +347,26 @@ test_duplicate_weather_stations_children (GWeatherLocation *location,
             g_ptr_array_add (stations, children[i]);
             g_hash_table_insert (stations_ht, g_strdup (code), stations);
         } else {
-            test_duplicate_weather_stations_children (children[i], stations_ht);
+            test_bad_duplicate_weather_stations_children (children[i], stations_ht);
         }
     }
 }
 
 static void
-test_duplicate_weather_stations (void)
+test_bad_duplicate_weather_stations (void)
 {
     GWeatherLocation *world;
     GHashTable *stations_ht;
 
+    g_setenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST", "1", TRUE);
     world = gweather_location_get_world ();
     g_assert (world);
 
     stations_ht = g_hash_table_new_full (g_str_hash, g_str_equal,
                                          g_free, (GDestroyNotify) NULL);
-    test_duplicate_weather_stations_children (world, stations_ht);
+    test_bad_duplicate_weather_stations_children (world, stations_ht);
 
-    g_hash_table_foreach (stations_ht, check_duplicate_weather_stations, NULL);
+    g_hash_table_foreach (stations_ht, check_bad_duplicate_weather_stations, NULL);
 }
 
 static void
@@ -393,7 +394,8 @@ main (int argc, char *argv[])
 	g_test_add_func ("/weather/timezones", test_timezones);
 	g_test_add_func ("/weather/airport_distance_sanity", test_airport_distance_sanity);
 	g_test_add_func ("/weather/metar_weather_stations", test_metar_weather_stations);
-	g_test_add_func ("/weather/duplicate_weather_stations", test_duplicate_weather_stations);
+	/* Modifies environment, so needs to run last */
+	g_test_add_func ("/weather/bad_duplicate_weather_stations", test_bad_duplicate_weather_stations);
 
 	return g_test_run ();
 }
