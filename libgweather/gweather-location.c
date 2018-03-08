@@ -58,10 +58,6 @@
  * @GWEATHER_LOCATION_ADM1: A location representing a "first-level
  * administrative division"; ie, a state, province, or similar
  * division.
- * @GWEATHER_LOCATION_ADM2: A location representing a subdivision of a
- * %GWEATHER_LOCATION_ADM1 location, or a direct subdivision of
- * a country that is not represented in a #GWeatherLocationEntry. This
- * is not used.
  * @GWEATHER_LOCATION_CITY: A location representing a city
  * @GWEATHER_LOCATION_WEATHER_STATION: A location representing a
  * weather station.
@@ -673,7 +669,7 @@ find_nearest_city (GWeatherLocation *location,
  * Finds the nearest city to the passed latitude and
  * longitude, among the descendants of @loc.
  *
- * @loc must be at most a %GWEATHER_LOCATION_ADM2 location.
+ * @loc must be at most a %GWEATHER_LOCATION_ADM1 location.
  * This restriction may be lifted in a future version.
  *
  * Note that this function does not check if (@lat, @lon) fall inside
@@ -728,7 +724,7 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
  * Supports the use of own filter function to filter out locations.
  * Geocoding should be done on the application side if needed.
  *
- * @loc must be at most a %GWEATHER_LOCATION_ADM2 location.
+ * @loc must be at most a %GWEATHER_LOCATION_ADM1 location.
  * This restriction may be lifted in a future version.
  *
  * Returns: (transfer full): the city closest to (@lat, @lon), in the
@@ -824,7 +820,7 @@ _got_place (GObject      *source_object,
  * Initializes geocode reversing to find place for (@lat, @lon) coordinates. Calls the callback
  * function passed by user when the result is ready.
  *
- * @loc must be at most a %GWEATHER_LOCATION_ADM2 location.
+ * @loc must be at most a %GWEATHER_LOCATION_ADM1 location.
  * This restriction may be lifted in a future version.
  *
  * Since: 3.12
@@ -1295,8 +1291,7 @@ gweather_location_equal (GWeatherLocation *one,
     if (level == GWEATHER_LOCATION_COUNTRY)
 	return g_strcmp0 (one->country_code, two->country_code);
 
-    if (level == GWEATHER_LOCATION_ADM1 ||
-	level == GWEATHER_LOCATION_ADM2) {
+    if (level == GWEATHER_LOCATION_ADM1) {
 	if (g_strcmp0 (one->english_sort_name, two->english_sort_name) != 0)
 	    return FALSE;
 
