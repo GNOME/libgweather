@@ -558,6 +558,42 @@ gweather_location_get_level (GWeatherLocation *loc)
 }
 
 /**
+ * gweather_location_level_to_string:
+ * @level: a #GWeatherLocationLevel
+ *
+ * Returns the location level as a string, useful for debugging
+ * purposes.
+ *
+ * Return value: a string
+ **/
+const char *
+gweather_location_level_to_string (GWeatherLocationLevel level)
+{
+    switch (level) {
+    case GWEATHER_LOCATION_WORLD:
+        return "world";
+    case GWEATHER_LOCATION_REGION:
+        return "region";
+    case GWEATHER_LOCATION_COUNTRY:
+        return "country";
+    case GWEATHER_LOCATION_ADM1:
+        return "adm1";
+    case GWEATHER_LOCATION_CITY:
+        return "city";
+    case GWEATHER_LOCATION_WEATHER_STATION:
+        return "station";
+    case GWEATHER_LOCATION_DETACHED:
+        return "detached";
+    case GWEATHER_LOCATION_NAMED_TIMEZONE:
+        return "named-timezone";
+    default:
+        g_assert_not_reached();
+    }
+
+    return NULL;
+}
+
+/**
  * gweather_location_get_parent:
  * @loc: a #GWeatherLocation
  *
