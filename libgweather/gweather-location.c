@@ -413,7 +413,8 @@ gweather_location_get_world (void)
 	    return NULL;
 
 	global_world = location_new_from_xml (parser, GWEATHER_LOCATION_WORLD, NULL);
-	add_nearest_weather_stations (global_world);
+	if (!g_getenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST"))
+	    add_nearest_weather_stations (global_world);
 	_gweather_parser_free (parser);
     }
 
