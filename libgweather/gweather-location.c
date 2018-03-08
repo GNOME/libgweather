@@ -157,6 +157,10 @@ add_nearest_weather_station (GWeatherLocation *location)
         if (siblings[i] == location)
             continue;
 
+        /* Skip siblings without valid coordinates */
+        if (!siblings[i]->latlon_valid)
+            continue;
+
         distance = gweather_location_get_distance (location, siblings[i]);
         if (distance < min_distance)
             closest = siblings[i];
