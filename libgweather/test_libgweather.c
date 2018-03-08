@@ -124,6 +124,8 @@ test_distance (GWeatherLocation *location)
     double distance;
 
     parent = gweather_location_get_parent (location);
+    if (gweather_location_get_level (parent) < GWEATHER_LOCATION_CITY)
+      return;
     distance = gweather_location_get_distance (location, parent);
 
     if (distance > TOO_FAR) {
