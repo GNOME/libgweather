@@ -504,7 +504,6 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
     switch (gweather_location_get_level (loc)) {
     case GWEATHER_LOCATION_WORLD:
     case GWEATHER_LOCATION_REGION:
-    case GWEATHER_LOCATION_ADM2:
 	/* Ignore these levels of hierarchy; just recurse, passing on
 	 * the names from the parent node.
 	 */

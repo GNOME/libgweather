@@ -40,8 +40,6 @@ typedef enum { /*< underscore_name=gweather_location_level >*/
     GWEATHER_LOCATION_COUNTRY,
     /* ADM1 = first-order administrative division = state/province, etc */
     GWEATHER_LOCATION_ADM1,
-    /* ADM2 = second-order division = county, etc */
-    GWEATHER_LOCATION_ADM2,
     GWEATHER_LOCATION_CITY,
     GWEATHER_LOCATION_WEATHER_STATION,
     GWEATHER_LOCATION_DETACHED,
