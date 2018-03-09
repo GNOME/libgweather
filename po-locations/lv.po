@@ -3,13 +3,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
 # Raivis Dejus <orvils@gmail.com>, 2006, 2009.
-# Rudolfs <rudolfs.mazurs@gmail.com>, 2011, 2015, 2017.
+# Rudolfs <rudolfs.mazurs@gmail.com>, 2011, 2015, 2017, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: locations.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 11:37+0000\n"
-"PO-Revision-Date: 2017-04-09 13:41+0200\n"
+"POT-Creation-Date: 2018-03-09 14:30+0000\n"
+"PO-Revision-Date: 2018-03-09 20:49+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -19,6 +19,14 @@ msgstr ""
 "X-Generator: Lokalize 2.0\n"
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 :"
 " 2);\n"
+
+#. TRANSLATORS: This is the designation for the last (most west) timezone on Earth
+#. https://en.wikipedia.org/wiki/Anywhere_on_Earth
+msgid "Anywhere on Earth (AoE)"
+msgstr "Jebkur uz zemeslodes (AoE)"
+
+msgid "Coordinated Universal Time (UTC)"
+msgstr "Universālais koordinētais laiks (UTC)"
 
 msgid "Africa"
 msgstr "Āfrika"
@@ -557,6 +565,10 @@ msgstr "Kenija"
 #. KI - Kiribati
 msgid "Kiribati"
 msgstr "Kiribati"
+
+#. XK, Kosovo
+msgid "Kosovo"
+msgstr "Kosova"
 
 #. KW - Kuwait
 msgctxt "Country"
@@ -1741,14 +1753,23 @@ msgstr "Samāras laiks"
 msgid "Yekaterinburg Time"
 msgstr "Jekaterinburgas laiks"
 
-#. A Russian time zone, used in the Omsk and Novosibirsk
-#. oblasts and surrounding areas of south-central Russia.
+#. A Russian time zone, used in the Omsk oblast
+#. and surrounding areas of south-central Russia.
 #. The Russian name is "Омское время". This string is only
 #. used in places where "Russia" is already clear from
 #. context.
 #.
 msgid "Omsk Time"
 msgstr "Omskas laiks"
+
+#. A Russian time zone, used in the Novosibirsk oblast.
+#. The Russian name is "Новосибирское время".
+#. This string is only used in places
+#. where "Russia" is already clear from context.
+#.
+#| msgid "Novosibirsk"
+msgid "Novosibirsk Time"
+msgstr "Novosibirskas laiks"
 
 #. A Russian time zone, used in the Krasnoyarsk krai and
 #. surrounding areas of central Russia. The Russian name is
@@ -2079,6 +2100,7 @@ msgid "Minas Gerais"
 msgstr "Minasžeraisa"
 
 #. A state/province/territory in Brazil
+#. A city in Argentina
 msgid "Paraná"
 msgstr "Parana"
 
@@ -2944,7 +2966,6 @@ msgstr ""
 msgid "The Valley"
 msgstr ""
 
-#| msgid "Amundsen-Scott South Pole Station (New Zealand Time)"
 msgid "Amundsen-Scott South Pole Station"
 msgstr ""
 
@@ -3643,7 +3664,6 @@ msgid "Curitiba"
 msgstr "Curitiba"
 
 #. A city in Mato Grosso do Sul in Brazil
-#| msgid "El Dorado"
 msgid "Dourados"
 msgstr ""
 
@@ -4071,6 +4091,7 @@ msgid "Berens River"
 msgstr "Berens River"
 
 #. A city in Alberta in Canada
+#. A city in Norway
 msgid "Bergen"
 msgstr "Bergen"
 
@@ -5593,6 +5614,10 @@ msgid "Concepción"
 msgstr ""
 
 #. A city in Chile
+msgid "Curico"
+msgstr ""
+
+#. A city in Chile
 msgid "Hanga Roa"
 msgstr ""
 
@@ -5701,7 +5726,6 @@ msgstr "Hohhot"
 
 #. A city in Shandong in China.
 #. The name is also written "济南"
-#| msgid "Hainan"
 msgid "Jinan"
 msgstr ""
 
@@ -5846,7 +5870,6 @@ msgid "Ibagué"
 msgstr ""
 
 #. A city in Colombia
-#| msgid "Wales"
 msgid "Ipiales"
 msgstr ""
 
@@ -5855,17 +5878,14 @@ msgid "Leticia"
 msgstr ""
 
 #. A city in Colombia
-#| msgid "Meriden"
 msgid "Medellín"
 msgstr ""
 
 #. A city in Colombia
-#| msgid "Montserrat"
 msgid "Monteria"
 msgstr ""
 
 #. A city in Colombia
-#| msgid "Pasco"
 msgid "Pasto"
 msgstr ""
 
@@ -5882,7 +5902,6 @@ msgid "Quibdó"
 msgstr ""
 
 #. A city in Colombia
-#| msgid "Rafha"
 msgid "Riohacha"
 msgstr ""
 
@@ -5895,8 +5914,6 @@ msgid "San Andrés"
 msgstr ""
 
 #. A city in Colombia
-#| msgctxt "City in Rio Grande do Sul, Brazil"
-#| msgid "Santa Maria"
 msgid "Santa Marta"
 msgstr ""
 
@@ -6409,21 +6426,12 @@ msgstr "Vaasa"
 #. A city in Finland.
 #. The local name in Swedish is "Vanda".
 #.
-#| msgid "Varna"
 msgid "Vantaa"
 msgstr ""
 
 #. A city in Finland
 msgid "Varkaus"
 msgstr "Varkaus"
-
-#. A city in France
-msgid "Abbeville"
-msgstr "Abevila"
-
-#. A city in France
-msgid "Acon"
-msgstr ""
 
 #. A city in France
 msgid "Agen"
@@ -6437,11 +6445,9 @@ msgstr "Ajakio"
 msgid "Alençon"
 msgstr "Alenkona"
 
-#. A city in France.
-#. One of several cities in France called "Ambérieu".
-#.
-msgid "Ambérieu-en-Bugey"
-msgstr "Ambérieu-en-Bugey"
+#. A city in France
+msgid "Amiens"
+msgstr ""
 
 #. A city in France
 msgid "Auch"
@@ -6450,10 +6456,6 @@ msgstr "Auch"
 #. A city in France
 msgid "Aurillac"
 msgstr "Aurillac"
-
-#. A city in France
-msgid "Avord"
-msgstr "Avord"
 
 #. A city in France
 msgid "Bastia"
@@ -6475,6 +6477,12 @@ msgstr ""
 msgctxt "City in France"
 msgid "Bordeaux"
 msgstr "Bordo"
+
+#. A city in France
+#, fuzzy
+#| msgid "Bourges"
+msgid "Bourg-en-Bresse"
+msgstr "Bourges"
 
 #. A city in France
 msgid "Bourges"
@@ -6514,10 +6522,6 @@ msgid "Carcassonne"
 msgstr "Carcassonne"
 
 #. A city in France
-msgid "Cazaux"
-msgstr "Cazaux"
-
-#. A city in France
 msgid "Chambéry"
 msgstr "Chambéry"
 
@@ -6528,16 +6532,6 @@ msgstr "Chartres"
 #. A city in France
 msgid "Cherbourg"
 msgstr "Cherbourg"
-
-#. A city in France.
-#. One of several cities in France called "Châlons".
-#.
-msgid "Châlons-en-Champagne"
-msgstr "Châlons-en-Champagne"
-
-#. A city in France
-msgid "Châteaudun"
-msgstr "Châteaudun"
 
 #. A city in France
 msgid "Châteauroux"
@@ -6554,10 +6548,6 @@ msgstr "Cognac"
 #. A city in France
 msgid "Colmar"
 msgstr "Colmar"
-
-#. A city in France
-msgid "Creil"
-msgstr ""
 
 #. A city in France
 msgid "Dax"
@@ -6660,7 +6650,6 @@ msgid "Montélimar"
 msgstr "Montélimar"
 
 #. A city in France
-#| msgid "Toulouse"
 msgid "Mulhouse"
 msgstr ""
 
@@ -6998,6 +6987,12 @@ msgstr "Leipzig"
 msgid "Liebenscheid"
 msgstr ""
 
+#. A city in Bavaria in Germany
+#, fuzzy
+#| msgid "Deming"
+msgid "Memmingen"
+msgstr "Deming"
+
 #. A city in Baden-Württemberg in Germany
 msgid "Meßstetten"
 msgstr "Meßstetten"
@@ -7067,7 +7062,6 @@ msgid "Roth"
 msgstr "Roth"
 
 #. A city in Saarland in Germany
-#| msgid "Zweibrücken"
 msgid "Saarbrücken"
 msgstr ""
 
@@ -7376,7 +7370,6 @@ msgid "Georgetown"
 msgstr "Džordžtauna"
 
 #. Capital of Haiti
-#| msgid "Fort Providence"
 msgid "Port-au-Prince"
 msgstr ""
 
@@ -7436,10 +7429,6 @@ msgstr "Tela"
 msgid "Yoro"
 msgstr "Yoro"
 
-#. A city in Hong Kong
-msgid "Kowloon"
-msgstr ""
-
 #. The capital of Hungary
 msgid "Budapest"
 msgstr "Budapest"
@@ -7490,14 +7479,12 @@ msgstr ""
 
 #. A city in India
 #. the local name in Bengali is "আগরতলা/Agortôla"
-#| msgid "Amapala"
 msgid "Agartala"
 msgstr ""
 
 #. A city in India
 #. the local name in Hindi is "आगरा"
 #.
-#| msgid "Arad"
 msgid "Agra"
 msgstr ""
 
@@ -7507,7 +7494,6 @@ msgstr "Ahmadabada"
 
 #. A city in India
 #. the local name in Hindi is "इलाहाबाद"
-#| msgid "Ahmadabad"
 msgid "Allahabad"
 msgstr ""
 
@@ -7519,19 +7505,16 @@ msgstr "Amritsar"
 
 #. A city in India
 #. the local name in Marathi is "औरंगाबाद"
-#| msgid "Ahmadabad"
 msgid "Aurangabad"
 msgstr ""
 
 #. A city in India
-#| msgid "Bangor"
 msgid "Bagdogra"
 msgstr ""
 
 #. A city in India - local airport
 #. "Bengaluru" is the new name
 #.
-#| msgid "Bangor"
 msgid "Bangalore"
 msgstr ""
 
@@ -7546,33 +7529,32 @@ msgstr ""
 #. A city in India
 #. the local name in Gujrati is "ભાવનગર"
 #. the local name in Hindi is "भावनगर"
-#| msgid "Bangor"
 msgid "Bhavnagar"
 msgstr ""
 
 #. A city in India.
 #. The local name in Hindi is "भोपाल".
 #.
-#| msgid "Bishop"
 msgid "Bhopal"
 msgstr ""
 
 #. A city in India.
 #. The local name in Oriya is "ଭୁବେନଶ୍ବର".
 #.
-#| msgid "Changsha"
 msgid "Bhubaneshwar"
 msgstr ""
 
 #. A city in India.
-#| msgid "Bhutan"
 msgid "Bhuj"
+msgstr ""
+
+#. A city in the Indian union territory of Andaman and Nicobar Islands.
+msgid "Car Nicobar"
 msgstr ""
 
 #. A union territory in India.
 #. The local name in Hindi is "चण्डीगढ़ / चंडीगढ़"
 #. The local name in Punjabi is "ਚੰਡੀਗੜ੍ਹ"
-#| msgid "Chinandega"
 msgid "Chandigarh"
 msgstr ""
 
@@ -7580,21 +7562,18 @@ msgstr ""
 #. "Madras" is the traditional English name.
 #. The local name in Tamil is "Chennai / சென்னை".
 #.
-#| msgid "China"
 msgid "Chennai"
 msgstr ""
 
 #. A city in India.
 #. The local name in Tamil is "கோயம்புத்தூர்".
 #.
-#| msgid "Colmar"
 msgid "Coimbatore"
 msgstr ""
 
 #. A city in India
 #. also known as Dehra Doon
 #. the local name in Hindi is "देहरादून"
-#| msgid "Dhahran"
 msgid "Dehradun"
 msgstr ""
 
@@ -7604,11 +7583,16 @@ msgstr ""
 
 #. A city in India
 #. the local name in Hindi is "दीमापुर"
-#| msgid "Dinard"
 msgid "Dimapur"
 msgstr ""
 
 #. A city in India
+msgid "Donakonda"
+msgstr ""
+
+#. A city in India
+#. the local name in Telugu is "హైదరాబాద్"
+#. the local name in Urdu is "حیدرآباد"
 msgid "Hyderabad"
 msgstr "Hyderabad"
 
@@ -7618,7 +7602,6 @@ msgstr ""
 
 #. A city in India.
 #. The local name in Dogri is "जम्मू"
-#| msgid "Namur"
 msgid "Jammu"
 msgstr ""
 
@@ -7632,13 +7615,11 @@ msgstr "Kochi"
 #. "Calcutta" is the traditional English name.
 #. The local name in Bengali is "Kolkata /  কলকাতা".
 #.
-#| msgid "Kalkar"
 msgid "Kolkata"
 msgstr ""
 
 #. A city in India.
 #. The local name in Hindi is "लेह"
-#| msgid "Lesotho"
 msgid "Leh"
 msgstr ""
 
@@ -7652,7 +7633,6 @@ msgstr ""
 #. "Bombay" is the traditional English name.
 #. The local name in Marathi is "Mumbai /  मुंबई".
 #.
-#| msgid "Dubai"
 msgid "Mumbai"
 msgstr ""
 
@@ -7672,21 +7652,25 @@ msgstr ""
 msgid "Patna"
 msgstr "Patna"
 
+#. A city in India.
+#. The local name in Hindi is "पोर्ट ब्लेयर"
+#, fuzzy
+#| msgid "Port Hardy"
+msgid "Port Blair"
+msgstr "Port Hardy"
+
 #. A city in India
-#| msgid "Ponce"
 msgid "Pune"
 msgstr ""
 
 #. A city in India.
 #. The local name in Hindi is "शिमला"
-#| msgid "Shiraz"
 msgid "Shimla"
 msgstr ""
 
 #. A city in India.
 #. The local name in Dogri is "श्रीनगर"
 #. The local name in Urdu is "شرینگر"
-#| msgid "Iringa"
 msgid "Srinagar"
 msgstr ""
 
@@ -7701,6 +7685,34 @@ msgstr "Thiruvananthapuram"
 #.
 msgid "Tiruchchirappalli"
 msgstr ""
+
+#. A city in India.
+#. The local name in Telugu is "తిరుపతి".
+#.
+msgid "Tirupati"
+msgstr ""
+
+#. A city in India.
+#. The local name in Telugu is "విజయవాడ".
+#.
+msgid "Vijayawada"
+msgstr ""
+
+#. A city in India.
+#. "Vizag" is other traditional name
+#. The local name in Telugu is "విశాఖపట్నం".
+#.
+msgid "Visakhapatnam"
+msgstr ""
+
+#. A city in India.
+#. The local name in Hindi is "वरंगल"
+#. The local name in Telugu is "వరంగల్".
+#.
+#, fuzzy
+#| msgid "Wrangell"
+msgid "Warangal"
+msgstr "Wrangell"
 
 #. The capital of Indonesia
 msgid "Jakarta"
@@ -7931,11 +7943,6 @@ msgid "Semnan"
 msgstr "Semnan"
 
 #. A city in Iran.
-#.
-msgid "Shahin Shahr"
-msgstr ""
-
-#. A city in Iran.
 #. The name is also written "شهر بالا".
 #.
 msgid "Shahr-e Bala"
@@ -7993,18 +8000,15 @@ msgstr ""
 msgid "Bray"
 msgstr ""
 
-#| msgid "Charlottetown"
 msgid "Carlow"
 msgstr ""
 
 msgid "Carrick on Shannon"
 msgstr ""
 
-#| msgid "Castlegar"
 msgid "Castlebar"
 msgstr ""
 
-#| msgid "Savanna"
 msgid "Cavan"
 msgstr ""
 
@@ -8020,11 +8024,9 @@ msgstr ""
 msgid "Dublin"
 msgstr ""
 
-#| msgid "Dundee"
 msgid "Dundalk"
 msgstr ""
 
-#| msgid "Hyannis"
 msgid "Ennis"
 msgstr ""
 
@@ -8034,40 +8036,30 @@ msgstr ""
 msgid "Kilkenny"
 msgstr ""
 
-#| msgid "Safford"
 msgid "Lifford"
 msgstr ""
 
 msgid "Limerick"
 msgstr ""
 
-#| msgid "Rockford"
 msgid "Longford"
 msgstr ""
 
-msgid "Monaghan"
-msgstr ""
-
-#| msgid "Mullan"
 msgid "Mullingar"
 msgstr ""
 
 msgid "Naas"
 msgstr ""
 
-#| msgid "Savanna"
 msgid "Navan"
 msgstr ""
 
-#| msgid "Nenana"
 msgid "Nenagh"
 msgstr ""
 
-#| msgid "Lethbridge"
 msgid "Newbridge"
 msgstr ""
 
-#| msgid "Port Hope"
 msgid "Portlaoise"
 msgstr ""
 
@@ -8080,7 +8072,6 @@ msgstr ""
 msgid "Swords"
 msgstr ""
 
-#| msgid "Tallahassee"
 msgid "Tallaght"
 msgstr ""
 
@@ -8090,15 +8081,12 @@ msgstr ""
 msgid "Trim"
 msgstr ""
 
-#| msgid "Claremore"
 msgid "Tullamore"
 msgstr ""
 
-#| msgid "Hartford"
 msgid "Waterford"
 msgstr ""
 
-#| msgid "Thedford"
 msgid "Wexford"
 msgstr ""
 
@@ -8115,19 +8103,22 @@ msgid "Ronaldsway"
 msgstr ""
 
 #. A city in Israel
-msgid "Elat"
+msgid "Eilat"
 msgstr ""
 
 #. A city in Israel
-msgid "Mahanayim"
+msgid "Haifa"
 msgstr ""
 
 #. A city in Israel
-msgid "Mahane Yisra'el"
-msgstr ""
+#, fuzzy
+#| msgctxt "City in Ontario, Canada"
+#| msgid "London"
+msgid "Lod"
+msgstr "Londona"
 
 #. A city in Israel
-msgid "Ramot Remez"
+msgid "Rosh Pina"
 msgstr ""
 
 #. A city in Israel
@@ -8447,7 +8438,6 @@ msgid "Verona"
 msgstr ""
 
 #. A city in Italy
-#| msgid "Piacenza"
 msgid "Vicenza"
 msgstr ""
 
@@ -8884,6 +8874,13 @@ msgctxt "City in Kiribati"
 msgid "London"
 msgstr ""
 
+#. A city in Kosovo:
+#. https://en.wikipedia.org/wiki/Pristina
+#, fuzzy
+#| msgid "Kristianstad"
+msgid "Pristina"
+msgstr "Kristianstad"
+
 #. The capital of Kuwait.
 #. "Kuwait" is the traditional English name.
 #. The local name in Arabic is "Al Kuwayt / الكويت".
@@ -9175,7 +9172,7 @@ msgctxt "City in Chihuahua, Mexico"
 msgid "Chihuahua"
 msgstr ""
 
-#. A city in México in Mexico.
+#. A city in Chihuahua in Mexico.
 #. One of several cities in Mexico called "Juárez".
 #.
 msgid "Ciudad Juárez"
@@ -9511,7 +9508,6 @@ msgstr "Quelimane"
 msgid "Rangoon"
 msgstr ""
 
-#| msgid "Winder"
 msgid "Windhoek"
 msgstr ""
 
@@ -9569,8 +9565,8 @@ msgid "The Hague"
 msgstr ""
 
 #. A city in the Netherlands
-msgid "Valkenburg"
-msgstr "Valkenburg"
+msgid "Utrecht"
+msgstr ""
 
 #. A city in the Netherlands
 msgid "Volkel"
@@ -9659,7 +9655,7 @@ msgstr "Zinder"
 msgid "Abuja"
 msgstr ""
 
-#. A city in Lagos Nigeria
+#. A city in the Lagos Metropolitan Area, in Nigeria
 msgid "Ikeja"
 msgstr ""
 
@@ -9674,6 +9670,10 @@ msgstr "Kaduna"
 #. A city in Nigeria
 msgid "Kano"
 msgstr "Kano"
+
+#. A city and metropolitan area in Nigeria
+msgid "Lagos"
+msgstr ""
 
 #. A city in Nigeria
 msgid "Port Harcourt"
@@ -9744,10 +9744,6 @@ msgstr "Fagernes"
 
 #. A city in Norway
 msgid "Fiskenes"
-msgstr ""
-
-#. A city in Norway
-msgid "Flesland"
 msgstr ""
 
 #. A city in Norway
@@ -9883,7 +9879,6 @@ msgid "Torp"
 msgstr "Torp"
 
 #. A city in Norway
-#| msgid "Troyes"
 msgid "Tromsø"
 msgstr ""
 
@@ -10068,6 +10063,10 @@ msgid "Zamboanga City"
 msgstr ""
 
 #. A city in Poland
+msgid "Bydgoszcz"
+msgstr ""
+
+#. A city in Poland
 msgid "Gdańsk"
 msgstr ""
 
@@ -10080,8 +10079,20 @@ msgid "Kraków"
 msgstr "Kraków"
 
 #. A city in Poland
+msgid "Lublin"
+msgstr ""
+
+#. A city in Poland
+msgid "Olsztyn"
+msgstr ""
+
+#. A city in Poland
 msgid "Poznań"
 msgstr "Poznań"
+
+#. A city in Poland
+msgid "Radom"
+msgstr ""
 
 #. A city in Poland
 msgid "Rzeszów"
@@ -10102,6 +10113,10 @@ msgstr ""
 #. A city in Poland
 msgid "Wrocław"
 msgstr "Wrocław"
+
+#. A city in Poland
+msgid "Zielona Góra"
+msgstr ""
 
 #. A city in Poland
 msgid "Łódź"
@@ -10315,7 +10330,6 @@ msgstr ""
 #. A city in Russia.
 #. The local name in Russian is "Чебоксары".
 #.
-#| msgid "Cheboygan"
 msgid "Cheboksary"
 msgstr ""
 
@@ -10394,7 +10408,6 @@ msgstr "Krasnodar"
 #. A city in Russia.
 #. The local name in Russian is "Красноярск".
 #.
-#| msgid "Krasnodar"
 msgid "Krasnoyarsk"
 msgstr ""
 
@@ -10441,6 +10454,12 @@ msgstr ""
 #.
 msgid "Nizhnevartovsk"
 msgstr "Nizhnevartovsk"
+
+#. A city in Russia.
+#. The local name in Russian is "Ни́жний Но́вгород".
+#.
+msgid "Nizhny Novgorod"
+msgstr ""
 
 #. A city in Russia.
 #. The local name in Russian is "Новокузнецк".
@@ -10491,7 +10510,6 @@ msgid "Rostov"
 msgstr ""
 
 #. A city in Russia
-#| msgid "Minsk"
 msgid "Rybinsk"
 msgstr ""
 
@@ -10520,12 +10538,6 @@ msgid "Stavropol'"
 msgstr ""
 
 #. A city in Russia.
-#. The local name in Russian is "Стригино".
-#.
-msgid "Strigino"
-msgstr "Strigino"
-
-#. A city in Russia.
 #. The local name in Russian is "Сургут".
 #.
 msgid "Surgut"
@@ -10544,7 +10556,6 @@ msgid "Tomsk"
 msgstr ""
 
 #. A city in Russia
-#| msgid "Tocumen"
 msgid "Tyumen"
 msgstr ""
 
@@ -10857,10 +10868,6 @@ msgid "Dolný Hričov"
 msgstr "Dolný Hričov"
 
 #. A city in Slovakia
-msgid "Dubnica nad Váhom"
-msgstr ""
-
-#. A city in Slovakia
 msgid "Kamenica nad Cirochou"
 msgstr ""
 
@@ -10871,19 +10878,6 @@ msgstr "Košice"
 #. A city in Slovakia
 msgid "Lučenec"
 msgstr "Lučenec"
-
-#. A city in Slovakia
-#| msgid "Martinique"
-msgid "Martin"
-msgstr ""
-
-#. A city in Slovakia
-msgid "Nové Zámky"
-msgstr ""
-
-#. A city in Slovakia
-msgid "Partizánske"
-msgstr ""
 
 #. A city in Slovakia
 msgid "Piešťany"
@@ -10902,28 +10896,10 @@ msgid "Prievidza"
 msgstr "Prievidza"
 
 #. A city in Slovakia
-#| msgid "Lumberton"
-msgid "Ružomberok"
-msgstr ""
-
-#. A city in Slovakia
 msgid "Sliač"
 msgstr "Sliač"
 
 #. A city in Slovakia
-msgid "Spišská Nová Ves"
-msgstr ""
-
-#. A city in Slovakia
-msgid "Svidník"
-msgstr ""
-
-#. A city in Slovakia
-msgid "Trenčín"
-msgstr ""
-
-#. A city in Slovakia
-#| msgid "Jilin"
 msgid "Žilina"
 msgstr ""
 
@@ -11117,6 +11093,10 @@ msgstr ""
 #. A city in Spain
 msgid "Getafe"
 msgstr "Getafe"
+
+#. A city in Spain
+msgid "Gijón"
+msgstr ""
 
 #. A city in Spain
 msgid "Granada"
@@ -11413,7 +11393,6 @@ msgid "Örnsköldsvik"
 msgstr "Örnsköldsvik"
 
 #. A city in Switzerland
-#| msgid "Kassel"
 msgid "Basel"
 msgstr ""
 
@@ -11488,21 +11467,18 @@ msgstr ""
 #. A city in Taiwan.
 #. The name is also written "高雄".
 #.
-#| msgid "Kuching"
 msgid "Kaohsiung"
 msgstr ""
 
 #. The capital of Taiwan.
 #. The name is also written "臺北".
 #.
-#| msgid "Taipa"
 msgid "Taipei"
 msgstr ""
 
 #. A city in Taiwan.
 #. The name is also written "埔頂".
 #.
-#| msgid "Taiyuan"
 msgid "Taoyuan"
 msgstr ""
 
@@ -11864,8 +11840,9 @@ msgstr ""
 msgid "Boryspil'"
 msgstr ""
 
-#. A city in Ukraine
-msgid "Chagor"
+#. A city in Ukraine:
+#. https://en.wikipedia.org/wiki/Chernivtsi
+msgid "Chernivtsi"
 msgstr ""
 
 #. A city in Ukraine
@@ -11888,15 +11865,15 @@ msgstr "Ivano-Frankivs'k"
 msgid "Kharkiv"
 msgstr "Kharkiv"
 
-#. The capital of Ukraine.
-#. "Kiev" is the traditional English name.
-#. The local name in Ukrainian is "Kyyiv".
-#.
-msgid "Kiev"
-msgstr "Kiev"
-
 #. A city in Ukraine
 msgid "Kryvyy Rih"
+msgstr ""
+
+#. The capital of Ukraine.
+#. "Kiev" is the old English name. The local name in
+#. Ukrainian is "Київ", which transliterates to "Kyiv".
+#.
+msgid "Kyiv"
 msgstr ""
 
 #. A city in Ukraine
@@ -12007,6 +11984,12 @@ msgstr ""
 msgid "Bournemouth"
 msgstr "Bournemouth"
 
+#. A city on the South East coast of England in the United
+#. Kingdom
+#.
+msgid "Brighton"
+msgstr ""
+
 #. A city in South and South West England in the United
 #. Kingdom
 #.
@@ -12048,7 +12031,6 @@ msgid "Carlisle"
 msgstr "Carlisle"
 
 #. A city in Midlands in the United Kingdom
-#| msgid "Bennington"
 msgid "Castle Donington"
 msgstr ""
 
@@ -15741,10 +15723,6 @@ msgstr ""
 msgid "Lakeland"
 msgstr "Lakeland"
 
-#. A city in Utah in the United States
-msgid "Lakeside"
-msgstr ""
-
 #. A city in Oregon in the United States
 msgid "Lakeview"
 msgstr "Lakeview"
@@ -18305,7 +18283,6 @@ msgid "Springfield"
 msgstr ""
 
 #. A city in Missouri in the United States
-#| msgid "Saint-Louis"
 msgid "St. Louis"
 msgstr ""
 
@@ -19066,10 +19043,6 @@ msgstr "Williston"
 msgid "Willow"
 msgstr "Willow"
 
-#. A city in Pennsylvania in the United States
-msgid "Willow Grove"
-msgstr "Willow Grove"
-
 #. A city in Delaware in the United States
 msgctxt "City in Delaware, United States"
 msgid "Wilmington"
@@ -19491,3 +19464,32 @@ msgstr "Ndola"
 msgid "Mariehamn"
 msgstr "Mariehamn"
 
+#~ msgid "Abbeville"
+#~ msgstr "Abevila"
+
+#~ msgid "Ambérieu-en-Bugey"
+#~ msgstr "Ambérieu-en-Bugey"
+
+#~ msgid "Avord"
+#~ msgstr "Avord"
+
+#~ msgid "Cazaux"
+#~ msgstr "Cazaux"
+
+#~ msgid "Châlons-en-Champagne"
+#~ msgstr "Châlons-en-Champagne"
+
+#~ msgid "Châteaudun"
+#~ msgstr "Châteaudun"
+
+#~ msgid "Valkenburg"
+#~ msgstr "Valkenburg"
+
+#~ msgid "Strigino"
+#~ msgstr "Strigino"
+
+#~ msgid "Kiev"
+#~ msgstr "Kiev"
+
+#~ msgid "Willow Grove"
+#~ msgstr "Willow Grove"
