@@ -12,10 +12,11 @@ should feel free to use libgweather as users can always recompile against
 a new version.
 
 To use libgweather in your code, you need to define the
-GWEATHER_I_KNOW_THIS_IS_UNSTABLE preprecessor symbol, e.g. by adding
--DGWEATHER_I_KNOW_THIS_IS_UNSTABLE to your CFLAGS.
+`GWEATHER_I_KNOW_THIS_IS_UNSTABLE` preprecessor symbol, e.g. by adding
+`-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE` to your `CFLAGS`.
 
-Documentation for the API is available with gtk-doc.
+Documentation for the API is available with gtk-doc, and online:
+   https://developer.gnome.org/libgweather/stable/
 
 You may download updates to the package from:
 
@@ -29,15 +30,19 @@ To discuss libgweather, you may use the desktop-devel-list mailing list:
 How to report bugs
 ==================
 
-Bugs should be reported to the GNOME bug tracking system:
+Bugs should be reported to the libgweather issues tracking system:
 
-   https://bugzilla.gnome.org/ (product libgweather)
+   https://gitlab.gnome.org/GNOME/libgweather/issues
 
-You will need to create an account for yourself.
+You might need to create an account for yourself.
 
 Please read the following page on how to prepare a useful bug report:
 
    https://bugzilla.gnome.org/page.cgi?id=bug-writing.html
 
-Please read the HACKING file for information on where to send changes or
-bugfixes for this package.
+If you are interested in adding new locations (weather stations, or
+cities), please refer to this page in the GNOME Wiki:
+   https://wiki.gnome.org/Projects/LibGWeather/ImprovingLocations
+
+Please read the HACKING file for information on the internal architecture
+of libgweather.
