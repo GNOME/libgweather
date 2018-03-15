@@ -745,6 +745,7 @@ gweather_info_finalize (GObject *object)
     GWeatherInfoPrivate *priv = info->priv;
 
     _weather_location_free (&priv->location);
+    g_clear_object (&priv->settings);
 
     if (priv->glocation)
 	gweather_location_unref (priv->glocation);
