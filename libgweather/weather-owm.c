@@ -180,6 +180,7 @@ read_symbol (GWeatherInfo *info,
     val = xmlGetProp (node, XC("number"));
 
     ref.symbol = strtol ((char*) val, NULL, 0) - 1;
+    xmlFree (val);
     obj = bsearch (&ref, symbols, G_N_ELEMENTS (symbols),
                    sizeof (struct owm_symbol), symbol_compare);
 
@@ -208,9 +209,11 @@ read_wind_direction (GWeatherInfo *info,
     for (i = 0; i < G_N_ELEMENTS (wind_directions); i++) {
 	if (strcmp ((char*) val, wind_directions[i].name) == 0) {
 	    info->priv->wind = wind_directions[i].direction;
+	    xmlFree (val);
 	    return;
 	}
     }
+    xmlFree (val);
 }
 
 static inline void
@@ -226,6 +229,7 @@ read_wind_speed (GWeatherInfo *info,
 
     mps = g_ascii_strtod ((char*) val, NULL);
     info->priv->windspeed = WINDSPEED_MS_TO_KNOTS (mps);
+    xmlFree (val);
 }
 
 static inline void
@@ -237,15 +241,19 @@ read_temperature (GWeatherInfo *info,
     double celsius;
 
     unit = xmlGetProp (node, XC("unit"));
-    if (unit == NULL || strcmp ((char*)unit, "celsius"))
+    if (unit == NULL || strcmp ((char*)unit, "celsius")) {
+        xmlFree (unit);
         return;
+    }
 
+    xmlFree (unit);
     val = xmlGetProp (node, XC("value"));
     if (val == NULL)
 	return;
 
     celsius = g_ascii_strtod ((char*) val, NULL);
     info->priv->temp = TEMP_C_TO_F (celsius);
+    xmlFree (val);
 }
 
 static inline void
@@ -258,15 +266,19 @@ read_pressure (GWeatherInfo *info,
 
     /* hPa == mbar */
     unit = xmlGetProp (node, XC("unit"));
-    if (unit == NULL || strcmp ((char*)unit, "hPa"))
+    if (unit == NULL || strcmp ((char*)unit, "hPa")) {
+        xmlFree (unit);
         return;
+    }
 
+    xmlFree (unit);
     val = xmlGetProp (node, XC("value"));
     if (val == NULL)
 	return;
 
     hpa = g_ascii_strtod ((char*) val, NULL);
     info->priv->pressure = PRESSURE_MBAR_TO_INCH (hpa);
+    xmlFree (val);
 }
 
 static inline void
@@ -278,9 +290,12 @@ read_humidity (GWeatherInfo *info,
     double percent;
 
     unit = xmlGetProp (node, XC("unit"));
-    if (unit == NULL || strcmp ((char*)unit, "%"))
+    if (unit == NULL || strcmp ((char*)unit, "%")) {
+        xmlFree (unit);
         return;
+    }
 
+    xmlFree (unit);
     val = xmlGetProp (node, XC("value"));
     if (val == NULL)
 	return;
@@ -288,6 +303,7 @@ read_humidity (GWeatherInfo *info,
     percent = g_ascii_strtod ((char*) val, NULL);
     info->priv->humidity = percent;
     info->priv->hasHumidity = TRUE;
+    xmlFree (val);
 }
 
 static inline void
