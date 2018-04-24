@@ -16,15 +16,28 @@
 #define BUFLEN 4096
 #endif /* BUFLEN */
 
+static void
+weather_updated_cb (GWeatherInfo *info,
+		    gpointer      user_data)
+{
+    if (gweather_info_is_valid (info))
+        g_message ("Weather updated successfully for %s", info->priv->location.code);
+    else
+        g_warning ("Failed to parse weather for %s", info->priv->location.code);
+
+    g_main_loop_quit (user_data);
+}
+
 int
 main (int argc, char **argv)
 {
     FILE *stream = stdin;
     gchar* filename = NULL;
+    gchar* code = NULL;
     GOptionEntry entries[] = {
-	{ "file", 'f', 0, G_OPTION_ARG_FILENAME, &filename,
-	  "file containing METAR observations", NULL },
-	{ NULL }
+	{ "file", 'f', 0, G_OPTION_ARG_FILENAME, &filename, "file containing METAR observations", NULL },
+	{ "code", 'c', 0, G_OPTION_ARG_STRING, &code, "ICAO code to get METAR observations from", NULL },
+        { NULL }
     };
     GOptionContext* context;
     GError* error = NULL;
@@ -40,6 +53,25 @@ main (int argc, char **argv)
 	perror (error->message);
 	return error->code;
     }
+
+    if (code) {
+        GMainLoop *loop;
+
+        loop = g_main_loop_new (NULL, TRUE);
+
+        info = g_object_new (GWEATHER_TYPE_INFO, NULL);
+        info->priv->location.code = g_strdup (code);
+        info->priv->session = soup_session_new ();
+        g_signal_connect (G_OBJECT (info), "updated",
+                          G_CALLBACK (weather_updated_cb), loop);
+
+        metar_start_open (info);
+
+        g_main_loop_run (loop);
+
+        return 0;
+    }
+
     if (filename) {
 	stream = fopen (filename, "r");
 	if (!stream) {
