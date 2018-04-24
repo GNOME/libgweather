@@ -592,8 +592,8 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     p = strstr (msg->response_body->data, searchkey);
     g_free (searchkey);
     if (p) {
-	p += WEATHER_LOCATION_CODE_LEN + 2;
-	eoln = strchr(p, '\n');
+	p += 10 + WEATHER_LOCATION_CODE_LEN + 1;
+	eoln = strstr (p, "</raw_text>");
 	if (eoln)
 	    metar = g_strndup (p, eoln - p);
 	else
