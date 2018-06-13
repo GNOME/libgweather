@@ -1426,7 +1426,7 @@ gweather_location_common_deserialize (GWeatherLocation *world,
      * return it directly
      */
     if (station_code[0] == '@')
-       return candidates->data;
+       return gweather_location_ref (candidates->data);
 
     /* If we don't have coordinates, fallback immediately to making up
      * a location
