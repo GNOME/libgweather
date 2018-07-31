@@ -108,6 +108,17 @@ else
   enable_vala = enable_vala != 'false'
 endif
 
+enable_introspection = get_option('introspection')
+if enable_introspection == 'auto'
+  enable_introspection = dependency('gobject-introspection-1.0', version: '>= 0.6.7', required: false).found()
+else
+  enable_introspection = enable_introspection != 'false'
+endif
+
+if enable_vala and not enable_introspection
+  error('Vala needs introspection to be enabled! Please either enable introspection or disable vala.')
+endif
+
 root_inc = include_directories('.')
 
 subdir('libgweather')

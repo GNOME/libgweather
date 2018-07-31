@@ -55,7 +55,6 @@ gweather_c_sources = [
   'gweather-location-entry.c',
   'gweather-timezone-menu.c',
   'gweather-parser.c']
-introspection_sources = gweather_c_sources + gweather_new_headers
 
 lib_libgweather = shared_library('gweather-3',
   gweather_c_sources,
@@ -65,26 +64,37 @@ lib_libgweather = shared_library('gweather-3',
   install: true,
 )
 
-gweather_gir = gnome.generate_gir(lib_libgweather,
-  sources: introspection_sources,
-  dependencies: deps_libgweather,
-  nsversion: '3.0',
-  namespace: 'GWeather',
-  includes: ['GObject-2.0', 'Gtk-3.0'],
-  symbol_prefix: 'gweather',
-  identifier_prefix: 'GWeather',
-  export_packages: 'gweather-3.0',
-  header: 'libgweather/gweather.h',
-  extra_args: ['--warn-all'],
-  install: true,
-)
-
 libgweather_dep = declare_dependency(
-  sources: [gweather_enum_types[1], gweather_gir],
+  sources: gweather_enum_types[1],
   dependencies: deps_libgweather,
   link_with: lib_libgweather,
   include_directories: root_inc,
 )
+
+if enable_introspection
+  introspection_sources = gweather_c_sources + gweather_new_headers
+
+  gweather_gir = gnome.generate_gir(lib_libgweather,
+    sources: introspection_sources,
+    dependencies: deps_libgweather,
+    nsversion: '3.0',
+    namespace: 'GWeather',
+    includes: ['GObject-2.0', 'Gtk-3.0'],
+    symbol_prefix: 'gweather',
+    identifier_prefix: 'GWeather',
+    export_packages: 'gweather-3.0',
+    header: 'libgweather/gweather.h',
+    extra_args: ['--warn-all'],
+    install: true,
+  )
+
+  libgweather_dep = declare_dependency(
+    sources: [gweather_enum_types[1], gweather_gir],
+    dependencies: deps_libgweather,
+    link_with: lib_libgweather,
+    include_directories: root_inc,
+  )
+endif
 
 if enable_vala
   gnome.generate_vapi('gweather-3.0',
