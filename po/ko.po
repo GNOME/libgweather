@@ -6,23 +6,40 @@
 # GwanSun Back <backiss@kornet.net>, 2001
 # Changwoo Ryu <cwryu@debian.org>, 1998, 2002-2010, 2012-2017.
 # Hongmin Yang <hongminy@naver.com>, 2018.
+# DaeHyun Sung <sungdh86@gmail.com>, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgweather/issues\n"
-"POT-Creation-Date: 2017-12-15 23:34+0000\n"
-"PO-Revision-Date: 2018-02-24 16:57+0900\n"
-"Last-Translator: Hongmin Yang <hongminy@naver.com>\n"
+"POT-Creation-Date: 2018-08-31 16:32+0000\n"
+"PO-Revision-Date: 2018-09-02 18:11+0900\n"
+"Last-Translator: DaeHyun Sung <sungdh86@gmail.com>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.1.1\n"
 
-#: libgweather/gweather-location-entry.c:817
+#. Recurse, adding the ADM1 name to the country name
+#. Translators: this is the name of a location followed by a region, for example:
+#. * 'London, United Kingdom'
+#. * You shouldn't need to translate this string unless the language has a different comma.
+#.
+#. <location> with no parent <city>
+#. Translators: this is the name of a location followed by a region, for example:
+#. * 'London, United Kingdom'
+#. * You shouldn't need to translate this string unless the language has a different comma.
+#.
+#: libgweather/gweather-location-entry.c:536
+#: libgweather/gweather-location-entry.c:564
+#, c-format
+msgid "%s, %s"
+msgstr "%2$s, %1$s"
+
+#: libgweather/gweather-location-entry.c:824
 msgid "Loading…"
 msgstr "읽어들이는 중…"
 
@@ -813,15 +830,15 @@ msgstr "먼지 회오리"
 msgid "Dust whirls in the vicinity"
 msgstr "부근에 먼지 회오리"
 
-#: libgweather/gweather-weather.c:793
+#: libgweather/gweather-weather.c:794
 msgid "%a, %b %d / %H∶%M"
 msgstr "%b %d일 (%a) / %H:%M"
 
-#: libgweather/gweather-weather.c:799
+#: libgweather/gweather-weather.c:800
 msgid "Unknown observation time"
 msgstr "관측 시각 알 수 없음"
 
-#: libgweather/gweather-weather.c:811
+#: libgweather/gweather-weather.c:812
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "알 수 없음"
@@ -832,94 +849,94 @@ msgstr "알 수 없음"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: libgweather/gweather-weather.c:833
+#: libgweather/gweather-weather.c:834
 msgid "default:mm"
 msgstr "default:mm"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
-#: libgweather/gweather-weather.c:886
+#: libgweather/gweather-weather.c:887
 #, c-format
 msgid "%.1f ℉"
 msgstr "%.1f ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)i
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
-#: libgweather/gweather-weather.c:890
+#: libgweather/gweather-weather.c:891
 #, c-format
 msgid "%d ℉"
 msgstr "%d ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
-#: libgweather/gweather-weather.c:897
+#: libgweather/gweather-weather.c:898
 #, c-format
 msgid "%.1f ℃"
 msgstr "%.1f ℃"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
-#: libgweather/gweather-weather.c:901
+#: libgweather/gweather-weather.c:902
 #, c-format
 msgid "%d ℃"
 msgstr "%d ℃"
 
 #. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
-#: libgweather/gweather-weather.c:908
+#: libgweather/gweather-weather.c:909
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
-#: libgweather/gweather-weather.c:912
+#: libgweather/gweather-weather.c:913
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: libgweather/gweather-weather.c:935 libgweather/gweather-weather.c:951
-#: libgweather/gweather-weather.c:967 libgweather/gweather-weather.c:1029
+#: libgweather/gweather-weather.c:936 libgweather/gweather-weather.c:952
+#: libgweather/gweather-weather.c:968 libgweather/gweather-weather.c:1030
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "알 수 없음"
 
-#: libgweather/gweather-weather.c:989
+#: libgweather/gweather-weather.c:990
 msgctxt "dew"
 msgid "Unknown"
 msgstr "알 수 없음"
 
-#: libgweather/gweather-weather.c:1009
+#: libgweather/gweather-weather.c:1010
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "알 수 없음"
 
 #. TRANSLATOR: This is the humidity in percent
-#: libgweather/gweather-weather.c:1012
+#: libgweather/gweather-weather.c:1013
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: libgweather/gweather-weather.c:1058
+#: libgweather/gweather-weather.c:1059
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f knots"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: libgweather/gweather-weather.c:1061
+#: libgweather/gweather-weather.c:1062
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: libgweather/gweather-weather.c:1064
+#: libgweather/gweather-weather.c:1065
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: libgweather/gweather-weather.c:1067
+#: libgweather/gweather-weather.c:1068
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -927,95 +944,95 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: libgweather/gweather-weather.c:1072
+#: libgweather/gweather-weather.c:1073
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "뷰포트 등급 %.1f"
 
-#: libgweather/gweather-weather.c:1093
+#: libgweather/gweather-weather.c:1094
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "알 수 없음"
 
-#: libgweather/gweather-weather.c:1095
+#: libgweather/gweather-weather.c:1096
 msgid "Calm"
 msgstr "바람 없음"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: libgweather/gweather-weather.c:1103
+#: libgweather/gweather-weather.c:1104
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: libgweather/gweather-weather.c:1139
+#: libgweather/gweather-weather.c:1140
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "알 수 없음"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: libgweather/gweather-weather.c:1145
+#: libgweather/gweather-weather.c:1146
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: libgweather/gweather-weather.c:1148
+#: libgweather/gweather-weather.c:1149
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: libgweather/gweather-weather.c:1151
+#: libgweather/gweather-weather.c:1152
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: libgweather/gweather-weather.c:1154
+#: libgweather/gweather-weather.c:1155
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: libgweather/gweather-weather.c:1157
+#: libgweather/gweather-weather.c:1158
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: libgweather/gweather-weather.c:1160
+#: libgweather/gweather-weather.c:1161
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f기압"
 
-#: libgweather/gweather-weather.c:1198
+#: libgweather/gweather-weather.c:1199
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "알 수 없음"
 
 #. TRANSLATOR: This is the visibility in miles
-#: libgweather/gweather-weather.c:1204
+#: libgweather/gweather-weather.c:1205
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f마일"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: libgweather/gweather-weather.c:1207
+#: libgweather/gweather-weather.c:1208
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: libgweather/gweather-weather.c:1210
+#: libgweather/gweather-weather.c:1211
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: libgweather/gweather-weather.c:1238 libgweather/gweather-weather.c:1263
+#: libgweather/gweather-weather.c:1239 libgweather/gweather-weather.c:1264
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
-#: libgweather/gweather-weather.c:1357
+#: libgweather/gweather-weather.c:1358
 msgid "Retrieval failed"
 msgstr "가져오기 실패"
 
@@ -1038,7 +1055,7 @@ msgstr ""
 #.
 #. That's very nice of them!
 #.
-#: libgweather/weather-yrno.c:507
+#: libgweather/weather-yrno.c:506
 msgid ""
 "Weather data from the <a href=\"http://www.met.no/\">Norwegian "
 "Meteorological Institute</a>"
@@ -1111,15 +1128,16 @@ msgstr ""
 #. TRANSLATORS: pick a default location to use in the weather applet. This should
 #. usually be the largest city or the capital of your country. If you're not picking
 #. a <location> in the database, don't forget to set name and coordinates.
-#: schemas/org.gnome.GWeather.gschema.xml:50
+#. Do NOT change or localize the quotation marks!
+#: schemas/org.gnome.GWeather.gschema.xml:51
 msgid "('', 'KNYC', nothing)"
 msgstr "('', 'RKSS', nothing)"
 
-#: schemas/org.gnome.GWeather.gschema.xml:51
+#: schemas/org.gnome.GWeather.gschema.xml:52
 msgid "Default location"
 msgstr "기본 위치"
 
-#: schemas/org.gnome.GWeather.gschema.xml:52
+#: schemas/org.gnome.GWeather.gschema.xml:53
 msgid ""
 "The default location for the weather applet. The first field is the name "
 "that will be shown. If empty, it will be taken from the locations database. "
@@ -1129,12 +1147,18 @@ msgid ""
 "taken from the database. This is only used for sunrise and moon phase "
 "calculations, not for weather forecast."
 msgstr ""
-"날씨 애플릿의 기본 위치. 첫 번째 값은 표시할 이름입니다. 비어 있으면 위치 데"
-"이터베이스에서 가져옵니다. 두 번째 값은 기본 기상 관측 기관의 METAR 코드입니"
-"다. 이 값은 비어 있으면 안 되고 Locations.xml 파일의 <code> 태그에 맞아야 합"
-"니다. 세 번째 값은 (위도, 경도) 형식의 튜플로, 데이터베이스에서 가져온 값 대"
-"신 사용합니다. 이 좌표는 기상 예보에는 사용하지 않고 일출 시각과 달 주기 계산"
-"에만 사용합니다."
+"날씨 애플릿의 기본 위치입니다. 첫 번째 값은 표시할 이름입니다. 값이 비어 있으"
+"면 위치 데이터베이스에서 가져옵니다. 두 번째 값은 기본 기상 관측 기관의 "
+"METAR 코드입니다. 이 값은 비어 있으면 안 되며, Locations.xml 파일의 <code> 태"
+"그와 일치해야 합니다. 세 번째 값은 (위도, 경도) 형식의 튜플로, 데이터베이스에"
+"서 가져온 값 대신 사용합니다. 이 좌표는 일기예보에서 사용하지 않고 일출 시각"
+"과 달 주기 계산에만 사용합니다."
+
+#~ msgid "%.1f K"
+#~ msgstr "%.1f K"
+
+#~ msgid "%d K"
+#~ msgstr "%d K"
 
 #~ msgid "Location Entry"
 #~ msgstr "위치 항목"
@@ -1154,8 +1178,8 @@ msgstr ""
 #~ msgid "%d ℃"
 #~ msgstr "%d ℃"
 
-#~ msgid "%d K"
-#~ msgstr "%d K"
+#~ msgid "%d K"
+#~ msgstr "%d K"
 
 #~ msgid "%.1f °F"
 #~ msgstr "%.1f °F"
@@ -1168,6 +1192,3 @@ msgstr ""
 
 #~ msgid "%d °C"
 #~ msgstr "%d °C"
-
-#~ msgid "%d K"
-#~ msgstr "%d K"
