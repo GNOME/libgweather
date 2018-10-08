@@ -387,6 +387,9 @@ test_utc_sunset (void)
 	GWeatherLocation *world, *utc;
 	GWeatherInfo *info;
 	char *sunset;
+	GWeatherMoonPhase phase;
+	GWeatherMoonLatitude lat;
+	gboolean ret;
 
 	world = gweather_location_get_world ();
 	g_assert_nonnull (world);
@@ -399,6 +402,10 @@ test_utc_sunset (void)
 
 	sunset = gweather_info_get_sunset (info);
 	g_assert_nonnull (sunset);
+	g_free (sunset);
+
+	ret = gweather_info_get_value_moonphase (info, &phase, &lat);
+	g_assert_false (ret);
 }
 
 static void
