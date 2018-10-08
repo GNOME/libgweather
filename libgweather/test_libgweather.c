@@ -384,26 +384,23 @@ test_metar_weather_stations (void)
 static void
 set_gsettings (void)
 {
-	char *tmpdir, *schema_text, *dest, *schemadir, *cmdline;
+	char *tmpdir, *schema_text, *dest, *cmdline;
 	int result;
-	const char *orig_data_dirs;
 
 	/* Create the installed schemas directory */
 	tmpdir = g_strdup_printf ("libgweather-test-XXXXXX");
 	tmpdir = g_dir_make_tmp (tmpdir, NULL);
 	g_assert_nonnull (tmpdir);
-	schemadir = g_strdup_printf ("%s/glib-2.0/schemas", tmpdir);
-	g_assert_cmpint (g_mkdir_with_parents (schemadir, 0700), ==, 0);
 
 	/* Copy the schemas files */
 	g_assert (g_file_get_contents (SCHEMAS_BUILDDIR "/org.gnome.GWeather.enums.xml", &schema_text, NULL, NULL));
-	dest = g_strdup_printf ("%s/org.gnome.GWeather.enums.xml", schemadir);
+	dest = g_strdup_printf ("%s/org.gnome.GWeather.enums.xml", tmpdir);
 	g_assert (g_file_set_contents (dest, schema_text, -1, NULL));
 	g_free (dest);
 	g_free (schema_text);
 
 	g_assert (g_file_get_contents (SCHEMASDIR "/org.gnome.GWeather.gschema.xml", &schema_text, NULL, NULL));
-	dest = g_strdup_printf ("%s/org.gnome.GWeather.gschema.xml", schemadir);
+	dest = g_strdup_printf ("%s/org.gnome.GWeather.gschema.xml", tmpdir);
 	g_assert (g_file_set_contents (dest, schema_text, -1, NULL));
 	g_free (dest);
 	g_free (schema_text);
@@ -412,26 +409,15 @@ set_gsettings (void)
 	cmdline = g_strdup_printf ("glib-compile-schemas --targetdir=%s "
 				   "--schema-file=%s/org.gnome.GWeather.enums.xml "
 				   "--schema-file=%s/org.gnome.GWeather.gschema.xml",
-				   schemadir, SCHEMAS_BUILDDIR, SCHEMASDIR);
-	g_message ("output compiled schemas into: %s", schemadir);
+				   tmpdir, SCHEMAS_BUILDDIR, SCHEMASDIR);
+	g_message ("output compiled schemas into: %s", tmpdir);
 	g_assert (g_spawn_command_line_sync (cmdline, NULL, NULL, &result, NULL));
 	g_assert (result == 0);
 	g_free (cmdline);
 
-	/* Modify XDG_DATA_DIRS */
-	orig_data_dirs = g_getenv ("XDG_DATA_DIRS");
-	if (!orig_data_dirs) {
-		g_setenv ("XDG_DATA_DIRS", tmpdir, TRUE);
-	} else {
-		char *data_dirs;
-
-		data_dirs = g_strdup_printf ("%s:%s", orig_data_dirs, tmpdir);
-		g_setenv ("XDG_DATA_DIRS", data_dirs, TRUE);
-	}
-
+	/* Set envvar */
+	g_setenv ("GSETTINGS_SCHEMA_DIR", tmpdir, TRUE);
 	g_setenv ("GSETTINGS_BACKEND", "memory", TRUE);
-
-	g_message ("new XDG_DATA_DIRS=%s", g_getenv ("XDG_DATA_DIRS"));
 }
 
 static void
