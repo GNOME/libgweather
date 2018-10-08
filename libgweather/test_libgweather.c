@@ -25,6 +25,7 @@
 
 #include <gweather-version.h>
 #include "gweather-location.h"
+#include "gweather-weather.h"
 
 /* For test_metar_weather_stations */
 #define METAR_SOURCES "https://www.aviationweather.gov/docs/metar/stations.txt"
@@ -381,6 +382,26 @@ test_metar_weather_stations (void)
 }
 
 static void
+test_utc_sunset (void)
+{
+	GWeatherLocation *world, *utc;
+	GWeatherInfo *info;
+	char *sunset;
+
+	world = gweather_location_get_world ();
+	g_assert_nonnull (world);
+	utc = gweather_location_find_by_station_code (world, "@UTC");
+	g_assert_nonnull (utc);
+
+	info = gweather_info_new (utc);
+	gweather_info_set_enabled_providers (info, GWEATHER_PROVIDER_NONE);
+	gweather_info_update (info);
+
+	sunset = gweather_info_get_sunset (info);
+	g_assert_nonnull (sunset);
+}
+
+static void
 check_bad_duplicate_weather_stations (gpointer key,
                                       gpointer value,
                                       gpointer user_data)
@@ -537,6 +558,7 @@ main (int argc, char *argv[])
 	g_test_add_func ("/weather/timezones", test_timezones);
 	g_test_add_func ("/weather/airport_distance_sanity", test_airport_distance_sanity);
 	g_test_add_func ("/weather/metar_weather_stations", test_metar_weather_stations);
+	g_test_add_func ("/weather/utc_sunset", test_utc_sunset);
 	/* Modifies environment, so needs to run last */
 	g_test_add_func ("/weather/bad_duplicate_weather_stations", test_bad_duplicate_weather_stations);
 	g_test_add_func ("/weather/duplicate_weather_stations", test_duplicate_weather_stations);
