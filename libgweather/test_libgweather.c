@@ -415,6 +415,11 @@ set_gsettings (void)
 	g_assert (result == 0);
 	g_free (cmdline);
 
+	cmdline = g_strdup_printf ("ls -l %s", tmpdir);
+	char *out;
+	g_spawn_command_line_sync (cmdline, &out, NULL, &result, NULL);
+	g_message ("out: %s", out);
+
 	/* Set envvar */
 	g_setenv ("GSETTINGS_SCHEMA_DIR", tmpdir, TRUE);
 	g_setenv ("GSETTINGS_BACKEND", "memory", TRUE);
@@ -429,8 +434,6 @@ test_utc_sunset (void)
 	GWeatherMoonPhase phase;
 	GWeatherMoonLatitude lat;
 	gboolean ret;
-
-	set_gsettings ();
 
 	world = gweather_location_get_world ();
 	g_assert_nonnull (world);
@@ -600,6 +603,7 @@ main (int argc, char *argv[])
 	g_setenv ("LIBGWEATHER_LOCATIONS_PATH",
 		  TEST_SRCDIR "../data/Locations.xml",
 		  FALSE);
+	set_gsettings ();
 
 	g_test_add_func ("/weather/named-timezones", test_named_timezones);
 	g_test_add_func ("/weather/named-timezones-deserialized", test_named_timezones_deserialized);
