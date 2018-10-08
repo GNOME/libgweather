@@ -141,6 +141,9 @@ _gweather_info_ensure_moon (GWeatherInfo *info)
 
     priv = info->priv;
 
+    if (!info->priv->location.latlon_valid)
+        return;
+
     if (!priv->moonValid)
 	priv->moonValid = calc_moon_internal (priv->current_time,
 					      &priv->moonphase,
