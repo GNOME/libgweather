@@ -396,7 +396,7 @@ set_gsettings (void)
 	cmdline = g_strdup_printf ("glib-compile-schemas --targetdir=%s "
 				   "--schema-file=%s/org.gnome.GWeather.enums.xml "
 				   "--schema-file=%s/org.gnome.GWeather.gschema.xml",
-				   schemadir, TEST_SRCDIR "/../schemas", TEST_SRCDIR "/../schemas");
+				   schemadir, SCHEMAS_BUILDDIR, SCHEMASDIR);
 	g_assert (g_spawn_command_line_sync (cmdline, NULL, NULL, &result, NULL));
 	g_assert (result == 0);
 	g_free (cmdline);
