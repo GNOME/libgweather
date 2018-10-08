@@ -293,6 +293,9 @@ _gweather_info_ensure_sun (GWeatherInfo *info)
 
     priv = info->priv;
 
+    if (!info->priv->location.latlon_valid)
+        return;
+
     if (!priv->sunriseValid && !priv->sunsetValid)
 	calc_sun (info, priv->current_time);
 }
