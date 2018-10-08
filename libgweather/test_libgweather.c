@@ -397,6 +397,7 @@ set_gsettings (void)
 				   "--schema-file=%s/org.gnome.GWeather.enums.xml "
 				   "--schema-file=%s/org.gnome.GWeather.gschema.xml",
 				   schemadir, SCHEMAS_BUILDDIR, SCHEMASDIR);
+	g_message ("output compiled schemas into: %s", schemadir);
 	g_assert (g_spawn_command_line_sync (cmdline, NULL, NULL, &result, NULL));
 	g_assert (result == 0);
 	g_free (cmdline);
@@ -410,6 +411,8 @@ set_gsettings (void)
 		data_dirs = g_strdup_printf ("%s:%s", orig_data_dirs, tmpdir);
 		g_setenv ("XDG_DATA_DIRS", data_dirs, TRUE);
 	}
+
+	g_message ("new XDG_DATA_DIRS=%s", g_getenv ("XDG_DATA_DIRS"));
 }
 
 static void
