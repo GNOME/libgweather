@@ -629,6 +629,9 @@ metar_start_open (GWeatherInfo *info)
     priv->valid = priv->network_error = FALSE;
     loc = &priv->location;
 
+    if (!loc->latlon_valid)
+        return;
+
     msg = soup_form_request_new (
 	"GET", "https://www.aviationweather.gov/adds/dataserver_current/httpparam",
 	"dataSource", "metars",
