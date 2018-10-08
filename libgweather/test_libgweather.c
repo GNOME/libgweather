@@ -429,6 +429,8 @@ set_gsettings (void)
 		g_setenv ("XDG_DATA_DIRS", data_dirs, TRUE);
 	}
 
+	g_setenv ("GSETTINGS_BACKEND", "memory", TRUE);
+
 	g_message ("new XDG_DATA_DIRS=%s", g_getenv ("XDG_DATA_DIRS"));
 }
 
