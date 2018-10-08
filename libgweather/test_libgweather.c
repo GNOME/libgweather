@@ -382,6 +382,37 @@ test_metar_weather_stations (void)
 }
 
 static void
+set_gsettings (void)
+{
+	char *tmpdir, *schemadir, *cmdline;
+	int result;
+	const char *orig_data_dirs;
+
+	tmpdir = g_strdup_printf ("libgweather-test-XXXXXX");
+	tmpdir = g_dir_make_tmp (tmpdir, NULL);
+	g_assert_nonnull (tmpdir);
+	schemadir = g_strdup_printf ("%s/glib-2.0/schemas", tmpdir);
+	g_assert_cmpint (g_mkdir_with_parents (schemadir, 0700), ==, 0);
+	cmdline = g_strdup_printf ("glib-compile-schemas --targetdir=%s "
+				   "--schema-file=%s/org.gnome.GWeather.enums.xml "
+				   "--schema-file=%s/org.gnome.GWeather.gschema.xml",
+				   schemadir, TEST_SRCDIR "/../schemas", TEST_SRCDIR "/../schemas");
+	g_assert (g_spawn_command_line_sync (cmdline, NULL, NULL, &result, NULL));
+	g_assert (result == 0);
+	g_free (cmdline);
+
+	orig_data_dirs = g_getenv ("XDG_DATA_DIRS");
+	if (!orig_data_dirs) {
+		g_setenv ("XDG_DATA_DIRS", tmpdir, TRUE);
+	} else {
+		char *data_dirs;
+
+		data_dirs = g_strdup_printf ("%s:%s", orig_data_dirs, tmpdir);
+		g_setenv ("XDG_DATA_DIRS", data_dirs, TRUE);
+	}
+}
+
+static void
 test_utc_sunset (void)
 {
 	GWeatherLocation *world, *utc;
@@ -390,6 +421,8 @@ test_utc_sunset (void)
 	GWeatherMoonPhase phase;
 	GWeatherMoonLatitude lat;
 	gboolean ret;
+
+	set_gsettings ();
 
 	world = gweather_location_get_world ();
 	g_assert_nonnull (world);
