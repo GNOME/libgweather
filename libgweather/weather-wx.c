@@ -86,6 +86,9 @@ wx_start_open (GWeatherInfo *info)
     priv->radar_loader = gdk_pixbuf_loader_new ();
     loc = &priv->location;
 
+    if (!loc->latlon_valid)
+	return;
+
     if (priv->radar_url)
 	url = g_strdup (priv->radar_url);
     else {
