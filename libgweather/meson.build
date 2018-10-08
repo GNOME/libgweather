@@ -95,7 +95,9 @@ if enable_vala
   )
 endif
 
-test_cargs = ['-DTEST_SRCDIR="@0@/"'.format(meson.current_source_dir())]
+test_cargs = ['-DTEST_SRCDIR="@0@/"'.format(meson.current_source_dir()),
+              '-DSCHEMASDIR="@0@/schemas"'.format(meson.source_root()),
+              '-DSCHEMAS_BUILDDIR="@0@/schemas"'.format(meson.build_root())]
 
 executable('test_locations',
   ['test_locations.c'],

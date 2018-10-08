@@ -25,6 +25,7 @@
 
 #include <gweather-version.h>
 #include "gweather-location.h"
+#include "gweather-weather.h"
 
 /* For test_metar_weather_stations */
 #define METAR_SOURCES "https://www.aviationweather.gov/docs/metar/stations.txt"
@@ -381,6 +382,64 @@ test_metar_weather_stations (void)
 }
 
 static void
+set_gsettings (void)
+{
+	char *tmpdir, *schema_text, *dest, *cmdline;
+	int result;
+
+	/* Create the installed schemas directory */
+	tmpdir = g_strdup_printf ("libgweather-test-XXXXXX");
+	tmpdir = g_dir_make_tmp (tmpdir, NULL);
+	g_assert_nonnull (tmpdir);
+
+	/* Copy the schemas files */
+	g_assert (g_file_get_contents (SCHEMAS_BUILDDIR "/org.gnome.GWeather.enums.xml", &schema_text, NULL, NULL));
+	dest = g_strdup_printf ("%s/org.gnome.GWeather.enums.xml", tmpdir);
+	g_assert (g_file_set_contents (dest, schema_text, -1, NULL));
+	g_free (dest);
+	g_free (schema_text);
+
+	g_assert (g_file_get_contents (SCHEMASDIR "/org.gnome.GWeather.gschema.xml", &schema_text, NULL, NULL));
+	dest = g_strdup_printf ("%s/org.gnome.GWeather.gschema.xml", tmpdir);
+	g_assert (g_file_set_contents (dest, schema_text, -1, NULL));
+	g_free (dest);
+	g_free (schema_text);
+
+	/* Compile the schemas */
+	cmdline = g_strdup_printf ("glib-compile-schemas --targetdir=%s "
+				   "--schema-file=%s/org.gnome.GWeather.enums.xml "
+				   "--schema-file=%s/org.gnome.GWeather.gschema.xml",
+				   tmpdir, SCHEMAS_BUILDDIR, SCHEMASDIR);
+	g_assert (g_spawn_command_line_sync (cmdline, NULL, NULL, &result, NULL));
+	g_assert (result == 0);
+	g_free (cmdline);
+
+	/* Set envvar */
+	g_setenv ("GSETTINGS_SCHEMA_DIR", tmpdir, TRUE);
+	g_setenv ("GSETTINGS_BACKEND", "memory", TRUE);
+}
+
+static void
+test_utc_sunset (void)
+{
+	GWeatherLocation *world, *utc;
+	GWeatherInfo *info;
+	char *sunset;
+
+	world = gweather_location_get_world ();
+	g_assert_nonnull (world);
+	utc = gweather_location_find_by_station_code (world, "@UTC");
+	g_assert_nonnull (utc);
+
+	info = gweather_info_new (utc);
+	gweather_info_set_enabled_providers (info, GWEATHER_PROVIDER_NONE);
+	gweather_info_update (info);
+
+	sunset = gweather_info_get_sunset (info);
+	g_assert_nonnull (sunset);
+}
+
+static void
 check_bad_duplicate_weather_stations (gpointer key,
                                       gpointer value,
                                       gpointer user_data)
@@ -531,12 +590,14 @@ main (int argc, char *argv[])
 	g_setenv ("LIBGWEATHER_LOCATIONS_PATH",
 		  TEST_SRCDIR "../data/Locations.xml",
 		  FALSE);
+	set_gsettings ();
 
 	g_test_add_func ("/weather/named-timezones", test_named_timezones);
 	g_test_add_func ("/weather/named-timezones-deserialized", test_named_timezones_deserialized);
 	g_test_add_func ("/weather/timezones", test_timezones);
 	g_test_add_func ("/weather/airport_distance_sanity", test_airport_distance_sanity);
 	g_test_add_func ("/weather/metar_weather_stations", test_metar_weather_stations);
+	g_test_add_func ("/weather/utc_sunset", test_utc_sunset);
 	/* Modifies environment, so needs to run last */
 	g_test_add_func ("/weather/bad_duplicate_weather_stations", test_bad_duplicate_weather_stations);
 	g_test_add_func ("/weather/duplicate_weather_stations", test_duplicate_weather_stations);
