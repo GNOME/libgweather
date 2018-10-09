@@ -163,6 +163,13 @@ add_nearest_weather_station (GWeatherLocation *location)
         if (siblings[i] == location)
             continue;
 
+        if (siblings[i]->level != GWEATHER_LOCATION_WEATHER_STATION)
+            continue;
+
+        /* Skip siblings without valid coordinates */
+        if (!siblings[i]->latlon_valid)
+            continue;
+
         distance = gweather_location_get_distance (location, siblings[i]);
         if (distance < min_distance)
             closest = siblings[i];
@@ -182,7 +189,7 @@ add_nearest_weather_station (GWeatherLocation *location)
     station->local_sort_name = g_strdup (closest->local_sort_name);
     station->english_sort_name = g_strdup (closest->english_sort_name);
     station->parent = location;
-    station->level = closest->level;
+    station->level = GWEATHER_LOCATION_WEATHER_STATION;
     station->country_code = g_strdup (closest->country_code);
     station->tz_hint = g_strdup (closest->tz_hint);
     station->station_code = g_strdup (closest->station_code);
