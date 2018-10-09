@@ -168,8 +168,10 @@ add_nearest_weather_station (GWeatherLocation *location)
             continue;
 
         distance = gweather_location_get_distance (location, siblings[i]);
-        if (distance < min_distance)
+        if (distance < min_distance) {
             closest = siblings[i];
+            min_distance = distance;
+        }
     }
 
     if (!closest) {
