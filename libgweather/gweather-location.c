@@ -698,6 +698,9 @@ location_distance (double lat1, double long1,
     /* average radius of the earth in km */
     static const double radius = 6372.795;
 
+    if (lat1 == lat2 && long1 == long2)
+        return 0.0;
+
     return acos (cos (lat1) * cos (lat2) * cos (long1 - long2) +
 		 sin (lat1) * sin (lat2)) * radius;
 }
