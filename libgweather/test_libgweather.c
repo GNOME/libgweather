@@ -27,6 +27,8 @@
 #include "gweather-location.h"
 #include "gweather-weather.h"
 
+extern void _gweather_location_reset_world (void);
+
 /* For test_metar_weather_stations */
 #define METAR_SOURCES "https://www.aviationweather.gov/docs/metar/stations.txt"
 

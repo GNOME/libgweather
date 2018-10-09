@@ -377,7 +377,15 @@ error_out:
     return NULL;
 }
 
-static GWeatherLocation *global_world;
+static GWeatherLocation *global_world = NULL;
+
+static void _gweather_location_unref_no_check (GWeatherLocation *loc);
+
+GWEATHER_EXTERN void
+_gweather_location_reset_world (void)
+{
+	g_clear_pointer (&global_world, _gweather_location_unref_no_check);
+}
 
 /**
  * gweather_location_get_world:
@@ -438,24 +446,13 @@ gweather_location_ref (GWeatherLocation *loc)
     return loc;
 }
 
-/**
- * gweather_location_unref:
- * @loc: a #GWeatherLocation
- *
- * Subtracts 1 from @loc's reference count, and frees it if the
- * reference count reaches 0.
- **/
-void
-gweather_location_unref (GWeatherLocation *loc)
+static void
+_gweather_location_unref_no_check (GWeatherLocation *loc)
 {
     int i;
 
-    g_return_if_fail (loc != NULL);
-
     if (--loc->ref_count)
 	return;
-
-    g_return_if_fail (loc->level != GWEATHER_LOCATION_WORLD);
 
     g_free (loc->english_name);
     g_free (loc->local_name);
@@ -490,6 +487,22 @@ gweather_location_unref (GWeatherLocation *loc)
 	g_hash_table_unref (loc->country_code_cache);
 
     g_slice_free (GWeatherLocation, loc);
+}
+
+/**
+ * gweather_location_unref:
+ * @loc: a #GWeatherLocation
+ *
+ * Subtracts 1 from @loc's reference count, and frees it if the
+ * reference count reaches 0.
+ **/
+void
+gweather_location_unref (GWeatherLocation *loc)
+{
+    g_return_if_fail (loc != NULL);
+    g_return_if_fail (loc->level != GWEATHER_LOCATION_WORLD);
+
+    _gweather_location_unref_no_check (loc);
 }
 
 GType
