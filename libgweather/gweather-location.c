@@ -38,6 +38,10 @@
 /* This is the precision of coordinates in the database */
 #define EPSILON 0.000001
 
+/* This is the maximum distance for which we will attach an
+ * airport to a city, see also test_distance() */
+#define AIRPORT_MAX_DISTANCE 100.0
+
 /**
  * SECTION:gweatherlocation
  * @Title: GWeatherLocation
@@ -174,8 +178,18 @@ add_nearest_weather_station (GWeatherLocation *location)
         }
     }
 
+    /* This should not happen */
     if (!closest) {
         g_critical ("Location '%s' has no valid airports attached", location->english_name);
+        return;
+    }
+
+    /* This could however */
+    if (min_distance > AIRPORT_MAX_DISTANCE) {
+        g_debug ("Not adding airport '%s' as it's too far from '%s' (%.1lf km)\n",
+                 gweather_location_get_name (closest),
+                 gweather_location_get_name (location),
+                 min_distance);
         return;
     }
 
