@@ -695,7 +695,7 @@ foreach_city (GWeatherLocation  *loc,
             return;
     }
 
-    if (loc->level == GWEATHER_LOCATION_WEATHER_STATION) {
+    if (loc->level == GWEATHER_LOCATION_CITY) {
         callback (loc, user_data);
     } else if (loc->children) {
         int i;
