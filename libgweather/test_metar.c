@@ -16,6 +16,37 @@
 #define BUFLEN 4096
 #endif /* BUFLEN */
 
+static void
+print_info (GWeatherInfo *info)
+{
+    if (gweather_info_is_valid (info)) {
+        g_message ("Weather updated successfully for %s", info->priv->location.code);
+    } else {
+        g_warning ("Failed to parse weather for %s", info->priv->location.code);
+        return;
+    }
+
+    printf ("Returned info:\n");
+    printf ("  update:   %s", ctime (&info->priv->update));
+    printf ("  sky:      %s\n", gweather_info_get_sky (info));
+    printf ("  cond:     %s\n", gweather_info_get_conditions (info));
+    printf ("  temp:     %s\n", gweather_info_get_temp (info));
+    printf ("  dewp:     %s\n", gweather_info_get_dew (info));
+    printf ("  wind:     %s\n", gweather_info_get_wind (info));
+    printf ("  pressure: %s\n", gweather_info_get_pressure (info));
+    printf ("  vis:      %s\n", gweather_info_get_visibility (info));
+
+    // TODO: retrieve location's lat/lon to display sunrise/set times
+}
+
+static void
+weather_updated_cb (GWeatherInfo *info,
+		    gpointer      user_data)
+{
+    print_info (info);
+    g_main_loop_quit (user_data);
+}
+
 int
 main (int argc, char **argv)
 {
@@ -81,17 +112,7 @@ main (int argc, char **argv)
 	info = g_object_new (GWEATHER_TYPE_INFO, NULL);
 	info->priv->valid = 1;
 	metar_parse (buf, info);
-	printf ("Returned info:\n");
-	printf ("  update:   %s", ctime (&info->priv->update));
-	printf ("  sky:      %s\n", gweather_info_get_sky (info));
-	printf ("  cond:     %s\n", gweather_info_get_conditions (info));
-	printf ("  temp:     %s\n", gweather_info_get_temp (info));
-	printf ("  dewp:     %s\n", gweather_info_get_dew (info));
-	printf ("  wind:     %s\n", gweather_info_get_wind (info));
-	printf ("  pressure: %s\n", gweather_info_get_pressure (info));
-	printf ("  vis:      %s\n", gweather_info_get_visibility (info));
-
-	// TODO: retrieve location's lat/lon to display sunrise/set times
+	print_info (info);
     }
     return 0;
 }
