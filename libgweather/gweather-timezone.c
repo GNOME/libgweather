@@ -219,7 +219,7 @@ parse_timezone (GWeatherParser *parser)
 	zone->has_dst = has_dst;
 	zone->dst_offset = dst_offset;
 
-	g_hash_table_insert (parser->timezone_cache, zone->id, zone);
+	g_hash_table_insert (parser->timezone_cache, zone->id, gweather_timezone_ref (zone));
 
 	name = NULL;
     }
