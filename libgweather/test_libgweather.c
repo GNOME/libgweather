@@ -163,12 +163,13 @@ test_no_code_serialize (void)
     world = gweather_location_get_world ();
     g_assert_nonnull (world);
 
-    loc = gweather_location_find_nearest_city (world, 49.892, 2.299);
+    loc = gweather_location_find_nearest_city (world, 56.833333, 53.183333);
     g_assert (loc);
-    g_assert_cmpstr (gweather_location_get_name (loc), ==, "Amiens");
+    g_assert_cmpstr (gweather_location_get_name (loc), ==, "Izhevsk");
 
     variant = gweather_location_serialize (loc);
     g_assert_nonnull (variant);
+    g_variant_unref (variant);
 
     _gweather_location_reset_world ();
 }
