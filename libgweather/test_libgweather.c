@@ -155,6 +155,25 @@ test_named_timezones_deserialized (void)
 }
 
 static void
+test_no_code_serialize (void)
+{
+    GVariant *variant;
+    GWeatherLocation *world, *loc;
+
+    world = gweather_location_get_world ();
+    g_assert_nonnull (world);
+
+    loc = gweather_location_find_nearest_city (world, 49.892, 2.299);
+    g_assert (loc);
+    g_assert_cmpstr (gweather_location_get_name (loc), ==, "Amiens");
+
+    variant = gweather_location_serialize (loc);
+    g_assert_nonnull (variant);
+
+    _gweather_location_reset_world ();
+}
+
+static void
 test_timezone (GWeatherLocation *location)
 {
     GWeatherTimezone *gtz;
@@ -621,6 +640,7 @@ main (int argc, char *argv[])
 
 	g_test_add_func ("/weather/named-timezones", test_named_timezones);
 	g_test_add_func ("/weather/named-timezones-deserialized", test_named_timezones_deserialized);
+	g_test_add_func ("/weather/no-code-serialize", test_no_code_serialize);
 	g_test_add_func ("/weather/timezones", test_timezones);
 	g_test_add_func ("/weather/airport_distance_sanity", test_airport_distance_sanity);
 	g_test_add_func ("/weather/metar_weather_stations", test_metar_weather_stations);
