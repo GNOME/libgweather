@@ -61,6 +61,7 @@ main (int argc, char **argv)
 
         info = g_object_new (GWEATHER_TYPE_INFO, NULL);
         info->priv->location.code = g_strdup (code);
+        info->priv->location.latlon_valid = TRUE;
         info->priv->session = soup_session_new ();
         g_signal_connect (G_OBJECT (info), "updated",
                           G_CALLBACK (weather_updated_cb), loop);
