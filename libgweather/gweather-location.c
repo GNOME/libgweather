@@ -1429,8 +1429,9 @@ gweather_location_format_two_serialize (GWeatherLocation *location)
 
     /* Normalize location to be a weather station or detached */
     if (location->level == GWEATHER_LOCATION_CITY) {
-	location = location->children[0];
-	is_city = TRUE;
+        if (location->children != NULL)
+            location = location->children[0];
+        is_city = TRUE;
     } else {
 	is_city = FALSE;
     }
@@ -1444,7 +1445,7 @@ gweather_location_format_two_serialize (GWeatherLocation *location)
 	g_variant_builder_add (&parent_latlon_builder, "(dd)", location->parent->latitude, location->parent->longitude);
 
     return g_variant_new ("(ssba(dd)a(dd))",
-			  name, location->station_code, is_city,
+			  name, location->station_code ? location->station_code : "", is_city,
 			  &latlon_builder, &parent_latlon_builder);
 }
 
