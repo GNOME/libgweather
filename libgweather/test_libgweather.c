@@ -59,6 +59,8 @@ test_named_timezones (void)
         g_assert_nonnull (code);
         g_assert_true (code[0] == '@');
     }
+
+    _gweather_location_reset_world ();
 }
 
 static GList *
@@ -148,6 +150,8 @@ test_named_timezones_deserialized (void)
     g_list_free (list);
 
     test_timezones ();
+
+    _gweather_location_reset_world ();
 }
 
 static void
@@ -207,6 +211,8 @@ test_timezones (void)
     g_assert (world);
 
     test_timezones_children (world);
+
+    _gweather_location_reset_world ();
 }
 
 static void
@@ -257,6 +263,8 @@ test_airport_distance_sanity (void)
 
     if (g_test_failed ())
         g_warning ("Maximum city to airport distance is %.1f km", max_distance);
+
+    _gweather_location_reset_world ();
 }
 
 static GHashTable *
@@ -381,6 +389,8 @@ test_metar_weather_stations (void)
     g_free (contents);
 
     test_metar_weather_stations_children (world, stations_ht);
+
+    _gweather_location_reset_world ();
 }
 
 static void
@@ -446,6 +456,8 @@ test_utc_sunset (void)
 
 	ret = gweather_info_get_value_moonphase (info, &phase, &lat);
 	g_assert_false (ret);
+
+	_gweather_location_reset_world ();
 }
 
 static void
@@ -524,6 +536,9 @@ test_bad_duplicate_weather_stations (void)
     test_bad_duplicate_weather_stations_children (world, stations_ht);
 
     g_hash_table_foreach (stations_ht, check_bad_duplicate_weather_stations, NULL);
+
+    g_unsetenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST");
+    _gweather_location_reset_world ();
 }
 
 static void
@@ -577,6 +592,9 @@ test_duplicate_weather_stations (void)
     g_assert (world);
 
     test_duplicate_weather_stations_children (world);
+
+    g_unsetenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST");
+    _gweather_location_reset_world ();
 }
 
 static void
