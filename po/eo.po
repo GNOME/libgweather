@@ -4,864 +4,923 @@
 # Hendrik LÖNNGREN < >, 2009.
 # Michael MORONI < >, 2011.
 # Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2010, 2011.
+# Carmen Bianca BAKKER <carmen@carmenbianca.eu>, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"applets&keywords=I18N+L10N&component=gweather\n"
-"POT-Creation-Date: 2011-04-24 20:23+0000\n"
-"PO-Revision-Date: 2011-05-22 10:47+0200\n"
-"Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
-"Language-Team: Esperanto <ubuntu-l10n-eo@lists.launchpad.net>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgweather/issues\n"
+"POT-Creation-Date: 2018-03-09 14:33+0000\n"
+"PO-Revision-Date: 2018-10-15 15:37+0200\n"
+"Last-Translator: Carmen Bianca BAKKER <carmen@carmenbianca.eu>\n"
+"Language-Team: Esperanto <gnome-eo-list@gnome.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-05-22 08:40+0000\n"
-"X-Generator: Launchpad (build 13085)\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Poedit 2.1.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. TRANSLATOR: Change this to the default location name,
-#. * used when you first start the Weather Applet. This is
-#. * the common localised name that corresponds to
-#. * the location code (DEFAULT_CODE) you will put on the next message
-#. * For example, for the Greek locale, we set this to "Athens", the
-#. * capital city and we write it in Greek. It's important to translate
-#. * this name.
-#. *
-#. * If you do not require a DEFAULT_LOCATION, set this to
-#. * "DEFAULT_LOCATION".
-#.
-#: ../libgweather/gweather-gconf.c:212 ../libgweather/gweather-gconf.c:213
-#: ../libgweather/gweather.schemas.in.h:5
-msgid "DEFAULT_LOCATION"
-msgstr "DEFAULT_LOCATION"
+#: libgweather/gweather-location-entry.c:817
+msgid "Loading…"
+msgstr "Ŝargante…"
 
-#. TRANSLATOR: Change this to the code of your default location that
-#. * corresponds to the DEFAULT_LOCATION name you put above. This is
-#. * normally a four-letter (ICAO) code and can be found in
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * NB. The web page is over 1.7MB in size.
-#. * Pick a default location like a capital city so that it would be ok
-#. * for more of your users. For example, for Greek, we use "LGAV" for
-#. * the capital city, Athens.
-#. *
-#. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
-#.
-#: ../libgweather/gweather-gconf.c:232 ../libgweather/gweather-gconf.c:233
-#: ../libgweather/gweather.schemas.in.h:3
-msgid "DEFAULT_CODE"
-msgstr "DEFAULT_CODE"
-
-#. TRANSLATOR: Change this to the zone of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have zones while the rest do not.
-#. * Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any zone you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a zone, set this to
-#. * "DEFAULT_ZONE".
-#.
-#: ../libgweather/gweather-gconf.c:252 ../libgweather/gweather-gconf.c:253
-#: ../libgweather/gweather.schemas.in.h:7
-msgid "DEFAULT_ZONE"
-msgstr "DEFAULT_ZONE"
-
-#. TRANSLATOR: Change this to the radar of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have radar names while the rest do
-#. * not. Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any radar you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a radar, set this to " "
-#. * (or space).
-#. * If you do not have a default location, set this to DEFAULT_RADAR.
-#.
-#: ../libgweather/gweather-gconf.c:273 ../libgweather/gweather-gconf.c:274
-#: ../libgweather/gweather.schemas.in.h:6
-msgid "DEFAULT_RADAR"
-msgstr "DEFAULT_RADAR"
-
-#. TRANSLATOR: Change this to the coordinates of your default location
-#. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
-#. * above. Check
-#. * http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in
-#. * as any coordinates you put here must also be present in the
-#. * Locations.xml file.
-#. *
-#. * If your default location does not have known coordinates, set this
-#. * to " " (or space).
-#. * If you do not have a default location, set this to
-#. * DEFAULT_COORDINATES.
-#.
-#: ../libgweather/gweather-gconf.c:294 ../libgweather/gweather-gconf.c:295
-#: ../libgweather/gweather.schemas.in.h:4
-msgid "DEFAULT_COORDINATES"
-msgstr "DEFAULT_COORDINATES"
-
-#: ../libgweather/gweather-prefs.c:34 ../libgweather/gweather-prefs.c:45
-#: ../libgweather/gweather-prefs.c:60 ../libgweather/gweather-prefs.c:77
-msgid "Default"
-msgstr "Defaŭlte"
-
-#. translators: Kelvin
-#: ../libgweather/gweather-prefs.c:36
-msgid "K"
-msgstr "K"
-
-#. translators: Celsius
-#: ../libgweather/gweather-prefs.c:38
-msgid "C"
-msgstr "C"
-
-#. translators: Fahrenheit
-#: ../libgweather/gweather-prefs.c:40
-msgid "F"
-msgstr "F"
-
-#. translators: meters per second
-#: ../libgweather/gweather-prefs.c:47
-msgid "m/s"
-msgstr "m/s"
-
-#. translators: kilometers per hour
-#: ../libgweather/gweather-prefs.c:49
-msgid "km/h"
-msgstr "km/h"
-
-#. translators: miles per hour
-#: ../libgweather/gweather-prefs.c:51
-msgid "mph"
-msgstr "mejloj/h"
-
-#. translators: knots (speed unit)
-#: ../libgweather/gweather-prefs.c:53
-msgid "knots"
-msgstr "nodoj"
-
-#. translators: wind speed
-#: ../libgweather/gweather-prefs.c:55
-msgid "Beaufort scale"
-msgstr "Boforta skalo"
-
-#. translators: kilopascals
-#: ../libgweather/gweather-prefs.c:62
-msgid "kPa"
-msgstr "kPa"
-
-#. translators: hectopascals
-#: ../libgweather/gweather-prefs.c:64
-msgid "hPa"
-msgstr "hPa"
-
-#. translators: millibars
-#: ../libgweather/gweather-prefs.c:66
-msgid "mb"
-msgstr "mbar"
-
-#. translators: millimeters of mercury
-#: ../libgweather/gweather-prefs.c:68
-msgid "mmHg"
-msgstr "mmHg"
-
-#. translators: inches of mercury
-#: ../libgweather/gweather-prefs.c:70
-msgid "inHg"
-msgstr "coloj Hg"
-
-#. translators: atmosphere
-#: ../libgweather/gweather-prefs.c:72
-msgid "atm"
-msgstr "atm"
-
-#. translators: meters
-#: ../libgweather/gweather-prefs.c:79
-msgid "m"
-msgstr "m"
-
-#. translators: kilometers
-#: ../libgweather/gweather-prefs.c:81
-msgid "km"
-msgstr "km"
-
-#. translators: miles
-#: ../libgweather/gweather-prefs.c:83
-msgid "mi"
-msgstr "mejloj"
-
-#. TRANSLATOR: This is the default unit to use for temperature measurements.
-#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:103 ../libgweather/gweather-prefs.c:111
-msgid "DEFAULT_TEMP_UNIT"
-msgstr "C"
-
-#. TRANSLATOR: This is the default unit to use for wind speed.
-#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
-#. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:141 ../libgweather/gweather-prefs.c:151
-msgid "DEFAULT_SPEED_UNIT"
-msgstr "km/h"
-
-#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
-#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
-#. "mb" (millibars), "mmHg" (millimeters of mercury),
-#. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:183 ../libgweather/gweather-prefs.c:194
-msgid "DEFAULT_PRESSURE_UNIT"
-msgstr "hPa"
-
-#. TRANSLATOR: This is the default unit to use for visibility distance.
-#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:224 ../libgweather/gweather-prefs.c:233
-msgid "DEFAULT_DISTANCE_UNIT"
-msgstr "km"
-
-#: ../libgweather/gweather-timezone.c:314
+#: libgweather/gweather-timezone.c:343
 msgid "Greenwich Mean Time"
 msgstr "Meza Tempo de Grenviĉo"
 
-#: ../libgweather/gweather.schemas.in.h:1
-msgid ""
-"A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"3-cifera kodo por ricevi radarmapojn el weather.com, trovita en http://git."
-"gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-
-#: ../libgweather/gweather.schemas.in.h:2
-msgid ""
-"A unique zone for the city, as found from http://git.gnome.org/cgit/"
-"libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Unika loko por la urbo, kiel trovata en http://git.gnome.org/cgit/"
-"libgweather/plain/data/Locations.xml.in"
-
-#: ../libgweather/gweather.schemas.in.h:8
-msgid ""
-"Determines whether the applet automatically updates its weather statistics "
-"or not."
-msgstr ""
-"Difinas ĉu la aplikaĵeto aŭtomate ĝisdatigas siajn veterstatistikojn aŭ ne."
-
-#: ../libgweather/gweather.schemas.in.h:9
-msgid "Display radar map"
-msgstr "Montri radaran mapon"
-
-#: ../libgweather/gweather.schemas.in.h:10
-msgid "Distance unit"
-msgstr "Distanca unuo"
-
-#: ../libgweather/gweather.schemas.in.h:11
-msgid "Fetch a radar map on each update."
-msgstr "Venigi radaran mapon je ĉiu ĝisdatigo."
-
-#: ../libgweather/gweather.schemas.in.h:12
-msgid ""
-"If true, then retrieve a radar map from a location specified by the \"radar"
-"\" key."
-msgstr ""
-"Se vera, tiam akiru radaran mapon de loko specifita per la \"radara\" "
-"ŝlosilo."
-
-#: ../libgweather/gweather.schemas.in.h:13
-msgid ""
-"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-"[EW]."
-msgstr ""
-"Latitudo kaj longitudo de via pozicio esprimataj per GG-MM-SS[NS] GG-MM-SS"
-"[OrOk]."
-
-#: ../libgweather/gweather.schemas.in.h:14
-msgid "Location coordinates"
-msgstr "Lokaj koordinatoj"
-
-#: ../libgweather/gweather.schemas.in.h:15
-msgid "Nearby city"
-msgstr "Proksima urbo"
-
-#: ../libgweather/gweather.schemas.in.h:16
-msgid ""
-"Nearby major zone, such as a capital city, as found from http://git.gnome."
-"org/cgit/libgweather/plain/data/Locations.xml.in"
-msgstr ""
-"Apud grava loko, kiel ĉefurbo, kiel trovata en http://git.gnome.org/cgit/"
-"libgweather/plain/data/Locations.xml.in"
-
-#: ../libgweather/gweather.schemas.in.h:17
-msgid "Not used anymore"
-msgstr "Ne plu uzata"
-
-#: ../libgweather/gweather.schemas.in.h:18
-msgid "Pressure unit"
-msgstr "Aerprema unuo"
-
-#: ../libgweather/gweather.schemas.in.h:19
-msgid "Radar location"
-msgstr "Radarpozicio"
-
-#: ../libgweather/gweather.schemas.in.h:20
-msgid "Speed unit"
-msgstr "Rapideca unuo"
-
-#: ../libgweather/gweather.schemas.in.h:21
-msgid "Temperature unit"
-msgstr "Temperatura unuo"
-
-#: ../libgweather/gweather.schemas.in.h:22
-msgid "The city that gweather displays information for."
-msgstr "La urbo pri kiu \"gweather\" montras informojn."
-
-#: ../libgweather/gweather.schemas.in.h:23
-msgid "The custom url from where to retrieve a radar map."
-msgstr "La propra URL de kie la radara mapo estas eltirenda."
-
-#: ../libgweather/gweather.schemas.in.h:24
-msgid "The interval, in seconds, between automatic updates."
-msgstr "La intervalo, en sekundoj, inter aŭtomataj ĝisdatigoj."
-
-#: ../libgweather/gweather.schemas.in.h:25
-msgid "The unit to use for pressure."
-msgstr "La unuo uzenda por aerpremo."
-
-#: ../libgweather/gweather.schemas.in.h:26
-msgid "The unit to use for temperature."
-msgstr "La unuo uzenda por temperaturo."
-
-#: ../libgweather/gweather.schemas.in.h:27
-msgid "The unit to use for visibility."
-msgstr "La unuo uzenda por videblo."
-
-#: ../libgweather/gweather.schemas.in.h:28
-msgid "The unit to use for wind speed."
-msgstr "La unuo uzenda por ventrapideco."
-
-#: ../libgweather/gweather.schemas.in.h:29
-msgid "Update interval"
-msgstr "Ĝisdatiga intervalo"
-
-#: ../libgweather/gweather.schemas.in.h:30
-msgid "Update the data automatically"
-msgstr "Aŭtomate ĝisdatigi la datumojn"
-
-#: ../libgweather/gweather.schemas.in.h:31
-msgid "Url for the radar map"
-msgstr "URL por la radara mapo"
-
-#: ../libgweather/gweather.schemas.in.h:32
-msgid "Use custom url for the radar map"
-msgstr "Uzi propran URL-n por la radara mapo"
-
-#: ../libgweather/gweather.schemas.in.h:33
-msgid "Use metric units"
-msgstr "Uzi metrikajn unuojn"
-
-#: ../libgweather/gweather.schemas.in.h:34
-msgid "Use metric units instead of english units."
-msgstr "Uzi metrikajn unuojn anstataŭ anglajn unuojn."
-
-#: ../libgweather/gweather.schemas.in.h:35
-msgid "Weather for a city"
-msgstr "Vetero por urbo"
-
-#: ../libgweather/gweather.schemas.in.h:36
-msgid "Weather location information"
-msgstr "Vetera pozicia informo"
-
-#: ../libgweather/gweather.schemas.in.h:37
-msgid "Weather location information."
-msgstr "Vetera pozicia informo."
-
-#: ../libgweather/gweather.schemas.in.h:38
-msgid "Zone location"
-msgstr "Zona pozicio"
-
-#: ../libgweather/timezone-menu.c:277
+#: libgweather/gweather-timezone-menu.c:274
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "Nekonate"
 
-#. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:504
-#, c-format
-msgid "Failed to get METAR data: %d %s.\n"
-msgstr "Malsukcesis eltiri METAR-ajn datumojn: %d %s.\n"
+#: libgweather/gweather-weather.c:119
+msgid "variable"
+msgstr "ŝanĝa"
 
-#: ../libgweather/weather-metar.c:548
-msgid "WeatherInfo missing location"
-msgstr "Veterinformo malhavanta pozicion"
+#: libgweather/gweather-weather.c:120
+msgid "north"
+msgstr "norda"
 
-#: ../libgweather/weather.c:232
+#: libgweather/gweather-weather.c:120
+msgid "north — northeast"
+msgstr "norda — nordorienta"
+
+#: libgweather/gweather-weather.c:120
+msgid "northeast"
+msgstr "nordorienta"
+
+#: libgweather/gweather-weather.c:120
+msgid "east — northeast"
+msgstr "orienta — nordorienta"
+
+#: libgweather/gweather-weather.c:121
+msgid "east"
+msgstr "orienta"
+
+#: libgweather/gweather-weather.c:121
+msgid "east — southeast"
+msgstr "orienta — sudorienta"
+
+#: libgweather/gweather-weather.c:121
+msgid "southeast"
+msgstr "sudorienta"
+
+#: libgweather/gweather-weather.c:121
+msgid "south — southeast"
+msgstr "suda — sudorienta"
+
+#: libgweather/gweather-weather.c:122
+msgid "south"
+msgstr "suda"
+
+#: libgweather/gweather-weather.c:122
+msgid "south — southwest"
+msgstr "suda — sudokcidenta"
+
+#: libgweather/gweather-weather.c:122
+msgid "southwest"
+msgstr "sudaokcidenta"
+
+#: libgweather/gweather-weather.c:122
+msgid "west — southwest"
+msgstr "okcidenta — sudokcidenta"
+
+#: libgweather/gweather-weather.c:123
+#| msgid "Southwest"
+msgid "west"
+msgstr "okcidenta"
+
+#: libgweather/gweather-weather.c:123
+msgid "west — northwest"
+msgstr "okcidenta — nordokcidenta"
+
+#: libgweather/gweather-weather.c:123
+msgid "northwest"
+msgstr "nordokcidenta"
+
+#: libgweather/gweather-weather.c:123
+msgid "north — northwest"
+msgstr "norda — nordokcidenta"
+
+#: libgweather/gweather-weather.c:127
 msgid "Variable"
-msgstr "Variable"
+msgstr "Ŝanĝa"
 
-#: ../libgweather/weather.c:233
+#: libgweather/gweather-weather.c:128
 msgid "North"
 msgstr "Norda"
 
-#: ../libgweather/weather.c:233
-msgid "North - NorthEast"
-msgstr "Norda - Nordorienta"
+#: libgweather/gweather-weather.c:128
+msgid "North — Northeast"
+msgstr "Norda — Nordorienta"
 
-#: ../libgweather/weather.c:233
+#: libgweather/gweather-weather.c:128
 msgid "Northeast"
 msgstr "Nordorienta"
 
-#: ../libgweather/weather.c:233
-msgid "East - NorthEast"
-msgstr "Orienta - Nordorienta"
+#: libgweather/gweather-weather.c:128
+msgid "East — Northeast"
+msgstr "Orienta — Nordorienta"
 
-#: ../libgweather/weather.c:234
+#: libgweather/gweather-weather.c:129
 msgid "East"
 msgstr "Orienta"
 
-#: ../libgweather/weather.c:234
-msgid "East - Southeast"
-msgstr "Orienta - Sudorienta"
+#: libgweather/gweather-weather.c:129
+msgid "East — Southeast"
+msgstr "Orienta — Sudorienta"
 
-#: ../libgweather/weather.c:234
+#: libgweather/gweather-weather.c:129
 msgid "Southeast"
 msgstr "Sudorienta"
 
-#: ../libgweather/weather.c:234
-msgid "South - Southeast"
-msgstr "Suda - Sudorienta"
+#: libgweather/gweather-weather.c:129
+msgid "South — Southeast"
+msgstr "Suda — Sudorienta"
 
-#: ../libgweather/weather.c:235
+#: libgweather/gweather-weather.c:130
 msgid "South"
 msgstr "Suda"
 
-#: ../libgweather/weather.c:235
-msgid "South - Southwest"
-msgstr "Suda - Sudokcidenta"
+#: libgweather/gweather-weather.c:130
+msgid "South — Southwest"
+msgstr "Suda — Sudokcidenta"
 
-#: ../libgweather/weather.c:235
+#: libgweather/gweather-weather.c:130
 msgid "Southwest"
 msgstr "Sudokcidenta"
 
-#: ../libgweather/weather.c:235
-msgid "West - Southwest"
-msgstr "Okcidenta - Sudokcidenta"
+#: libgweather/gweather-weather.c:130
+msgid "West — Southwest"
+msgstr "Okcidenta — Sudokcidenta"
 
-#: ../libgweather/weather.c:236
+#: libgweather/gweather-weather.c:131
 msgid "West"
 msgstr "Okcidenta"
 
-#: ../libgweather/weather.c:236
-msgid "West - Northwest"
-msgstr "Okcidenta - Nordokcidenta"
+#: libgweather/gweather-weather.c:131
+msgid "West — Northwest"
+msgstr "Okcidenta — Nordokcidenta"
 
-#: ../libgweather/weather.c:236
+#: libgweather/gweather-weather.c:131
 msgid "Northwest"
 msgstr "Nordokcidenta"
 
-#: ../libgweather/weather.c:236
-msgid "North - Northwest"
-msgstr "Norda - Nordokcidenta"
+#: libgweather/gweather-weather.c:131
+msgid "North — Northwest"
+msgstr "Norda — Nordokcidenta"
 
-#: ../libgweather/weather.c:243 ../libgweather/weather.c:260
-#: ../libgweather/weather.c:332
+#: libgweather/gweather-weather.c:141
+msgctxt "wind direction"
 msgid "Invalid"
-msgstr "Nevalide"
+msgstr "Nevalida"
 
-#: ../libgweather/weather.c:249
-msgid "Clear Sky"
+#: libgweather/gweather-weather.c:142
+msgctxt "wind direction"
+msgid "invalid"
+msgstr "nevalida"
+
+#: libgweather/gweather-weather.c:155
+msgid "clear sky"
+msgstr "klara ĉielo"
+
+#: libgweather/gweather-weather.c:156
+msgid "broken clouds"
+msgstr "rompitaj nuboj"
+
+#: libgweather/gweather-weather.c:157
+msgid "scattered clouds"
+msgstr "disigitaj nuboj"
+
+#: libgweather/gweather-weather.c:158
+msgid "few clouds"
+msgstr "malmultaj nuboj"
+
+#: libgweather/gweather-weather.c:159
+msgid "overcast"
+msgstr "sensuna"
+
+#: libgweather/gweather-weather.c:163
+msgid "Clear sky"
 msgstr "Klara ĉielo"
 
-#: ../libgweather/weather.c:250
+#: libgweather/gweather-weather.c:164
 msgid "Broken clouds"
 msgstr "Rompitaj nuboj"
 
-#: ../libgweather/weather.c:251
+#: libgweather/gweather-weather.c:165
 msgid "Scattered clouds"
 msgstr "Disigitaj nuboj"
 
-#: ../libgweather/weather.c:252
+#: libgweather/gweather-weather.c:166
 msgid "Few clouds"
 msgstr "Malmultaj nuboj"
 
-#: ../libgweather/weather.c:253
+#: libgweather/gweather-weather.c:167
 msgid "Overcast"
 msgstr "Sensuna"
+
+#: libgweather/gweather-weather.c:183 libgweather/gweather-weather.c:297
+msgctxt "sky conditions"
+msgid "Invalid"
+msgstr "Nevalida"
+
+#: libgweather/gweather-weather.c:184 libgweather/gweather-weather.c:298
+msgctxt "sky conditions"
+msgid "invalid"
+msgstr "nevalida"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:292 ../libgweather/weather.c:294
+#: libgweather/gweather-weather.c:217 libgweather/gweather-weather.c:219
+msgid "thunderstorm"
+msgstr "fulmotondro"
+
+#. DRIZZLE
+#: libgweather/gweather-weather.c:218
+msgid "drizzle"
+msgstr "pluveto"
+
+#: libgweather/gweather-weather.c:218
+msgid "light drizzle"
+msgstr "malpeza pluveto"
+
+#: libgweather/gweather-weather.c:218
+msgid "moderate drizzle"
+msgstr "modera pluveto"
+
+#: libgweather/gweather-weather.c:218
+msgid "heavy drizzle"
+msgstr "peza pluveto"
+
+#: libgweather/gweather-weather.c:218
+msgid "freezing drizzle"
+msgstr "frosta pluveto"
+
+#. RAIN
+#: libgweather/gweather-weather.c:219
+msgid "rain"
+msgstr "pluvo"
+
+#: libgweather/gweather-weather.c:219
+msgid "light rain"
+msgstr "malpeza pluvo"
+
+#: libgweather/gweather-weather.c:219
+msgid "moderate rain"
+msgstr "modera pluvo"
+
+#: libgweather/gweather-weather.c:219
+msgid "heavy rain"
+msgstr "peza pluvo"
+
+#: libgweather/gweather-weather.c:219
+msgid "rain showers"
+msgstr "pluvoverŝoj"
+
+#: libgweather/gweather-weather.c:219
+msgid "freezing rain"
+msgstr "frosta pluvo"
+
+#. SNOW
+#: libgweather/gweather-weather.c:220
+msgid "snow"
+msgstr "neĝo"
+
+#: libgweather/gweather-weather.c:220
+msgid "light snow"
+msgstr "malpeza neĝo"
+
+#: libgweather/gweather-weather.c:220
+msgid "moderate snow"
+msgstr "modera neĝo"
+
+#: libgweather/gweather-weather.c:220
+msgid "heavy snow"
+msgstr "peza neĝo"
+
+#: libgweather/gweather-weather.c:220
+msgid "snowstorm"
+msgstr "neĝŝtormo"
+
+#: libgweather/gweather-weather.c:220
+msgid "blowing snowfall"
+msgstr "blovada neĝfalo"
+
+#: libgweather/gweather-weather.c:220
+msgid "snow showers"
+msgstr "neĝverŝoj"
+
+#: libgweather/gweather-weather.c:220
+msgid "drifting snow"
+msgstr "drivanta neĝo"
+
+#. SNOW_GRAINS
+#: libgweather/gweather-weather.c:221
+msgid "snow grains"
+msgstr "neĝaj grajnoj"
+
+#: libgweather/gweather-weather.c:221
+msgid "light snow grains"
+msgstr "malpezaj neĝaj grajnoj"
+
+#: libgweather/gweather-weather.c:221
+msgid "moderate snow grains"
+msgstr "moderaj neĝaj grajnoj"
+
+#: libgweather/gweather-weather.c:221
+msgid "heavy snow grains"
+msgstr "pezaj neĝaj grajnoj"
+
+#. ICE_CRYSTALS
+#: libgweather/gweather-weather.c:222
+msgid "ice crystals"
+msgstr "glacikristaloj"
+
+#. ICE_PELLETS
+#: libgweather/gweather-weather.c:223
+msgid "sleet"
+msgstr "glacipluvo"
+
+#: libgweather/gweather-weather.c:223
+msgid "little sleet"
+msgstr "malpeza glacipluvo"
+
+#: libgweather/gweather-weather.c:223
+msgid "moderate sleet"
+msgstr "modera glacipluvo"
+
+#: libgweather/gweather-weather.c:223
+msgid "heavy sleet"
+msgstr "peza glacipluvo"
+
+#: libgweather/gweather-weather.c:223
+msgid "sleet storm"
+msgstr "glacipluva ŝtormo"
+
+#: libgweather/gweather-weather.c:223
+msgid "showers of sleet"
+msgstr "glacipluvaj verŝoj"
+
+#. HAIL
+#: libgweather/gweather-weather.c:224
+msgid "hail"
+msgstr "hajlo"
+
+#: libgweather/gweather-weather.c:224
+msgid "hailstorm"
+msgstr "hajlŝtormo"
+
+#: libgweather/gweather-weather.c:224
+msgid "hail showers"
+msgstr "hajlverŝoj"
+
+#. SMALL_HAIL
+#: libgweather/gweather-weather.c:225
+msgid "small hail"
+msgstr "eta hajlo"
+
+#: libgweather/gweather-weather.c:225
+msgid "small hailstorm"
+msgstr "eta hajlŝtormo"
+
+#: libgweather/gweather-weather.c:225
+msgid "showers of small hail"
+msgstr "verŝoj de eta hajlo"
+
+#. PRECIPITATION
+#: libgweather/gweather-weather.c:226
+msgid "unknown precipitation"
+msgstr "nekonata pluvokvanto"
+
+#. MIST
+#: libgweather/gweather-weather.c:227
+msgid "mist"
+msgstr "nebulo"
+
+#. FOG
+#: libgweather/gweather-weather.c:228
+msgid "fog"
+msgstr "nebulo"
+
+#: libgweather/gweather-weather.c:228
+msgid "fog in the vicinity"
+msgstr "nebulo en la ĉirkaŭaĵo"
+
+#: libgweather/gweather-weather.c:228
+msgid "shallow fog"
+msgstr "maldika nebulo"
+
+#: libgweather/gweather-weather.c:228
+msgid "patches of fog"
+msgstr "makuloj de nebulo"
+
+#: libgweather/gweather-weather.c:228
+msgid "partial fog"
+msgstr "parta nebulo"
+
+#: libgweather/gweather-weather.c:228
+msgid "freezing fog"
+msgstr "frosta nebulo"
+
+#. SMOKE
+#: libgweather/gweather-weather.c:229
+msgid "smoke"
+msgstr "fumo"
+
+#. VOLCANIC_ASH
+#: libgweather/gweather-weather.c:230
+msgid "volcanic ash"
+msgstr "vulkana cindro"
+
+#. SAND
+#: libgweather/gweather-weather.c:231
+msgid "sand"
+msgstr "sablo"
+
+#: libgweather/gweather-weather.c:231
+msgid "blowing sand"
+msgstr "blovada sablo"
+
+#: libgweather/gweather-weather.c:231
+msgid "drifting sand"
+msgstr "drivanta sablo"
+
+#. HAZE
+#: libgweather/gweather-weather.c:232
+msgid "haze"
+msgstr "nebuleto"
+
+#. SPRAY
+#: libgweather/gweather-weather.c:233
+msgid "blowing sprays"
+msgstr "blovadaj ŝprucoj"
+
+#. DUST
+#: libgweather/gweather-weather.c:234
+msgid "dust"
+msgstr "polvo"
+
+#: libgweather/gweather-weather.c:234
+msgid "blowing dust"
+msgstr "blovada polvo"
+
+#: libgweather/gweather-weather.c:234
+msgid "drifting dust"
+msgstr "drivanta polvo"
+
+#. SQUALL
+#: libgweather/gweather-weather.c:235
+msgid "squall"
+msgstr "ventego"
+
+#. SANDSTORM
+#: libgweather/gweather-weather.c:236
+msgid "sandstorm"
+msgstr "sabloŝtormo"
+
+#: libgweather/gweather-weather.c:236
+msgid "sandstorm in the vicinity"
+msgstr "sabloŝtormo en la ĉirkaŭaĵo"
+
+#: libgweather/gweather-weather.c:236
+msgid "heavy sandstorm"
+msgstr "peza sabloŝtormo"
+
+#. DUSTSTORM
+#: libgweather/gweather-weather.c:237
+msgid "duststorm"
+msgstr "polvoŝtormo"
+
+#: libgweather/gweather-weather.c:237
+msgid "duststorm in the vicinity"
+msgstr "polvoŝtormo en la ĉirkaŭaĵo"
+
+#: libgweather/gweather-weather.c:237
+msgid "heavy duststorm"
+msgstr "peza polvoŝtormo"
+
+#. FUNNEL_CLOUD
+#: libgweather/gweather-weather.c:238
+msgid "funnel cloud"
+msgstr "funela nubo"
+
+#. TORNADO
+#: libgweather/gweather-weather.c:239
+msgid "tornado"
+msgstr "tornado"
+
+#. DUST_WHIRLS
+#: libgweather/gweather-weather.c:240
+msgid "dust whirls"
+msgstr "polvokirloj"
+
+#: libgweather/gweather-weather.c:240
+msgid "dust whirls in the vicinity"
+msgstr "polvokirloj en la ĉirkaŭaĵo"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
+#. NONE
+#: libgweather/gweather-weather.c:253 libgweather/gweather-weather.c:255
 msgid "Thunderstorm"
 msgstr "Fulmotondro"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:293
+#: libgweather/gweather-weather.c:254
 msgid "Drizzle"
 msgstr "Pluveto"
 
-#: ../libgweather/weather.c:293
+#: libgweather/gweather-weather.c:254
 msgid "Light drizzle"
 msgstr "Malpeza pluveto"
 
-#: ../libgweather/weather.c:293
+#: libgweather/gweather-weather.c:254
 msgid "Moderate drizzle"
 msgstr "Modera pluveto"
 
-#: ../libgweather/weather.c:293
+#: libgweather/gweather-weather.c:254
 msgid "Heavy drizzle"
 msgstr "Peza pluveto"
 
-#: ../libgweather/weather.c:293
+#: libgweather/gweather-weather.c:254
 msgid "Freezing drizzle"
 msgstr "Frosta pluveto"
 
 #. RAIN
-#: ../libgweather/weather.c:294
+#: libgweather/gweather-weather.c:255
 msgid "Rain"
 msgstr "Pluvo"
 
-#: ../libgweather/weather.c:294
+#: libgweather/gweather-weather.c:255
 msgid "Light rain"
 msgstr "Malpeza pluvo"
 
-#: ../libgweather/weather.c:294
+#: libgweather/gweather-weather.c:255
 msgid "Moderate rain"
 msgstr "Modera pluvo"
 
-#: ../libgweather/weather.c:294
+#: libgweather/gweather-weather.c:255
 msgid "Heavy rain"
 msgstr "Peza pluvo"
 
-#: ../libgweather/weather.c:294
+#: libgweather/gweather-weather.c:255
 msgid "Rain showers"
-msgstr "Interrompita pluvo"
+msgstr "Pluvoverŝoj"
 
-#: ../libgweather/weather.c:294
+#: libgweather/gweather-weather.c:255
 msgid "Freezing rain"
 msgstr "Frosta pluvo"
 
 #. SNOW
-#: ../libgweather/weather.c:295
+#: libgweather/gweather-weather.c:256
 msgid "Snow"
 msgstr "Neĝo"
 
-#: ../libgweather/weather.c:295
+#: libgweather/gweather-weather.c:256
 msgid "Light snow"
 msgstr "Malpeza neĝo"
 
-#: ../libgweather/weather.c:295
+#: libgweather/gweather-weather.c:256
 msgid "Moderate snow"
 msgstr "Modera neĝo"
 
-#: ../libgweather/weather.c:295
+#: libgweather/gweather-weather.c:256
 msgid "Heavy snow"
 msgstr "Peza neĝo"
 
-#: ../libgweather/weather.c:295
+#: libgweather/gweather-weather.c:256
 msgid "Snowstorm"
-msgstr "Neĝblovado"
+msgstr "Neĝŝtormo"
 
-#: ../libgweather/weather.c:295
+#: libgweather/gweather-weather.c:256
 msgid "Blowing snowfall"
 msgstr "Blovada neĝfalo"
 
-#: ../libgweather/weather.c:295
+#: libgweather/gweather-weather.c:256
 msgid "Snow showers"
-msgstr "Interrompita neĝo"
+msgstr "Neĝverŝoj"
 
-#: ../libgweather/weather.c:295
+#: libgweather/gweather-weather.c:256
 msgid "Drifting snow"
 msgstr "Drivanta neĝo"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:296
+#: libgweather/gweather-weather.c:257
 msgid "Snow grains"
 msgstr "Neĝaj grajnoj"
 
-#: ../libgweather/weather.c:296
+#: libgweather/gweather-weather.c:257
 msgid "Light snow grains"
 msgstr "Malpezaj neĝaj grajnoj"
 
-#: ../libgweather/weather.c:296
+#: libgweather/gweather-weather.c:257
 msgid "Moderate snow grains"
 msgstr "Moderaj neĝaj grajnoj"
 
-#: ../libgweather/weather.c:296
+#: libgweather/gweather-weather.c:257
 msgid "Heavy snow grains"
 msgstr "Pezaj neĝaj grajnoj"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:297
+#: libgweather/gweather-weather.c:258
 msgid "Ice crystals"
 msgstr "Glacikristaloj"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:298
-msgid "Ice pellets"
-msgstr "Glacieroj"
+#: libgweather/gweather-weather.c:259
+msgid "Sleet"
+msgstr "Glacipluvo"
 
-#: ../libgweather/weather.c:298
-msgid "Few ice pellets"
-msgstr "Malmultaj glacieroj"
+#: libgweather/gweather-weather.c:259
+msgid "Little sleet"
+msgstr "Malpeza glacipluvo"
 
-#: ../libgweather/weather.c:298
-msgid "Moderate ice pellets"
-msgstr "Moderaj glacieroj"
+#: libgweather/gweather-weather.c:259
+msgid "Moderate sleet"
+msgstr "Modera glacipluvo"
 
-#: ../libgweather/weather.c:298
-msgid "Heavy ice pellets"
-msgstr "Pezaj glacieroj"
+#: libgweather/gweather-weather.c:259
+msgid "Heavy sleet"
+msgstr "Peza glacipluvo"
 
-#: ../libgweather/weather.c:298
-msgid "Ice pellet storm"
-msgstr "Glaciera blovado"
+#: libgweather/gweather-weather.c:259
+msgid "Sleet storm"
+msgstr "Glacipluvo ŝtormo"
 
-#: ../libgweather/weather.c:298
-msgid "Showers of ice pellets"
-msgstr "Faloj de glacieroj"
+#: libgweather/gweather-weather.c:259
+msgid "Showers of sleet"
+msgstr "Glacipluvaj verŝoj"
 
 #. HAIL
-#: ../libgweather/weather.c:299
+#: libgweather/gweather-weather.c:260
 msgid "Hail"
 msgstr "Hajlo"
 
-#: ../libgweather/weather.c:299
+#: libgweather/gweather-weather.c:260
 msgid "Hailstorm"
-msgstr "Hajlblovado"
+msgstr "Hajlŝtormo"
 
-#: ../libgweather/weather.c:299
+#: libgweather/gweather-weather.c:260
 msgid "Hail showers"
-msgstr "Interrompita hajlo"
+msgstr "Hajlverŝoj"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:300
+#: libgweather/gweather-weather.c:261
 msgid "Small hail"
 msgstr "Eta hajlo"
 
-#: ../libgweather/weather.c:300
+#: libgweather/gweather-weather.c:261
 msgid "Small hailstorm"
-msgstr "Eta hajlblovado"
+msgstr "Eta hajlŝtormo"
 
-#: ../libgweather/weather.c:300
+#: libgweather/gweather-weather.c:261
 msgid "Showers of small hail"
-msgstr "Interrompita eta hajlo"
+msgstr "Glacipluvaj verŝoj"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:301
+#: libgweather/gweather-weather.c:262
 msgid "Unknown precipitation"
 msgstr "Nekonata pluvokvanto"
 
 #. MIST
-#: ../libgweather/weather.c:302
+#: libgweather/gweather-weather.c:263
 msgid "Mist"
-msgstr "Maldensa nebulo"
+msgstr "Nebulo"
 
 #. FOG
-#: ../libgweather/weather.c:303
+#: libgweather/gweather-weather.c:264
 msgid "Fog"
-msgstr "Densa nebulo"
+msgstr "Nebulo"
 
-#: ../libgweather/weather.c:303
+#: libgweather/gweather-weather.c:264
 msgid "Fog in the vicinity"
-msgstr "Densa nebulo en la ĉirkaŭaĵo"
+msgstr "Nebulo en la ĉirkaŭaĵo"
 
-#: ../libgweather/weather.c:303
+#: libgweather/gweather-weather.c:264
 msgid "Shallow fog"
 msgstr "Maldika nebulo"
 
-#: ../libgweather/weather.c:303
+#: libgweather/gweather-weather.c:264
 msgid "Patches of fog"
 msgstr "Makuloj de nebulo"
 
-#: ../libgweather/weather.c:303
+#: libgweather/gweather-weather.c:264
 msgid "Partial fog"
 msgstr "Parta nebulo"
 
-#: ../libgweather/weather.c:303
+#: libgweather/gweather-weather.c:264
 msgid "Freezing fog"
 msgstr "Frosta nebulo"
 
 #. SMOKE
-#: ../libgweather/weather.c:304
+#: libgweather/gweather-weather.c:265
 msgid "Smoke"
 msgstr "Fumo"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:305
+#: libgweather/gweather-weather.c:266
 msgid "Volcanic ash"
 msgstr "Vulkana cindro"
 
 #. SAND
-#: ../libgweather/weather.c:306
+#: libgweather/gweather-weather.c:267
 msgid "Sand"
 msgstr "Sablo"
 
-#: ../libgweather/weather.c:306
+#: libgweather/gweather-weather.c:267
 msgid "Blowing sand"
-msgstr "Sabloblovado"
+msgstr "Blovada sablo"
 
-#: ../libgweather/weather.c:306
+#: libgweather/gweather-weather.c:267
 msgid "Drifting sand"
 msgstr "Drivanta sablo"
 
 #. HAZE
-#: ../libgweather/weather.c:307
+#: libgweather/gweather-weather.c:268
 msgid "Haze"
-msgstr "Partikla nebuleto"
+msgstr "Nebuleto"
 
 #. SPRAY
-#: ../libgweather/weather.c:308
+#: libgweather/gweather-weather.c:269
 msgid "Blowing sprays"
-msgstr "Ŝprucblovado"
+msgstr "Blovadaj ŝprucoj"
 
 #. DUST
-#: ../libgweather/weather.c:309
+#: libgweather/gweather-weather.c:270
 msgid "Dust"
 msgstr "Polvo"
 
-#: ../libgweather/weather.c:309
+#: libgweather/gweather-weather.c:270
 msgid "Blowing dust"
-msgstr "Polvoblovado"
+msgstr "Blovada polvo"
 
-#: ../libgweather/weather.c:309
+#: libgweather/gweather-weather.c:270
 msgid "Drifting dust"
 msgstr "Drivanta polvo"
 
 #. SQUALL
-#: ../libgweather/weather.c:310
+#: libgweather/gweather-weather.c:271
 msgid "Squall"
-msgstr "Ekblovo"
+msgstr "Ventego"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:311
+#: libgweather/gweather-weather.c:272
 msgid "Sandstorm"
-msgstr "Sabloblovado"
+msgstr "Sabloŝtormo"
 
-#: ../libgweather/weather.c:311
+#: libgweather/gweather-weather.c:272
 msgid "Sandstorm in the vicinity"
-msgstr "Sabloblovado en la ĉirkaŭaĵo"
+msgstr "Sabloŝtormo en la ĉirkaŭaĵo"
 
-#: ../libgweather/weather.c:311
+#: libgweather/gweather-weather.c:272
 msgid "Heavy sandstorm"
-msgstr "Forta sabloblovado"
+msgstr "Forta sabloŝtormo"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:312
+#: libgweather/gweather-weather.c:273
 msgid "Duststorm"
-msgstr "Polvoblovado"
+msgstr "Polvoŝtormo"
 
-#: ../libgweather/weather.c:312
+#: libgweather/gweather-weather.c:273
 msgid "Duststorm in the vicinity"
-msgstr "Polvoblovado en la ĉirkaŭaĵo"
+msgstr "Polvoŝtormo en la ĉirkaŭaĵo"
 
-#: ../libgweather/weather.c:312
+#: libgweather/gweather-weather.c:273
 msgid "Heavy duststorm"
-msgstr "Peza polvoblovado"
+msgstr "Peza polvoŝtormo"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:313
+#: libgweather/gweather-weather.c:274
 msgid "Funnel cloud"
 msgstr "Funela nubo"
 
 #. TORNADO
-#: ../libgweather/weather.c:314
+#: libgweather/gweather-weather.c:275
 msgid "Tornado"
 msgstr "Tornado"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:315
+#: libgweather/gweather-weather.c:276
 msgid "Dust whirls"
 msgstr "Polvokirloj"
 
-#: ../libgweather/weather.c:315
+#: libgweather/gweather-weather.c:276
 msgid "Dust whirls in the vicinity"
 msgstr "Polvokirloj en la ĉirkaŭaĵo"
 
-#. TRANSLATOR: this is a format string for strftime
-#. *             see `man 3 strftime` for more details
-#.
-#: ../libgweather/weather.c:710
-msgid "%a, %b %d / %H:%M"
-msgstr "%a, la %d-a de %b / %H:%M"
+#: libgweather/gweather-weather.c:793
+msgid "%a, %b %d / %H∶%M"
+msgstr "%a, %-d-a de %b / %H:%M"
 
-#: ../libgweather/weather.c:725
+#: libgweather/gweather-weather.c:799
 msgid "Unknown observation time"
 msgstr "Nekonata observa tempo"
 
-#: ../libgweather/weather.c:739 ../libgweather/weather.c:790
-#: ../libgweather/weather.c:804 ../libgweather/weather.c:817
-#: ../libgweather/weather.c:830 ../libgweather/weather.c:843
-#: ../libgweather/weather.c:861 ../libgweather/weather.c:879
-#: ../libgweather/weather.c:917 ../libgweather/weather.c:933
-#: ../libgweather/weather.c:956 ../libgweather/weather.c:988
-#: ../libgweather/weather.c:1004 ../libgweather/weather.c:1024
+#: libgweather/gweather-weather.c:811
+msgctxt "sky conditions"
 msgid "Unknown"
-msgstr "Nekonate"
+msgstr "Nekonata"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:761
-#, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+#. Translate to the default units to use for presenting
+#. * lengths to the user. Translate to default:inch if you
+#. * want inches, otherwise translate to default:mm.
+#. * Do *not* translate it to "predefinito:mm", if it
+#. * it isn't default:mm or default:inch it will not work
+#.
+#: libgweather/gweather-weather.c:833
+msgid "default:mm"
+msgstr "default:mm"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:764
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:886
 #, c-format
-msgid "%d °F"
-msgstr "%d °F"
+msgid "%.1f ℉"
+msgstr "%.1f ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:770
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)i
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:890
 #, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
+msgid "%d ℉"
+msgstr "%d ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:773
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:897
 #, c-format
-msgid "%d °C"
-msgstr "%d °C"
+msgid "%.1f ℃"
+msgstr "%.1f ℃"
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:779
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:901
 #, c-format
-msgid "%.1f K"
-msgstr "%.1f K"
+msgid "%d ℃"
+msgstr "%d ℃"
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:782
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:908
 #, c-format
-msgid "%d K"
-msgstr "%d K"
+msgid "%.1f K"
+msgstr "%.1f K"
+
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:912
+#, c-format
+msgid "%d K"
+msgstr "%d K"
+
+#: libgweather/gweather-weather.c:935 libgweather/gweather-weather.c:951
+#: libgweather/gweather-weather.c:967 libgweather/gweather-weather.c:1029
+msgctxt "temperature"
+msgid "Unknown"
+msgstr "Nekonata"
+
+#: libgweather/gweather-weather.c:989
+msgctxt "dew"
+msgid "Unknown"
+msgstr "Nekonata"
+
+#: libgweather/gweather-weather.c:1009
+msgctxt "humidity"
+msgid "Unknown"
+msgstr "Nekonata"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:864
+#: libgweather/gweather-weather.c:1012
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:892
+#: libgweather/gweather-weather.c:1058
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f nodoj"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:896
+#: libgweather/gweather-weather.c:1061
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mejloj/h"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:900
+#: libgweather/gweather-weather.c:1064
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:904
+#: libgweather/gweather-weather.c:1067
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -869,79 +928,417 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:910
+#: libgweather/gweather-weather.c:1072
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Boforta forto %.1f"
 
-#: ../libgweather/weather.c:935
+#: libgweather/gweather-weather.c:1093
+msgctxt "wind speed"
+msgid "Unknown"
+msgstr "Nekonata"
+
+#: libgweather/gweather-weather.c:1095
 msgid "Calm"
 msgstr "Senvento"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:939
+#: libgweather/gweather-weather.c:1103
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
+#: libgweather/gweather-weather.c:1139
+msgctxt "pressure"
+msgid "Unknown"
+msgstr "Nekonata"
+
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:961
+#: libgweather/gweather-weather.c:1145
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f coloj Hg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:965
+#: libgweather/gweather-weather.c:1148
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:969
+#: libgweather/gweather-weather.c:1151
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:973
+#: libgweather/gweather-weather.c:1154
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:977
+#: libgweather/gweather-weather.c:1157
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mbar"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:981
+#: libgweather/gweather-weather.c:1160
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
+#: libgweather/gweather-weather.c:1198
+msgctxt "visibility"
+msgid "Unknown"
+msgstr "Nekonata"
+
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:1009
+#: libgweather/gweather-weather.c:1204
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f mejloj"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:1013
+#: libgweather/gweather-weather.c:1207
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:1017
+#: libgweather/gweather-weather.c:1210
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/weather.c:1046 ../libgweather/weather.c:1067
-msgid "%H:%M"
-msgstr "%H:%M"
+#: libgweather/gweather-weather.c:1238 libgweather/gweather-weather.c:1263
+msgid "%H∶%M"
+msgstr "%H∶%M"
 
-#: ../libgweather/weather.c:1126
+#: libgweather/gweather-weather.c:1357
 msgid "Retrieval failed"
 msgstr "Eltiro malsukcesis"
+
+#. Translators: %d is an error code, and %s the error string
+#: libgweather/weather-metar.c:581
+#, c-format
+msgid "Failed to get METAR data: %d %s.\n"
+msgstr "Malsukcesis eltiri METAR-ajn datumojn: %d %s.\n"
+
+#: libgweather/weather-owm.c:383
+msgid ""
+"Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
+"project</a>"
+msgstr ""
+"Veterdatumoj el la <a href=\"http://openweathermap.org\">Open Weather Map "
+"projekto</a>"
+
+#. The new (documented but not advertised) API is less strict in the
+#. format of the attribution, and just requires a generic CC-BY compatible
+#. attribution with a link to their service.
+#.
+#. That's very nice of them!
+#.
+#: libgweather/weather-yrno.c:507
+msgid ""
+"Weather data from the <a href=\"http://www.met.no/\">Norwegian "
+"Meteorological Institute</a>"
+msgstr ""
+"Veterdatumoj el la <a href=\"http://www.met.no/\">Norvega Meteologia "
+"Instituto</a>"
+
+#: schemas/org.gnome.GWeather.gschema.xml:5
+msgid "URL for the radar map"
+msgstr "URL por la radara mapo"
+
+#: schemas/org.gnome.GWeather.gschema.xml:6
+msgid ""
+"The custom URL from where to retrieve a radar map, or empty for disabling "
+"radar maps."
+msgstr ""
+"La propra URL de kie la radara mapo estas eltirenda, aŭ maplena por malŝalti "
+"radarajn mapojn."
+
+#: schemas/org.gnome.GWeather.gschema.xml:13
+msgid "Temperature unit"
+msgstr "Temperatura unuo"
+
+#: schemas/org.gnome.GWeather.gschema.xml:14
+msgid ""
+"The unit of temperature used for showing weather. Valid values are “kelvin”, "
+"“centigrade” and “fahrenheit”."
+msgstr ""
+
+#: schemas/org.gnome.GWeather.gschema.xml:21
+msgid "Distance unit"
+msgstr "Distanca unuo"
+
+#: schemas/org.gnome.GWeather.gschema.xml:22
+msgid ""
+"The unit of distance used for showing weather (for example for visibility or "
+"for distance of important events). Valid values are “meters”, “km” and "
+"“miles”."
+msgstr ""
+
+#: schemas/org.gnome.GWeather.gschema.xml:29
+msgid "Speed unit"
+msgstr "Rapideca unuo"
+
+#: schemas/org.gnome.GWeather.gschema.xml:30
+msgid ""
+"The unit of speed used for showing weather (for example for wind speed). "
+"Valid values are “ms” (meters per second), “kph” (kilometers per hour), "
+"“mph” (miles per hour), “knots” and “bft” (Beaufort scale)."
+msgstr ""
+
+#: schemas/org.gnome.GWeather.gschema.xml:38
+msgid "Pressure unit"
+msgstr "Aerprema unuo"
+
+#: schemas/org.gnome.GWeather.gschema.xml:39
+msgid ""
+"The unit of pressure used for showing weather. Valid values are "
+"“kpa” (kilopascal), “hpa” (hectopascal), “mb” (millibar, mathematically "
+"equivalent to 1 hPa but shown differently), “mm-hg” (millimeters of "
+"mercury), “inch-hg” (inches of mercury), “atm” (atmospheres)."
+msgstr ""
+
+#. TRANSLATORS: pick a default location to use in the weather applet. This should
+#. usually be the largest city or the capital of your country. If you're not picking
+#. a <location> in the database, don't forget to set name and coordinates.
+#. Do NOT change or localize the quotation marks!
+#: schemas/org.gnome.GWeather.gschema.xml:51
+msgid "('', 'KNYC', nothing)"
+msgstr ""
+
+#: schemas/org.gnome.GWeather.gschema.xml:52
+msgid "Default location"
+msgstr "Implicita loko"
+
+#: schemas/org.gnome.GWeather.gschema.xml:53
+msgid ""
+"The default location for the weather applet. The first field is the name "
+"that will be shown. If empty, it will be taken from the locations database. "
+"The second field is the METAR code for the default weather station. It must "
+"not be empty and must correspond to a <code> tag in the Locations.xml file. "
+"The third field is a tuple of (latitude, longitude), to override the value "
+"taken from the database. This is only used for sunrise and moon phase "
+"calculations, not for weather forecast."
+msgstr ""
+
+#~ msgid "DEFAULT_LOCATION"
+#~ msgstr "DEFAULT_LOCATION"
+
+#~ msgid "DEFAULT_CODE"
+#~ msgstr "DEFAULT_CODE"
+
+#~ msgid "DEFAULT_ZONE"
+#~ msgstr "DEFAULT_ZONE"
+
+#~ msgid "DEFAULT_RADAR"
+#~ msgstr "DEFAULT_RADAR"
+
+#~ msgid "DEFAULT_COORDINATES"
+#~ msgstr "DEFAULT_COORDINATES"
+
+#~ msgid "K"
+#~ msgstr "K"
+
+#~ msgid "C"
+#~ msgstr "C"
+
+#~ msgid "F"
+#~ msgstr "F"
+
+#~ msgid "m/s"
+#~ msgstr "m/s"
+
+#~ msgid "km/h"
+#~ msgstr "km/h"
+
+#~ msgid "mph"
+#~ msgstr "mejloj/h"
+
+#~ msgid "knots"
+#~ msgstr "nodoj"
+
+#~ msgid "Beaufort scale"
+#~ msgstr "Boforta skalo"
+
+#~ msgid "kPa"
+#~ msgstr "kPa"
+
+#~ msgid "hPa"
+#~ msgstr "hPa"
+
+#~ msgid "mb"
+#~ msgstr "mbar"
+
+#~ msgid "mmHg"
+#~ msgstr "mmHg"
+
+#~ msgid "inHg"
+#~ msgstr "coloj Hg"
+
+#~ msgid "atm"
+#~ msgstr "atm"
+
+#~ msgid "m"
+#~ msgstr "m"
+
+#~ msgid "km"
+#~ msgstr "km"
+
+#~ msgid "mi"
+#~ msgstr "mejloj"
+
+#~ msgid "DEFAULT_TEMP_UNIT"
+#~ msgstr "C"
+
+#~ msgid "DEFAULT_SPEED_UNIT"
+#~ msgstr "km/h"
+
+#~ msgid "DEFAULT_PRESSURE_UNIT"
+#~ msgstr "hPa"
+
+#~ msgid "DEFAULT_DISTANCE_UNIT"
+#~ msgstr "km"
+
+#~ msgid ""
+#~ "A three-digit-long code for retrieving radar maps from weather.com, found "
+#~ "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "3-cifera kodo por ricevi radarmapojn el weather.com, trovita en http://"
+#~ "git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
+
+#~ msgid ""
+#~ "A unique zone for the city, as found from http://git.gnome.org/cgit/"
+#~ "libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "Unika loko por la urbo, kiel trovata en http://git.gnome.org/cgit/"
+#~ "libgweather/plain/data/Locations.xml.in"
+
+#~ msgid ""
+#~ "Determines whether the applet automatically updates its weather "
+#~ "statistics or not."
+#~ msgstr ""
+#~ "Difinas ĉu la aplikaĵeto aŭtomate ĝisdatigas siajn veterstatistikojn aŭ "
+#~ "ne."
+
+#~ msgid "Display radar map"
+#~ msgstr "Montri radaran mapon"
+
+#~ msgid "Fetch a radar map on each update."
+#~ msgstr "Venigi radaran mapon je ĉiu ĝisdatigo."
+
+#~ msgid ""
+#~ "If true, then retrieve a radar map from a location specified by the "
+#~ "\"radar\" key."
+#~ msgstr ""
+#~ "Se vera, tiam akiru radaran mapon de loko specifita per la \"radara\" "
+#~ "ŝlosilo."
+
+#~ msgid ""
+#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-"
+#~ "SS[EW]."
+#~ msgstr ""
+#~ "Latitudo kaj longitudo de via pozicio esprimataj per GG-MM-SS[NS] GG-MM-"
+#~ "SS[OrOk]."
+
+#~ msgid "Location coordinates"
+#~ msgstr "Lokaj koordinatoj"
+
+#~ msgid "Nearby city"
+#~ msgstr "Proksima urbo"
+
+#~ msgid ""
+#~ "Nearby major zone, such as a capital city, as found from http://git.gnome."
+#~ "org/cgit/libgweather/plain/data/Locations.xml.in"
+#~ msgstr ""
+#~ "Apud grava loko, kiel ĉefurbo, kiel trovata en http://git.gnome.org/cgit/"
+#~ "libgweather/plain/data/Locations.xml.in"
+
+#~ msgid "Not used anymore"
+#~ msgstr "Ne plu uzata"
+
+#~ msgid "Radar location"
+#~ msgstr "Radarpozicio"
+
+#~ msgid "The city that gweather displays information for."
+#~ msgstr "La urbo pri kiu \"gweather\" montras informojn."
+
+#~ msgid "The interval, in seconds, between automatic updates."
+#~ msgstr "La intervalo, en sekundoj, inter aŭtomataj ĝisdatigoj."
+
+#~ msgid "The unit to use for pressure."
+#~ msgstr "La unuo uzenda por aerpremo."
+
+#~ msgid "The unit to use for temperature."
+#~ msgstr "La unuo uzenda por temperaturo."
+
+#~ msgid "The unit to use for visibility."
+#~ msgstr "La unuo uzenda por videblo."
+
+#~ msgid "The unit to use for wind speed."
+#~ msgstr "La unuo uzenda por ventrapideco."
+
+#~ msgid "Update interval"
+#~ msgstr "Ĝisdatiga intervalo"
+
+#~ msgid "Update the data automatically"
+#~ msgstr "Aŭtomate ĝisdatigi la datumojn"
+
+#~ msgid "Use custom url for the radar map"
+#~ msgstr "Uzi propran URL-n por la radara mapo"
+
+#~ msgid "Use metric units"
+#~ msgstr "Uzi metrikajn unuojn"
+
+#~ msgid "Use metric units instead of english units."
+#~ msgstr "Uzi metrikajn unuojn anstataŭ anglajn unuojn."
+
+#~ msgid "Weather for a city"
+#~ msgstr "Vetero por urbo"
+
+#~ msgid "Weather location information"
+#~ msgstr "Vetera pozicia informo"
+
+#~ msgid "Weather location information."
+#~ msgstr "Vetera pozicia informo."
+
+#~ msgid "WeatherInfo missing location"
+#~ msgstr "Veterinformo malhavanta pozicion"
+
+#~ msgid "Ice pellets"
+#~ msgstr "Glacieroj"
+
+#~ msgid "Few ice pellets"
+#~ msgstr "Malmultaj glacieroj"
+
+#~ msgid "Moderate ice pellets"
+#~ msgstr "Moderaj glacieroj"
+
+#~ msgid "Heavy ice pellets"
+#~ msgstr "Pezaj glacieroj"
+
+#~ msgid "%.1f °F"
+#~ msgstr "%.1f °F"
+
+#~ msgid "%d °F"
+#~ msgstr "%d °F"
+
+#~ msgid "%.1f °C"
+#~ msgstr "%.1f °C"
+
+#~ msgid "%d °C"
+#~ msgstr "%d °C"
+
+#~ msgid "%.1f K"
+#~ msgstr "%.1f K"
+
+#~ msgid "%d K"
+#~ msgstr "%d K"
+
+#~ msgid "%H:%M"
+#~ msgstr "%H:%M"
