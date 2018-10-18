@@ -38,6 +38,10 @@
 /* This is the precision of coordinates in the database */
 #define EPSILON 0.000001
 
+/* This is the maximum distance for which we will attach an
+ * airport to a city, see also test_distance() */
+#define AIRPORT_MAX_DISTANCE 100.0
+
 /**
  * SECTION:gweatherlocation
  * @Title: GWeatherLocation
@@ -136,12 +140,15 @@ location_new (GWeatherLocationLevel level)
     return loc;
 }
 
+static void add_timezones (GWeatherLocation *loc, GPtrArray *zones);
+
 static void
 add_nearest_weather_station (GWeatherLocation *location)
 {
-    GWeatherLocation **siblings;
+    GWeatherLocation **siblings, *station;
     GWeatherLocation *closest = NULL;
     double min_distance = G_MAXDOUBLE;
+    GPtrArray *zones;
     guint i;
 
     g_assert (location->parent);
@@ -157,22 +164,60 @@ add_nearest_weather_station (GWeatherLocation *location)
         if (siblings[i] == location)
             continue;
 
+        if (siblings[i]->level != GWEATHER_LOCATION_WEATHER_STATION)
+            continue;
+
         /* Skip siblings without valid coordinates */
         if (!siblings[i]->latlon_valid)
             continue;
 
         distance = gweather_location_get_distance (location, siblings[i]);
-        if (distance < min_distance)
+        if (distance < min_distance) {
             closest = siblings[i];
+            min_distance = distance;
+        }
     }
 
+    /* This should not happen */
     if (!closest) {
         g_critical ("Location '%s' has no valid airports attached", location->english_name);
         return;
     }
 
+    /* This could however */
+    if (min_distance > AIRPORT_MAX_DISTANCE) {
+        g_debug ("Not adding airport '%s' as it's too far from '%s' (%.1lf km)\n",
+                 gweather_location_get_name (closest),
+                 gweather_location_get_name (location),
+                 min_distance);
+        return;
+    }
+
     location->children = g_new0 (GWeatherLocation *, 2);
-    location->children[0] = g_memdup (closest, sizeof(GWeatherLocation));
+    location->children[0] = g_slice_new0 (GWeatherLocation);
+    station = location->children[0];
+    station->english_name = g_strdup (closest->english_name);
+    station->local_name = g_strdup (closest->local_name);
+    station->msgctxt = g_strdup (closest->msgctxt);
+    station->local_sort_name = g_strdup (closest->local_sort_name);
+    station->english_sort_name = g_strdup (closest->english_sort_name);
+    station->parent = location;
+    station->level = GWEATHER_LOCATION_WEATHER_STATION;
+    station->country_code = g_strdup (closest->country_code);
+    station->tz_hint = g_strdup (closest->tz_hint);
+    station->station_code = g_strdup (closest->station_code);
+    station->forecast_zone = g_strdup (closest->forecast_zone);
+    station->radar = g_strdup (closest->radar);
+    station->latitude = closest->latitude;
+    station->longitude = closest->longitude;
+    station->latlon_valid = closest->latlon_valid;
+
+    zones = g_ptr_array_new ();
+    add_timezones (station, zones);
+    g_ptr_array_add (zones, NULL);
+    station->zones = (GWeatherTimezone **)g_ptr_array_free (zones, FALSE);
+
+    station->ref_count = 1;
 }
 
 static void
@@ -377,7 +422,15 @@ error_out:
     return NULL;
 }
 
-static GWeatherLocation *global_world;
+static GWeatherLocation *global_world = NULL;
+
+static void _gweather_location_unref_no_check (GWeatherLocation *loc);
+
+GWEATHER_EXTERN void
+_gweather_location_reset_world (void)
+{
+	g_clear_pointer (&global_world, _gweather_location_unref_no_check);
+}
 
 /**
  * gweather_location_get_world:
@@ -438,24 +491,13 @@ gweather_location_ref (GWeatherLocation *loc)
     return loc;
 }
 
-/**
- * gweather_location_unref:
- * @loc: a #GWeatherLocation
- *
- * Subtracts 1 from @loc's reference count, and frees it if the
- * reference count reaches 0.
- **/
-void
-gweather_location_unref (GWeatherLocation *loc)
+static void
+_gweather_location_unref_no_check (GWeatherLocation *loc)
 {
     int i;
 
-    g_return_if_fail (loc != NULL);
-
     if (--loc->ref_count)
 	return;
-
-    g_return_if_fail (loc->level != GWEATHER_LOCATION_WORLD);
 
     g_free (loc->english_name);
     g_free (loc->local_name);
@@ -490,6 +532,22 @@ gweather_location_unref (GWeatherLocation *loc)
 	g_hash_table_unref (loc->country_code_cache);
 
     g_slice_free (GWeatherLocation, loc);
+}
+
+/**
+ * gweather_location_unref:
+ * @loc: a #GWeatherLocation
+ *
+ * Subtracts 1 from @loc's reference count, and frees it if the
+ * reference count reaches 0.
+ **/
+void
+gweather_location_unref (GWeatherLocation *loc)
+{
+    g_return_if_fail (loc != NULL);
+    g_return_if_fail (loc->level != GWEATHER_LOCATION_WORLD);
+
+    _gweather_location_unref_no_check (loc);
 }
 
 GType
@@ -651,7 +709,7 @@ foreach_city (GWeatherLocation  *loc,
             return;
     }
 
-    if (loc->level == GWEATHER_LOCATION_WEATHER_STATION) {
+    if (loc->level == GWEATHER_LOCATION_CITY) {
         callback (loc, user_data);
     } else if (loc->children) {
         int i;
@@ -682,6 +740,9 @@ location_distance (double lat1, double long1,
 {
     /* average radius of the earth in km */
     static const double radius = 6372.795;
+
+    if (lat1 == lat2 && long1 == long2)
+        return 0.0;
 
     return acos (cos (lat1) * cos (lat2) * cos (long1 - long2) +
 		 sin (lat1) * sin (lat2)) * radius;
@@ -1368,8 +1429,9 @@ gweather_location_format_two_serialize (GWeatherLocation *location)
 
     /* Normalize location to be a weather station or detached */
     if (location->level == GWEATHER_LOCATION_CITY) {
-	location = location->children[0];
-	is_city = TRUE;
+        if (location->children != NULL)
+            location = location->children[0];
+        is_city = TRUE;
     } else {
 	is_city = FALSE;
     }
@@ -1383,7 +1445,7 @@ gweather_location_format_two_serialize (GWeatherLocation *location)
 	g_variant_builder_add (&parent_latlon_builder, "(dd)", location->parent->latitude, location->parent->longitude);
 
     return g_variant_new ("(ssba(dd)a(dd))",
-			  name, location->station_code, is_city,
+			  name, location->station_code ? location->station_code : "", is_city,
 			  &latlon_builder, &parent_latlon_builder);
 }
 

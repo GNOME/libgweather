@@ -27,6 +27,8 @@
 #include "gweather-location.h"
 #include "gweather-weather.h"
 
+extern void _gweather_location_reset_world (void);
+
 /* For test_metar_weather_stations */
 #define METAR_SOURCES "https://www.aviationweather.gov/docs/metar/stations.txt"
 
@@ -57,6 +59,8 @@ test_named_timezones (void)
         g_assert_nonnull (code);
         g_assert_true (code[0] == '@');
     }
+
+    _gweather_location_reset_world ();
 }
 
 static GList *
@@ -146,6 +150,28 @@ test_named_timezones_deserialized (void)
     g_list_free (list);
 
     test_timezones ();
+
+    _gweather_location_reset_world ();
+}
+
+static void
+test_no_code_serialize (void)
+{
+    GVariant *variant;
+    GWeatherLocation *world, *loc;
+
+    world = gweather_location_get_world ();
+    g_assert_nonnull (world);
+
+    loc = gweather_location_find_nearest_city (world, 56.833333, 53.183333);
+    g_assert (loc);
+    g_assert_cmpstr (gweather_location_get_name (loc), ==, "Izhevsk");
+
+    variant = gweather_location_serialize (loc);
+    g_assert_nonnull (variant);
+    g_variant_unref (variant);
+
+    _gweather_location_reset_world ();
 }
 
 static void
@@ -205,6 +231,8 @@ test_timezones (void)
     g_assert (world);
 
     test_timezones_children (world);
+
+    _gweather_location_reset_world ();
 }
 
 static void
@@ -255,6 +283,8 @@ test_airport_distance_sanity (void)
 
     if (g_test_failed ())
         g_warning ("Maximum city to airport distance is %.1f km", max_distance);
+
+    _gweather_location_reset_world ();
 }
 
 static GHashTable *
@@ -379,6 +409,8 @@ test_metar_weather_stations (void)
     g_free (contents);
 
     test_metar_weather_stations_children (world, stations_ht);
+
+    _gweather_location_reset_world ();
 }
 
 static void
@@ -444,6 +476,8 @@ test_utc_sunset (void)
 
 	ret = gweather_info_get_value_moonphase (info, &phase, &lat);
 	g_assert_false (ret);
+
+	_gweather_location_reset_world ();
 }
 
 static void
@@ -522,6 +556,9 @@ test_bad_duplicate_weather_stations (void)
     test_bad_duplicate_weather_stations_children (world, stations_ht);
 
     g_hash_table_foreach (stations_ht, check_bad_duplicate_weather_stations, NULL);
+
+    g_unsetenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST");
+    _gweather_location_reset_world ();
 }
 
 static void
@@ -575,6 +612,9 @@ test_duplicate_weather_stations (void)
     g_assert (world);
 
     test_duplicate_weather_stations_children (world);
+
+    g_unsetenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST");
+    _gweather_location_reset_world ();
 }
 
 static void
@@ -601,6 +641,7 @@ main (int argc, char *argv[])
 
 	g_test_add_func ("/weather/named-timezones", test_named_timezones);
 	g_test_add_func ("/weather/named-timezones-deserialized", test_named_timezones_deserialized);
+	g_test_add_func ("/weather/no-code-serialize", test_no_code_serialize);
 	g_test_add_func ("/weather/timezones", test_timezones);
 	g_test_add_func ("/weather/airport_distance_sanity", test_airport_distance_sanity);
 	g_test_add_func ("/weather/metar_weather_stations", test_metar_weather_stations);
