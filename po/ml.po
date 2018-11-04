@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ml\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgweather/issues\n"
-"POT-Creation-Date: 2018-06-13 12:36+0000\n"
-"PO-Revision-Date: 2018-11-04 23:21+0800\n"
+"POT-Creation-Date: 2018-11-04 15:23+0000\n"
+"PO-Revision-Date: 2018-11-04 23:24+0800\n"
 "Last-Translator: Praveen Arimbrathodiyil <pravi.a@gmail.com>\n"
 "Language-Team: Swatantra Malayalam Computing\n"
 "Language: ml\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: libgweather/gweather-location-entry.c:817
 msgid "Loading…"
-msgstr ""
+msgstr "ലോഡ് ചെയ്യുന്നു…"
 
 #: libgweather/gweather-timezone.c:343
 msgid "Greenwich Mean Time"
@@ -1035,7 +1035,8 @@ msgstr "<a href=\"http://openweathermap.org\">ഓപ്പണ്‍ വെതര
 #.
 #: libgweather/weather-yrno.c:507
 msgid "Weather data from the <a href=\"http://www.met.no/\">Norwegian Meteorological Institute</a>"
-msgstr "<a href=\"http://www.met.no/\">നോര്‍വീജിയന്‍ കാലാവസ്ഥാ ഇന്‍സ്റ്റിറ്റ്യൂട്ടില്‍</a> നിന്നുമുള്ള കാലാവസ്ഥാ വിവരങ്ങള്‍"
+msgstr ""
+"<a href=\"http://www.met.no/\">നോര്‍വീജിയന്‍ കാലാവസ്ഥാ ഇന്‍സ്റ്റിറ്റ്യൂട്ടില്‍</a> നിന്നുമുള്ള കാലാവസ്ഥാ വിവരങ്ങള്‍"
 
 #: schemas/org.gnome.GWeather.gschema.xml:5
 msgid "URL for the radar map"
@@ -1054,24 +1055,20 @@ msgid ""
 "The unit of temperature used for showing weather. Valid values are “kelvin”, “centigrade” and "
 "“fahrenheit”."
 msgstr ""
-"കാലാവസ്ഥ കാണിയ്ക്കാനുപയോഗിയ്ക്കുന്ന താപനിലയുടെ ഏകകം. സാധുവായ വിലകള്‍ \"kelvin\", \"centigrade\", \"farenheit\" "
-"എന്നിവയാണു്."
+"കാലാവസ്ഥ കാണിയ്ക്കാനുപയോഗിയ്ക്കുന്ന താപനിലയുടെ ഏകകം. സാധുവായ വിലകള്‍ \"kelvin\", \"centigrade\", \"farenheit"
+"\" എന്നിവയാണു്."
 
 #: schemas/org.gnome.GWeather.gschema.xml:21
 msgid "Distance unit"
 msgstr "ദൂരത്തിന്റെ ഏകകം"
 
 #: schemas/org.gnome.GWeather.gschema.xml:22
-#, fuzzy
-#| msgid ""
-#| "The unit of distance used for showing weather (for example for visibility or for distance of "
-#| "important events). Valid values are 'meters', 'km' and 'miles'."
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or for distance of "
 "important events). Valid values are “meters”, “km” and “miles”."
 msgstr ""
-"കാലാവസ്ഥ കാണിയ്ക്കാനുപയോഗിയ്ക്കുന്ന ദൂരത്തിന്റെ ഏകകം (ഉദാഹരണത്തിനു് കാഴ്ചയോ പ്രധാനസംഭവങ്ങളുടെ ദൂരമോ പറയുമ്പോള്‍). സാധുവായവ "
-"'മീറ്റര്‍', 'കിമീ', 'മൈലുകള്‍' എന്നിവയാണു്"
+"കാലാവസ്ഥ കാണിയ്ക്കാനുപയോഗിയ്ക്കുന്ന ദൂരത്തിന്റെ ഏകകം (ഉദാഹരണത്തിനു് കാഴ്ചയോ പ്രധാനസംഭവങ്ങളുടെ ദൂരമോ പറയുമ്പോള്‍). "
+"സാധുവായവ “meters”, “km”, “miles” എന്നിവയാണു്"
 
 #: schemas/org.gnome.GWeather.gschema.xml:29
 msgid "Speed unit"
@@ -1117,16 +1114,17 @@ msgstr "സഹജമായ സ്ഥലം"
 msgid ""
 "The default location for the weather applet. The first field is the name that will be shown. If "
 "empty, it will be taken from the locations database. The second field is the METAR code for the "
-"default weather station. It must not be empty and must correspond to a <code> tag in the Locations."
-"xml file. The third field is a tuple of (latitude, longitude), to override the value taken from "
-"the database. This is only used for sunrise and moon phase calculations, not for weather forecast."
+"default weather station. It must not be empty and must correspond to a <code> tag in the "
+"Locations.xml file. The third field is a tuple of (latitude, longitude), to override the value "
+"taken from the database. This is only used for sunrise and moon phase calculations, not for "
+"weather forecast."
 msgstr ""
 "കാലാവസ്ഥയുടെ ലഘുപ്രയോഗത്തിലുപയോഗിയ്ക്കേണ്ട സഹജമായ സ്ഥാനം. ആദ്യത്തെ കളം കാണിയ്ക്കുന്ന പേരായിരിയ്ക്കു. ഒന്നും നല്‍"
 "കിയില്ലെങ്കില്‍ ഇതു് സ്ഥാനങ്ങളുടെ വിവരശേഖരത്തില്‍ നിന്നുമെടുക്കും. രണ്ടാമത്തെ കളം സഹജമായ കാലാവസ്ഥാ സ്റ്റേഷന്റെ മെറ്റാര്‍ "
-"കോഡാണു്. ഇതു് നല്‍കാതിരിയ്ക്കാനാവില്ലെന്നു് മാത്രമല്ല Locations.xml എന്ന ഫയലിലെ <code> ടാഗില്‍ പറഞ്ഞ വിലയേതെങ്കിലുമായി "
-"പൊരുത്തപ്പെടുന്നതുമായിരിയ്ക്കണം. മൂന്നാമത്തെ കളം വിവരശേഖരത്തില്‍ നിന്നെടുത്ത വിലകളേക്കാള്‍ മുന്‍ഗണനയുള്ള (അക്ഷാംശം, രേഖാംശം) "
-"എന്നീ ഇരട്ടവിലകളുടേതാണു്. ഇതു് സൂര്യോദയത്തിന്റേയും ചന്ദ്രന്റെ ഫേസുകള്‍ കണ്ടുപിടിയ്ക്കാനും മാത്രം ഉപയോഗിയ്ക്കുന്നതാണു്, കാലാവസ്ഥ "
-"പ്രവചനത്തിനുള്ളതല്ല."
+"കോഡാണു്. ഇതു് നല്‍കാതിരിയ്ക്കാനാവില്ലെന്നു് മാത്രമല്ല Locations.xml എന്ന ഫയലിലെ <code> ടാഗില്‍ പറഞ്ഞ "
+"വിലയേതെങ്കിലുമായി പൊരുത്തപ്പെടുന്നതുമായിരിയ്ക്കണം. മൂന്നാമത്തെ കളം വിവരശേഖരത്തില്‍ നിന്നെടുത്ത വിലകളേക്കാള്‍ മുന്‍ഗണനയുള്ള "
+"(അക്ഷാംശം, രേഖാംശം) എന്നീ ഇരട്ടവിലകളുടേതാണു്. ഇതു് സൂര്യോദയത്തിന്റേയും ചന്ദ്രന്റെ ഫേസുകള്‍ കണ്ടുപിടിയ്ക്കാനും മാത്രം "
+"ഉപയോഗിയ്ക്കുന്നതാണു്, കാലാവസ്ഥ പ്രവചനത്തിനുള്ളതല്ല."
 
 #, fuzzy
 #~| msgid "Weatherford"
