@@ -15,10 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-22 07:10+0000\n"
-"PO-Revision-Date: 2012-09-23 02:32+0900\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgweather/issues\n"
+"POT-Creation-Date: 2018-06-20 08:40+0000\n"
+"PO-Revision-Date: 2019-01-15 00:41+0900\n"
 "Last-Translator: Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -27,479 +26,920 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../libgweather/gweather-timezone.c:316
+#. Recurse, adding the ADM1 name to the country name
+#. Translators: this is the name of a location followed by a region, for example:
+#. * 'London, United Kingdom'
+#. * You shouldn't need to translate this string unless the language has a different comma.
+#.
+#. <location> with no parent <city>
+#. Translators: this is the name of a location followed by a region, for example:
+#. * 'London, United Kingdom'
+#. * You shouldn't need to translate this string unless the language has a different comma.
+#.
+#: libgweather/gweather-location-entry.c:536
+#: libgweather/gweather-location-entry.c:564
+#, c-format
+msgid "%s, %s"
+msgstr ""
+
+#: libgweather/gweather-location-entry.c:824
+msgid "Loading…"
+msgstr ""
+
+#: libgweather/gweather-timezone.c:343
 msgid "Greenwich Mean Time"
 msgstr "グリニッジ標準時"
 
-#: ../libgweather/timezone-menu.c:278
+#: libgweather/gweather-timezone-menu.c:274
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "不明"
 
-#: ../libgweather/weather.c:201
+#: libgweather/gweather-weather.c:119
+msgid "variable"
+msgstr "不定"
+
+#: libgweather/gweather-weather.c:120
+msgid "north"
+msgstr "北"
+
+#: libgweather/gweather-weather.c:120
+msgid "north — northeast"
+msgstr "北北東"
+
+#: libgweather/gweather-weather.c:120
+msgid "northeast"
+msgstr "北東"
+
+#: libgweather/gweather-weather.c:120
+msgid "east — northeast"
+msgstr "東北東"
+
+#: libgweather/gweather-weather.c:121
+msgid "east"
+msgstr "東"
+
+#: libgweather/gweather-weather.c:121
+msgid "east — southeast"
+msgstr "東南東"
+
+#: libgweather/gweather-weather.c:121
+msgid "southeast"
+msgstr "南東"
+
+#: libgweather/gweather-weather.c:121
+msgid "south — southeast"
+msgstr "南南東"
+
+#: libgweather/gweather-weather.c:122
+msgid "south"
+msgstr "南"
+
+#: libgweather/gweather-weather.c:122
+msgid "south — southwest"
+msgstr "南南西"
+
+#: libgweather/gweather-weather.c:122
+msgid "southwest"
+msgstr "南西"
+
+#: libgweather/gweather-weather.c:122
+msgid "west — southwest"
+msgstr "西南西"
+
+#: libgweather/gweather-weather.c:123
+msgid "west"
+msgstr "西"
+
+#: libgweather/gweather-weather.c:123
+msgid "west — northwest"
+msgstr "西北西"
+
+#: libgweather/gweather-weather.c:123
+msgid "northwest"
+msgstr "北西"
+
+#: libgweather/gweather-weather.c:123
+msgid "north — northwest"
+msgstr "北北西"
+
+#: libgweather/gweather-weather.c:127
 msgid "Variable"
 msgstr "不定"
 
-#: ../libgweather/weather.c:202
+#: libgweather/gweather-weather.c:128
 msgid "North"
 msgstr "北"
 
-#: ../libgweather/weather.c:202
-msgid "North - NorthEast"
+#: libgweather/gweather-weather.c:128
+msgid "North — Northeast"
 msgstr "北北東"
 
-#: ../libgweather/weather.c:202
+#: libgweather/gweather-weather.c:128
 msgid "Northeast"
 msgstr "北東"
 
-#: ../libgweather/weather.c:202
-msgid "East - NorthEast"
+#: libgweather/gweather-weather.c:128
+msgid "East — Northeast"
 msgstr "東北東"
 
-#: ../libgweather/weather.c:203
+#: libgweather/gweather-weather.c:129
 msgid "East"
 msgstr "東"
 
-#: ../libgweather/weather.c:203
-msgid "East - Southeast"
+#: libgweather/gweather-weather.c:129
+msgid "East — Southeast"
 msgstr "東南東"
 
-#: ../libgweather/weather.c:203
+#: libgweather/gweather-weather.c:129
 msgid "Southeast"
 msgstr "南東"
 
-#: ../libgweather/weather.c:203
-msgid "South - Southeast"
+#: libgweather/gweather-weather.c:129
+msgid "South — Southeast"
 msgstr "南南東"
 
-#: ../libgweather/weather.c:204
+#: libgweather/gweather-weather.c:130
 msgid "South"
 msgstr "南"
 
-#: ../libgweather/weather.c:204
-msgid "South - Southwest"
+#: libgweather/gweather-weather.c:130
+msgid "South — Southwest"
 msgstr "南南西"
 
-#: ../libgweather/weather.c:204
+#: libgweather/gweather-weather.c:130
 msgid "Southwest"
 msgstr "南西"
 
-#: ../libgweather/weather.c:204
-msgid "West - Southwest"
+#: libgweather/gweather-weather.c:130
+msgid "West — Southwest"
 msgstr "西南西"
 
-#: ../libgweather/weather.c:205
+#: libgweather/gweather-weather.c:131
 msgid "West"
 msgstr "西"
 
-#: ../libgweather/weather.c:205
-msgid "West - Northwest"
+#: libgweather/gweather-weather.c:131
+msgid "West — Northwest"
 msgstr "西北西"
 
-#: ../libgweather/weather.c:205
+#: libgweather/gweather-weather.c:131
 msgid "Northwest"
 msgstr "北西"
 
-#: ../libgweather/weather.c:205
-msgid "North - Northwest"
+#: libgweather/gweather-weather.c:131
+msgid "North — Northwest"
 msgstr "北北西"
 
-#: ../libgweather/weather.c:212 ../libgweather/weather.c:229
-#: ../libgweather/weather.c:301
+#: libgweather/gweather-weather.c:141
+msgctxt "wind direction"
 msgid "Invalid"
 msgstr "不正"
 
-#: ../libgweather/weather.c:218
-msgid "Clear Sky"
+#: libgweather/gweather-weather.c:142
+msgctxt "wind direction"
+msgid "invalid"
+msgstr "不正"
+
+#: libgweather/gweather-weather.c:155
+msgid "clear sky"
 msgstr "快晴"
 
-#: ../libgweather/weather.c:219
+#: libgweather/gweather-weather.c:156
+msgid "broken clouds"
+msgstr "断続的に曇り"
+
+#: libgweather/gweather-weather.c:157
+msgid "scattered clouds"
+msgstr "まばらに曇り"
+
+#: libgweather/gweather-weather.c:158
+msgid "few clouds"
+msgstr "わずかに曇り"
+
+#: libgweather/gweather-weather.c:159
+msgid "overcast"
+msgstr "曇り"
+
+#: libgweather/gweather-weather.c:163
+msgid "Clear sky"
+msgstr "快晴"
+
+#: libgweather/gweather-weather.c:164
 msgid "Broken clouds"
 msgstr "断続的に曇り"
 
-#: ../libgweather/weather.c:220
+#: libgweather/gweather-weather.c:165
 msgid "Scattered clouds"
 msgstr "まばらに曇り"
 
-#: ../libgweather/weather.c:221
+#: libgweather/gweather-weather.c:166
 msgid "Few clouds"
 msgstr "わずかに曇り"
 
-#: ../libgweather/weather.c:222
+#: libgweather/gweather-weather.c:167
 msgid "Overcast"
 msgstr "曇り"
+
+#: libgweather/gweather-weather.c:183 libgweather/gweather-weather.c:297
+msgctxt "sky conditions"
+msgid "Invalid"
+msgstr "不正"
+
+#: libgweather/gweather-weather.c:184 libgweather/gweather-weather.c:298
+msgctxt "sky conditions"
+msgid "invalid"
+msgstr "不正"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:261 ../libgweather/weather.c:263
+#: libgweather/gweather-weather.c:217 libgweather/gweather-weather.c:219
+msgid "thunderstorm"
+msgstr "雷雨"
+
+#. DRIZZLE
+#: libgweather/gweather-weather.c:218
+msgid "drizzle"
+msgstr "霧雨"
+
+#: libgweather/gweather-weather.c:218
+msgid "light drizzle"
+msgstr "軽い霧雨"
+
+#: libgweather/gweather-weather.c:218
+msgid "moderate drizzle"
+msgstr "穏やかな霧雨"
+
+#: libgweather/gweather-weather.c:218
+msgid "heavy drizzle"
+msgstr "激しい霧雨"
+
+#: libgweather/gweather-weather.c:218
+msgid "freezing drizzle"
+msgstr "凍った霧雨"
+
+#. RAIN
+#: libgweather/gweather-weather.c:219
+msgid "rain"
+msgstr "雨"
+
+#: libgweather/gweather-weather.c:219
+msgid "light rain"
+msgstr "軽い雨"
+
+#: libgweather/gweather-weather.c:219
+msgid "moderate rain"
+msgstr "穏やかな雨"
+
+#: libgweather/gweather-weather.c:219
+msgid "heavy rain"
+msgstr "激しい雨"
+
+#: libgweather/gweather-weather.c:219
+msgid "rain showers"
+msgstr "打ちつけるような雨"
+
+#: libgweather/gweather-weather.c:219
+msgid "freezing rain"
+msgstr "凍った雨"
+
+#. SNOW
+#: libgweather/gweather-weather.c:220
+msgid "snow"
+msgstr "雪"
+
+#: libgweather/gweather-weather.c:220
+msgid "light snow"
+msgstr "軽い雪"
+
+#: libgweather/gweather-weather.c:220
+msgid "moderate snow"
+msgstr "穏やかな雪"
+
+#: libgweather/gweather-weather.c:220
+msgid "heavy snow"
+msgstr "激しい雪"
+
+#: libgweather/gweather-weather.c:220
+msgid "snowstorm"
+msgstr "吹雪"
+
+#: libgweather/gweather-weather.c:220
+msgid "blowing snowfall"
+msgstr "降り積もる雪"
+
+#: libgweather/gweather-weather.c:220
+msgid "snow showers"
+msgstr "打ちつけるような雪"
+
+#: libgweather/gweather-weather.c:220
+msgid "drifting snow"
+msgstr "雪の吹きだまり"
+
+#. SNOW_GRAINS
+#: libgweather/gweather-weather.c:221
+msgid "snow grains"
+msgstr "雪の粒"
+
+#: libgweather/gweather-weather.c:221
+msgid "light snow grains"
+msgstr "軽い雪の粒"
+
+#: libgweather/gweather-weather.c:221
+msgid "moderate snow grains"
+msgstr "穏やかな雪の粒"
+
+#: libgweather/gweather-weather.c:221
+msgid "heavy snow grains"
+msgstr "激しい雪の粒"
+
+#. ICE_CRYSTALS
+#: libgweather/gweather-weather.c:222
+msgid "ice crystals"
+msgstr "氷晶"
+
+#. ICE_PELLETS
+#: libgweather/gweather-weather.c:223
+msgid "sleet"
+msgstr ""
+
+#: libgweather/gweather-weather.c:223
+msgid "little sleet"
+msgstr ""
+
+#: libgweather/gweather-weather.c:223
+msgid "moderate sleet"
+msgstr ""
+
+#: libgweather/gweather-weather.c:223
+msgid "heavy sleet"
+msgstr ""
+
+#: libgweather/gweather-weather.c:223
+msgid "sleet storm"
+msgstr ""
+
+#: libgweather/gweather-weather.c:223
+msgid "showers of sleet"
+msgstr ""
+
+#. HAIL
+#: libgweather/gweather-weather.c:224
+msgid "hail"
+msgstr "雹 (ひょう)"
+
+#: libgweather/gweather-weather.c:224
+msgid "hailstorm"
+msgstr "雹 (ひょう) を伴う嵐"
+
+#: libgweather/gweather-weather.c:224
+msgid "hail showers"
+msgstr "打ちつけるような雹 (ひょう)"
+
+#. SMALL_HAIL
+#: libgweather/gweather-weather.c:225
+msgid "small hail"
+msgstr "小さな雹 (ひょう)"
+
+#: libgweather/gweather-weather.c:225
+msgid "small hailstorm"
+msgstr "雹 (ひょう) を伴う小さな嵐"
+
+#: libgweather/gweather-weather.c:225
+msgid "showers of small hail"
+msgstr "打ちつけるような雹 (ひょう)"
+
+#. PRECIPITATION
+#: libgweather/gweather-weather.c:226
+msgid "unknown precipitation"
+msgstr "不明な降雨"
+
+#. MIST
+#: libgweather/gweather-weather.c:227
+msgid "mist"
+msgstr "靄 (もや)"
+
+#. FOG
+#: libgweather/gweather-weather.c:228
+msgid "fog"
+msgstr "霧"
+
+#: libgweather/gweather-weather.c:228
+msgid "fog in the vicinity"
+msgstr "近隣が霧"
+
+#: libgweather/gweather-weather.c:228
+msgid "shallow fog"
+msgstr "浅い霧"
+
+#: libgweather/gweather-weather.c:228
+msgid "patches of fog"
+msgstr "一部が霧"
+
+#: libgweather/gweather-weather.c:228
+msgid "partial fog"
+msgstr "部分的に霧"
+
+#: libgweather/gweather-weather.c:228
+msgid "freezing fog"
+msgstr "凍った霧"
+
+#. SMOKE
+#: libgweather/gweather-weather.c:229
+msgid "smoke"
+msgstr "煙"
+
+#. VOLCANIC_ASH
+#: libgweather/gweather-weather.c:230
+msgid "volcanic ash"
+msgstr "火山灰"
+
+#. SAND
+#: libgweather/gweather-weather.c:231
+msgid "sand"
+msgstr "砂"
+
+#: libgweather/gweather-weather.c:231
+msgid "blowing sand"
+msgstr "風砂"
+
+#: libgweather/gweather-weather.c:231
+msgid "drifting sand"
+msgstr "砂の吹きだまり"
+
+#. HAZE
+#: libgweather/gweather-weather.c:232
+msgid "haze"
+msgstr "煙霧"
+
+#. SPRAY
+#: libgweather/gweather-weather.c:233
+msgid "blowing sprays"
+msgstr "風のある噴霧"
+
+#. DUST
+#: libgweather/gweather-weather.c:234
+msgid "dust"
+msgstr "塵 (じん)"
+
+#: libgweather/gweather-weather.c:234
+msgid "blowing dust"
+msgstr "風のある塵 (じん)"
+
+#: libgweather/gweather-weather.c:234
+msgid "drifting dust"
+msgstr "塵 (じん) の吹きだまり"
+
+#. SQUALL
+#: libgweather/gweather-weather.c:235
+msgid "squall"
+msgstr "スコール"
+
+#. SANDSTORM
+#: libgweather/gweather-weather.c:236
+msgid "sandstorm"
+msgstr "砂嵐"
+
+#: libgweather/gweather-weather.c:236
+msgid "sandstorm in the vicinity"
+msgstr "近隣が砂嵐"
+
+#: libgweather/gweather-weather.c:236
+msgid "heavy sandstorm"
+msgstr "激しい砂嵐"
+
+#. DUSTSTORM
+#: libgweather/gweather-weather.c:237
+msgid "duststorm"
+msgstr "砂じん嵐"
+
+#: libgweather/gweather-weather.c:237
+msgid "duststorm in the vicinity"
+msgstr "近隣が砂じん嵐"
+
+#: libgweather/gweather-weather.c:237
+msgid "heavy duststorm"
+msgstr "激しい砂じん嵐"
+
+#. FUNNEL_CLOUD
+#: libgweather/gweather-weather.c:238
+msgid "funnel cloud"
+msgstr "ろうと雲"
+
+#. TORNADO
+#: libgweather/gweather-weather.c:239
+msgid "tornado"
+msgstr "竜巻"
+
+#. DUST_WHIRLS
+#: libgweather/gweather-weather.c:240
+msgid "dust whirls"
+msgstr "塵旋風 (じんせんぷう)"
+
+#: libgweather/gweather-weather.c:240
+msgid "dust whirls in the vicinity"
+msgstr "近隣が塵旋風 (じんせんぷう)"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
+#. NONE
+#: libgweather/gweather-weather.c:253 libgweather/gweather-weather.c:255
 msgid "Thunderstorm"
 msgstr "雷雨"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:262
+#: libgweather/gweather-weather.c:254
 msgid "Drizzle"
 msgstr "霧雨"
 
-#: ../libgweather/weather.c:262
+#: libgweather/gweather-weather.c:254
 msgid "Light drizzle"
 msgstr "軽い霧雨"
 
-#: ../libgweather/weather.c:262
+#: libgweather/gweather-weather.c:254
 msgid "Moderate drizzle"
 msgstr "穏やかな霧雨"
 
-#: ../libgweather/weather.c:262
+#: libgweather/gweather-weather.c:254
 msgid "Heavy drizzle"
 msgstr "激しい霧雨"
 
-#: ../libgweather/weather.c:262
+#: libgweather/gweather-weather.c:254
 msgid "Freezing drizzle"
 msgstr "凍った霧雨"
 
 #. RAIN
-#: ../libgweather/weather.c:263
+#: libgweather/gweather-weather.c:255
 msgid "Rain"
 msgstr "雨"
 
-#: ../libgweather/weather.c:263
+#: libgweather/gweather-weather.c:255
 msgid "Light rain"
 msgstr "軽い雨"
 
-#: ../libgweather/weather.c:263
+#: libgweather/gweather-weather.c:255
 msgid "Moderate rain"
 msgstr "穏やかな雨"
 
-#: ../libgweather/weather.c:263
+#: libgweather/gweather-weather.c:255
 msgid "Heavy rain"
 msgstr "激しい雨"
 
-#: ../libgweather/weather.c:263
+#: libgweather/gweather-weather.c:255
 msgid "Rain showers"
 msgstr "打ちつけるような雨"
 
-#: ../libgweather/weather.c:263
+#: libgweather/gweather-weather.c:255
 msgid "Freezing rain"
 msgstr "凍った雨"
 
 #. SNOW
-#: ../libgweather/weather.c:264
+#: libgweather/gweather-weather.c:256
 msgid "Snow"
 msgstr "雪"
 
-#: ../libgweather/weather.c:264
+#: libgweather/gweather-weather.c:256
 msgid "Light snow"
 msgstr "軽い雪"
 
-#: ../libgweather/weather.c:264
+#: libgweather/gweather-weather.c:256
 msgid "Moderate snow"
 msgstr "穏やかな雪"
 
-#: ../libgweather/weather.c:264
+#: libgweather/gweather-weather.c:256
 msgid "Heavy snow"
 msgstr "激しい雪"
 
-#: ../libgweather/weather.c:264
+#: libgweather/gweather-weather.c:256
 msgid "Snowstorm"
 msgstr "吹雪"
 
-#: ../libgweather/weather.c:264
+#: libgweather/gweather-weather.c:256
 msgid "Blowing snowfall"
 msgstr "降り積もる雪"
 
-#: ../libgweather/weather.c:264
+#: libgweather/gweather-weather.c:256
 msgid "Snow showers"
 msgstr "打ちつけるような雪"
 
-#: ../libgweather/weather.c:264
+#: libgweather/gweather-weather.c:256
 msgid "Drifting snow"
 msgstr "雪の吹きだまり"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:265
+#: libgweather/gweather-weather.c:257
 msgid "Snow grains"
 msgstr "雪の粒"
 
-#: ../libgweather/weather.c:265
+#: libgweather/gweather-weather.c:257
 msgid "Light snow grains"
 msgstr "軽い雪の粒"
 
-#: ../libgweather/weather.c:265
+#: libgweather/gweather-weather.c:257
 msgid "Moderate snow grains"
 msgstr "穏やかな雪の粒"
 
-#: ../libgweather/weather.c:265
+#: libgweather/gweather-weather.c:257
 msgid "Heavy snow grains"
 msgstr "激しい雪の粒"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:266
+#: libgweather/gweather-weather.c:258
 msgid "Ice crystals"
 msgstr "氷晶"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:267
-msgid "Ice pellets"
-msgstr "霰 (あられ)"
+#: libgweather/gweather-weather.c:259
+msgid "Sleet"
+msgstr ""
 
-#: ../libgweather/weather.c:267
-msgid "Few ice pellets"
-msgstr "少量の霰 (あられ)"
+#: libgweather/gweather-weather.c:259
+msgid "Little sleet"
+msgstr ""
 
-#: ../libgweather/weather.c:267
-msgid "Moderate ice pellets"
-msgstr "穏やかな霰 (あられ)"
+#: libgweather/gweather-weather.c:259
+msgid "Moderate sleet"
+msgstr ""
 
-#: ../libgweather/weather.c:267
-msgid "Heavy ice pellets"
-msgstr "激しい霰 (あられ)"
+#: libgweather/gweather-weather.c:259
+msgid "Heavy sleet"
+msgstr ""
 
-#: ../libgweather/weather.c:267
-msgid "Ice pellet storm"
-msgstr "霰 (あられ) 混じりの嵐"
+#: libgweather/gweather-weather.c:259
+msgid "Sleet storm"
+msgstr ""
 
-#: ../libgweather/weather.c:267
-msgid "Showers of ice pellets"
-msgstr "打ちつけるような霰 (あられ)"
+#: libgweather/gweather-weather.c:259
+msgid "Showers of sleet"
+msgstr ""
 
 #. HAIL
-#: ../libgweather/weather.c:268
+#: libgweather/gweather-weather.c:260
 msgid "Hail"
 msgstr "雹 (ひょう)"
 
-#: ../libgweather/weather.c:268
+#: libgweather/gweather-weather.c:260
 msgid "Hailstorm"
 msgstr "雹を伴う嵐"
 
-#: ../libgweather/weather.c:268
+#: libgweather/gweather-weather.c:260
 msgid "Hail showers"
 msgstr "打ちつけるような雹 (ひょう)"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:269
+#: libgweather/gweather-weather.c:261
 msgid "Small hail"
 msgstr "小さな雹 (ひょう)"
 
-#: ../libgweather/weather.c:269
+#: libgweather/gweather-weather.c:261
 msgid "Small hailstorm"
 msgstr "雹を伴う小さな嵐"
 
-#: ../libgweather/weather.c:269
+#: libgweather/gweather-weather.c:261
 msgid "Showers of small hail"
 msgstr "打ちつけるような雹 (ひょう)"
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:270
+#: libgweather/gweather-weather.c:262
 msgid "Unknown precipitation"
 msgstr "不明な降雨"
 
 #. MIST
-#: ../libgweather/weather.c:271
+#: libgweather/gweather-weather.c:263
 msgid "Mist"
 msgstr "靄 (もや)"
 
 #. FOG
-#: ../libgweather/weather.c:272
+#: libgweather/gweather-weather.c:264
 msgid "Fog"
 msgstr "霧"
 
-#: ../libgweather/weather.c:272
+#: libgweather/gweather-weather.c:264
 msgid "Fog in the vicinity"
 msgstr "近隣が霧"
 
-#: ../libgweather/weather.c:272
+#: libgweather/gweather-weather.c:264
 msgid "Shallow fog"
 msgstr "浅い霧"
 
-#: ../libgweather/weather.c:272
+#: libgweather/gweather-weather.c:264
 msgid "Patches of fog"
 msgstr "一部が霧"
 
-#: ../libgweather/weather.c:272
+#: libgweather/gweather-weather.c:264
 msgid "Partial fog"
 msgstr "部分的に霧"
 
-#: ../libgweather/weather.c:272
+#: libgweather/gweather-weather.c:264
 msgid "Freezing fog"
 msgstr "凍った霧"
 
 #. SMOKE
-#: ../libgweather/weather.c:273
+#: libgweather/gweather-weather.c:265
 msgid "Smoke"
 msgstr "煙"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:274
+#: libgweather/gweather-weather.c:266
 msgid "Volcanic ash"
 msgstr "火山灰"
 
 #. SAND
-#: ../libgweather/weather.c:275
+#: libgweather/gweather-weather.c:267
 msgid "Sand"
 msgstr "砂"
 
-#: ../libgweather/weather.c:275
+#: libgweather/gweather-weather.c:267
 msgid "Blowing sand"
 msgstr "風砂"
 
-#: ../libgweather/weather.c:275
+#: libgweather/gweather-weather.c:267
 msgid "Drifting sand"
 msgstr "砂の吹きだまり"
 
 #. HAZE
-#: ../libgweather/weather.c:276
+#: libgweather/gweather-weather.c:268
 msgid "Haze"
 msgstr "煙霧"
 
 #. SPRAY
-#: ../libgweather/weather.c:277
+#: libgweather/gweather-weather.c:269
 msgid "Blowing sprays"
 msgstr "風のある噴霧"
 
 #. DUST
-#: ../libgweather/weather.c:278
+#: libgweather/gweather-weather.c:270
 msgid "Dust"
 msgstr "塵 (じん)"
 
-#: ../libgweather/weather.c:278
+#: libgweather/gweather-weather.c:270
 msgid "Blowing dust"
 msgstr "風のある塵 (じん)"
 
-#: ../libgweather/weather.c:278
+#: libgweather/gweather-weather.c:270
 msgid "Drifting dust"
 msgstr "塵 (じん) の吹きだまり"
 
 #. SQUALL
-#: ../libgweather/weather.c:279
+#: libgweather/gweather-weather.c:271
 msgid "Squall"
 msgstr "スコール"
 
 #. SANDSTORM
-#: ../libgweather/weather.c:280
+#: libgweather/gweather-weather.c:272
 msgid "Sandstorm"
 msgstr "砂嵐"
 
-#: ../libgweather/weather.c:280
+#: libgweather/gweather-weather.c:272
 msgid "Sandstorm in the vicinity"
 msgstr "近隣が砂嵐"
 
-#: ../libgweather/weather.c:280
+#: libgweather/gweather-weather.c:272
 msgid "Heavy sandstorm"
 msgstr "激しい砂嵐"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:281
+#: libgweather/gweather-weather.c:273
 msgid "Duststorm"
 msgstr "砂じん嵐"
 
-#: ../libgweather/weather.c:281
+#: libgweather/gweather-weather.c:273
 msgid "Duststorm in the vicinity"
 msgstr "近隣が砂じん嵐"
 
-#: ../libgweather/weather.c:281
+#: libgweather/gweather-weather.c:273
 msgid "Heavy duststorm"
 msgstr "激しい砂じん嵐"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:282
+#: libgweather/gweather-weather.c:274
 msgid "Funnel cloud"
 msgstr "ろうと雲"
 
 #. TORNADO
-#: ../libgweather/weather.c:283
+#: libgweather/gweather-weather.c:275
 msgid "Tornado"
 msgstr "竜巻"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:284
+#: libgweather/gweather-weather.c:276
 msgid "Dust whirls"
 msgstr "塵旋風 (じんせんぷう)"
 
-#: ../libgweather/weather.c:284
+#: libgweather/gweather-weather.c:276
 msgid "Dust whirls in the vicinity"
 msgstr "近隣が塵旋風 (じんせんぷう)"
 
-#: ../libgweather/weather.c:614
-msgid "%a, %b %d / %H:%M"
-msgstr "%B%e日 (%a) / %k:%M"
+#: libgweather/gweather-weather.c:794
+msgid "%a, %b %d / %H∶%M"
+msgstr "%B%e日 (%a) / %k∶%M"
 
-#: ../libgweather/weather.c:620
+#: libgweather/gweather-weather.c:800
 msgid "Unknown observation time"
 msgstr "不明な観察時刻"
 
-#: ../libgweather/weather.c:632 ../libgweather/weather.c:681
-#: ../libgweather/weather.c:696 ../libgweather/weather.c:712
-#: ../libgweather/weather.c:728 ../libgweather/weather.c:744
-#: ../libgweather/weather.c:761 ../libgweather/weather.c:781
-#: ../libgweather/weather.c:811 ../libgweather/weather.c:829
-#: ../libgweather/weather.c:858 ../libgweather/weather.c:884
-#: ../libgweather/weather.c:901 ../libgweather/weather.c:918
+#: libgweather/gweather-weather.c:812
+msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "不明"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:652
-#, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+#. Translate to the default units to use for presenting
+#. * lengths to the user. Translate to default:inch if you
+#. * want inches, otherwise translate to default:mm.
+#. * Do *not* translate it to "predefinito:mm", if it
+#. * it isn't default:mm or default:inch it will not work
+#.
+#: libgweather/gweather-weather.c:834
+msgid "default:mm"
+msgstr ""
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:655
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:887
 #, c-format
-msgid "%d °F"
-msgstr "%d °F"
+msgid "%.1f ℉"
+msgstr ""
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:661
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)i
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:891
 #, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
+msgid "%d ℉"
+msgstr ""
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/weather.c:664
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:898
 #, c-format
-msgid "%d °C"
-msgstr "%d °C"
+msgid "%.1f ℃"
+msgstr ""
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:670
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:902
 #, c-format
-msgid "%.1f K"
-msgstr "%.1f K"
+msgid "%d ℃"
+msgstr ""
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:673
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:909
 #, c-format
-msgid "%d K"
-msgstr "%d K"
+msgid "%.1f K"
+msgstr ""
+
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:913
+#, c-format
+msgid "%d K"
+msgstr ""
+
+#: libgweather/gweather-weather.c:936 libgweather/gweather-weather.c:952
+#: libgweather/gweather-weather.c:968 libgweather/gweather-weather.c:1030
+msgctxt "temperature"
+msgid "Unknown"
+msgstr "不明"
+
+#: libgweather/gweather-weather.c:990
+msgctxt "dew"
+msgid "Unknown"
+msgstr "不明"
+
+#: libgweather/gweather-weather.c:1010
+msgctxt "humidity"
+msgid "Unknown"
+msgstr "不明"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:764
+#: libgweather/gweather-weather.c:1013
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:792
+#: libgweather/gweather-weather.c:1059
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f ノット"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:795
+#: libgweather/gweather-weather.c:1062
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f マイル/時"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:798
+#: libgweather/gweather-weather.c:1065
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f キロメートル/時"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:801
+#: libgweather/gweather-weather.c:1068
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f メートル/秒"
@@ -507,195 +947,237 @@ msgstr "%.1f メートル/秒"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:806
+#: libgweather/gweather-weather.c:1073
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "ビューフォート風力 %.1f"
 
-#: ../libgweather/weather.c:831
+#: libgweather/gweather-weather.c:1094
+msgctxt "wind speed"
+msgid "Unknown"
+msgstr "不明"
+
+#: libgweather/gweather-weather.c:1096
 msgid "Calm"
 msgstr "凪"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:839
+#: libgweather/gweather-weather.c:1104
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
+#: libgweather/gweather-weather.c:1140
+msgctxt "pressure"
+msgid "Unknown"
+msgstr "不明"
+
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:863
+#: libgweather/gweather-weather.c:1146
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:866
+#: libgweather/gweather-weather.c:1149
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:869
+#: libgweather/gweather-weather.c:1152
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f キロパスカル"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:872
+#: libgweather/gweather-weather.c:1155
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f ヘクトパスカル"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:875
+#: libgweather/gweather-weather.c:1158
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:878
+#: libgweather/gweather-weather.c:1161
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f アトム"
 
+#: libgweather/gweather-weather.c:1199
+msgctxt "visibility"
+msgid "Unknown"
+msgstr "不明"
+
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:906
+#: libgweather/gweather-weather.c:1205
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f マイル"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:909
+#: libgweather/gweather-weather.c:1208
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f キロメートル"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:912
+#: libgweather/gweather-weather.c:1211
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fメートル"
 
-#: ../libgweather/weather.c:945 ../libgweather/weather.c:973
-msgid "%H:%M"
-msgstr "%H:%M"
+#: libgweather/gweather-weather.c:1239 libgweather/gweather-weather.c:1264
+msgid "%H∶%M"
+msgstr ""
 
-#: ../libgweather/weather.c:1054
+#: libgweather/gweather-weather.c:1358
 msgid "Retrieval failed"
 msgstr "取得に失敗しました"
 
 #. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:523
+#: libgweather/weather-metar.c:581
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "METAR データの取得に失敗しました: (%d) %s\n"
 
-#: ../libgweather/weather-metar.c:571
-msgid "WeatherInfo missing location"
-msgstr "天気情報の場所が指定されていません"
+#: libgweather/weather-owm.c:383
+msgid ""
+"Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
+"project</a>"
+msgstr ""
 
-#: ../data/org.gnome.GWeather.gschema.xml.h:1
+#. The new (documented but not advertised) API is less strict in the
+#. format of the attribution, and just requires a generic CC-BY compatible
+#. attribution with a link to their service.
+#.
+#. That's very nice of them!
+#.
+#: libgweather/weather-yrno.c:506
+msgid ""
+"Weather data from the <a href=\"http://www.met.no/\">Norwegian "
+"Meteorological Institute</a>"
+msgstr ""
+
+#: schemas/org.gnome.GWeather.gschema.xml:5
 msgid "URL for the radar map"
 msgstr "レーダーマップの URL"
 
-#: ../data/org.gnome.GWeather.gschema.xml.h:2
+#: schemas/org.gnome.GWeather.gschema.xml:6
 msgid ""
 "The custom URL from where to retrieve a radar map, or empty for disabling "
 "radar maps."
 msgstr ""
 "レーダーマップを取得する URL です。空であればレーダーマップは無効になります。"
 
-#. TRANSLATORS: pick a temperature unit that should be used by default in your
-#. locale; values must be quoted
-#: ../data/org.gnome.GWeather.gschema.xml.h:5
-msgid "'fahrenheit'"
-msgstr "'centigrade'"
-
-#: ../data/org.gnome.GWeather.gschema.xml.h:6
+#: schemas/org.gnome.GWeather.gschema.xml:13
 msgid "Temperature unit"
 msgstr "温度の単位"
 
-#: ../data/org.gnome.GWeather.gschema.xml.h:7
+#: schemas/org.gnome.GWeather.gschema.xml:14
+#, fuzzy
+#| msgid ""
+#| "The unit of temperature used for showing weather. Valid values are "
+#| "'kelvin', 'centigrade' and 'fahrenheit'."
 msgid ""
-"The unit of temperature used for showing weather. Valid values are 'kelvin', "
-"'centigrade' and 'fahrenheit'."
+"The unit of temperature used for showing weather. Valid values are “kelvin”, "
+"“centigrade” and “fahrenheit”."
 msgstr ""
 "気象関連で使用される温度の単位。設定可能な値は 'kelvin' (ケルビ"
 "ン)、'centigrade' (摂氏)、'fahrenheit' (華氏) です。"
 
-#. TRANSLATORS: pick a default distance unit for your locale, see key description
-#. for valid values
-#: ../data/org.gnome.GWeather.gschema.xml.h:10
-msgid "'miles'"
-msgstr "'meters'"
-
-#: ../data/org.gnome.GWeather.gschema.xml.h:11
+#: schemas/org.gnome.GWeather.gschema.xml:21
 msgid "Distance unit"
 msgstr "距離の単位"
 
-#: ../data/org.gnome.GWeather.gschema.xml.h:12
+#: schemas/org.gnome.GWeather.gschema.xml:22
+#, fuzzy
+#| msgid ""
+#| "The unit of distance used for showing weather (for example for visibility "
+#| "or for distance of important events). Valid values are 'meters', 'km' and "
+#| "'miles'."
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or "
-"for distance of important events). Valid values are 'meters', 'km' and "
-"'miles'."
+"for distance of important events). Valid values are “meters”, “km” and "
+"“miles”."
 msgstr ""
 "気象関連で使用される距離 (例: 視界、重要な事象の距離) の単位。設定可能な値は "
 "'meters' (メートル)、'km' (キロメートル)、'miles' (マイル) です。"
 
-#. TRANSLATORS: pick a default speed unit for your locale, see key description
-#. for valid values
-#: ../data/org.gnome.GWeather.gschema.xml.h:15
-msgid "'knots'"
-msgstr "'ms'"
-
-#: ../data/org.gnome.GWeather.gschema.xml.h:16
+#: schemas/org.gnome.GWeather.gschema.xml:29
 msgid "Speed unit"
 msgstr "風速の単位"
 
-#: ../data/org.gnome.GWeather.gschema.xml.h:17
+#: schemas/org.gnome.GWeather.gschema.xml:30
+#, fuzzy
+#| msgid ""
+#| "The unit of speed used for showing weather (for example for wind speed). "
+#| "Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
+#| "'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
 msgid ""
 "The unit of speed used for showing weather (for example for wind speed). "
-"Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
-"'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+"Valid values are “ms” (meters per second), “kph” (kilometers per hour), "
+"“mph” (miles per hour), “knots” and “bft” (Beaufort scale)."
 msgstr ""
 "気象関連で使用される速度 (たとえば風速) の単位。設定可能な値は 'ms' (メートル"
 "毎秒)、'kph' (キロメートル毎時)、'mph' (マイル毎時)、'knots' (ノット) および "
 "'bft' (ビューフォート風力階級) です。"
 
-#. TRANSLATORS: pick a default pressure unit for your locale, see key description
-#. for valid values
-#: ../data/org.gnome.GWeather.gschema.xml.h:20
-msgid "'inch-hg'"
-msgstr "'hpa'"
-
-#: ../data/org.gnome.GWeather.gschema.xml.h:21
+#: schemas/org.gnome.GWeather.gschema.xml:38
 msgid "Pressure unit"
 msgstr "気圧の単位"
 
-#: ../data/org.gnome.GWeather.gschema.xml.h:22
+#: schemas/org.gnome.GWeather.gschema.xml:39
+#, fuzzy
+#| msgid ""
+#| "The unit of pressure used for showing weather. Valid values are "
+#| "'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
+#| "equivalent to 1 hPa but shown differently), 'mm-hg' (millimeters of "
+#| "mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
 msgid ""
 "The unit of pressure used for showing weather. Valid values are "
-"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
-"equivalent to 1 hPa but shown differently), 'mm-hg' (millimeters of "
-"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+"“kpa” (kilopascal), “hpa” (hectopascal), “mb” (millibar, mathematically "
+"equivalent to 1 hPa but shown differently), “mm-hg” (millimeters of "
+"mercury), “inch-hg” (inches of mercury), “atm” (atmospheres)."
 msgstr ""
 "気象関連で使用される圧力の単位。設定可能な値は 'kpa' (キロパスカ"
 "ル)、'hpa' (ヘクトパスカル)、'mb' (ミリバール。ヘクトパスカルと等価だが違う表"
 "記)、'mm-hg' (水銀柱ミリメートル)、'inch-hg' (水銀柱インチ)、'atm' (気圧) で"
 "す。"
 
-#: ../data/org.gnome.GWeather.gschema.xml.h:23
+#. TRANSLATORS: pick a default location to use in the weather applet. This should
+#. usually be the largest city or the capital of your country. If you're not picking
+#. a <location> in the database, don't forget to set name and coordinates.
+#. Do NOT change or localize the quotation marks!
+#: schemas/org.gnome.GWeather.gschema.xml:51
+msgid "('', 'KNYC', nothing)"
+msgstr ""
+
+#: schemas/org.gnome.GWeather.gschema.xml:52
 msgid "Default location"
 msgstr "デフォルトの場所"
 
-#: ../data/org.gnome.GWeather.gschema.xml.h:24
+#: schemas/org.gnome.GWeather.gschema.xml:53
+#, fuzzy
+#| msgid ""
+#| "The default location for the weather applet. The first field is the name "
+#| "that will be shown. If empty, it will be taken from the locations "
+#| "database. The second field is the METAR code for the default weather "
+#| "station. It must not be empty and must correspond to a &lt;code&gt; tag "
+#| "in the Locations.xml file. The third field is a tuple of (latitude, "
+#| "longitude), to override the value taken from the database. This is only "
+#| "used for sunrise and moon phase calculations, not for weather forecast."
 msgid ""
 "The default location for the weather applet. The first field is the name "
 "that will be shown. If empty, it will be taken from the locations database. "
 "The second field is the METAR code for the default weather station. It must "
-"not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml "
-"file. The third field is a tuple of (latitude, longitude), to override the "
-"value taken from the database. This is only used for sunrise and moon phase "
+"not be empty and must correspond to a <code> tag in the Locations.xml file. "
+"The third field is a tuple of (latitude, longitude), to override the value "
+"taken from the database. This is only used for sunrise and moon phase "
 "calculations, not for weather forecast."
 msgstr ""
 "天気アプレットのデフォルトの場所。最初のフィールドは表示される名称です。空で"
@@ -704,6 +1186,54 @@ msgstr ""
 "グに結びついていなければなりません。3つ目のフィールドは (緯度, 経度) のタプル"
 "で、データベースからの値を上書きします。これは日の出や月相の計算にのみ使用さ"
 "れ、天気予報には使われません。"
+
+#~ msgid "Ice pellets"
+#~ msgstr "霰 (あられ)"
+
+#~ msgid "Few ice pellets"
+#~ msgstr "少量の霰 (あられ)"
+
+#~ msgid "Moderate ice pellets"
+#~ msgstr "穏やかな霰 (あられ)"
+
+#~ msgid "Heavy ice pellets"
+#~ msgstr "激しい霰 (あられ)"
+
+#~ msgid "%.1f °F"
+#~ msgstr "%.1f °F"
+
+#~ msgid "%d °F"
+#~ msgstr "%d °F"
+
+#~ msgid "%.1f °C"
+#~ msgstr "%.1f °C"
+
+#~ msgid "%d °C"
+#~ msgstr "%d °C"
+
+#~ msgid "%.1f K"
+#~ msgstr "%.1f K"
+
+#~ msgid "%d K"
+#~ msgstr "%d K"
+
+#~ msgid "%H:%M"
+#~ msgstr "%H:%M"
+
+#~ msgid "WeatherInfo missing location"
+#~ msgstr "天気情報の場所が指定されていません"
+
+#~ msgid "'fahrenheit'"
+#~ msgstr "'centigrade'"
+
+#~ msgid "'miles'"
+#~ msgstr "'meters'"
+
+#~ msgid "'knots'"
+#~ msgstr "'ms'"
+
+#~ msgid "'inch-hg'"
+#~ msgstr "'hpa'"
 
 #~ msgid "DEFAULT_LOCATION"
 #~ msgstr "新東京国際空港 (成田)"
@@ -719,9 +1249,6 @@ msgstr ""
 
 #~ msgid "DEFAULT_COORDINATES"
 #~ msgstr "DEFAULT_COORDINATES"
-
-#~ msgid "Default"
-#~ msgstr "デフォルト"
 
 #~ msgid "K"
 #~ msgstr "ケルビン"
@@ -817,8 +1344,8 @@ msgstr ""
 #~ "す。"
 
 #~ msgid ""
-#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-SS"
-#~ "[EW]."
+#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-"
+#~ "SS[EW]."
 #~ msgstr "場所の緯度と経度を DD-MM-SS[NS] DD-MM-SS [EW] で表したものです。"
 
 #~ msgid "Location coordinates"
