@@ -11,14 +11,15 @@
 # KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003.
 # Takeshi AIHANA <takeshi.aihana@gmail.com>, 2003-2009.
 # Satoru SATOH <ss@gnome.gr.jp>, 2006.
+# sicklylife <translation@sicklylife.jp>, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgweather/issues\n"
-"POT-Creation-Date: 2018-06-20 08:40+0000\n"
-"PO-Revision-Date: 2019-01-15 00:41+0900\n"
-"Last-Translator: Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>\n"
+"POT-Creation-Date: 2019-01-14 15:54+0000\n"
+"PO-Revision-Date: 2019-01-19 06:09+0900\n"
+"Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +45,7 @@ msgstr ""
 
 #: libgweather/gweather-location-entry.c:824
 msgid "Loading…"
-msgstr ""
+msgstr "読み込み中…"
 
 #: libgweather/gweather-timezone.c:343
 msgid "Greenwich Mean Time"
@@ -363,27 +364,27 @@ msgstr "氷晶"
 #. ICE_PELLETS
 #: libgweather/gweather-weather.c:223
 msgid "sleet"
-msgstr ""
+msgstr "霙 (みぞれ)"
 
 #: libgweather/gweather-weather.c:223
 msgid "little sleet"
-msgstr ""
+msgstr "軽い霙 (みぞれ)"
 
 #: libgweather/gweather-weather.c:223
 msgid "moderate sleet"
-msgstr ""
+msgstr "穏やかな霙 (みぞれ)"
 
 #: libgweather/gweather-weather.c:223
 msgid "heavy sleet"
-msgstr ""
+msgstr "激しい霙 (みぞれ)"
 
 #: libgweather/gweather-weather.c:223
 msgid "sleet storm"
-msgstr ""
+msgstr "霙 (みぞれ) の嵐"
 
 #: libgweather/gweather-weather.c:223
 msgid "showers of sleet"
-msgstr ""
+msgstr "打ちつけるような霙 (みぞれ)"
 
 #. HAIL
 #: libgweather/gweather-weather.c:224
@@ -654,27 +655,27 @@ msgstr "氷晶"
 #. ICE_PELLETS
 #: libgweather/gweather-weather.c:259
 msgid "Sleet"
-msgstr ""
+msgstr "霙 (みぞれ)"
 
 #: libgweather/gweather-weather.c:259
 msgid "Little sleet"
-msgstr ""
+msgstr "軽い霙 (みぞれ)"
 
 #: libgweather/gweather-weather.c:259
 msgid "Moderate sleet"
-msgstr ""
+msgstr "穏やかな霙 (みぞれ)"
 
 #: libgweather/gweather-weather.c:259
 msgid "Heavy sleet"
-msgstr ""
+msgstr "激しい霙 (みぞれ)"
 
 #: libgweather/gweather-weather.c:259
 msgid "Sleet storm"
-msgstr ""
+msgstr "霙 (みぞれ) の嵐"
 
 #: libgweather/gweather-weather.c:259
 msgid "Showers of sleet"
-msgstr ""
+msgstr "打ちつけるような霙 (みぞれ)"
 
 #. HAIL
 #: libgweather/gweather-weather.c:260
@@ -1050,6 +1051,7 @@ msgid ""
 "Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
 "project</a>"
 msgstr ""
+"<a href=\"http://openweathermap.org\">Open Weather Map project</a> による気象データ"
 
 #. The new (documented but not advertised) API is less strict in the
 #. format of the attribution, and just requires a generic CC-BY compatible
@@ -1062,6 +1064,7 @@ msgid ""
 "Weather data from the <a href=\"http://www.met.no/\">Norwegian "
 "Meteorological Institute</a>"
 msgstr ""
+"<a href=\"http://www.met.no/\">ノルウェー気象研究所</a>による気象データ"
 
 #: schemas/org.gnome.GWeather.gschema.xml:5
 msgid "URL for the radar map"
@@ -1079,74 +1082,54 @@ msgid "Temperature unit"
 msgstr "温度の単位"
 
 #: schemas/org.gnome.GWeather.gschema.xml:14
-#, fuzzy
-#| msgid ""
-#| "The unit of temperature used for showing weather. Valid values are "
-#| "'kelvin', 'centigrade' and 'fahrenheit'."
 msgid ""
 "The unit of temperature used for showing weather. Valid values are “kelvin”, "
 "“centigrade” and “fahrenheit”."
 msgstr ""
-"気象関連で使用される温度の単位。設定可能な値は 'kelvin' (ケルビ"
-"ン)、'centigrade' (摂氏)、'fahrenheit' (華氏) です。"
+"気象関連で使用される温度の単位。設定可能な値は“kelvin” (ケルビ"
+"ン)、“centigrade” (摂氏)、“fahrenheit” (華氏) です。"
 
 #: schemas/org.gnome.GWeather.gschema.xml:21
 msgid "Distance unit"
 msgstr "距離の単位"
 
 #: schemas/org.gnome.GWeather.gschema.xml:22
-#, fuzzy
-#| msgid ""
-#| "The unit of distance used for showing weather (for example for visibility "
-#| "or for distance of important events). Valid values are 'meters', 'km' and "
-#| "'miles'."
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or "
 "for distance of important events). Valid values are “meters”, “km” and "
 "“miles”."
 msgstr ""
-"気象関連で使用される距離 (例: 視界、重要な事象の距離) の単位。設定可能な値は "
-"'meters' (メートル)、'km' (キロメートル)、'miles' (マイル) です。"
+"気象関連で使用される距離 (例: 視界、重要な事象の距離) の単位。設定可能な値は"
+"“meters” (メートル)、“km” (キロメートル)、“miles” (マイル) です。"
 
 #: schemas/org.gnome.GWeather.gschema.xml:29
 msgid "Speed unit"
 msgstr "風速の単位"
 
 #: schemas/org.gnome.GWeather.gschema.xml:30
-#, fuzzy
-#| msgid ""
-#| "The unit of speed used for showing weather (for example for wind speed). "
-#| "Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
-#| "'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
 msgid ""
 "The unit of speed used for showing weather (for example for wind speed). "
 "Valid values are “ms” (meters per second), “kph” (kilometers per hour), "
 "“mph” (miles per hour), “knots” and “bft” (Beaufort scale)."
 msgstr ""
-"気象関連で使用される速度 (たとえば風速) の単位。設定可能な値は 'ms' (メートル"
-"毎秒)、'kph' (キロメートル毎時)、'mph' (マイル毎時)、'knots' (ノット) および "
-"'bft' (ビューフォート風力階級) です。"
+"気象関連で使用される速度 (たとえば風速) の単位。設定可能な値は“ms” (メートル"
+"毎秒)、“kph” (キロメートル毎時)、“mph” (マイル毎時)、“knots” (ノット) および"
+"“bft” (ビューフォート風力階級) です。"
 
 #: schemas/org.gnome.GWeather.gschema.xml:38
 msgid "Pressure unit"
 msgstr "気圧の単位"
 
 #: schemas/org.gnome.GWeather.gschema.xml:39
-#, fuzzy
-#| msgid ""
-#| "The unit of pressure used for showing weather. Valid values are "
-#| "'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
-#| "equivalent to 1 hPa but shown differently), 'mm-hg' (millimeters of "
-#| "mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
 msgid ""
 "The unit of pressure used for showing weather. Valid values are "
 "“kpa” (kilopascal), “hpa” (hectopascal), “mb” (millibar, mathematically "
 "equivalent to 1 hPa but shown differently), “mm-hg” (millimeters of "
 "mercury), “inch-hg” (inches of mercury), “atm” (atmospheres)."
 msgstr ""
-"気象関連で使用される圧力の単位。設定可能な値は 'kpa' (キロパスカ"
-"ル)、'hpa' (ヘクトパスカル)、'mb' (ミリバール。ヘクトパスカルと等価だが違う表"
-"記)、'mm-hg' (水銀柱ミリメートル)、'inch-hg' (水銀柱インチ)、'atm' (気圧) で"
+"気象関連で使用される圧力の単位。設定可能な値は“kpa” (キロパスカ"
+"ル)、“hpa” (ヘクトパスカル)、“mb” (ミリバール。ヘクトパスカルと等価だが違う表"
+"記)、“mm-hg” (水銀柱ミリメートル)、“inch-hg” (水銀柱インチ)、“atm” (気圧) で"
 "す。"
 
 #. TRANSLATORS: pick a default location to use in the weather applet. This should
@@ -1162,15 +1145,6 @@ msgid "Default location"
 msgstr "デフォルトの場所"
 
 #: schemas/org.gnome.GWeather.gschema.xml:53
-#, fuzzy
-#| msgid ""
-#| "The default location for the weather applet. The first field is the name "
-#| "that will be shown. If empty, it will be taken from the locations "
-#| "database. The second field is the METAR code for the default weather "
-#| "station. It must not be empty and must correspond to a &lt;code&gt; tag "
-#| "in the Locations.xml file. The third field is a tuple of (latitude, "
-#| "longitude), to override the value taken from the database. This is only "
-#| "used for sunrise and moon phase calculations, not for weather forecast."
 msgid ""
 "The default location for the weather applet. The first field is the name "
 "that will be shown. If empty, it will be taken from the locations database. "
@@ -1182,7 +1156,7 @@ msgid ""
 msgstr ""
 "天気アプレットのデフォルトの場所。最初のフィールドは表示される名称です。空で"
 "あれば場所データベースから取得されます。2つ目のフィールドはデフォルトの気象観"
-"測地点の METAR コードです。このフィールドは Locations.xml の &lt;code&gt; タ"
+"測地点の METAR コードです。このフィールドは Locations.xml の <code> タ"
 "グに結びついていなければなりません。3つ目のフィールドは (緯度, 経度) のタプル"
 "で、データベースからの値を上書きします。これは日の出や月相の計算にのみ使用さ"
 "れ、天気予報には使われません。"
