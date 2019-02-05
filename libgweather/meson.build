@@ -75,7 +75,10 @@ gweather_gir = gnome.generate_gir(lib_libgweather,
   identifier_prefix: 'GWeather',
   export_packages: 'gweather-3.0',
   header: 'libgweather/gweather.h',
-  extra_args: ['--warn-all'],
+  extra_args: [
+    '--warn-all',
+    '-DGWEATHER_COMPILATION',
+  ],
   install: true,
 )
 
