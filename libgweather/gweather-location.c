@@ -139,12 +139,15 @@ location_new (GWeatherLocationLevel level)
     return loc;
 }
 
+static void add_timezones (GWeatherLocation *loc, GPtrArray *zones);
+
 static void
 add_nearest_weather_station (GWeatherLocation *location)
 {
-    GWeatherLocation **siblings;
+    GWeatherLocation **siblings, *station;
     GWeatherLocation *closest = NULL;
     double min_distance = G_MAXDOUBLE;
+    GPtrArray *zones;
     guint i;
 
     g_assert (location->parent);
@@ -161,8 +164,10 @@ add_nearest_weather_station (GWeatherLocation *location)
             continue;
 
         distance = gweather_location_get_distance (location, siblings[i]);
-        if (distance < min_distance)
+        if (distance < min_distance) {
             closest = siblings[i];
+            min_distance = distance;
+        }
     }
 
     if (!closest) {
@@ -171,7 +176,30 @@ add_nearest_weather_station (GWeatherLocation *location)
     }
 
     location->children = g_new0 (GWeatherLocation *, 2);
-    location->children[0] = g_memdup (closest, sizeof(GWeatherLocation));
+    location->children[0] = g_slice_new0 (GWeatherLocation);
+    station = location->children[0];
+    station->english_name = g_strdup (closest->english_name);
+    station->local_name = g_strdup (closest->local_name);
+    station->msgctxt = g_strdup (closest->msgctxt);
+    station->local_sort_name = g_strdup (closest->local_sort_name);
+    station->english_sort_name = g_strdup (closest->english_sort_name);
+    station->parent = location;
+    station->level = closest->level;
+    station->country_code = g_strdup (closest->country_code);
+    station->tz_hint = g_strdup (closest->tz_hint);
+    station->station_code = g_strdup (closest->station_code);
+    station->forecast_zone = g_strdup (closest->forecast_zone);
+    station->radar = g_strdup (closest->radar);
+    station->latitude = closest->latitude;
+    station->longitude = closest->longitude;
+    station->latlon_valid = closest->latlon_valid;
+
+    zones = g_ptr_array_new ();
+    add_timezones (station, zones);
+    g_ptr_array_add (zones, NULL);
+    station->zones = (GWeatherTimezone **)g_ptr_array_free (zones, FALSE);
+
+    station->ref_count = 1;
 }
 
 static void
@@ -618,7 +646,7 @@ foreach_city (GWeatherLocation  *loc,
             return;
     }
 
-    if (loc->level == GWEATHER_LOCATION_WEATHER_STATION) {
+    if (loc->level == GWEATHER_LOCATION_CITY) {
         callback (loc, user_data);
     } else if (loc->children) {
         int i;
@@ -649,6 +677,9 @@ location_distance (double lat1, double long1,
 {
     /* average radius of the earth in km */
     static const double radius = 6372.795;
+
+    if (lat1 == lat2 && long1 == long2)
+        return 0.0;
 
     return acos (cos (lat1) * cos (lat2) * cos (long1 - long2) +
 		 sin (lat1) * sin (lat2)) * radius;

@@ -588,12 +588,12 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
     loc = &priv->location;
 
-    searchkey = g_strdup_printf ("<raw_text>%s", loc->code);
+    searchkey = g_strdup_printf ("<raw_text>%s ", loc->code);
     p = strstr (msg->response_body->data, searchkey);
-    g_free (searchkey);
+
     if (p) {
-	p += WEATHER_LOCATION_CODE_LEN + 2;
-	eoln = strchr(p, '\n');
+	p += strlen (searchkey);
+	eoln = strstr (p, "</raw_text>");
 	if (eoln)
 	    metar = g_strndup (p, eoln - p);
 	else
@@ -607,6 +607,8 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 	 */
 	priv->network_error = TRUE;
     }
+
+    g_free (searchkey);
 
     priv->valid = success;
     _gweather_info_request_done (info, msg);
@@ -626,6 +628,9 @@ metar_start_open (GWeatherInfo *info)
 
     priv->valid = priv->network_error = FALSE;
     loc = &priv->location;
+
+    if (!loc->latlon_valid)
+        return;
 
     msg = soup_form_request_new (
 	"GET", "https://www.aviationweather.gov/adds/dataserver_current/httpparam",
