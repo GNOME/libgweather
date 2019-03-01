@@ -545,7 +545,7 @@ void
 gweather_location_unref (GWeatherLocation *loc)
 {
     g_return_if_fail (loc != NULL);
-    g_return_if_fail (loc->level != GWEATHER_LOCATION_WORLD);
+    g_return_if_fail (loc->level != GWEATHER_LOCATION_WORLD || loc->ref_count > 1);
 
     _gweather_location_unref_no_check (loc);
 }
