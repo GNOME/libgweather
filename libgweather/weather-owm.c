@@ -395,6 +395,8 @@ owm_finish (SoupSession *session,
             gpointer     user_data)
 {
     GWeatherInfo *info = GWEATHER_INFO (user_data);
+    GWeatherInfoPrivate *priv;
+    WeatherLocation *loc;
 
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
 	/* forecast data is not really interesting anyway ;) */
@@ -404,6 +406,11 @@ owm_finish (SoupSession *session,
 	_gweather_info_request_done (info, msg);
 	return;
     }
+
+    priv = info->priv;
+    loc = &priv->location;
+    g_debug ("owm data for %lf, %lf", loc->latitude, loc->longitude);
+    g_debug ("%s", msg->response_body->data);
 
     parse_forecast_xml (info, msg->response_body);
     _gweather_info_request_done (info, msg);
@@ -437,6 +444,7 @@ owm_start_open (GWeatherInfo *info)
 #endif
 
     url = g_strdup_printf (TEMPLATE, latstr, lonstr);
+    g_debug ("owm_start_open, requesting: %s", url);
 
 #undef TEMPLATE
 
