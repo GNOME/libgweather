@@ -296,133 +296,6 @@ fill_info_from_node (GWeatherInfo *info,
     }
 }
 
-static GWeatherInfo *
-make_info_from_node_old (GWeatherInfo *master_info,
-			 xmlNodePtr    node)
-{
-    GWeatherInfo *info;
-    GWeatherInfoPrivate *priv;
-    xmlChar *val;
-
-    g_return_val_if_fail (node->type == XML_ELEMENT_NODE, NULL);
-
-    info = _gweather_info_new_clone (master_info);
-    priv = info->priv;
-
-    val = xmlGetProp (node, XC("from"));
-    priv->current_time = priv->update = date_to_time_t (val, info->priv->location.tz_hint);
-    xmlFree (val);
-
-    fill_info_from_node (info, node);
-
-    return info;
-}
-
-static char *
-make_attribution_from_node (xmlNodePtr node)
-{
-    xmlChar *url;
-    xmlChar *text;
-    char *res;
-
-    url = xmlGetProp (node, XC("url"));
-    text = xmlGetProp (node, XC("text"));
-
-    /* Small hack to avoid linking the entire label, and to have
-       This is still compliant with the guidelines, as far as I
-       understand it.
-       The label is a legal attribution and cannot be translated.
-    */
-    if (strcmp ((char*) text,
-		"Weather forecast from yr.no, delivered by the"
-		" Norwegian Meteorological Institute and the NRK") == 0)
-	res = g_strdup_printf ("Weather forecast from yr.no, delivered by"
-			       " the <a href=\"%s\">Norwegian Meteorological"
-			       " Institude and the NRK</a>", url);
-    else
-	res = g_strdup_printf ("<a href=\"%s\">%s</a>", url, text);
-
-    xmlFree (url);
-    xmlFree (text);
-
-    return res;
-}
-
-static void
-parse_forecast_xml_old (GWeatherInfo    *master_info,
-			SoupMessageBody *body)
-{
-    GWeatherInfoPrivate *priv;
-    xmlDocPtr doc;
-    xmlXPathContextPtr xpath_ctx;
-    xmlXPathObjectPtr xpath_result;
-    int i;
-
-    priv = master_info->priv;
-
-    doc = xmlParseMemory (body->data, body->length);
-    if (!doc)
-	return;
-
-    xpath_ctx = xmlXPathNewContext (doc);
-    xpath_result = xmlXPathEval (XC("/weatherdata/forecast/tabular/time"), xpath_ctx);
-
-    if (!xpath_result || xpath_result->type != XPATH_NODESET)
-	goto out;
-
-    for (i = 0; i < xpath_result->nodesetval->nodeNr; i++) {
-	xmlNodePtr node;
-	GWeatherInfo *info;
-
-	node = xpath_result->nodesetval->nodeTab[i];
-	info = make_info_from_node_old (master_info, node);
-
-	priv->forecast_list = g_slist_append (priv->forecast_list, info);
-    }
-
-    xmlXPathFreeObject (xpath_result);
-
-    xpath_result = xmlXPathEval (XC("/weatherdata/credit/link"), xpath_ctx);
-    if (!xpath_result || xpath_result->type != XPATH_NODESET)
-	goto out;
-
-    priv->forecast_attribution = make_attribution_from_node (xpath_result->nodesetval->nodeTab[0]);
-
- out:
-    if (xpath_result)
-	xmlXPathFreeObject (xpath_result);
-    xmlXPathFreeContext (xpath_ctx);
-    xmlFreeDoc (doc);
-}
-
-static char *
-build_yrno_url_geonames (GWeatherLocation *glocation,
-			 const char       *append)
-{
-    const char *country = NULL;
-    const char *adm_division = NULL;
-    const char *city_name = NULL;
-
-    while (glocation) {
-	if (glocation->level == GWEATHER_LOCATION_CITY)
-	    city_name = glocation->english_name;
-	if (glocation->level == GWEATHER_LOCATION_ADM1)
-	    adm_division = glocation->english_name;
-	if (glocation->level == GWEATHER_LOCATION_COUNTRY)
-	    country = glocation->english_name;
-	glocation = glocation->parent;
-    }
-
-    if (city_name == NULL || country == NULL)
-	return NULL;
-
-    if (adm_division != NULL)
-	return g_strdup_printf("http://www.yr.no/place/%s/%s/%s/%s", country, adm_division, city_name, append);
-    else
-	return g_strdup_printf("http://www.yr.no/place/%s/%s/%s", country, city_name, append);
-}
-
-
 static void
 parse_forecast_xml_new (GWeatherInfo    *master_info,
 			SoupMessageBody *body)
@@ -511,48 +384,6 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 }
 
 static void
-yrno_finish_old (SoupSession *session,
-		 SoupMessage *msg,
-		 gpointer     user_data)
-{
-    GWeatherInfo *info = GWEATHER_INFO (user_data);
-
-    if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
-	/* forecast data is not really interesting anyway ;) */
-	if (msg->status_code != SOUP_STATUS_CANCELLED)
-	    g_message ("Failed to get Yr.no forecast data: %d %s\n",
-		       msg->status_code, msg->reason_phrase);
-	_gweather_info_request_done (info, msg);
-	return;
-    }
-
-    parse_forecast_xml_old (info, msg->response_body);
-    _gweather_info_request_done (info, msg);
-}
-
-static gboolean
-yrno_start_open_old (GWeatherInfo *info)
-{
-    GWeatherInfoPrivate *priv;
-    gchar *url;
-    SoupMessage *message;
-
-    priv = info->priv;
-
-    url = build_yrno_url_geonames (priv->glocation, "forecast.xml");
-    if (url == NULL)
-	return FALSE;
-
-    message = soup_message_new ("GET", url);
-    _gweather_info_begin_request (info, message);
-    soup_session_queue_message (priv->session, message, yrno_finish_old, info);
-
-    g_free (url);
-
-    return TRUE;
-}
-
-static void
 yrno_finish_new (SoupSession *session,
 		 SoupMessage *msg,
 		 gpointer     user_data)
@@ -573,8 +404,8 @@ yrno_finish_new (SoupSession *session,
     _gweather_info_request_done (info, msg);
 }
 
-static gboolean
-yrno_start_open_new (GWeatherInfo *info)
+gboolean
+yrno_start_open (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
     gchar *url;
@@ -604,11 +435,3 @@ yrno_start_open_new (GWeatherInfo *info)
     return TRUE;
 }
 
-gboolean
-yrno_start_open (GWeatherInfo *info)
-{
-    if (yrno_start_open_new (info))
-	return TRUE;
-
-    return yrno_start_open_old (info);
-}
