@@ -389,6 +389,8 @@ yrno_finish_new (SoupSession *session,
 		 gpointer     user_data)
 {
     GWeatherInfo *info = GWEATHER_INFO (user_data);
+    GWeatherInfoPrivate *priv;
+    WeatherLocation *loc;
 
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
 	/* forecast data is not really interesting anyway ;) */
@@ -398,6 +400,11 @@ yrno_finish_new (SoupSession *session,
 	_gweather_info_request_done (info, msg);
 	return;
     }
+
+    priv = info->priv;
+    loc = &priv->location;
+    g_debug ("yrno data for %lf, %lf", loc->latitude, loc->longitude);
+    g_debug ("%s", msg->response_body->data);
 
     parse_forecast_xml_new (info, msg->response_body);
 
@@ -425,6 +432,7 @@ yrno_start_open (GWeatherInfo *info)
     g_ascii_dtostr (lonstr, sizeof(lonstr), RADIANS_TO_DEGREES (loc->longitude));
 
     url = g_strdup_printf("https://api.met.no/weatherapi/locationforecast/1.9/?lat=%s;lon=%s", latstr, lonstr);
+    g_debug ("yrno_start_open, requesting: %s", url);
 
     message = soup_message_new ("GET", url);
     _gweather_info_begin_request (info, message);
