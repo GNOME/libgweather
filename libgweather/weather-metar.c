@@ -74,6 +74,8 @@ metar_tok_time (gchar *tokp, GWeatherInfo *info)
 {
     gint day, hr, min;
 
+    g_debug ("metar_tok_time: %s", tokp);
+
     sscanf (tokp, "%2u%2u%2u", &day, &hr, &min);
     info->priv->update = make_time (day, hr, min);
 }
@@ -86,6 +88,8 @@ metar_tok_wind (gchar *tokp, GWeatherInfo *info)
     gint dir, spd = -1;
     gchar *gustp;
     size_t glen;
+
+    g_debug ("metar_tok_wind: %s", tokp);
 
     priv = info->priv;
 
@@ -154,6 +158,8 @@ metar_tok_vis (gchar *tokp, GWeatherInfo *info)
     gchar sval[6];
     gint num, den, val;
 
+    g_debug ("metar_tok_vis: %s", tokp);
+
     priv = info->priv;
 
     memset (sval, 0, sizeof (sval));
@@ -202,6 +208,8 @@ metar_tok_cloud (gchar *tokp, GWeatherInfo *info)
     GWeatherInfoPrivate *priv;
     gchar stype[4], salt[4];
 
+    g_debug ("metar_tok_cloud: %s", tokp);
+
     priv = info->priv;
 
     strncpy (stype, tokp, 3);
@@ -233,6 +241,8 @@ metar_tok_pres (gchar *tokp, GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv = info->priv;
 
+    g_debug ("metar_tok_pres: %s", tokp);
+
     if (*tokp == 'A') {
         gchar sintg[3], sfract[3];
         gint intg, fract;
@@ -263,6 +273,8 @@ metar_tok_temp (gchar *tokp, GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
     gchar *ptemp, *pdew, *psep;
+
+    g_debug ("metar_tok_temp: %s", tokp);
 
     priv = info->priv;
 
@@ -334,6 +346,8 @@ metar_tok_cond (gchar *tokp, GWeatherInfo *info)
     GWeatherConditions new_cond;
     gchar squal[3], sphen[4];
     gchar *pphen;
+
+    g_debug ("metar_tok_cond: %s", tokp);
 
     priv = info->priv;
 
@@ -501,6 +515,8 @@ metar_parse (gchar *metar, GWeatherInfo *info)
     g_return_val_if_fail (info != NULL, FALSE);
     g_return_val_if_fail (metar != NULL, FALSE);
 
+    g_debug ("About to metar_parse: %s", metar);
+
     metar_init_re ();
 
     /*
@@ -588,6 +604,9 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
     loc = &priv->location;
 
+    g_debug ("METAR data for %s", loc->code);
+    g_debug ("%s", msg->response_body->data);
+
     searchkey = g_strdup_printf ("<raw_text>%s ", loc->code);
     p = strstr (msg->response_body->data, searchkey);
 
@@ -632,6 +651,7 @@ metar_start_open (GWeatherInfo *info)
     if (!loc->latlon_valid)
         return;
 
+    g_debug ("metar_start_open, requesting: https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=3&mostRecent=true&fields=raw_text&stationString=%s", loc->code);
     msg = soup_form_request_new (
 	"GET", "https://www.aviationweather.gov/adds/dataserver_current/httpparam",
 	"dataSource", "metars",
