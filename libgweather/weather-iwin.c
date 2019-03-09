@@ -316,6 +316,7 @@ iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 {
     GWeatherInfo *info = (GWeatherInfo *)data;
     GWeatherInfoPrivate *priv;
+    WeatherLocation *loc;
 
     g_return_if_fail (info != NULL);
 
@@ -329,6 +330,11 @@ iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     }
 
     priv = info->priv;
+    loc = &priv->location;
+
+    g_debug ("iwin data for %s", loc->zone);
+    g_debug ("%s", msg->response_body->data);
+
     priv->forecast_list = parseForecastXml (msg->response_body->data, info);
 
     _gweather_info_request_done (info, msg);
@@ -354,8 +360,11 @@ iwin_start_open (GWeatherInfo *info)
     /* No zone (or -) means no weather information from national offices.
        We don't actually use zone, but it's a good indicator of a US location.
        (@ and : prefixes were used in the past for Australia and UK) */
-    if (!loc->zone || loc->zone[0] == '-' || loc->zone[0] == '@' || loc->zone[0] == ':')
+    if (!loc->zone || loc->zone[0] == '-' || loc->zone[0] == '@' || loc->zone[0] == ':') {
+        g_debug ("iwin_start_open, ignoring location %s because zone '%s' has no weather info",
+                 loc->name, loc->zone ? loc->zone : "(empty)");
         return FALSE;
+    }
 
     if (!loc->latlon_valid)
 	return FALSE;
@@ -368,6 +377,7 @@ iwin_start_open (GWeatherInfo *info)
     g_ascii_dtostr (lonstr, sizeof(lonstr), RADIANS_TO_DEGREES (loc->longitude));
     url = g_strdup_printf ("http://www.weather.gov/forecasts/xml/sample_products/browser_interface/ndfdBrowserClientByDay.php?&lat=%s&lon=%s&format=24+hourly&startDate=%04d-%02d-%02d&numDays=7",
 			   latstr, lonstr, 1900 + tm.tm_year, 1 + tm.tm_mon, tm.tm_mday);
+    g_debug ("iwin_start_open, requesting: %s", url);
     msg = soup_message_new ("GET", url);
     _gweather_info_begin_request (info, msg);
     soup_session_queue_message (priv->session, msg, iwin_finish, info);
