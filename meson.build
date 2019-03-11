@@ -1,6 +1,6 @@
 project('libgweather', 'c',
   version: '3.32.0',
-  meson_version: '>= 0.43.0',
+  meson_version: '>= 0.48.0',
 )
 
 libgweather_version = meson.project_version().split('.')
@@ -20,6 +20,10 @@ libgweather_lt_a=0
 # convert to soname
 libgweather_so_version = '@0@.@1@.@2@'.format((libgweather_lt_c - libgweather_lt_a),
                                             libgweather_lt_a, libgweather_lt_r)
+
+current = libgweather_lt_c - libgweather_lt_a
+interface_age = libgweather_lt_r
+libgweather_darwin_versions = [current + 1, '@0@.@1@'.format(current + 1, interface_age)]
 
 pkgconfig = import('pkgconfig')
 gnome = import('gnome')

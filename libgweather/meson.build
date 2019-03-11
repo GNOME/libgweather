@@ -62,6 +62,7 @@ lib_libgweather = shared_library('gweather-3',
   include_directories: root_inc,
   dependencies: deps_libgweather,
   version: libgweather_so_version,
+  darwin_versions: libgweather_darwin_versions,
   install: true,
 )
 
