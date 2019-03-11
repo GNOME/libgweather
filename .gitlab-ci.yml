@@ -1,8 +1,16 @@
-build-fedora:
+build-fedora-with-introspection-vala:
   image: fedora:latest
   before_script:
     - dnf install -y redhat-rpm-config meson libxml2-devel vala gettext itstool gtk3-devel geocode-glib-devel gobject-introspection-devel libsoup-devel
   script:
-    - meson _build
+    - meson -Dintrospection=true -Dvala=true _build
+    - ninja -C _build test
+    - ninja -C _build install
+build-fedora-without-introspection-vala:
+  image: fedora:latest
+  before_script:
+    - dnf install -y redhat-rpm-config meson libxml2-devel gettext itstool gtk3-devel geocode-glib-devel libsoup-devel
+  script:
+    - meson -Dintrospection=false -Dvala=false _build
     - ninja -C _build test
     - ninja -C _build install
