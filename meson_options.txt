@@ -8,3 +8,7 @@ option('enable_vala', type: 'combo', choices : ['true', 'false', 'auto'], value 
        description: 'Install vala bindings')
 option('gtk_doc', type: 'boolean', value: false,
        description: 'Whether to generate the API reference')
+option('introspection', type: 'boolean', value: false,
+       description: 'Whether to generate gobject introspection data')
+option('test', type: 'boolean', value: false,
+       description: 'Whether to build test executables')
