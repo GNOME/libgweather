@@ -101,7 +101,7 @@ else
   endif
 endif
 
-enable_vala = get_option('enable_vala')
+enable_vala = get_option('vapi')
 if enable_vala == 'auto'
   enable_vala = find_program('vapigen', required: false).found()
 else
