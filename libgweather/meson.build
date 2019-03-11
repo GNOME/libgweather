@@ -66,29 +66,24 @@ lib_libgweather = shared_library('gweather-3',
   install: true,
 )
 
-gweather_gir = gnome.generate_gir(lib_libgweather,
-  sources: introspection_sources,
-  dependencies: deps_libgweather,
-  nsversion: '3.0',
-  namespace: 'GWeather',
-  includes: ['GObject-2.0', 'Gtk-3.0'],
-  symbol_prefix: 'gweather',
-  identifier_prefix: 'GWeather',
-  export_packages: 'gweather-3.0',
-  header: 'libgweather/gweather.h',
-  extra_args: [
-    '--warn-all',
-    '-DGWEATHER_COMPILATION',
-  ],
-  install: true,
-)
-
-libgweather_dep = declare_dependency(
-  sources: [gweather_enum_types[1], gweather_gir],
-  dependencies: deps_libgweather,
-  link_with: lib_libgweather,
-  include_directories: root_inc,
-)
+if enable_gir
+  gweather_gir = gnome.generate_gir(lib_libgweather,
+    sources: introspection_sources,
+    dependencies: deps_libgweather,
+    nsversion: '3.0',
+    namespace: 'GWeather',
+    includes: ['GObject-2.0', 'Gtk-3.0'],
+    symbol_prefix: 'gweather',
+    identifier_prefix: 'GWeather',
+    export_packages: 'gweather-3.0',
+    header: 'libgweather/gweather.h',
+    extra_args: [
+      '--warn-all',
+      '-DGWEATHER_COMPILATION',
+    ],
+    install: true,
+  )
+endif
 
 if enable_vala
   gnome.generate_vapi('gweather-3.0',
@@ -102,6 +97,13 @@ endif
 test_cargs = ['-DTEST_SRCDIR="@0@/"'.format(meson.current_source_dir()),
               '-DSCHEMASDIR="@0@/schemas"'.format(meson.source_root()),
               '-DSCHEMAS_BUILDDIR="@0@/schemas"'.format(meson.build_root())]
+
+libgweather_dep = declare_dependency(
+  sources: gweather_enum_types[1],
+  dependencies: deps_libgweather,
+  link_with: lib_libgweather,
+  include_directories: root_inc,
+)
 
 executable('test_locations',
   ['test_locations.c'],

@@ -95,22 +95,13 @@ configure_file(
   configuration: config_h,
 )
 
-if get_option('glade_catalog') == 'false'
-  enable_glade_catalog = false
-else
-  glade_dep = dependency('gladeui-2.0', required: (get_option('glade_catalog') == 'true'))
-  enable_glade_catalog = glade_dep.found()
-  if enable_glade_catalog
-    glade_catalogdir = join_paths(datadir, 'glade', 'catalogs')
-  endif
+enable_glade_catalog = dependency('gladeui-2.0', required: get_option('glade_catalog')).found()
+if enable_glade_catalog
+  glade_catalogdir = join_paths(datadir, 'glade', 'catalogs')
 endif
 
-enable_vala = get_option('enable_vala')
-if enable_vala == 'auto'
-  enable_vala = find_program('vapigen', required: false).found()
-else
-  enable_vala = enable_vala != 'false'
-endif
+enable_vala = find_program('vapigen', required: get_option('vapi')).found()
+enable_gir = find_program('g-ir-scanner', required: get_option('introspection')).found()
 
 root_inc = include_directories('.')
 
