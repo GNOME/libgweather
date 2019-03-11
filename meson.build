@@ -1,6 +1,6 @@
 project('libgweather', 'c',
   version: '3.32.0',
-  meson_version: '>= 0.43.0',
+  meson_version: '>= 0.47.0',
 )
 
 libgweather_version = meson.project_version().split('.')
@@ -101,11 +101,21 @@ else
   endif
 endif
 
-enable_vala = get_option('enable_vala')
-if enable_vala == 'auto'
-  enable_vala = find_program('vapigen', required: false).found()
+enable_vala = find_program('vapigen', required: get_option('vapi')).found()
+enable_gir = find_program('g-ir-scanner', required: get_option('introspection')).found()
+enable_tests = get_option('test').enabled()
+
+if get_option('test').auto()
+  if enable_gir
+    enable_tests = true
+  endif
+elif get_option('test').enabled()
+  if not enable_gir
+    error('Cant build tests without gir!')
+  endif
+  enable_tests = true
 else
-  enable_vala = enable_vala != 'false'
+  enable_tests = false
 endif
 
 root_inc = include_directories('.')
