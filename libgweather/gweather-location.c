@@ -1513,6 +1513,9 @@ gweather_location_common_deserialize (GWeatherLocation *world,
     GList *candidates, *l;
     GWeatherLocation *found;
 
+    if (station_code[0] == '\0')
+        return _gweather_location_new_detached (NULL, name, latlon_valid, latitude, longitude);
+
     /* First find the list of candidate locations */
     candidates = g_hash_table_lookup (world->metar_code_cache, station_code);
 
