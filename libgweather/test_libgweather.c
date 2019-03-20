@@ -158,7 +158,8 @@ static void
 test_no_code_serialize (void)
 {
     GVariant *variant;
-    GWeatherLocation *world, *loc;
+    GWeatherLocation *world, *loc, *new_loc;
+    GString *str;
 
     world = gweather_location_get_world ();
     g_assert_nonnull (world);
@@ -166,10 +167,20 @@ test_no_code_serialize (void)
     loc = gweather_location_find_nearest_city (world, 56.833333, 53.183333);
     g_assert (loc);
     g_assert_cmpstr (gweather_location_get_name (loc), ==, "Izhevsk");
+    g_assert_null (gweather_location_get_code (loc));
 
     variant = gweather_location_serialize (loc);
     g_assert_nonnull (variant);
+    str = g_variant_print_string (variant, NULL, TRUE);
+    g_message ("variant: %s", str->str);
+    g_string_free (str, TRUE);
+
+    new_loc = gweather_location_deserialize (world, variant);
     g_variant_unref (variant);
+    g_assert_nonnull (new_loc);
+    g_assert_cmpstr (gweather_location_get_name (loc), ==, gweather_location_get_name (new_loc));
+    g_assert_true (gweather_location_equal (loc, new_loc));
+    gweather_location_unref (new_loc);
 
     _gweather_location_reset_world ();
 }
