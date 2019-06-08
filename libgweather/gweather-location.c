@@ -1513,6 +1513,17 @@ gweather_location_common_deserialize (GWeatherLocation *world,
     GList *candidates, *l;
     GWeatherLocation *found;
 
+    /* Since weather stations are no longer attached to cities, first try to
+       find what claims to be a city by name and coordinates */
+    if (is_city && latitude && longitude) {
+        found = gweather_location_find_nearest_city (world,
+                                                     latitude / M_PI * 180.0,
+                                                     longitude / M_PI * 180.0);
+        if (found && (g_strcmp0 (name, found->english_name) == 0 ||
+                      g_strcmp0 (name, found->local_name) == 0))
+	    return gweather_location_ref (found);
+    }
+
     if (station_code[0] == '\0')
         return _gweather_location_new_detached (NULL, name, latlon_valid, latitude, longitude);
 
