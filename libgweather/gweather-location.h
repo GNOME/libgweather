@@ -63,6 +63,8 @@ const char            *gweather_location_get_name       (GWeatherLocation  *loc)
 GWEATHER_EXTERN
 const char            *gweather_location_get_sort_name  (GWeatherLocation  *loc);
 GWEATHER_EXTERN
+const char            *gweather_location_get_english_name (GWeatherLocation  *loc);
+GWEATHER_EXTERN
 GWeatherLocationLevel  gweather_location_get_level      (GWeatherLocation  *loc);
 GWEATHER_EXTERN
 GWeatherLocation      *gweather_location_get_parent     (GWeatherLocation  *loc);
