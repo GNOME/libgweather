@@ -600,6 +600,22 @@ gweather_location_get_sort_name (GWeatherLocation *loc)
 }
 
 /**
+ * gweather_location_get_english_name:
+ * @loc: a #GWeatherLocation
+ *
+ * Gets @loc's English name.
+ *
+ * Return value: @loc's English name
+ **/
+const char *
+gweather_location_get_english_name (GWeatherLocation *loc)
+{
+    g_return_val_if_fail (loc != NULL, NULL);
+
+    return loc->english_name;
+}
+
+/**
  * gweather_location_get_level:
  * @loc: a #GWeatherLocation
  *
