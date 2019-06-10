@@ -578,7 +578,7 @@ gweather_location_get_name (GWeatherLocation *loc)
 {
     g_return_val_if_fail (loc != NULL, NULL);
 
-    return g_strdup (loc->local_name);
+    return loc->local_name;
 }
 
 /**
