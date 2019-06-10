@@ -629,6 +629,25 @@ test_duplicate_weather_stations (void)
 }
 
 static void
+test_location_names (void)
+{
+    GWeatherLocation *world, *brussels;
+
+    setlocale (LC_ALL, "fr_FR.UTF-8");
+    world = gweather_location_get_world ();
+    g_assert (world);
+
+    brussels = gweather_location_find_nearest_city (world, 50.833333, 4.333333);
+    g_assert (brussels);
+    g_assert_cmpstr (gweather_location_get_name (brussels), ==, "Bruxelles");
+    g_assert_cmpstr (gweather_location_get_sort_name (brussels), ==, "brussels");
+    g_assert_cmpstr (gweather_location_get_english_name (brussels), ==, "Brussels");
+
+    setlocale (LC_ALL, "");
+    _gweather_location_reset_world ();
+}
+
+static void
 log_handler (const char *log_domain, GLogLevelFlags log_level, const char *message, gpointer user_data)
 {
 	g_print ("%s\n", message);
@@ -660,6 +679,7 @@ main (int argc, char *argv[])
 	/* Modifies environment, so needs to run last */
 	g_test_add_func ("/weather/bad_duplicate_weather_stations", test_bad_duplicate_weather_stations);
 	g_test_add_func ("/weather/duplicate_weather_stations", test_duplicate_weather_stations);
+	g_test_add_func ("/weather/location-names", test_location_names);
 
 	return g_test_run ();
 }
