@@ -115,7 +115,11 @@ get_list_from_configuration (GWeatherLocation *world,
     return list;
 }
 
-#define CONFIGURATION "[{'location': <(uint32 2, <('Rio de Janeiro', 'SBES', false, [(-0.39822596348113698, -0.73478361508961265)], [(-0.39822596348113698, -0.73478361508961265)])>)>}, {'location': <(uint32 2, <('Coordinated Universal Time (UTC)', '@UTC', false, @a(dd) [], @a(dd) [])>)>}]"
+#define CONFIGURATION "[                                                                                                                                                                 \
+                        {'location': <(uint32 2, <('Rio de Janeiro', 'SBES', false, [(-0.39822596348113698, -0.73478361508961265)], [(-0.39822596348113698, -0.73478361508961265)])>)>}, \
+                        {'location': <(uint32 2, <('Coordinated Universal Time (UTC)', '@UTC', false, @a(dd) [], @a(dd) [])>)>},                                                         \
+                        {'location': <(uint32 2, <('Perm', 'USPP', true, [(1.0122909661567112, 0.98174770424681035)], [(1.0122909661567112, 0.98174770424681035)])>)>}                   \
+                       ]"
 
 static void test_timezones (void);
 
@@ -128,12 +132,12 @@ test_named_timezones_deserialized (void)
     world = gweather_location_get_world ();
     g_assert (world);
 
-    list = get_list_from_configuration (world, CONFIGURATION, 2);
+    list = get_list_from_configuration (world, CONFIGURATION, 3);
     for (l = list; l != NULL; l = l->next)
         gweather_location_unref (l->data);
     g_list_free (list);
 
-    list = get_list_from_configuration (world, CONFIGURATION, 2);
+    list = get_list_from_configuration (world, CONFIGURATION, 3);
     for (l = list; l != NULL; l = l->next) {
         GWeatherLocation *loc = l->data;
         GWeatherTimezone *tz;
