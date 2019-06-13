@@ -360,7 +360,7 @@ test_metar_weather_station (GWeatherLocation *location,
 
     line = g_hash_table_lookup (stations_ht, code);
     if (!line) {
-        g_print ("Could not find airport for '%s'\n", code);
+        g_print ("Could not find airport for '%s' in " METAR_SOURCES "\n", code);
         g_test_fail ();
     } else {
         char *has_metar;
@@ -370,7 +370,7 @@ test_metar_weather_station (GWeatherLocation *location,
             g_print ("Airport weather station '%s' is obsolete\n", code);
             g_test_fail ();
         } else if (*has_metar == ' ') {
-            g_print ("Could not find weather station for '%s'\n", code);
+            g_print ("Could not find weather station for '%s' in " METAR_SOURCES "\n", code);
             g_test_fail ();
         }
         g_free (has_metar);
