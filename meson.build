@@ -13,7 +13,7 @@ libgweather_version = meson.project_version().split('.')
 # b) If interfaces have been changed or added, but binary compatibility has
 #    been preserved, change to C+1:0:A+1
 # c) If the interface is the same as the previous version, change to C:R+1:A
-libgweather_lt_c=15
+libgweather_lt_c=16
 libgweather_lt_r=0
 libgweather_lt_a=0
 
