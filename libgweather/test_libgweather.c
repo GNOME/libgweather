@@ -331,8 +331,12 @@ parse_metar_stations (const char *contents)
         }
 
         if (g_hash_table_lookup (stations_ht, station)) {
-            if (g_str_equal (station, "VOGO") ||
-                g_str_equal (station, "KHQG")) {
+            const char * const known_duplicates[] = {
+                "VOGO",
+                "KHQG",
+                NULL
+            };
+            if (g_strv_contains (known_duplicates, station)) {
                 g_free (station);
                 continue;
             }

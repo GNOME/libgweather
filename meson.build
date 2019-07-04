@@ -39,7 +39,7 @@ libexecdir = join_paths(prefix, get_option('libexecdir'))
 sysconfdir = join_paths(prefix, get_option('sysconfdir'))
 pkgdatadir = join_paths(datadir, 'libgweather')
 
-glib_req_version = '>= 2.35.1'
+glib_req_version = '>= 2.44.0'
 gtk_req_version = '>= 3.13.5'
 libsoup_req_version = '>= 2.44.0'
 libxml_req_version = '>= 2.6.0'
