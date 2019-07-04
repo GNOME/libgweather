@@ -334,6 +334,8 @@ parse_metar_stations (const char *contents)
             const char * const known_duplicates[] = {
                 "VOGO",
                 "KHQG",
+                "KOEL",
+                "KTQK",
                 NULL
             };
             if (g_strv_contains (known_duplicates, station)) {
