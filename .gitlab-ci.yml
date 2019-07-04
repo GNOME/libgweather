@@ -1,8 +1,11 @@
+LAST_ABI_BREAK=3.28.0
+
 build-fedora:
   image: fedora:latest
   before_script:
-    - dnf install -y redhat-rpm-config meson libxml2-devel vala gettext itstool gtk3-devel geocode-glib-devel gobject-introspection-devel libsoup-devel
+    - dnf install -y redhat-rpm-config meson libxml2-devel vala gettext itstool gtk3-devel geocode-glib-devel gobject-introspection-devel libsoup-devel libabigail
   script:
     - meson _build
     - ninja -C _build test
     - ninja -C _build install
+    - ./.ci/check-abi $LAST_ABI_BREAK $(git rev-parse HEAD)
