@@ -1,6 +1,6 @@
 project('libgweather', 'c',
   version: '3.33.0',
-  meson_version: '>= 0.48.0',
+  meson_version: '>= 0.50.0',
 )
 
 libgweather_version = meson.project_version().split('.')
