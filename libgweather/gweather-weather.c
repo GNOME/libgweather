@@ -1441,9 +1441,10 @@ gweather_info_get_icon_name (GWeatherInfo *info)
 	case GWEATHER_PHENOMENON_ICE_CRYSTALS:
 	    return "weather-snow";
 
+	case GWEATHER_PHENOMENON_FUNNEL_CLOUD:
 	case GWEATHER_PHENOMENON_TORNADO:
 	case GWEATHER_PHENOMENON_SQUALL:
-	    return "weather-storm";
+	    return "weather-storm-tornado";
 
 	case GWEATHER_PHENOMENON_MIST:
 	case GWEATHER_PHENOMENON_FOG:
@@ -1455,7 +1456,6 @@ gweather_info_get_icon_name (GWeatherInfo *info)
 	case GWEATHER_PHENOMENON_DUST:
 	case GWEATHER_PHENOMENON_SANDSTORM:
 	case GWEATHER_PHENOMENON_DUSTSTORM:
-	case GWEATHER_PHENOMENON_FUNNEL_CLOUD:
 	case GWEATHER_PHENOMENON_DUST_WHIRLS:
 	    return "weather-fog";
         }
