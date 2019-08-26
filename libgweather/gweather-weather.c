@@ -1278,10 +1278,8 @@ gweather_info_get_sunset (GWeatherInfo *info)
  * Returns: (transfer none) (element-type GWeather.Info): list
  * of GWeatherInfo* objects for the forecast.
  * The list is owned by the 'info' object thus is alive as long
- * as the 'info'. This list is filled only when requested with
- * type FORECAST_LIST and if available for given location.
- * The 'update' property is the date/time when the forecast info
- * is used for.
+ * as the 'info'. The 'update' property is the date/time when the
+ * forecast info is used for.
  **/
 GSList *
 gweather_info_get_forecast_list (GWeatherInfo *info)
