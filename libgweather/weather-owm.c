@@ -380,7 +380,7 @@ parse_forecast_xml (GWeatherInfo    *master_info,
     if (!xpath_result || xpath_result->type != XPATH_NODESET)
 	goto out;
 
-    priv->forecast_attribution = g_strdup(_("Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map project</a>"));
+    priv->forecast_attribution = g_strdup(_("Weather data from the <a href=\"https://openweathermap.org\">Open Weather Map project</a>"));
 
  out:
     if (xpath_result)
@@ -436,7 +436,7 @@ owm_start_open (GWeatherInfo *info)
     g_ascii_dtostr (latstr, sizeof(latstr), RADIANS_TO_DEGREES (loc->latitude));
     g_ascii_dtostr (lonstr, sizeof(lonstr), RADIANS_TO_DEGREES (loc->longitude));
 
-#define TEMPLATE_START "http://api.openweathermap.org/data/2.5/forecast?lat=%s&lon=%s&mode=xml&units=metric"
+#define TEMPLATE_START "https://api.openweathermap.org/data/2.5/forecast?lat=%s&lon=%s&mode=xml&units=metric"
 #ifdef OWM_APIKEY
  #define TEMPLATE TEMPLATE_START "&APPID=" OWM_APIKEY
 #else
