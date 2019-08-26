@@ -650,7 +650,7 @@ main (int argc, char *argv[])
 	setlocale (LC_ALL, "");
 
 	g_test_init (&argc, &argv, NULL);
-	g_test_bug_base ("http://bugzilla.gnome.org/show_bug.cgi?id=");
+	g_test_bug_base ("http://gitlab.gnome.org/GNOME/libgweather/issues/");
 
 	/* We need to handle log messages produced by g_message so they're interpreted correctly by the GTester framework */
 	g_log_set_handler (NULL, G_LOG_LEVEL_MESSAGE | G_LOG_LEVEL_INFO | G_LOG_LEVEL_DEBUG, log_handler, NULL);
