@@ -436,7 +436,7 @@ owm_start_open (GWeatherInfo *info)
     g_ascii_dtostr (latstr, sizeof(latstr), RADIANS_TO_DEGREES (loc->latitude));
     g_ascii_dtostr (lonstr, sizeof(lonstr), RADIANS_TO_DEGREES (loc->longitude));
 
-#define TEMPLATE_START "http://api.openweathermap.org/data/2.5/forecast?lat=%s&lon=%s&mode=xml&units=metric"
+#define TEMPLATE_START "https://api.openweathermap.org/data/2.5/forecast?lat=%s&lon=%s&mode=xml&units=metric"
 #ifdef OWM_APIKEY
  #define TEMPLATE TEMPLATE_START "&APPID=" OWM_APIKEY
 #else
