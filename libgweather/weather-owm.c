@@ -380,7 +380,7 @@ parse_forecast_xml (GWeatherInfo    *master_info,
     if (!xpath_result || xpath_result->type != XPATH_NODESET)
 	goto out;
 
-    priv->forecast_attribution = g_strdup(_("Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map project</a>"));
+    priv->forecast_attribution = g_strdup(_("Weather data from the <a href=\"https://openweathermap.org\">Open Weather Map project</a>"));
 
  out:
     if (xpath_result)
