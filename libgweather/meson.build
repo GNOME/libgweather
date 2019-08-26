@@ -131,3 +131,8 @@ executable('test_sun_moon',
   c_args: test_cargs,
   dependencies: libgweather_dep,
   install: false)
+executable('test_weather',
+  ['test_weather.c'],
+  c_args: test_cargs,
+  dependencies: libgweather_dep,
+  install: false)
