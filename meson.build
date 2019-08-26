@@ -60,6 +60,7 @@ config_h.set_quoted('LOCALEDIR', join_paths(datadir, 'locale'))
 config_h.set_quoted('GNOMELOCALEDIR', join_paths(datadir, 'locale'))
 config_h.set_quoted('G_LOG_DOMAIN', 'GWeather')
 config_h.set_quoted('GWEATHER_XML_LOCATION_DIR', pkgdatadir)
+config_h.set_quoted('LIBGWEATHER_VERSION', meson.project_version())
 
 if c_compiler.has_member('struct tm', 'tm_gmtoff', prefix: '#include <time.h>')
   config_h.set('HAVE_TM_TM_GMOFF', 1)
