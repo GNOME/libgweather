@@ -595,6 +595,8 @@ ref_session (void)
 	return g_object_ref (session);
 
     session = soup_session_new ();
+    g_object_set (G_OBJECT (session), SOUP_SESSION_USER_AGENT,
+                  "libgweather " LIBGWEATHER_VERSION " ", NULL);
 
     cache = get_cache ();
     if (cache != NULL) {
