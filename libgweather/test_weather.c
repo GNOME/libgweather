@@ -57,14 +57,22 @@ weather_updated (GWeatherInfo *info,
     static gboolean weather_printed = FALSE;
     static gboolean forecast_printed = FALSE;
 
+    if (!gweather_info_is_valid (info)) {
+        g_warning ("Weather is invalid");
+        return;
+    }
+
     if (gweather_info_get_value_update (info, &val)) {
         g_message ("Weather now: %s", gweather_info_get_temp_summary (info));
         weather_printed = TRUE;
     }
 
     forecasts = gweather_info_get_forecast_list (info);
-    if (!forecasts)
+    if (!forecasts) {
+        if (!weather_printed)
+           g_warning ("No forecasts, but no weather either?!");
         return;
+    }
 
     for (l = forecasts; l != NULL; l = l->next) {
         GWeatherInfo *i = l->data;
@@ -89,11 +97,37 @@ weather_updated (GWeatherInfo *info,
         g_main_loop_quit (loop);
 }
 
-static void
+#define ADD_PROVIDER_STR(x) {			\
+	if (s->len != 0)			\
+		g_string_append (s, ", ");	\
+	g_string_append(s, x);			\
+}
+
+static gboolean
 set_providers (GWeatherInfo *info)
 {
-    //FIXME print the current providers
+    GString *s;
+
+    s = g_string_new (NULL);
+    if (providers & GWEATHER_PROVIDER_METAR)
+        ADD_PROVIDER_STR("METAR");
+    if (providers & GWEATHER_PROVIDER_IWIN)
+        ADD_PROVIDER_STR("IWIN");
+    if (providers & GWEATHER_PROVIDER_YAHOO)
+        ADD_PROVIDER_STR("YAHOO");
+    if (providers & GWEATHER_PROVIDER_YR_NO)
+        ADD_PROVIDER_STR("YR_NO");
+    if (providers & GWEATHER_PROVIDER_OWM)
+        ADD_PROVIDER_STR("OWM");
+    if (providers == GWEATHER_PROVIDER_NONE) {
+        g_string_free (s, TRUE);
+        g_warning ("No providers enabled, failing");
+        return FALSE;
+    }
+    g_message ("Enabling providers (%s)", s->str);
+    g_string_free (s, TRUE);
     gweather_info_set_enabled_providers (info, providers);
+    return TRUE;
 }
 
 int
@@ -121,8 +155,10 @@ main (int argc, char **argv)
     g_message ("Found station %s for '%s'", gweather_location_get_name (loc), search_str);
 
     loop = g_main_loop_new (NULL, TRUE);
-    info = gweather_info_new (loc);
-    set_providers (info);
+    info = gweather_info_new (NULL);
+    if (!set_providers (info))
+        return 1;
+    gweather_info_set_location (info, loc);
     g_signal_connect (G_OBJECT (info), "updated",
                       G_CALLBACK (weather_updated), loop);
     gweather_info_update (info);

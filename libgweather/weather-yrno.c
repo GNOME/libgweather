@@ -391,6 +391,7 @@ yrno_finish_new (SoupSession *session,
     GWeatherInfo *info = GWEATHER_INFO (user_data);
     GWeatherInfoPrivate *priv;
     WeatherLocation *loc;
+    guint num_forecasts;
 
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
 	/* forecast data is not really interesting anyway ;) */
@@ -407,6 +408,10 @@ yrno_finish_new (SoupSession *session,
     g_debug ("%s", msg->response_body->data);
 
     parse_forecast_xml_new (info, msg->response_body);
+    num_forecasts = g_slist_length (priv->forecast_list);
+    g_debug ("yrno parsed %d forecast infos", num_forecasts);
+    if (!priv->valid)
+        priv->valid = (num_forecasts > 0);
 
     _gweather_info_request_done (info, msg);
 }

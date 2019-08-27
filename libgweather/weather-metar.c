@@ -629,7 +629,8 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
     g_free (searchkey);
 
-    priv->valid = success;
+    if (!priv->valid)
+        priv->valid = success;
     _gweather_info_request_done (info, msg);
 }
 
