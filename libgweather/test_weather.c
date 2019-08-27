@@ -89,11 +89,37 @@ weather_updated (GWeatherInfo *info,
         g_main_loop_quit (loop);
 }
 
-static void
+#define ADD_PROVIDER_STR(x) {			\
+	if (s->len != 0)			\
+		g_string_append (s, ", ");	\
+	g_string_append(s, x);			\
+}
+
+static gboolean
 set_providers (GWeatherInfo *info)
 {
-    //FIXME print the current providers
+    GString *s;
+
+    s = g_string_new (NULL);
+    if (providers & GWEATHER_PROVIDER_METAR)
+        ADD_PROVIDER_STR("METAR");
+    if (providers & GWEATHER_PROVIDER_IWIN)
+        ADD_PROVIDER_STR("IWIN");
+    if (providers & GWEATHER_PROVIDER_YAHOO)
+        ADD_PROVIDER_STR("YAHOO");
+    if (providers & GWEATHER_PROVIDER_YR_NO)
+        ADD_PROVIDER_STR("YR_NO");
+    if (providers & GWEATHER_PROVIDER_OWM)
+        ADD_PROVIDER_STR("OWM");
+    if (providers == GWEATHER_PROVIDER_NONE) {
+        g_string_free (s, TRUE);
+        g_warning ("No providers enabled, failing");
+        return FALSE;
+    }
+    g_message ("Enabling providers (%s)", s->str);
+    g_string_free (s, TRUE);
     gweather_info_set_enabled_providers (info, providers);
+    return TRUE;
 }
 
 int
