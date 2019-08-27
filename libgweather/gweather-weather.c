@@ -332,6 +332,9 @@ _gweather_info_request_done (GWeatherInfo *info,
 
     if (info->priv->requests_pending == NULL)
         g_signal_emit (info, gweather_info_signals[SIGNAL_UPDATED], 0);
+    else
+        g_debug ("Not emitting 'updated' as there are still %d requests pending",
+                 g_slist_length (info->priv->requests_pending));
 }
 
 /* it's OK to pass in NULL */

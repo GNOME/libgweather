@@ -57,14 +57,22 @@ weather_updated (GWeatherInfo *info,
     static gboolean weather_printed = FALSE;
     static gboolean forecast_printed = FALSE;
 
+    if (!gweather_info_is_valid (info)) {
+        g_warning ("Weather is invalid");
+        return;
+    }
+
     if (gweather_info_get_value_update (info, &val)) {
         g_message ("Weather now: %s", gweather_info_get_temp_summary (info));
         weather_printed = TRUE;
     }
 
     forecasts = gweather_info_get_forecast_list (info);
-    if (!forecasts)
+    if (!forecasts) {
+        if (!weather_printed)
+           g_warning ("No forecasts, but no weather either?!");
         return;
+    }
 
     for (l = forecasts; l != NULL; l = l->next) {
         GWeatherInfo *i = l->data;
