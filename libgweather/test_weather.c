@@ -147,8 +147,10 @@ main (int argc, char **argv)
     g_message ("Found station %s for '%s'", gweather_location_get_name (loc), search_str);
 
     loop = g_main_loop_new (NULL, TRUE);
-    info = gweather_info_new (loc);
-    set_providers (info);
+    info = gweather_info_new (NULL);
+    if (!set_providers (info))
+        return 1;
+    gweather_info_set_location (info, loc);
     g_signal_connect (G_OBJECT (info), "updated",
                       G_CALLBACK (weather_updated), loop);
     gweather_info_update (info);
