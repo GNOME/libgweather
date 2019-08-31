@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgweather/issues\n"
-"POT-Creation-Date: 2018-06-20 08:40+0000\n"
-"PO-Revision-Date: 2018-09-29 12:13+0200\n"
+"POT-Creation-Date: 2019-08-26 13:11+0000\n"
+"PO-Revision-Date: 2019-08-31 13:42+0200\n"
 "Last-Translator: Марко М. Костић <marko.m.kostic@gmail.com>\n"
 "Language-Team: српски <gnome-sr@googlegroups.org>\n"
 "Language: sr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.3\n"
 
 #. Recurse, adding the ADM1 name to the country name
 #. Translators: this is the name of a location followed by a region, for example:
@@ -840,15 +840,15 @@ msgstr "Ковитлаци прашине"
 msgid "Dust whirls in the vicinity"
 msgstr "Ковитлаци прашине у близини"
 
-#: libgweather/gweather-weather.c:794
+#: libgweather/gweather-weather.c:796
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a, %b %d / %H:%M"
 
-#: libgweather/gweather-weather.c:800
+#: libgweather/gweather-weather.c:802
 msgid "Unknown observation time"
 msgstr "Непознато време посматрања"
 
-#: libgweather/gweather-weather.c:812
+#: libgweather/gweather-weather.c:814
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "Непознато"
@@ -859,95 +859,95 @@ msgstr "Непознато"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: libgweather/gweather-weather.c:834
+#: libgweather/gweather-weather.c:836
 msgid "default:mm"
 msgstr "default:mm"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
-#: libgweather/gweather-weather.c:887
+#: libgweather/gweather-weather.c:889
 #, c-format
 msgid "%.1f ℉"
 msgstr "%.1f ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)i
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
-#: libgweather/gweather-weather.c:891
+#: libgweather/gweather-weather.c:893
 #, c-format
 msgid "%d ℉"
 msgstr "%d ℉"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
-#: libgweather/gweather-weather.c:898
+#: libgweather/gweather-weather.c:900
 #, c-format
 msgid "%.1f ℃"
 msgstr "%.1f ℃"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
-#: libgweather/gweather-weather.c:902
+#: libgweather/gweather-weather.c:904
 #, c-format
 msgid "%d ℃"
 msgstr "%d ℃"
 
 #. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
-#: libgweather/gweather-weather.c:909
+#: libgweather/gweather-weather.c:911
 #, c-format
 msgid "%.1f K"
 msgstr "%.1f K"
 
 #. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
-#: libgweather/gweather-weather.c:913
+#: libgweather/gweather-weather.c:915
 #, c-format
 msgid "%d K"
 msgstr "%d K"
 
-#: libgweather/gweather-weather.c:936 libgweather/gweather-weather.c:952
-#: libgweather/gweather-weather.c:968 libgweather/gweather-weather.c:1030
+#: libgweather/gweather-weather.c:938 libgweather/gweather-weather.c:954
+#: libgweather/gweather-weather.c:970 libgweather/gweather-weather.c:1032
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "Непознато"
 
-#: libgweather/gweather-weather.c:990
+#: libgweather/gweather-weather.c:992
 msgctxt "dew"
 msgid "Unknown"
 msgstr "Непознато"
 
-#: libgweather/gweather-weather.c:1010
+#: libgweather/gweather-weather.c:1012
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "Непознато"
 
 #. TRANSLATOR: This is the humidity in percent
-#: libgweather/gweather-weather.c:1013
+#: libgweather/gweather-weather.c:1015
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 # bug: plural-forms
 #. TRANSLATOR: This is the wind speed in knots
-#: libgweather/gweather-weather.c:1059
+#: libgweather/gweather-weather.c:1061
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f чвора"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: libgweather/gweather-weather.c:1062
+#: libgweather/gweather-weather.c:1064
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: libgweather/gweather-weather.c:1065
+#: libgweather/gweather-weather.c:1067
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: libgweather/gweather-weather.c:1068
+#: libgweather/gweather-weather.c:1070
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -955,112 +955,112 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: libgweather/gweather-weather.c:1073
+#: libgweather/gweather-weather.c:1075
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Снага по Бофору %.1f"
 
-#: libgweather/gweather-weather.c:1094
+#: libgweather/gweather-weather.c:1096
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "Непознато"
 
-#: libgweather/gweather-weather.c:1096
+#: libgweather/gweather-weather.c:1098
 msgid "Calm"
 msgstr "Мирно"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: libgweather/gweather-weather.c:1104
+#: libgweather/gweather-weather.c:1106
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: libgweather/gweather-weather.c:1140
+#: libgweather/gweather-weather.c:1142
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "Непознато"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: libgweather/gweather-weather.c:1146
+#: libgweather/gweather-weather.c:1148
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: libgweather/gweather-weather.c:1149
+#: libgweather/gweather-weather.c:1151
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: libgweather/gweather-weather.c:1152
+#: libgweather/gweather-weather.c:1154
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: libgweather/gweather-weather.c:1155
+#: libgweather/gweather-weather.c:1157
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: libgweather/gweather-weather.c:1158
+#: libgweather/gweather-weather.c:1160
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: libgweather/gweather-weather.c:1161
+#: libgweather/gweather-weather.c:1163
 #, c-format
 msgid "%.3f atm"
 msgstr "%.1f атмосфера"
 
-#: libgweather/gweather-weather.c:1199
+#: libgweather/gweather-weather.c:1201
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "Непознато"
 
 # bug: plural-forms
 #. TRANSLATOR: This is the visibility in miles
-#: libgweather/gweather-weather.c:1205
+#: libgweather/gweather-weather.c:1207
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f миља"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: libgweather/gweather-weather.c:1208
+#: libgweather/gweather-weather.c:1210
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: libgweather/gweather-weather.c:1211
+#: libgweather/gweather-weather.c:1213
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: libgweather/gweather-weather.c:1239 libgweather/gweather-weather.c:1264
+#: libgweather/gweather-weather.c:1241 libgweather/gweather-weather.c:1266
 msgid "%H∶%M"
 msgstr "%H:%M"
 
-#: libgweather/gweather-weather.c:1358
+#: libgweather/gweather-weather.c:1360
 msgid "Retrieval failed"
 msgstr "Није успело добављање података"
 
 #. Translators: %d is an error code, and %s the error string
-#: libgweather/weather-metar.c:581
+#: libgweather/weather-metar.c:597
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "Нисам успео да добавим метеоролошке податке: %d %s.\n"
 
 #: libgweather/weather-owm.c:383
 msgid ""
-"Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
-"project</a>"
+"Weather data from the <a href=\"https://openweathermap.org\">Open Weather "
+"Map project</a>"
 msgstr ""
-"Временски подаци са <a href=\"http://openweathermap.org\">пројекта карте "
-"отвореног времена</a>"
+"Временски подаци са <a href=\"https://openweathermap.org\">пројекта карте "
+"отвореног времена (Open Weather Map)</a>"
 
 #. The new (documented but not advertised) API is less strict in the
 #. format of the attribution, and just requires a generic CC-BY compatible
@@ -1068,12 +1068,12 @@ msgstr ""
 #.
 #. That's very nice of them!
 #.
-#: libgweather/weather-yrno.c:506
+#: libgweather/weather-yrno.c:379
 msgid ""
-"Weather data from the <a href=\"http://www.met.no/\">Norwegian "
+"Weather data from the <a href=\"https://www.met.no/\">Norwegian "
 "Meteorological Institute</a>"
 msgstr ""
-"Временски подаци са <a href=\"http://www.met.no/\">норвешког метереолошког "
+"Временски подаци са <a href=\"https://www.met.no/\">норвешког метереолошког "
 "института</a>"
 
 #: schemas/org.gnome.GWeather.gschema.xml:5
