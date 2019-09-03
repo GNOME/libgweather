@@ -1,5 +1,5 @@
 # libgweather ja.po.
-# Copyright (C) 1998-2009,2012 Free Software Foundation, Inc.
+# Copyright (C) 1998-2009,2012-2019 Free Software Foundation, Inc.
 # Yukihiro Nakai <Nakai@abricot.co.jp>, 1998,2000.
 # Yasuyuki Furukawa <yasu@on.cs.keio.ac.jp>, 1999.
 # Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1999.
@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: libgweather master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgweather/issues\n"
 "POT-Creation-Date: 2019-08-26 13:11+0000\n"
-"PO-Revision-Date: 2019-03-07 20:11+0900\n"
+"PO-Revision-Date: 2019-09-03 18:30+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -1034,7 +1034,7 @@ msgstr "%.0fメートル"
 
 #: libgweather/gweather-weather.c:1241 libgweather/gweather-weather.c:1266
 msgid "%H∶%M"
-msgstr ""
+msgstr "%H:%M"
 
 #: libgweather/gweather-weather.c:1360
 msgid "Retrieval failed"
@@ -1047,15 +1047,11 @@ msgid "Failed to get METAR data: %d %s.\n"
 msgstr "METAR データの取得に失敗しました: (%d) %s\n"
 
 #: libgweather/weather-owm.c:383
-#, fuzzy
-#| msgid ""
-#| "Weather data from the <a href=\"http://openweathermap.org\">Open Weather "
-#| "Map project</a>"
 msgid ""
 "Weather data from the <a href=\"https://openweathermap.org\">Open Weather "
 "Map project</a>"
 msgstr ""
-"<a href=\"http://openweathermap.org\">Open Weather Map project</a> による気象"
+"<a href=\"https://openweathermap.org\">Open Weather Map project</a> による気象"
 "データ"
 
 #. The new (documented but not advertised) API is less strict in the
@@ -1065,15 +1061,11 @@ msgstr ""
 #. That's very nice of them!
 #.
 #: libgweather/weather-yrno.c:379
-#, fuzzy
-#| msgid ""
-#| "Weather data from the <a href=\"http://www.met.no/\">Norwegian "
-#| "Meteorological Institute</a>"
 msgid ""
 "Weather data from the <a href=\"https://www.met.no/\">Norwegian "
 "Meteorological Institute</a>"
 msgstr ""
-"<a href=\"http://www.met.no/\">ノルウェー気象研究所</a>による気象データ"
+"<a href=\"https://www.met.no/\">ノルウェー気象研究所</a>による気象データ"
 
 #: schemas/org.gnome.GWeather.gschema.xml:5
 msgid "URL for the radar map"
