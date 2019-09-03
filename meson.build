@@ -1,5 +1,5 @@
 project('libgweather', 'c',
-  version: '3.33.0',
+  version: '3.33.92',
   meson_version: '>= 0.50.0',
 )
 
