@@ -4,6 +4,9 @@ variables:
 build-fedora:
   image: fedora:latest
   before_script:
+    # Undo delangification present in the Fedora Docker images
+    - rm -f /etc/rpm/macros.image-language-conf
+    - dnf reinstall reinstall glib2
     - dnf install -y redhat-rpm-config meson libxml2-devel vala gettext itstool gtk3-devel geocode-glib-devel gobject-introspection-devel libsoup-devel libabigail git
   script:
     - meson _build
