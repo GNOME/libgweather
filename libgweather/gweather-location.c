@@ -606,6 +606,7 @@ gweather_location_get_sort_name (GWeatherLocation *loc)
  * Gets @loc's English name.
  *
  * Return value: @loc's English name
+ * Since: 3.36
  **/
 const char *
 gweather_location_get_english_name (GWeatherLocation *loc)
