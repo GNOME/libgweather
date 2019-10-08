@@ -7,6 +7,8 @@ build-fedora:
     # Undo delangification present in the Fedora Docker images
     - rm -f /etc/rpm/macros.image-language-conf
     - dnf reinstall -y glib2 glibc
+    # Add French locale support for tests
+    - dnf install -y glibc-langpack-fr
     - dnf install -y redhat-rpm-config meson libxml2-devel vala gettext itstool gtk3-devel geocode-glib-devel gobject-introspection-devel libsoup-devel libabigail git
   script:
     - meson _build
