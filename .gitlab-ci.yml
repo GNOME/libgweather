@@ -4,9 +4,14 @@ variables:
 build-fedora:
   image: fedora:latest
   before_script:
+    # Undo delangification present in the Fedora Docker images
+    - rm -f /etc/rpm/macros.image-language-conf
+    - dnf reinstall -y glib2 glibc
+    # Add French locale support for tests
+    - dnf install -y glibc-langpack-fr
     - dnf install -y redhat-rpm-config meson libxml2-devel vala gettext itstool gtk3-devel geocode-glib-devel gobject-introspection-devel libsoup-devel libabigail git
   script:
     - meson _build
-    - ninja -C _build test
     - ninja -C _build install
+    - ninja -C _build test
     - ./.ci/check-abi ${LAST_ABI_BREAK} $(git rev-parse HEAD)
