@@ -394,19 +394,24 @@ owm_finish (SoupSession *session,
             SoupMessage *msg,
             gpointer     user_data)
 {
-    GWeatherInfo *info = GWEATHER_INFO (user_data);
+    GWeatherInfo *info;
     GWeatherInfoPrivate *priv;
     WeatherLocation *loc;
 
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
 	/* forecast data is not really interesting anyway ;) */
-	if (msg->status_code != SOUP_STATUS_CANCELLED)
-	    g_message ("Failed to get OpenWeatherMap forecast data: %d %s\n",
-		       msg->status_code, msg->reason_phrase);
-	_gweather_info_request_done (info, msg);
+	if (msg->status_code == SOUP_STATUS_CANCELLED) {
+	    g_debug ("Failed to get OpenWeatherMap forecast data: %d %s\n",
+		     msg->status_code, msg->reason_phrase);
+	    return;
+	}
+	g_warning ("Failed to get OpenWeatherMap forecast data: %d %s\n",
+		   msg->status_code, msg->reason_phrase);
+	_gweather_info_request_done (user_data, msg);
 	return;
     }
 
+    info = user_data;
     priv = info->priv;
     loc = &priv->location;
     g_debug ("owm data for %lf, %lf", loc->latitude, loc->longitude);
