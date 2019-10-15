@@ -638,6 +638,95 @@ test_duplicate_weather_stations (void)
     _gweather_location_reset_world ();
 }
 
+static gboolean
+find_loc_children (GWeatherLocation  *location,
+		   const char        *search_str,
+		   GWeatherLocation **ret)
+{
+    GWeatherLocation **children;
+    guint i;
+
+    children = gweather_location_get_children (location);
+    for (i = 0; children[i] != NULL; i++) {
+        if (gweather_location_get_level (children[i]) == GWEATHER_LOCATION_WEATHER_STATION) {
+            const char *code;
+
+            code = gweather_location_get_code (children[i]);
+            if (g_strcmp0 (search_str, code) == 0) {
+                *ret = gweather_location_ref (children[i]);
+                return TRUE;
+            }
+        } else {
+            if (find_loc_children (children[i], search_str, ret))
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+static GWeatherLocation *
+find_loc (GWeatherLocation *world,
+	  const char       *search_str)
+{
+    GWeatherLocation *loc = NULL;
+
+    find_loc_children (world, search_str, &loc);
+    return loc;
+}
+
+static void
+weather_updated (GWeatherInfo *info,
+                 GMainLoop    *loop)
+{
+    g_assert_not_reached ();
+}
+
+static gboolean
+stop_loop_cb (gpointer user_data)
+{
+	g_main_loop_quit (user_data);
+	return G_SOURCE_REMOVE;
+}
+
+static void
+test_weather_loop_use_after_free (void)
+{
+    GMainLoop *loop;
+    GWeatherLocation *world, *loc;
+    GWeatherInfo *info;
+    const char *search_str = "LFLL";
+
+    world = gweather_location_get_world ();
+    loc = find_loc (world, search_str);
+
+    if (!loc) {
+        g_message ("Could not find station for %s", search_str);
+        g_test_failed ();
+        return;
+    }
+
+    g_message ("Found station %s for '%s'", gweather_location_get_name (loc), search_str);
+
+    loop = g_main_loop_new (NULL, TRUE);
+    info = gweather_info_new (NULL);
+    gweather_info_set_enabled_providers (info,
+					 GWEATHER_PROVIDER_METAR |
+					 GWEATHER_PROVIDER_IWIN |
+					 GWEATHER_PROVIDER_YAHOO |
+					 GWEATHER_PROVIDER_YR_NO |
+					 GWEATHER_PROVIDER_OWM);
+    gweather_info_set_location (info, loc);
+    g_signal_connect (G_OBJECT (info), "updated",
+                      G_CALLBACK (weather_updated), loop);
+    gweather_info_update (info);
+    g_object_unref (info);
+
+    g_timeout_add_seconds (5, stop_loop_cb, loop);
+    g_main_loop_run (loop);
+    g_main_loop_unref (loop);
+}
+
 static void
 log_handler (const char *log_domain, GLogLevelFlags log_level, const char *message, gpointer user_data)
 {
@@ -667,6 +756,7 @@ main (int argc, char *argv[])
 	g_test_add_func ("/weather/airport_distance_sanity", test_airport_distance_sanity);
 	g_test_add_func ("/weather/metar_weather_stations", test_metar_weather_stations);
 	g_test_add_func ("/weather/utc_sunset", test_utc_sunset);
+	g_test_add_func ("/weather/weather-loop-use-after-free", test_weather_loop_use_after_free);
 	/* Modifies environment, so needs to run last */
 	g_test_add_func ("/weather/bad_duplicate_weather_stations", test_bad_duplicate_weather_stations);
 	g_test_add_func ("/weather/duplicate_weather_stations", test_duplicate_weather_stations);
