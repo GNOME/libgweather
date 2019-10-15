@@ -25,21 +25,26 @@
 static void
 wx_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 {
-    GWeatherInfo *info = (GWeatherInfo *)data;
+    GWeatherInfo *info;
     GWeatherInfoPrivate *priv;
     GdkPixbufAnimation *animation;
 
-    g_return_if_fail (info != NULL);
-    priv = info->priv;
-
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
-	if (msg->status_code != SOUP_STATUS_CANCELLED)
-	    g_warning ("Failed to get radar map image: %d %s.\n",
+	if (msg->status_code == SOUP_STATUS_CANCELLED) {
+	    g_debug ("Failed to get radar map image: %d %s.\n",
 		       msg->status_code, msg->reason_phrase);
-	g_object_unref (priv->radar_loader);
+	    return;
+	}
+	g_warning ("Failed to get radar map image: %d %s.\n",
+		   msg->status_code, msg->reason_phrase);
+	info = data;
+	g_object_unref (info->priv->radar_loader);
 	_gweather_info_request_done (info, msg);
 	return;
     }
+
+    info = data;
+    priv = info->priv;
 
     gdk_pixbuf_loader_close (priv->radar_loader, NULL);
     animation = gdk_pixbuf_loader_get_animation (priv->radar_loader);
