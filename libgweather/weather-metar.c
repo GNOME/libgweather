@@ -577,31 +577,35 @@ metar_parse (gchar *metar, GWeatherInfo *info)
 static void
 metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 {
-    GWeatherInfo *info = (GWeatherInfo *)data;
+    GWeatherInfo *info;
     GWeatherInfoPrivate *priv;
     WeatherLocation *loc;
     const gchar *p, *eoln;
     gchar *searchkey, *metar;
     gboolean success = FALSE;
 
-    g_return_if_fail (info != NULL);
-
-    priv = info->priv;
-   
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
-	if (SOUP_STATUS_IS_TRANSPORT_ERROR (msg->status_code))
-	    priv->network_error = TRUE;
-	else {
-	    if (msg->status_code != SOUP_STATUS_CANCELLED)
-		/* Translators: %d is an error code, and %s the error string */
-		g_warning (_("Failed to get METAR data: %d %s.\n"),
-			   msg->status_code, msg->reason_phrase);
+        if (msg->status_code != SOUP_STATUS_CANCELLED) {
+	    g_debug ("Failed to get METAR data: %d %s.\n",
+		     msg->status_code, msg->reason_phrase);
+	    return;
+	}
+
+	info = data;
+	if (SOUP_STATUS_IS_TRANSPORT_ERROR (msg->status_code)) {
+	    info->priv->network_error = TRUE;
+	} else {
+	    /* Translators: %d is an error code, and %s the error string */
+	    g_warning (_("Failed to get METAR data: %d %s.\n"),
+		       msg->status_code, msg->reason_phrase);
 	}
 
 	_gweather_info_request_done (info, msg);
 	return;
     }
 
+    info = data;
+    priv = info->priv;
     loc = &priv->location;
 
     g_debug ("METAR data for %s", loc->code);

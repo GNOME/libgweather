@@ -314,21 +314,24 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
 static void
 iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 {
-    GWeatherInfo *info = (GWeatherInfo *)data;
+    GWeatherInfo *info;
     GWeatherInfoPrivate *priv;
     WeatherLocation *loc;
 
-    g_return_if_fail (info != NULL);
-
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
         /* forecast data is not really interesting anyway ;) */
-	if (msg->status_code != SOUP_STATUS_CANCELLED)
-	    g_warning ("Failed to get IWIN forecast data: %d %s\n",
-		       msg->status_code, msg->reason_phrase);
-        _gweather_info_request_done (info, msg);
+	if (msg->status_code == SOUP_STATUS_CANCELLED) {
+	    g_debug ("Failed to get IWIN forecast data: %d %s\n",
+		     msg->status_code, msg->reason_phrase);
+	    return;
+	}
+	g_warning ("Failed to get IWIN forecast data: %d %s\n",
+		   msg->status_code, msg->reason_phrase);
+        _gweather_info_request_done (data, msg);
         return;
     }
 
+    info = data;
     priv = info->priv;
     loc = &priv->location;
 
