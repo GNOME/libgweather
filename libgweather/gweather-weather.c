@@ -1914,6 +1914,8 @@ gweather_info_get_value_apparent (GWeatherInfo *info, GWeatherTemperatureUnit un
  * @info: a #GWeatherInfo
  * @value: (out) (type glong): the time @info was last updated
  *
+ * Note that @value may be 0 if @info has not yet been updated.
+ *
  * Returns: TRUE is @value is valid, FALSE otherwise.
  */
 gboolean
