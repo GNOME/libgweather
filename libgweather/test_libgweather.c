@@ -336,6 +336,7 @@ parse_metar_stations (const char *contents)
                 "KHQG",
                 "KOEL",
                 "KTQK",
+                "KX26",
                 NULL
             };
             if (g_strv_contains (known_duplicates, station)) {
