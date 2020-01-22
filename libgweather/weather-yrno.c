@@ -182,6 +182,7 @@ read_symbol (GWeatherInfo *info,
 	priv->sky = symbol->sky;
 	priv->cond = symbol->condition;
     }
+    xmlFree (val);
 }
 
 static inline void
@@ -200,9 +201,11 @@ read_wind_direction (GWeatherInfo *info,
     for (i = 0; i < G_N_ELEMENTS (wind_directions); i++) {
 	if (strcmp ((char*) val, wind_directions[i].name) == 0) {
 	    info->priv->wind = wind_directions[i].direction;
+            xmlFree (val);
 	    return;
 	}
     }
+    xmlFree (val);
 }
 
 static inline void
@@ -218,6 +221,7 @@ read_wind_speed (GWeatherInfo *info,
 
     mps = g_ascii_strtod ((char*) val, NULL);
     info->priv->windspeed = WINDSPEED_MS_TO_KNOTS (mps);
+    xmlFree (val);
 }
 
 static inline void
@@ -233,6 +237,7 @@ read_temperature (GWeatherInfo *info,
 
     celsius = g_ascii_strtod ((char*) val, NULL);
     info->priv->temp = TEMP_C_TO_F (celsius);
+    xmlFree (val);
 }
 
 static inline void
@@ -248,6 +253,7 @@ read_pressure (GWeatherInfo *info,
 
     hpa = g_ascii_strtod ((char*) val, NULL);
     info->priv->pressure = PRESSURE_MBAR_TO_INCH (hpa);
+    xmlFree (val);
 }
 
 static inline void
@@ -264,6 +270,7 @@ read_humidity (GWeatherInfo *info,
     percent = g_ascii_strtod ((char*) val, NULL);
     info->priv->humidity = percent;
     info->priv->hasHumidity = TRUE;
+    xmlFree (val);
 }
 
 static inline void
