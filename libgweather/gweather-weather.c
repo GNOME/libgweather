@@ -751,6 +751,8 @@ gweather_info_finalize (GObject *object)
     g_free (priv->radar_url);
     priv->radar_url = NULL;
 
+    g_free (priv->forecast_attribution);
+
     G_OBJECT_CLASS (gweather_info_parent_class)->finalize (object);
 }
 
