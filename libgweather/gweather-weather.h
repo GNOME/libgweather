@@ -64,7 +64,7 @@ struct _GWeatherInfo {
     /*< private >*/
     GObject parent_instance;
 
-    GWeatherInfoPrivate *priv;
+    GWeatherInfoPrivate *priv; /* unused */
 };
 
 struct _GWeatherInfoClass {
