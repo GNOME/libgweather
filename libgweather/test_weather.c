@@ -4,7 +4,6 @@
 
 #include <locale.h>
 
-static char *search_str;
 // gnome-weather uses:
 static GWeatherProvider providers = GWEATHER_PROVIDER_METAR | GWEATHER_PROVIDER_YR_NO | GWEATHER_PROVIDER_OWM;
 
@@ -13,7 +12,7 @@ static GWeatherProvider providers = GWEATHER_PROVIDER_METAR | GWEATHER_PROVIDER_
 
 static gboolean
 find_loc_children (GWeatherLocation  *location,
-		   const char        *search_str,
+		   const char        *str,
 		   GWeatherLocation **ret)
 {
     GWeatherLocation **children;
@@ -25,12 +24,12 @@ find_loc_children (GWeatherLocation  *location,
             const char *code;
 
             code = gweather_location_get_code (children[i]);
-            if (g_strcmp0 (search_str, code) == 0) {
+            if (g_strcmp0 (str, code) == 0) {
                 *ret = gweather_location_ref (children[i]);
                 return TRUE;
             }
         } else {
-            if (find_loc_children (children[i], search_str, ret))
+            if (find_loc_children (children[i], str, ret))
                 return TRUE;
         }
     }
@@ -40,11 +39,11 @@ find_loc_children (GWeatherLocation  *location,
 
 static GWeatherLocation *
 find_loc (GWeatherLocation *world,
-	  const char       *search_str)
+	  const char       *str)
 {
     GWeatherLocation *loc = NULL;
 
-    find_loc_children (world, search_str, &loc);
+    find_loc_children (world, str, &loc);
     return loc;
 }
 
@@ -136,6 +135,7 @@ main (int argc, char **argv)
     GWeatherLocation *world, *loc;
     GWeatherInfo *info;
     GMainLoop *loop;
+    const char *search_str;
 
     setlocale (LC_ALL, "");
 
