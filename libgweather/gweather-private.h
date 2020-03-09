@@ -71,6 +71,8 @@ GWeatherLocation *_gweather_location_new_detached (GWeatherLocation *nearest_sta
 
 void              _gweather_location_update_weather_location (GWeatherLocation *gloc,
 							      WeatherLocation  *loc);
+GWEATHER_EXTERN void
+_gweather_location_reset_world (void);
 
 /*
  * Weather information.
