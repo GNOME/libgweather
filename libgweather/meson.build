@@ -122,6 +122,7 @@ gweather_gir = gnome.generate_gir(lib_libgweather,
   header: 'libgweather/gweather.h',
   extra_args: [
     '--warn-all',
+    '--quiet',
     '-DGWEATHER_COMPILATION',
   ],
   install: true,
