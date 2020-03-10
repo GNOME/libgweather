@@ -1538,7 +1538,8 @@ gweather_location_common_deserialize (GWeatherLocation *world,
                                                      longitude / M_PI * 180.0);
         if (found && (g_strcmp0 (name, found->english_name) == 0 ||
                       g_strcmp0 (name, found->local_name) == 0))
-	    return gweather_location_ref (found);
+	    return g_steal_pointer (&found);
+	g_clear_pointer (&found, gweather_location_unref);
     }
 
     if (station_code[0] == '\0')
@@ -1673,6 +1674,9 @@ gweather_location_format_two_deserialize (GWeatherLocation *world,
 	parent_latitude = 0;
 	parent_longitude = 0;
     }
+
+    g_variant_unref (latlon_variant);
+    g_variant_unref (parent_latlon_variant);
 
     return gweather_location_common_deserialize(world, name, station_code, is_city,
 						latlon_valid, latitude, longitude,
