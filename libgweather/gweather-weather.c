@@ -1050,7 +1050,7 @@ speed_unit_to_real (GWeatherSpeedUnit unit)
     if (unit == GWEATHER_SPEED_UNIT_DEFAULT)
 	return is_locale_metric() ?
 	    GWEATHER_SPEED_UNIT_KPH :
-	    GWEATHER_SPEED_UNIT_KNOTS;
+	    GWEATHER_SPEED_UNIT_MPH;
 
     return unit;
 }
