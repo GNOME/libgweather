@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see
- * <http://www.gnu.org/licenses/>.
+ * <https://www.gnu.org/licenses/>.
  */
 
 #ifndef __WEATHER_PRIV_H_
@@ -179,7 +179,6 @@ struct _GWeatherInfoPrivate {
 
 void		metar_start_open	(GWeatherInfo *info);
 gboolean	iwin_start_open		(GWeatherInfo *info);
-void		wx_start_open		(GWeatherInfo *info);
 gboolean        yrno_start_open         (GWeatherInfo *info);
 gboolean        owm_start_open          (GWeatherInfo *info);
 

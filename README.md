@@ -20,11 +20,11 @@ Documentation for the API is available with gtk-doc, and online:
 
 You may download updates to the package from:
 
-   http://download.gnome.org/sources/libgweather/
+   https://download.gnome.org/sources/libgweather/
 
 To discuss libgweather, you may use the desktop-devel-list mailing list:
 
-  http://mail.gnome.org/mailman/listinfo/desktop-devel-list
+  https://mail.gnome.org/mailman/listinfo/desktop-devel-list
 
 
 How to report bugs
@@ -38,7 +38,7 @@ You might need to create an account for yourself.
 
 Please read the following page on how to prepare a useful bug report:
 
-   https://bugzilla.gnome.org/page.cgi?id=bug-writing.html
+   https://wiki.gnome.org/Community/GettingInTouch/BugReportingGuidelines
 
 If you are interested in adding new locations (weather stations, or
 cities), please refer to this page in the GNOME Wiki:

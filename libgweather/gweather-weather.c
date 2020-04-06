@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see
- * <http://www.gnu.org/licenses/>.
+ * <https://www.gnu.org/licenses/>.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -667,10 +667,6 @@ gweather_info_update (GWeatherInfo *info)
 
     if (priv->providers & GWEATHER_PROVIDER_METAR)
 	metar_start_open (info);
-
-    if (priv->radar) {
-        wx_start_open (info);
-    }
 
     ok = FALSE;
     /* Try national forecast services first */
