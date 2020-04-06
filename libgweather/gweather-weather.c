@@ -668,10 +668,6 @@ gweather_info_update (GWeatherInfo *info)
     if (priv->providers & GWEATHER_PROVIDER_METAR)
 	metar_start_open (info);
 
-    if (priv->radar) {
-        wx_start_open (info);
-    }
-
     ok = FALSE;
     /* Try national forecast services first */
     if (priv->providers & GWEATHER_PROVIDER_IWIN)
