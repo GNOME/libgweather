@@ -106,6 +106,8 @@ get_list_from_configuration (GWeatherLocation *world,
             g_variant_unref (value);
             g_free (key);
         }
+
+	g_variant_unref (child);
     }
 
     g_variant_unref (v);
@@ -185,6 +187,8 @@ test_no_code_serialize (void)
     g_assert_cmpstr (gweather_location_get_name (loc), ==, gweather_location_get_name (new_loc));
     g_assert_true (gweather_location_equal (loc, new_loc));
     gweather_location_unref (new_loc);
+
+    gweather_location_unref (loc);
 
     _gweather_location_reset_world ();
 }
@@ -432,6 +436,8 @@ test_metar_weather_stations (void)
 
     test_metar_weather_stations_children (world, stations_ht);
 
+    g_hash_table_unref (stations_ht);
+
     _gweather_location_reset_world ();
 }
 
@@ -471,6 +477,8 @@ set_gsettings (void)
 	/* Set envvar */
 	g_setenv ("GSETTINGS_SCHEMA_DIR", tmpdir, TRUE);
 	g_setenv ("GSETTINGS_BACKEND", "memory", TRUE);
+
+	g_free (tmpdir);
 }
 
 static void
@@ -498,6 +506,8 @@ test_utc_sunset (void)
 
 	ret = gweather_info_get_value_moonphase (info, &phase, &lat);
 	g_assert_false (ret);
+
+	g_object_unref (info);
 
 	_gweather_location_reset_world ();
 }
@@ -579,6 +589,8 @@ test_bad_duplicate_weather_stations (void)
 
     g_hash_table_foreach (stations_ht, check_bad_duplicate_weather_stations, NULL);
 
+    g_hash_table_unref (stations_ht);
+
     g_unsetenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST");
     _gweather_location_reset_world ();
 }
@@ -652,6 +664,7 @@ test_location_names (void)
     g_assert_cmpstr (gweather_location_get_name (brussels), ==, "Brussels");
     g_assert_cmpstr (gweather_location_get_sort_name (brussels), ==, "brussels");
     g_assert_cmpstr (gweather_location_get_english_name (brussels), ==, "Brussels");
+    gweather_location_unref (brussels);
 
     setlocale (LC_ALL, "fr_FR.UTF-8");
     _gweather_location_reset_world ();
@@ -664,6 +677,7 @@ test_location_names (void)
     g_assert_cmpstr (gweather_location_get_name (brussels), ==, "Bruxelles");
     g_assert_cmpstr (gweather_location_get_sort_name (brussels), ==, "bruxelles");
     g_assert_cmpstr (gweather_location_get_english_name (brussels), ==, "Brussels");
+    gweather_location_unref (brussels);
 
     setlocale (LC_ALL, "");
     _gweather_location_reset_world ();
@@ -752,6 +766,8 @@ test_weather_loop_use_after_free (void)
                       G_CALLBACK (weather_updated), loop);
     gweather_info_update (info);
     g_object_unref (info);
+
+    gweather_location_unref (loc);
 
     g_timeout_add_seconds (5, stop_loop_cb, loop);
     g_main_loop_run (loop);
