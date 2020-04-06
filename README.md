@@ -20,7 +20,7 @@ Documentation for the API is available with gtk-doc, and online:
 
 You may download updates to the package from:
 
-   http://download.gnome.org/sources/libgweather/
+   https://download.gnome.org/sources/libgweather/
 
 To discuss libgweather, you may use the desktop-devel-list mailing list:
 
