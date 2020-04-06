@@ -24,7 +24,7 @@ You may download updates to the package from:
 
 To discuss libgweather, you may use the desktop-devel-list mailing list:
 
-  http://mail.gnome.org/mailman/listinfo/desktop-devel-list
+  https://mail.gnome.org/mailman/listinfo/desktop-devel-list
 
 
 How to report bugs
