@@ -38,7 +38,7 @@ You might need to create an account for yourself.
 
 Please read the following page on how to prepare a useful bug report:
 
-   https://bugzilla.gnome.org/page.cgi?id=bug-writing.html
+   https://wiki.gnome.org/Community/GettingInTouch/BugReportingGuidelines
 
 If you are interested in adding new locations (weather stations, or
 cities), please refer to this page in the GNOME Wiki:
