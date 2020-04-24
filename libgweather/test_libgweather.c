@@ -667,6 +667,12 @@ test_location_names (void)
     gweather_location_unref (brussels);
 
     setlocale (LC_ALL, "fr_FR.UTF-8");
+
+    if (!g_file_test (GNOMELOCALEDIR "/fr/LC_MESSAGES/libgweather-locations.mo", G_FILE_TEST_EXISTS)) {
+        g_test_skip ("Translations need to be installed for full testing");
+        return;
+    }
+
     _gweather_location_reset_world ();
 
     world = gweather_location_get_world ();
