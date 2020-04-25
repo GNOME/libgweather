@@ -43,7 +43,7 @@ test_named_timezones (void)
     guint i;
 
     world = gweather_location_get_world ();
-    g_assert (world);
+    g_assert_nonnull (world);
 
     children = gweather_location_get_children (world);
     for (i = 0; children[i] != NULL; i++) {
@@ -132,7 +132,7 @@ test_named_timezones_deserialized (void)
     GList *list, *l;
 
     world = gweather_location_get_world ();
-    g_assert (world);
+    g_assert_nonnull (world);
 
     list = get_list_from_configuration (world, CONFIGURATION, 3);
     for (l = list; l != NULL; l = l->next)
@@ -171,7 +171,7 @@ test_no_code_serialize (void)
     g_assert_nonnull (world);
 
     loc = gweather_location_find_nearest_city (world, 56.833333, 53.183333);
-    g_assert (loc);
+    g_assert_nonnull (loc);
     g_assert_cmpstr (gweather_location_get_name (loc), ==, "Izhevsk");
     g_assert_null (gweather_location_get_code (loc));
 
@@ -204,7 +204,7 @@ test_timezone (GWeatherLocation *location)
         GWeatherTimezone **tzs;
 
         tzs = gweather_location_get_timezones (location);
-        g_assert (tzs);
+        g_assert_nonnull (tzs);
 
         /* Only countries should have multiple timezones associated */
         if ((tzs[0] == NULL && gweather_location_get_level (location) < GWEATHER_LOCATION_WEATHER_STATION) &&
@@ -247,7 +247,7 @@ test_timezones (void)
     GWeatherLocation *world;
 
     world = gweather_location_get_world ();
-    g_assert (world);
+    g_assert_nonnull (world);
 
     test_timezones_children (world);
 
@@ -296,7 +296,7 @@ test_airport_distance_sanity (void)
     GWeatherLocation *world;
 
     world = gweather_location_get_world ();
-    g_assert (world);
+    g_assert_nonnull (world);
 
     test_airport_distance_children (world);
 
@@ -418,12 +418,12 @@ test_metar_weather_stations (void)
     char *contents;
 
     world = gweather_location_get_world ();
-    g_assert (world);
+    g_assert_nonnull (world);
 
     msg = soup_message_new ("GET", METAR_SOURCES);
     session = soup_session_new ();
     soup_session_send_message (session, msg);
-    g_assert (SOUP_STATUS_IS_SUCCESSFUL (msg->status_code));
+    g_assert_nonnull (SOUP_STATUS_IS_SUCCESSFUL (msg->status_code));
     g_object_unref (session);
     g_assert_nonnull (msg->response_body);
 
@@ -453,15 +453,15 @@ set_gsettings (void)
 	g_assert_nonnull (tmpdir);
 
 	/* Copy the schemas files */
-	g_assert (g_file_get_contents (SCHEMAS_BUILDDIR "/org.gnome.GWeather.enums.xml", &schema_text, NULL, NULL));
+	g_assert_true (g_file_get_contents (SCHEMAS_BUILDDIR "/org.gnome.GWeather.enums.xml", &schema_text, NULL, NULL));
 	dest = g_strdup_printf ("%s/org.gnome.GWeather.enums.xml", tmpdir);
-	g_assert (g_file_set_contents (dest, schema_text, -1, NULL));
+	g_assert_true (g_file_set_contents (dest, schema_text, -1, NULL));
 	g_free (dest);
 	g_free (schema_text);
 
-	g_assert (g_file_get_contents (SCHEMASDIR "/org.gnome.GWeather.gschema.xml", &schema_text, NULL, NULL));
+	g_assert_true (g_file_get_contents (SCHEMASDIR "/org.gnome.GWeather.gschema.xml", &schema_text, NULL, NULL));
 	dest = g_strdup_printf ("%s/org.gnome.GWeather.gschema.xml", tmpdir);
-	g_assert (g_file_set_contents (dest, schema_text, -1, NULL));
+	g_assert_true (g_file_set_contents (dest, schema_text, -1, NULL));
 	g_free (dest);
 	g_free (schema_text);
 
@@ -470,8 +470,8 @@ set_gsettings (void)
 				   "--schema-file=%s/org.gnome.GWeather.enums.xml "
 				   "--schema-file=%s/org.gnome.GWeather.gschema.xml",
 				   tmpdir, SCHEMAS_BUILDDIR, SCHEMASDIR);
-	g_assert (g_spawn_command_line_sync (cmdline, NULL, NULL, &result, NULL));
-	g_assert (result == 0);
+	g_assert_true (g_spawn_command_line_sync (cmdline, NULL, NULL, &result, NULL));
+	g_assert_cmpint (result, ==, 0);
 	g_free (cmdline);
 
 	/* Set envvar */
@@ -581,7 +581,7 @@ test_bad_duplicate_weather_stations (void)
 
     g_setenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST", "1", TRUE);
     world = gweather_location_get_world ();
-    g_assert (world);
+    g_assert_nonnull (world);
 
     stations_ht = g_hash_table_new_full (g_str_hash, g_str_equal,
                                          g_free, (GDestroyNotify) NULL);
@@ -643,7 +643,7 @@ test_duplicate_weather_stations (void)
 
     g_setenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST", "1", TRUE);
     world = gweather_location_get_world ();
-    g_assert (world);
+    g_assert_nonnull (world);
 
     test_duplicate_weather_stations_children (world);
 
@@ -657,10 +657,10 @@ test_location_names (void)
     GWeatherLocation *world, *brussels;
 
     world = gweather_location_get_world ();
-    g_assert (world);
+    g_assert_nonnull (world);
 
     brussels = gweather_location_find_nearest_city (world, 50.833333, 4.333333);
-    g_assert (brussels);
+    g_assert_nonnull (brussels);
     g_assert_cmpstr (gweather_location_get_name (brussels), ==, "Brussels");
     g_assert_cmpstr (gweather_location_get_sort_name (brussels), ==, "brussels");
     g_assert_cmpstr (gweather_location_get_english_name (brussels), ==, "Brussels");
@@ -670,10 +670,10 @@ test_location_names (void)
     _gweather_location_reset_world ();
 
     world = gweather_location_get_world ();
-    g_assert (world);
+    g_assert_nonnull (world);
 
     brussels = gweather_location_find_nearest_city (world, 50.833333, 4.333333);
-    g_assert (brussels);
+    g_assert_nonnull (brussels);
     g_assert_cmpstr (gweather_location_get_name (brussels), ==, "Bruxelles");
     g_assert_cmpstr (gweather_location_get_sort_name (brussels), ==, "bruxelles");
     g_assert_cmpstr (gweather_location_get_english_name (brussels), ==, "Brussels");
