@@ -25,7 +25,6 @@
 #include <string.h>
 
 #include "gweather-timezone.h"
-#include "gweather-parser.h"
 #include "gweather-private.h"
 
 /**
@@ -41,6 +40,9 @@
  */
 
 struct _GWeatherTimezone {
+    GWeatherDb *db;
+    guint db_idx;
+
     char *id, *name;
     int offset, dst_offset;
     gboolean has_dst;
@@ -149,6 +151,62 @@ parse_tzdata (const char *tz_name, time_t start, time_t end,
     return TRUE;
 }
 
+static GWeatherTimezone *
+timezone_sink_keep_alive (GWeatherTimezone *tz)
+{
+	g_assert (tz->db);
+
+	if (g_ptr_array_find (tz->db->timezones_keepalive, tz, NULL)) {
+		gweather_timezone_unref (tz);
+		return tz;
+	}
+
+	g_ptr_array_add (tz->db->timezones_keepalive, tz);
+
+	return tz;
+}
+
+GWeatherTimezone *
+_gweather_timezone_ref_for_idx (GWeatherDb       *db,
+				 guint             idx)
+{
+    GWeatherTimezone *zone;
+    DbWorldTimezonesEntryRef ref;
+    DbTimezoneRef tz_ref;
+    const char *id;
+    int offset = 0, dst_offset = 0;
+    gboolean has_dst = FALSE;
+
+    g_assert (db);
+    g_assert (idx < db->timezones->len);
+    zone = g_ptr_array_index (db->timezones, idx);
+    if (zone)
+        return gweather_timezone_ref (zone);
+
+    ref = db_world_timezones_get_at (db->timezones_ref, idx);
+    id = db_world_timezones_entry_get_key (ref);
+    tz_ref = db_world_timezones_entry_get_value (ref);
+
+    if (parse_tzdata (id, db->year_start, db->year_end,
+		      &offset, &has_dst, &dst_offset)) {
+	zone = g_slice_new0 (GWeatherTimezone);
+	zone->ref_count = 1;
+	zone->db = db;
+	zone->db_idx = idx;
+	zone->id = g_strdup (id);
+
+	zone->name = g_strdup (EMPTY_TO_NULL (db_i18n_get_str (db_timezone_get_name (tz_ref))));
+	zone->offset = offset;
+	zone->has_dst = has_dst;
+	zone->dst_offset = dst_offset;
+
+	/* Insert weak reference */
+	g_ptr_array_index (db->timezones, idx) = zone;
+    }
+
+    return zone;
+}
+
 /**
  * gweather_timezone_get_by_tzid:
  * @tzid: A timezone identifier, like "America/New_York" or "Europe/London"
@@ -159,120 +217,27 @@ parse_tzdata (const char *tz_name, time_t start, time_t end,
  * belongs to GWeather, do not unref it.
  *
  * Since: 3.12
+ *
+ * Deprecated: XXX: XXX()
  */
 GWeatherTimezone *
 gweather_timezone_get_by_tzid (const char *tzid)
 {
     GWeatherLocation *world;
+    GWeatherDb *db;
+    gsize idx;
 
     g_return_val_if_fail (tzid != NULL, NULL);
 
-    world = gweather_location_get_world ();
+    /* TODO: Get the DB directly */
+    world = gweather_location_dup_world ();
+    db = world->db;
+    gweather_location_unref (world);
 
-    return g_hash_table_lookup (world->timezone_cache, tzid);
-}
-
-static GWeatherTimezone *
-parse_timezone (GWeatherParser *parser)
-{
-    GWeatherTimezone *zone = NULL;
-    char *id = NULL;
-    char *name = NULL;
-    int offset = 0, dst_offset = 0;
-    gboolean has_dst = FALSE;
-
-    id = (char *) xmlTextReaderGetAttribute (parser->xml, (xmlChar *) "id");
-    if (!id) {
-	xmlTextReaderNext (parser->xml);
+    if (!db_world_timezones_lookup (db->timezones_ref, tzid, &idx, NULL))
 	return NULL;
-    }
 
-    if (!xmlTextReaderIsEmptyElement (parser->xml)) {
-	if (xmlTextReaderRead (parser->xml) != 1) {
-	    xmlFree (id);
-	    return NULL;
-	}
-
-	while (xmlTextReaderNodeType (parser->xml) != XML_READER_TYPE_END_ELEMENT) {
-	    if (xmlTextReaderNodeType (parser->xml) != XML_READER_TYPE_ELEMENT) {
-		if (xmlTextReaderRead (parser->xml) != 1)
-		    break;
-		continue;
-	    }
-
-	    if (!strcmp ((const char *) xmlTextReaderConstName (parser->xml), "_name"))
-		name = _gweather_parser_get_localized_value (parser);
-	    else {
-		if (xmlTextReaderNext (parser->xml) != 1)
-		    break;
-	    }
-	}
-    }
-
-    if (parse_tzdata (id, parser->year_start, parser->year_end,
-		      &offset, &has_dst, &dst_offset)) {
-	zone = g_slice_new0 (GWeatherTimezone);
-	zone->ref_count = 1;
-	zone->id = g_strdup (id);
-	zone->name = name;
-	zone->offset = offset;
-	zone->has_dst = has_dst;
-	zone->dst_offset = dst_offset;
-
-	g_hash_table_insert (parser->timezone_cache, zone->id, gweather_timezone_ref (zone));
-
-	name = NULL;
-    }
-
-    g_free (name);
-    xmlFree (id);
-
-    return zone;
-}
-
-GWeatherTimezone **
-_gweather_timezones_parse_xml (GWeatherParser *parser)
-{
-    GPtrArray *zones;
-    GWeatherTimezone *zone;
-    const char *tagname;
-    int tagtype;
-    unsigned int i;
-
-    zones = g_ptr_array_new ();
-
-    if (xmlTextReaderRead (parser->xml) != 1)
-	goto error_out;
-    while ((tagtype = xmlTextReaderNodeType (parser->xml)) !=
-	   XML_READER_TYPE_END_ELEMENT) {
-	if (tagtype != XML_READER_TYPE_ELEMENT) {
-	    if (xmlTextReaderRead (parser->xml) != 1)
-		goto error_out;
-	    continue;
-	}
-
-	tagname = (const char *) xmlTextReaderConstName (parser->xml);
-
-	if (!strcmp (tagname, "timezone")) {
-	    zone = parse_timezone (parser);
-	    if (zone)
-		g_ptr_array_add (zones, zone);
-	}
-
-	if (xmlTextReaderNext (parser->xml) != 1)
-	    goto error_out;
-    }
-    if (xmlTextReaderRead (parser->xml) != 1)
-	goto error_out;
-
-    g_ptr_array_add (zones, NULL);
-    return (GWeatherTimezone **)g_ptr_array_free (zones, FALSE);
-
-error_out:
-    for (i = 0; i < zones->len; i++)
-	gweather_timezone_unref (zones->pdata[i]);
-    g_ptr_array_free (zones, TRUE);
-    return NULL;
+    return timezone_sink_keep_alive (_gweather_timezone_ref_for_idx (db, idx));
 }
 
 /**
@@ -304,6 +269,10 @@ gweather_timezone_unref (GWeatherTimezone *zone)
     g_return_if_fail (zone != NULL);
 
     if (!--zone->ref_count) {
+	if (zone->db) {
+		g_ptr_array_index (zone->db->timezones, zone->db_idx) = 0;
+	}
+
 	g_free (zone->id);
 	g_free (zone->name);
 	g_slice_free (GWeatherTimezone, zone);
