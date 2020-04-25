@@ -27,6 +27,10 @@
 #include "gweather-location.h"
 #include "gweather-weather.h"
 
+/* We use/test gweather_location_get_children */
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
 extern void _gweather_location_reset_world (void);
 
 /* For test_metar_weather_stations */
@@ -61,6 +65,7 @@ test_named_timezones (void)
         g_assert_true (code[0] == '@');
     }
 
+    g_clear_pointer (&world, gweather_location_unref);
     _gweather_location_reset_world ();
 }
 
@@ -156,9 +161,9 @@ test_named_timezones_deserialized (void)
     }
     g_list_free (list);
 
+    g_clear_pointer (&world, gweather_location_unref);
+    /* test_timezones will clear the DB */
     test_timezones ();
-
-    _gweather_location_reset_world ();
 }
 
 static void
@@ -190,6 +195,9 @@ test_no_code_serialize (void)
     g_assert_cmpstr (gweather_location_get_name (loc), ==, gweather_location_get_name (new_loc));
     g_assert_true (gweather_location_equal (loc, new_loc));
 
+    g_clear_pointer (&world, gweather_location_unref);
+    g_clear_pointer (&loc, gweather_location_unref);
+    g_clear_pointer (&new_loc, gweather_location_unref);
     _gweather_location_reset_world ();
 }
 
@@ -251,6 +259,7 @@ test_timezones (void)
 
     test_timezones_children (world);
 
+    g_clear_pointer (&world, gweather_location_unref);
     _gweather_location_reset_world ();
 }
 
@@ -303,6 +312,7 @@ test_airport_distance_sanity (void)
     if (g_test_failed ())
         g_warning ("Maximum city to airport distance is %.1f km", max_distance);
 
+    g_clear_pointer (&world, gweather_location_unref);
     _gweather_location_reset_world ();
 }
 
@@ -438,6 +448,7 @@ test_metar_weather_stations (void)
 
     g_hash_table_unref (stations_ht);
 
+    g_clear_pointer (&world, gweather_location_unref);
     _gweather_location_reset_world ();
 }
 
@@ -509,6 +520,8 @@ test_utc_sunset (void)
 
 	g_object_unref (info);
 
+	g_clear_pointer (&world, gweather_location_unref);
+	g_clear_pointer (&utc, gweather_location_unref);
 	_gweather_location_reset_world ();
 }
 
@@ -592,6 +605,7 @@ test_bad_duplicate_weather_stations (void)
     g_hash_table_unref (stations_ht);
 
     g_unsetenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST");
+    g_clear_pointer (&world, gweather_location_unref);
     _gweather_location_reset_world ();
 }
 
@@ -648,6 +662,7 @@ test_duplicate_weather_stations (void)
     test_duplicate_weather_stations_children (world);
 
     g_unsetenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST");
+    g_clear_pointer (&world, gweather_location_unref);
     _gweather_location_reset_world ();
 }
 
@@ -684,6 +699,8 @@ test_location_names (void)
     gweather_location_unref (brussels);
 
     setlocale (LC_ALL, "");
+    g_clear_pointer (&world, gweather_location_unref);
+    g_clear_pointer (&brussels, gweather_location_unref);
     _gweather_location_reset_world ();
 }
 
@@ -797,7 +814,7 @@ main (int argc, char *argv[])
 	g_log_set_handler (NULL, G_LOG_LEVEL_MESSAGE | G_LOG_LEVEL_INFO | G_LOG_LEVEL_DEBUG, log_handler, NULL);
 
 	g_setenv ("LIBGWEATHER_LOCATIONS_PATH",
-		  TEST_SRCDIR "../data/Locations.xml",
+		  TEST_LOCATIONS,
 		  FALSE);
 	set_gsettings ();
 

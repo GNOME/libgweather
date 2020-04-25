@@ -30,21 +30,44 @@
 
 #include "gweather-weather.h"
 #include "gweather-location.h"
+#include "gweather-db.h"
+
+#define INVALID_IDX G_MAXUINT16
+#define IDX_VALID(idx) ((idx) >= 0 && (idx) < 0xffff)
+#define EMPTY_TO_NULL(s) ((s)[0] == '\0' ? NULL : (s))
 
 void        _gweather_gettext_init (void);
 
+
+typedef struct {
+    GMappedFile *map;
+    DbWorldRef world;
+    DbArrayofLocationRef locations_ref;
+    DbWorldTimezonesRef timezones_ref;
+
+    GPtrArray *locations;
+    GPtrArray *timezones;
+
+    time_t year_start;
+    time_t year_end;
+} GWeatherDb;
+
 struct _GWeatherLocation {
-    char *english_name, *local_name, *msgctxt, *local_sort_name, *english_sort_name;
-    GWeatherLocation *parent, **children;
+    GWeatherDb *db;
+    guint       db_idx;
+    DbLocationRef ref;
+
+    /* Attributes with _ may be fetched/filled from the database on the fly */
+    char *_english_name, *_local_name, *_local_sort_name, *_english_sort_name;
+    guint16 parent_idx; /* From the DB, except for nearest clones */
+    GWeatherLocation *_parent, **_children;
+    GWeatherTimezone *_timezone;
     GWeatherLocationLevel level;
-    char *country_code, *tz_hint;
-    char *station_code, *forecast_zone, *radar;
+    char *_country_code;
+    guint16 tz_hint_idx;
+    char *_station_code;
     double latitude, longitude;
     gboolean latlon_valid;
-    GWeatherTimezone **zones;
-    GHashTable *metar_code_cache;
-    GHashTable *timezone_cache;
-    GHashTable *country_code_cache;
 
     int ref_count;
 };
@@ -71,6 +94,10 @@ GWeatherLocation *_gweather_location_new_detached (GWeatherLocation *nearest_sta
 
 void              _gweather_location_update_weather_location (GWeatherLocation *gloc,
 							      WeatherLocation  *loc);
+
+GWeatherTimezone * _gweather_timezone_ref_for_idx (GWeatherDb       *db,
+						    guint             idx);
+
 
 /*
  * Weather information.

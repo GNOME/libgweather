@@ -52,8 +52,7 @@ gweather_c_sources = [
   'gweather-location.c',
   'gweather-timezone.c',
   'gweather-location-entry.c',
-  'gweather-timezone-menu.c',
-  'gweather-parser.c']
+  'gweather-timezone-menu.c']
 introspection_sources = gweather_c_sources + gweather_new_headers
 
 lib_libgweather = shared_library('gweather-3',
@@ -98,7 +97,7 @@ if enable_vala
   )
 endif
 
-test_cargs = ['-DTEST_SRCDIR="@0@/"'.format(meson.current_source_dir()),
+test_cargs = ['-DTEST_LOCATIONS="@0@"'.format(locations_bin.full_path()),
               '-DSCHEMASDIR="@0@/schemas"'.format(meson.source_root()),
               '-DSCHEMAS_BUILDDIR="@0@/schemas"'.format(meson.build_root())]
 
@@ -118,7 +117,7 @@ exe = executable('test_libgweather',
   c_args: test_cargs,
   dependencies: libgweather_dep,
   install: false)
-test('test_named_timezones', exe)
+test('test_named_timezones', exe, depends: [locations_bin])
 
 executable('test_metar',
   ['test_metar.c', gweather_c_sources],
