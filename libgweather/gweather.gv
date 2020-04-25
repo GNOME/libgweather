@@ -1,0 +1,47 @@
+
+type Idx {
+   idx: bigendian uint16;
+};
+
+type I18n {
+  str: string;
+  msgctxt: string;
+};
+
+type Timezone {
+  name: I18n;
+  obsoletes: []string;
+};
+
+type Coordinate {
+  lat: bigendian double;
+  lon: bigendian double;
+};
+
+type Location {
+  name: I18n;
+  forecast_zone: string;
+  radar: string;
+  coordinates: ?Coordinate;
+
+  country_code: string;
+  metar_code: string;
+  tz_hint: ?Idx;
+
+  level: byte;
+
+  nearest: ?Idx;
+
+  parent: Idx;
+  children: [] Idx;
+
+  timezones: [] Idx;
+};
+
+type World {
+  loc_by_country: [sorted string] Idx;
+  loc_by_metar: [sorted string] Idx;
+
+  timezones: [sorted string] Timezone;
+  locations: []Location;
+};
