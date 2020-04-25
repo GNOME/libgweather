@@ -52,8 +52,7 @@ gweather_c_sources = [
   'gweather-location.c',
   'gweather-timezone.c',
   'gweather-location-entry.c',
-  'gweather-timezone-menu.c',
-  'gweather-parser.c']
+  'gweather-timezone-menu.c']
 introspection_sources = gweather_c_sources + gweather_new_headers
 
 lib_libgweather = shared_library('gweather-3',
