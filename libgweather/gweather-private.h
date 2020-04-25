@@ -31,20 +31,54 @@
 #include "gweather-weather.h"
 #include "gweather-location.h"
 
+static inline gdouble
+DOUBLE_FROM_BE(gdouble x)
+{
+    gint64 tmp = *((gint64*) &x);
+    tmp = GINT64_FROM_BE(tmp);
+    x = *((double*) &tmp);
+    return x;
+}
+#include "gweather-db.h"
+
+#define EMPTY_TO_NULL(s) ((s)[0] == '\0' ? NULL : (s))
+
 void        _gweather_gettext_init (void);
 
+
+typedef struct {
+    GMappedFile *map;
+    DbWorldRef world;
+    DbArrayofLocationRef locations_ref;
+    DbWorldTimezonesRef timezones_ref;
+
+    GPtrArray *locations;
+    GPtrArray *timezones;
+
+    GPtrArray *locations_keepalive;
+    GPtrArray *timezones_keepalive;
+
+    time_t year_start;
+    time_t year_end;
+} GWeatherDb;
+
 struct _GWeatherLocation {
+    GWeatherDb *db;
+    guint       db_idx;
+    DbLocationRef ref;
+
     char *english_name, *local_name, *msgctxt, *local_sort_name, *english_sort_name;
     GWeatherLocation *parent, **children;
     GWeatherLocationLevel level;
-    char *country_code, *tz_hint;
+    char *country_code;
+    gint tz_hint_idx;
     char *station_code, *forecast_zone, *radar;
     double latitude, longitude;
     gboolean latlon_valid;
     GWeatherTimezone **zones;
-    GHashTable *metar_code_cache;
-    GHashTable *timezone_cache;
-    GHashTable *country_code_cache;
+
+    /* For old API emulation, i.e. holding on to objects */
+    GWeatherTimezone *timezone;
 
     int ref_count;
 };
@@ -71,6 +105,10 @@ GWeatherLocation *_gweather_location_new_detached (GWeatherLocation *nearest_sta
 
 void              _gweather_location_update_weather_location (GWeatherLocation *gloc,
 							      WeatherLocation  *loc);
+
+GWeatherTimezone * _gweather_timezone_ref_for_idx (GWeatherDb       *db,
+						    guint             idx);
+
 
 /*
  * Weather information.
