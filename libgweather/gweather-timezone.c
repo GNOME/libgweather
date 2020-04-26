@@ -230,7 +230,7 @@ gweather_timezone_get_by_tzid (const char *tzid)
     g_return_val_if_fail (tzid != NULL, NULL);
 
     /* TODO: Get the DB directly */
-    world = gweather_location_ref_world ();
+    world = gweather_location_dup_world ();
     db = world->db;
     gweather_location_unref (world);
 

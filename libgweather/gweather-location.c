@@ -100,7 +100,8 @@ sort_locations_by_name (gconstpointer a, gconstpointer b)
     GWeatherLocation *loc_a = *(GWeatherLocation **)a;
     GWeatherLocation *loc_b = *(GWeatherLocation **)b;
 
-    return g_utf8_collate (loc_a->local_sort_name, loc_b->local_sort_name);
+    return g_utf8_collate (gweather_location_get_sort_name (loc_a),
+                           gweather_location_get_sort_name (loc_b));
 }
  
 static int
@@ -223,7 +224,6 @@ location_ref_for_idx (GWeatherDb       *db,
 {
     GWeatherLocation *loc;
     DbLocationRef ref;
-    char *normalized;
 
     g_assert (db);
     g_assert (idx < db->locations->len);
@@ -239,26 +239,6 @@ location_ref_for_idx (GWeatherDb       *db,
     loc->db = db;
     loc->db_idx = idx;
     loc->ref = ref;
-
-    loc->english_name = g_strdup (EMPTY_TO_NULL (db_i18n_get_str (db_location_get_name (ref))));
-    loc->msgctxt = g_strdup (EMPTY_TO_NULL (db_i18n_get_msgctxt (db_location_get_name (ref))));
-
-    if (loc->english_name) {
-	if (loc->msgctxt) {
-	    loc->local_name = g_strdup (g_dpgettext2 ("libgweather-locations",
-						      loc->msgctxt, loc->english_name));
-	} else {
-	    loc->local_name = g_strdup (g_dgettext ("libgweather-locations", loc->english_name));
-	}
-
-	normalized = g_utf8_normalize (loc->local_name, -1, G_NORMALIZE_ALL);
-	loc->local_sort_name = g_utf8_casefold (normalized, -1);
-	g_free (normalized);
-
-	normalized = g_utf8_normalize (loc->english_name, -1, G_NORMALIZE_ALL);
-	loc->english_sort_name = g_utf8_casefold (normalized, -1);
-	g_free (normalized);
-    }
 
     loc->country_code = g_strdup (EMPTY_TO_NULL (db_location_get_country_code (ref)));
     loc->tz_hint_idx = db_location_get_tz_hint (ref);
@@ -322,7 +302,7 @@ location_sink_keep_alive (GWeatherLocation *loc)
 }
 
 /**
- * gweather_location_ref_world:
+ * gweather_location_dup_world:
  *
  * Obtains the shared #GWeatherLocation of type %GWEATHER_LOCATION_WORLD,
  * representing a hierarchy containing all of the known locations.
@@ -332,7 +312,7 @@ location_sink_keep_alive (GWeatherLocation *loc)
  * The return value should be unref'ed after use.
  **/
 GWeatherLocation *
-gweather_location_ref_world ()
+gweather_location_dup_world ()
 {
     g_autoptr(GError) error = NULL;
     GMappedFile *map;
@@ -400,7 +380,7 @@ gweather_location_ref_world ()
  * location, or %NULL if Locations.xml could not be found or could not be parsed.
  * The return value is owned by libgweather and should not be modified or freed.
  *
- * Deprecated: XXX: Use gweather_location_ref_world() instead to avoid high
+ * Deprecated: XXX: Use gweather_location_dup_world() instead to avoid high
  * memory consumptoin
  **/
 GWeatherLocation *
@@ -408,7 +388,7 @@ gweather_location_get_world (void)
 {
     GWeatherLocation *loc;
 
-    loc = gweather_location_ref_world ();
+    loc = gweather_location_dup_world ();
 
     return location_sink_keep_alive (loc);
 }
@@ -443,11 +423,10 @@ _gweather_location_unref_no_check (GWeatherLocation *loc)
     if (loc->db && g_ptr_array_index (loc->db->locations, loc->db_idx) == loc)
         g_ptr_array_index (loc->db->locations, loc->db_idx) = NULL;
 
-    g_free (loc->english_name);
-    g_free (loc->local_name);
-    g_free (loc->msgctxt);
-    g_free (loc->local_sort_name);
-    g_free (loc->english_sort_name);
+    g_free (loc->_english_name);
+    g_free (loc->_local_name);
+    g_free (loc->_local_sort_name);
+    g_free (loc->_english_sort_name);
     g_free (loc->country_code);
     g_free (loc->station_code);
     g_free (loc->forecast_zone);
@@ -516,7 +495,25 @@ gweather_location_get_name (GWeatherLocation *loc)
 {
     g_return_val_if_fail (loc != NULL, NULL);
 
-    return loc->local_name;
+    if (loc->_local_name)
+	return loc->_local_name;
+
+    if (loc->db && IDX_VALID (loc->db_idx)) {
+	const char *english_name;
+	const char *msgctxt;
+	english_name = EMPTY_TO_NULL (db_i18n_get_str (db_location_get_name (loc->ref)));
+	msgctxt = EMPTY_TO_NULL (db_i18n_get_msgctxt (db_location_get_name (loc->ref)));
+
+	if (msgctxt) {
+	    loc->_local_name = g_strdup (g_dpgettext2 ("libgweather-locations",
+						       msgctxt, english_name));
+	} else {
+	    loc->_local_name = g_strdup (g_dgettext ("libgweather-locations", english_name));
+	}
+	return loc->_local_name;
+    } else {
+	return NULL;
+    }
 }
 
 /**
@@ -533,8 +530,21 @@ gweather_location_get_name (GWeatherLocation *loc)
 const char *
 gweather_location_get_sort_name (GWeatherLocation *loc)
 {
+    const char *local_name;
+    g_autofree char *normalized = NULL;
     g_return_val_if_fail (loc != NULL, NULL);
-    return loc->local_sort_name;
+
+    if (loc->_local_sort_name)
+        return loc->_local_sort_name;
+
+    local_name = gweather_location_get_name (loc);
+    if (!local_name)
+	return NULL;
+
+    normalized = g_utf8_normalize (local_name, -1, G_NORMALIZE_ALL);
+    loc->_local_sort_name = g_utf8_casefold (normalized, -1);
+
+    return loc->_local_sort_name;
 }
 
 /**
@@ -551,7 +561,13 @@ gweather_location_get_english_name (GWeatherLocation *loc)
 {
     g_return_val_if_fail (loc != NULL, NULL);
 
-    return loc->english_name;
+    if (loc->_english_name)
+	return loc->_english_name;
+
+    if (loc->db && IDX_VALID (loc->db_idx))
+        return EMPTY_TO_NULL (db_i18n_get_str (db_location_get_name (loc->ref)));
+
+    return NULL;
 }
 
 /**
@@ -569,9 +585,21 @@ gweather_location_get_english_name (GWeatherLocation *loc)
 const char *
 gweather_location_get_english_sort_name (GWeatherLocation *loc)
 {
+    const char *english_name;
+    g_autofree char *normalized = NULL;
     g_return_val_if_fail (loc != NULL, NULL);
 
-    return loc->english_sort_name;
+    if (loc->_english_sort_name)
+	return loc->_english_sort_name;
+
+    english_name = gweather_location_get_english_name (loc);
+    if (!english_name)
+	return NULL;
+
+    normalized = g_utf8_normalize (english_name, -1, G_NORMALIZE_ALL);
+    loc->_english_sort_name = g_utf8_casefold (normalized, -1);
+
+    return loc->_english_sort_name;
 }
 
 /**
@@ -627,7 +655,7 @@ gweather_location_level_to_string (GWeatherLocationLevel level)
 }
 
 /**
- * gweather_location_ref_parent:
+ * gweather_location_dup_parent:
  * @loc: a #GWeatherLocation
  *
  * Gets @loc's parent location.
@@ -636,7 +664,7 @@ gweather_location_level_to_string (GWeatherLocationLevel level)
  * if @loc is a %GWEATHER_LOCATION_WORLD node.
  **/
 GWeatherLocation *
-gweather_location_ref_parent (GWeatherLocation *loc)
+gweather_location_dup_parent (GWeatherLocation *loc)
 {
     guint16 idx;
     g_return_val_if_fail (loc != NULL, NULL);
@@ -667,7 +695,7 @@ gweather_location_ref_parent (GWeatherLocation *loc)
  * Return value: (transfer none) (allow-none): @loc's parent, or %NULL
  * if @loc is a %GWEATHER_LOCATION_WORLD node.
  *
- * Deprecated: XXX. Use gweather_location_ref_parent() instead
+ * Deprecated: XXX. Use gweather_location_dup_parent() instead
  **/
 GWeatherLocation *
 gweather_location_get_parent (GWeatherLocation *loc)
@@ -676,7 +704,7 @@ gweather_location_get_parent (GWeatherLocation *loc)
     if (loc->parent)
 	return loc->parent;
 
-    loc->parent = gweather_location_ref_parent (loc);
+    loc->parent = gweather_location_dup_parent (loc);
     return loc->parent;
 }
 
@@ -1117,16 +1145,11 @@ gweather_location_get_country (GWeatherLocation *loc)
     if (loc->country_code)
 	return loc->country_code;
 
-    s = gweather_location_ref (loc);
-    while (s && !s->country_code) {
-	GWeatherLocation *parent = gweather_location_ref_parent (s);
-	gweather_location_unref (s);
-	s = parent;
+    ITER_UP(loc, s) {
+	if (s->country_code)
+	    return s->country_code;
     }
-    if (!s)
-	return NULL;
-
-    return s->country_code;
+    return NULL;
 }
 
 /**
@@ -1151,17 +1174,14 @@ gweather_location_get_timezone (GWeatherLocation *loc)
     if (loc->timezone)
 	return loc->timezone;
 
-    s = gweather_location_ref (loc);
-    while (s && !IDX_VALID (s->tz_hint_idx)) {
-	GWeatherLocation *parent = gweather_location_ref_parent (s);
-	gweather_location_unref (s);
-	s = parent;
-    }
-    if (!s)
-	return NULL;
+    ITER_UP(loc, s) {
+	if (!IDX_VALID (s->tz_hint_idx))
+	    continue;
 
-    loc->timezone = _gweather_timezone_ref_for_idx (s->db, s->tz_hint_idx);
-    return loc->timezone;
+	loc->timezone = _gweather_timezone_ref_for_idx (s->db, s->tz_hint_idx);
+	return loc->timezone;
+    }
+    return NULL;
 }
 
 /**
@@ -1183,19 +1203,16 @@ gweather_location_get_timezone_str (GWeatherLocation *loc)
 
     g_return_val_if_fail (loc != NULL, NULL);
 
-    if (loc->timezone)
-	return gweather_timezone_get_tzid (loc->timezone);
+    ITER_UP(loc, s) {
+	if (s->timezone)
+	    return gweather_timezone_get_tzid (s->timezone);
 
-    s = gweather_location_ref (loc);
-    while (s && !IDX_VALID(s->tz_hint_idx)) {
-	GWeatherLocation *parent = gweather_location_ref_parent (s);
-	gweather_location_unref (s);
-	s = parent;
+	if (s->db && IDX_VALID(s->tz_hint_idx)) {
+	    return db_world_timezones_entry_get_key (db_world_timezones_get_at (s->db->timezones_ref, s->tz_hint_idx));
+	}
     }
-    if (!s)
-	return NULL;
 
-    return db_world_timezones_entry_get_key (db_world_timezones_get_at (s->db->timezones_ref, s->tz_hint_idx));
+    return NULL;
 }
 
 static void
@@ -1294,13 +1311,19 @@ gweather_location_get_city_name (GWeatherLocation *loc)
 
     if (loc->level == GWEATHER_LOCATION_CITY ||
         loc->level == GWEATHER_LOCATION_DETACHED) {
-        return g_strdup (loc->local_name);
-    } else if (loc->level == GWEATHER_LOCATION_WEATHER_STATION &&
-               loc->parent &&
-               loc->parent->level == GWEATHER_LOCATION_CITY) {
-        return g_strdup (loc->parent->local_name);
-    } else
-        return NULL;
+        return g_strdup (gweather_location_get_name (loc));
+    } else {
+        g_autoptr(GWeatherLocation) parent = NULL;
+	parent = gweather_location_dup_parent (loc);
+
+	if (loc->level == GWEATHER_LOCATION_WEATHER_STATION &&
+		parent &&
+		parent->level == GWEATHER_LOCATION_CITY) {
+	    return g_strdup (gweather_location_get_name (parent));
+	}
+    }
+
+    return NULL;
 }
 
 /**
@@ -1320,23 +1343,23 @@ gweather_location_get_city_name (GWeatherLocation *loc)
 char *
 gweather_location_get_country_name (GWeatherLocation *loc)
 {
-    GWeatherLocation *country;
+    g_autoptr(GWeatherLocation) country = NULL;
 
     g_return_val_if_fail (loc != NULL, NULL);
 
-    country = loc;
-    while (country != NULL && country->level != GWEATHER_LOCATION_COUNTRY) {
-        country = country->parent;
+    ITER_UP(loc, country) {
+	if (country->level == GWEATHER_LOCATION_COUNTRY)
+	    return g_strdup (gweather_location_get_name (country));
     }
 
-    return country != NULL ? g_strdup (country->local_name) : NULL;
+    return NULL;
 }
 
 void
 _gweather_location_update_weather_location (GWeatherLocation *gloc,
 					    WeatherLocation  *loc)
 {
-    const char *code = NULL, *zone = NULL, *radar = NULL, *tz_hint = NULL, *country = NULL;
+    const char *code = NULL, *zone = NULL, *radar = NULL, *country = NULL;
     gint tz_hint_idx = INVALID_IDX;
     gboolean latlon_valid = FALSE;
     gdouble lat = DBL_MAX, lon = DBL_MAX;
@@ -1369,7 +1392,7 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
 	l = l->parent;
     }
 
-    loc->name = g_strdup (gloc->local_name),
+    loc->name = g_strdup (gweather_location_get_name (gloc)),
     loc->code = g_strdup (code);
     loc->zone = g_strdup (zone);
     loc->radar = g_strdup (radar);
@@ -1505,7 +1528,7 @@ gweather_location_equal (GWeatherLocation *one,
 	return g_strcmp0 (one->country_code, two->country_code);
 
     if (level == GWEATHER_LOCATION_ADM1) {
-	if (g_strcmp0 (one->english_sort_name, two->english_sort_name) != 0)
+	if (g_strcmp0 (gweather_location_get_english_sort_name (one), gweather_location_get_english_sort_name (two)) != 0)
 	    return FALSE;
 
 	return one->parent && two->parent &&
@@ -1572,18 +1595,18 @@ _gweather_location_new_detached (GWeatherLocation *nearest_station,
 
     self = location_new (GWEATHER_LOCATION_DETACHED);
     if (name != NULL) {
-	self->english_name = g_strdup (name);
-	self->local_name = g_strdup (name);
+	self->_english_name = g_strdup (name);
+	self->_local_name = g_strdup (name);
 
 	normalized = g_utf8_normalize (name, -1, G_NORMALIZE_ALL);
-	self->english_sort_name = g_utf8_casefold (normalized, -1);
-	self->local_sort_name = g_strdup (self->english_sort_name);
+	self->_english_sort_name = g_utf8_casefold (normalized, -1);
+	self->_local_sort_name = g_strdup (self->_english_sort_name);
 	g_free (normalized);
     } else if (nearest_station) {
-	self->english_name = g_strdup (nearest_station->english_name);
-	self->local_name = g_strdup (nearest_station->local_name);
-	self->english_sort_name = g_strdup (nearest_station->english_sort_name);
-	self->local_sort_name = g_strdup (nearest_station->local_sort_name);
+	self->_english_name = g_strdup (gweather_location_get_english_name (nearest_station));
+	self->_local_name = g_strdup (gweather_location_get_name (nearest_station));
+	self->_english_sort_name = g_strdup (gweather_location_get_english_sort_name (nearest_station));
+	self->_local_sort_name = g_strdup (gweather_location_get_sort_name (nearest_station));
     }
 
     self->tz_hint_idx = INVALID_IDX;
@@ -1631,8 +1654,8 @@ gweather_location_common_deserialize (GWeatherLocation *world,
                                                      latitude / M_PI * 180.0,
                                                      longitude / M_PI * 180.0);
 
-        if (found && (g_strcmp0 (name, found->english_name) == 0 ||
-                      g_strcmp0 (name, found->local_name) == 0))
+        if (found && (g_strcmp0 (name, gweather_location_get_english_name (found)) == 0 ||
+                      g_strcmp0 (name, gweather_location_get_name (found)) == 0))
 	    return g_steal_pointer (&found);
 	g_clear_pointer (&found, gweather_location_unref);
     }
@@ -1674,7 +1697,7 @@ gweather_location_common_deserialize (GWeatherLocation *world,
 	    /* Not what we're looking for... */
 	    continue;
 
-	city = gweather_location_ref_parent (ws);
+	city = gweather_location_dup_parent (ws);
 
 	/* If we can't check for the latitude and longitude
 	   of the parent, we just assume we found what we needed

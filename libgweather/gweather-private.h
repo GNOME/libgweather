@@ -69,7 +69,7 @@ struct _GWeatherLocation {
     guint       db_idx;
     DbLocationRef ref;
 
-    char *english_name, *local_name, *msgctxt, *local_sort_name, *english_sort_name;
+    char *_english_name, *_local_name, *_local_sort_name, *_english_sort_name;
     GWeatherLocation *parent, **children;
     GWeatherLocationLevel level;
     char *country_code;
