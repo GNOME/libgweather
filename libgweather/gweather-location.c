@@ -504,7 +504,7 @@ gweather_location_get_name (GWeatherLocation *loc)
 	const char *english_name;
 	const char *msgctxt;
 	english_name = EMPTY_TO_NULL (db_i18n_get_str (db_location_get_name (loc->ref)));
-	msgctxt = EMPTY_TO_NULL (db_i18n_get_msgctxt (db_location_get_name (loc->ref)));
+	msgctxt = EMPTY_TO_NULL (db_i18n_get_msgctxt (db_location_get_msgctxt (loc->ref)));
 
 	if (msgctxt) {
 	    loc->_local_name = g_strdup (g_dpgettext2 ("libgweather-locations",
