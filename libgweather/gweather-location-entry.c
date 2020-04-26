@@ -319,7 +319,7 @@ set_location_internal (GWeatherLocationEntry *entry,
 	g_free (name);
     } else if (loc) {
 	priv->location = gweather_location_ref (loc);
-	gtk_entry_set_text (GTK_ENTRY (entry), loc->local_name);
+	gtk_entry_set_text (GTK_ENTRY (entry), gweather_location_get_name (loc));
 	priv->custom_text = FALSE;
     } else {
 	priv->location = NULL;
@@ -514,9 +514,9 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	/* Recurse, initializing the names to the country name */
 	for (i = 0; children[i]; i++) {
 	    fill_location_entry_model (store, children[i],
-				       loc->local_name,
-				       loc->local_sort_name,
-				       loc->english_sort_name,
+				       gweather_location_get_name (loc),
+				       gweather_location_get_sort_name (loc),
+				       gweather_location_get_english_sort_name (loc),
 				       show_named_timezones);
 	}
 	break;
@@ -527,9 +527,9 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	 * 'London, United Kingdom'
 	 * You shouldn't need to translate this string unless the language has a different comma.
 	 */
-	display_name = g_strdup_printf (_("%s, %s"), loc->local_name, parent_display_name);
-	local_compare_name = g_strdup_printf ("%s, %s", loc->local_sort_name, parent_compare_local_name);
-	english_compare_name = g_strdup_printf ("%s, %s", loc->english_sort_name, parent_compare_english_name);
+	display_name = g_strdup_printf (_("%s, %s"), gweather_location_get_name (loc), parent_display_name);
+	local_compare_name = g_strdup_printf ("%s, %s", gweather_location_get_sort_name (loc), parent_compare_local_name);
+	english_compare_name = g_strdup_printf ("%s, %s", gweather_location_get_english_sort_name (loc), parent_compare_english_name);
 
 	for (i = 0; children[i]; i++) {
 	    fill_location_entry_model (store, children[i],
@@ -556,11 +556,11 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	 * You shouldn't need to translate this string unless the language has a different comma.
 	 */
 	display_name = g_strdup_printf (_("%s, %s"),
-					loc->local_name, parent_display_name);
+					gweather_location_get_name (loc), parent_display_name);
 	local_compare_name = g_strdup_printf ("%s, %s",
-					      loc->local_sort_name, parent_compare_local_name);
+					      gweather_location_get_sort_name (loc), parent_compare_local_name);
 	english_compare_name = g_strdup_printf ("%s, %s",
-						loc->english_sort_name, parent_compare_english_name);
+						gweather_location_get_english_sort_name (loc), parent_compare_english_name);
 
 	gtk_tree_store_insert_with_values (store, NULL, NULL, -1,
 					   LOC_GWEATHER_LOCATION_ENTRY_COL_LOCATION, loc,
@@ -578,9 +578,9 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	if (show_named_timezones) {
 	    gtk_tree_store_insert_with_values (store, NULL, NULL, -1,
 					       LOC_GWEATHER_LOCATION_ENTRY_COL_LOCATION, loc,
-					       LOC_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, loc->local_name,
-					       LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, loc->local_sort_name,
-					       LOC_GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME, loc->english_sort_name,
+					       LOC_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, gweather_location_get_name (loc),
+					       LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, gweather_location_get_sort_name (loc),
+					       LOC_GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME, gweather_location_get_english_sort_name (loc),
 					       -1);
 	}
 	break;
