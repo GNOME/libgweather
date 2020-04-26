@@ -140,8 +140,6 @@ location_ref_for_idx (GWeatherDb       *db,
 
     loc->tz_hint_idx = db_location_get_tz_hint (ref);
 
-    loc->station_code = g_strdup (EMPTY_TO_NULL (db_location_get_metar_code (ref)));
-
     loc->latitude = db_coordinate_get_lat (db_location_get_coordinates (ref));
     loc->longitude = db_coordinate_get_lon (db_location_get_coordinates (ref));
     loc->latlon_valid = isfinite(loc->latitude) && isfinite(loc->longitude);
@@ -337,7 +335,7 @@ _gweather_location_unref_no_check (GWeatherLocation *loc)
     g_free (loc->_local_sort_name);
     g_free (loc->_english_sort_name);
     g_free (loc->_country_code);
-    g_free (loc->station_code);
+    g_free (loc->_station_code);
     g_free (loc->forecast_zone);
     g_free (loc->radar);
 
@@ -1297,7 +1295,14 @@ const char *
 gweather_location_get_code (GWeatherLocation *loc)
 {
     g_return_val_if_fail (loc != NULL, NULL);
-    return loc->station_code;
+    if (loc->_station_code)
+	return loc->_station_code;
+
+    if (loc->db && IDX_VALID(loc->db_idx)) {
+	return EMPTY_TO_NULL (db_location_get_metar_code (loc->ref));
+    }
+
+    return NULL;
 }
 
 /**
@@ -1388,9 +1393,9 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
     ITER_UP(start, l) {
 	if (!db && l->db)
 	    db = l->db;
-	if (!code && l->station_code)
-	    code = l->station_code;
-	if (!zone && l->forecast_zone)
+	if (!code)
+	    code = gweather_location_get_code (l);
+	if (!zone)
 	    zone = l->forecast_zone;
 	if (!radar && l->radar)
 	    radar = l->radar;
@@ -1558,7 +1563,8 @@ gweather_location_equal (GWeatherLocation *one,
 	    gweather_location_equal (p1, p2);
     }
 
-    if (g_strcmp0 (one->station_code, two->station_code) != 0)
+    if (g_strcmp0 (gweather_location_get_code (one),
+                   gweather_location_get_code (two)) != 0)
 	return FALSE;
 
     if (one->level != GWEATHER_LOCATION_DETACHED &&
@@ -1580,6 +1586,7 @@ gweather_location_format_two_serialize (GWeatherLocation *location)
     g_autoptr(GWeatherLocation) real_loc = NULL;
     g_autoptr(GWeatherLocation) parent = NULL;
     const char *name;
+    const char *station_code;
     gboolean is_city;
     GVariantBuilder latlon_builder;
     GVariantBuilder parent_latlon_builder;
@@ -1606,8 +1613,11 @@ gweather_location_format_two_serialize (GWeatherLocation *location)
     if (parent && parent->latlon_valid)
 	g_variant_builder_add (&parent_latlon_builder, "(dd)", parent->latitude, parent->longitude);
 
+    station_code = gweather_location_get_code (real_loc);
     return g_variant_new ("(ssba(dd)a(dd))",
-			  name, real_loc->station_code ? real_loc->station_code : "", is_city,
+			  name,
+			  station_code ? station_code : "",
+			  is_city,
 			  &latlon_builder, &parent_latlon_builder);
 }
 
@@ -1642,7 +1652,7 @@ _gweather_location_new_detached (GWeatherLocation *nearest_station,
     self->_children = NULL;
 
     if (nearest_station)
-	self->station_code = g_strdup (nearest_station->station_code);
+	self->_station_code = g_strdup (gweather_location_get_code (nearest_station));
 
     g_assert (nearest_station || latlon_valid);
 
