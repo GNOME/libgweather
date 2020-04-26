@@ -258,13 +258,6 @@ location_ref_for_idx (GWeatherDb       *db,
     loc->forecast_zone = g_strdup (EMPTY_TO_NULL (db_location_get_forecast_zone (ref)));
     loc->radar = g_strdup (EMPTY_TO_NULL (db_location_get_radar (ref)));
 
-    /* Fill in the magic nearest child if we need to and should. */
-    if (!g_getenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST") &&
-        IDX_VALID (db_location_get_nearest (ref))) {
-	loc->_children = g_new0 (GWeatherLocation*, 2);
-	loc->_children[0] = location_ref_for_idx (db, db_location_get_nearest (ref), loc);
-    }
-
     /* Note, we used to sort locations by distance (for cities) and name;
      * Distance sorting is done in the variant already,
      * name sorting however needs translations and is not done anymore. */
@@ -747,6 +740,17 @@ gweather_location_get_children (GWeatherLocation *loc)
     if (!loc->db)
 	return &no_children;
 
+    /* Fill in the magic nearest child if we need to and should.
+     * NOTE: This reference is weak and automatically free'ed! */
+    if (!g_getenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST") &&
+        IDX_VALID (db_location_get_nearest (loc->ref))) {
+	loc->_children = g_new0 (GWeatherLocation*, 2);
+	loc->_children[0] = location_ref_for_idx (loc->db, db_location_get_nearest (loc->ref), loc);
+
+	return loc->_children;
+    }
+
+    /* Get the actual children. */
     children_ref = db_location_get_children (loc->ref);
     length = db_arrayofuint16_get_length (children_ref);
     if (length == 0)
