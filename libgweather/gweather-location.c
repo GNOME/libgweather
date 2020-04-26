@@ -730,6 +730,102 @@ gweather_location_get_parent (GWeatherLocation *loc)
 }
 
 /**
+ * gweather_location_next_child:
+ * @loc: a #GWeatherLocation
+ * @child: (transfer full): The child
+ *
+ * Allows iterating all children. Pass %NULL to get the first child,
+ * and any child to get the next one. Note that the reference to @child
+ * is taken, meaning iterating all children is as simple as:
+ *
+ * |[<!-- language="C" -->
+ *   g_autoptr(GWeatherLocation) child = NULL;
+ *   while ((child = gweather_location_next_child (location, child)))
+ *     {
+ *        // Do something with child
+ *     }
+ * ]|
+ *
+ * Returns: (transfer full): The next child, or %NULL
+ *
+ * Since: XXX.
+ **/
+GWeatherLocation*
+gweather_location_next_child  (GWeatherLocation  *loc, GWeatherLocation  *_child)
+{
+	g_autoptr(GWeatherLocation) child = _child;
+	DbArrayofuint16Ref children_ref;
+	gsize length;
+	gsize next_idx;
+	gsize i;
+
+	g_return_val_if_fail (loc != NULL, NULL);
+
+	/* Easy case, just look up the child and grab the next one. */
+	if (loc->_children) {
+		if (child == NULL)
+			return gweather_location_ref (loc->_children[0]);
+
+		for (i = 0; loc->_children[i]; i++) {
+			if (loc->_children[i] == child)
+				return loc->_children[i + 1];
+		}
+
+		goto invalid_child;
+	}
+
+	/* If we have a magic nearest child, iterate over that. */
+	if (!g_getenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST") &&
+	    IDX_VALID (db_location_get_nearest (loc->ref))) {
+		g_autoptr(GWeatherLocation) res = location_ref_for_idx (loc->db, db_location_get_nearest (loc->ref), loc);
+		if (child) {
+			if (res != child)
+				goto invalid_child;
+
+			return NULL;
+		} else {
+			return res;
+		}
+	}
+
+	if (!loc->db || !IDX_VALID (loc->db_idx)) {
+		if (child)
+			goto invalid_child;
+
+		return NULL;
+	}
+
+	children_ref = db_location_get_children (loc->ref);
+	length = db_arrayofuint16_get_length (children_ref);
+
+	if (!child) {
+		next_idx = 0;
+	} else {
+		/* Find child index in DB. */
+		for (i = 0; i < length; i++) {
+			if (child->db_idx == db_arrayofuint16_get_at (children_ref, i))
+				break;
+		}
+
+		if (i == length)
+			goto invalid_child;
+		next_idx = i + 1;
+	}
+
+	if (next_idx == length)
+		return NULL;
+	else
+		return location_ref_for_idx (loc->db,
+					     db_arrayofuint16_get_at (children_ref, next_idx),
+					     NULL);
+
+
+invalid_child:
+	g_critical ("%s: Passed child %p is not a child of the given location %p", G_STRFUNC, loc, child);
+	return NULL;
+}
+
+/**
  * gweather_location_get_children:
  * @loc: a #GWeatherLocation
  *
@@ -739,7 +835,7 @@ gweather_location_get_parent (GWeatherLocation *loc)
  * Return value: (transfer none) (array zero-terminated=1): @loc's
  * children. (May be empty, but will not be %NULL.)
  *
- * Deprecated: XXX. Use XXX() instead?
+ * Deprecated: XXX. Use gweather_location_next_child() instead
  **/
 GWeatherLocation **
 gweather_location_get_children (GWeatherLocation *loc)
@@ -803,27 +899,11 @@ foreach_city (GWeatherLocation  *loc,
 
     if (loc->level == GWEATHER_LOCATION_CITY) {
         callback (loc, user_data);
-    } else if (loc->_children) { /* Iteration cached/static children */
-        int i;
-        for (i = 0; loc->_children[i]; i++)
-            foreach_city (loc->_children[i], callback, user_data, country_code, func, user_data_func);
-    } else if (loc->db) { /* Iteration children without caching them */
-	DbArrayofuint16Ref children_ref;
-	gsize length;
-	gsize i;
+    } else {
+	g_autoptr(GWeatherLocation) child = NULL;
 
-	children_ref = db_location_get_children (loc->ref);
-	length = db_arrayofuint16_get_length (children_ref);
-
-	for (i = 0; i < length; i++) {
-	    g_autoptr(GWeatherLocation) child = NULL;
-
-	    child = location_ref_for_idx (loc->db,
-					  db_arrayofuint16_get_at (children_ref, i),
-					  NULL);
-
+	while ((child = gweather_location_next_child (loc, child)))
 	    foreach_city (child, callback, user_data, country_code, func, user_data_func);
-	}
     }
 }
 
@@ -1249,18 +1329,17 @@ gweather_location_get_timezone_str (GWeatherLocation *loc)
 static void
 add_timezones (GWeatherLocation *loc, GPtrArray *zones)
 {
-    GWeatherLocation **children;
     int i;
 
-    /* FIXME: Do this without holding on to the children! */
-    children = gweather_location_get_children (loc);
     if (loc->zones) {
 	for (i = 0; loc->zones[i]; i++)
 	    g_ptr_array_add (zones, gweather_timezone_ref (loc->zones[i]));
     }
-    if (loc->level < GWEATHER_LOCATION_COUNTRY && children) {
-	for (i = 0; children[i]; i++)
-	    add_timezones (children[i], zones);
+    if (loc->level < GWEATHER_LOCATION_COUNTRY) {
+	g_autoptr(GWeatherLocation) child = NULL;
+
+	while ((child = gweather_location_next_child (loc, child)))
+	    add_timezones (child, zones);
     }
 }
 
@@ -1397,18 +1476,21 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
     gint tz_hint_idx = INVALID_IDX;
     gboolean latlon_valid = FALSE;
     gdouble lat = DBL_MAX, lon = DBL_MAX;
+    g_autoptr(GWeatherLocation) start = NULL;
     g_autoptr(GWeatherLocation) l = NULL;
-    GWeatherLocation **children;
     GWeatherDb *db = NULL;
 
-    /* FIXME: Do this without holding on to the children! */
-    children = gweather_location_get_children (gloc);
-    if (gloc->level == GWEATHER_LOCATION_CITY && children)
-	l = children[0];
-    else
-	l = gloc;
+    if (gloc->level == GWEATHER_LOCATION_CITY) {
+	GWeatherLocation *first_child;
+	first_child = gweather_location_next_child (gloc, NULL);
 
-    ITER_UP(gloc, l) {
+	if (first_child)
+		start = first_child;
+    }
+    if (!start)
+	start = gweather_location_ref (gloc);
+
+    ITER_UP(start, l) {
 	if (!db && l->db)
 	    db = l->db;
 	if (!code && l->station_code)
@@ -1597,6 +1679,7 @@ gweather_location_equal (GWeatherLocation *one,
 static GVariant *
 gweather_location_format_two_serialize (GWeatherLocation *location)
 {
+    g_autoptr(GWeatherLocation) real_loc = NULL;
     g_autoptr(GWeatherLocation) parent = NULL;
     const char *name;
     gboolean is_city;
@@ -1607,26 +1690,26 @@ gweather_location_format_two_serialize (GWeatherLocation *location)
 
     /* Normalize location to be a weather station or detached */
     if (location->level == GWEATHER_LOCATION_CITY) {
-	GWeatherLocation **children = gweather_location_get_children (location);
-        if (children != NULL && children[0])
-            location = children[0];
+	real_loc = gweather_location_next_child (location, NULL);
         is_city = TRUE;
     } else {
 	is_city = FALSE;
     }
+    if (!real_loc)
+	real_loc = gweather_location_ref (location);
 
-    parent = gweather_location_dup_parent (location);
+    parent = gweather_location_dup_parent (real_loc);
 
     g_variant_builder_init (&latlon_builder, G_VARIANT_TYPE ("a(dd)"));
-    if (location->latlon_valid)
-	g_variant_builder_add (&latlon_builder, "(dd)", location->latitude, location->longitude);
+    if (real_loc->latlon_valid)
+	g_variant_builder_add (&latlon_builder, "(dd)", real_loc->latitude, real_loc->longitude);
 
     g_variant_builder_init (&parent_latlon_builder, G_VARIANT_TYPE ("a(dd)"));
     if (parent && parent->latlon_valid)
 	g_variant_builder_add (&parent_latlon_builder, "(dd)", parent->latitude, parent->longitude);
 
     return g_variant_new ("(ssba(dd)a(dd))",
-			  name, location->station_code ? location->station_code : "", is_city,
+			  name, real_loc->station_code ? real_loc->station_code : "", is_city,
 			  &latlon_builder, &parent_latlon_builder);
 }
 
