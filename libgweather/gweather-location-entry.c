@@ -489,11 +489,8 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 			   const char *parent_compare_english_name,
 			   gboolean show_named_timezones)
 {
-    GWeatherLocation **children;
+    g_autoptr(GWeatherLocation) child = NULL;
     char *display_name, *local_compare_name, *english_compare_name;
-    int i;
-
-    children = gweather_location_get_children (loc);
 
     switch (gweather_location_get_level (loc)) {
     case GWEATHER_LOCATION_WORLD:
@@ -501,24 +498,22 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	/* Ignore these levels of hierarchy; just recurse, passing on
 	 * the names from the parent node.
 	 */
-	for (i = 0; children[i]; i++) {
-	    fill_location_entry_model (store, children[i],
+	while ((child = gweather_location_next_child (loc, child)))
+	    fill_location_entry_model (store, child,
 				       parent_display_name,
 				       parent_compare_local_name,
 				       parent_compare_english_name,
 				       show_named_timezones);
-	}
 	break;
 
     case GWEATHER_LOCATION_COUNTRY:
 	/* Recurse, initializing the names to the country name */
-	for (i = 0; children[i]; i++) {
-	    fill_location_entry_model (store, children[i],
+	while ((child = gweather_location_next_child (loc, child)))
+	    fill_location_entry_model (store, child,
 				       gweather_location_get_name (loc),
 				       gweather_location_get_sort_name (loc),
 				       gweather_location_get_english_sort_name (loc),
 				       show_named_timezones);
-	}
 	break;
 
     case GWEATHER_LOCATION_ADM1:
@@ -531,11 +526,10 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	local_compare_name = g_strdup_printf ("%s, %s", gweather_location_get_sort_name (loc), parent_compare_local_name);
 	english_compare_name = g_strdup_printf ("%s, %s", gweather_location_get_english_sort_name (loc), parent_compare_english_name);
 
-	for (i = 0; children[i]; i++) {
-	    fill_location_entry_model (store, children[i],
+	while ((child = gweather_location_next_child (loc, child)))
+	    fill_location_entry_model (store, child,
 				       display_name, local_compare_name, english_compare_name,
 				       show_named_timezones);
-	}
 
 	g_free (display_name);
 	g_free (local_compare_name);
