@@ -617,6 +617,26 @@ gweather_location_get_english_name (GWeatherLocation *loc)
 }
 
 /**
+ * gweather_location_get_english_sort_name:
+ * @loc: a #GWeatherLocation
+ *
+ * Gets @loc's english "sort name", which is the english name after having
+ * g_utf8_normalize() (with %G_NORMALIZE_ALL) and g_utf8_casefold()
+ * called on it. You can use this to sort locations, or to comparing
+ * user input against a location name.
+ *
+ * Return value: @loc's English name for sorting
+ * Since: 3.38
+ **/
+const char *
+gweather_location_get_english_sort_name (GWeatherLocation *loc)
+{
+    g_return_val_if_fail (loc != NULL, NULL);
+
+    return loc->english_sort_name;
+}
+
+/**
  * gweather_location_get_level:
  * @loc: a #GWeatherLocation
  *
