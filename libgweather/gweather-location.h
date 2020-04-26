@@ -53,7 +53,7 @@ GType gweather_location_get_type (void);
 GWEATHER_EXTERN
 GWeatherLocation      *gweather_location_get_world      (void);
 GWEATHER_EXTERN
-GWeatherLocation      *gweather_location_ref_world      (void);
+GWeatherLocation      *gweather_location_dup_world      (void);
 
 GWEATHER_EXTERN
 GWeatherLocation      *gweather_location_ref            (GWeatherLocation  *loc);
@@ -72,6 +72,8 @@ GWEATHER_EXTERN
 GWeatherLocationLevel  gweather_location_get_level      (GWeatherLocation  *loc);
 GWEATHER_EXTERN
 GWeatherLocation      *gweather_location_get_parent     (GWeatherLocation  *loc);
+GWEATHER_EXTERN
+GWeatherLocation      *gweather_location_dup_parent     (GWeatherLocation  *loc);
 
 GWEATHER_EXTERN
 GWeatherLocation     **gweather_location_get_children   (GWeatherLocation  *loc);
