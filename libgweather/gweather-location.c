@@ -94,34 +94,6 @@ _iter_up(GWeatherLocation *loc)
  * create detached instances, but deserializing might.
  **/
 
-static int
-sort_locations_by_name (gconstpointer a, gconstpointer b)
-{
-    GWeatherLocation *loc_a = *(GWeatherLocation **)a;
-    GWeatherLocation *loc_b = *(GWeatherLocation **)b;
-
-    return g_utf8_collate (gweather_location_get_sort_name (loc_a),
-                           gweather_location_get_sort_name (loc_b));
-}
- 
-static int
-sort_locations_by_distance (gconstpointer a, gconstpointer b, gpointer user_data)
-{
-    GWeatherLocation *loc_a = *(GWeatherLocation **)a;
-    GWeatherLocation *loc_b = *(GWeatherLocation **)b;
-    GWeatherLocation *city = (GWeatherLocation *)user_data;
-    double dist_a, dist_b;
-
-    dist_a = gweather_location_get_distance (loc_a, city);
-    dist_b = gweather_location_get_distance (loc_b, city);
-    if (dist_a < dist_b)
-	return -1;
-    else if (dist_a > dist_b)
-	return 1;
-    else
-	return 0;
-}
-
 static GWeatherLocation *
 location_new (GWeatherLocationLevel level)
 {
@@ -136,86 +108,6 @@ location_new (GWeatherLocationLevel level)
 }
 
 static void add_timezones (GWeatherLocation *loc, GPtrArray *zones);
-
-#if 0
-static void
-add_nearest_weather_station (GWeatherLocation *location)
-{
-    GWeatherLocation **siblings, *station;
-    GWeatherLocation *closest = NULL;
-    double min_distance = G_MAXDOUBLE;
-    GPtrArray *zones;
-    guint i;
-
-    g_assert (location->parent);
-    g_assert (gweather_location_get_level (location) == GWEATHER_LOCATION_CITY);
-
-    if (location->children != NULL)
-        return;
-
-    siblings = location->parent->children;
-    for (i = 0; siblings[i] != NULL; i++) {
-        double distance;
-
-        if (siblings[i] == location)
-            continue;
-
-        if (siblings[i]->level != GWEATHER_LOCATION_WEATHER_STATION)
-            continue;
-
-        /* Skip siblings without valid coordinates */
-        if (!siblings[i]->latlon_valid)
-            continue;
-
-        distance = gweather_location_get_distance (location, siblings[i]);
-        if (distance < min_distance) {
-            closest = siblings[i];
-            min_distance = distance;
-        }
-    }
-
-    /* This should not happen */
-    if (!closest) {
-        g_critical ("Location '%s' has no valid airports attached", location->english_name);
-        return;
-    }
-
-    /* This could however */
-    if (min_distance > AIRPORT_MAX_DISTANCE) {
-        g_debug ("Not adding airport '%s' as it's too far from '%s' (%.1lf km)\n",
-                 gweather_location_get_name (closest),
-                 gweather_location_get_name (location),
-                 min_distance);
-        return;
-    }
-
-    location->children = g_new0 (GWeatherLocation *, 2);
-    location->children[0] = g_slice_new0 (GWeatherLocation);
-    station = location->children[0];
-    station->english_name = g_strdup (closest->english_name);
-    station->local_name = g_strdup (closest->local_name);
-    station->msgctxt = g_strdup (closest->msgctxt);
-    station->local_sort_name = g_strdup (closest->local_sort_name);
-    station->english_sort_name = g_strdup (closest->english_sort_name);
-    station->parent = location;
-    station->level = GWEATHER_LOCATION_WEATHER_STATION;
-    station->country_code = g_strdup (closest->country_code);
-    station->tz_hint_idx = closest->tz_hint_idx;
-    station->station_code = g_strdup (closest->station_code);
-    station->forecast_zone = g_strdup (closest->forecast_zone);
-    station->radar = g_strdup (closest->radar);
-    station->latitude = closest->latitude;
-    station->longitude = closest->longitude;
-    station->latlon_valid = closest->latlon_valid;
-
-    zones = g_ptr_array_new ();
-    add_timezones (station, zones);
-    g_ptr_array_add (zones, NULL);
-    station->zones = (GWeatherTimezone **)g_ptr_array_free (zones, FALSE);
-
-    station->ref_count = 1;
-}
-#endif
 
 static GWeatherLocation *
 location_ref_for_idx (GWeatherDb       *db,
