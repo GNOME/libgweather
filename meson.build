@@ -115,8 +115,8 @@ endif
 
 root_inc = include_directories('.')
 
-subdir('libgweather')
 subdir('data')
+subdir('libgweather')
 subdir('schemas')
 if get_option('gtk_doc')
   subdir('doc')
