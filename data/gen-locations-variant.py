@@ -13,6 +13,9 @@ root = tree.getroot()
 assert root.tag == "gweather"
 assert root.attrib['format'] == "1.0"
 
+# Maybe types are annyoing, so use an invalid idx
+INVALID_IDX = 0xffff
+
 levels = {
   'gweather' : 0,
   'region' : 1,
@@ -47,7 +50,7 @@ def get_coordinates(elem):
     if coordinates:
         return tuple(float(c) * math.pi / 180.0 for c in coordinates.split())
     else:
-        return None
+        return float("NaN"), float("NaN")
 
 def calc_distance(loc_a, loc_b):
     # average earth radius
@@ -95,7 +98,7 @@ def loc_variant(loc):
     if tz_hint:
         for i, tz in enumerate(timezones):
             if tz.get('id') == tz_hint:
-                tz_hint = (i,)
+                tz_hint = i
                 break
         else:
             assert "Should not be reached"
@@ -106,8 +109,7 @@ def loc_variant(loc):
     try:
         parent_idx = locations.index(parent)
     except:
-        # point to self
-        parent_idx = locations.index(loc)
+        parent_idx = None
 
     nearest_idx = None
     if loc.tag == 'city' and len(children) == 0:
@@ -123,21 +125,21 @@ def loc_variant(loc):
                 nearest_dist = dist
 
         if nearest:
-            nearest_idx = (locations.index(nearest), )
+            nearest_idx = locations.index(nearest)
 
-    return GLib.Variant('((ss)ssm(dd)ssm(q)ym(q)(q)a(q)a(q))', (
+    return GLib.Variant('((ss)ss(dd)ssqyqqaqaq)', (
             name,
             loc.findtext('zone', default=''),
             loc.findtext('radar', default=''),
             coordinate,
             loc.findtext('iso-code', default=''),
             loc.findtext('code', default=''),
-            tz_hint,
+            tz_hint if tz_hint is not None else INVALID_IDX,
             levels[loc.tag],
-            nearest_idx,
-            (parent_idx, ),
-            [(c,) for c in children],
-            [(z,) for z in zones]
+            nearest_idx if nearest_idx is not None else INVALID_IDX,
+            parent_idx if parent_idx is not None else INVALID_IDX,
+            children,
+            zones,
         ))
 
 locations.append(root)
@@ -172,13 +174,13 @@ timezones.sort(key=lambda tz: tz.get('id'))
 loc_by_country.sort(key=lambda loc: loc.findtext('iso-code'))
 loc_by_metar.sort(key=lambda loc: loc.findtext('code'))
 
-loc_by_country_var = [(loc.findtext('iso-code'), (locations.index(loc),)) for loc in loc_by_country]
-loc_by_metar_var = [(loc.findtext('code'), (locations.index(loc),)) for loc in loc_by_metar]
+loc_by_country_var = [(loc.findtext('iso-code'), locations.index(loc)) for loc in loc_by_country]
+loc_by_metar_var = [(loc.findtext('code'), locations.index(loc)) for loc in loc_by_metar]
 
 timezones_var = [(tz.get('id'), tz_variant(tz)) for tz in timezones]
 locations_var = [loc_variant(loc) for loc in locations]
 
-res = GLib.Variant("(a{s(q)}a{s(q)}a{s((ss)as)}a((ss)ssm(dd)ssm(q)ym(q)(q)a(q)a(q)))", (
+res = GLib.Variant("(a{sq}a{sq}a{s((ss)as)}a((ss)ss(dd)ssqyqqaqaq))", (
     loc_by_country_var,
     loc_by_metar_var,
     timezones_var,
@@ -186,8 +188,10 @@ res = GLib.Variant("(a{s(q)}a{s(q)}a{s((ss)as)}a((ss)ssm(dd)ssm(q)ym(q)(q)a(q)a(
     ))
 
 if struct.pack('h', 0x01)[0]:
-    # byteswap on little endian
-    res = res.byteswap()
+    # byteswap on little endian; not currently, we might do this again if the
+    # schema compiler improves
+    #res = res.byteswap()
+    pass
 
 data = res.get_data_as_bytes().get_data()
 open(sys.argv[2], 'bw').write(data)

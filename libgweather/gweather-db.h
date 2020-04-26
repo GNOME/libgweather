@@ -11,12 +11,12 @@ typedef struct {
  gsize size;
 } DbRef;
 
-#define DB_REF_READ_FRAME_OFFSET(_v, _index) db_ref_read_unaligned_le ((guchar*)((_v).base) + (_v).size - (offset_size * ((_index) + 1)), offset_size)
+#define DB_REF_READ_FRAME_OFFSET(_v, _index) Db_ref_read_unaligned_le ((guchar*)((_v).base) + (_v).size - (offset_size * ((_index) + 1)), offset_size)
 #define DB_REF_ALIGN(_offset, _align_to) ((_offset + _align_to - 1) & ~(gsize)(_align_to - 1))
 
 /* Note: clz is undefinded for 0, so never call this size == 0 */
 G_GNUC_CONST static inline guint
-db_ref_get_offset_size (gsize size)
+Db_ref_get_offset_size (gsize size)
 {
 #if defined(__GNUC__) && (__GNUC__ >= 4) && defined(__OPTIMIZE__) && defined(__LP64__)
   /* Instead of using a lookup table we use nibbles in a lookup word */
@@ -41,7 +41,7 @@ db_ref_get_offset_size (gsize size)
 }
 
 G_GNUC_PURE static inline guint64
-db_ref_read_unaligned_le (guchar *bytes, guint   size)
+Db_ref_read_unaligned_le (guchar *bytes, guint   size)
 {
   union
   {
@@ -70,7 +70,7 @@ db_ref_read_unaligned_le (guchar *bytes, guint   size)
 }
 
 static inline void
-__db_gstring_append_double (GString *string, double d)
+__Db_gstring_append_double (GString *string, double d)
 {
   gchar buffer[100];
   gint i;
@@ -92,7 +92,7 @@ __db_gstring_append_double (GString *string, double d)
 }
 
 static inline void
-__db_gstring_append_string (GString *string, const char *str)
+__Db_gstring_append_string (GString *string, const char *str)
 {
   gunichar quote = strchr (str, '\'') ? '"' : '\'';
 
@@ -162,7 +162,7 @@ typedef struct {
 } DbVariantRef;
 
 static inline DbRef
-db_variant_get_child (DbVariantRef v, const GVariantType **out_type)
+Db_variant_get_child (DbVariantRef v, const GVariantType **out_type)
 {
   if (v.size)
     {
@@ -194,7 +194,7 @@ db_variant_get_child (DbVariantRef v, const GVariantType **out_type)
 }
 
 static inline const GVariantType *
-db_variant_get_type (DbVariantRef v)
+Db_variant_get_type (DbVariantRef v)
 {
   if (v.size)
     {
@@ -220,38 +220,38 @@ db_variant_get_type (DbVariantRef v)
 }
 
 static inline gboolean
-db_variant_is_type (DbVariantRef v, const GVariantType *type)
+Db_variant_is_type (DbVariantRef v, const GVariantType *type)
 {
-   return g_variant_type_equal (db_variant_get_type (v), type);
+   return g_variant_type_equal (Db_variant_get_type (v), type);
 }
 
 static inline DbVariantRef
-db_variant_from_gvariant (GVariant *v)
+Db_variant_from_gvariant (GVariant *v)
 {
   g_assert (g_variant_type_equal (g_variant_get_type (v), G_VARIANT_TYPE_VARIANT));
   return (DbVariantRef) { g_variant_get_data (v), g_variant_get_size (v) };
 }
 
 static inline DbVariantRef
-db_variant_from_bytes (GBytes *b)
+Db_variant_from_bytes (GBytes *b)
 {
   return (DbVariantRef) { g_bytes_get_data (b, NULL), g_bytes_get_size (b) };
 }
 
 static inline DbVariantRef
-db_variant_from_data (gconstpointer data, gsize size)
+Db_variant_from_data (gconstpointer data, gsize size)
 {
   return (DbVariantRef) { data, size };
 }
 
 static inline GVariant *
-db_variant_dup_to_gvariant (DbVariantRef v)
+Db_variant_dup_to_gvariant (DbVariantRef v)
 {
   return g_variant_new_from_data (G_VARIANT_TYPE_VARIANT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
-db_variant_to_gvariant (DbVariantRef v,
+Db_variant_to_gvariant (DbVariantRef v,
                               GDestroyNotify      notify,
                               gpointer            user_data)
 {
@@ -259,229 +259,127 @@ db_variant_to_gvariant (DbVariantRef v,
 }
 
 static inline GVariant *
-db_variant_to_owned_gvariant (DbVariantRef v,
+Db_variant_to_owned_gvariant (DbVariantRef v,
                                      GVariant *base)
 {
-  return db_variant_to_gvariant (v, (GDestroyNotify)g_variant_unref, g_variant_ref (base));
+  return Db_variant_to_gvariant (v, (GDestroyNotify)g_variant_unref, g_variant_ref (base));
 }
 
 static inline GVariant *
-db_variant_peek_as_variant (DbVariantRef v)
+Db_variant_peek_as_variant (DbVariantRef v)
 {
   return g_variant_new_from_data (G_VARIANT_TYPE_VARIANT, v.base, v.size, TRUE, NULL, NULL);
 }
 
 static inline DbVariantRef
-db_variant_from_variant (DbVariantRef v)
+Db_variant_from_variant (DbVariantRef v)
 {
   const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
+  DbRef child = Db_variant_get_child (v, &type);
   g_assert (g_variant_type_equal(type, G_VARIANT_TYPE_VARIANT));
-  return db_variant_from_data (child.base, child.size);
+  return Db_variant_from_data (child.base, child.size);
 }
 
 static inline GVariant *
-db_variant_dup_child_to_gvariant (DbVariantRef v)
+Db_variant_dup_child_to_gvariant (DbVariantRef v)
 {
   const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
+  DbRef child = Db_variant_get_child (v, &type);
   return g_variant_new_from_data (type, g_memdup (child.base, child.size), child.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
-db_variant_peek_child_as_variant (DbVariantRef v)
+Db_variant_peek_child_as_variant (DbVariantRef v)
 {
   const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
+  DbRef child = Db_variant_get_child (v, &type);
   return g_variant_new_from_data (type, child.base, child.size, TRUE, NULL, NULL);
 }
 
 static inline GString *
-db_variant_format (DbVariantRef v, GString *s, gboolean type_annotate)
+Db_variant_format (DbVariantRef v, GString *s, gboolean type_annotate)
 {
 #ifdef DB_DEEP_VARIANT_FORMAT
-  GVariant *gv = db_variant_peek_as_variant (v);
+  GVariant *gv = Db_variant_peek_as_variant (v);
   return g_variant_print_string (gv, s, TRUE);
 #else
-  const GVariantType  *type = db_variant_get_type (v);
+  const GVariantType  *type = Db_variant_get_type (v);
   g_string_append_printf (s, "<@%.*s>", (int)g_variant_type_get_string_length (type), (const char *)type);
   return s;
 #endif
 }
 
 static inline char *
-db_variant_print (DbVariantRef v, gboolean type_annotate)
+Db_variant_print (DbVariantRef v, gboolean type_annotate)
 {
   GString *s = g_string_new ("");
-  db_variant_format (v, s, type_annotate);
+  Db_variant_format (v, s, type_annotate);
   return g_string_free (s, FALSE);
 }
 static inline gboolean
-db_variant_get_boolean (DbVariantRef v)
+Db_variant_get_boolean (DbVariantRef v)
 {
   return (gboolean)*((guint8 *)v.base);
 }
 static inline guint8
-db_variant_get_byte (DbVariantRef v)
+Db_variant_get_byte (DbVariantRef v)
 {
   return (guint8)*((guint8 *)v.base);
 }
 static inline gint16
-db_variant_get_int16 (DbVariantRef v)
+Db_variant_get_int16 (DbVariantRef v)
 {
   return (gint16)*((gint16 *)v.base);
 }
 static inline guint16
-db_variant_get_uint16 (DbVariantRef v)
+Db_variant_get_uint16 (DbVariantRef v)
 {
   return (guint16)*((guint16 *)v.base);
 }
 static inline gint32
-db_variant_get_int32 (DbVariantRef v)
+Db_variant_get_int32 (DbVariantRef v)
 {
   return (gint32)*((gint32 *)v.base);
 }
 static inline guint32
-db_variant_get_uint32 (DbVariantRef v)
+Db_variant_get_uint32 (DbVariantRef v)
 {
   return (guint32)*((guint32 *)v.base);
 }
 static inline gint64
-db_variant_get_int64 (DbVariantRef v)
+Db_variant_get_int64 (DbVariantRef v)
 {
   return (gint64)*((gint64 *)v.base);
 }
 static inline guint64
-db_variant_get_uint64 (DbVariantRef v)
+Db_variant_get_uint64 (DbVariantRef v)
 {
   return (guint64)*((guint64 *)v.base);
 }
 static inline guint32
-db_variant_get_handle (DbVariantRef v)
+Db_variant_get_handle (DbVariantRef v)
 {
   return (guint32)*((guint32 *)v.base);
 }
 static inline double
-db_variant_get_double (DbVariantRef v)
+Db_variant_get_double (DbVariantRef v)
 {
   return (double)*((double *)v.base);
 }
 static inline const char *
-db_variant_get_string (DbVariantRef v)
+Db_variant_get_string (DbVariantRef v)
 {
   return (const char *)v.base;
 }
 static inline const char *
-db_variant_get_objectpath (DbVariantRef v)
+Db_variant_get_objectpath (DbVariantRef v)
 {
   return (const char *)v.base;
 }
 static inline const char *
-db_variant_get_signature (DbVariantRef v)
+Db_variant_get_signature (DbVariantRef v)
 {
   return (const char *)v.base;
-}
-
-/************** DbIdx *******************/
-#define DB_IDX_TYPESTRING "(q)"
-#define DB_IDX_TYPEFORMAT ((const GVariantType *) DB_IDX_TYPESTRING)
-
-typedef struct {
- gconstpointer base;
- gsize size;
-} DbIdxRef;
-
-typedef struct {
-  guint16 idx;/* big endian */
-} DbIdx;
-
-static inline DbIdxRef
-db_idx_from_gvariant (GVariant *v)
-{
-  g_assert (g_variant_type_equal (g_variant_get_type (v), DB_IDX_TYPESTRING));
-  return (DbIdxRef) { g_variant_get_data (v), g_variant_get_size (v) };
-}
-
-static inline DbIdxRef
-db_idx_from_bytes (GBytes *b)
-{
-  g_assert (g_bytes_get_size (b) == 2);
-
-  return (DbIdxRef) { g_bytes_get_data (b, NULL), g_bytes_get_size (b) };
-}
-
-static inline DbIdxRef
-db_idx_from_data (gconstpointer data, gsize size)
-{
-  g_assert (size == 2);
-
-  return (DbIdxRef) { data, size };
-}
-
-static inline GVariant *
-db_idx_dup_to_gvariant (DbIdxRef v)
-{
-  return g_variant_new_from_data (DB_IDX_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
-}
-
-static inline GVariant *
-db_idx_to_gvariant (DbIdxRef v,
-                             GDestroyNotify      notify,
-                             gpointer            user_data)
-{
-  return g_variant_new_from_data (DB_IDX_TYPEFORMAT, v.base, v.size, TRUE, notify, user_data);
-}
-
-static inline GVariant *
-db_idx_to_owned_gvariant (DbIdxRef v, GVariant *base)
-{
-  return db_idx_to_gvariant (v, (GDestroyNotify)g_variant_unref, g_variant_ref (base));
-}
-
-static inline GVariant *
-db_idx_peek_as_gvariant (DbIdxRef v)
-{
-  return g_variant_new_from_data (DB_IDX_TYPEFORMAT, v.base, v.size, TRUE, NULL, NULL);
-}
-
-static inline DbIdxRef
-db_idx_from_variant (DbVariantRef v)
-{
-  const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
-  g_assert (g_variant_type_equal(type, DB_IDX_TYPESTRING));
-  return db_idx_from_data (child.base, child.size);
-}
-
-static inline const DbIdx *
-db_idx_peek (DbIdxRef v) {
-  return (const DbIdx *)v.base;
-}
-
-#define DB_IDX_INDEXOF_IDX 0
-
-static inline guint16
-db_idx_get_idx (DbIdxRef v)
-{
-  guint offset = ((1) & (~(gsize)1)) + 0;
-  return GUINT16_FROM_BE((guint16)G_STRUCT_MEMBER(guint16, v.base, offset));
-}
-
-static inline GString *
-db_idx_format (DbIdxRef v, GString *s, gboolean type_annotate)
-{
-  g_string_append_printf (s, "(%s%"G_GUINT16_FORMAT",)",
-                   type_annotate ? "uint16 " : "",
-                   db_idx_get_idx (v));
-  return s;
-}
-
-static inline char *
-db_idx_print (DbIdxRef v, gboolean type_annotate)
-{
-  GString *s = g_string_new ("");
-  db_idx_format (v, s, type_annotate);
-  return g_string_free (s, FALSE);
 }
 
 /************** DbI18n *******************/
@@ -543,7 +441,7 @@ static inline DbI18nRef
 db_i18n_from_variant (DbVariantRef v)
 {
   const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
+  DbRef child = Db_variant_get_child (v, &type);
   g_assert (g_variant_type_equal(type, DB_I18N_TYPESTRING));
   return db_i18n_from_data (child.base, child.size);
 }
@@ -553,7 +451,7 @@ db_i18n_from_variant (DbVariantRef v)
 static inline const char *
 db_i18n_get_str (DbI18nRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   guint offset = ((0) & (~(gsize)0)) + 0;
   const char *base = (const char *)v.base;
   gsize start = offset;
@@ -569,7 +467,7 @@ db_i18n_get_str (DbI18nRef v)
 static inline const char *
 db_i18n_get_msgctxt (DbI18nRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   guint offset = ((last_end + 0) & (~(gsize)0)) + 0;
   const char *base = (const char *)v.base;
@@ -585,9 +483,9 @@ static inline GString *
 db_i18n_format (DbI18nRef v, GString *s, gboolean type_annotate)
 {
   g_string_append (s, "(");
-  __db_gstring_append_string (s, db_i18n_get_str (v));
+  __Db_gstring_append_string (s, db_i18n_get_str (v));
   g_string_append (s, ", ");
-  __db_gstring_append_string (s, db_i18n_get_msgctxt (v));
+  __Db_gstring_append_string (s, db_i18n_get_msgctxt (v));
   g_string_append (s, ")");
   return s;
 }
@@ -659,7 +557,7 @@ static inline DbArrayofstringRef
 db_arrayofstring_from_variant (DbVariantRef v)
 {
   const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
+  DbRef child = Db_variant_get_child (v, &type);
   g_assert (g_variant_type_equal(type, DB_ARRAYOFSTRING_TYPESTRING));
   return db_arrayofstring_from_data (child.base, child.size);
 }
@@ -669,7 +567,7 @@ db_arrayofstring_get_length (DbArrayofstringRef v)
 {
   if (v.size == 0)
     return 0;
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   gsize offsets_array_size;
   if (last_end > v.size)
@@ -684,7 +582,7 @@ db_arrayofstring_get_length (DbArrayofstringRef v)
 static inline const char *
 db_arrayofstring_get_at (DbArrayofstringRef v, gsize index)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   gsize len = (v.size - last_end) / offset_size;
   gsize start = (index > 0) ? DB_REF_ALIGN(DB_REF_READ_FRAME_OFFSET(v, len - index), 1) : 0;
@@ -725,7 +623,7 @@ db_arrayofstring_format (DbArrayofstringRef v, GString *s, gboolean type_annotat
     {
       if (i != 0)
         g_string_append (s, ", ");
-      __db_gstring_append_string (s, db_arrayofstring_get_at (v, i));
+      __Db_gstring_append_string (s, db_arrayofstring_get_at (v, i));
     }
   g_string_append_c (s, ']');
   return s;
@@ -798,7 +696,7 @@ static inline DbTimezoneRef
 db_timezone_from_variant (DbVariantRef v)
 {
   const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
+  DbRef child = Db_variant_get_child (v, &type);
   g_assert (g_variant_type_equal(type, DB_TIMEZONE_TYPESTRING));
   return db_timezone_from_data (child.base, child.size);
 }
@@ -808,7 +706,7 @@ db_timezone_from_variant (DbVariantRef v)
 static inline DbI18nRef
 db_timezone_get_name (DbTimezoneRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   guint offset = ((0) & (~(gsize)0)) + 0;
   gsize start = offset;
   gsize end = DB_REF_READ_FRAME_OFFSET(v, 0);
@@ -822,7 +720,7 @@ db_timezone_get_name (DbTimezoneRef v)
 static inline DbArrayofstringRef
 db_timezone_get_obsoletes (DbTimezoneRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   guint offset = ((last_end + 0) & (~(gsize)0)) + 0;
   gsize start = offset;
@@ -861,8 +759,8 @@ typedef struct {
 } DbCoordinateRef;
 
 typedef struct {
-  double lat;/* big endian */
-  double lon;/* big endian */
+  double lat;
+  double lon;
 } DbCoordinate;
 
 static inline DbCoordinateRef
@@ -918,7 +816,7 @@ static inline DbCoordinateRef
 db_coordinate_from_variant (DbVariantRef v)
 {
   const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
+  DbRef child = Db_variant_get_child (v, &type);
   g_assert (g_variant_type_equal(type, DB_COORDINATE_TYPESTRING));
   return db_coordinate_from_data (child.base, child.size);
 }
@@ -934,7 +832,7 @@ static inline double
 db_coordinate_get_lat (DbCoordinateRef v)
 {
   guint offset = ((7) & (~(gsize)7)) + 0;
-  return DOUBLE_FROM_BE((double)G_STRUCT_MEMBER(double, v.base, offset));
+  return (double)G_STRUCT_MEMBER(double, v.base, offset);
 }
 
 #define DB_COORDINATE_INDEXOF_LON 1
@@ -943,16 +841,16 @@ static inline double
 db_coordinate_get_lon (DbCoordinateRef v)
 {
   guint offset = ((7) & (~(gsize)7)) + 8;
-  return DOUBLE_FROM_BE((double)G_STRUCT_MEMBER(double, v.base, offset));
+  return (double)G_STRUCT_MEMBER(double, v.base, offset);
 }
 
 static inline GString *
 db_coordinate_format (DbCoordinateRef v, GString *s, gboolean type_annotate)
 {
   g_string_append (s, "(");
-  __db_gstring_append_double (s, db_coordinate_get_lat (v));
+  __Db_gstring_append_double (s, db_coordinate_get_lat (v));
   g_string_append (s, ", ");
-  __db_gstring_append_double (s, db_coordinate_get_lon (v));
+  __Db_gstring_append_double (s, db_coordinate_get_lon (v));
   g_string_append (s, ")");
   return s;
 }
@@ -965,315 +863,117 @@ db_coordinate_print (DbCoordinateRef v, gboolean type_annotate)
   return g_string_free (s, FALSE);
 }
 
-/************** DbMaybeCoordinate *******************/
-#define DB_MAYBE_COORDINATE_TYPESTRING "m(dd)"
-#define DB_MAYBE_COORDINATE_TYPEFORMAT ((const GVariantType *) DB_MAYBE_COORDINATE_TYPESTRING)
+/************** DbArrayofuint16 *******************/
+#define DB_ARRAYOFUINT16_TYPESTRING "aq"
+#define DB_ARRAYOFUINT16_TYPEFORMAT ((const GVariantType *) DB_ARRAYOFUINT16_TYPESTRING)
 
 typedef struct {
  gconstpointer base;
  gsize size;
-} DbMaybeCoordinateRef;
+} DbArrayofuint16Ref;
 
 
-static inline DbMaybeCoordinateRef
-db_maybe_coordinate_from_gvariant (GVariant *v)
+static inline DbArrayofuint16Ref
+db_arrayofuint16_from_gvariant (GVariant *v)
 {
-  g_assert (g_variant_type_equal (g_variant_get_type (v), DB_MAYBE_COORDINATE_TYPESTRING));
-  return (DbMaybeCoordinateRef) { g_variant_get_data (v), g_variant_get_size (v) };
+  g_assert (g_variant_type_equal (g_variant_get_type (v), DB_ARRAYOFUINT16_TYPESTRING));
+  return (DbArrayofuint16Ref) { g_variant_get_data (v), g_variant_get_size (v) };
 }
 
-static inline DbMaybeCoordinateRef
-db_maybe_coordinate_from_bytes (GBytes *b)
+static inline DbArrayofuint16Ref
+db_arrayofuint16_from_bytes (GBytes *b)
 {
-  return (DbMaybeCoordinateRef) { g_bytes_get_data (b, NULL), g_bytes_get_size (b) };
+  return (DbArrayofuint16Ref) { g_bytes_get_data (b, NULL), g_bytes_get_size (b) };
 }
 
-static inline DbMaybeCoordinateRef
-db_maybe_coordinate_from_data (gconstpointer data, gsize size)
+static inline DbArrayofuint16Ref
+db_arrayofuint16_from_data (gconstpointer data, gsize size)
 {
-  return (DbMaybeCoordinateRef) { data, size };
-}
-
-static inline GVariant *
-db_maybe_coordinate_dup_to_gvariant (DbMaybeCoordinateRef v)
-{
-  return g_variant_new_from_data (DB_MAYBE_COORDINATE_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
+  return (DbArrayofuint16Ref) { data, size };
 }
 
 static inline GVariant *
-db_maybe_coordinate_to_gvariant (DbMaybeCoordinateRef v,
+db_arrayofuint16_dup_to_gvariant (DbArrayofuint16Ref v)
+{
+  return g_variant_new_from_data (DB_ARRAYOFUINT16_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
+}
+
+static inline GVariant *
+db_arrayofuint16_to_gvariant (DbArrayofuint16Ref v,
                              GDestroyNotify      notify,
                              gpointer            user_data)
 {
-  return g_variant_new_from_data (DB_MAYBE_COORDINATE_TYPEFORMAT, v.base, v.size, TRUE, notify, user_data);
+  return g_variant_new_from_data (DB_ARRAYOFUINT16_TYPEFORMAT, v.base, v.size, TRUE, notify, user_data);
 }
 
 static inline GVariant *
-db_maybe_coordinate_to_owned_gvariant (DbMaybeCoordinateRef v, GVariant *base)
+db_arrayofuint16_to_owned_gvariant (DbArrayofuint16Ref v, GVariant *base)
 {
-  return db_maybe_coordinate_to_gvariant (v, (GDestroyNotify)g_variant_unref, g_variant_ref (base));
+  return db_arrayofuint16_to_gvariant (v, (GDestroyNotify)g_variant_unref, g_variant_ref (base));
 }
 
 static inline GVariant *
-db_maybe_coordinate_peek_as_gvariant (DbMaybeCoordinateRef v)
+db_arrayofuint16_peek_as_gvariant (DbArrayofuint16Ref v)
 {
-  return g_variant_new_from_data (DB_MAYBE_COORDINATE_TYPEFORMAT, v.base, v.size, TRUE, NULL, NULL);
+  return g_variant_new_from_data (DB_ARRAYOFUINT16_TYPEFORMAT, v.base, v.size, TRUE, NULL, NULL);
 }
 
-static inline DbMaybeCoordinateRef
-db_maybe_coordinate_from_variant (DbVariantRef v)
+static inline DbArrayofuint16Ref
+db_arrayofuint16_from_variant (DbVariantRef v)
 {
   const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
-  g_assert (g_variant_type_equal(type, DB_MAYBE_COORDINATE_TYPESTRING));
-  return db_maybe_coordinate_from_data (child.base, child.size);
-}
-
-static inline gboolean
-db_maybe_coordinate_has_value(DbMaybeCoordinateRef v)
-{
-  return v.size != 0;
-}
-static inline DbCoordinateRef
-db_maybe_coordinate_get_value (DbMaybeCoordinateRef v)
-{
-  g_assert (v.size == 16);
-  return (DbCoordinateRef) { v.base, v.size };
-}
-static inline GString *
-db_maybe_coordinate_format (DbMaybeCoordinateRef v, GString *s, gboolean type_annotate)
-{
-  if (type_annotate)
-    g_string_append_printf (s, "@%s ", DB_MAYBE_COORDINATE_TYPESTRING);
-  if (v.size != 0)
-    {
-      db_coordinate_format (db_maybe_coordinate_get_value (v), s, FALSE);
-    }
-  else
-    {
-      g_string_append (s, "nothing");
-    }
-  return s;
-}
-
-static inline char *
-db_maybe_coordinate_print (DbMaybeCoordinateRef v, gboolean type_annotate)
-{
-  GString *s = g_string_new ("");
-  db_maybe_coordinate_format (v, s, type_annotate);
-  return g_string_free (s, FALSE);
-}
-
-/************** DbMaybeIdx *******************/
-#define DB_MAYBE_IDX_TYPESTRING "m(q)"
-#define DB_MAYBE_IDX_TYPEFORMAT ((const GVariantType *) DB_MAYBE_IDX_TYPESTRING)
-
-typedef struct {
- gconstpointer base;
- gsize size;
-} DbMaybeIdxRef;
-
-
-static inline DbMaybeIdxRef
-db_maybe_idx_from_gvariant (GVariant *v)
-{
-  g_assert (g_variant_type_equal (g_variant_get_type (v), DB_MAYBE_IDX_TYPESTRING));
-  return (DbMaybeIdxRef) { g_variant_get_data (v), g_variant_get_size (v) };
-}
-
-static inline DbMaybeIdxRef
-db_maybe_idx_from_bytes (GBytes *b)
-{
-  return (DbMaybeIdxRef) { g_bytes_get_data (b, NULL), g_bytes_get_size (b) };
-}
-
-static inline DbMaybeIdxRef
-db_maybe_idx_from_data (gconstpointer data, gsize size)
-{
-  return (DbMaybeIdxRef) { data, size };
-}
-
-static inline GVariant *
-db_maybe_idx_dup_to_gvariant (DbMaybeIdxRef v)
-{
-  return g_variant_new_from_data (DB_MAYBE_IDX_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
-}
-
-static inline GVariant *
-db_maybe_idx_to_gvariant (DbMaybeIdxRef v,
-                             GDestroyNotify      notify,
-                             gpointer            user_data)
-{
-  return g_variant_new_from_data (DB_MAYBE_IDX_TYPEFORMAT, v.base, v.size, TRUE, notify, user_data);
-}
-
-static inline GVariant *
-db_maybe_idx_to_owned_gvariant (DbMaybeIdxRef v, GVariant *base)
-{
-  return db_maybe_idx_to_gvariant (v, (GDestroyNotify)g_variant_unref, g_variant_ref (base));
-}
-
-static inline GVariant *
-db_maybe_idx_peek_as_gvariant (DbMaybeIdxRef v)
-{
-  return g_variant_new_from_data (DB_MAYBE_IDX_TYPEFORMAT, v.base, v.size, TRUE, NULL, NULL);
-}
-
-static inline DbMaybeIdxRef
-db_maybe_idx_from_variant (DbVariantRef v)
-{
-  const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
-  g_assert (g_variant_type_equal(type, DB_MAYBE_IDX_TYPESTRING));
-  return db_maybe_idx_from_data (child.base, child.size);
-}
-
-static inline gboolean
-db_maybe_idx_has_value(DbMaybeIdxRef v)
-{
-  return v.size != 0;
-}
-static inline DbIdxRef
-db_maybe_idx_get_value (DbMaybeIdxRef v)
-{
-  g_assert (v.size == 2);
-  return (DbIdxRef) { v.base, v.size };
-}
-static inline GString *
-db_maybe_idx_format (DbMaybeIdxRef v, GString *s, gboolean type_annotate)
-{
-  if (type_annotate)
-    g_string_append_printf (s, "@%s ", DB_MAYBE_IDX_TYPESTRING);
-  if (v.size != 0)
-    {
-      db_idx_format (db_maybe_idx_get_value (v), s, FALSE);
-    }
-  else
-    {
-      g_string_append (s, "nothing");
-    }
-  return s;
-}
-
-static inline char *
-db_maybe_idx_print (DbMaybeIdxRef v, gboolean type_annotate)
-{
-  GString *s = g_string_new ("");
-  db_maybe_idx_format (v, s, type_annotate);
-  return g_string_free (s, FALSE);
-}
-
-/************** DbArrayofIdx *******************/
-#define DB_ARRAYOF_IDX_TYPESTRING "a(q)"
-#define DB_ARRAYOF_IDX_TYPEFORMAT ((const GVariantType *) DB_ARRAYOF_IDX_TYPESTRING)
-
-typedef struct {
- gconstpointer base;
- gsize size;
-} DbArrayofIdxRef;
-
-
-static inline DbArrayofIdxRef
-db_arrayof_idx_from_gvariant (GVariant *v)
-{
-  g_assert (g_variant_type_equal (g_variant_get_type (v), DB_ARRAYOF_IDX_TYPESTRING));
-  return (DbArrayofIdxRef) { g_variant_get_data (v), g_variant_get_size (v) };
-}
-
-static inline DbArrayofIdxRef
-db_arrayof_idx_from_bytes (GBytes *b)
-{
-  return (DbArrayofIdxRef) { g_bytes_get_data (b, NULL), g_bytes_get_size (b) };
-}
-
-static inline DbArrayofIdxRef
-db_arrayof_idx_from_data (gconstpointer data, gsize size)
-{
-  return (DbArrayofIdxRef) { data, size };
-}
-
-static inline GVariant *
-db_arrayof_idx_dup_to_gvariant (DbArrayofIdxRef v)
-{
-  return g_variant_new_from_data (DB_ARRAYOF_IDX_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
-}
-
-static inline GVariant *
-db_arrayof_idx_to_gvariant (DbArrayofIdxRef v,
-                             GDestroyNotify      notify,
-                             gpointer            user_data)
-{
-  return g_variant_new_from_data (DB_ARRAYOF_IDX_TYPEFORMAT, v.base, v.size, TRUE, notify, user_data);
-}
-
-static inline GVariant *
-db_arrayof_idx_to_owned_gvariant (DbArrayofIdxRef v, GVariant *base)
-{
-  return db_arrayof_idx_to_gvariant (v, (GDestroyNotify)g_variant_unref, g_variant_ref (base));
-}
-
-static inline GVariant *
-db_arrayof_idx_peek_as_gvariant (DbArrayofIdxRef v)
-{
-  return g_variant_new_from_data (DB_ARRAYOF_IDX_TYPEFORMAT, v.base, v.size, TRUE, NULL, NULL);
-}
-
-static inline DbArrayofIdxRef
-db_arrayof_idx_from_variant (DbVariantRef v)
-{
-  const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
-  g_assert (g_variant_type_equal(type, DB_ARRAYOF_IDX_TYPESTRING));
-  return db_arrayof_idx_from_data (child.base, child.size);
+  DbRef child = Db_variant_get_child (v, &type);
+  g_assert (g_variant_type_equal(type, DB_ARRAYOFUINT16_TYPESTRING));
+  return db_arrayofuint16_from_data (child.base, child.size);
 }
 
 static inline gsize
-db_arrayof_idx_get_length (DbArrayofIdxRef v)
+db_arrayofuint16_get_length (DbArrayofuint16Ref v)
 {
   gsize length = v.size / 2;
   return length;
 }
 
-static inline DbIdxRef
-db_arrayof_idx_get_at (DbArrayofIdxRef v, gsize index)
+static inline guint16
+db_arrayofuint16_get_at (DbArrayofuint16Ref v, gsize index)
 {
-  return (DbIdxRef) { G_STRUCT_MEMBER_P(v.base, index * 2), 2};
+  return (guint16)G_STRUCT_MEMBER(guint16, v.base, index * 2);
 }
 
-static inline const DbIdx *
-db_arrayof_idx_peek (DbArrayofIdxRef v)
+static inline const guint16 *
+db_arrayofuint16_peek (DbArrayofuint16Ref v)
 {
-  return (const DbIdx *)v.base;
+  return (const guint16 *)v.base;
 }
 
 static inline GString *
-db_arrayof_idx_format (DbArrayofIdxRef v, GString *s, gboolean type_annotate)
+db_arrayofuint16_format (DbArrayofuint16Ref v, GString *s, gboolean type_annotate)
 {
-  gsize len = db_arrayof_idx_get_length (v);
+  gsize len = db_arrayofuint16_get_length (v);
   gsize i;
   if (len == 0 && type_annotate)
-    g_string_append_printf (s, "@%s ", DB_ARRAYOF_IDX_TYPESTRING);
+    g_string_append_printf (s, "@%s ", DB_ARRAYOFUINT16_TYPESTRING);
   g_string_append_c (s, '[');
   for (i = 0; i < len; i++)
     {
       if (i != 0)
         g_string_append (s, ", ");
-      db_idx_format (db_arrayof_idx_get_at (v, i), s, ((i == 0) ? type_annotate : FALSE));
+      g_string_append_printf (s, "%s%"G_GUINT16_FORMAT"", ((i == 0) ? type_annotate : FALSE) ? "uint16 " : "", db_arrayofuint16_get_at (v, i));
     }
   g_string_append_c (s, ']');
   return s;
 }
 
 static inline char *
-db_arrayof_idx_print (DbArrayofIdxRef v, gboolean type_annotate)
+db_arrayofuint16_print (DbArrayofuint16Ref v, gboolean type_annotate)
 {
   GString *s = g_string_new ("");
-  db_arrayof_idx_format (v, s, type_annotate);
+  db_arrayofuint16_format (v, s, type_annotate);
   return g_string_free (s, FALSE);
 }
 
 /************** DbLocation *******************/
-#define DB_LOCATION_TYPESTRING "((ss)ssm(dd)ssm(q)ym(q)(q)a(q)a(q))"
+#define DB_LOCATION_TYPESTRING "((ss)ss(dd)ssqyqqaqaq)"
 #define DB_LOCATION_TYPEFORMAT ((const GVariantType *) DB_LOCATION_TYPESTRING)
 
 typedef struct {
@@ -1331,7 +1031,7 @@ static inline DbLocationRef
 db_location_from_variant (DbVariantRef v)
 {
   const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
+  DbRef child = Db_variant_get_child (v, &type);
   g_assert (g_variant_type_equal(type, DB_LOCATION_TYPESTRING));
   return db_location_from_data (child.base, child.size);
 }
@@ -1341,7 +1041,7 @@ db_location_from_variant (DbVariantRef v)
 static inline DbI18nRef
 db_location_get_name (DbLocationRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   guint offset = ((0) & (~(gsize)0)) + 0;
   gsize start = offset;
   gsize end = DB_REF_READ_FRAME_OFFSET(v, 0);
@@ -1355,7 +1055,7 @@ db_location_get_name (DbLocationRef v)
 static inline const char *
 db_location_get_forecast_zone (DbLocationRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   guint offset = ((last_end + 0) & (~(gsize)0)) + 0;
   const char *base = (const char *)v.base;
@@ -1372,7 +1072,7 @@ db_location_get_forecast_zone (DbLocationRef v)
 static inline const char *
 db_location_get_radar (DbLocationRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 1);
   guint offset = ((last_end + 0) & (~(gsize)0)) + 0;
   const char *base = (const char *)v.base;
@@ -1386,17 +1086,19 @@ db_location_get_radar (DbLocationRef v)
 
 #define DB_LOCATION_INDEXOF_COORDINATES 3
 
-static inline DbMaybeCoordinateRef
+static inline DbCoordinateRef
 db_location_get_coordinates (DbLocationRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 2);
   guint offset = ((last_end + 7) & (~(gsize)7)) + 0;
-  gsize start = offset;
-  gsize end = DB_REF_READ_FRAME_OFFSET(v, 3);
-  g_assert (start <= end);
-  g_assert (end <= v.size);
-  return (DbMaybeCoordinateRef) { G_STRUCT_MEMBER_P(v.base, start), end - start };
+  g_assert (offset + 16 < v.size);
+  return (DbCoordinateRef) { G_STRUCT_MEMBER_P(v.base, offset), 16 };
+}
+
+static inline const DbCoordinate *
+db_location_peek_coordinates (DbLocationRef v) {
+  return (DbCoordinate *)db_location_get_coordinates (v).base;
 }
 
 #define DB_LOCATION_INDEXOF_COUNTRY_CODE 4
@@ -1404,12 +1106,12 @@ db_location_get_coordinates (DbLocationRef v)
 static inline const char *
 db_location_get_country_code (DbLocationRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
-  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 3);
-  guint offset = ((last_end + 0) & (~(gsize)0)) + 0;
+  guint offset_size = Db_ref_get_offset_size (v.size);
+  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 2);
+  guint offset = ((last_end + 7) & (~(gsize)7)) + 16;
   const char *base = (const char *)v.base;
   gsize start = offset;
-  G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 4);
+  G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 3);
   g_assert (start <= end);
   g_assert (end <= v.size);
   g_assert (base[end-1] == 0);
@@ -1421,12 +1123,12 @@ db_location_get_country_code (DbLocationRef v)
 static inline const char *
 db_location_get_metar_code (DbLocationRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
-  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 4);
+  guint offset_size = Db_ref_get_offset_size (v.size);
+  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 3);
   guint offset = ((last_end + 0) & (~(gsize)0)) + 0;
   const char *base = (const char *)v.base;
   gsize start = offset;
-  G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 5);
+  G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 4);
   g_assert (start <= end);
   g_assert (end <= v.size);
   g_assert (base[end-1] == 0);
@@ -1435,17 +1137,14 @@ db_location_get_metar_code (DbLocationRef v)
 
 #define DB_LOCATION_INDEXOF_TZ_HINT 6
 
-static inline DbMaybeIdxRef
+static inline guint16
 db_location_get_tz_hint (DbLocationRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
-  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 5);
+  guint offset_size = Db_ref_get_offset_size (v.size);
+  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 4);
   guint offset = ((last_end + 1) & (~(gsize)1)) + 0;
-  gsize start = offset;
-  gsize end = DB_REF_READ_FRAME_OFFSET(v, 6);
-  g_assert (start <= end);
-  g_assert (end <= v.size);
-  return (DbMaybeIdxRef) { G_STRUCT_MEMBER_P(v.base, start), end - start };
+  g_assert (offset + 2 < v.size);
+  return (guint16)G_STRUCT_MEMBER(guint16, v.base, offset);
 }
 
 #define DB_LOCATION_INDEXOF_LEVEL 7
@@ -1453,89 +1152,81 @@ db_location_get_tz_hint (DbLocationRef v)
 static inline guint8
 db_location_get_level (DbLocationRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
-  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 6);
-  guint offset = ((last_end + 0) & (~(gsize)0)) + 0;
+  guint offset_size = Db_ref_get_offset_size (v.size);
+  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 4);
+  guint offset = ((last_end + 1) & (~(gsize)1)) + 2;
   g_assert (offset + 1 < v.size);
   return (guint8)G_STRUCT_MEMBER(guint8, v.base, offset);
 }
 
 #define DB_LOCATION_INDEXOF_NEAREST 8
 
-static inline DbMaybeIdxRef
+static inline guint16
 db_location_get_nearest (DbLocationRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
-  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 6);
-  guint offset = ((last_end + 2) & (~(gsize)1)) + 0;
-  gsize start = offset;
-  gsize end = DB_REF_READ_FRAME_OFFSET(v, 7);
-  g_assert (start <= end);
-  g_assert (end <= v.size);
-  return (DbMaybeIdxRef) { G_STRUCT_MEMBER_P(v.base, start), end - start };
+  guint offset_size = Db_ref_get_offset_size (v.size);
+  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 4);
+  guint offset = ((last_end + 1) & (~(gsize)1)) + 4;
+  g_assert (offset + 2 < v.size);
+  return (guint16)G_STRUCT_MEMBER(guint16, v.base, offset);
 }
 
 #define DB_LOCATION_INDEXOF_PARENT 9
 
-static inline DbIdxRef
+static inline guint16
 db_location_get_parent (DbLocationRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
-  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 7);
-  guint offset = ((last_end + 1) & (~(gsize)1)) + 0;
+  guint offset_size = Db_ref_get_offset_size (v.size);
+  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 4);
+  guint offset = ((last_end + 1) & (~(gsize)1)) + 6;
   g_assert (offset + 2 < v.size);
-  return (DbIdxRef) { G_STRUCT_MEMBER_P(v.base, offset), 2 };
-}
-
-static inline const DbIdx *
-db_location_peek_parent (DbLocationRef v) {
-  return (DbIdx *)db_location_get_parent (v).base;
+  return (guint16)G_STRUCT_MEMBER(guint16, v.base, offset);
 }
 
 #define DB_LOCATION_INDEXOF_CHILDREN 10
 
-static inline DbArrayofIdxRef
+static inline DbArrayofuint16Ref
 db_location_get_children (DbLocationRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
-  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 7);
-  guint offset = ((last_end + 1) & (~(gsize)1)) + 2;
+  guint offset_size = Db_ref_get_offset_size (v.size);
+  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 4);
+  guint offset = ((last_end + 1) & (~(gsize)1)) + 8;
   gsize start = offset;
-  gsize end = DB_REF_READ_FRAME_OFFSET(v, 8);
+  gsize end = DB_REF_READ_FRAME_OFFSET(v, 5);
   g_assert (start <= end);
   g_assert (end <= v.size);
-  return (DbArrayofIdxRef) { G_STRUCT_MEMBER_P(v.base, start), end - start };
+  return (DbArrayofuint16Ref) { G_STRUCT_MEMBER_P(v.base, start), end - start };
 }
 
-static inline const DbIdx *
+static inline const guint16 *
 db_location_peek_children (DbLocationRef v, gsize *len) {
-  DbArrayofIdxRef a = db_location_get_children (v);
+  DbArrayofuint16Ref a = db_location_get_children (v);
   if (len != NULL)
-    *len = db_arrayof_idx_get_length (a);
-  return (const DbIdx *)a.base;
+    *len = db_arrayofuint16_get_length (a);
+  return (const guint16 *)a.base;
 }
 
 #define DB_LOCATION_INDEXOF_TIMEZONES 11
 
-static inline DbArrayofIdxRef
+static inline DbArrayofuint16Ref
 db_location_get_timezones (DbLocationRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
-  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 8);
+  guint offset_size = Db_ref_get_offset_size (v.size);
+  gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 5);
   guint offset = ((last_end + 1) & (~(gsize)1)) + 0;
   gsize start = offset;
-  gsize end = v.size - offset_size * 9;
+  gsize end = v.size - offset_size * 6;
   g_assert (start <= end);
   g_assert (end <= v.size);
-  return (DbArrayofIdxRef) { G_STRUCT_MEMBER_P(v.base, start), end - start };
+  return (DbArrayofuint16Ref) { G_STRUCT_MEMBER_P(v.base, start), end - start };
 }
 
-static inline const DbIdx *
+static inline const guint16 *
 db_location_peek_timezones (DbLocationRef v, gsize *len) {
-  DbArrayofIdxRef a = db_location_get_timezones (v);
+  DbArrayofuint16Ref a = db_location_get_timezones (v);
   if (len != NULL)
-    *len = db_arrayof_idx_get_length (a);
-  return (const DbIdx *)a.base;
+    *len = db_arrayofuint16_get_length (a);
+  return (const guint16 *)a.base;
 }
 
 static inline GString *
@@ -1544,28 +1235,28 @@ db_location_format (DbLocationRef v, GString *s, gboolean type_annotate)
   g_string_append (s, "(");
   db_i18n_format (db_location_get_name (v), s, type_annotate);
   g_string_append (s, ", ");
-  __db_gstring_append_string (s, db_location_get_forecast_zone (v));
+  __Db_gstring_append_string (s, db_location_get_forecast_zone (v));
   g_string_append (s, ", ");
-  __db_gstring_append_string (s, db_location_get_radar (v));
+  __Db_gstring_append_string (s, db_location_get_radar (v));
   g_string_append (s, ", ");
-  db_maybe_coordinate_format (db_location_get_coordinates (v), s, type_annotate);
+  db_coordinate_format (db_location_get_coordinates (v), s, type_annotate);
   g_string_append (s, ", ");
-  __db_gstring_append_string (s, db_location_get_country_code (v));
+  __Db_gstring_append_string (s, db_location_get_country_code (v));
   g_string_append (s, ", ");
-  __db_gstring_append_string (s, db_location_get_metar_code (v));
+  __Db_gstring_append_string (s, db_location_get_metar_code (v));
   g_string_append (s, ", ");
-  db_maybe_idx_format (db_location_get_tz_hint (v), s, type_annotate);
-  g_string_append (s, ", ");
-  g_string_append_printf (s, "%s0x%02x, ",
+  g_string_append_printf (s, "%s%"G_GUINT16_FORMAT", %s0x%02x, %s%"G_GUINT16_FORMAT", %s%"G_GUINT16_FORMAT", ",
+                   type_annotate ? "uint16 " : "",
+                   db_location_get_tz_hint (v),
                    type_annotate ? "byte " : "",
-                   db_location_get_level (v));
-  db_maybe_idx_format (db_location_get_nearest (v), s, type_annotate);
+                   db_location_get_level (v),
+                   type_annotate ? "uint16 " : "",
+                   db_location_get_nearest (v),
+                   type_annotate ? "uint16 " : "",
+                   db_location_get_parent (v));
+  db_arrayofuint16_format (db_location_get_children (v), s, type_annotate);
   g_string_append (s, ", ");
-  db_idx_format (db_location_get_parent (v), s, type_annotate);
-  g_string_append (s, ", ");
-  db_arrayof_idx_format (db_location_get_children (v), s, type_annotate);
-  g_string_append (s, ", ");
-  db_arrayof_idx_format (db_location_get_timezones (v), s, type_annotate);
+  db_arrayofuint16_format (db_location_get_timezones (v), s, type_annotate);
   g_string_append (s, ")");
   return s;
 }
@@ -1579,7 +1270,7 @@ db_location_print (DbLocationRef v, gboolean type_annotate)
 }
 
 /************** DbWorldLocByCountry *******************/
-#define DB_WORLD_LOC_BY_COUNTRY_TYPESTRING "a{s(q)}"
+#define DB_WORLD_LOC_BY_COUNTRY_TYPESTRING "a{sq}"
 #define DB_WORLD_LOC_BY_COUNTRY_TYPEFORMAT ((const GVariantType *) DB_WORLD_LOC_BY_COUNTRY_TYPESTRING)
 
 typedef struct {
@@ -1642,7 +1333,7 @@ static inline DbWorldLocByCountryRef
 db_world_loc_by_country_from_variant (DbVariantRef v)
 {
   const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
+  DbRef child = Db_variant_get_child (v, &type);
   g_assert (g_variant_type_equal(type, DB_WORLD_LOC_BY_COUNTRY_TYPESTRING));
   return db_world_loc_by_country_from_data (child.base, child.size);
 }
@@ -1653,7 +1344,7 @@ db_world_loc_by_country_get_length (DbWorldLocByCountryRef v)
 {
   if (v.size == 0)
     return 0;
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   gsize offsets_array_size;
   if (last_end > v.size)
@@ -1669,7 +1360,7 @@ static inline DbWorldLocByCountryEntryRef
 db_world_loc_by_country_get_at (DbWorldLocByCountryRef v, gsize index)
 {
   DbWorldLocByCountryEntryRef res;
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   gsize len = (v.size - last_end) / offset_size;
   gsize start = (index > 0) ? DB_REF_ALIGN(DB_REF_READ_FRAME_OFFSET(v, len - index), 2) : 0;
@@ -1683,7 +1374,7 @@ db_world_loc_by_country_get_at (DbWorldLocByCountryRef v, gsize index)
 static inline const char *
 db_world_loc_by_country_entry_get_key (DbWorldLocByCountryEntryRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 0);
   const char *base = (const char *)v.base;
   g_assert (end < v.size);
@@ -1691,21 +1382,21 @@ db_world_loc_by_country_entry_get_key (DbWorldLocByCountryEntryRef v)
   return base;
 }
 
-static inline DbIdxRef
+static inline guint16
 db_world_loc_by_country_entry_get_value (DbWorldLocByCountryEntryRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize end = DB_REF_READ_FRAME_OFFSET(v, 0);
   gsize offset = DB_REF_ALIGN(end, 2);
   g_assert (offset == v.size - offset_size - 2);
-  return (DbIdxRef) { (char *)v.base + offset, (v.size - offset_size) - offset };
+  return (guint16)*((guint16 *)((char *)v.base + offset));
 }
 
 static inline gboolean
-db_world_loc_by_country_lookup (DbWorldLocByCountryRef v, const char * key, gsize *index_out, DbIdxRef *out)
+db_world_loc_by_country_lookup (DbWorldLocByCountryRef v, const char * key, gsize *index_out, guint16 *out)
 {
   const char * canonical_key = key;
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   if (last_end > v.size)
     return FALSE;
@@ -1757,9 +1448,9 @@ db_world_loc_by_country_format (DbWorldLocByCountryRef v, GString *s, gboolean t
       DbWorldLocByCountryEntryRef entry = db_world_loc_by_country_get_at (v, i);
       if (i != 0)
         g_string_append (s, ", ");
-      __db_gstring_append_string (s, db_world_loc_by_country_entry_get_key (entry));
+      __Db_gstring_append_string (s, db_world_loc_by_country_entry_get_key (entry));
       g_string_append (s, ": ");
-      db_idx_format (db_world_loc_by_country_entry_get_value (entry), s, type_annotate);
+      g_string_append_printf (s, "%s%"G_GUINT16_FORMAT"", type_annotate ? "uint16 " : "", db_world_loc_by_country_entry_get_value (entry));
     }
   g_string_append_c (s, '}');
   return s;
@@ -1774,7 +1465,7 @@ db_world_loc_by_country_print (DbWorldLocByCountryRef v, gboolean type_annotate)
 }
 
 /************** DbWorldLocByMetar *******************/
-#define DB_WORLD_LOC_BY_METAR_TYPESTRING "a{s(q)}"
+#define DB_WORLD_LOC_BY_METAR_TYPESTRING "a{sq}"
 #define DB_WORLD_LOC_BY_METAR_TYPEFORMAT ((const GVariantType *) DB_WORLD_LOC_BY_METAR_TYPESTRING)
 
 typedef struct {
@@ -1837,7 +1528,7 @@ static inline DbWorldLocByMetarRef
 db_world_loc_by_metar_from_variant (DbVariantRef v)
 {
   const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
+  DbRef child = Db_variant_get_child (v, &type);
   g_assert (g_variant_type_equal(type, DB_WORLD_LOC_BY_METAR_TYPESTRING));
   return db_world_loc_by_metar_from_data (child.base, child.size);
 }
@@ -1848,7 +1539,7 @@ db_world_loc_by_metar_get_length (DbWorldLocByMetarRef v)
 {
   if (v.size == 0)
     return 0;
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   gsize offsets_array_size;
   if (last_end > v.size)
@@ -1864,7 +1555,7 @@ static inline DbWorldLocByMetarEntryRef
 db_world_loc_by_metar_get_at (DbWorldLocByMetarRef v, gsize index)
 {
   DbWorldLocByMetarEntryRef res;
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   gsize len = (v.size - last_end) / offset_size;
   gsize start = (index > 0) ? DB_REF_ALIGN(DB_REF_READ_FRAME_OFFSET(v, len - index), 2) : 0;
@@ -1878,7 +1569,7 @@ db_world_loc_by_metar_get_at (DbWorldLocByMetarRef v, gsize index)
 static inline const char *
 db_world_loc_by_metar_entry_get_key (DbWorldLocByMetarEntryRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 0);
   const char *base = (const char *)v.base;
   g_assert (end < v.size);
@@ -1886,21 +1577,21 @@ db_world_loc_by_metar_entry_get_key (DbWorldLocByMetarEntryRef v)
   return base;
 }
 
-static inline DbIdxRef
+static inline guint16
 db_world_loc_by_metar_entry_get_value (DbWorldLocByMetarEntryRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize end = DB_REF_READ_FRAME_OFFSET(v, 0);
   gsize offset = DB_REF_ALIGN(end, 2);
   g_assert (offset == v.size - offset_size - 2);
-  return (DbIdxRef) { (char *)v.base + offset, (v.size - offset_size) - offset };
+  return (guint16)*((guint16 *)((char *)v.base + offset));
 }
 
 static inline gboolean
-db_world_loc_by_metar_lookup (DbWorldLocByMetarRef v, const char * key, gsize *index_out, DbIdxRef *out)
+db_world_loc_by_metar_lookup (DbWorldLocByMetarRef v, const char * key, gsize *index_out, guint16 *out)
 {
   const char * canonical_key = key;
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   if (last_end > v.size)
     return FALSE;
@@ -1952,9 +1643,9 @@ db_world_loc_by_metar_format (DbWorldLocByMetarRef v, GString *s, gboolean type_
       DbWorldLocByMetarEntryRef entry = db_world_loc_by_metar_get_at (v, i);
       if (i != 0)
         g_string_append (s, ", ");
-      __db_gstring_append_string (s, db_world_loc_by_metar_entry_get_key (entry));
+      __Db_gstring_append_string (s, db_world_loc_by_metar_entry_get_key (entry));
       g_string_append (s, ": ");
-      db_idx_format (db_world_loc_by_metar_entry_get_value (entry), s, type_annotate);
+      g_string_append_printf (s, "%s%"G_GUINT16_FORMAT"", type_annotate ? "uint16 " : "", db_world_loc_by_metar_entry_get_value (entry));
     }
   g_string_append_c (s, '}');
   return s;
@@ -2032,7 +1723,7 @@ static inline DbWorldTimezonesRef
 db_world_timezones_from_variant (DbVariantRef v)
 {
   const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
+  DbRef child = Db_variant_get_child (v, &type);
   g_assert (g_variant_type_equal(type, DB_WORLD_TIMEZONES_TYPESTRING));
   return db_world_timezones_from_data (child.base, child.size);
 }
@@ -2043,7 +1734,7 @@ db_world_timezones_get_length (DbWorldTimezonesRef v)
 {
   if (v.size == 0)
     return 0;
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   gsize offsets_array_size;
   if (last_end > v.size)
@@ -2059,7 +1750,7 @@ static inline DbWorldTimezonesEntryRef
 db_world_timezones_get_at (DbWorldTimezonesRef v, gsize index)
 {
   DbWorldTimezonesEntryRef res;
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   gsize len = (v.size - last_end) / offset_size;
   gsize start = (index > 0) ? DB_REF_ALIGN(DB_REF_READ_FRAME_OFFSET(v, len - index), 1) : 0;
@@ -2073,7 +1764,7 @@ db_world_timezones_get_at (DbWorldTimezonesRef v, gsize index)
 static inline const char *
 db_world_timezones_entry_get_key (DbWorldTimezonesEntryRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 0);
   const char *base = (const char *)v.base;
   g_assert (end < v.size);
@@ -2084,7 +1775,7 @@ db_world_timezones_entry_get_key (DbWorldTimezonesEntryRef v)
 static inline DbTimezoneRef
 db_world_timezones_entry_get_value (DbWorldTimezonesEntryRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize end = DB_REF_READ_FRAME_OFFSET(v, 0);
   gsize offset = DB_REF_ALIGN(end, 1);
   g_assert (offset <= v.size);
@@ -2095,7 +1786,7 @@ static inline gboolean
 db_world_timezones_lookup (DbWorldTimezonesRef v, const char * key, gsize *index_out, DbTimezoneRef *out)
 {
   const char * canonical_key = key;
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   if (last_end > v.size)
     return FALSE;
@@ -2147,7 +1838,7 @@ db_world_timezones_format (DbWorldTimezonesRef v, GString *s, gboolean type_anno
       DbWorldTimezonesEntryRef entry = db_world_timezones_get_at (v, i);
       if (i != 0)
         g_string_append (s, ", ");
-      __db_gstring_append_string (s, db_world_timezones_entry_get_key (entry));
+      __Db_gstring_append_string (s, db_world_timezones_entry_get_key (entry));
       g_string_append (s, ": ");
       db_timezone_format (db_world_timezones_entry_get_value (entry), s, type_annotate);
     }
@@ -2164,7 +1855,7 @@ db_world_timezones_print (DbWorldTimezonesRef v, gboolean type_annotate)
 }
 
 /************** DbArrayofLocation *******************/
-#define DB_ARRAYOF_LOCATION_TYPESTRING "a((ss)ssm(dd)ssm(q)ym(q)(q)a(q)a(q))"
+#define DB_ARRAYOF_LOCATION_TYPESTRING "a((ss)ss(dd)ssqyqqaqaq)"
 #define DB_ARRAYOF_LOCATION_TYPEFORMAT ((const GVariantType *) DB_ARRAYOF_LOCATION_TYPESTRING)
 
 typedef struct {
@@ -2222,7 +1913,7 @@ static inline DbArrayofLocationRef
 db_arrayof_location_from_variant (DbVariantRef v)
 {
   const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
+  DbRef child = Db_variant_get_child (v, &type);
   g_assert (g_variant_type_equal(type, DB_ARRAYOF_LOCATION_TYPESTRING));
   return db_arrayof_location_from_data (child.base, child.size);
 }
@@ -2232,7 +1923,7 @@ db_arrayof_location_get_length (DbArrayofLocationRef v)
 {
   if (v.size == 0)
     return 0;
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   gsize offsets_array_size;
   if (last_end > v.size)
@@ -2247,7 +1938,7 @@ db_arrayof_location_get_length (DbArrayofLocationRef v)
 static inline DbLocationRef
 db_arrayof_location_get_at (DbArrayofLocationRef v, gsize index)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   gsize len = (v.size - last_end) / offset_size;
   gsize start = (index > 0) ? DB_REF_ALIGN(DB_REF_READ_FRAME_OFFSET(v, len - index), 8) : 0;
@@ -2284,7 +1975,7 @@ db_arrayof_location_print (DbArrayofLocationRef v, gboolean type_annotate)
 }
 
 /************** DbWorld *******************/
-#define DB_WORLD_TYPESTRING "(a{s(q)}a{s(q)}a{s((ss)as)}a((ss)ssm(dd)ssm(q)ym(q)(q)a(q)a(q)))"
+#define DB_WORLD_TYPESTRING "(a{sq}a{sq}a{s((ss)as)}a((ss)ss(dd)ssqyqqaqaq))"
 #define DB_WORLD_TYPEFORMAT ((const GVariantType *) DB_WORLD_TYPESTRING)
 
 typedef struct {
@@ -2342,7 +2033,7 @@ static inline DbWorldRef
 db_world_from_variant (DbVariantRef v)
 {
   const GVariantType  *type;
-  DbRef child = db_variant_get_child (v, &type);
+  DbRef child = Db_variant_get_child (v, &type);
   g_assert (g_variant_type_equal(type, DB_WORLD_TYPESTRING));
   return db_world_from_data (child.base, child.size);
 }
@@ -2352,7 +2043,7 @@ db_world_from_variant (DbVariantRef v)
 static inline DbWorldLocByCountryRef
 db_world_get_loc_by_country (DbWorldRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   guint offset = ((1) & (~(gsize)1)) + 0;
   gsize start = offset;
   gsize end = DB_REF_READ_FRAME_OFFSET(v, 0);
@@ -2366,7 +2057,7 @@ db_world_get_loc_by_country (DbWorldRef v)
 static inline DbWorldLocByMetarRef
 db_world_get_loc_by_metar (DbWorldRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   guint offset = ((last_end + 1) & (~(gsize)1)) + 0;
   gsize start = offset;
@@ -2381,7 +2072,7 @@ db_world_get_loc_by_metar (DbWorldRef v)
 static inline DbWorldTimezonesRef
 db_world_get_timezones (DbWorldRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 1);
   guint offset = ((last_end + 0) & (~(gsize)0)) + 0;
   gsize start = offset;
@@ -2396,7 +2087,7 @@ db_world_get_timezones (DbWorldRef v)
 static inline DbArrayofLocationRef
 db_world_get_locations (DbWorldRef v)
 {
-  guint offset_size = db_ref_get_offset_size (v.size);
+  guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 2);
   guint offset = ((last_end + 7) & (~(gsize)7)) + 0;
   gsize start = offset;

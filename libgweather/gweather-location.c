@@ -207,7 +207,7 @@ add_nearest_weather_station (GWeatherLocation *location)
 
 static GWeatherLocation *
 location_ref_for_idx (GWeatherDb       *db,
-		      guint             idx,
+		      guint16           idx,
 		      GWeatherLocation *nearest_of)
 {
     GWeatherLocation *loc;
@@ -250,29 +250,22 @@ location_ref_for_idx (GWeatherDb       *db,
     }
 
     loc->country_code = g_strdup (EMPTY_TO_NULL (db_location_get_country_code (ref)));
-    if (db_maybe_idx_has_value (db_location_get_tz_hint (ref)))
-        loc->tz_hint_idx = db_idx_get_idx (db_maybe_idx_get_value (db_location_get_tz_hint (ref)));
-    else
-	loc->tz_hint_idx = -1;
+    loc->tz_hint_idx = db_location_get_tz_hint (ref);
 
     loc->station_code = g_strdup (EMPTY_TO_NULL (db_location_get_metar_code (ref)));
 
-    loc->latlon_valid = db_maybe_coordinate_has_value (db_location_get_coordinates (ref));
-    if (loc->latlon_valid) {
-	loc->latitude = db_coordinate_get_lat (db_maybe_coordinate_get_value (db_location_get_coordinates (ref)));
-	loc->longitude = db_coordinate_get_lon (db_maybe_coordinate_get_value (db_location_get_coordinates (ref)));
-    }
+    loc->latitude = db_coordinate_get_lat (db_location_get_coordinates (ref));
+    loc->longitude = db_coordinate_get_lon (db_location_get_coordinates (ref));
+    loc->latlon_valid = isfinite(loc->latitude) && isfinite(loc->longitude);
 
     loc->forecast_zone = g_strdup (EMPTY_TO_NULL (db_location_get_forecast_zone (ref)));
     loc->radar = g_strdup (EMPTY_TO_NULL (db_location_get_radar (ref)));
 
     /* Fill in the magic nearest child if we need to and should. */
     if (!g_getenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST") &&
-        db_maybe_idx_has_value (db_location_get_nearest (ref))) {
-	guint nearest_idx = db_idx_get_idx (db_maybe_idx_get_value (db_location_get_nearest (ref)));
-
+        IDX_VALID (db_location_get_nearest (ref))) {
 	loc->children = g_new0 (GWeatherLocation*, 2);
-	loc->children[0] = location_ref_for_idx (db, nearest_idx, loc);
+	loc->children[0] = location_ref_for_idx (db, db_location_get_nearest (ref), loc);
     }
 
     /* Note, we used to sort locations by distance (for cities) and name;
@@ -628,9 +621,9 @@ gweather_location_ref_parent (GWeatherLocation *loc)
     if (!loc->db || loc->db_idx == 0)
 	return NULL;
 
-    /* Not self-referencing */
-    idx = db_idx_get_idx (db_location_get_parent (loc->ref));
-    g_assert (idx != loc->db_idx);
+    /* Not self-referencing and not invalid */
+    idx = db_location_get_parent (loc->ref);
+    g_assert (IDX_VALID(idx) && idx != loc->db_idx);
     return location_ref_for_idx (loc->db, idx, NULL);
 }
 
@@ -672,7 +665,7 @@ GWeatherLocation **
 gweather_location_get_children (GWeatherLocation *loc)
 {
     static GWeatherLocation *no_children = NULL;
-    DbArrayofIdxRef children_ref;
+    DbArrayofuint16Ref children_ref;
     gsize length;
     gsize i;
 
@@ -685,14 +678,14 @@ gweather_location_get_children (GWeatherLocation *loc)
 	return &no_children;
 
     children_ref = db_location_get_children (loc->ref);
-    length = db_arrayof_idx_get_length (children_ref);
+    length = db_arrayofuint16_get_length (children_ref);
     if (length == 0)
 	return &no_children;
 
     loc->children = g_new0 (GWeatherLocation*, length + 1);
     for (i = 0; i < length; i++)
 	loc->children[i] = location_ref_for_idx (loc->db,
-						 db_idx_get_idx (db_arrayof_idx_get_at (children_ref, i)),
+						 db_arrayofuint16_get_at (children_ref, i),
 						 NULL);
 
     return loc->children;
@@ -724,19 +717,19 @@ foreach_city (GWeatherLocation  *loc,
         for (i = 0; loc->children[i]; i++)
             foreach_city (loc->children[i], callback, user_data, country_code, func, user_data_func);
     } else if (loc->db) {
-	DbArrayofIdxRef children_ref;
+	DbArrayofuint16Ref children_ref;
 	gsize length;
 	gsize i;
 	/* Also try non-cached iteration */
 
 	children_ref = db_location_get_children (loc->ref);
-	length = db_arrayof_idx_get_length (children_ref);
+	length = db_arrayofuint16_get_length (children_ref);
 
 	for (i = 0; i < length; i++) {
 	    g_autoptr(GWeatherLocation) child = NULL;
 
 	    child = location_ref_for_idx (loc->db,
-					  db_idx_get_idx (db_arrayof_idx_get_at (children_ref, i)),
+					  db_arrayofuint16_get_at (children_ref, i),
 					  NULL);
 
 	    foreach_city (child, callback, user_data, country_code, func, user_data_func);
@@ -1128,7 +1121,7 @@ gweather_location_get_timezone (GWeatherLocation *loc)
 	return loc->timezone;
 
     s = gweather_location_ref (loc);
-    while (s && s->tz_hint_idx < 0) {
+    while (s && !IDX_VALID (s->tz_hint_idx)) {
 	GWeatherLocation *parent = gweather_location_ref_parent (s);
 	gweather_location_unref (s);
 	s = parent;
@@ -1163,7 +1156,7 @@ gweather_location_get_timezone_str (GWeatherLocation *loc)
 	return gweather_timezone_get_tzid (loc->timezone);
 
     s = gweather_location_ref (loc);
-    while (s && s->tz_hint_idx < 0) {
+    while (s && !IDX_VALID(s->tz_hint_idx)) {
 	GWeatherLocation *parent = gweather_location_ref_parent (s);
 	gweather_location_unref (s);
 	s = parent;
@@ -1313,7 +1306,7 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
 					    WeatherLocation  *loc)
 {
     const char *code = NULL, *zone = NULL, *radar = NULL, *tz_hint = NULL, *country = NULL;
-    gint tz_hint_idx = -1;
+    gint tz_hint_idx = INVALID_IDX;
     gboolean latlon_valid = FALSE;
     gdouble lat = DBL_MAX, lon = DBL_MAX;
     GWeatherLocation *l;
@@ -1324,7 +1317,7 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
     else
 	l = gloc;
 
-    while (l && (!db || !code || !zone || !radar || tz_hint_idx < 0 || !latlon_valid || !country)) {
+    while (l && (!db || !code || !zone || !radar || !IDX_VALID(tz_hint_idx) || !latlon_valid || !country)) {
 	if (!db && l->db)
 	    db = l->db;
 	if (!code && l->station_code)
@@ -1333,7 +1326,7 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
 	    zone = l->forecast_zone;
 	if (!radar && l->radar)
 	    radar = l->radar;
-	if (tz_hint_idx < 0)
+	if (!IDX_VALID(tz_hint_idx))
 	    tz_hint_idx = l->tz_hint_idx;
 	if (!country && l->country_code)
 	    country = l->country_code;
@@ -1350,7 +1343,7 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
     loc->zone = g_strdup (zone);
     loc->radar = g_strdup (radar);
     loc->country_code = g_strdup (country);
-    if (tz_hint_idx >= 0)
+    if (IDX_VALID(tz_hint_idx))
         loc->tz_hint = g_strdup (db_world_timezones_entry_get_key (db_world_timezones_get_at (db->timezones_ref, tz_hint_idx)));
 
     loc->latlon_valid = latlon_valid;
@@ -1378,16 +1371,16 @@ gweather_location_ref_from_station_code (GWeatherLocation *world,
 					 const gchar      *station_code)
 {
 	DbWorldLocByMetarRef loc_by_metar;
-	DbIdxRef idx_ref;
+	guint16 idx;
 
 	if (!world->db)
 		return NULL;
 
 	loc_by_metar = db_world_get_loc_by_metar (world->db->world);
-	if (!db_world_loc_by_metar_lookup (loc_by_metar, station_code, NULL, &idx_ref))
+	if (!db_world_loc_by_metar_lookup (loc_by_metar, station_code, NULL, &idx))
 		return NULL;
 
-	return location_ref_for_idx (world->db, db_idx_get_idx (idx_ref), NULL);
+	return location_ref_for_idx (world->db, idx, NULL);
 }
 
 /**
@@ -1429,16 +1422,16 @@ gweather_location_find_by_country_code (GWeatherLocation *world,
                                         const gchar      *country_code)
 {
 	DbWorldLocByCountryRef loc_by_country;
-	DbIdxRef idx_ref;
+	guint16 idx;
 
 	if (!world->db)
 		return NULL;
 
 	loc_by_country = db_world_get_loc_by_country (world->db->world);
-	if (!db_world_loc_by_country_lookup (loc_by_country, country_code, NULL, &idx_ref))
+	if (!db_world_loc_by_country_lookup (loc_by_country, country_code, NULL, &idx))
 		return NULL;
 
-	return location_sink_keep_alive (location_ref_for_idx (world->db, db_idx_get_idx (idx_ref), NULL));
+	return location_sink_keep_alive (location_ref_for_idx (world->db, idx, NULL));
 }
 
 /**
@@ -1562,7 +1555,7 @@ _gweather_location_new_detached (GWeatherLocation *nearest_station,
 	self->local_sort_name = g_strdup (nearest_station->local_sort_name);
     }
 
-    self->tz_hint_idx = -1;
+    self->tz_hint_idx = INVALID_IDX;
     self->parent = nearest_station;
     self->children = NULL;
 
@@ -1642,7 +1635,7 @@ gweather_location_common_deserialize (GWeatherLocation *world,
 	    continue;
 
 	/* Be lazy and allocate the location */
-	ws = location_ref_for_idx (world->db, db_idx_get_idx (db_world_loc_by_metar_entry_get_value (db_world_loc_by_metar_get_at (loc_by_metar, i))), NULL);
+	ws = location_ref_for_idx (world->db, db_world_loc_by_metar_entry_get_value (db_world_loc_by_metar_get_at (loc_by_metar, i)), NULL);
 
 	if (!ws->latlon_valid ||
 	    ABS(ws->latitude - latitude) >= EPSILON ||
