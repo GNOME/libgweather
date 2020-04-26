@@ -175,7 +175,7 @@ constructed (GObject *object)
     entry = GWEATHER_LOCATION_ENTRY (object);
 
     if (!entry->priv->top)
-	entry->priv->top = gweather_location_ref (gweather_location_get_world ());
+	entry->priv->top = gweather_location_dup_world ();
 
     store = gtk_tree_store_new (4, G_TYPE_STRING, GWEATHER_TYPE_LOCATION, G_TYPE_STRING, G_TYPE_STRING);
     fill_location_entry_model (store, entry->priv->top, NULL, NULL, NULL, entry->priv->show_named_timezones);
@@ -829,7 +829,7 @@ _no_matches (GtkEntryCompletion *completion, GWeatherLocationEntry *entry) {
  * Creates a new #GWeatherLocationEntry.
  *
  * @top will normally be the location returned from
- * gweather_location_get_world(), but you can create an entry that
+ * gweather_location_dup_world(), but you can create an entry that
  * only accepts a smaller set of locations if you want.
  *
  * Return value: the new #GWeatherLocationEntry
