@@ -1372,13 +1372,11 @@ void
 _gweather_location_update_weather_location (GWeatherLocation *gloc,
 					    WeatherLocation  *loc)
 {
-    const char *code = NULL, *zone = NULL, *radar = NULL, *country = NULL;
-    gint tz_hint_idx = INVALID_IDX;
+    char *code = NULL, *zone = NULL, *radar = NULL, *tz_hint = NULL;
     gboolean latlon_valid = FALSE;
     gdouble lat = DBL_MAX, lon = DBL_MAX;
     g_autoptr(GWeatherLocation) start = NULL;
     g_autoptr(GWeatherLocation) l = NULL;
-    GWeatherDb *db = NULL;
 
     if (gloc->level == GWEATHER_LOCATION_CITY) {
 	GWeatherLocation *first_child;
@@ -1391,37 +1389,31 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
 	start = gweather_location_ref (gloc);
 
     ITER_UP(start, l) {
-	if (!db && l->db)
-	    db = l->db;
 	if (!code)
-	    code = gweather_location_get_code (l);
+	    code = g_strdup (gweather_location_get_code (l));
 	if (!zone)
-	    zone = l->forecast_zone;
-	if (!radar && l->radar)
-	    radar = l->radar;
-	if (!IDX_VALID(tz_hint_idx))
-	    tz_hint_idx = l->tz_hint_idx;
-	if (!country && l->_country_code)
-	    country = l->_country_code;
-	if (!country && l->db && IDX_VALID(l->db_idx))
-	    country = EMPTY_TO_NULL (db_location_get_country_code (l->ref));
-	if (!latlon_valid && l->latlon_valid) {
+	    zone = g_strdup (l->forecast_zone);
+	if (!radar)
+	    radar = g_strdup (l->radar);
+	if (!tz_hint && l->db && IDX_VALID(l->tz_hint_idx))
+	    tz_hint = g_strdup (db_world_timezones_entry_get_key (db_world_timezones_get_at (l->db->timezones_ref, l->tz_hint_idx)));
+	if (!latlon_valid) {
 	    lat = l->latitude;
 	    lon = l->longitude;
-	    latlon_valid = TRUE;
+	    latlon_valid = l->latlon_valid;
 	}
 
-	if (db && code && zone && radar && IDX_VALID(tz_hint_idx) && latlon_valid && country)
+	if (code && zone && radar && tz_hint && latlon_valid)
 	    break;
     }
 
     loc->name = g_strdup (gweather_location_get_name (gloc)),
-    loc->code = g_strdup (code);
-    loc->zone = g_strdup (zone);
-    loc->radar = g_strdup (radar);
-    loc->country_code = g_strdup (country);
-    if (IDX_VALID(tz_hint_idx))
-        loc->tz_hint = g_strdup (db_world_timezones_entry_get_key (db_world_timezones_get_at (db->timezones_ref, tz_hint_idx)));
+    loc->code = code;
+    loc->zone = zone;
+    loc->radar = radar;
+    /* This walks the hierarchy again ... */
+    loc->country_code = g_strdup (gweather_location_get_country (start));
+    loc->tz_hint = tz_hint;
 
     loc->latlon_valid = latlon_valid;
     loc->latitude = lat;
