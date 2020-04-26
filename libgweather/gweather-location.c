@@ -278,11 +278,28 @@ static void _gweather_location_unref_no_check (GWeatherLocation *loc);
 GWEATHER_EXTERN void
 _gweather_location_reset_world (void)
 {
+	gsize i;
 	g_return_if_fail (world_db);
 
 	/* Clear objects that need to be kept alive for the old API. */
 	g_ptr_array_set_size (world_db->locations_keepalive, 0);
 	g_ptr_array_set_size (world_db->timezones_keepalive, 0);
+
+	/* At this point, we had a leak if the caches are not completely empty. */
+	for (i = 0; i < world_db->locations->len; i++) {
+		if (G_UNLIKELY (g_ptr_array_index (world_db->locations, i) != NULL)) {
+			g_warning ("Location with index %li and name %s is still referenced!",
+				   i, gweather_location_get_name (g_ptr_array_index (world_db->locations, i)));
+			g_assert_not_reached ();
+		}
+	}
+	for (i = 0; i < world_db->timezones->len; i++) {
+		if (G_UNLIKELY (g_ptr_array_index (world_db->timezones, i) != NULL)) {
+			g_warning ("Timezone with index %li and tzid %s is still referenced!",
+				   i, gweather_timezone_get_tzid (g_ptr_array_index (world_db->timezones, i)));
+			g_assert_not_reached ();
+		}
+	}
 }
 
 static GWeatherLocation *
