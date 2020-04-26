@@ -246,7 +246,6 @@ location_ref_for_idx (GWeatherDb       *db,
     else
 	loc->parent_idx = db_location_get_parent (loc->ref);
 
-    loc->country_code = g_strdup (EMPTY_TO_NULL (db_location_get_country_code (ref)));
     loc->tz_hint_idx = db_location_get_tz_hint (ref);
 
     loc->station_code = g_strdup (EMPTY_TO_NULL (db_location_get_metar_code (ref)));
@@ -445,7 +444,7 @@ _gweather_location_unref_no_check (GWeatherLocation *loc)
     g_free (loc->_local_name);
     g_free (loc->_local_sort_name);
     g_free (loc->_english_sort_name);
-    g_free (loc->country_code);
+    g_free (loc->_country_code);
     g_free (loc->station_code);
     g_free (loc->forecast_zone);
     g_free (loc->radar);
@@ -1253,12 +1252,16 @@ gweather_location_get_country (GWeatherLocation *loc)
     g_autoptr(GWeatherLocation) s = NULL;
     g_return_val_if_fail (loc != NULL, NULL);
 
-    if (loc->country_code)
-	return loc->country_code;
-
     ITER_UP(loc, s) {
-	if (s->country_code)
-	    return s->country_code;
+	if (s->_country_code)
+	    return s->_country_code;
+
+	if (s->db && IDX_VALID(s->db_idx)) {
+	    const char *country_code;
+	    country_code = EMPTY_TO_NULL (db_location_get_country_code (s->ref));
+	    if (country_code)
+		return country_code;
+	}
     }
     return NULL;
 }
@@ -1501,8 +1504,10 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
 	    radar = l->radar;
 	if (!IDX_VALID(tz_hint_idx))
 	    tz_hint_idx = l->tz_hint_idx;
-	if (!country && l->country_code)
-	    country = l->country_code;
+	if (!country && l->_country_code)
+	    country = l->_country_code;
+	if (!country && l->db && IDX_VALID(l->db_idx))
+	    country = EMPTY_TO_NULL (db_location_get_country_code (l->ref));
 	if (!latlon_valid && l->latlon_valid) {
 	    lat = l->latitude;
 	    lon = l->longitude;
@@ -1650,7 +1655,8 @@ gweather_location_equal (GWeatherLocation *one,
 	level = two->level;
 
     if (level == GWEATHER_LOCATION_COUNTRY)
-	return g_strcmp0 (one->country_code, two->country_code);
+	return g_strcmp0 (gweather_location_get_country (one),
+			  gweather_location_get_country (two));
 
     if (level == GWEATHER_LOCATION_ADM1) {
 	if (g_strcmp0 (gweather_location_get_english_sort_name (one), gweather_location_get_english_sort_name (two)) != 0)

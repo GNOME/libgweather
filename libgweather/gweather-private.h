@@ -69,11 +69,15 @@ struct _GWeatherLocation {
     guint       db_idx;
     DbLocationRef ref;
 
+    /* The convention is simple:
+     * Think twice before accessing anything with a leading _, it may not have
+     * the value you are expecting.
+     */
     char *_english_name, *_local_name, *_local_sort_name, *_english_sort_name;
     guint16 parent_idx; /* From the DB, except for nearest clones */
     GWeatherLocation *_parent, **_children;
     GWeatherLocationLevel level;
-    char *country_code;
+    char *_country_code;
     guint16 tz_hint_idx;
     char *station_code, *forecast_zone, *radar;
     double latitude, longitude;
