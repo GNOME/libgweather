@@ -700,7 +700,11 @@ match_selected (GtkEntryCompletion *completion,
 		GtkTreeIter        *iter,
 		gpointer            entry)
 {
-    if (model != ((GWeatherLocationEntry *)entry)->priv->model) {
+    GWeatherLocationEntryPrivate *priv;
+
+    priv = ((GWeatherLocationEntry *)entry)->priv;
+
+    if (model != priv->model) {
 	GeocodePlace *place;
 	char *display_name;
 	GeocodeLocation *loc;
@@ -714,10 +718,10 @@ match_selected (GtkEntryCompletion *completion,
 			    -1);
 
 	country_code = geocode_place_get_country_code (place);
-	if (country_code != NULL)
-	    scope = gweather_location_find_by_country_code (gweather_location_get_world (), country_code);
-	else
-	    scope = gweather_location_get_world ();
+	if (country_code != NULL && gweather_location_get_level (priv->top) == GWEATHER_LOCATION_WORLD)
+	    scope = gweather_location_find_by_country_code (priv->top, country_code);
+	if (!scope)
+	    scope = priv->top;
 
 	loc = geocode_place_get_location (place);
 	location = gweather_location_find_nearest_city (scope, geocode_location_get_latitude (loc), geocode_location_get_longitude (loc));
