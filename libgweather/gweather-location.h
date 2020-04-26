@@ -76,6 +76,8 @@ GWEATHER_EXTERN
 GWeatherLocation      *gweather_location_dup_parent     (GWeatherLocation  *loc);
 
 GWEATHER_EXTERN
+GWeatherLocation      *gweather_location_next_child     (GWeatherLocation  *loc, GWeatherLocation  *child);
+GWEATHER_EXTERN
 GWeatherLocation     **gweather_location_get_children   (GWeatherLocation  *loc);
 
 GWEATHER_EXTERN
