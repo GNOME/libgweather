@@ -16,6 +16,16 @@ if xmllint.found()
        ])
 endif
 
+gen_locations_variant = find_program('gen-locations-variant.py')
+
+locations_bin = custom_target('locations-db',
+  command: [gen_locations_variant, '@INPUT@', '@OUTPUT@' ],
+  install: true,
+  install_dir: pkgdatadir, # TODO: Either move to libdir or make arch indepenent
+  input: files('Locations.xml'),
+  output: '@BASENAME@.bin',
+)
+
 install_data('Locations.xml',
   install_dir: pkgdatadir,
 )
