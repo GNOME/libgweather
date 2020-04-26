@@ -39,7 +39,7 @@ main (int argc, char **argv)
     gtk_init (&argc, &argv);
 
     g_setenv ("LIBGWEATHER_LOCATIONS_PATH",
-              TEST_SRCDIR "../data/Locations.xml",
+              TEST_LOCATIONS,
               FALSE);
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);

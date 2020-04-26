@@ -325,13 +325,15 @@ gweather_location_dup_world ()
 
         locations_path = g_getenv ("LIBGWEATHER_LOCATIONS_PATH");
         if (locations_path) {
-            filename = g_strconcat (locations_path, ".bin", NULL);
-            if (!g_file_test (filename, G_FILE_TEST_IS_REGULAR))
+            filename = g_strdup (locations_path);
+            if (!g_file_test (filename, G_FILE_TEST_IS_REGULAR)) {
+		g_warning ("User specified database %s does not exist", filename);
 		g_clear_pointer (&filename, g_free);
+	    }
         }
 
         if (!filename)
-	    filename = g_build_filename (GWEATHER_XML_LOCATION_DIR, "Locations.xml.bin", NULL);
+	    filename = g_build_filename (GWEATHER_XML_LOCATION_DIR, "Locations.bin", NULL);
 
 	map = g_mapped_file_new (filename, FALSE, &error);
 	if (!map) {
