@@ -1,8 +1,4 @@
 
-type Idx {
-   idx: bigendian uint16;
-};
-
 type I18n {
   str: string;
   msgctxt: string;
@@ -14,33 +10,33 @@ type Timezone {
 };
 
 type Coordinate {
-  lat: bigendian double;
-  lon: bigendian double;
+  lat: double;
+  lon: double;
 };
 
 type Location {
   name: I18n;
   forecast_zone: string;
   radar: string;
-  coordinates: ?Coordinate;
+  coordinates: Coordinate;
 
   country_code: string;
   metar_code: string;
-  tz_hint: ?Idx;
+  tz_hint: uint16;
 
   level: byte;
 
-  nearest: ?Idx;
+  nearest: uint16;
 
-  parent: Idx;
-  children: [] Idx;
+  parent: uint16;
+  children: [] uint16;
 
-  timezones: [] Idx;
+  timezones: [] uint16;
 };
 
 type World {
-  loc_by_country: [sorted string] Idx;
-  loc_by_metar: [sorted string] Idx;
+  loc_by_country: [sorted string] uint16;
+  loc_by_metar: [sorted string] uint16;
 
   timezones: [sorted string] Timezone;
   locations: []Location;
