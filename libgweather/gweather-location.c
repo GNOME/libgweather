@@ -40,6 +40,17 @@
  * airport to a city, see also test_distance() */
 #define AIRPORT_MAX_DISTANCE 100.0
 
+static inline GWeatherLocation*
+_iter_up(GWeatherLocation *loc)
+{
+    GWeatherLocation *tmp;
+
+    tmp = gweather_location_dup_parent (loc);
+    gweather_location_unref (loc);
+    return tmp;
+}
+#define ITER_UP(start, _p) for ((_p) = gweather_location_ref (start); (_p); (_p) = _iter_up(_p))
+
 /**
  * SECTION:gweatherlocation
  * @Title: GWeatherLocation
