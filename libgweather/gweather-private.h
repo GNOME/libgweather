@@ -70,6 +70,7 @@ struct _GWeatherLocation {
     DbLocationRef ref;
 
     char *_english_name, *_local_name, *_local_sort_name, *_english_sort_name;
+    guint16 parent_idx; /* From the DB, except for nearest clones */
     GWeatherLocation *_parent, **_children;
     GWeatherLocationLevel level;
     char *country_code;

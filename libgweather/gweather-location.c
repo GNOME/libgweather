@@ -240,6 +240,12 @@ location_ref_for_idx (GWeatherDb       *db,
     loc->db_idx = idx;
     loc->ref = ref;
 
+    /* Override parent information for "nearest" copies. */
+    if (nearest_of)
+	loc->parent_idx = nearest_of->db_idx;
+    else
+	loc->parent_idx = db_location_get_parent (loc->ref);
+
     loc->country_code = g_strdup (EMPTY_TO_NULL (db_location_get_country_code (ref)));
     loc->tz_hint_idx = db_location_get_tz_hint (ref);
 
@@ -263,11 +269,11 @@ location_ref_for_idx (GWeatherDb       *db,
      * Distance sorting is done in the variant already,
      * name sorting however needs translations and is not done anymore. */
 
-    /* Add a weak reference to the cache or the parent in the case of nearest_of . */
+    /* Store a weak reference in the cache.
+     * Implicit "nearest" copies do not have a weak reference, they simply
+     * belong to the parent. */
     if (!nearest_of)
-        g_ptr_array_index (db->locations, idx) = loc;
-    else
-	loc->_parent = gweather_location_ref (nearest_of);
+	g_ptr_array_index (db->locations, idx) = loc;
 
     return loc;
 }
@@ -668,7 +674,6 @@ gweather_location_level_to_string (GWeatherLocationLevel level)
 GWeatherLocation *
 gweather_location_dup_parent (GWeatherLocation *loc)
 {
-    guint16 idx;
     g_return_val_if_fail (loc != NULL, NULL);
 
     if (loc->_parent)
@@ -682,10 +687,10 @@ gweather_location_dup_parent (GWeatherLocation *loc)
     if (!loc->db || loc->db_idx == 0)
 	return NULL;
 
-    /* Not self-referencing and not invalid */
-    idx = db_location_get_parent (loc->ref);
-    g_assert (IDX_VALID(idx) && idx != loc->db_idx);
-    return location_ref_for_idx (loc->db, idx, NULL);
+    /* Note: Cannot use db_location_get_parent here in case this is an
+    *        implicit nearest copy! */
+    g_assert (IDX_VALID(loc->parent_idx) && loc->parent_idx != loc->db_idx);
+    return location_ref_for_idx (loc->db, loc->parent_idx, NULL);
 }
 
 /**
@@ -706,8 +711,12 @@ gweather_location_get_parent (GWeatherLocation *loc)
     if (loc->_parent)
 	return loc->_parent;
 
-    loc->_parent = gweather_location_dup_parent (loc);
-    return loc->_parent;
+    /* If we kept parent references around, then that would create reference
+     * loops, preventing cleanup even using _gweather_location_reset_world.
+     * But, if we always sink parent references and keep explicit child
+     * references that works fine.
+     */
+    return location_sink_keep_alive (gweather_location_dup_parent (loc));;
 }
 
 /**
