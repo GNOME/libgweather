@@ -1,0 +1,49 @@
+/* Regenerate the header with:
+ *  variant-schema-compiler gweather.gv --prefix Db --outfile gweather-db.h
+ */
+
+type I18n {
+  str: string;
+  msgctxt: string;
+};
+
+type Timezone {
+  name: I18n;
+  obsoletes: []string;
+};
+
+type Coordinate {
+  lat: double;
+  lon: double;
+};
+
+type Location {
+  name: I18n;
+  forecast_zone: string;
+  radar: string;
+  coordinates: Coordinate;
+
+  country_code: string;
+  metar_code: string;
+  tz_hint: uint16;
+
+  level: byte;
+
+  nearest: uint16;
+
+  parent: uint16;
+  children: [] uint16;
+
+  timezones: [] uint16;
+};
+
+type World {
+  /* The magic value ends up right at the start of the file. */
+  magic: uint64;
+
+  loc_by_country: [sorted string] uint16;
+  loc_by_metar: [sorted string] uint16;
+
+  timezones: [sorted string] Timezone;
+  locations: []Location;
+};

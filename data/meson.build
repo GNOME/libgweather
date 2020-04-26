@@ -16,6 +16,17 @@ if xmllint.found()
        ])
 endif
 
+gen_locations_variant = find_program('gen_locations_variant.py')
+
+# The generated file is architecture dependent (i.e. host endianness)
+locations_bin = custom_target('locations-db',
+  command: [gen_locations_variant, '@INPUT@', '@OUTPUT@' ],
+  install: true,
+  install_dir: pkglibdir,
+  input: files('Locations.xml'),
+  output: '@BASENAME@.bin',
+)
+
 install_data('Locations.xml',
   install_dir: pkgdatadir,
 )

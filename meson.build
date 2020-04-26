@@ -38,6 +38,7 @@ includedir = join_paths(prefix, get_option('includedir'))
 libexecdir = join_paths(prefix, get_option('libexecdir'))
 sysconfdir = join_paths(prefix, get_option('sysconfdir'))
 pkgdatadir = join_paths(datadir, 'libgweather')
+pkglibdir = join_paths(libdir, 'libgweather')
 
 glib_req_version = '>= 2.44.0'
 gtk_req_version = '>= 3.13.5'
@@ -115,8 +116,8 @@ endif
 
 root_inc = include_directories('.')
 
-subdir('libgweather')
 subdir('data')
+subdir('libgweather')
 subdir('schemas')
 if get_option('gtk_doc')
   subdir('doc')
