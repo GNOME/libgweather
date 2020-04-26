@@ -144,9 +144,6 @@ location_ref_for_idx (GWeatherDb       *db,
     loc->longitude = db_coordinate_get_lon (db_location_get_coordinates (ref));
     loc->latlon_valid = isfinite(loc->latitude) && isfinite(loc->longitude);
 
-    loc->forecast_zone = g_strdup (EMPTY_TO_NULL (db_location_get_forecast_zone (ref)));
-    loc->radar = g_strdup (EMPTY_TO_NULL (db_location_get_radar (ref)));
-
     /* Note, we used to sort locations by distance (for cities) and name;
      * Distance sorting is done in the variant already,
      * name sorting however needs translations and is not done anymore. */
@@ -336,8 +333,6 @@ _gweather_location_unref_no_check (GWeatherLocation *loc)
     g_free (loc->_english_sort_name);
     g_free (loc->_country_code);
     g_free (loc->_station_code);
-    g_free (loc->forecast_zone);
-    g_free (loc->radar);
 
     if (loc->_children) {
 	for (i = 0; loc->_children[i]; i++) {
@@ -1391,10 +1386,10 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
     ITER_UP(start, l) {
 	if (!code)
 	    code = g_strdup (gweather_location_get_code (l));
-	if (!zone)
-	    zone = g_strdup (l->forecast_zone);
-	if (!radar)
-	    radar = g_strdup (l->radar);
+	if (!zone && l->db && IDX_VALID(l->db_idx))
+	    zone = g_strdup (EMPTY_TO_NULL (db_location_get_forecast_zone (l->ref)));
+	if (!radar && l->db && IDX_VALID(l->db_idx))
+	    radar = g_strdup (EMPTY_TO_NULL (db_location_get_radar (l->ref)));
 	if (!tz_hint && l->db && IDX_VALID(l->tz_hint_idx))
 	    tz_hint = g_strdup (db_world_timezones_entry_get_key (db_world_timezones_get_at (l->db->timezones_ref, l->tz_hint_idx)));
 	if (!latlon_valid) {
