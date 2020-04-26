@@ -798,7 +798,7 @@ main (int argc, char *argv[])
 	g_log_set_handler (NULL, G_LOG_LEVEL_MESSAGE | G_LOG_LEVEL_INFO | G_LOG_LEVEL_DEBUG, log_handler, NULL);
 
 	g_setenv ("LIBGWEATHER_LOCATIONS_PATH",
-		  TEST_SRCDIR "../data/Locations.xml",
+		  TEST_LOCATIONS,
 		  FALSE);
 	set_gsettings ();
 
