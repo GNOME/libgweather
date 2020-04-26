@@ -74,7 +74,7 @@ struct _GWeatherLocation {
     GWeatherLocation *_parent, **_children;
     GWeatherLocationLevel level;
     char *country_code;
-    gint tz_hint_idx;
+    guint16 tz_hint_idx;
     char *station_code, *forecast_zone, *radar;
     double latitude, longitude;
     gboolean latlon_valid;
