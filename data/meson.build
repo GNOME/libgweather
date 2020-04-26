@@ -18,7 +18,7 @@ endif
 
 gen_locations_variant = find_program('gen-locations-variant.py')
 
-locations_bin = configure_file(
+locations_bin = custom_target('locations-db',
   command: [gen_locations_variant, '@INPUT@', '@OUTPUT@' ],
   install_dir: pkgdatadir, # TODO: Either move to libdir or make arch indepenent
   input: files('Locations.xml'),

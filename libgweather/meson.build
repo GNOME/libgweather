@@ -117,7 +117,7 @@ exe = executable('test_libgweather',
   c_args: test_cargs,
   dependencies: libgweather_dep,
   install: false)
-test('test_named_timezones', exe)
+test('test_named_timezones', exe, depends: [locations_bin])
 
 executable('test_metar',
   ['test_metar.c', gweather_c_sources],
