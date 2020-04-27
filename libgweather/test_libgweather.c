@@ -26,6 +26,7 @@
 #include <gweather-version.h>
 #include "gweather-location.h"
 #include "gweather-weather.h"
+#include "gweather-private.h"
 
 extern void _gweather_location_reset_world (void);
 
@@ -775,6 +776,59 @@ test_weather_loop_use_after_free (void)
 }
 
 static void
+test_walk_world ()
+{
+    g_autoptr(GWeatherLocation) cur = NULL, next = NULL;
+    gint visited = 0;
+
+    next = gweather_location_dup_world ();
+    while (next) {
+	/* Update cur pointer. */
+	g_clear_pointer (&cur, gweather_location_unref);
+	cur = g_steal_pointer (&next);
+	g_print("name: %s\n", gweather_location_get_name (cur));
+	visited += 1;
+	g_assert_cmpint (cur->ref_count, ==, 1);
+
+	/* Select next item, which is in this order:
+	 *  1. The first child
+	 *  2. Walk up the parent tree and try to find a sibbling
+	 * Note that cur remains valid after the loop and points to the world
+	 * again.
+	 */
+	if ((next = gweather_location_next_child (cur, NULL)))
+	    continue;
+
+	while (TRUE) {
+	    g_autoptr(GWeatherLocation) child = NULL;
+	    /* Move cur to the parent, keeping the child as reference. */
+	    child = g_steal_pointer (&cur);
+	    cur = gweather_location_dup_parent (child);
+	    if (!cur)
+		break;
+	    g_assert_cmpint (cur->ref_count, ==, 1);
+	    g_assert_cmpint (child->ref_count, ==, 1);
+
+	    if ((next = gweather_location_next_child (cur, gweather_location_ref (child))))
+		break;
+	}
+    }
+
+    /* cur must be NULL at this point */
+    g_assert_null (cur);
+
+    /* Check that we visited a reasonable number of nodes.
+     * Due to implicit nearest nodes, this needs to be more than the number
+     * of DB entries. */
+    cur = gweather_location_dup_world ();
+    g_assert_cmpint (visited, >, cur->db->locations->len);
+    g_clear_pointer (&cur, gweather_location_unref);
+
+    /* noop, but asserts we did not leak */
+    _gweather_location_reset_world ();
+}
+
+static void
 log_handler (const char *log_domain, GLogLevelFlags log_level, const char *message, gpointer user_data)
 {
 	g_print ("%s\n", message);
@@ -808,6 +862,7 @@ main (int argc, char *argv[])
 	g_test_add_func ("/weather/bad_duplicate_weather_stations", test_bad_duplicate_weather_stations);
 	g_test_add_func ("/weather/duplicate_weather_stations", test_duplicate_weather_stations);
 	g_test_add_func ("/weather/location-names", test_location_names);
+	g_test_add_func ("/weather/walk_world", test_walk_world);
 
 	return g_test_run ();
 }
