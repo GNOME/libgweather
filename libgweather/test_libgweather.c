@@ -208,7 +208,7 @@ test_timezone (GWeatherLocation *location)
 
         /* Only countries should have multiple timezones associated */
         if ((tzs[0] == NULL && gweather_location_get_level (location) < GWEATHER_LOCATION_WEATHER_STATION) &&
-            gweather_location_get_level (location) > GWEATHER_LOCATION_COUNTRY) {
+            gweather_location_get_level (location) >= GWEATHER_LOCATION_COUNTRY) {
             g_print ("Location '%s' does not have an associated timezone\n",
                      gweather_location_get_name (location));
             g_test_fail ();
