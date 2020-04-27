@@ -1975,7 +1975,7 @@ db_arrayof_location_print (DbArrayofLocationRef v, gboolean type_annotate)
 }
 
 /************** DbWorld *******************/
-#define DB_WORLD_TYPESTRING "(a{sq}a{sq}a{s((ss)as)}a((ss)ss(dd)ssqyqqaqaq))"
+#define DB_WORLD_TYPESTRING "(ta{sq}a{sq}a{s((ss)as)}a((ss)ss(dd)ssqyqqaqaq))"
 #define DB_WORLD_TYPEFORMAT ((const GVariantType *) DB_WORLD_TYPESTRING)
 
 typedef struct {
@@ -2038,13 +2038,23 @@ db_world_from_variant (DbVariantRef v)
   return db_world_from_data (child.base, child.size);
 }
 
-#define DB_WORLD_INDEXOF_LOC_BY_COUNTRY 0
+#define DB_WORLD_INDEXOF_MAGIC 0
+
+static inline guint64
+db_world_get_magic (DbWorldRef v)
+{
+  guint offset = ((7) & (~(gsize)7)) + 0;
+  g_assert (offset + 8 < v.size);
+  return (guint64)G_STRUCT_MEMBER(guint64, v.base, offset);
+}
+
+#define DB_WORLD_INDEXOF_LOC_BY_COUNTRY 1
 
 static inline DbWorldLocByCountryRef
 db_world_get_loc_by_country (DbWorldRef v)
 {
   guint offset_size = Db_ref_get_offset_size (v.size);
-  guint offset = ((1) & (~(gsize)1)) + 0;
+  guint offset = ((7) & (~(gsize)7)) + 8;
   gsize start = offset;
   gsize end = DB_REF_READ_FRAME_OFFSET(v, 0);
   g_assert (start <= end);
@@ -2052,7 +2062,7 @@ db_world_get_loc_by_country (DbWorldRef v)
   return (DbWorldLocByCountryRef) { G_STRUCT_MEMBER_P(v.base, start), end - start };
 }
 
-#define DB_WORLD_INDEXOF_LOC_BY_METAR 1
+#define DB_WORLD_INDEXOF_LOC_BY_METAR 2
 
 static inline DbWorldLocByMetarRef
 db_world_get_loc_by_metar (DbWorldRef v)
@@ -2067,7 +2077,7 @@ db_world_get_loc_by_metar (DbWorldRef v)
   return (DbWorldLocByMetarRef) { G_STRUCT_MEMBER_P(v.base, start), end - start };
 }
 
-#define DB_WORLD_INDEXOF_TIMEZONES 2
+#define DB_WORLD_INDEXOF_TIMEZONES 3
 
 static inline DbWorldTimezonesRef
 db_world_get_timezones (DbWorldRef v)
@@ -2082,7 +2092,7 @@ db_world_get_timezones (DbWorldRef v)
   return (DbWorldTimezonesRef) { G_STRUCT_MEMBER_P(v.base, start), end - start };
 }
 
-#define DB_WORLD_INDEXOF_LOCATIONS 3
+#define DB_WORLD_INDEXOF_LOCATIONS 4
 
 static inline DbArrayofLocationRef
 db_world_get_locations (DbWorldRef v)
@@ -2100,7 +2110,9 @@ db_world_get_locations (DbWorldRef v)
 static inline GString *
 db_world_format (DbWorldRef v, GString *s, gboolean type_annotate)
 {
-  g_string_append (s, "(");
+  g_string_append_printf (s, "(%s%"G_GUINT64_FORMAT", ",
+                   type_annotate ? "uint64 " : "",
+                   db_world_get_magic (v));
   db_world_loc_by_country_format (db_world_get_loc_by_country (v), s, type_annotate);
   g_string_append (s, ", ");
   db_world_loc_by_metar_format (db_world_get_loc_by_metar (v), s, type_annotate);

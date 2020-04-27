@@ -16,6 +16,9 @@ assert root.attrib['format'] == "1.0"
 # Maybe types are annyoing, so use an invalid idx
 INVALID_IDX = 0xffff
 
+# GWthDB01 as an integer
+magic = 0x5747687442443130
+
 levels = {
   'gweather' : 0,
   'region' : 1,
@@ -180,7 +183,8 @@ loc_by_metar_var = [(loc.findtext('code'), locations.index(loc)) for loc in loc_
 timezones_var = [(tz.get('id'), tz_variant(tz)) for tz in timezones]
 locations_var = [loc_variant(loc) for loc in locations]
 
-res = GLib.Variant("(a{sq}a{sq}a{s((ss)as)}a((ss)ss(dd)ssqyqqaqaq))", (
+res = GLib.Variant("(ta{sq}a{sq}a{s((ss)as)}a((ss)ss(dd)ssqyqqaqaq))", (
+    magic,
     loc_by_country_var,
     loc_by_metar_var,
     timezones_var,

@@ -246,6 +246,12 @@ gweather_location_dup_world ()
 	world_db = g_new0 (GWeatherDb, 1);
 	world_db->map = map;
 	world_db->world = db_world_from_data (g_mapped_file_get_contents (map), g_mapped_file_get_length (map));
+	/* This is GWeathDB01 */
+	if (db_world_get_magic (world_db->world) != 0x5747687442443130) {
+	    g_mapped_file_unref (world_db->map);
+	    g_free (world_db);
+	    return NULL;
+	}
 
 	world_db->locations_keepalive = g_ptr_array_new_with_free_func ((GDestroyNotify) _gweather_location_unref_no_check);
 	world_db->timezones_keepalive = g_ptr_array_new_with_free_func ((GDestroyNotify) gweather_timezone_unref);
