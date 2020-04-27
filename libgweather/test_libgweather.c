@@ -448,8 +448,7 @@ set_gsettings (void)
 	int result;
 
 	/* Create the installed schemas directory */
-	tmpdir = g_strdup_printf ("libgweather-test-XXXXXX");
-	tmpdir = g_dir_make_tmp (tmpdir, NULL);
+	tmpdir = g_dir_make_tmp ("libgweather-test-XXXXXX", NULL);
 	g_assert_nonnull (tmpdir);
 
 	/* Copy the schemas files */
