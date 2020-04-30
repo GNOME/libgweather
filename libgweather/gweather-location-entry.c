@@ -70,6 +70,7 @@ static void set_location_internal (GWeatherLocationEntry *entry,
 static void
 fill_location_entry_model (GtkListStore *store, GWeatherLocation *loc,
 			   const char *parent_display_name,
+			   const char *parent_sort_local_name,
 			   const char *parent_compare_local_name,
 			   const char *parent_compare_english_name,
 			   gboolean show_named_timezones);
@@ -78,6 +79,7 @@ enum LOC
 {
     LOC_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME = 0,
     LOC_GWEATHER_LOCATION_ENTRY_COL_LOCATION,
+    LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_SORT_NAME,
     LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME,
     LOC_GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME,
     LOC_GWEATHER_LOCATION_ENTRY_NUM_COLUMNS
@@ -87,6 +89,7 @@ enum PLACE
 {
     PLACE_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME = 0,
     PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE,
+    PLACE_GWEATHER_LOCATION_ENTRY_COL_LOCAL_SORT_NAME,
     PLACE_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME
 };
 
@@ -165,6 +168,25 @@ dispose (GObject *object)
     G_OBJECT_CLASS (gweather_location_entry_parent_class)->dispose (object);
 }
 
+static int
+tree_compare_local_name (GtkTreeModel *model,
+			 GtkTreeIter  *a,
+			 GtkTreeIter  *b,
+			 gpointer      user_data)
+{
+    g_autofree gchar *name_a = NULL, *name_b = NULL;
+
+    gtk_tree_model_get (model, a,
+			LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_SORT_NAME, &name_a,
+			-1);
+    gtk_tree_model_get (model, b,
+			LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_SORT_NAME, &name_b,
+			-1);
+
+    return g_utf8_collate (name_a, name_b);
+}
+
+
 static void
 constructed (GObject *object)
 {
@@ -177,8 +199,10 @@ constructed (GObject *object)
     if (!entry->priv->top)
 	entry->priv->top = gweather_location_get_world ();
 
-    store = gtk_list_store_new (4, G_TYPE_STRING, GWEATHER_TYPE_LOCATION, G_TYPE_STRING, G_TYPE_STRING);
-    fill_location_entry_model (store, entry->priv->top, NULL, NULL, NULL, entry->priv->show_named_timezones);
+    store = gtk_list_store_new (5, G_TYPE_STRING, GWEATHER_TYPE_LOCATION, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
+    gtk_tree_sortable_set_default_sort_func (GTK_TREE_SORTABLE (store),
+                                             tree_compare_local_name, NULL, NULL);
+    fill_location_entry_model (store, entry->priv->top, NULL, NULL, NULL, NULL, entry->priv->show_named_timezones);
 
     entry->priv->model = GTK_TREE_MODEL (store);
     completion = gtk_entry_get_completion (GTK_ENTRY (entry));
@@ -485,12 +509,13 @@ gweather_location_entry_set_city (GWeatherLocationEntry *entry,
 static void
 fill_location_entry_model (GtkListStore *store, GWeatherLocation *loc,
 			   const char *parent_display_name,
+			   const char *parent_sort_local_name,
 			   const char *parent_compare_local_name,
 			   const char *parent_compare_english_name,
 			   gboolean show_named_timezones)
 {
     g_autoptr(GWeatherLocation) child = NULL;
-    char *display_name, *local_compare_name, *english_compare_name;
+    char *display_name, *local_sort_name, *local_compare_name, *english_compare_name;
 
     switch (gweather_location_get_level (loc)) {
     case GWEATHER_LOCATION_WORLD:
@@ -501,6 +526,7 @@ fill_location_entry_model (GtkListStore *store, GWeatherLocation *loc,
 	while ((child = gweather_location_next_child (loc, child)))
 	    fill_location_entry_model (store, child,
 				       parent_display_name,
+				       parent_sort_local_name,
 				       parent_compare_local_name,
 				       parent_compare_english_name,
 				       show_named_timezones);
@@ -511,6 +537,7 @@ fill_location_entry_model (GtkListStore *store, GWeatherLocation *loc,
 	while ((child = gweather_location_next_child (loc, child)))
 	    fill_location_entry_model (store, child,
 				       gweather_location_get_name (loc),
+				       gweather_location_get_sort_name (loc),
 				       gweather_location_get_sort_name (loc),
 				       gweather_location_get_english_sort_name (loc),
 				       show_named_timezones);
@@ -523,12 +550,13 @@ fill_location_entry_model (GtkListStore *store, GWeatherLocation *loc,
 	 * You shouldn't need to translate this string unless the language has a different comma.
 	 */
 	display_name = g_strdup_printf (_("%s, %s"), gweather_location_get_name (loc), parent_display_name);
+	local_sort_name = g_strdup_printf ("%s, %s", parent_sort_local_name, gweather_location_get_sort_name (loc));
 	local_compare_name = g_strdup_printf ("%s, %s", gweather_location_get_sort_name (loc), parent_compare_local_name);
 	english_compare_name = g_strdup_printf ("%s, %s", gweather_location_get_english_sort_name (loc), parent_compare_english_name);
 
 	while ((child = gweather_location_next_child (loc, child)))
 	    fill_location_entry_model (store, child,
-				       display_name, local_compare_name, english_compare_name,
+				       display_name, local_sort_name, local_compare_name, english_compare_name,
 				       show_named_timezones);
 
 	g_free (display_name);
@@ -551,6 +579,8 @@ fill_location_entry_model (GtkListStore *store, GWeatherLocation *loc,
 	 */
 	display_name = g_strdup_printf (_("%s, %s"),
 					gweather_location_get_name (loc), parent_display_name);
+	local_sort_name = g_strdup_printf ("%s, %s",
+					   parent_sort_local_name, gweather_location_get_sort_name (loc));
 	local_compare_name = g_strdup_printf ("%s, %s",
 					      gweather_location_get_sort_name (loc), parent_compare_local_name);
 	english_compare_name = g_strdup_printf ("%s, %s",
@@ -559,6 +589,7 @@ fill_location_entry_model (GtkListStore *store, GWeatherLocation *loc,
 	gtk_list_store_insert_with_values (store, NULL, -1,
 					   LOC_GWEATHER_LOCATION_ENTRY_COL_LOCATION, loc,
 					   LOC_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
+					   LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_SORT_NAME, local_sort_name,
 					   LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, local_compare_name,
 					   LOC_GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME, english_compare_name,
 					   -1);
@@ -573,6 +604,7 @@ fill_location_entry_model (GtkListStore *store, GWeatherLocation *loc,
 	    gtk_list_store_insert_with_values (store, NULL, -1,
 					       LOC_GWEATHER_LOCATION_ENTRY_COL_LOCATION, loc,
 					       LOC_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, gweather_location_get_name (loc),
+					       LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_SORT_NAME, gweather_location_get_sort_name (loc),
 					       LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, gweather_location_get_sort_name (loc),
 					       LOC_GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME, gweather_location_get_english_sort_name (loc),
 					       -1);
@@ -757,6 +789,7 @@ fill_store (gpointer data, gpointer user_data)
     gtk_list_store_insert_with_values (user_data, NULL, -1,
 				       PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE, place,
 				       PLACE_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
+				       PLACE_GWEATHER_LOCATION_ENTRY_COL_LOCAL_SORT_NAME, compare_name,
 				       PLACE_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, compare_name,
 				       -1);
 
@@ -791,7 +824,9 @@ _got_places (GObject      *source_object,
     }
 
     completion = gtk_entry_get_completion (user_data);
-    store = gtk_list_store_new (4, G_TYPE_STRING, GEOCODE_TYPE_PLACE, G_TYPE_STRING, G_TYPE_STRING);
+    store = gtk_list_store_new (5, G_TYPE_STRING, GEOCODE_TYPE_PLACE, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
+    gtk_tree_sortable_set_default_sort_func (GTK_TREE_SORTABLE (store),
+                                             tree_compare_local_name, NULL, NULL);
     g_list_foreach (places, fill_store, store);
     g_list_free (places);
     gtk_entry_completion_set_match_func (completion, new_matcher, NULL, NULL);
