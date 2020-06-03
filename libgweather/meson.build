@@ -5,6 +5,50 @@ add_project_arguments([
   '-D_DEFAULT_SOURCE',
 ], language: 'c')
 
+if c_compiler.get_id() == 'gcc' or c_compiler.get_id() == 'clang'
+  test_cflags = [
+    '-fno-strict-aliasing',
+    '-Wcast-align',
+    '-Wignored-qualifiers',
+    '-Wimplicit-function-declaration',
+    '-Wlogical-op',
+    '-Wmissing-format-attribute',
+    '-Wmissing-include-dirs',
+    '-Wmissing-noreturn',
+    '-Wnested-externs',
+    '-Wold-style-definition',
+    '-Wpointer-arith',
+    '-Wshadow',
+    '-Wstrict-prototypes',
+    '-Wundef',
+    '-Wuninitialized',
+    '-Wunused',
+    '-Werror=address',
+    '-Werror=array-bounds',
+    '-Werror=empty-body',
+    '-Werror=format=2',
+    '-Werror=format-nonliteral',
+    '-Werror=format-security',
+    '-Werror=implicit',
+    '-Werror=implicit-fallthrough',
+    '-Werror=init-self',
+    '-Werror=int-to-pointer-cast',
+    '-Werror=main',
+    '-Werror=missing-braces',
+    '-Werror=missing-declarations',
+    '-Werror=missing-prototypes',
+    '-Werror=pointer-to-int-cast',
+    '-Werror=redundant-decls',
+    '-Werror=return-type',
+    '-Werror=sequence-point',
+    '-Werror=trigraphs',
+    '-Werror=vla',
+    '-Werror=write-strings',
+  ]
+
+  add_project_arguments(c_compiler.get_supported_arguments(test_cflags), language: 'c')
+endif
+
 header_subdir = 'libgweather-3.0/libgweather'
 
 versionconf = configuration_data()
@@ -77,6 +121,7 @@ gweather_gir = gnome.generate_gir(lib_libgweather,
   header: 'libgweather/gweather.h',
   extra_args: [
     '--warn-all',
+    '--quiet',
     '-DGWEATHER_COMPILATION',
   ],
   install: true,

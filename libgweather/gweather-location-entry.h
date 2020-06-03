@@ -43,7 +43,7 @@ struct _GWeatherLocationEntry {
     GtkSearchEntry parent;
 
     /*< private >*/
-    GWeatherLocationEntryPrivate *priv;
+    GWeatherLocationEntryPrivate *priv; /* unused */
 };
 
 struct _GWeatherLocationEntryClass {

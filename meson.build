@@ -1,6 +1,10 @@
 project('libgweather', 'c',
   version: '3.34.0',
   meson_version: '>= 0.50.0',
+  default_options: [
+    'buildtype=debugoptimized',
+    'warning_level=1',
+  ]
 )
 
 libgweather_version = meson.project_version().split('.')
