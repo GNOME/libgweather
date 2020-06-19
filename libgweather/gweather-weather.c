@@ -323,6 +323,26 @@ _gweather_info_begin_request (GWeatherInfo *info,
     g_object_ref (message);
 }
 
+static void
+copy_weather_data (GWeatherInfo *src,
+		   GWeatherInfo *dest)
+{
+  dest->priv->hasHumidity = src->priv->hasHumidity;
+  dest->priv->update = src->priv->update;
+  dest->priv->current_time = src->priv->current_time;
+  dest->priv->sky = src->priv->sky;
+  dest->priv->cond = src->priv->cond;
+  dest->priv->temp = src->priv->temp;
+  dest->priv->temp_min = src->priv->temp_min;
+  dest->priv->temp_max = src->priv->temp_max;
+  dest->priv->dew = src->priv->dew;
+  dest->priv->humidity = src->priv->humidity;
+  dest->priv->wind = src->priv->wind;
+  dest->priv->windspeed = src->priv->windspeed;
+  dest->priv->pressure = src->priv->pressure;
+  dest->priv->visibility = src->priv->visibility;
+}
+
 void
 _gweather_info_request_done (GWeatherInfo *info,
 			     SoupMessage  *message)
