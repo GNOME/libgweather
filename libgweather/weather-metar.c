@@ -623,12 +623,19 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 	    metar = g_strdup (p);
 	success = metar_parse (metar, info);
 	g_free (metar);
+	if (success)
+	  g_debug ("Successfully parsed METAR for %s", loc->code);
+	else
+	  g_debug ("Failed to parse raw_text METAR for %s", loc->code);
     } else if (!strstr (msg->response_body->data, "aviationweather.gov")) {
 	/* The response doesn't even seem to have come from NOAA...
 	 * most likely it is a wifi hotspot login page. Call that a
 	 * network error.
 	 */
 	priv->network_error = TRUE;
+	g_debug ("Response to query for %s did not come from correct server", loc->code);
+    } else {
+      g_debug ("Failed to parse METAR for %s", loc->code);
     }
 
     g_free (searchkey);
