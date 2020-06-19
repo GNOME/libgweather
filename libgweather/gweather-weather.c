@@ -323,6 +323,52 @@ _gweather_info_begin_request (GWeatherInfo *info,
     g_object_ref (message);
 }
 
+static void
+copy_weather_data (GWeatherInfo *src,
+		   GWeatherInfo *dest)
+{
+  dest->priv->hasHumidity = src->priv->hasHumidity;
+  dest->priv->update = src->priv->update;
+  dest->priv->current_time = src->priv->current_time;
+  dest->priv->sky = src->priv->sky;
+  dest->priv->cond = src->priv->cond;
+  dest->priv->temp = src->priv->temp;
+  dest->priv->temp_min = src->priv->temp_min;
+  dest->priv->temp_max = src->priv->temp_max;
+  dest->priv->dew = src->priv->dew;
+  dest->priv->humidity = src->priv->humidity;
+  dest->priv->wind = src->priv->wind;
+  dest->priv->windspeed = src->priv->windspeed;
+  dest->priv->pressure = src->priv->pressure;
+  dest->priv->visibility = src->priv->visibility;
+}
+
+static void
+fixup_current_conditions (GWeatherInfo *info)
+{
+  GWeatherInfo *first_forecast;
+
+  /* Current conditions already available */
+  if (info->priv->update != 0) {
+    g_debug ("Not fixing up current conditions, already valid");
+    return;
+  } else if (!info->priv->forecast_list ||
+             !info->priv->forecast_list->data) {
+    g_debug ("No forecast list available, not fixing up");
+    return;
+  }
+
+  first_forecast = info->priv->forecast_list->data;
+  /* Add current conditions from forecast if close enough */
+  if (first_forecast->priv->update - time(NULL) > 60 * 60) {
+    g_debug ("Forecast is too far in the future, ignoring");
+    return;
+  }
+
+  copy_weather_data (first_forecast, info);
+  g_debug ("Fixed up missing current weather with first forecast data");
+}
+
 void
 _gweather_info_request_done (GWeatherInfo *info,
 			     SoupMessage  *message)
@@ -330,11 +376,13 @@ _gweather_info_request_done (GWeatherInfo *info,
     info->priv->requests_pending = g_slist_remove (info->priv->requests_pending, message);
     g_object_ref (message);
 
-    if (info->priv->requests_pending == NULL)
+    if (info->priv->requests_pending == NULL) {
+        fixup_current_conditions (info);
         g_signal_emit (info, gweather_info_signals[SIGNAL_UPDATED], 0);
-    else
+    } else {
         g_debug ("Not emitting 'updated' as there are still %d requests pending",
                  g_slist_length (info->priv->requests_pending));
+    }
 }
 
 /* it's OK to pass in NULL */
