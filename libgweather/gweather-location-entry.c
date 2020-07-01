@@ -67,12 +67,6 @@ static void set_location_internal (GWeatherLocationEntry *entry,
 				   GtkTreeModel          *model,
 				   GtkTreeIter           *iter,
 				   GWeatherLocation      *loc);
-static GWeatherLocation *
-create_new_detached_location (GWeatherLocation *nearest_station,
-                              const char       *name,
-                              gboolean          latlon_valid,
-                              gdouble           latitude,
-                              gdouble           longitude);
 static void
 fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 			   const char *parent_display_name,
@@ -325,7 +319,7 @@ set_location_internal (GWeatherLocationEntry *entry,
 	g_free (name);
     } else if (loc) {
 	priv->location = gweather_location_ref (loc);
-	gtk_entry_set_text (GTK_ENTRY (entry), loc->local_name);
+	gtk_entry_set_text (GTK_ENTRY (entry), gweather_location_get_name (loc));
 	priv->custom_text = FALSE;
     } else {
 	priv->location = NULL;
@@ -520,9 +514,9 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	/* Recurse, initializing the names to the country name */
 	for (i = 0; children[i]; i++) {
 	    fill_location_entry_model (store, children[i],
-				       loc->local_name,
-				       loc->local_sort_name,
-				       loc->english_sort_name,
+				       gweather_location_get_name (loc),
+				       gweather_location_get_sort_name (loc),
+				       gweather_location_get_english_sort_name (loc),
 				       show_named_timezones);
 	}
 	break;
@@ -533,9 +527,9 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	 * 'London, United Kingdom'
 	 * You shouldn't need to translate this string unless the language has a different comma.
 	 */
-	display_name = g_strdup_printf (_("%s, %s"), loc->local_name, parent_display_name);
-	local_compare_name = g_strdup_printf ("%s, %s", loc->local_sort_name, parent_compare_local_name);
-	english_compare_name = g_strdup_printf ("%s, %s", loc->english_sort_name, parent_compare_english_name);
+	display_name = g_strdup_printf (_("%s, %s"), gweather_location_get_name (loc), parent_display_name);
+	local_compare_name = g_strdup_printf ("%s, %s", gweather_location_get_sort_name (loc), parent_compare_local_name);
+	english_compare_name = g_strdup_printf ("%s, %s", gweather_location_get_english_sort_name (loc), parent_compare_english_name);
 
 	for (i = 0; children[i]; i++) {
 	    fill_location_entry_model (store, children[i],
@@ -562,11 +556,11 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	 * You shouldn't need to translate this string unless the language has a different comma.
 	 */
 	display_name = g_strdup_printf (_("%s, %s"),
-					loc->local_name, parent_display_name);
+					gweather_location_get_name (loc), parent_display_name);
 	local_compare_name = g_strdup_printf ("%s, %s",
-					      loc->local_sort_name, parent_compare_local_name);
+					      gweather_location_get_sort_name (loc), parent_compare_local_name);
 	english_compare_name = g_strdup_printf ("%s, %s",
-						loc->english_sort_name, parent_compare_english_name);
+						gweather_location_get_english_sort_name (loc), parent_compare_english_name);
 
 	gtk_tree_store_insert_with_values (store, NULL, NULL, -1,
 					   LOC_GWEATHER_LOCATION_ENTRY_COL_LOCATION, loc,
@@ -584,9 +578,9 @@ fill_location_entry_model (GtkTreeStore *store, GWeatherLocation *loc,
 	if (show_named_timezones) {
 	    gtk_tree_store_insert_with_values (store, NULL, NULL, -1,
 					       LOC_GWEATHER_LOCATION_ENTRY_COL_LOCATION, loc,
-					       LOC_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, loc->local_name,
-					       LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, loc->local_sort_name,
-					       LOC_GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME, loc->english_sort_name,
+					       LOC_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, gweather_location_get_name (loc),
+					       LOC_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, gweather_location_get_sort_name (loc),
+					       LOC_GWEATHER_LOCATION_ENTRY_COL_ENGLISH_COMPARE_NAME, gweather_location_get_english_sort_name (loc),
 					       -1);
 	}
 	break;
@@ -706,7 +700,11 @@ match_selected (GtkEntryCompletion *completion,
 		GtkTreeIter        *iter,
 		gpointer            entry)
 {
-    if (model != ((GWeatherLocationEntry *)entry)->priv->model) {
+    GWeatherLocationEntryPrivate *priv;
+
+    priv = ((GWeatherLocationEntry *)entry)->priv;
+
+    if (model != priv->model) {
 	GeocodePlace *place;
 	char *display_name;
 	GeocodeLocation *loc;
@@ -720,17 +718,17 @@ match_selected (GtkEntryCompletion *completion,
 			    -1);
 
 	country_code = geocode_place_get_country_code (place);
-	if (country_code != NULL)
-	    scope = gweather_location_find_by_country_code (gweather_location_get_world (), country_code);
-	else
-	    scope = gweather_location_get_world ();
+	if (country_code != NULL && gweather_location_get_level (priv->top) == GWEATHER_LOCATION_WORLD)
+	    scope = gweather_location_find_by_country_code (priv->top, country_code);
+	if (!scope)
+	    scope = priv->top;
 
 	loc = geocode_place_get_location (place);
 	location = gweather_location_find_nearest_city (scope, geocode_location_get_latitude (loc), geocode_location_get_longitude (loc));
 
-	location = create_new_detached_location(location, display_name, TRUE,
-						geocode_location_get_latitude (loc) * M_PI / 180.0,
-						geocode_location_get_longitude (loc) * M_PI / 180.0);
+	location = _gweather_location_new_detached (location, display_name, TRUE,
+						     geocode_location_get_latitude (loc) * M_PI / 180.0,
+						     geocode_location_get_longitude (loc) * M_PI / 180.0);
 
 	set_location_internal (entry, model, NULL, location);
 
@@ -848,46 +846,4 @@ gweather_location_entry_new (GWeatherLocation *top)
     return g_object_new (GWEATHER_TYPE_LOCATION_ENTRY,
 			 "top", top,
 			 NULL);
-}
-
-static GWeatherLocation *
-create_new_detached_location (GWeatherLocation *nearest_station,
-                              const char       *name,
-                              gboolean          latlon_valid,
-                              gdouble           latitude,
-                              gdouble           longitude)
-{
-    GWeatherLocation *self;
-    char *normalized;
-
-    self = g_slice_new0 (GWeatherLocation);
-    self->ref_count = 1;
-    self->level = GWEATHER_LOCATION_DETACHED;
-    self->english_name = g_strdup (name);
-    self->local_name = g_strdup (name);
-
-    normalized = g_utf8_normalize (name, -1, G_NORMALIZE_ALL);
-    self->english_sort_name = g_utf8_casefold (normalized, -1);
-    self->local_sort_name = g_strdup (self->english_sort_name);
-    g_free (normalized);
-
-    self->parent = nearest_station;
-    self->children = NULL;
-
-    if (nearest_station)
-	self->station_code = g_strdup (nearest_station->station_code);
-
-    g_assert (nearest_station || latlon_valid);
-
-    if (latlon_valid) {
-	self->latlon_valid = TRUE;
-	self->latitude = latitude;
-	self->longitude = longitude;
-    } else {
-	self->latlon_valid = nearest_station->latlon_valid;
-	self->latitude = nearest_station->latitude;
-	self->longitude = nearest_station->longitude;
-    }
-
-    return self;
 }
