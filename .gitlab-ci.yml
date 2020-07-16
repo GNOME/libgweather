@@ -9,7 +9,7 @@ build-fedora:
     - dnf reinstall -y glib2 glibc || dnf update -y glib2 glibc
     # Add French locale support for tests
     - dnf install -y glibc-langpack-fr
-    - dnf install -y redhat-rpm-config meson libxml2-devel vala gettext itstool gtk3-devel geocode-glib-devel gobject-introspection-devel libsoup-devel libabigail git
+    - dnf install -y redhat-rpm-config meson libxml2-devel vala gettext itstool gtk3-devel geocode-glib-devel gobject-introspection-devel libsoup-devel libabigail git python3-gobject
   script:
     - meson _build
     - ninja -C _build install
