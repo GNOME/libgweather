@@ -654,6 +654,7 @@ static void
 test_location_names (void)
 {
     GWeatherLocation *world, *brussels;
+    char *old_locale;
 
     world = gweather_location_get_world ();
     g_assert_nonnull (world);
@@ -665,7 +666,16 @@ test_location_names (void)
     g_assert_cmpstr (gweather_location_get_english_name (brussels), ==, "Brussels");
     gweather_location_unref (brussels);
 
+    old_locale = g_strdup (setlocale (LC_ALL, NULL));
     setlocale (LC_ALL, "fr_FR.UTF-8");
+    if (strstr (setlocale (LC_ALL, NULL), "fr_FR.UTF-8") == NULL)
+      {
+        g_test_skip ("locale fr_FR.UTF-8 not available, skipping localization tests");
+        setlocale (LC_ALL, old_locale);
+        g_free (old_locale);
+        return;
+      }
+
     _gweather_location_reset_world ();
 
     world = gweather_location_get_world ();
@@ -678,7 +688,7 @@ test_location_names (void)
     g_assert_cmpstr (gweather_location_get_english_name (brussels), ==, "Brussels");
     gweather_location_unref (brussels);
 
-    setlocale (LC_ALL, "");
+    setlocale (LC_ALL, old_locale);
     _gweather_location_reset_world ();
 }
 
