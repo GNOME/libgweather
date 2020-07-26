@@ -383,7 +383,7 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 
        That's very nice of them!
     */
-    priv->forecast_attribution = g_strdup(_("Weather data from the <a href=\"https://www.met.no/\">Norwegian Meteorological Institute</a>"));
+    priv->forecast_attribution = g_strdup(_("Weather data from the <a href=\"https://www.met.no/\">Norwegian Meteorological Institute</a>."));
 
  out:
     xmlXPathFreeContext (xpath_ctx);
