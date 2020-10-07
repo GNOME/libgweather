@@ -37,7 +37,9 @@
  * #GWeatherLocation<!-- -->s
  */
 
-struct _GWeatherLocationEntryPrivate {
+struct _GWeatherLocationEntry {
+    GtkSearchEntry parent_instance;
+
     GWeatherLocation *location;
     GWeatherLocation *top;
     gboolean          show_named_timezones;
@@ -103,9 +105,6 @@ static void
 gweather_location_entry_init (GWeatherLocationEntry *entry)
 {
     GtkEntryCompletion *completion;
-    GWeatherLocationEntryPrivate *priv;
-
-    priv = entry->priv = G_TYPE_INSTANCE_GET_PRIVATE (entry, GWEATHER_TYPE_LOCATION_ENTRY, GWeatherLocationEntryPrivate);
 
     completion = gtk_entry_completion_new ();
 
@@ -123,7 +122,7 @@ gweather_location_entry_init (GWeatherLocationEntry *entry)
     gtk_entry_set_completion (GTK_ENTRY (entry), completion);
     g_object_unref (completion);
 
-    priv->custom_text = FALSE;
+    entry->custom_text = FALSE;
     g_signal_connect (entry, "changed",
 		      G_CALLBACK (entry_changed), NULL);
 }
@@ -131,18 +130,11 @@ gweather_location_entry_init (GWeatherLocationEntry *entry)
 static void
 finalize (GObject *object)
 {
-    GWeatherLocationEntry *entry;
-    GWeatherLocationEntryPrivate *priv;
+    GWeatherLocationEntry *entry = GWEATHER_LOCATION_ENTRY (object);
 
-    entry = GWEATHER_LOCATION_ENTRY (object);
-    priv = entry->priv;
-
-    if (priv->location)
-	gweather_location_unref (priv->location);
-    if (priv->top)
-	gweather_location_unref (priv->top);
-    if (priv->model)
-        g_object_unref (priv->model);
+    g_clear_pointer (&entry->location, gweather_location_unref);
+    g_clear_pointer (&entry->top, gweather_location_unref);
+    g_clear_object (&entry->model);
 
     G_OBJECT_CLASS (gweather_location_entry_parent_class)->finalize (object);
 }
@@ -150,16 +142,11 @@ finalize (GObject *object)
 static void
 dispose (GObject *object)
 {
-    GWeatherLocationEntry *entry;
-    GWeatherLocationEntryPrivate *priv;
+    GWeatherLocationEntry *entry = GWEATHER_LOCATION_ENTRY (object);
 
-    entry = GWEATHER_LOCATION_ENTRY (object);
-    priv = entry->priv;
-
-    if (priv->cancellable) {
-        g_cancellable_cancel (priv->cancellable);
-        g_object_unref (priv->cancellable);
-        priv->cancellable = NULL;
+    if (entry->cancellable) {
+        g_cancellable_cancel (entry->cancellable);
+        g_clear_object (&entry->cancellable);
     }
 
     G_OBJECT_CLASS (gweather_location_entry_parent_class)->dispose (object);
@@ -168,19 +155,17 @@ dispose (GObject *object)
 static void
 constructed (GObject *object)
 {
-    GWeatherLocationEntry *entry;
+    GWeatherLocationEntry *entry = GWEATHER_LOCATION_ENTRY (object);
     GtkTreeStore *store = NULL;
     GtkEntryCompletion *completion;
 
-    entry = GWEATHER_LOCATION_ENTRY (object);
-
-    if (!entry->priv->top)
-	entry->priv->top = gweather_location_ref (gweather_location_get_world ());
+    if (!entry->top)
+	entry->top = gweather_location_ref (gweather_location_get_world ());
 
     store = gtk_tree_store_new (4, G_TYPE_STRING, GWEATHER_TYPE_LOCATION, G_TYPE_STRING, G_TYPE_STRING);
-    fill_location_entry_model (store, entry->priv->top, NULL, NULL, NULL, entry->priv->show_named_timezones);
+    fill_location_entry_model (store, entry->top, NULL, NULL, NULL, entry->show_named_timezones);
 
-    entry->priv->model = GTK_TREE_MODEL (store);
+    entry->model = GTK_TREE_MODEL (store);
     completion = gtk_entry_get_completion (GTK_ENTRY (entry));
     gtk_entry_completion_set_match_func (completion, matcher, NULL, NULL);
     gtk_entry_completion_set_model (completion, GTK_TREE_MODEL (store));
@@ -221,8 +206,6 @@ gweather_location_entry_class_init (GWeatherLocationEntryClass *location_entry_c
 			    "The selected GWeatherLocation",
 			    GWEATHER_TYPE_LOCATION,
 			    G_PARAM_READWRITE));
-
-    g_type_class_add_private (location_entry_class, sizeof (GWeatherLocationEntryPrivate));
 }
 
 static void
@@ -233,10 +216,10 @@ set_property (GObject *object, guint prop_id,
 
     switch (prop_id) {
     case PROP_TOP:
-        entry->priv->top = g_value_dup_boxed (value);
+        entry->top = g_value_dup_boxed (value);
 	break;
     case PROP_SHOW_NAMED_TIMEZONES:
-	entry->priv->show_named_timezones = g_value_get_boolean (value);
+	entry->show_named_timezones = g_value_get_boolean (value);
 	break;
     case PROP_LOCATION:
 	gweather_location_entry_set_location (GWEATHER_LOCATION_ENTRY (object),
@@ -256,10 +239,10 @@ get_property (GObject *object, guint prop_id,
 
     switch (prop_id) {
     case PROP_SHOW_NAMED_TIMEZONES:
-	g_value_set_boolean (value, entry->priv->show_named_timezones);
+	g_value_set_boolean (value, entry->show_named_timezones);
 	break;
     case PROP_LOCATION:
-	g_value_set_boxed (value, entry->priv->location);
+	g_value_set_boxed (value, entry->location);
 	break;
     default:
 	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -275,20 +258,20 @@ entry_changed (GWeatherLocationEntry *entry)
 
     completion = gtk_entry_get_completion (GTK_ENTRY (entry));
 
-    if (entry->priv->cancellable) {
-        g_cancellable_cancel (entry->priv->cancellable);
-        g_object_unref (entry->priv->cancellable);
-        entry->priv->cancellable = NULL;
+    if (entry->cancellable) {
+        g_cancellable_cancel (entry->cancellable);
+        g_object_unref (entry->cancellable);
+        entry->cancellable = NULL;
         gtk_entry_completion_delete_action (completion, 0);
     }
 
     gtk_entry_completion_set_match_func (gtk_entry_get_completion (GTK_ENTRY (entry)), matcher, NULL, NULL);
-    gtk_entry_completion_set_model (gtk_entry_get_completion (GTK_ENTRY (entry)), entry->priv->model);
+    gtk_entry_completion_set_model (gtk_entry_get_completion (GTK_ENTRY (entry)), entry->model);
 
     text = gtk_entry_get_text (GTK_ENTRY (entry));
 
     if (text && *text)
-	entry->priv->custom_text = TRUE;
+	entry->custom_text = TRUE;
     else
 	set_location_internal (entry, NULL, NULL, NULL);
 }
@@ -299,32 +282,28 @@ set_location_internal (GWeatherLocationEntry *entry,
 		       GtkTreeIter           *iter,
 		       GWeatherLocation      *loc)
 {
-    GWeatherLocationEntryPrivate *priv;
     char *name;
 
-    priv = entry->priv;
-
-    if (priv->location)
-	gweather_location_unref (priv->location);
-
     g_assert (iter == NULL || loc == NULL);
+
+    g_clear_pointer (&entry->location, gweather_location_unref);
 
     if (iter) {
 	gtk_tree_model_get (model, iter,
 			    LOC_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, &name,
-			    LOC_GWEATHER_LOCATION_ENTRY_COL_LOCATION, &priv->location,
+			    LOC_GWEATHER_LOCATION_ENTRY_COL_LOCATION, &entry->location,
 			    -1);
 	gtk_entry_set_text (GTK_ENTRY (entry), name);
-	priv->custom_text = FALSE;
+	entry->custom_text = FALSE;
 	g_free (name);
     } else if (loc) {
-	priv->location = gweather_location_ref (loc);
+	entry->location = gweather_location_ref (loc);
 	gtk_entry_set_text (GTK_ENTRY (entry), gweather_location_get_name (loc));
-	priv->custom_text = FALSE;
+	entry->custom_text = FALSE;
     } else {
-	priv->location = NULL;
+	entry->location = NULL;
 	gtk_entry_set_text (GTK_ENTRY (entry), "");
-	priv->custom_text = TRUE;
+	entry->custom_text = TRUE;
     }
 
     gtk_editable_set_position (GTK_EDITABLE (entry), -1);
@@ -394,8 +373,8 @@ gweather_location_entry_get_location (GWeatherLocationEntry *entry)
 {
     g_return_val_if_fail (GWEATHER_IS_LOCATION_ENTRY (entry), NULL);
 
-    if (entry->priv->location)
-	return gweather_location_ref (entry->priv->location);
+    if (entry->location)
+	return gweather_location_ref (entry->location);
     else
 	return NULL;
 }
@@ -416,7 +395,7 @@ gweather_location_entry_has_custom_text (GWeatherLocationEntry *entry)
 {
     g_return_val_if_fail (GWEATHER_IS_LOCATION_ENTRY (entry), FALSE);
 
-    return entry->priv->custom_text;
+    return entry->custom_text;
 }
 
 /**
@@ -698,13 +677,11 @@ static gboolean
 match_selected (GtkEntryCompletion *completion,
 		GtkTreeModel       *model,
 		GtkTreeIter        *iter,
-		gpointer            entry)
+		gpointer            user_data)
 {
-    GWeatherLocationEntryPrivate *priv;
+    GWeatherLocationEntry *entry = user_data;
 
-    priv = ((GWeatherLocationEntry *)entry)->priv;
-
-    if (model != priv->model) {
+    if (model != entry->model) {
 	GeocodePlace *place;
 	char *display_name;
 	GeocodeLocation *loc;
@@ -718,10 +695,10 @@ match_selected (GtkEntryCompletion *completion,
 			    -1);
 
 	country_code = geocode_place_get_country_code (place);
-	if (country_code != NULL && gweather_location_get_level (priv->top) == GWEATHER_LOCATION_WORLD)
-	    scope = gweather_location_find_by_country_code (priv->top, country_code);
+	if (country_code != NULL && gweather_location_get_level (entry->top) == GWEATHER_LOCATION_WORLD)
+	    scope = gweather_location_find_by_country_code (entry->top, country_code);
 	if (!scope)
-	    scope = priv->top;
+	    scope = entry->top;
 
 	loc = geocode_place_get_location (place);
 	location = gweather_location_find_nearest_city (scope, geocode_location_get_latitude (loc), geocode_location_get_longitude (loc));
@@ -792,7 +769,7 @@ _got_places (GObject      *source_object,
         g_clear_error (&error);
         completion = gtk_entry_get_completion (user_data);
         gtk_entry_completion_set_match_func (completion, matcher, NULL, NULL);
-        gtk_entry_completion_set_model (completion, self->priv->model);
+        gtk_entry_completion_set_model (completion, self->model);
         goto out;
     }
 
@@ -806,7 +783,7 @@ _got_places (GObject      *source_object,
 
  out:
     gtk_entry_completion_delete_action (completion, 0);
-    g_clear_object (&self->priv->cancellable);
+    g_clear_object (&self->cancellable);
 }
 
 static void
@@ -814,18 +791,18 @@ _no_matches (GtkEntryCompletion *completion, GWeatherLocationEntry *entry) {
     const gchar *key = gtk_entry_get_text(GTK_ENTRY (entry));
     GeocodeForward *forward;
 
-    if (entry->priv->cancellable) {
-        g_cancellable_cancel (entry->priv->cancellable);
-        g_object_unref (entry->priv->cancellable);
-        entry->priv->cancellable = NULL;
+    if (entry->cancellable) {
+        g_cancellable_cancel (entry->cancellable);
+        g_object_unref (entry->cancellable);
+        entry->cancellable = NULL;
     } else {
         gtk_entry_completion_insert_action_text (completion, 0, _("Loading…"));
     }
 
-    entry->priv->cancellable = g_cancellable_new ();
+    entry->cancellable = g_cancellable_new ();
 
     forward = geocode_forward_new_for_string(key);
-    geocode_forward_search_async (forward, entry->priv->cancellable, _got_places, entry);
+    geocode_forward_search_async (forward, entry->cancellable, _got_places, entry);
 }
 
 /**
