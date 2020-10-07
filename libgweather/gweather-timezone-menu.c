@@ -34,6 +34,12 @@
  * A #GtkComboBox subclass for choosing a #GWeatherTimezone
  */
 
+struct _GWeatherTimezoneMenu {
+    GtkComboBox parent_instance;
+
+    GWeatherTimezone *zone;
+};
+
 G_DEFINE_TYPE (GWeatherTimezoneMenu, gweather_timezone_menu, GTK_TYPE_COMBO_BOX)
 
 enum {
