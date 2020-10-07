@@ -56,6 +56,8 @@ GWeatherTimezone *gweather_timezone_get_utc        (void);
 GWEATHER_EXTERN
 GWeatherTimezone *gweather_timezone_get_by_tzid    (const char *tzid);
 
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(GWeatherTimezone, gweather_timezone_unref)
+
 G_END_DECLS
 
 #endif /* __GWEATHER_TIMEZONE_H__ */
