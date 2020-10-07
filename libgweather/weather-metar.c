@@ -72,26 +72,25 @@ make_time (gint utcDate, gint utcHour, gint utcMin)
 static void
 metar_tok_time (gchar *tokp, GWeatherInfo *info)
 {
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     gint day, hr, min;
 
     g_debug ("metar_tok_time: %s", tokp);
 
     sscanf (tokp, "%2u%2u%2u", &day, &hr, &min);
-    info->priv->update = make_time (day, hr, min);
+    priv->update = make_time (day, hr, min);
 }
 
 static void
 metar_tok_wind (gchar *tokp, GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     gchar sdir[4], sspd[4], sgust[4];
     gint dir, spd = -1;
     gchar *gustp;
     size_t glen;
 
     g_debug ("metar_tok_wind: %s", tokp);
-
-    priv = info->priv;
 
     strncpy (sdir, tokp, 3);
     sdir[3] = 0;
@@ -153,14 +152,12 @@ metar_tok_wind (gchar *tokp, GWeatherInfo *info)
 static void
 metar_tok_vis (gchar *tokp, GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     gchar *pfrac, *pend, *psp;
     gchar sval[6];
     gint num, den, val;
 
     g_debug ("metar_tok_vis: %s", tokp);
-
-    priv = info->priv;
 
     memset (sval, 0, sizeof (sval));
 
@@ -205,12 +202,10 @@ metar_tok_vis (gchar *tokp, GWeatherInfo *info)
 static void
 metar_tok_cloud (gchar *tokp, GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     gchar stype[4], salt[4];
 
     g_debug ("metar_tok_cloud: %s", tokp);
-
-    priv = info->priv;
 
     strncpy (stype, tokp, 3);
     stype[3] = 0;
@@ -239,7 +234,7 @@ metar_tok_cloud (gchar *tokp, GWeatherInfo *info)
 static void
 metar_tok_pres (gchar *tokp, GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv = info->priv;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
 
     g_debug ("metar_tok_pres: %s", tokp);
 
@@ -271,12 +266,10 @@ metar_tok_pres (gchar *tokp, GWeatherInfo *info)
 static void
 metar_tok_temp (gchar *tokp, GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     gchar *ptemp, *pdew, *psep;
 
     g_debug ("metar_tok_temp: %s", tokp);
-
-    priv = info->priv;
 
     psep = strchr (tokp, '/');
     *psep = 0;
@@ -342,14 +335,12 @@ condition_more_important (GWeatherConditions *which,
 static void
 metar_tok_cond (gchar *tokp, GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     GWeatherConditions new_cond;
     gchar squal[3], sphen[4];
     gchar *pphen;
 
     g_debug ("metar_tok_cond: %s", tokp);
-
-    priv = info->priv;
 
     if ((strlen (tokp) > 3) && ((*tokp == '+') || (*tokp == '-')))
         ++tokp;   /* FIX */
@@ -577,8 +568,8 @@ metar_parse (gchar *metar, GWeatherInfo *info)
 static void
 metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 {
-    GWeatherInfo *info;
-    GWeatherInfoPrivate *priv;
+    GWeatherInfo *info = data;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     WeatherLocation *loc;
     const gchar *p, *eoln;
     gchar *searchkey, *metar;
@@ -591,9 +582,8 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 	    return;
 	}
 
-	info = data;
 	if (SOUP_STATUS_IS_TRANSPORT_ERROR (msg->status_code)) {
-	    info->priv->network_error = TRUE;
+	    priv->network_error = TRUE;
 	} else {
 	    /* Translators: %d is an error code, and %s the error string */
 	    g_warning (_("Failed to get METAR data: %d %s.\n"),
@@ -604,8 +594,6 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 	return;
     }
 
-    info = data;
-    priv = info->priv;
     loc = &priv->location;
 
     g_debug ("METAR data for %s", loc->code);
@@ -649,13 +637,11 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 void
 metar_start_open (GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     WeatherLocation *loc;
     SoupMessage *msg;
 
     g_return_if_fail (info != NULL);
-
-    priv = info->priv;
 
     priv->valid = priv->network_error = FALSE;
     loc = &priv->location;

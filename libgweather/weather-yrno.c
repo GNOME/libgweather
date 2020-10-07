@@ -170,9 +170,9 @@ static inline void
 read_symbol (GWeatherInfo *info,
 	     xmlNodePtr    node)
 {
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     xmlChar *val;
     YrnoSymbol* symbol;
-    GWeatherInfoPrivate *priv = info->priv;
 
     val = xmlGetProp (node, XC("number"));
 
@@ -189,6 +189,7 @@ static inline void
 read_wind_direction (GWeatherInfo *info,
 		     xmlNodePtr    node)
 {
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     xmlChar *val;
     unsigned int i;
 
@@ -200,7 +201,7 @@ read_wind_direction (GWeatherInfo *info,
 
     for (i = 0; i < G_N_ELEMENTS (wind_directions); i++) {
 	if (strcmp ((char*) val, wind_directions[i].name) == 0) {
-	    info->priv->wind = wind_directions[i].direction;
+	    priv->wind = wind_directions[i].direction;
             xmlFree (val);
 	    return;
 	}
@@ -212,6 +213,7 @@ static inline void
 read_wind_speed (GWeatherInfo *info,
 		 xmlNodePtr    node)
 {
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     xmlChar *val;
     double mps;
 
@@ -220,7 +222,7 @@ read_wind_speed (GWeatherInfo *info,
 	return;
 
     mps = g_ascii_strtod ((char*) val, NULL);
-    info->priv->windspeed = WINDSPEED_MS_TO_KNOTS (mps);
+    priv->windspeed = WINDSPEED_MS_TO_KNOTS (mps);
     xmlFree (val);
 }
 
@@ -228,6 +230,7 @@ static inline void
 read_temperature (GWeatherInfo *info,
 		  xmlNodePtr    node)
 {
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     xmlChar *val;
     double celsius;
 
@@ -236,7 +239,7 @@ read_temperature (GWeatherInfo *info,
 	return;
 
     celsius = g_ascii_strtod ((char*) val, NULL);
-    info->priv->temp = TEMP_C_TO_F (celsius);
+    priv->temp = TEMP_C_TO_F (celsius);
     xmlFree (val);
 }
 
@@ -244,6 +247,7 @@ static inline void
 read_pressure (GWeatherInfo *info,
 	       xmlNodePtr    node)
 {
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     xmlChar *val;
     double hpa;
 
@@ -252,7 +256,7 @@ read_pressure (GWeatherInfo *info,
 	return;
 
     hpa = g_ascii_strtod ((char*) val, NULL);
-    info->priv->pressure = PRESSURE_MBAR_TO_INCH (hpa);
+    priv->pressure = PRESSURE_MBAR_TO_INCH (hpa);
     xmlFree (val);
 }
 
@@ -260,6 +264,7 @@ static inline void
 read_humidity (GWeatherInfo *info,
 	       xmlNodePtr    node)
 {
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     xmlChar *val;
     double percent;
 
@@ -268,8 +273,8 @@ read_humidity (GWeatherInfo *info,
 	return;
 
     percent = g_ascii_strtod ((char*) val, NULL);
-    info->priv->humidity = percent;
-    info->priv->hasHumidity = TRUE;
+    priv->humidity = percent;
+    priv->hasHumidity = TRUE;
     xmlFree (val);
 }
 
@@ -307,13 +312,11 @@ static void
 parse_forecast_xml_new (GWeatherInfo    *master_info,
 			SoupMessageBody *body)
 {
-    GWeatherInfoPrivate *priv;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (master_info);
     xmlDocPtr doc;
     xmlXPathContextPtr xpath_ctx;
     xmlXPathObjectPtr xpath_result;
     int i;
-
-    priv = master_info->priv;
 
     doc = xmlParseMemory (body->data, body->length);
     if (!doc)
@@ -328,6 +331,7 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
     for (i = 0; i < xpath_result->nodesetval->nodeNr; i++) {
 	xmlNodePtr node;
 	GWeatherInfo *info;
+	GWeatherInfoPrivate *info_priv;
 	xmlChar *val;
 	time_t from_time, to_time;
 	xmlNode *location;
@@ -352,7 +356,8 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 	*/
 	if (from_time == to_time) {
 	    info = _gweather_info_new_clone (master_info);
-	    info->priv->current_time = info->priv->update = from_time;
+	    info_priv = _gweather_info_get_instance_private (info);
+	    info_priv->current_time = info_priv->update = from_time;
 
 	    for (location = node->children;
 		 location && location->type != XML_ELEMENT_NODE;
@@ -414,7 +419,7 @@ yrno_finish_new (SoupSession *session,
     }
 
     info = user_data;
-    priv = info->priv;
+    priv = _gweather_info_get_instance_private (info);
     loc = &priv->location;
     g_debug ("yrno data for %lf, %lf", loc->latitude, loc->longitude);
     g_debug ("%s", msg->response_body->data);
@@ -431,13 +436,12 @@ yrno_finish_new (SoupSession *session,
 gboolean
 yrno_start_open (GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     gchar *url;
     SoupMessage *message;
     WeatherLocation *loc;
     gchar latstr[G_ASCII_DTOSTR_BUF_SIZE], lonstr[G_ASCII_DTOSTR_BUF_SIZE];
 
-    priv = info->priv;
     loc = &priv->location;
 
     if (!loc->latlon_valid)

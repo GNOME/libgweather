@@ -134,7 +134,8 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
 
                         for (i = 0; i < 7;  i++) {
                             GWeatherInfo *nfo = _gweather_info_new_clone (master_info);
-			    nfo->priv->current_time = nfo->priv->update = update_times[i];
+			    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (nfo);
+			    priv->current_time = priv->update = update_times[i];
 
                             if (nfo)
                                 res = g_slist_append (res, nfo);
@@ -153,7 +154,7 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
                             for (c = p->children; c && at; c = c->next) {
                                 if (isElem (c, "value")) {
                                     GWeatherInfo *nfo = (GWeatherInfo *)at->data;
-				    GWeatherInfoPrivate *priv = nfo->priv;
+				    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (nfo);
                                     xmlChar *val = xmlNodeGetContent (c);
 
                                     /* can pass some values as <value xsi:nil="true"/> */
@@ -185,7 +186,7 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
                             for (c = p->children; c && at; c = c->next) {
                                 if (c->name && isElem (c, "weather-conditions")) {
                                     GWeatherInfo *nfo = at->data;
-				    GWeatherInfoPrivate *priv = nfo->priv;
+				    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (nfo);
                                     xmlChar *val = xmlGetProp (c, XC "weather-summary");
 
                                     if (val && nfo) {
@@ -271,7 +272,7 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
                            They should be all valid or all invalid. */
                         for (r = res; r; r = r->next) {
                             GWeatherInfo *nfo = r->data;
-			    GWeatherInfoPrivate *priv = nfo->priv;
+			    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (nfo);
 
                             if (!nfo || !priv->valid) {
                                 if (r->data)
@@ -332,7 +333,7 @@ iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     }
 
     info = data;
-    priv = info->priv;
+    priv = _gweather_info_get_instance_private (info);
     loc = &priv->location;
 
     g_debug ("iwin data for %s", loc->zone);
@@ -347,7 +348,7 @@ iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 gboolean
 iwin_start_open (GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     gchar *url;
     WeatherLocation *loc;
     SoupMessage *msg;
@@ -357,7 +358,6 @@ iwin_start_open (GWeatherInfo *info)
 
     g_assert (info != NULL);
 
-    priv = info->priv;
     loc = &priv->location;
 
     /* No zone (or -) means no weather information from national offices.

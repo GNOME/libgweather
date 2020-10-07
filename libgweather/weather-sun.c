@@ -160,7 +160,7 @@ t0 (time_t date)
 static gboolean
 calc_sun (GWeatherInfo *info, time_t t)
 {
-    GWeatherInfoPrivate *priv;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     gdouble obsLat;
     gdouble obsLon;
     time_t gm_midn;
@@ -175,7 +175,6 @@ calc_sun (GWeatherInfo *info, time_t t)
     gdouble x, u, dt;
 
     /* Approximate preceding local midnight at observer's longitude */
-    priv = info->priv;
     obsLat = priv->location.latitude;
     obsLon = priv->location.longitude;
     gm_midn = t - (t % 86400);
@@ -289,11 +288,9 @@ calc_sun (GWeatherInfo *info, time_t t)
 void
 _gweather_info_ensure_sun (GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
 
-    priv = info->priv;
-
-    if (!info->priv->location.latlon_valid)
+    if (!priv->location.latlon_valid)
         return;
 
     if (!priv->sunriseValid && !priv->sunsetValid)
@@ -312,12 +309,10 @@ _gweather_info_ensure_sun (GWeatherInfo *info)
 gint
 gweather_info_next_sun_event (GWeatherInfo *info)
 {
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     time_t    now = time (NULL);
     struct tm ltm;
     time_t    nxtEvent;
-    GWeatherInfoPrivate *priv;
-
-    priv = info->priv;
 
     g_return_val_if_fail (info != NULL, -1);
 

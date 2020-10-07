@@ -19,15 +19,17 @@
 static void
 print_info (GWeatherInfo *info)
 {
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
+
     if (gweather_info_is_valid (info)) {
-        g_message ("Weather updated successfully for %s", info->priv->location.code);
+        g_message ("Weather updated successfully for %s", priv->location.code);
     } else {
-        g_warning ("Failed to parse weather for %s", info->priv->location.code);
+        g_warning ("Failed to parse weather for %s", priv->location.code);
         return;
     }
 
     printf ("Returned info:\n");
-    printf ("  update:   %s", ctime (&info->priv->update));
+    printf ("  update:   %s", ctime (&priv->update));
     printf ("  sky:      %s\n", gweather_info_get_sky (info));
     printf ("  cond:     %s\n", gweather_info_get_conditions (info));
     printf ("  temp:     %s\n", gweather_info_get_temp (info));
@@ -63,6 +65,7 @@ main (int argc, char **argv)
     char buf[BUFLEN];
     int len;
     GWeatherInfo *info;
+    GWeatherInfoPrivate *priv;
 
     context = g_option_context_new ("- test libgweather metar parser");
     g_option_context_add_main_entries (context, entries, NULL);
@@ -79,9 +82,10 @@ main (int argc, char **argv)
         loop = g_main_loop_new (NULL, TRUE);
 
         info = g_object_new (GWEATHER_TYPE_INFO, NULL);
-        info->priv->location.code = g_strdup (code);
-        info->priv->location.latlon_valid = TRUE;
-        info->priv->session = soup_session_new ();
+	priv = _gweather_info_get_instance_private (info);
+        priv->location.code = g_strdup (code);
+        priv->location.latlon_valid = TRUE;
+        priv->session = soup_session_new ();
         g_signal_connect (G_OBJECT (info), "updated",
                           G_CALLBACK (weather_updated_cb), loop);
 
@@ -111,7 +115,8 @@ main (int argc, char **argv)
 
 	/* a bit hackish... */
 	info = g_object_new (GWEATHER_TYPE_INFO, NULL);
-	info->priv->valid = 1;
+	priv = _gweather_info_get_instance_private (info);
+	priv->valid = 1;
 	metar_parse (buf, info);
 	print_info (info);
     }

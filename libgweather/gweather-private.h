@@ -83,7 +83,7 @@ typedef gdouble GWeatherPressure;
 typedef gdouble GWeatherVisibility;
 typedef time_t GWeatherUpdate;
 
-struct _GWeatherInfoPrivate {
+typedef struct _GWeatherInfoPrivate {
     GWeatherProvider providers;
 
     GSettings *settings;
@@ -131,7 +131,7 @@ struct _GWeatherInfoPrivate {
     GdkPixbufAnimation *radar;
     SoupSession *session;
     GSList *requests_pending;
-};
+} GWeatherInfoPrivate;
 
 /* Values common to the parsing source files */
 
@@ -196,13 +196,14 @@ void		ecl2equ			(gdouble t,
 					 gdouble *ra,
 					 gdouble *decl);
 gdouble		sunEclipLongitude	(time_t t);
-
 void            _gweather_info_ensure_sun  (GWeatherInfo *info);
 void            _gweather_info_ensure_moon (GWeatherInfo *info);
 
 void		free_forecast_list	  (GWeatherInfo *info);
 
 GWeatherInfo   *_gweather_info_new_clone  (GWeatherInfo *info);
+GWEATHER_EXTERN
+GWeatherInfoPrivate *_gweather_info_get_instance_private (GWeatherInfo *info);
 
 #endif /* __WEATHER_PRIV_H_ */
 

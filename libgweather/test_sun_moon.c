@@ -49,7 +49,7 @@ main (int argc, char **argv)
     }
 
     info = g_object_new (GWEATHER_TYPE_INFO, NULL);
-    priv = info->priv;
+    priv = _gweather_info_get_instance_private (info);
     priv->location.latitude = DEGREES_TO_RADIANS(latitude);
     priv->location.longitude = DEGREES_TO_RADIANS(longitude);
     priv->location.latlon_valid = TRUE;

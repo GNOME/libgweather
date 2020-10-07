@@ -137,11 +137,9 @@ calc_moon_internal (time_t update, gdouble *moonphase, gdouble *moonlatitude)
 void
 _gweather_info_ensure_moon (GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
 
-    priv = info->priv;
-
-    if (!info->priv->location.latlon_valid)
+    if (!priv->location.latlon_valid)
         return;
 
     if (!priv->moonValid)
@@ -162,7 +160,7 @@ _gweather_info_ensure_moon (GWeatherInfo *info)
 static gboolean
 calc_moon_phases (GWeatherInfo *info, time_t *phases)
 {
-    GWeatherInfoPrivate *priv;
+    GWeatherInfoPrivate *priv = _gweather_info_get_instance_private (info);
     time_t      tmp_update;
     gdouble     tmp_moonphase;
     gdouble     tmp_moonlatitude;
@@ -174,7 +172,6 @@ calc_moon_phases (GWeatherInfo *info, time_t *phases)
 
     _gweather_info_ensure_moon (info);
 
-    priv = info->priv;
     ptime = phases;
 
     for (idx = 0; idx < 4; idx++) {
