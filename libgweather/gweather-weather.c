@@ -1135,6 +1135,43 @@ gweather_info_get_wind (GWeatherInfo *info)
     }
 }
 
+/**
+ * gweather_speed_unit_to_string:
+ * @unit: a speed unit, or %GWEATHER_SPEED_UNIT_DEFAULT
+ *
+ * Creates a human-readable, localized representation of @unit
+ */
+const gchar *
+gweather_speed_unit_to_string (GWeatherSpeedUnit unit)
+{
+    unit = speed_unit_to_real (unit);
+
+    switch (unit) {
+    case GWEATHER_SPEED_UNIT_KNOTS:
+	/* TRANSLATOR: This is the wind speed in knots */
+	return _("knots");
+    case GWEATHER_SPEED_UNIT_MPH:
+	/* TRANSLATOR: This is the wind speed in miles per hour */
+	return _("mph");
+    case GWEATHER_SPEED_UNIT_KPH:
+	/* TRANSLATOR: This is the wind speed in kilometers per hour */
+	return _("km/h");
+    case GWEATHER_SPEED_UNIT_MS:
+	/* TRANSLATOR: This is the wind speed in meters per second */
+	return _("m/s");
+    case GWEATHER_SPEED_UNIT_BFT:
+	/* TRANSLATOR: This is the wind speed as a Beaufort force factor
+	 * (commonly used in nautical wind estimation).
+	 */
+	return _("Beaufort force");
+    case GWEATHER_SPEED_UNIT_INVALID:
+    case GWEATHER_SPEED_UNIT_DEFAULT:
+	g_assert_not_reached ();
+    }
+
+    return NULL;
+}
+
 static GWeatherPressureUnit
 pressure_unit_to_real (GWeatherPressureUnit unit)
 {

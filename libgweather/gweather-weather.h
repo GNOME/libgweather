@@ -345,6 +345,8 @@ const gchar * gweather_conditions_to_string_full (GWeatherConditions *conditions
 
 GWeatherTemperatureUnit gweather_temperature_unit_to_real (GWeatherTemperatureUnit unit);
 
+const gchar * gweather_speed_unit_to_string (GWeatherSpeedUnit unit);
+
 G_END_DECLS
 
 #endif /* __WEATHER_H_ */
