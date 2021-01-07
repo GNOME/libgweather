@@ -37,7 +37,7 @@
 
 #define XC(t) ((const xmlChar *)(t))
 
-/* Reference for symbols at http://om.yr.no/forklaring/symbol/ */
+/* Reference for symbols at https://api.met.no/weatherapi/weathericon/2.0/ */
 typedef struct {
     int code;
     GWeatherSky sky;
@@ -444,12 +444,12 @@ metno_start_open (GWeatherInfo *info)
     if (!loc->latlon_valid)
 	return FALSE;
 
-    /* see the description here: https://api.met.no/ */
+    /* see the description here: https://api.met.no/weatherapi/locationforecast/2.0/documentation */
 
     latstr = _radians_to_degrees_str (loc->latitude);
     lonstr = _radians_to_degrees_str (loc->longitude);
 
-    url = g_strdup_printf("https://api.met.no/weatherapi/locationforecast/1.9/?lat=%s;lon=%s", latstr, lonstr);
+    url = g_strdup_printf("https://api.met.no/weatherapi/locationforecast/2.0/classic?lat=%s;lon=%s", latstr, lonstr);
     g_debug ("metno_start_open, requesting: %s", url);
 
     message = soup_message_new ("GET", url);
