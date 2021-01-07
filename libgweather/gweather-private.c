@@ -22,8 +22,3 @@
 
 #include "gweather-private.h"
 
-/*
-  There is no code here: the purpose of this header is so that
-  gnome-builder knows how to pick up the include flags to parse
-  gweather-private.h properly.
-*/
