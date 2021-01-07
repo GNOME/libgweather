@@ -45,7 +45,7 @@ gweather_c_sources = [
   'gweather-weather.c',
   'weather-metar.c',
   'weather-iwin.c',
-  'weather-yrno.c',
+  'weather-metno.c',
   'weather-owm.c',
   'weather-sun.c',
   'weather-moon.c',

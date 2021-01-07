@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-/* weather-yrno.c - MET Norway Weather service.
+/* weather-metno.c - MET Norway Weather service.
  *
  * Copyright 2012 Giovanni Campagna <scampa.giovanni@gmail.com>
  *
@@ -42,9 +42,9 @@ typedef struct {
     int code;
     GWeatherSky sky;
     GWeatherConditions condition;
-} YrnoSymbol;
+} MetnoSymbol;
 
-static YrnoSymbol symbols[] = {
+static MetnoSymbol symbols[] = {
     { 1,  GWEATHER_SKY_CLEAR,     { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } }, /* Sun */
     { 2,  GWEATHER_SKY_BROKEN,    { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } }, /* LightCloud */
     { 3,  GWEATHER_SKY_SCATTERED, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } }, /* PartlyCloudy */
@@ -145,7 +145,7 @@ date_to_time_t (const xmlChar *str, const char * tzid)
     return rval;
 }
 
-static YrnoSymbol *
+static MetnoSymbol *
 symbol_search (int code)
 {
     int a = 0;
@@ -153,7 +153,7 @@ symbol_search (int code)
 
     while (a < b) {
 	int c = (a + b)/2;
-	YrnoSymbol *yc = symbols + c;
+	MetnoSymbol *yc = symbols + c;
 
 	if (yc->code == code)
 	    return yc;
@@ -171,7 +171,7 @@ read_symbol (GWeatherInfo *info,
 	     xmlNodePtr    node)
 {
     xmlChar *val;
-    YrnoSymbol* symbol;
+    MetnoSymbol* symbol;
     GWeatherInfoPrivate *priv = info->priv;
 
     val = xmlGetProp (node, XC("number"));
@@ -391,7 +391,7 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 }
 
 static void
-yrno_finish_new (SoupSession *session,
+metno_finish_new (SoupSession *session,
 		 SoupMessage *msg,
 		 gpointer     user_data)
 {
@@ -403,11 +403,11 @@ yrno_finish_new (SoupSession *session,
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
 	/* forecast data is not really interesting anyway ;) */
 	if (msg->status_code == SOUP_STATUS_CANCELLED) {
-	    g_debug ("Failed to get Yr.no forecast data: %d %s\n",
+	    g_debug ("Failed to get met.no forecast data: %d %s\n",
 		     msg->status_code, msg->reason_phrase);
 	    return;
 	}
-	g_message ("Failed to get Yr.no forecast data: %d %s\n",
+	g_message ("Failed to get met.no forecast data: %d %s\n",
 		   msg->status_code, msg->reason_phrase);
 	_gweather_info_request_done (user_data, msg);
 	return;
@@ -416,12 +416,12 @@ yrno_finish_new (SoupSession *session,
     info = user_data;
     priv = info->priv;
     loc = &priv->location;
-    g_debug ("yrno data for %lf, %lf", loc->latitude, loc->longitude);
+    g_debug ("metno data for %lf, %lf", loc->latitude, loc->longitude);
     g_debug ("%s", msg->response_body->data);
 
     parse_forecast_xml_new (info, msg->response_body);
     num_forecasts = g_slist_length (priv->forecast_list);
-    g_debug ("yrno parsed %d forecast infos", num_forecasts);
+    g_debug ("metno parsed %d forecast infos", num_forecasts);
     if (!priv->valid)
         priv->valid = (num_forecasts > 0);
 
@@ -429,7 +429,7 @@ yrno_finish_new (SoupSession *session,
 }
 
 gboolean
-yrno_start_open (GWeatherInfo *info)
+metno_start_open (GWeatherInfo *info)
 {
     GWeatherInfoPrivate *priv;
     gchar *url;
@@ -449,11 +449,11 @@ yrno_start_open (GWeatherInfo *info)
     g_ascii_dtostr (lonstr, sizeof(lonstr), RADIANS_TO_DEGREES (loc->longitude));
 
     url = g_strdup_printf("https://api.met.no/weatherapi/locationforecast/1.9/?lat=%s;lon=%s", latstr, lonstr);
-    g_debug ("yrno_start_open, requesting: %s", url);
+    g_debug ("metno_start_open, requesting: %s", url);
 
     message = soup_message_new ("GET", url);
     _gweather_info_begin_request (info, message);
-    soup_session_queue_message (priv->session, message, yrno_finish_new, info);
+    soup_session_queue_message (priv->session, message, metno_finish_new, info);
 
     g_free (url);
 

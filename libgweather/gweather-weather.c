@@ -723,9 +723,9 @@ gweather_info_update (GWeatherInfo *info)
     if (ok)
 	return;
 
-    /* Try yr.no next */
-    if (priv->providers & GWEATHER_PROVIDER_YR_NO)
-	ok = yrno_start_open (info);
+    /* Try met.no next */
+    if (priv->providers & GWEATHER_PROVIDER_MET_NO)
+	ok = metno_start_open (info);
     if (ok)
 	return;
 

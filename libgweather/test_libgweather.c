@@ -782,7 +782,7 @@ test_weather_loop_use_after_free (void)
 					 GWEATHER_PROVIDER_METAR |
 					 GWEATHER_PROVIDER_IWIN |
 					 GWEATHER_PROVIDER_YAHOO |
-					 GWEATHER_PROVIDER_YR_NO |
+					 GWEATHER_PROVIDER_MET_NO |
 					 GWEATHER_PROVIDER_OWM);
     gweather_info_set_location (info, loc);
     g_signal_connect (G_OBJECT (info), "updated",

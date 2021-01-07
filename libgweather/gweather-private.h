@@ -206,7 +206,7 @@ struct _GWeatherInfoPrivate {
 
 void		metar_start_open	(GWeatherInfo *info);
 gboolean	iwin_start_open		(GWeatherInfo *info);
-gboolean        yrno_start_open         (GWeatherInfo *info);
+gboolean        metno_start_open         (GWeatherInfo *info);
 gboolean        owm_start_open          (GWeatherInfo *info);
 
 gboolean	metar_parse		(gchar *metar,

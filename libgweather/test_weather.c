@@ -6,7 +6,7 @@
 
 static char *search_str;
 // gnome-weather uses:
-static GWeatherProvider providers = GWEATHER_PROVIDER_METAR | GWEATHER_PROVIDER_YR_NO | GWEATHER_PROVIDER_OWM;
+static GWeatherProvider providers = GWEATHER_PROVIDER_METAR | GWEATHER_PROVIDER_MET_NO | GWEATHER_PROVIDER_OWM;
 
 // default:
 //static GWeatherProvider providers = GWEATHER_PROVIDER_METAR | GWEATHER_PROVIDER_IWIN;
@@ -115,8 +115,8 @@ set_providers (GWeatherInfo *info)
         ADD_PROVIDER_STR("IWIN");
     if (providers & GWEATHER_PROVIDER_YAHOO)
         ADD_PROVIDER_STR("YAHOO");
-    if (providers & GWEATHER_PROVIDER_YR_NO)
-        ADD_PROVIDER_STR("YR_NO");
+    if (providers & GWEATHER_PROVIDER_MET_NO)
+        ADD_PROVIDER_STR("MET_NO");
     if (providers & GWEATHER_PROVIDER_OWM)
         ADD_PROVIDER_STR("OWM");
     if (providers == GWEATHER_PROVIDER_NONE) {
