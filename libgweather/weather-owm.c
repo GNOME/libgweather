@@ -428,7 +428,8 @@ owm_start_open (GWeatherInfo *info)
     gchar *url;
     SoupMessage *message;
     WeatherLocation *loc;
-    gchar latstr[G_ASCII_DTOSTR_BUF_SIZE], lonstr[G_ASCII_DTOSTR_BUF_SIZE];
+    g_autofree char *latstr = NULL;
+    g_autofree char *lonstr = NULL;
 
     priv = info->priv;
     loc = &priv->location;
@@ -438,8 +439,8 @@ owm_start_open (GWeatherInfo *info)
 
     /* see the description here: http://bugs.openweathermap.org/projects/api/wiki/Api_2_5_forecast */
 
-    g_ascii_dtostr (latstr, sizeof(latstr), RADIANS_TO_DEGREES (loc->latitude));
-    g_ascii_dtostr (lonstr, sizeof(lonstr), RADIANS_TO_DEGREES (loc->longitude));
+    latstr = _radians_to_degrees_str (loc->latitude);
+    lonstr = _radians_to_degrees_str (loc->longitude);
 
 #define TEMPLATE_START "https://api.openweathermap.org/data/2.5/forecast?lat=%s&lon=%s&mode=xml&units=metric"
 #ifdef OWM_APIKEY

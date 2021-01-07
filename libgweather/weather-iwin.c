@@ -353,7 +353,8 @@ iwin_start_open (GWeatherInfo *info)
     SoupMessage *msg;
     struct tm tm;
     time_t now;
-    gchar latstr[G_ASCII_DTOSTR_BUF_SIZE], lonstr[G_ASCII_DTOSTR_BUF_SIZE];
+    g_autofree char *latstr = NULL;
+    g_autofree char *lonstr = NULL;
 
     g_assert (info != NULL);
 
@@ -376,8 +377,8 @@ iwin_start_open (GWeatherInfo *info)
     now = time (NULL);
     localtime_r (&now, &tm);
 
-    g_ascii_dtostr (latstr, sizeof(latstr), RADIANS_TO_DEGREES (loc->latitude));
-    g_ascii_dtostr (lonstr, sizeof(lonstr), RADIANS_TO_DEGREES (loc->longitude));
+    latstr = _radians_to_degrees_str (loc->latitude);
+    lonstr = _radians_to_degrees_str (loc->longitude);
     url = g_strdup_printf ("https://www.weather.gov/forecasts/xml/sample_products/browser_interface/ndfdBrowserClientByDay.php?&lat=%s&lon=%s&format=24+hourly&startDate=%04d-%02d-%02d&numDays=7",
 			   latstr, lonstr, 1900 + tm.tm_year, 1 + tm.tm_mon, tm.tm_mday);
     g_debug ("iwin_start_open, requesting: %s", url);
