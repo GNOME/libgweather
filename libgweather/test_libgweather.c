@@ -434,7 +434,13 @@ test_metar_weather_stations (void)
     msg = soup_message_new ("GET", METAR_SOURCES);
     session = soup_session_new ();
     soup_session_send_message (session, msg);
-    g_assert_true (SOUP_STATUS_IS_SUCCESSFUL (msg->status_code));
+    if (msg->status_code == SOUP_STATUS_SSL_FAILED) {
+        g_test_message ("SSL/TLS failure, please check your glib-networking installation");
+        g_test_failed ();
+        return;
+    }
+    g_assert_cmpint (msg->status_code, >=, 200);
+    g_assert_cmpint (msg->status_code, <, 300);
     g_object_unref (session);
     g_assert_nonnull (msg->response_body);
 
