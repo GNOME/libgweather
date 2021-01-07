@@ -435,7 +435,8 @@ metno_start_open (GWeatherInfo *info)
     gchar *url;
     SoupMessage *message;
     WeatherLocation *loc;
-    gchar latstr[G_ASCII_DTOSTR_BUF_SIZE], lonstr[G_ASCII_DTOSTR_BUF_SIZE];
+    g_autofree char *latstr = NULL;
+    g_autofree char *lonstr = NULL;
 
     priv = info->priv;
     loc = &priv->location;
@@ -445,8 +446,8 @@ metno_start_open (GWeatherInfo *info)
 
     /* see the description here: https://api.met.no/ */
 
-    g_ascii_dtostr (latstr, sizeof(latstr), RADIANS_TO_DEGREES (loc->latitude));
-    g_ascii_dtostr (lonstr, sizeof(lonstr), RADIANS_TO_DEGREES (loc->longitude));
+    latstr = _radians_to_degrees_str (loc->latitude);
+    lonstr = _radians_to_degrees_str (loc->longitude);
 
     url = g_strdup_printf("https://api.met.no/weatherapi/locationforecast/1.9/?lat=%s;lon=%s", latstr, lonstr);
     g_debug ("metno_start_open, requesting: %s", url);

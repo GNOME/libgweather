@@ -850,6 +850,20 @@ test_walk_world (void)
 }
 
 static void
+test_radians_to_degrees_str (void)
+{
+    char long_version[G_ASCII_DTOSTR_BUF_SIZE];
+    g_autofree char *short_version = NULL;
+    double coord = 1.260765526077;
+
+    g_ascii_dtostr (long_version, G_ASCII_DTOSTR_BUF_SIZE, RADIANS_TO_DEGREES (coord));
+    short_version = _radians_to_degrees_str (coord);
+
+    g_assert_cmpint (strlen (long_version), >, strlen (short_version));
+    g_assert_cmpstr (short_version, ==, "72.2365");
+}
+
+static void
 log_handler (const char *log_domain, GLogLevelFlags log_level, const char *message, gpointer user_data)
 {
 	g_print ("%s\n", message);
@@ -871,6 +885,7 @@ main (int argc, char *argv[])
 		  FALSE);
 	set_gsettings ();
 
+	g_test_add_func ("/weather/radians-to-degrees_str", test_radians_to_degrees_str);
 	g_test_add_func ("/weather/named-timezones", test_named_timezones);
 	g_test_add_func ("/weather/named-timezones-deserialized", test_named_timezones_deserialized);
 	g_test_add_func ("/weather/no-code-serialize", test_no_code_serialize);
