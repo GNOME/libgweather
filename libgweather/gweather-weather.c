@@ -2153,7 +2153,7 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
     if (priv->glocation) {
         gweather_location_ref (location);
     } else {
-        GWeatherLocation *world;
+        g_autoptr(GWeatherLocation) world = NULL;
         const gchar *station_code;
 
         default_loc = g_settings_get_value (priv->settings, DEFAULT_LOCATION);
@@ -2165,8 +2165,6 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
 
 	world = gweather_location_get_world ();
 	priv->glocation = gweather_location_find_by_station_code (world, station_code);
-	if (priv->glocation)
-	    gweather_location_ref (priv->glocation);
     }
 
     if (priv->glocation) {

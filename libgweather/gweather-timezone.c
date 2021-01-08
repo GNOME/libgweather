@@ -155,21 +155,24 @@ parse_tzdata (const char *tz_name, time_t start, time_t end,
  *
  * Get the #GWeatherTimezone for @tzid.
  *
- * Returns: (transfer none): A #GWeatherTimezone. This object
- * belongs to GWeather, do not unref it.
+ * Prior to version 40 no reference was returned.
+ *
+ * Returns: (transfer full): A #GWeatherTimezone.
  *
  * Since: 3.12
  */
 GWeatherTimezone *
 gweather_timezone_get_by_tzid (const char *tzid)
 {
-    GWeatherLocation *world;
+    g_autoptr(GWeatherLocation) world = NULL;
+    GWeatherTimezone *res;
 
     g_return_val_if_fail (tzid != NULL, NULL);
 
     world = gweather_location_get_world ();
+    res = g_hash_table_lookup (world->timezone_cache, tzid);
 
-    return g_hash_table_lookup (world->timezone_cache, tzid);
+    return res ? gweather_timezone_ref (res) : NULL;
 }
 
 static GWeatherTimezone *

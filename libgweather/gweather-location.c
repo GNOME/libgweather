@@ -439,9 +439,10 @@ _gweather_location_reset_world (void)
  * representing a hierarchy containing all of the locations from
  * Locations.xml.
  *
- * Return value: (allow-none) (transfer none): a %GWEATHER_LOCATION_WORLD
+ * Prior to version 40 no reference was returned.
+ *
+ * Return value: (allow-none) (transfer full): a %GWEATHER_LOCATION_WORLD
  * location, or %NULL if Locations.xml could not be found or could not be parsed.
- * The return value is owned by libgweather and should not be modified or freed.
  **/
 GWeatherLocation *
 gweather_location_get_world (void)
@@ -471,7 +472,7 @@ gweather_location_get_world (void)
 	_gweather_parser_free (parser);
     }
 
-    return global_world;
+    return gweather_location_ref (global_world);
 }
 
 /**
@@ -545,7 +546,7 @@ void
 gweather_location_unref (GWeatherLocation *loc)
 {
     g_return_if_fail (loc != NULL);
-    g_return_if_fail (loc->level != GWEATHER_LOCATION_WORLD || loc->ref_count > 1);
+    g_return_if_fail (loc != global_world || loc->ref_count > 1);
 
     _gweather_location_unref_no_check (loc);
 }
@@ -694,14 +695,17 @@ gweather_location_level_to_string (GWeatherLocationLevel level)
  *
  * Gets @loc's parent location.
  *
- * Return value: (transfer none) (allow-none): @loc's parent, or %NULL
+ * Prior to version 40 no reference was returned.
+ *
+ * Return value: (transfer full) (allow-none): @loc's parent, or %NULL
  * if @loc is a %GWEATHER_LOCATION_WORLD node.
  **/
 GWeatherLocation *
 gweather_location_get_parent (GWeatherLocation *loc)
 {
     g_return_val_if_fail (loc != NULL, NULL);
-    return loc->parent;
+
+    return loc->parent ? gweather_location_ref (loc->parent) : NULL;
 }
 
 /**
@@ -824,6 +828,7 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
 				     double            lat,
 				     double            lon)
 {
+    g_autoptr(GWeatherLocation) world = NULL;
     /* The data set really isn't too big. Don't concern ourselves
      * with a proper nearest neighbors search. Instead, just do
      * an O(n) search. */
@@ -832,7 +837,7 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
     g_return_val_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY, NULL);
 
     if (loc == NULL)
-	loc = gweather_location_get_world ();
+	loc = world = gweather_location_get_world ();
 
     lat = lat * M_PI / 180.0;
     lon = lon * M_PI / 180.0;
@@ -879,6 +884,7 @@ gweather_location_find_nearest_city_full (GWeatherLocation  *loc,
 					  gpointer           user_data,
 					  GDestroyNotify     destroy)
 {
+    g_autoptr(GWeatherLocation) world = NULL;
     /* The data set really isn't too big. Don't concern ourselves
      * with a proper nearest neighbors search. Instead, just do
      * an O(n) search. */
@@ -888,7 +894,7 @@ gweather_location_find_nearest_city_full (GWeatherLocation  *loc,
 			  loc->level == GWEATHER_LOCATION_NAMED_TIMEZONE, NULL);
 
     if (loc == NULL)
-        loc = gweather_location_get_world ();
+        loc = world = gweather_location_get_world ();
 
     lat = lat * M_PI / 180.0;
     lon = lon * M_PI / 180.0;
@@ -972,6 +978,7 @@ gweather_location_detect_nearest_city (GWeatherLocation    *loc,
 					GAsyncReadyCallback callback,
 					gpointer            user_data)
 {
+    g_autoptr(GWeatherLocation) world = NULL;
     ArgData *data;
     GeocodeLocation *location;
     GeocodeReverse *reverse;
@@ -981,7 +988,7 @@ gweather_location_detect_nearest_city (GWeatherLocation    *loc,
 		      loc->level == GWEATHER_LOCATION_NAMED_TIMEZONE);
 
     if (loc == NULL)
-        loc = gweather_location_get_world ();
+        loc = world = gweather_location_get_world ();
 
     location = geocode_location_new (lat, lon, GEOCODE_LOCATION_ACCURACY_CITY);
     reverse = geocode_reverse_new_for_location (location);
@@ -1361,7 +1368,9 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
  *
  * See gweather_location_deserialize() to recover a stored #GWeatherLocation.
  *
- * Returns: (transfer none): a weather station level #GWeatherLocation for @station_code,
+ * Prior to version 40 no reference was returned.
+ *
+ * Returns: (transfer full): a weather station level #GWeatherLocation for @station_code,
  *          or %NULL if none exists in the database.
  */
 GWeatherLocation *
@@ -1371,7 +1380,7 @@ gweather_location_find_by_station_code (GWeatherLocation *world,
     GList *l;
 
     l = g_hash_table_lookup (world->metar_code_cache, station_code);
-    return l ? l->data : NULL;
+    return l ? gweather_location_ref (l->data) : NULL;
 }
 
 /**
@@ -1382,13 +1391,19 @@ gweather_location_find_by_station_code (GWeatherLocation *world,
  * Retrieves the country identified by the specified ISO 3166 code,
  * if present in the database.
  *
- * Returns: (transfer none): a country level #GWeatherLocation, or %NULL.
+ * Prior to version 40 no reference was returned.
+ *
+ * Returns: (transfer full): a country level #GWeatherLocation, or %NULL.
  */
 GWeatherLocation *
 gweather_location_find_by_country_code (GWeatherLocation *world,
                                         const gchar      *country_code)
 {
-	return g_hash_table_lookup (world->country_code_cache, country_code);
+	GWeatherLocation *res;
+
+	res = g_hash_table_lookup (world->country_code_cache, country_code);
+
+	return res ? gweather_location_ref (res) : NULL;
 }
 
 /**
@@ -1787,7 +1802,8 @@ gweather_location_new_detached (const char *name,
 				gdouble     latitude,
 				gdouble     longitude)
 {
-    GWeatherLocation *world, *city;
+    g_autoptr(GWeatherLocation) world = NULL;
+    g_autoptr(GWeatherLocation) city = NULL;
 
     g_return_val_if_fail (name != NULL, NULL);
 

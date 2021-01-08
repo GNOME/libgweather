@@ -39,7 +39,8 @@ static double max_distance = 0.0;
 static void
 test_named_timezones (void)
 {
-    GWeatherLocation *world, **children;
+    g_autoptr(GWeatherLocation) world = NULL;
+    GWeatherLocation **children;
     guint i;
 
     world = gweather_location_get_world ();
@@ -128,7 +129,7 @@ static void test_timezones (void);
 static void
 test_named_timezones_deserialized (void)
 {
-    GWeatherLocation *world;
+    g_autoptr(GWeatherLocation) world = NULL;
     GList *list, *l;
 
     world = gweather_location_get_world ();
@@ -164,7 +165,9 @@ static void
 test_no_code_serialize (void)
 {
     GVariant *variant;
-    GWeatherLocation *world, *loc, *new_loc;
+    g_autoptr(GWeatherLocation) world = NULL;
+    g_autoptr(GWeatherLocation) loc = NULL;
+    g_autoptr(GWeatherLocation) new_loc = NULL;
     GString *str;
 
     world = gweather_location_get_world ();
@@ -186,9 +189,6 @@ test_no_code_serialize (void)
     g_assert_nonnull (new_loc);
     g_assert_cmpstr (gweather_location_get_name (loc), ==, gweather_location_get_name (new_loc));
     g_assert_true (gweather_location_equal (loc, new_loc));
-    gweather_location_unref (new_loc);
-
-    gweather_location_unref (loc);
 
     _gweather_location_reset_world ();
 }
@@ -196,7 +196,7 @@ test_no_code_serialize (void)
 static void
 test_timezone (GWeatherLocation *location)
 {
-    GWeatherTimezone *gtz;
+    g_autoptr(GWeatherTimezone) gtz = NULL;
     const char *tz;
 
     tz = gweather_location_get_timezone_str (location);
@@ -244,7 +244,7 @@ test_timezones_children (GWeatherLocation *location)
 static void
 test_timezones (void)
 {
-    GWeatherLocation *world;
+    g_autoptr(GWeatherLocation) world = NULL;
 
     world = gweather_location_get_world ();
     g_assert_nonnull (world);
@@ -257,7 +257,7 @@ test_timezones (void)
 static void
 test_distance (GWeatherLocation *location)
 {
-    GWeatherLocation *parent;
+    g_autoptr(GWeatherLocation) parent = NULL;
     double distance;
 
     parent = gweather_location_get_parent (location);
@@ -293,7 +293,7 @@ test_airport_distance_children (GWeatherLocation *location)
 static void
 test_airport_distance_sanity (void)
 {
-    GWeatherLocation *world;
+    g_autoptr(GWeatherLocation) world = NULL;
 
     world = gweather_location_get_world ();
     g_assert_nonnull (world);
@@ -411,7 +411,7 @@ test_metar_weather_stations_children (GWeatherLocation *location,
 static void
 test_metar_weather_stations (void)
 {
-    GWeatherLocation *world;
+    g_autoptr(GWeatherLocation) world = NULL;
     SoupMessage *msg;
     SoupSession *session;
     GHashTable *stations_ht;
@@ -483,7 +483,8 @@ set_gsettings (void)
 static void
 test_utc_sunset (void)
 {
-	GWeatherLocation *world, *utc;
+	g_autoptr(GWeatherLocation) world = NULL;
+	g_autoptr(GWeatherLocation) utc = NULL;
 	GWeatherInfo *info;
 	char *sunset;
 	GWeatherMoonPhase phase;
@@ -575,7 +576,7 @@ test_bad_duplicate_weather_stations_children (GWeatherLocation *location,
 static void
 test_bad_duplicate_weather_stations (void)
 {
-    GWeatherLocation *world;
+    g_autoptr(GWeatherLocation) world = NULL;
     GHashTable *stations_ht;
 
     g_setenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST", "1", TRUE);
@@ -638,7 +639,7 @@ test_duplicate_weather_stations_children (GWeatherLocation *location)
 static void
 test_duplicate_weather_stations (void)
 {
-    GWeatherLocation *world;
+    g_autoptr(GWeatherLocation) world = NULL;
 
     g_setenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST", "1", TRUE);
     world = gweather_location_get_world ();
@@ -653,7 +654,8 @@ test_duplicate_weather_stations (void)
 static void
 test_location_names (void)
 {
-    GWeatherLocation *world, *brussels;
+    g_autoptr(GWeatherLocation) world = NULL;
+    g_autoptr(GWeatherLocation) brussels = NULL;
 
     world = gweather_location_get_world ();
     g_assert_nonnull (world);
@@ -666,6 +668,9 @@ test_location_names (void)
     gweather_location_unref (brussels);
 
     setlocale (LC_ALL, "fr_FR.UTF-8");
+
+    g_clear_pointer (&world, gweather_location_unref);
+    g_clear_pointer (&brussels, gweather_location_unref);
     _gweather_location_reset_world ();
 
     world = gweather_location_get_world ();
@@ -737,7 +742,8 @@ static void
 test_weather_loop_use_after_free (void)
 {
     GMainLoop *loop;
-    GWeatherLocation *world, *loc;
+    g_autoptr(GWeatherLocation) world = NULL;
+    GWeatherLocation *loc;
     GWeatherInfo *info;
     const char *search_str = "LFLL";
 

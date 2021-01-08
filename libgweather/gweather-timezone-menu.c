@@ -262,6 +262,7 @@ insert_locations (GtkTreeStore *store, GWeatherLocation *loc)
 static GtkTreeModel *
 gweather_timezone_model_new (GWeatherLocation *top)
 {
+    g_autoptr(GWeatherLocation) world = NULL;
     GtkTreeStore *store;
     GtkTreeModel *model;
     GtkTreeIter iter;
@@ -290,7 +291,7 @@ gweather_timezone_model_new (GWeatherLocation *top)
     g_free (unknown);
 
     if (!top)
-	top = gweather_location_get_world ();
+	top = world = gweather_location_get_world ();
 
     insert_locations (store, top);
 

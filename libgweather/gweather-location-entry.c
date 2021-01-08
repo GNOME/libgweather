@@ -175,7 +175,7 @@ constructed (GObject *object)
     entry = GWEATHER_LOCATION_ENTRY (object);
 
     if (!entry->priv->top)
-	entry->priv->top = gweather_location_ref (gweather_location_get_world ());
+	entry->priv->top = gweather_location_get_world ();
 
     store = gtk_tree_store_new (4, G_TYPE_STRING, GWEATHER_TYPE_LOCATION, G_TYPE_STRING, G_TYPE_STRING);
     fill_location_entry_model (store, entry->priv->top, NULL, NULL, NULL, entry->priv->show_named_timezones);
