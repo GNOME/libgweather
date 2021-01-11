@@ -824,7 +824,7 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
 				     double            lat,
 				     double            lon)
 {
-   /* The data set really isn't too big. Don't concern ourselves
+    /* The data set really isn't too big. Don't concern ourselves
      * with a proper nearest neighbors search. Instead, just do
      * an O(n) search. */
     struct FindNearestCityData data;
@@ -879,7 +879,7 @@ gweather_location_find_nearest_city_full (GWeatherLocation  *loc,
 					  gpointer           user_data,
 					  GDestroyNotify     destroy)
 {
-   /* The data set really isn't too big. Don't concern ourselves
+    /* The data set really isn't too big. Don't concern ourselves
      * with a proper nearest neighbors search. Instead, just do
      * an O(n) search. */
     struct FindNearestCityData data;
