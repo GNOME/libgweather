@@ -6,6 +6,14 @@ add_project_arguments([
 ], language: 'c')
 
 header_subdir = 'libgweather-3.0/libgweather'
+libgweather_map = join_paths(meson.current_source_dir(), 'libgweather.map')
+link_depends = []
+link_args = []
+
+if c_compiler.has_link_argument('-Wl,--version-script,' + libgweather_map)
+        link_depends += libgweather_map
+        link_args += ['-Wl,--version-script,' + libgweather_map]
+endif
 
 versionconf = configuration_data()
 versionconf.set('GWEATHER_MAJOR_VERSION', libgweather_version[0])
@@ -59,6 +67,8 @@ lib_libgweather = shared_library('gweather-3',
   gweather_c_sources,
   include_directories: root_inc,
   dependencies: deps_libgweather,
+  link_depends: link_depends,
+  link_args: link_args,
   version: libgweather_so_version,
   darwin_versions: libgweather_darwin_versions,
   install: true,
