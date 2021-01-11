@@ -247,7 +247,8 @@ gweather_location_get_world ()
 	g_ptr_array_set_size (world_db->locations, db_arrayof_location_get_length (world_db->locations_ref));
 	g_ptr_array_set_size (world_db->timezones, db_world_timezones_get_length (world_db->timezones_ref));
 
-	/* Get timestamps for the start and end of this year */
+	/* Get timestamps for the start and end of this year.
+	 * This is used to parse timezone information. */
 	now = time (NULL);
 	tm = *gmtime (&now);
 	tm.tm_mon = 0;
