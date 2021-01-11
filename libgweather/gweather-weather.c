@@ -2249,20 +2249,18 @@ gweather_info_class_init (GWeatherInfoClass *klass)
  * Builds a new #GWeatherInfo that will provide weather information about
  * @location.
  *
+ * Since version 40, this does not automatically call gweather_info_update().
+ * gweather_info_update() must be called manually once all the necessary set up
+ * has been made, such as setting the enabled providers.
+ *
  * Returns: (transfer full): a new #GWeatherInfo
  */
 GWeatherInfo *
-gweather_info_new (GWeatherLocation     *location)
+gweather_info_new (GWeatherLocation *location)
 {
-    GWeatherInfo *self;
-
     if (location != NULL)
-	self = g_object_new (GWEATHER_TYPE_INFO, "location", location, NULL);
-    else
-	self = g_object_new (GWEATHER_TYPE_INFO, NULL);
-
-    gweather_info_update (self);
-    return self;
+	return g_object_new (GWEATHER_TYPE_INFO, "location", location, NULL);
+    return g_object_new (GWEATHER_TYPE_INFO, NULL);
 }
 
 GWeatherInfo *
