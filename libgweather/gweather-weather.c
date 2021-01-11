@@ -530,15 +530,11 @@ calc_apparent (GWeatherInfo *info)
 static void
 gweather_info_reset (GWeatherInfo *info)
 {
-    g_free (info->forecast_attribution);
-    info->forecast_attribution = NULL;
+    g_clear_pointer (&info->forecast_attribution, g_free);
 
     free_forecast_list (info);
 
-    if (info->radar != NULL) {
-	g_object_unref (info->radar);
-	info->radar = NULL;
-    }
+    g_clear_object (&info->radar);
 
     info->update = 0;
     info->current_time = time(NULL);
@@ -564,7 +560,6 @@ gweather_info_reset (GWeatherInfo *info)
     info->moonphase = 0;
     info->moonlatitude = 0;
     info->forecast_list = NULL;
-    info->radar = NULL;
 }
 
 static void
@@ -591,8 +586,7 @@ gweather_info_init (GWeatherInfo *info)
 
     info->radar_url = g_settings_get_string (info->settings, RADAR_KEY);
     if (g_strcmp0 (info->radar_url, "") == 0) {
-	g_free (info->radar_url);
-	info->radar_url = NULL;
+        g_clear_pointer (&info->radar_url, g_free);
     }
 
     gweather_info_reset (info);
@@ -761,11 +755,7 @@ gweather_info_dispose (GObject *object)
     g_clear_object (&info->session);
 
     free_forecast_list (info);
-
-    if (info->radar != NULL) {
-        g_object_unref (info->radar);
-        info->radar = NULL;
-    }
+    g_clear_object (&info->radar);
 
     info->valid = FALSE;
 
@@ -783,8 +773,7 @@ gweather_info_finalize (GObject *object)
     if (info->glocation)
 	gweather_location_unref (info->glocation);
 
-    g_free (info->radar_url);
-    info->radar_url = NULL;
+    g_clear_pointer (&info->radar_url, g_free);
 
     g_free (info->forecast_attribution);
 
