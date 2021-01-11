@@ -338,10 +338,10 @@ parse_forecast_xml_new (GWeatherInfo    *original_info,
 	to_time = date_to_time_t (val, original_info->location.tz_hint);
 	xmlFree (val);
 
-	/* New API has forecast in a list of "master" elements
-	   with details (indicated by from==to) and "slave" elements
+	/* New API has forecast in a list of "parent" elements
+	   with details (indicated by from==to) and "children" elements
 	   that hold only precipitation and symbol. For our purpose,
-	   the master element is enough, except that we actually
+	   the parent element is enough, except that we actually
 	   want that symbol. So pick the symbol from the next element.
 	   Additionally, compared to the old API the new API has one
 	   <location> element inside each <time> element.
