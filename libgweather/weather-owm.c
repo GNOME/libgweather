@@ -336,7 +336,7 @@ fill_info_from_node (GWeatherInfo *info,
 }
 
 static GWeatherInfo *
-make_info_from_node (GWeatherInfo *master_info,
+make_info_from_node (GWeatherInfo *original_info,
                      xmlNodePtr    node)
 {
     GWeatherInfo *info;
@@ -344,7 +344,7 @@ make_info_from_node (GWeatherInfo *master_info,
 
     g_return_val_if_fail (node->type == XML_ELEMENT_NODE, NULL);
 
-    info = _gweather_info_new_clone (master_info);
+    info = _gweather_info_new_clone (original_info);
 
     val = xmlGetProp (node, XC("from"));
     info->current_time = info->update = date_to_time_t (val, info->location.tz_hint);
@@ -356,7 +356,7 @@ make_info_from_node (GWeatherInfo *master_info,
 }
 
 static void
-parse_forecast_xml (GWeatherInfo    *master_info,
+parse_forecast_xml (GWeatherInfo    *original_info,
                     SoupMessageBody *body)
 {
     xmlDocPtr doc;
@@ -379,7 +379,7 @@ parse_forecast_xml (GWeatherInfo    *master_info,
 	GWeatherInfo *info;
 
 	node = xpath_result->nodesetval->nodeTab[i];
-	info = make_info_from_node (master_info, node);
+	info = make_info_from_node (original_info, node);
 
 	info->forecast_list = g_slist_append (info->forecast_list, info);
     }
@@ -390,7 +390,7 @@ parse_forecast_xml (GWeatherInfo    *master_info,
     if (!xpath_result || xpath_result->type != XPATH_NODESET)
 	goto out;
 
-    master_info->forecast_attribution = g_strdup(_("Weather data from the <a href=\"https://openweathermap.org\">Open Weather Map project</a>"));
+    original_info->forecast_attribution = g_strdup(_("Weather data from the <a href=\"https://openweathermap.org\">Open Weather Map project</a>"));
 
  out:
     if (xpath_result)

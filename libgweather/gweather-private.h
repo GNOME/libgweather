@@ -232,7 +232,7 @@ void            _gweather_info_ensure_moon (GWeatherInfo *info);
 
 void		free_forecast_list	  (GWeatherInfo *info);
 
-GWeatherInfo   *_gweather_info_new_clone  (GWeatherInfo *info);
+GWeatherInfo   *_gweather_info_new_clone  (GWeatherInfo *original);
 
 #endif /* __WEATHER_PRIV_H_ */
 

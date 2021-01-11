@@ -2264,11 +2264,11 @@ gweather_info_new (GWeatherLocation *location)
 }
 
 GWeatherInfo *
-_gweather_info_new_clone (GWeatherInfo *other)
+_gweather_info_new_clone (GWeatherInfo *original)
 {
     return g_object_new (GWEATHER_TYPE_INFO,
-                         "location", other->glocation,
-                         "enabled-providers", other->providers,
+                         "location", original->glocation,
+                         "enabled-providers", original->providers,
                          NULL);
 }
 

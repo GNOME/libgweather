@@ -50,13 +50,13 @@ hasAttr (xmlNode *node, const char *attr_name, const char *attr_value)
 }
 
 static GSList *
-parseForecastXml (const char *buff, GWeatherInfo *master_info)
+parseForecastXml (const char *buff, GWeatherInfo *original_info)
 {
     GSList *res = NULL;
     xmlDocPtr doc;
     xmlNode *root, *node;
 
-    g_return_val_if_fail (master_info != NULL, NULL);
+    g_return_val_if_fail (original_info != NULL, NULL);
 
     if (!buff || !*buff)
         return NULL;
@@ -133,7 +133,7 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
                         int i;
 
                         for (i = 0; i < 7;  i++) {
-                            GWeatherInfo *nfo = _gweather_info_new_clone (master_info);
+                            GWeatherInfo *nfo = _gweather_info_new_clone (original_info);
 			    nfo->current_time = nfo->update = update_times[i];
 
                             if (nfo)

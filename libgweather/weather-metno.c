@@ -303,7 +303,7 @@ fill_info_from_node (GWeatherInfo *info,
 }
 
 static void
-parse_forecast_xml_new (GWeatherInfo    *master_info,
+parse_forecast_xml_new (GWeatherInfo    *original_info,
 			SoupMessageBody *body)
 {
     xmlDocPtr doc;
@@ -331,11 +331,11 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 	node = xpath_result->nodesetval->nodeTab[i];
 
 	val = xmlGetProp (node, XC("from"));
-	from_time = date_to_time_t (val, master_info->location.tz_hint);
+	from_time = date_to_time_t (val, original_info->location.tz_hint);
 	xmlFree (val);
 
 	val = xmlGetProp (node, XC("to"));
-	to_time = date_to_time_t (val, master_info->location.tz_hint);
+	to_time = date_to_time_t (val, original_info->location.tz_hint);
 	xmlFree (val);
 
 	/* New API has forecast in a list of "master" elements
@@ -347,7 +347,7 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 	   <location> element inside each <time> element.
 	*/
 	if (from_time == to_time) {
-	    info = _gweather_info_new_clone (master_info);
+	    info = _gweather_info_new_clone (original_info);
 	    info->current_time = info->update = from_time;
 
 	    for (location = node->children;
@@ -379,7 +379,7 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 
        That's very nice of them!
     */
-    master_info->forecast_attribution = g_strdup(_("Weather data from the <a href=\"https://www.met.no/\">Norwegian Meteorological Institute</a>."));
+    original_info->forecast_attribution = g_strdup(_("Weather data from the <a href=\"https://www.met.no/\">Norwegian Meteorological Institute</a>."));
 
  out:
     xmlXPathFreeContext (xpath_ctx);
