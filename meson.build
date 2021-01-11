@@ -54,6 +54,9 @@ geocode_glib_dep = dependency('geocode-glib-1.0')
 math_dep = c_compiler.find_library('m', required : false)
 deps_libgweather = [math_dep, gtk_dep, glib_dep, libsoup_dep, libxml_dep, geocode_glib_dep]
 
+pylint = find_program('pylint-3', 'pylint3', 'pylint', required: false)
+pylint_flags = ['-d', 'C0111', '-d', 'W0511', '-d', 'F0401', '-d', 'C0326' ]
+
 config_h = configuration_data()
 GETTEXT_PACKAGE = 'libgweather-3.0'
 config_h.set_quoted('GETTEXT_PACKAGE', GETTEXT_PACKAGE)

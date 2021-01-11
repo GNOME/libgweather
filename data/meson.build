@@ -18,6 +18,10 @@ endif
 
 gen_locations_variant = find_program('gen_locations_variant.py')
 
+if pylint.found()
+  test('pylint-gen-locations-variant', pylint, args: pylint_flags + files([ 'gen_locations_variant.py' ]))
+endif
+
 # The generated file is architecture dependent (i.e. host endianness)
 locations_bin = custom_target('locations-db',
   command: [gen_locations_variant, '@INPUT@', '@OUTPUT@' ],
