@@ -77,21 +77,18 @@ metar_tok_time (gchar *tokp, GWeatherInfo *info)
     g_debug ("metar_tok_time: %s", tokp);
 
     sscanf (tokp, "%2u%2u%2u", &day, &hr, &min);
-    info->priv->update = make_time (day, hr, min);
+    info->update = make_time (day, hr, min);
 }
 
 static void
 metar_tok_wind (gchar *tokp, GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
     gchar sdir[4], sspd[4], sgust[4];
     gint dir, spd = -1;
     gchar *gustp;
     size_t glen;
 
     g_debug ("metar_tok_wind: %s", tokp);
-
-    priv = info->priv;
 
     strncpy (sdir, tokp, 3);
     sdir[3] = 0;
@@ -112,105 +109,99 @@ metar_tok_wind (gchar *tokp, GWeatherInfo *info)
     }
 
     if (!strcmp (tokp, "MPS"))
-	priv->windspeed = WINDSPEED_MS_TO_KNOTS ((GWeatherWindSpeed)spd);
+	info->windspeed = WINDSPEED_MS_TO_KNOTS ((GWeatherWindSpeed)spd);
     else
-	priv->windspeed = (GWeatherWindSpeed)spd;
+	info->windspeed = (GWeatherWindSpeed)spd;
 
     if ((349 <= dir) || (dir <= 11))
-        priv->wind = GWEATHER_WIND_N;
+        info->wind = GWEATHER_WIND_N;
     else if ((12 <= dir) && (dir <= 33))
-        priv->wind = GWEATHER_WIND_NNE;
+        info->wind = GWEATHER_WIND_NNE;
     else if ((34 <= dir) && (dir <= 56))
-        priv->wind = GWEATHER_WIND_NE;
+        info->wind = GWEATHER_WIND_NE;
     else if ((57 <= dir) && (dir <= 78))
-        priv->wind = GWEATHER_WIND_ENE;
+        info->wind = GWEATHER_WIND_ENE;
     else if ((79 <= dir) && (dir <= 101))
-        priv->wind = GWEATHER_WIND_E;
+        info->wind = GWEATHER_WIND_E;
     else if ((102 <= dir) && (dir <= 123))
-        priv->wind = GWEATHER_WIND_ESE;
+        info->wind = GWEATHER_WIND_ESE;
     else if ((124 <= dir) && (dir <= 146))
-        priv->wind = GWEATHER_WIND_SE;
+        info->wind = GWEATHER_WIND_SE;
     else if ((147 <= dir) && (dir <= 168))
-        priv->wind = GWEATHER_WIND_SSE;
+        info->wind = GWEATHER_WIND_SSE;
     else if ((169 <= dir) && (dir <= 191))
-        priv->wind = GWEATHER_WIND_S;
+        info->wind = GWEATHER_WIND_S;
     else if ((192 <= dir) && (dir <= 213))
-        priv->wind = GWEATHER_WIND_SSW;
+        info->wind = GWEATHER_WIND_SSW;
     else if ((214 <= dir) && (dir <= 236))
-        priv->wind = GWEATHER_WIND_SW;
+        info->wind = GWEATHER_WIND_SW;
     else if ((237 <= dir) && (dir <= 258))
-        priv->wind = GWEATHER_WIND_WSW;
+        info->wind = GWEATHER_WIND_WSW;
     else if ((259 <= dir) && (dir <= 281))
-        priv->wind = GWEATHER_WIND_W;
+        info->wind = GWEATHER_WIND_W;
     else if ((282 <= dir) && (dir <= 303))
-        priv->wind = GWEATHER_WIND_WNW;
+        info->wind = GWEATHER_WIND_WNW;
     else if ((304 <= dir) && (dir <= 326))
-        priv->wind = GWEATHER_WIND_NW;
+        info->wind = GWEATHER_WIND_NW;
     else if ((327 <= dir) && (dir <= 348))
-        priv->wind = GWEATHER_WIND_NNW;
+        info->wind = GWEATHER_WIND_NNW;
 }
 
 static void
 metar_tok_vis (gchar *tokp, GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
     gchar *pfrac, *pend, *psp;
     gchar sval[6];
     gint num, den, val;
 
     g_debug ("metar_tok_vis: %s", tokp);
 
-    priv = info->priv;
-
     memset (sval, 0, sizeof (sval));
 
     if (!strcmp (tokp,"CAVOK")) {
         // "Ceiling And Visibility OK": visibility >= 10 KM
-        priv->visibility=10000. / VISIBILITY_SM_TO_M (1.);
-        priv->sky = GWEATHER_SKY_CLEAR;
+        info->visibility=10000. / VISIBILITY_SM_TO_M (1.);
+        info->sky = GWEATHER_SKY_CLEAR;
     } else if (0 != (pend = strstr (tokp, "SM"))) {
         // US observation: field ends with "SM"
         pfrac = strchr (tokp, '/');
         if (pfrac) {
 	    if (*tokp == 'M') {
-	        priv->visibility = 0.001;
+	        info->visibility = 0.001;
 	    } else {
 	        num = (*(pfrac - 1) - '0');
 		strncpy (sval, pfrac + 1, pend - pfrac - 1);
 		den = atoi (sval);
-		priv->visibility =
+		info->visibility =
 		    ((GWeatherVisibility)num / ((GWeatherVisibility)den));
 
 		psp = strchr (tokp, ' ');
 		if (psp) {
 		    *psp = '\0';
 		    val = atoi (tokp);
-		    priv->visibility += (GWeatherVisibility)val;
+		    info->visibility += (GWeatherVisibility)val;
 		}
 	    }
 	} else {
 	    strncpy (sval, tokp, pend - tokp);
             val = atoi (sval);
-            priv->visibility = (GWeatherVisibility)val;
+            info->visibility = (GWeatherVisibility)val;
 	}
     } else {
         // International observation: NNNN(DD NNNNDD)?
         // For now: use only the minimum visibility and ignore its direction
         strncpy (sval, tokp, strspn (tokp, CONST_DIGITS));
 	val = atoi (sval);
-	priv->visibility = (GWeatherVisibility)val / VISIBILITY_SM_TO_M (1.);
+	info->visibility = (GWeatherVisibility)val / VISIBILITY_SM_TO_M (1.);
     }
 }
 
 static void
 metar_tok_cloud (gchar *tokp, GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
     gchar stype[4], salt[4];
 
     g_debug ("metar_tok_cloud: %s", tokp);
-
-    priv = info->priv;
 
     strncpy (stype, tokp, 3);
     stype[3] = 0;
@@ -220,27 +211,25 @@ metar_tok_cloud (gchar *tokp, GWeatherInfo *info)
     }
 
     if (!strcmp (stype, "CLR")) {
-        priv->sky = GWEATHER_SKY_CLEAR;
+        info->sky = GWEATHER_SKY_CLEAR;
     } else if (!strcmp (stype, "SKC")) {
-        priv->sky = GWEATHER_SKY_CLEAR;
+        info->sky = GWEATHER_SKY_CLEAR;
     } else if (!strcmp (stype, "NSC")) {
-        priv->sky = GWEATHER_SKY_CLEAR;
+        info->sky = GWEATHER_SKY_CLEAR;
     } else if (!strcmp (stype, "BKN")) {
-        priv->sky = GWEATHER_SKY_BROKEN;
+        info->sky = GWEATHER_SKY_BROKEN;
     } else if (!strcmp (stype, "SCT")) {
-        priv->sky = GWEATHER_SKY_SCATTERED;
+        info->sky = GWEATHER_SKY_SCATTERED;
     } else if (!strcmp (stype, "FEW")) {
-        priv->sky = GWEATHER_SKY_FEW;
+        info->sky = GWEATHER_SKY_FEW;
     } else if (!strcmp (stype, "OVC")) {
-        priv->sky = GWEATHER_SKY_OVERCAST;
+        info->sky = GWEATHER_SKY_OVERCAST;
     }
 }
 
 static void
 metar_tok_pres (gchar *tokp, GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv = info->priv;
-
     g_debug ("metar_tok_pres: %s", tokp);
 
     if (*tokp == 'A') {
@@ -255,7 +244,7 @@ metar_tok_pres (gchar *tokp, GWeatherInfo *info)
         sfract[2] = 0;
         fract = atoi (sfract);
 
-        priv->pressure = (GWeatherPressure)intg + (((GWeatherPressure)fract)/100.0);
+        info->pressure = (GWeatherPressure)intg + (((GWeatherPressure)fract)/100.0);
     } else {  /* *tokp == 'Q' */
         gchar spres[5];
         gint pres;
@@ -264,32 +253,29 @@ metar_tok_pres (gchar *tokp, GWeatherInfo *info)
         spres[4] = 0;
         pres = atoi (spres);
 
-        priv->pressure = PRESSURE_MBAR_TO_INCH ((GWeatherPressure)pres);
+        info->pressure = PRESSURE_MBAR_TO_INCH ((GWeatherPressure)pres);
     }
 }
 
 static void
 metar_tok_temp (gchar *tokp, GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
     gchar *ptemp, *pdew, *psep;
 
     g_debug ("metar_tok_temp: %s", tokp);
-
-    priv = info->priv;
 
     psep = strchr (tokp, '/');
     *psep = 0;
     ptemp = tokp;
     pdew = psep + 1;
 
-    priv->temp = (*ptemp == 'M') ? TEMP_C_TO_F (-atoi (ptemp + 1))
+    info->temp = (*ptemp == 'M') ? TEMP_C_TO_F (-atoi (ptemp + 1))
 	: TEMP_C_TO_F (atoi (ptemp));
     if (*pdew) {
-	priv->dew = (*pdew == 'M') ? TEMP_C_TO_F (-atoi (pdew + 1))
+	info->dew = (*pdew == 'M') ? TEMP_C_TO_F (-atoi (pdew + 1))
 	    : TEMP_C_TO_F (atoi (pdew));
     } else {
-	priv->dew = -1000.0;
+	info->dew = -1000.0;
     }
 }
 
@@ -342,14 +328,11 @@ condition_more_important (GWeatherConditions *which,
 static void
 metar_tok_cond (gchar *tokp, GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
     GWeatherConditions new_cond;
     gchar squal[3], sphen[4];
     gchar *pphen;
 
     g_debug ("metar_tok_cond: %s", tokp);
-
-    priv = info->priv;
 
     if ((strlen (tokp) > 3) && ((*tokp == '+') || (*tokp == '-')))
         ++tokp;   /* FIX */
@@ -455,8 +438,8 @@ metar_tok_cond (gchar *tokp, GWeatherInfo *info)
     if ((new_cond.qualifier != GWEATHER_QUALIFIER_NONE) || (new_cond.phenomenon != GWEATHER_PHENOMENON_NONE))
         new_cond.significant = TRUE;
 
-    if (condition_more_important (&new_cond, &priv->cond))
-	priv->cond = new_cond;
+    if (condition_more_important (&new_cond, &info->cond))
+	info->cond = new_cond;
 }
 
 #define TIME_RE_STR  "([0-9]{6})Z"
@@ -578,7 +561,6 @@ static void
 metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 {
     GWeatherInfo *info;
-    GWeatherInfoPrivate *priv;
     WeatherLocation *loc;
     const gchar *p, *eoln;
     gchar *searchkey, *metar;
@@ -593,7 +575,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
 	info = data;
 	if (SOUP_STATUS_IS_TRANSPORT_ERROR (msg->status_code)) {
-	    info->priv->network_error = TRUE;
+	    info->network_error = TRUE;
 	} else {
 	    /* Translators: %d is an error code, and %s the error string */
 	    g_warning (_("Failed to get METAR data: %d %s.\n"),
@@ -605,8 +587,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     }
 
     info = data;
-    priv = info->priv;
-    loc = &priv->location;
+    loc = &info->location;
 
     g_debug ("METAR data for %s", loc->code);
     g_debug ("%s", msg->response_body->data);
@@ -632,7 +613,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 	 * most likely it is a wifi hotspot login page. Call that a
 	 * network error.
 	 */
-	priv->network_error = TRUE;
+	info->network_error = TRUE;
 	g_debug ("Response to query for %s did not come from correct server", loc->code);
     } else {
       g_debug ("Failed to parse METAR for %s", loc->code);
@@ -640,8 +621,8 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
     g_free (searchkey);
 
-    if (!priv->valid)
-        priv->valid = success;
+    if (!info->valid)
+        info->valid = success;
     _gweather_info_request_done (info, msg);
 }
 
@@ -649,16 +630,13 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 void
 metar_start_open (GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
     WeatherLocation *loc;
     SoupMessage *msg;
 
     g_return_if_fail (info != NULL);
 
-    priv = info->priv;
-
-    priv->valid = priv->network_error = FALSE;
-    loc = &priv->location;
+    info->valid = info->network_error = FALSE;
+    loc = &info->location;
 
     if (!loc->latlon_valid)
         return;
@@ -675,5 +653,5 @@ metar_start_open (GWeatherInfo *info)
 	"stationString", loc->code,
 	NULL);
     _gweather_info_begin_request (info, msg);
-    soup_session_queue_message (priv->session, msg, metar_finish, info);
+    soup_session_queue_message (info->session, msg, metar_finish, info);
 }

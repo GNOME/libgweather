@@ -160,7 +160,6 @@ t0 (time_t date)
 static gboolean
 calc_sun (GWeatherInfo *info, time_t t)
 {
-    GWeatherInfoPrivate *priv;
     gdouble obsLat;
     gdouble obsLon;
     time_t gm_midn;
@@ -175,9 +174,8 @@ calc_sun (GWeatherInfo *info, time_t t)
     gdouble x, u, dt;
 
     /* Approximate preceding local midnight at observer's longitude */
-    priv = info->priv;
-    obsLat = priv->location.latitude;
-    obsLon = priv->location.longitude;
+    obsLat = info->location.latitude;
+    obsLon = info->location.longitude;
     gm_midn = t - (t % 86400);
     gm_hoff = floor ((RADIANS_TO_DEGREES (obsLon) + 7.5) / 15.);
     lcl_midn = gm_midn - 3600. * gm_hoff;
@@ -203,12 +201,12 @@ calc_sun (GWeatherInfo *info, time_t t)
      */
     decl_midn = MIN(decl1,decl2);
     decl_noon = (decl1+decl2)/2.;
-    priv->midnightSun =
+    info->midnightSun =
 	(obsLat > (M_PI/2.-decl_midn)) || (obsLat < (-M_PI/2.-decl_midn));
-    priv->polarNight =
+    info->polarNight =
 	(obsLat > (M_PI/2.+decl_noon)) || (obsLat < (-M_PI/2.+decl_noon));
-    if (priv->midnightSun || priv->polarNight) {
-	priv->sunriseValid = priv->sunsetValid = FALSE;
+    if (info->midnightSun || info->polarNight) {
+	info->sunriseValid = info->sunsetValid = FALSE;
 	return FALSE;
     }
 
@@ -221,7 +219,7 @@ calc_sun (GWeatherInfo *info, time_t t)
 
     /* TODO: include calculations for regions near the poles. */
     if (isnan(rise1) || isnan(rise2)) {
-	priv->sunriseValid = priv->sunsetValid = FALSE;
+	info->sunriseValid = info->sunsetValid = FALSE;
         return FALSE;
     }
 
@@ -272,32 +270,28 @@ calc_sun (GWeatherInfo *info, time_t t)
 	rise1 += 24;
     else if (rise1 >= 24.)
 	rise1 -= 24.;
-    priv->sunriseValid = ((rise1 >= 0.) && (rise1 < 24.));
-    priv->sunrise = (rise1 * 3600.) + lcl_midn;
+    info->sunriseValid = ((rise1 >= 0.) && (rise1 < 24.));
+    info->sunrise = (rise1 * 3600.) + lcl_midn;
 
     set1  = (set1 + dt - tt) * 0.9972695661;
     if (set1 < 0.)
 	set1 += 24;
     else if (set1 >= 24.)
 	set1 -= 24.;
-    priv->sunsetValid = ((set1 >= 0.) && (set1 < 24.));
-    priv->sunset = (set1 * 3600.) + lcl_midn;
+    info->sunsetValid = ((set1 >= 0.) && (set1 < 24.));
+    info->sunset = (set1 * 3600.) + lcl_midn;
 
-    return (priv->sunriseValid || priv->sunsetValid);
+    return (info->sunriseValid || info->sunsetValid);
 }
 
 void
 _gweather_info_ensure_sun (GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
-
-    priv = info->priv;
-
-    if (!info->priv->location.latlon_valid)
+    if (!info->location.latlon_valid)
         return;
 
-    if (!priv->sunriseValid && !priv->sunsetValid)
-	calc_sun (info, priv->current_time);
+    if (!info->sunriseValid && !info->sunsetValid)
+	calc_sun (info, info->current_time);
 }
 
 /**
@@ -315,9 +309,6 @@ gweather_info_next_sun_event (GWeatherInfo *info)
     time_t    now = time (NULL);
     struct tm ltm;
     time_t    nxtEvent;
-    GWeatherInfoPrivate *priv;
-
-    priv = info->priv;
 
     g_return_val_if_fail (info != NULL, -1);
 
@@ -331,11 +322,11 @@ gweather_info_next_sun_event (GWeatherInfo *info)
     ltm.tm_mday++;
     nxtEvent = mktime (&ltm);
 
-    if (priv->sunsetValid &&
-	(priv->sunset > now) && (priv->sunset < nxtEvent))
-	nxtEvent = priv->sunset;
-    if (priv->sunriseValid &&
-	(priv->sunrise > now) && (priv->sunrise < nxtEvent))
-	nxtEvent = priv->sunrise;
+    if (info->sunsetValid &&
+	(info->sunset > now) && (info->sunset < nxtEvent))
+	nxtEvent = info->sunset;
+    if (info->sunriseValid &&
+	(info->sunrise > now) && (info->sunrise < nxtEvent))
+	nxtEvent = info->sunrise;
     return (gint)(nxtEvent - now);
 }

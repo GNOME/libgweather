@@ -174,7 +174,6 @@ read_symbol (GWeatherInfo *info,
 	     xmlNodePtr    node)
 {
     xmlChar *val;
-    GWeatherInfoPrivate *priv = info->priv;
     struct owm_symbol *obj, ref;
 
     val = xmlGetProp (node, XC("number"));
@@ -190,9 +189,9 @@ read_symbol (GWeatherInfo *info,
         return;
     }
 
-    priv->valid = TRUE;
-    priv->sky = obj->sky;
-    priv->cond = obj->condition;
+    info->valid = TRUE;
+    info->sky = obj->sky;
+    info->cond = obj->condition;
 }
 
 static inline void
@@ -208,7 +207,7 @@ read_wind_direction (GWeatherInfo *info,
 
     for (i = 0; i < G_N_ELEMENTS (wind_directions); i++) {
 	if (strcmp ((char*) val, wind_directions[i].name) == 0) {
-	    info->priv->wind = wind_directions[i].direction;
+	    info->wind = wind_directions[i].direction;
 	    xmlFree (val);
 	    return;
 	}
@@ -228,7 +227,7 @@ read_wind_speed (GWeatherInfo *info,
 	return;
 
     mps = g_ascii_strtod ((char*) val, NULL);
-    info->priv->windspeed = WINDSPEED_MS_TO_KNOTS (mps);
+    info->windspeed = WINDSPEED_MS_TO_KNOTS (mps);
     xmlFree (val);
 }
 
@@ -252,7 +251,7 @@ read_temperature (GWeatherInfo *info,
 	return;
 
     celsius = g_ascii_strtod ((char*) val, NULL);
-    info->priv->temp = TEMP_C_TO_F (celsius);
+    info->temp = TEMP_C_TO_F (celsius);
     xmlFree (val);
 }
 
@@ -277,7 +276,7 @@ read_pressure (GWeatherInfo *info,
 	return;
 
     hpa = g_ascii_strtod ((char*) val, NULL);
-    info->priv->pressure = PRESSURE_MBAR_TO_INCH (hpa);
+    info->pressure = PRESSURE_MBAR_TO_INCH (hpa);
     xmlFree (val);
 }
 
@@ -301,8 +300,8 @@ read_humidity (GWeatherInfo *info,
 	return;
 
     percent = g_ascii_strtod ((char*) val, NULL);
-    info->priv->humidity = percent;
-    info->priv->hasHumidity = TRUE;
+    info->humidity = percent;
+    info->hasHumidity = TRUE;
     xmlFree (val);
 }
 
@@ -341,16 +340,14 @@ make_info_from_node (GWeatherInfo *master_info,
                      xmlNodePtr    node)
 {
     GWeatherInfo *info;
-    GWeatherInfoPrivate *priv;
     xmlChar *val;
 
     g_return_val_if_fail (node->type == XML_ELEMENT_NODE, NULL);
 
     info = _gweather_info_new_clone (master_info);
-    priv = info->priv;
 
     val = xmlGetProp (node, XC("from"));
-    priv->current_time = priv->update = date_to_time_t (val, info->priv->location.tz_hint);
+    info->current_time = info->update = date_to_time_t (val, info->location.tz_hint);
     xmlFree (val);
 
     fill_info_from_node (info, node);
@@ -362,13 +359,10 @@ static void
 parse_forecast_xml (GWeatherInfo    *master_info,
                     SoupMessageBody *body)
 {
-    GWeatherInfoPrivate *priv;
     xmlDocPtr doc;
     xmlXPathContextPtr xpath_ctx;
     xmlXPathObjectPtr xpath_result;
     int i;
-
-    priv = master_info->priv;
 
     doc = xmlParseMemory (body->data, body->length);
     if (!doc)
@@ -387,7 +381,7 @@ parse_forecast_xml (GWeatherInfo    *master_info,
 	node = xpath_result->nodesetval->nodeTab[i];
 	info = make_info_from_node (master_info, node);
 
-	priv->forecast_list = g_slist_append (priv->forecast_list, info);
+	info->forecast_list = g_slist_append (info->forecast_list, info);
     }
 
     xmlXPathFreeObject (xpath_result);
@@ -396,7 +390,7 @@ parse_forecast_xml (GWeatherInfo    *master_info,
     if (!xpath_result || xpath_result->type != XPATH_NODESET)
 	goto out;
 
-    priv->forecast_attribution = g_strdup(_("Weather data from the <a href=\"https://openweathermap.org\">Open Weather Map project</a>"));
+    master_info->forecast_attribution = g_strdup(_("Weather data from the <a href=\"https://openweathermap.org\">Open Weather Map project</a>"));
 
  out:
     if (xpath_result)
@@ -411,7 +405,6 @@ owm_finish (SoupSession *session,
             gpointer     user_data)
 {
     GWeatherInfo *info;
-    GWeatherInfoPrivate *priv;
     WeatherLocation *loc;
 
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
@@ -428,8 +421,7 @@ owm_finish (SoupSession *session,
     }
 
     info = user_data;
-    priv = info->priv;
-    loc = &priv->location;
+    loc = &info->location;
     g_debug ("owm data for %lf, %lf", loc->latitude, loc->longitude);
     g_debug ("%s", msg->response_body->data);
 
@@ -440,15 +432,13 @@ owm_finish (SoupSession *session,
 gboolean
 owm_start_open (GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
     gchar *url;
     SoupMessage *message;
     WeatherLocation *loc;
     g_autofree char *latstr = NULL;
     g_autofree char *lonstr = NULL;
 
-    priv = info->priv;
-    loc = &priv->location;
+    loc = &info->location;
 
     if (!loc->latlon_valid)
 	return FALSE;
@@ -472,7 +462,7 @@ owm_start_open (GWeatherInfo *info)
 
     message = soup_message_new ("GET", url);
     _gweather_info_begin_request (info, message);
-    soup_session_queue_message (priv->session, message, owm_finish, info);
+    soup_session_queue_message (info->session, message, owm_finish, info);
 
     g_free (url);
 

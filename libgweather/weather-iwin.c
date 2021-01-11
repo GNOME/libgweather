@@ -134,7 +134,7 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
 
                         for (i = 0; i < 7;  i++) {
                             GWeatherInfo *nfo = _gweather_info_new_clone (master_info);
-			    nfo->priv->current_time = nfo->priv->update = update_times[i];
+			    nfo->current_time = nfo->update = update_times[i];
 
                             if (nfo)
                                 res = g_slist_append (res, nfo);
@@ -153,27 +153,26 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
                             for (c = p->children; c && at; c = c->next) {
                                 if (isElem (c, "value")) {
                                     GWeatherInfo *nfo = (GWeatherInfo *)at->data;
-				    GWeatherInfoPrivate *priv = nfo->priv;
                                     xmlChar *val = xmlNodeGetContent (c);
 
                                     /* can pass some values as <value xsi:nil="true"/> */
                                     if (!val || !*val) {
                                         if (is_max)
-                                            priv->temp_max = priv->temp_min;
+                                            nfo->temp_max = nfo->temp_min;
                                         else
-                                            priv->temp_min = priv->temp_max;
+                                            nfo->temp_min = nfo->temp_max;
                                     } else {
                                         if (is_max)
-                                            priv->temp_max = atof ((const char *)val);
+                                            nfo->temp_max = atof ((const char *)val);
                                         else
-                                            priv->temp_min = atof ((const char *)val);
+                                            nfo->temp_min = atof ((const char *)val);
                                     }
 
                                     if (val)
                                         xmlFree (val);
 
-                                    priv->tempMinMaxValid = priv->tempMinMaxValid || (priv->temp_max > -999.0 && priv->temp_min > -999.0);
-                                    priv->valid = priv->tempMinMaxValid;
+                                    nfo->tempMinMaxValid = nfo->tempMinMaxValid || (nfo->temp_max > -999.0 && nfo->temp_min > -999.0);
+                                    nfo->valid = nfo->tempMinMaxValid;
 
                                     at = at->next;
                                 }
@@ -185,7 +184,6 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
                             for (c = p->children; c && at; c = c->next) {
                                 if (c->name && isElem (c, "weather-conditions")) {
                                     GWeatherInfo *nfo = at->data;
-				    GWeatherInfoPrivate *priv = nfo->priv;
                                     xmlChar *val = xmlGetProp (c, XC "weather-summary");
 
                                     if (val && nfo) {
@@ -236,19 +234,19 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
                                             { "Snow", GWEATHER_SKY_SCATTERED }
                                         };
 
-                                        priv->valid = TRUE;
+                                        nfo->valid = TRUE;
 
                                         for (i = 0; i < G_N_ELEMENTS (ph_list); i++) {
                                             if (strstr ((const char *)val, ph_list [i].name)) {
-						priv->cond.significant = TRUE;
-                                                priv->cond.phenomenon = ph_list [i].ph;
+                                                nfo->cond.significant = TRUE;
+                                                nfo->cond.phenomenon = ph_list [i].ph;
                                                 break;
                                             }
                                         }
 
                                         for (i = 0; i < G_N_ELEMENTS (sky_list); i++) {
                                             if (strstr ((const char *)val, sky_list [i].name)) {
-                                                priv->sky = sky_list [i].sky;
+                                                nfo->sky = sky_list [i].sky;
                                                 break;
                                             }
                                         }
@@ -271,9 +269,8 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
                            They should be all valid or all invalid. */
                         for (r = res; r; r = r->next) {
                             GWeatherInfo *nfo = r->data;
-			    GWeatherInfoPrivate *priv = nfo->priv;
 
-                            if (!nfo || !priv->valid) {
+                            if (!nfo || !nfo->valid) {
                                 if (r->data)
                                     g_object_unref (r->data);
 
@@ -281,8 +278,8 @@ parseForecastXml (const char *buff, GWeatherInfo *master_info)
                             } else {
                                 have_any = TRUE;
 
-                                if (priv->tempMinMaxValid)
-                                    priv->temp = (priv->temp_min + priv->temp_max) / 2.0;
+                                if (nfo->tempMinMaxValid)
+                                    nfo->temp = (nfo->temp_min + nfo->temp_max) / 2.0;
                             }
                         }
 
@@ -315,7 +312,6 @@ static void
 iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 {
     GWeatherInfo *info;
-    GWeatherInfoPrivate *priv;
     WeatherLocation *loc;
 
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
@@ -332,13 +328,12 @@ iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     }
 
     info = data;
-    priv = info->priv;
-    loc = &priv->location;
+    loc = &info->location;
 
     g_debug ("iwin data for %s", loc->zone);
     g_debug ("%s", msg->response_body->data);
 
-    priv->forecast_list = parseForecastXml (msg->response_body->data, info);
+    info->forecast_list = parseForecastXml (msg->response_body->data, info);
 
     _gweather_info_request_done (info, msg);
 }
@@ -347,7 +342,6 @@ iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 gboolean
 iwin_start_open (GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
     gchar *url;
     WeatherLocation *loc;
     SoupMessage *msg;
@@ -358,8 +352,7 @@ iwin_start_open (GWeatherInfo *info)
 
     g_assert (info != NULL);
 
-    priv = info->priv;
-    loc = &priv->location;
+    loc = &info->location;
 
     /* No zone (or -) means no weather information from national offices.
        We don't actually use zone, but it's a good indicator of a US location.
@@ -384,7 +377,7 @@ iwin_start_open (GWeatherInfo *info)
     g_debug ("iwin_start_open, requesting: %s", url);
     msg = soup_message_new ("GET", url);
     _gweather_info_begin_request (info, msg);
-    soup_session_queue_message (priv->session, msg, iwin_finish, info);
+    soup_session_queue_message (info->session, msg, iwin_finish, info);
 
     g_free (url);
 

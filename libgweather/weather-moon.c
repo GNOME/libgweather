@@ -137,17 +137,13 @@ calc_moon_internal (time_t update, gdouble *moonphase, gdouble *moonlatitude)
 void
 _gweather_info_ensure_moon (GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
-
-    priv = info->priv;
-
-    if (!info->priv->location.latlon_valid)
+    if (!info->location.latlon_valid)
         return;
 
-    if (!priv->moonValid)
-	priv->moonValid = calc_moon_internal (priv->current_time,
-					      &priv->moonphase,
-					      &priv->moonlatitude);
+    if (!info->moonValid)
+	info->moonValid = calc_moon_internal (info->current_time,
+					      &info->moonphase,
+					      &info->moonlatitude);
 }
 
 /*
@@ -162,7 +158,6 @@ _gweather_info_ensure_moon (GWeatherInfo *info)
 static gboolean
 calc_moon_phases (GWeatherInfo *info, time_t *phases)
 {
-    GWeatherInfoPrivate *priv;
     time_t      tmp_update;
     gdouble     tmp_moonphase;
     gdouble     tmp_moonlatitude;
@@ -174,18 +169,17 @@ calc_moon_phases (GWeatherInfo *info, time_t *phases)
 
     _gweather_info_ensure_moon (info);
 
-    priv = info->priv;
     ptime = phases;
 
     for (idx = 0; idx < 4; idx++) {
-	tmp_update = priv->current_time;
-	tmp_moonphase = priv->moonphase;
+	tmp_update = info->current_time;
+	tmp_moonphase = info->moonphase;
 
 	/*
 	 * First estimate on how far the moon needs to advance
 	 * to get to the required phase
 	 */
-	advance = (idx * 90.) - priv->moonphase;
+	advance = (idx * 90.) - info->moonphase;
 	if (advance < 0.)
 	    advance += 360.;
 

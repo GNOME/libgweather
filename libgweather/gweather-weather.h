@@ -49,25 +49,11 @@ typedef enum { /*< flags, underscore_name=gweather_provider >*/
     GWEATHER_PROVIDER_ALL = 31
 } GWeatherProvider;
 
-typedef struct _GWeatherInfo GWeatherInfo;
-typedef struct _GWeatherInfoClass GWeatherInfoClass;
-typedef struct _GWeatherInfoPrivate GWeatherInfoPrivate;
-
-#define GWEATHER_TYPE_INFO                  (gweather_info_get_type ())
-#define GWEATHER_INFO(obj)                  (G_TYPE_CHECK_INSTANCE_CAST ((obj), GWEATHER_TYPE_INFO, GWeatherInfo))
-#define GWEATHER_IS_INFO(obj)               (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GWEATHER_TYPE_INFO))
-#define GWEATHER_INFO_CLASS(klass)          (G_TYPE_CHECK_CLASS_CAST ((klass), GWEATHER_TYPE_INFO, GWeatherInfoClass))
-#define GWEATHER_IS_INFO_CLASS(klass)       (G_TYPE_CHECK_CLASS_TYPE ((klass), GWEATHER_TYPE_INFO))
-#define GWEATHER_INFO_GET_CLASS(obj)        (G_TYPE_INSTANCE_GET_CLASS ((obj), GWEATHER_TYPE_INFO, GWeatherInfoClass))
-
-struct _GWeatherInfo {
-    /*< private >*/
-    GObject parent_instance;
-
-    GWeatherInfoPrivate *priv;
-};
+#define GWEATHER_TYPE_INFO (gweather_info_get_type ())
+G_DECLARE_FINAL_TYPE(GWeatherInfo, gweather_info, GWEATHER, INFO, GObject)
 
 struct _GWeatherInfoClass {
+
     /*< private >*/
     GObjectClass parent_class;
 
@@ -75,7 +61,6 @@ struct _GWeatherInfoClass {
     void (*updated) (GWeatherInfo *info);
 };
 
-GType                    gweather_info_get_type            (void) G_GNUC_CONST;
 GWeatherInfo *           gweather_info_new                 (GWeatherLocation *location);
 void                     gweather_info_update              (GWeatherInfo *info);
 void			 gweather_info_abort		   (GWeatherInfo *info);

@@ -110,9 +110,10 @@ typedef gdouble GWeatherPressure;
 typedef gdouble GWeatherVisibility;
 typedef time_t GWeatherUpdate;
 
-struct _GWeatherInfoPrivate {
-    GWeatherProvider providers;
+struct _GWeatherInfo {
+    GObject parent_instance;
 
+    GWeatherProvider providers;
     GSettings *settings;
 
     gboolean valid;

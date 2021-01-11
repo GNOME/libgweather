@@ -172,15 +172,14 @@ read_symbol (GWeatherInfo *info,
 {
     xmlChar *val;
     MetnoSymbol* symbol;
-    GWeatherInfoPrivate *priv = info->priv;
 
     val = xmlGetProp (node, XC("number"));
 
     symbol = symbol_search (strtol ((char*) val, NULL, 0));
     if (symbol != NULL) {
-	priv->valid = TRUE;
-	priv->sky = symbol->sky;
-	priv->cond = symbol->condition;
+	info->valid = TRUE;
+	info->sky = symbol->sky;
+	info->cond = symbol->condition;
     }
     xmlFree (val);
 }
@@ -200,7 +199,7 @@ read_wind_direction (GWeatherInfo *info,
 
     for (i = 0; i < G_N_ELEMENTS (wind_directions); i++) {
 	if (strcmp ((char*) val, wind_directions[i].name) == 0) {
-	    info->priv->wind = wind_directions[i].direction;
+	    info->wind = wind_directions[i].direction;
             xmlFree (val);
 	    return;
 	}
@@ -220,7 +219,7 @@ read_wind_speed (GWeatherInfo *info,
 	return;
 
     mps = g_ascii_strtod ((char*) val, NULL);
-    info->priv->windspeed = WINDSPEED_MS_TO_KNOTS (mps);
+    info->windspeed = WINDSPEED_MS_TO_KNOTS (mps);
     xmlFree (val);
 }
 
@@ -236,7 +235,7 @@ read_temperature (GWeatherInfo *info,
 	return;
 
     celsius = g_ascii_strtod ((char*) val, NULL);
-    info->priv->temp = TEMP_C_TO_F (celsius);
+    info->temp = TEMP_C_TO_F (celsius);
     xmlFree (val);
 }
 
@@ -252,7 +251,7 @@ read_pressure (GWeatherInfo *info,
 	return;
 
     hpa = g_ascii_strtod ((char*) val, NULL);
-    info->priv->pressure = PRESSURE_MBAR_TO_INCH (hpa);
+    info->pressure = PRESSURE_MBAR_TO_INCH (hpa);
     xmlFree (val);
 }
 
@@ -268,8 +267,8 @@ read_humidity (GWeatherInfo *info,
 	return;
 
     percent = g_ascii_strtod ((char*) val, NULL);
-    info->priv->humidity = percent;
-    info->priv->hasHumidity = TRUE;
+    info->humidity = percent;
+    info->hasHumidity = TRUE;
     xmlFree (val);
 }
 
@@ -307,13 +306,10 @@ static void
 parse_forecast_xml_new (GWeatherInfo    *master_info,
 			SoupMessageBody *body)
 {
-    GWeatherInfoPrivate *priv;
     xmlDocPtr doc;
     xmlXPathContextPtr xpath_ctx;
     xmlXPathObjectPtr xpath_result;
     int i;
-
-    priv = master_info->priv;
 
     doc = xmlParseMemory (body->data, body->length);
     if (!doc)
@@ -335,11 +331,11 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 	node = xpath_result->nodesetval->nodeTab[i];
 
 	val = xmlGetProp (node, XC("from"));
-	from_time = date_to_time_t (val, priv->location.tz_hint);
+	from_time = date_to_time_t (val, master_info->location.tz_hint);
 	xmlFree (val);
 
 	val = xmlGetProp (node, XC("to"));
-	to_time = date_to_time_t (val, priv->location.tz_hint);
+	to_time = date_to_time_t (val, master_info->location.tz_hint);
 	xmlFree (val);
 
 	/* New API has forecast in a list of "master" elements
@@ -352,7 +348,7 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 	*/
 	if (from_time == to_time) {
 	    info = _gweather_info_new_clone (master_info);
-	    info->priv->current_time = info->priv->update = from_time;
+	    info->current_time = info->update = from_time;
 
 	    for (location = node->children;
 		 location && location->type != XML_ELEMENT_NODE;
@@ -371,7 +367,7 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 		    fill_info_from_node (info, location);
 	    }
 
-	    priv->forecast_list = g_slist_append (priv->forecast_list, info);
+	    info->forecast_list = g_slist_append (info->forecast_list, info);
 	}
     }
 
@@ -383,7 +379,7 @@ parse_forecast_xml_new (GWeatherInfo    *master_info,
 
        That's very nice of them!
     */
-    priv->forecast_attribution = g_strdup(_("Weather data from the <a href=\"https://www.met.no/\">Norwegian Meteorological Institute</a>."));
+    master_info->forecast_attribution = g_strdup(_("Weather data from the <a href=\"https://www.met.no/\">Norwegian Meteorological Institute</a>."));
 
  out:
     xmlXPathFreeContext (xpath_ctx);
@@ -396,7 +392,6 @@ metno_finish_new (SoupSession *session,
 		 gpointer     user_data)
 {
     GWeatherInfo *info;
-    GWeatherInfoPrivate *priv;
     WeatherLocation *loc;
     guint num_forecasts;
 
@@ -414,16 +409,15 @@ metno_finish_new (SoupSession *session,
     }
 
     info = user_data;
-    priv = info->priv;
-    loc = &priv->location;
+    loc = &info->location;
     g_debug ("metno data for %lf, %lf", loc->latitude, loc->longitude);
     g_debug ("%s", msg->response_body->data);
 
     parse_forecast_xml_new (info, msg->response_body);
-    num_forecasts = g_slist_length (priv->forecast_list);
+    num_forecasts = g_slist_length (info->forecast_list);
     g_debug ("metno parsed %d forecast infos", num_forecasts);
-    if (!priv->valid)
-        priv->valid = (num_forecasts > 0);
+    if (!info->valid)
+        info->valid = (num_forecasts > 0);
 
     _gweather_info_request_done (info, msg);
 }
@@ -431,15 +425,13 @@ metno_finish_new (SoupSession *session,
 gboolean
 metno_start_open (GWeatherInfo *info)
 {
-    GWeatherInfoPrivate *priv;
     gchar *url;
     SoupMessage *message;
     WeatherLocation *loc;
     g_autofree char *latstr = NULL;
     g_autofree char *lonstr = NULL;
 
-    priv = info->priv;
-    loc = &priv->location;
+    loc = &info->location;
 
     if (!loc->latlon_valid)
 	return FALSE;
@@ -454,7 +446,7 @@ metno_start_open (GWeatherInfo *info)
 
     message = soup_message_new ("GET", url);
     _gweather_info_begin_request (info, message);
-    soup_session_queue_message (priv->session, message, metno_finish_new, info);
+    soup_session_queue_message (info->session, message, metno_finish_new, info);
 
     g_free (url);
 
