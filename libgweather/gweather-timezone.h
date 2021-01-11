@@ -31,31 +31,21 @@ G_BEGIN_DECLS
 
 typedef struct _GWeatherTimezone GWeatherTimezone;
 
-GWEATHER_EXTERN
 GType gweather_timezone_get_type (void);
 #define GWEATHER_TYPE_TIMEZONE (gweather_timezone_get_type ())
 
-GWEATHER_EXTERN
 const char       *gweather_timezone_get_name       (GWeatherTimezone *zone);
-GWEATHER_EXTERN
 const char       *gweather_timezone_get_tzid       (GWeatherTimezone *zone);
-GWEATHER_EXTERN
 int               gweather_timezone_get_offset     (GWeatherTimezone *zone);
-GWEATHER_EXTERN
 gboolean          gweather_timezone_has_dst        (GWeatherTimezone *zone);
-GWEATHER_EXTERN
 int               gweather_timezone_get_dst_offset (GWeatherTimezone *zone);
 
-GWEATHER_EXTERN
 GWeatherTimezone *gweather_timezone_ref            (GWeatherTimezone *zone);
-GWEATHER_EXTERN
 void              gweather_timezone_unref          (GWeatherTimezone *zone);
 
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (GWeatherTimezone, gweather_timezone_unref);
 
-GWEATHER_EXTERN
 GWeatherTimezone *gweather_timezone_get_utc        (void);
-GWEATHER_EXTERN
 GWeatherTimezone *gweather_timezone_get_by_tzid    (const char *tzid);
 
 G_END_DECLS

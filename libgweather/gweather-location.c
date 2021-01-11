@@ -163,7 +163,7 @@ location_ref_for_idx (GWeatherDb       *db,
 
 static GWeatherDb *world_db;
 
-GWEATHER_EXTERN void
+void
 _gweather_location_reset_world (void)
 {
 	gsize i;

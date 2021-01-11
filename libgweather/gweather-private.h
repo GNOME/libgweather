@@ -194,7 +194,6 @@ struct _GWeatherInfoPrivate {
 #define RADIANS_TO_DEGREES(rad)		((rad) * 180. / M_PI)
 #define RADIANS_TO_HOURS(rad)		((rad) * 12. / M_PI)
 
-GWEATHER_EXTERN
 char           *_radians_to_degrees_str (gdouble radians);
 
 /*

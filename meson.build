@@ -81,20 +81,6 @@ endif
 config_h.set_quoted('ZONEINFO_DIR', get_option('zoneinfo_dir'))
 config_h.set_quoted('OWM_APIKEY', get_option('owm_apikey'))
 
-if get_option('default_library') != 'static'
-  if host_machine.system() == 'windows'
-    config_h.set('DLL_EXPORT', true)
-    config_h.set('GWEATHER_EXTERN', '__declspec(dllexport) extern')
-    if cc.get_id() != 'msvc'
-      add_project_arguments(['-fvisibility=hidden'], language: 'c')
-    endif
-  else
-    config_h.set('GWEATHER_EXTERN', '__attribute__((visibility("default"))) extern')
-    add_project_arguments(['-fvisibility=hidden'], language: 'c')
-  endif
-endif
-
-
 configure_file(
   output: 'config.h',
   configuration: config_h,

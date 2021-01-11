@@ -23,8 +23,7 @@ gnome.gtkdoc('libgweather',
   ],
   mkdb_args: ['--xml-mode', '--output-format=xml'],
   scan_args: [
-    '--deprecated-guards="GWEATHER_DISABLE_DEPRECATED"',
-    '--ignore-decorators=GWEATHER_EXTERN',
+    '--deprecated-guards="GWEATHER_DISABLE_DEPRECATED"'
   ],
   fixxref_args: [
     '--html-dir=@0@'.format(docpath),
