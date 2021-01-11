@@ -338,7 +338,7 @@ parse_forecast_xml_new (GWeatherInfo    *original_info,
 	to_time = date_to_time_t (val, original_info->location.tz_hint);
 	xmlFree (val);
 
-	/* New API has forecast in a list of "parent" elements
+	/* The legacy XML API has forecast in a list of "parent" elements
 	   with details (indicated by from==to) and "children" elements
 	   that hold only precipitation and symbol. For our purpose,
 	   the parent element is enough, except that we actually
