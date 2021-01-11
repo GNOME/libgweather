@@ -51,6 +51,8 @@ GWeatherTimezone *gweather_timezone_ref            (GWeatherTimezone *zone);
 GWEATHER_EXTERN
 void              gweather_timezone_unref          (GWeatherTimezone *zone);
 
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GWeatherTimezone, gweather_timezone_unref);
+
 GWEATHER_EXTERN
 GWeatherTimezone *gweather_timezone_get_utc        (void);
 GWEATHER_EXTERN

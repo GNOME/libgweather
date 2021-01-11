@@ -58,6 +58,8 @@ GWeatherLocation      *gweather_location_ref            (GWeatherLocation  *loc)
 GWEATHER_EXTERN
 void                   gweather_location_unref          (GWeatherLocation  *loc);
 
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GWeatherLocation, gweather_location_unref);
+
 GWEATHER_EXTERN
 const char            *gweather_location_get_name       (GWeatherLocation  *loc);
 GWEATHER_EXTERN
