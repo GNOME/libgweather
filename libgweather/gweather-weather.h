@@ -35,7 +35,7 @@ G_BEGIN_DECLS
  * @GWEATHER_PROVIDER_METAR: METAR office, providing current conditions worldwide
  * @GWEATHER_PROVIDER_IWIN: US weather office, providing 7 days of forecast
  * @GWEATHER_PROVIDER_YAHOO: Yahoo Weather Service, removed in 3.27.1
- * @GWEATHER_PROVIDER_MET_NO: MET.no service, worldwide but requires attribution
+ * @GWEATHER_PROVIDER_MET_NO: MET.no service, worldwide but requires attribution and a subscription to the [API users mailing-list](https://lists.met.no/mailman/listinfo/api-users).
  * @GWEATHER_PROVIDER_OWM: OpenWeatherMap, worldwide and possibly more reliable, but requires attribution and is limited in the number of queries
  * @GWEATHER_PROVIDER_ALL: enable all available providers
  */
