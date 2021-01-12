@@ -444,7 +444,7 @@ metno_start_open (GWeatherInfo *info)
     latstr = _radians_to_degrees_str (loc->latitude);
     lonstr = _radians_to_degrees_str (loc->longitude);
 
-    url = g_strdup_printf("https://" API_ENDPOINT_DOMAIN "/weatherapi/locationforecast/2.0/classic?lat=%s;lon=%s", latstr, lonstr);
+    url = g_strdup_printf("https://" API_ENDPOINT_DOMAIN "/weatherapi/locationforecast/2.0/classic?lat=%s&lon=%s", latstr, lonstr);
     g_debug ("metno_start_open, requesting: %s", url);
 
     message = soup_message_new ("GET", url);
