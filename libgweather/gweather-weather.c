@@ -2138,6 +2138,13 @@ gweather_info_set_location (GWeatherInfo     *info,
     gweather_info_reset (info);
 }
 
+/**
+ * gweather_info_get_enabled_providers:
+ * @info: a #GWeatherInfo
+ *
+ * Gets the bitmask of enabled #GWeatherProvider weather
+ * providers.
+ */
 GWeatherProvider
 gweather_info_get_enabled_providers (GWeatherInfo *info)
 {
@@ -2147,6 +2154,18 @@ gweather_info_get_enabled_providers (GWeatherInfo *info)
     return info->providers;
 }
 
+/**
+ * gweather_info_set_enabled_providers:
+ * @info: a #GWeatherInfo
+ * @providers: a bitmask of #GWeatherProvider
+ *
+ * Sets the enabled providers for fetching the weather. Note
+ * that it is up to the application developer to make sure that
+ * the terms of use for each service are respected.
+ *
+ * Online providers will not be enabled if the application ID is
+ * not set to a valid value.
+ */
 void
 gweather_info_set_enabled_providers (GWeatherInfo     *info,
 				     GWeatherProvider  providers)
