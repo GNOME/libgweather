@@ -2164,7 +2164,6 @@ gweather_info_set_enabled_providers (GWeatherInfo     *info,
     info->providers = providers;
 
     gweather_info_abort (info);
-    gweather_info_update (info);
     g_object_notify (G_OBJECT (info), "enabled-providers");
 }
 
