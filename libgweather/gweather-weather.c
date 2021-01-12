@@ -2216,7 +2216,7 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 				"Enabled providers",
 				"A bitmask of enabled weather service providers",
 				GWEATHER_TYPE_PROVIDER,
-				GWEATHER_PROVIDER_METAR | GWEATHER_PROVIDER_IWIN,
+				GWEATHER_PROVIDER_NONE,
 				G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
     g_object_class_install_property (gobject_class, PROP_ENABLED_PROVIDERS, pspec);
 
