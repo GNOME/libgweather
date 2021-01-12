@@ -115,6 +115,7 @@ struct _GWeatherInfo {
 
     GWeatherProvider providers;
     GSettings *settings;
+    char *application_id;
 
     gboolean valid;
     gboolean network_error;

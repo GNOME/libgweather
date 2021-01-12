@@ -31,7 +31,7 @@
 #include <langinfo.h>
 #include <errno.h>
 
-#include <glib.h>
+#include <gio/gio.h>
 
 #include "gweather-weather.h"
 #include "gweather-private.h"
@@ -66,6 +66,7 @@ enum {
     PROP_0,
     PROP_LOCATION,
     PROP_ENABLED_PROVIDERS,
+    PROP_APPLICATION_ID,
     PROP_LAST
 };
 
@@ -772,6 +773,7 @@ gweather_info_finalize (GObject *object)
 	gweather_location_unref (info->glocation);
 
     g_clear_pointer (&info->radar_url, g_free);
+    g_clear_pointer (&info->application_id, g_free);
 
     g_free (info->forecast_attribution);
 
@@ -2153,6 +2155,44 @@ gweather_info_set_enabled_providers (GWeatherInfo     *info,
     g_object_notify (G_OBJECT (info), "enabled-providers");
 }
 
+/**
+ * gweather_info_get_application_id:
+ * @info: a #GWeatherInfo
+ *
+ * Get the [application ID](https://docs.flatpak.org/en/latest/conventions.html#application-ids)
+ * of the application fetching the weather.
+ *
+ * Returns: the application ID
+ */
+const char *
+gweather_info_get_application_id (GWeatherInfo *info)
+{
+    g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
+
+    return info->application_id;
+}
+
+/**
+ * gweather_info_set_application_id:
+ * @info: a #GWeatherInfo
+ * @application_id: the application ID to set
+ *
+ * Sets the [application ID](https://docs.flatpak.org/en/latest/conventions.html#application-ids)
+ * of the application fetching the weather.
+ *
+ * If the application uses #GApplication, then the application ID
+ * will be automatically filled in.
+ */
+void
+gweather_info_set_application_id (GWeatherInfo *info,
+				  const char   *application_id)
+{
+    g_return_if_fail (GWEATHER_IS_INFO (info));
+    g_return_if_fail (g_application_id_is_valid (application_id));
+
+    g_clear_pointer (&info->application_id, g_free);
+    info->application_id = g_strdup (application_id);
+}
 
 static void
 gweather_info_set_property (GObject *object,
@@ -2168,6 +2208,9 @@ gweather_info_set_property (GObject *object,
 	break;
     case PROP_ENABLED_PROVIDERS:
 	gweather_info_set_enabled_providers (self, g_value_get_flags (value));
+	break;
+    case PROP_APPLICATION_ID:
+	gweather_info_set_application_id (self, g_value_get_string (value));
 	break;
     default:
 	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -2189,9 +2232,28 @@ gweather_info_get_property (GObject    *object,
     case PROP_ENABLED_PROVIDERS:
 	g_value_set_flags (value, self->providers);
 	break;
+    case PROP_APPLICATION_ID:
+        g_value_set_string (value, self->application_id);
+	break;
     default:
 	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
     }
+}
+
+static void
+gweather_info_constructed (GObject *object)
+{
+    GWeatherInfo *info = GWEATHER_INFO (object);
+    GApplication *app;
+
+    if (info->application_id != NULL)
+        return;
+    app = g_application_get_default ();
+    if (!app)
+        return;
+
+    gweather_info_set_application_id (info,
+                                      g_application_get_application_id (app));
 }
 
 void
@@ -2204,6 +2266,7 @@ gweather_info_class_init (GWeatherInfoClass *klass)
     gobject_class->finalize = gweather_info_finalize;
     gobject_class->set_property = gweather_info_set_property;
     gobject_class->get_property = gweather_info_get_property;
+    gobject_class->constructed = gweather_info_constructed;
 
     pspec = g_param_spec_boxed ("location",
 				"Location",
@@ -2219,6 +2282,13 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 				GWEATHER_PROVIDER_NONE,
 				G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
     g_object_class_install_property (gobject_class, PROP_ENABLED_PROVIDERS, pspec);
+
+    pspec = g_param_spec_string ("application-id",
+				 "Application ID",
+				 "An unique reverse-DNS application ID",
+				 NULL,
+				 G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
+    g_object_class_install_property (gobject_class, PROP_APPLICATION_ID, pspec);
 
     /**
      * GWeatherInfo::updated:
@@ -2267,6 +2337,7 @@ _gweather_info_new_clone (GWeatherInfo *original)
     return g_object_new (GWEATHER_TYPE_INFO,
                          "location", original->glocation,
                          "enabled-providers", original->providers,
+                         "application-id", original->application_id,
                          NULL);
 }
 

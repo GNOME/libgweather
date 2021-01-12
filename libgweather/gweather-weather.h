@@ -70,6 +70,11 @@ GWeatherProvider         gweather_info_get_enabled_providers (GWeatherInfo      
 void                     gweather_info_set_enabled_providers (GWeatherInfo        *info,
 							      GWeatherProvider     providers);
 
+const char             * gweather_info_get_application_id  (GWeatherInfo *info);
+void                     gweather_info_set_application_id  (GWeatherInfo *info,
+							    const char   *application_id);
+
+
 gboolean		 gweather_info_is_valid		   (GWeatherInfo *info);
 gboolean		 gweather_info_network_error	   (GWeatherInfo *info);
 
