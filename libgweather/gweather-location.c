@@ -1588,7 +1588,7 @@ gweather_location_common_deserialize (GWeatherLocation *world,
 				      gdouble           parent_latitude,
 				      gdouble           parent_longitude)
 {
-    g_autoptr(GWeatherLocation) *by_station_code = NULL;
+    g_autoptr(GWeatherLocation) by_station_code = NULL;
     DbWorldLocByMetarRef loc_by_metar;
     GWeatherLocation *found;
     gsize i;
