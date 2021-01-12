@@ -2153,6 +2153,11 @@ gweather_info_set_enabled_providers (GWeatherInfo     *info,
 {
     g_return_if_fail (GWEATHER_IS_INFO (info));
 
+    if (providers != GWEATHER_PROVIDER_NONE) {
+        g_return_if_fail (info->application_id != NULL);
+        g_return_if_fail (g_application_id_is_valid (info->application_id));
+    }
+
     if (info->providers == providers)
 	return;
 
@@ -2186,7 +2191,8 @@ gweather_info_get_application_id (GWeatherInfo *info)
  * @application_id: the application ID to set
  *
  * Sets the [application ID](https://docs.flatpak.org/en/latest/conventions.html#application-ids)
- * of the application fetching the weather.
+ * of the application fetching the weather. It is a requirement
+ * for using any of the online weather providers.
  *
  * If the application uses #GApplication, then the application ID
  * will be automatically filled in.
