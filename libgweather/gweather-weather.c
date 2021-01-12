@@ -31,8 +31,6 @@
 #include <langinfo.h>
 #include <errno.h>
 
-#include <gtk/gtk.h>
-#include <gdk-pixbuf/gdk-pixbuf.h>
 #include <glib.h>
 
 #include "gweather-weather.h"
