@@ -622,10 +622,11 @@ dump_and_unref_cache (SoupCache *cache)
 static SoupSession *static_session;
 
 static SoupSession *
-ref_session (void)
+ref_session (GWeatherInfo *info)
 {
     SoupSession *session;
     SoupCache *cache;
+    g_autofree char *user_agent = NULL;
 
     session = static_session;
 
@@ -633,8 +634,9 @@ ref_session (void)
 	return g_object_ref (session);
 
     session = soup_session_new ();
-    g_object_set (G_OBJECT (session), SOUP_SESSION_USER_AGENT,
-                  "libgweather/" LIBGWEATHER_VERSION " (+https://gitlab.gnome.org/GNOME/libgweather/) ", NULL);
+    user_agent = g_strdup_printf ("libgweather/%s (+https://gitlab.gnome.org/GNOME/libgweather/) %s",
+                                  LIBGWEATHER_VERSION, info->application_id);
+    g_object_set (G_OBJECT (session), SOUP_SESSION_USER_AGENT, user_agent, NULL);
 
     cache = get_cache ();
     if (cache != NULL) {
@@ -703,7 +705,7 @@ gweather_info_update (GWeatherInfo *info)
     gweather_info_reset (info);
 
     if (!info->session)
-	info->session = ref_session ();
+	info->session = ref_session (info);
 
     if (info->providers & GWEATHER_PROVIDER_METAR)
 	metar_start_open (info);
