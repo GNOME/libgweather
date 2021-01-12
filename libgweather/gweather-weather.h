@@ -52,15 +52,6 @@ typedef enum { /*< flags, underscore_name=gweather_provider >*/
 #define GWEATHER_TYPE_INFO (gweather_info_get_type ())
 G_DECLARE_FINAL_TYPE(GWeatherInfo, gweather_info, GWEATHER, INFO, GObject)
 
-struct _GWeatherInfoClass {
-
-    /*< private >*/
-    GObjectClass parent_class;
-
-    /*< protected >*/
-    void (*updated) (GWeatherInfo *info);
-};
-
 GWeatherInfo *           gweather_info_new                 (GWeatherLocation *location);
 void                     gweather_info_update              (GWeatherInfo *info);
 void			 gweather_info_abort		   (GWeatherInfo *info);
