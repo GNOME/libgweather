@@ -156,6 +156,7 @@ main (int argc, char **argv)
 
     loop = g_main_loop_new (NULL, TRUE);
     info = gweather_info_new (NULL);
+    gweather_info_set_contact_info (info, "https://gitlab.gnome.org/GNOME/libgweather/");
     gweather_info_set_application_id (info, "org.gnome.LibGWeather");
     if (!set_providers (info))
         return 1;
