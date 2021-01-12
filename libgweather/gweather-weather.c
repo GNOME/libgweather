@@ -786,6 +786,7 @@ gweather_info_finalize (GObject *object)
 
     g_clear_pointer (&info->radar_url, g_free);
     g_clear_pointer (&info->application_id, g_free);
+    g_clear_pointer (&info->contact_info, g_free);
 
     g_free (info->forecast_attribution);
 
