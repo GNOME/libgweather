@@ -370,7 +370,7 @@ parse_forecast_xml_new (GWeatherInfo    *original_info,
 		    fill_info_from_node (info, location);
 	    }
 
-	    info->forecast_list = g_slist_append (info->forecast_list, info);
+	    original_info->forecast_list = g_slist_append (original_info->forecast_list, info);
 	}
     }
 
