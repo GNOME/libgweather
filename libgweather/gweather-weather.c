@@ -690,6 +690,12 @@ gweather_info_update (GWeatherInfo *info)
 {
     gboolean ok;
 
+    if (info->providers == GWEATHER_PROVIDER_NONE)
+        return;
+
+    g_return_if_fail (info->application_id != NULL);
+    g_return_if_fail (g_application_id_is_valid (info->application_id));
+
     /* Update in progress */
     if (!requests_init (info))
         return ;
