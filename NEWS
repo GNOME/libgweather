@@ -1,3 +1,26 @@
+================
+Version 40.alpha
+================
+
+This version contains a number of API and ABI changes that applications
+will need to be modified for, including:
+- An application-id as well as contact information must be provided for
+  every application to use online weather services. For GApplication-based
+  applications, the application ID is prefilled.
+- All online weather providers are disabled by default, applications
+  should enable those that it has verified it can follow the terms of
+  service for. Note, for example, the requirement to subscribe to the
+  met.no API users mailing-list.
+- A lot of the getter functions for the location database now return
+  references to objects which the application will need to handle. Applications
+  that use JavaScript or Python bindings should not require special handling
+  for this change.
+
+The library was also modified to use a more-efficient Location database
+format, reducing I/O when instantiated, online weather fetching uses a
+maximum of 4 decimals in coordinates for queries to enhance caching, and
+the yr.no backend was renamed to Met.no.
+
 ==============
 Version 3.34.0
 ==============
