@@ -2205,6 +2205,11 @@ gweather_info_set_application_id (GWeatherInfo *info,
 
     g_clear_pointer (&info->application_id, g_free);
     info->application_id = g_strdup (application_id);
+
+    if (info->session) {
+      g_clear_object (&info->session);
+      info->session = ref_session (info);
+    }
 }
 
 static void
