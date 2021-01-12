@@ -2437,9 +2437,10 @@ GWeatherInfo *
 _gweather_info_new_clone (GWeatherInfo *original)
 {
     return g_object_new (GWEATHER_TYPE_INFO,
-                         "location", original->glocation,
-                         "enabled-providers", original->providers,
                          "application-id", original->application_id,
+                         "contact-info", original->contact_info,
+                         "enabled-providers", original->providers,
+                         "location", original->glocation,
                          NULL);
 }
 
