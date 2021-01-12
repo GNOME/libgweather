@@ -74,6 +74,9 @@ const char             * gweather_info_get_application_id  (GWeatherInfo *info);
 void                     gweather_info_set_application_id  (GWeatherInfo *info,
 							    const char   *application_id);
 
+const char             * gweather_info_get_contact_info    (GWeatherInfo *info);
+void                     gweather_info_set_contact_info    (GWeatherInfo *info,
+							    const char   *contact_info);
 
 gboolean		 gweather_info_is_valid		   (GWeatherInfo *info);
 gboolean		 gweather_info_network_error	   (GWeatherInfo *info);

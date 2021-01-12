@@ -785,6 +785,7 @@ test_weather_loop_use_after_free (void)
     loop = g_main_loop_new (NULL, TRUE);
     info = gweather_info_new (NULL);
     gweather_info_set_application_id (info, "org.gnome.LibGWeather");
+    gweather_info_set_contact_info (info, "https://gitlab.gnome.org/GNOME/libgweather/");
     gweather_info_set_enabled_providers (info,
 					 GWEATHER_PROVIDER_METAR |
 					 GWEATHER_PROVIDER_IWIN |

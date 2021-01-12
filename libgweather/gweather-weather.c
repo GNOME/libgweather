@@ -67,6 +67,7 @@ enum {
     PROP_LOCATION,
     PROP_ENABLED_PROVIDERS,
     PROP_APPLICATION_ID,
+    PROP_CONTACT_INFO,
     PROP_LAST
 };
 
@@ -634,8 +635,10 @@ ref_session (GWeatherInfo *info)
 	return g_object_ref (session);
 
     session = soup_session_new ();
-    user_agent = g_strdup_printf ("libgweather/%s (+https://gitlab.gnome.org/GNOME/libgweather/) %s",
-                                  LIBGWEATHER_VERSION, info->application_id);
+    user_agent = g_strdup_printf ("libgweather/%s %s (%s)",
+                                  LIBGWEATHER_VERSION,
+                                  info->application_id,
+                                  info->contact_info);
     g_object_set (G_OBJECT (session), SOUP_SESSION_USER_AGENT, user_agent, NULL);
 
     cache = get_cache ();
@@ -697,6 +700,7 @@ gweather_info_update (GWeatherInfo *info)
 
     g_return_if_fail (info->application_id != NULL);
     g_return_if_fail (g_application_id_is_valid (info->application_id));
+    g_return_if_fail (info->contact_info != NULL);
 
     /* Update in progress */
     if (!requests_init (info))
@@ -2231,6 +2235,53 @@ gweather_info_set_application_id (GWeatherInfo *info,
     }
 }
 
+/**
+ * gweather_info_get_contact_info:
+ * @info: a #GWeatherInfo
+ *
+ * Get the contact information of the application fetching the weather.
+ *
+ * Returns: the contact information
+ */
+const char *
+gweather_info_get_contact_info (GWeatherInfo *info)
+{
+    g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
+
+    return info->contact_info;
+}
+
+/**
+ * gweather_info_set_contact_info:
+ * @info: a #GWeatherInfo
+ * @application_id: the contact information for the application
+ *
+ * Sets the contact information for the application fetching the
+ * weather. It is a requirement for using any of the online
+ * weather providers as it allows API providers to contact application
+ * developers in case of terms of use breaches.
+ *
+ * The contact information should be an email address, or the full
+ * URL to an online contact form which weather providers can use
+ * to contact the application developer. Avoid using bug tracker
+ * URLs which require creating accounts.
+ */
+void
+gweather_info_set_contact_info (GWeatherInfo *info,
+				const char   *contact_info)
+{
+    g_return_if_fail (GWEATHER_IS_INFO (info));
+    g_return_if_fail (contact_info != NULL);
+
+    g_clear_pointer (&info->contact_info, g_free);
+    info->contact_info = g_strdup (contact_info);
+
+    if (info->session) {
+      g_clear_object (&info->session);
+      info->session = ref_session (info);
+    }
+}
+
 static void
 gweather_info_set_property (GObject *object,
 			    guint property_id,
@@ -2248,6 +2299,9 @@ gweather_info_set_property (GObject *object,
 	break;
     case PROP_APPLICATION_ID:
 	gweather_info_set_application_id (self, g_value_get_string (value));
+	break;
+    case PROP_CONTACT_INFO:
+	gweather_info_set_contact_info (self, g_value_get_string (value));
 	break;
     default:
 	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -2271,6 +2325,9 @@ gweather_info_get_property (GObject    *object,
 	break;
     case PROP_APPLICATION_ID:
         g_value_set_string (value, self->application_id);
+	break;
+    case PROP_CONTACT_INFO:
+        g_value_set_string (value, self->contact_info);
 	break;
     default:
 	G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -2326,6 +2383,13 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 				 NULL,
 				 G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
     g_object_class_install_property (gobject_class, PROP_APPLICATION_ID, pspec);
+
+    pspec = g_param_spec_string ("contact-info",
+				 "Contact information",
+				 "An email address or contact form URL",
+				 NULL,
+				 G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
+    g_object_class_install_property (gobject_class, PROP_CONTACT_INFO, pspec);
 
     /**
      * GWeatherInfo::updated:
