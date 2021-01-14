@@ -1623,7 +1623,7 @@ gweather_location_common_deserialize (GWeatherLocation *world,
      */
     if (!latlon_valid)
 	return by_station_code
-	       ? _gweather_location_new_detached (by_station_code,
+	       ? _gweather_location_new_detached (g_steal_pointer (&by_station_code),
 	                                          name, FALSE, 0, 0)
 	       : NULL;
 
@@ -1679,7 +1679,7 @@ gweather_location_common_deserialize (GWeatherLocation *world,
     /* No weather station matches the serialized data, let's pick
        one at random from the station code list */
     if (by_station_code)
-       return _gweather_location_new_detached (by_station_code,
+       return _gweather_location_new_detached (g_steal_pointer (&by_station_code),
                                                name, TRUE, latitude, longitude);
     else
        return NULL;
@@ -1857,7 +1857,7 @@ gweather_location_new_detached (const char *name,
 
 	latitude = DEGREES_TO_RADIANS (latitude);
 	longitude = DEGREES_TO_RADIANS (longitude);
-	return _gweather_location_new_detached (city, name,
+	return _gweather_location_new_detached (g_steal_pointer (&city), name,
 						TRUE, latitude, longitude);
     }
 }
