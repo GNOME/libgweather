@@ -2255,7 +2255,7 @@ gweather_info_get_contact_info (GWeatherInfo *info)
 /**
  * gweather_info_set_contact_info:
  * @info: a #GWeatherInfo
- * @application_id: the contact information for the application
+ * @contact_info: the contact information for the application
  *
  * Sets the contact information for the application fetching the
  * weather. It is a requirement for using any of the online
