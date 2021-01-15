@@ -3,7 +3,8 @@ project('libgweather', 'c',
   meson_version: '>= 0.50.0',
 )
 
-libgweather_version = meson.project_version().split('.')
+# Add another 0, so that we can release without a suffix
+libgweather_version = meson.project_version().split('.') + [0]
 
 # We use libtool-version numbers because it's easier to understand.
 # Before making a release, the libgweather_so_*

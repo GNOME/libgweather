@@ -18,7 +18,7 @@ endif
 versionconf = configuration_data()
 versionconf.set('GWEATHER_MAJOR_VERSION', libgweather_version[0])
 versionconf.set('GWEATHER_MINOR_VERSION', libgweather_version[1])
-versionconf.set('GWEATHER_MICRO_VERSION', 0)
+versionconf.set('GWEATHER_MICRO_VERSION', libgweather_version[2])
 versionconf.set_quoted('GWEATHER_VERSION', meson.project_version())
 configure_file(
   input: 'gweather-version.h.in',
