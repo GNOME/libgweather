@@ -27,15 +27,17 @@ msgstr ""
 "X-Generator: Poedit 2.2.1\n"
 
 #. Recurse, adding the ADM1 name to the country name
-#. Translators: this is the name of a location followed by a region, for example:
+#. Translators: this is the name of a location followed by a region, for
+#. example:
 #. * 'London, United Kingdom'
-#. * You shouldn't need to translate this string unless the language has a different comma.
-#.
+#. * You shouldn't need to translate this string unless the language has a
+#. different comma.
 #. <location> with no parent <city>
-#. Translators: this is the name of a location followed by a region, for example:
+#. Translators: this is the name of a location followed by a region, for
+#. example:
 #. * 'London, United Kingdom'
-#. * You shouldn't need to translate this string unless the language has a different comma.
-#.
+#. * You shouldn't need to translate this string unless the language has a
+#. different comma.
 #: libgweather/gweather-location-entry.c:530
 #: libgweather/gweather-location-entry.c:558
 #, c-format
@@ -853,33 +855,36 @@ msgstr "Desconeguda"
 #. * want inches, otherwise translate to default:mm.
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
-#.
 #: libgweather/gweather-weather.c:885
 msgid "default:mm"
 msgstr "default:mm"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE
+#. FAHRENHEIT)
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
 #: libgweather/gweather-weather.c:938
 #, c-format
 msgid "%.1f ℉"
 msgstr "%.1f ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)i
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE
+#. FAHRENHEIT)i
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
 #: libgweather/gweather-weather.c:942
 #, c-format
 msgid "%d ℉"
 msgstr "%d ℉"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE
+#. CELSIUS)
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
 #: libgweather/gweather-weather.c:949
 #, c-format
 msgid "%.1f ℃"
 msgstr "%.1f ℃"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE
+#. CELSIUS)
 #. * with a non-break space (U+00A0) between the digits and the degrees sign
 #: libgweather/gweather-weather.c:953
 #, c-format
@@ -948,7 +953,6 @@ msgstr "%1.f m/s"
 
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
-#.
 #: libgweather/gweather-weather.c:1124
 #, c-format
 msgid "Beaufort force %.1f"
@@ -1059,9 +1063,7 @@ msgstr ""
 #. The new (documented but not advertised) API is less strict in the
 #. format of the attribution, and just requires a generic CC-BY compatible
 #. attribution with a link to their service.
-#.
 #. That's very nice of them!
-#.
 #: libgweather/weather-yrno.c:386
 msgid ""
 "Weather data from the <a href=\"https://www.met.no/\">Norwegian "
@@ -1079,7 +1081,7 @@ msgid ""
 "The custom URL from where to retrieve a radar map, or empty for disabling "
 "radar maps."
 msgstr ""
-"L'URL personalitzat d'on obtenir un mapa del radar, deixeu-lo buit per "
+"L'URL personalitzat d'on obtenir un mapa del radar, deixeu-lo buit per a "
 "inhabilitar els mapes del radar."
 
 #: schemas/org.gnome.GWeather.gschema.xml:13
@@ -1091,7 +1093,7 @@ msgid ""
 "The unit of temperature used for showing weather. Valid values are “kelvin”, "
 "“centigrade” and “fahrenheit”."
 msgstr ""
-"La unitat de temperatura que s'utilitza per mostrar la predicció "
+"La unitat de temperatura que s'utilitza per a mostrar la predicció "
 "meteorològica. Els valors vàlids són «kelvin» (Kelvin), «centigrade» (graus "
 "Celsius) i «fahrenheit» (Fahrenheit)."
 
@@ -1105,7 +1107,7 @@ msgid ""
 "for distance of important events). Valid values are “meters”, “km” and "
 "“miles”."
 msgstr ""
-"La unitat de distància que s'utilitza per mostrar la informació "
+"La unitat de distància que s'utilitza per a mostrar la informació "
 "meteorològica (per exemple, per la visibilitat o la distància a "
 "esdeveniments importants. Els valors vàlids són: «meters» (metres), "
 "«km» (quilòmetres) i «miles» (milles)."
@@ -1120,7 +1122,7 @@ msgid ""
 "Valid values are “ms” (meters per second), “kph” (kilometers per hour), "
 "“mph” (miles per hour), “knots” and “bft” (Beaufort scale)."
 msgstr ""
-"La unitat de velocitat que s'utilitza per mostrar informació meteorològica "
+"La unitat de velocitat que s'utilitza per a mostrar informació meteorològica "
 "(per exemple, la velocitat de vent). Els valors vàlids són: «ms» (metres per "
 "segon), «kph» (quilòmetres per hora), «mph» (milles per hora), "
 "«knots» (nusos) i «bft» (escala de Beaufort)."
@@ -1136,14 +1138,16 @@ msgid ""
 "equivalent to 1 hPa but shown differently), “mm-hg” (millimeters of "
 "mercury), “inch-hg” (inches of mercury), “atm” (atmospheres)."
 msgstr ""
-"La unitat de pressió que s'utilitza per mostrar informació meteorològica. "
+"La unitat de pressió que s'utilitza per a mostrar informació meteorològica. "
 "Els valors vàlids són: «kpa» (kilopascal), «hpa» (hectopascal), "
 "«mb» (mil·libar, matemàticament equivalent a 1 hPa però es mostra diferent), "
 "«mm-hg» (mil·límetres de mercuri), «inch-hg» (polzada de mercuri) i "
 "«atm» (atmosferes)."
 
-#. TRANSLATORS: pick a default location to use in the weather applet. This should
-#. usually be the largest city or the capital of your country. If you're not picking
+#. TRANSLATORS: pick a default location to use in the weather applet. This
+#. should
+#. usually be the largest city or the capital of your country. If you're not
+#. picking
 #. a <location> in the database, don't forget to set name and coordinates.
 #. Do NOT change or localize the quotation marks!
 #: schemas/org.gnome.GWeather.gschema.xml:51
@@ -1170,8 +1174,8 @@ msgstr ""
 "meteorològica per defecte. No pot estar buida i ha de correspondre a "
 "l'etiqueta &lt;code&gt; del fitxer Locations.xml. El tercer camp és una "
 "parella de valors (latitud, longitud), per sobreescriure el valor de la base "
-"de dades. Aquests últims valors només s'utilitzen per calcular l'alba i les "
-"fases de la lluna, no pel pronòstic del temps."
+"de dades. Aquests últims valors només s'utilitzen per a calcular l'alba i "
+"les fases de la lluna, no pel pronòstic del temps."
 
 #~ msgid "Location Entry"
 #~ msgstr "Entrada de la ubicació"
