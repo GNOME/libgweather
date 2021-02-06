@@ -4,282 +4,246 @@
 #
 #
 # Amanpreet Singh Alam <amanliunx@netscapet.net>, 2004.
-# A S Alam <aalam@users.sf.net>, 2004, 2005, 2006, 2007, 2009.
+# A S Alam <aalam@users.sf.net>, 2004, 2005, 2006, 2007, 2009, 2021.
 # Amanpreet Singh Alam <aalam@users.sf.net>, 2008, 2012, 2013, 2014, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets.HEAD\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
-"product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-20 13:24+0000\n"
-"PO-Revision-Date: 2017-09-10 14:54-0600\n"
-"Last-Translator: A S Alam <aalam@users.sf.net>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgweather/issues\n"
+"POT-Creation-Date: 2021-01-11 10:40+0000\n"
+"PO-Revision-Date: 2021-02-05 23:03-0800\n"
+"Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 20.08.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "\n"
 
-#: ../data/glade/libgweather.xml.in.h:1
-msgid "Location Entry"
-msgstr "ਟਿਕਾਣਾ ਐਂਟਰੀ"
+#. Recurse, adding the ADM1 name to the country name
+#. Translators: this is the name of a location followed by a region, for example:
+#. * 'London, United Kingdom'
+#. * You shouldn't need to translate this string unless the language has a different comma.
+#.
+#. <location> with no parent <city>
+#. Translators: this is the name of a location followed by a region, for example:
+#. * 'London, United Kingdom'
+#. * You shouldn't need to translate this string unless the language has a different comma.
+#.
+#: libgweather/gweather-location-entry.c:530
+#: libgweather/gweather-location-entry.c:558
+#, c-format
+msgid "%s, %s"
+msgstr "%s, %s"
 
-#: ../data/glade/libgweather.xml.in.h:2
-msgid "Timezone Menu"
-msgstr "ਸਮਾਂ-ਖੇਤਰ ਮੇਨੂ"
-
-#: ../data/glade/libgweather.xml.in.h:3
-msgid "Timezone"
-msgstr "ਸਮਾਂ-ਖੇਤਰ"
-
-#: ../data/glade/libgweather.xml.in.h:4
-msgid "GWeather"
-msgstr "ਜੀ-ਮੌਸਮ"
-
-#: ../libgweather/gweather-location-entry.c:792
+#: libgweather/gweather-location-entry.c:822
 msgid "Loading…"
 msgstr "…ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: ../libgweather/gweather-timezone.c:341
+#: libgweather/gweather-timezone.c:343
 msgid "Greenwich Mean Time"
 msgstr "ਗਰੀਨਵਿਚ ਮੀਨ ਟਾਈਮ"
 
 # gnome-session/gsm-client-row.c:43
-#: ../libgweather/gweather-timezone-menu.c:274
+#: libgweather/gweather-timezone-menu.c:274
 msgctxt "timezone"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
 
-#: ../libgweather/gweather-weather.c:120
-#| msgid "Variable"
+#: libgweather/gweather-weather.c:119
 msgid "variable"
 msgstr "ਮੁੱਲ"
 
-#: ../libgweather/gweather-weather.c:121
-#| msgid "North"
+#: libgweather/gweather-weather.c:120
 msgid "north"
 msgstr "ਉੱਤਰ"
 
-#: ../libgweather/gweather-weather.c:121
-#| msgid "North - NorthEast"
+#: libgweather/gweather-weather.c:120
 msgid "north — northeast"
 msgstr "ਉੱਤਰ — ਉੱਤਰ ਪੂਰਬ"
 
-#: ../libgweather/gweather-weather.c:121
-#| msgid "Northeast"
+#: libgweather/gweather-weather.c:120
 msgid "northeast"
 msgstr "ਉੱਤਰ-ਪੂਰਬ"
 
-#: ../libgweather/gweather-weather.c:121
-#| msgid "East - Southeast"
+#: libgweather/gweather-weather.c:120
 msgid "east — northeast"
 msgstr "ਪੂਰਬ — ਉੱਤਰ-ਪੂਰਬ"
 
-#: ../libgweather/gweather-weather.c:122
-#| msgid "Northeast"
+#: libgweather/gweather-weather.c:121
 msgid "east"
 msgstr "ਪੂਰਬ"
 
-#: ../libgweather/gweather-weather.c:122
-#| msgid "East - Southeast"
+#: libgweather/gweather-weather.c:121
 msgid "east — southeast"
 msgstr "ਪੂਰਬ - ਦੱਖਣ-ਪੂਰਬ"
 
-#: ../libgweather/gweather-weather.c:122
-#| msgid "Southeast"
+#: libgweather/gweather-weather.c:121
 msgid "southeast"
 msgstr "ਦੱਖਣ-ਪੂਰਬ"
 
-#: ../libgweather/gweather-weather.c:122
-#| msgid "South - Southeast"
+#: libgweather/gweather-weather.c:121
 msgid "south — southeast"
 msgstr "ਦੱਖਣ — ਦੱਖਣ-ਪੂਰਬ"
 
-#: ../libgweather/gweather-weather.c:123
-#| msgid "South"
+#: libgweather/gweather-weather.c:122
 msgid "south"
 msgstr "ਦੱਖਣ"
 
-#: ../libgweather/gweather-weather.c:123
-#| msgid "South - Southwest"
+#: libgweather/gweather-weather.c:122
 msgid "south — southwest"
 msgstr "ਦੱਖਣ — ਦੱਖਣ-ਪੱਛਮ"
 
-#: ../libgweather/gweather-weather.c:123
-#| msgid "Southwest"
+#: libgweather/gweather-weather.c:122
 msgid "southwest"
 msgstr "ਦੱਖਣ-ਪੱਛਮ"
 
-#: ../libgweather/gweather-weather.c:123
-#| msgid "West - Southwest"
+#: libgweather/gweather-weather.c:122
 msgid "west — southwest"
 msgstr "ਪੱਛਮ — ਦੱਖਣ-ਪੱਛਮ"
 
-#: ../libgweather/gweather-weather.c:124
-#| msgid "Southwest"
+#: libgweather/gweather-weather.c:123
 msgid "west"
 msgstr "ਪੱਛਮ"
 
-#: ../libgweather/gweather-weather.c:124
-#| msgid "West - Northwest"
+#: libgweather/gweather-weather.c:123
 msgid "west — northwest"
 msgstr "ਪੱਛਮ — ਉੱਤਰ-ਪੱਛਮ"
 
-#: ../libgweather/gweather-weather.c:124
-#| msgid "Northwest"
+#: libgweather/gweather-weather.c:123
 msgid "northwest"
 msgstr "ਉੱਤਰ-ਪੱਛਮ"
 
-#: ../libgweather/gweather-weather.c:124
-#| msgid "North - Northwest"
+#: libgweather/gweather-weather.c:123
 msgid "north — northwest"
 msgstr "ਉੱਤਰ — ਉੱਤਰ-ਪੱਛਮ"
 
-#: ../libgweather/gweather-weather.c:128
+#: libgweather/gweather-weather.c:127
 msgid "Variable"
 msgstr "ਮੁੱਲ"
 
-#: ../libgweather/gweather-weather.c:129
+#: libgweather/gweather-weather.c:128
 msgid "North"
 msgstr "ਉੱਤਰ"
 
-#: ../libgweather/gweather-weather.c:129
-#| msgid "North - NorthEast"
+#: libgweather/gweather-weather.c:128
 msgid "North — Northeast"
 msgstr "ਉੱਤਰ — ਉੱਤਰ-ਪੂਰਬ"
 
-#: ../libgweather/gweather-weather.c:129
+#: libgweather/gweather-weather.c:128
 msgid "Northeast"
 msgstr "ਉੱਤਰ-ਪੂਰਬ"
 
-#: ../libgweather/gweather-weather.c:129
-#| msgid "East - NorthEast"
+#: libgweather/gweather-weather.c:128
 msgid "East — Northeast"
 msgstr "ਪੂਰਬ — ਉੱਤਰ-ਪੂਰਬ"
 
-#: ../libgweather/gweather-weather.c:130
+#: libgweather/gweather-weather.c:129
 msgid "East"
 msgstr "ਪੂਰਬ"
 
-#: ../libgweather/gweather-weather.c:130
-#| msgid "East - Southeast"
+#: libgweather/gweather-weather.c:129
 msgid "East — Southeast"
 msgstr "ਪੂਰਬ — ਦੱਖਣ-ਪੂਰਬ"
 
-#: ../libgweather/gweather-weather.c:130
+#: libgweather/gweather-weather.c:129
 msgid "Southeast"
 msgstr "ਦੱਖਣ-ਪੂਰਬ"
 
-#: ../libgweather/gweather-weather.c:130
-#| msgid "South - Southeast"
+#: libgweather/gweather-weather.c:129
 msgid "South — Southeast"
 msgstr "ਦੱਖਣ — ਦੱਖਣ-ਪੂਰਬ"
 
-#: ../libgweather/gweather-weather.c:131
+#: libgweather/gweather-weather.c:130
 msgid "South"
 msgstr "ਦੱਖਣ"
 
-#: ../libgweather/gweather-weather.c:131
-#| msgid "South - Southwest"
+#: libgweather/gweather-weather.c:130
 msgid "South — Southwest"
 msgstr "ਦੱਖਣ — ਦੱਖਣ-ਪੱਛਮ"
 
-#: ../libgweather/gweather-weather.c:131
+#: libgweather/gweather-weather.c:130
 msgid "Southwest"
 msgstr "ਦੱਖਣ-ਪੱਛਮ"
 
-#: ../libgweather/gweather-weather.c:131
-#| msgid "West - Southwest"
+#: libgweather/gweather-weather.c:130
 msgid "West — Southwest"
 msgstr "ਪੱਛਮ — ਦੱਖਣ-ਪੱਛਮ"
 
-#: ../libgweather/gweather-weather.c:132
+#: libgweather/gweather-weather.c:131
 msgid "West"
 msgstr "ਪੱਛਮ"
 
-#: ../libgweather/gweather-weather.c:132
-#| msgid "West - Northwest"
+#: libgweather/gweather-weather.c:131
 msgid "West — Northwest"
 msgstr "ਪੱਛਮ — ਉੱਤਰ-ਪੱਛਮ"
 
-#: ../libgweather/gweather-weather.c:132
+#: libgweather/gweather-weather.c:131
 msgid "Northwest"
 msgstr "ਉੱਤਰ ਪੱਛਮ"
 
-#: ../libgweather/gweather-weather.c:132
-#| msgid "North - Northwest"
+#: libgweather/gweather-weather.c:131
 msgid "North — Northwest"
 msgstr "ਉੱਤਰ — ਉੱਤਰ-ਪੱਛਮ"
 
-#: ../libgweather/gweather-weather.c:142
+#: libgweather/gweather-weather.c:141
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "ਗਲਤ"
 
-#: ../libgweather/gweather-weather.c:143
-#| msgctxt "wind direction"
-#| msgid "Invalid"
+#: libgweather/gweather-weather.c:142
 msgctxt "wind direction"
 msgid "invalid"
 msgstr "ਗਲਤ"
 
-#: ../libgweather/gweather-weather.c:156
-#| msgid "Clear Sky"
+#: libgweather/gweather-weather.c:155
 msgid "clear sky"
 msgstr "ਸਾਫ਼ ਆਸਮਾਨ"
 
-#: ../libgweather/gweather-weather.c:157
-#| msgid "Broken clouds"
+#: libgweather/gweather-weather.c:156
 msgid "broken clouds"
 msgstr "ਟੁਟਵੀਂ ਬੱਦਲਵਾਈ"
 
-#: ../libgweather/gweather-weather.c:158
-#| msgid "Scattered clouds"
+#: libgweather/gweather-weather.c:157
 msgid "scattered clouds"
 msgstr "ਖਿਲਰੇ ਬੱਦਲ"
 
-#: ../libgweather/gweather-weather.c:159
-#| msgid "Few clouds"
+#: libgweather/gweather-weather.c:158
 msgid "few clouds"
 msgstr "ਹਲਕੀ ਬੱਦਲਵਾਈ"
 
-#: ../libgweather/gweather-weather.c:160
-#| msgid "Overcast"
+#: libgweather/gweather-weather.c:159
 msgid "overcast"
 msgstr "ਬੱਦਲਵਾਈ"
 
-#: ../libgweather/gweather-weather.c:164
-#| msgid "Clear Sky"
+#: libgweather/gweather-weather.c:163
 msgid "Clear sky"
 msgstr "ਸਾਫ਼ ਆਸਮਾਨ"
 
-#: ../libgweather/gweather-weather.c:165
+#: libgweather/gweather-weather.c:164
 msgid "Broken clouds"
 msgstr "ਟੁਟਵੇਂ ਬੱਦਲ"
 
-#: ../libgweather/gweather-weather.c:166
+#: libgweather/gweather-weather.c:165
 msgid "Scattered clouds"
 msgstr "ਖਿਲਰੇ ਬੱਦਲ"
 
-#: ../libgweather/gweather-weather.c:167
+#: libgweather/gweather-weather.c:166
 msgid "Few clouds"
 msgstr "ਹਕੇ ਬੱਦਲ"
 
-#: ../libgweather/gweather-weather.c:168
+#: libgweather/gweather-weather.c:167
 msgid "Overcast"
 msgstr "ਬੱਦਲਵਾਈ"
 
-#: ../libgweather/gweather-weather.c:184 ../libgweather/gweather-weather.c:298
+#: libgweather/gweather-weather.c:183 libgweather/gweather-weather.c:297
 msgctxt "sky conditions"
 msgid "Invalid"
 msgstr "ਗਲਤ"
 
-#: ../libgweather/gweather-weather.c:185 ../libgweather/gweather-weather.c:299
-#| msgctxt "sky conditions"
-#| msgid "Invalid"
+#: libgweather/gweather-weather.c:184 libgweather/gweather-weather.c:298
 msgctxt "sky conditions"
 msgid "invalid"
 msgstr "ਗਲਤ"
@@ -288,349 +252,290 @@ msgstr "ਗਲਤ"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/gweather-weather.c:218 ../libgweather/gweather-weather.c:220
-#| msgid "Thunderstorm"
+#: libgweather/gweather-weather.c:217 libgweather/gweather-weather.c:219
 msgid "thunderstorm"
 msgstr "ਤੂਫ਼ਾਨ"
 
 #. DRIZZLE
-#: ../libgweather/gweather-weather.c:219
-#| msgid "Drizzle"
+#: libgweather/gweather-weather.c:218
 msgid "drizzle"
 msgstr "ਬੂੰਦਾਬਾਂਦੀ"
 
-#: ../libgweather/gweather-weather.c:219
-#| msgid "Light drizzle"
+#: libgweather/gweather-weather.c:218
 msgid "light drizzle"
 msgstr "ਹਲਕੀ ਬੰਦਾਬਾਂਦੀ"
 
-#: ../libgweather/gweather-weather.c:219
-#| msgid "Moderate drizzle"
+#: libgweather/gweather-weather.c:218
 msgid "moderate drizzle"
 msgstr "ਮੱਧਮ ਬੂੰਦਾਬਾਂਦੀ"
 
-#: ../libgweather/gweather-weather.c:219
-#| msgid "Heavy drizzle"
+#: libgweather/gweather-weather.c:218
 msgid "heavy drizzle"
 msgstr "ਭਾਰੀ ਬੂੰਦਾਬਾਂਦੀ"
 
-#: ../libgweather/gweather-weather.c:219
-#| msgid "Freezing drizzle"
+#: libgweather/gweather-weather.c:218
 msgid "freezing drizzle"
 msgstr "ਜਮਾਉ ਬੂੰਦਾਬਾਂਦੀ"
 
 #. RAIN
-#: ../libgweather/gweather-weather.c:220
+#: libgweather/gweather-weather.c:219
 msgid "rain"
 msgstr "ਮੀਂਹ"
 
-#: ../libgweather/gweather-weather.c:220
-#| msgid "Light rain"
+#: libgweather/gweather-weather.c:219
 msgid "light rain"
 msgstr "ਹਲਕਾ ਮੀਂਹ"
 
-#: ../libgweather/gweather-weather.c:220
-#| msgid "Moderate rain"
+#: libgweather/gweather-weather.c:219
 msgid "moderate rain"
 msgstr "ਮੱਧਮ ਮੀਂਹ"
 
-#: ../libgweather/gweather-weather.c:220
-#| msgid "Heavy rain"
+#: libgweather/gweather-weather.c:219
 msgid "heavy rain"
 msgstr "ਭਾਰੀ ਮੀਂਹ"
 
-#: ../libgweather/gweather-weather.c:220
-#| msgid "Rain showers"
+#: libgweather/gweather-weather.c:219
 msgid "rain showers"
 msgstr "ਮੀਂਹ ਦਆਂ ਫੁਹਾਰਾਂ"
 
-#: ../libgweather/gweather-weather.c:220
-#| msgid "Freezing rain"
+#: libgweather/gweather-weather.c:219
 msgid "freezing rain"
 msgstr "ਜਮਾਉ ਮੀਂਹ"
 
 #. SNOW
-#: ../libgweather/gweather-weather.c:221
+#: libgweather/gweather-weather.c:220
 msgid "snow"
 msgstr "ਬਰਫ਼ਬਾਰੀ"
 
-#: ../libgweather/gweather-weather.c:221
-#| msgid "Light snow"
+#: libgweather/gweather-weather.c:220
 msgid "light snow"
 msgstr "ਹਲਕੀ ਬਰਫ਼ਬਾਰੀ"
 
-#: ../libgweather/gweather-weather.c:221
-#| msgid "Moderate snow"
+#: libgweather/gweather-weather.c:220
 msgid "moderate snow"
 msgstr "ਮੱਧਮ ਬਰਫ਼ਬਾਰੀ"
 
-#: ../libgweather/gweather-weather.c:221
-#| msgid "Heavy snow"
+#: libgweather/gweather-weather.c:220
 msgid "heavy snow"
 msgstr "ਭਾਰੀ ਬਰਫ਼ਬਾਰੀ"
 
-#: ../libgweather/gweather-weather.c:221
-#| msgid "Snowstorm"
+#: libgweather/gweather-weather.c:220
 msgid "snowstorm"
 msgstr "ਬਰਫ਼ੀਲਾ ਤੂਫਾਨ"
 
-#: ../libgweather/gweather-weather.c:221
-#| msgid "Blowing snowfall"
+#: libgweather/gweather-weather.c:220
 msgid "blowing snowfall"
 msgstr "ਉੱਡਦੀ ਬਰਫ਼ਬਾਰੀ"
 
-#: ../libgweather/gweather-weather.c:221
-#| msgid "Snow showers"
+#: libgweather/gweather-weather.c:220
 msgid "snow showers"
 msgstr "ਬਰਫ਼ੀਲਆਂ ਵਾਛੜਾਂ"
 
-#: ../libgweather/gweather-weather.c:221
-#| msgid "Drifting snow"
+#: libgweather/gweather-weather.c:220
 msgid "drifting snow"
 msgstr "ਡਰਿਫ਼ਟ ਬਰਫ਼ਬਾਰੀ"
 
 #. SNOW_GRAINS
-#: ../libgweather/gweather-weather.c:222
-#| msgid "Snow grains"
+#: libgweather/gweather-weather.c:221
 msgid "snow grains"
 msgstr "ਬਰਫ਼ੀਲੀ ਗੜ੍ਹੇਮਾਰ"
 
-#: ../libgweather/gweather-weather.c:222
-#| msgid "Light snow grains"
+#: libgweather/gweather-weather.c:221
 msgid "light snow grains"
 msgstr "ਹਲਕੀ ਬਰਫ਼ੀਲੀ ਗੜ੍ਹੇਮਾਰ"
 
-#: ../libgweather/gweather-weather.c:222
-#| msgid "Moderate snow grains"
+#: libgweather/gweather-weather.c:221
 msgid "moderate snow grains"
 msgstr "ਮੱਧਮ ਬਰਫ਼ੀਲੀ ਗੜ੍ਹੇਮਾਰ"
 
-#: ../libgweather/gweather-weather.c:222
-#| msgid "Heavy snow grains"
+#: libgweather/gweather-weather.c:221
 msgid "heavy snow grains"
 msgstr "ਭਾਰੀ ਬਰਫ਼ੀਲੀ ਗੜੇਮਾਰ"
 
 #. ICE_CRYSTALS
-#: ../libgweather/gweather-weather.c:223
-#| msgid "Ice crystals"
+#: libgweather/gweather-weather.c:222
 msgid "ice crystals"
 msgstr "ਬਰਫ਼ੀਲੇ ਰਵੇ"
 
 #. ICE_PELLETS
-#: ../libgweather/gweather-weather.c:224
-#| msgid "Sleet"
+#: libgweather/gweather-weather.c:223
 msgid "sleet"
 msgstr "ਸਲੀਟ"
 
-#: ../libgweather/gweather-weather.c:224
-#| msgid "Little sleet"
+#: libgweather/gweather-weather.c:223
 msgid "little sleet"
 msgstr "ਹਲਕੀ ਸਲੀਟ"
 
-#: ../libgweather/gweather-weather.c:224
-#| msgid "Moderate sleet"
+#: libgweather/gweather-weather.c:223
 msgid "moderate sleet"
 msgstr "ਮੱਧਮ ਸਲੀਟ"
 
-#: ../libgweather/gweather-weather.c:224
-#| msgid "Heavy sleet"
+#: libgweather/gweather-weather.c:223
 msgid "heavy sleet"
 msgstr "ਭਾਰੀ ਸਲੀਟ"
 
-#: ../libgweather/gweather-weather.c:224
-#| msgid "Sleet storm"
+#: libgweather/gweather-weather.c:223
 msgid "sleet storm"
 msgstr "ਸਲੀਟ ਤੂਫਾਨ"
 
-#: ../libgweather/gweather-weather.c:224
-#| msgid "Showers of sleet"
+#: libgweather/gweather-weather.c:223
 msgid "showers of sleet"
 msgstr "ਸਲੀਟ ਦੀ ਵਾਛੜ"
 
 #. HAIL
-#: ../libgweather/gweather-weather.c:225
+#: libgweather/gweather-weather.c:224
 msgid "hail"
 msgstr "ਗੜ੍ਹੇ"
 
-#: ../libgweather/gweather-weather.c:225
-#| msgid "Hailstorm"
+#: libgweather/gweather-weather.c:224
 msgid "hailstorm"
 msgstr "ਗੜ੍ਹਿਆਂ ਦਾ ਤੂਫ਼ਾਨ"
 
-#: ../libgweather/gweather-weather.c:225
-#| msgid "Hail showers"
+#: libgweather/gweather-weather.c:224
 msgid "hail showers"
 msgstr "ਗੜ੍ਹਿਆਂ ਦ ਵਾਛੜ"
 
 #. SMALL_HAIL
-#: ../libgweather/gweather-weather.c:226
-#| msgid "Small hail"
+#: libgweather/gweather-weather.c:225
 msgid "small hail"
 msgstr "ਛੋਟੇ ਗੜ੍ਹੇ"
 
-#: ../libgweather/gweather-weather.c:226
-#| msgid "Small hailstorm"
+#: libgweather/gweather-weather.c:225
 msgid "small hailstorm"
 msgstr "ਛੋਟੇ ਗੜ੍ਹਿਆਂ ਦਾ ਤੂਫ਼ਾਨ"
 
-#: ../libgweather/gweather-weather.c:226
-#| msgid "Showers of small hail"
+#: libgweather/gweather-weather.c:225
 msgid "showers of small hail"
 msgstr "ਛੋਟੇ ਗੜ੍ਹੇ ਦੀ ਵਾਛੜ"
 
 #. PRECIPITATION
-#: ../libgweather/gweather-weather.c:227
-#| msgid "Unknown precipitation"
+#: libgweather/gweather-weather.c:226
 msgid "unknown precipitation"
 msgstr "ਬੇਉਮੀਦ ਮੀਂਹ"
 
 #. MIST
-#: ../libgweather/gweather-weather.c:228
+#: libgweather/gweather-weather.c:227
 msgid "mist"
 msgstr "ਕੋਹਰਾ"
 
 #. FOG
-#: ../libgweather/gweather-weather.c:229
-#| msgid "Fog"
+#: libgweather/gweather-weather.c:228
 msgid "fog"
 msgstr "ਧੁੰਦ"
 
-#: ../libgweather/gweather-weather.c:229
-#| msgid "Fog in the vicinity"
+#: libgweather/gweather-weather.c:228
 msgid "fog in the vicinity"
 msgstr "ਦਿੱਖ ਵਿੱਚ ਧੁੰਦ"
 
-#: ../libgweather/gweather-weather.c:229
-#| msgid "Shallow fog"
+#: libgweather/gweather-weather.c:228
 msgid "shallow fog"
 msgstr "ਹਲਕੀ ਧੁੰਦ"
 
-#: ../libgweather/gweather-weather.c:229
-#| msgid "Patches of fog"
+#: libgweather/gweather-weather.c:228
 msgid "patches of fog"
 msgstr "ਕਿਤੇ ਕਿਤੇ ਧੁੰਦ"
 
-#: ../libgweather/gweather-weather.c:229
-#| msgid "Partial fog"
+#: libgweather/gweather-weather.c:228
 msgid "partial fog"
 msgstr "ਥੋੜ੍ਹੀ ਧੁੰਦ"
 
-#: ../libgweather/gweather-weather.c:229
-#| msgid "Freezing fog"
+#: libgweather/gweather-weather.c:228
 msgid "freezing fog"
 msgstr "ਜਮਾਉ ਧੁੰਦ"
 
 #. SMOKE
-#: ../libgweather/gweather-weather.c:230
-#| msgid "Smoke"
+#: libgweather/gweather-weather.c:229
 msgid "smoke"
 msgstr "ਧੂੰਆਂ"
 
 #. VOLCANIC_ASH
-#: ../libgweather/gweather-weather.c:231
-#| msgid "Volcanic ash"
+#: libgweather/gweather-weather.c:230
 msgid "volcanic ash"
 msgstr "ਜਵਾਲਾਮੁਖੀ ਸੁਆਹ"
 
 #. SAND
-#: ../libgweather/gweather-weather.c:232
+#: libgweather/gweather-weather.c:231
 msgid "sand"
 msgstr "ਮਿੱਟੀ"
 
-#: ../libgweather/gweather-weather.c:232
-#| msgid "Blowing sand"
+#: libgweather/gweather-weather.c:231
 msgid "blowing sand"
 msgstr "ਵਗਦੀ ਮਿੱਟੀ"
 
-#: ../libgweather/gweather-weather.c:232
-#| msgid "Drifting sand"
+#: libgweather/gweather-weather.c:231
 msgid "drifting sand"
 msgstr "ਭਾਰੀ ਮਿੱਟੀ"
 
 #. HAZE
-#: ../libgweather/gweather-weather.c:233
+#: libgweather/gweather-weather.c:232
 msgid "haze"
 msgstr "ਘੱਟਾ"
 
 #. SPRAY
-#: ../libgweather/gweather-weather.c:234
-#| msgid "Blowing sprays"
+#: libgweather/gweather-weather.c:233
 msgid "blowing sprays"
 msgstr "ਵਗਦੀ ਭੂਰ"
 
 #. DUST
-#: ../libgweather/gweather-weather.c:235
+#: libgweather/gweather-weather.c:234
 msgid "dust"
 msgstr "ਘੱਟਾ"
 
-#: ../libgweather/gweather-weather.c:235
-#| msgid "Blowing dust"
+#: libgweather/gweather-weather.c:234
 msgid "blowing dust"
 msgstr "ਵਗਦਾ ਘੱਟਾ"
 
-#: ../libgweather/gweather-weather.c:235
-#| msgid "Drifting dust"
+#: libgweather/gweather-weather.c:234
 msgid "drifting dust"
 msgstr "ਭਾਰੀ ਘੱਟਾ"
 
 #. SQUALL
-#: ../libgweather/gweather-weather.c:236
-#| msgid "Squall"
+#: libgweather/gweather-weather.c:235
 msgid "squall"
 msgstr "ਝੱਖੜ"
 
 #. SANDSTORM
-#: ../libgweather/gweather-weather.c:237
-#| msgid "Sandstorm"
+#: libgweather/gweather-weather.c:236
 msgid "sandstorm"
 msgstr "ਮਿੱਟੀ ਦਾ ਤੂਫਾਨ"
 
-#: ../libgweather/gweather-weather.c:237
-#| msgid "Sandstorm in the vicinity"
+#: libgweather/gweather-weather.c:236
 msgid "sandstorm in the vicinity"
 msgstr "ਦਿੱਖ ਵਿੱਚ ਮਿੱਟੀ ਦਾ ਤੂਫਾਨ"
 
-#: ../libgweather/gweather-weather.c:237
-#| msgid "Heavy sandstorm"
+#: libgweather/gweather-weather.c:236
 msgid "heavy sandstorm"
 msgstr "ਭਾਰੀ ਮਿੱਟੀ ਦਾ ਤੂਫਾਨ"
 
 #. DUSTSTORM
-#: ../libgweather/gweather-weather.c:238
-#| msgid "Duststorm"
+#: libgweather/gweather-weather.c:237
 msgid "duststorm"
 msgstr "ਘੱਟਾ ਤੂਫਾਨ"
 
-#: ../libgweather/gweather-weather.c:238
-#| msgid "Duststorm in the vicinity"
+#: libgweather/gweather-weather.c:237
 msgid "duststorm in the vicinity"
 msgstr "ਦਿੱਖ ਵਿੱਚ ਘੱਟੇ ਦਾ ਤੂਫਾਨ"
 
-#: ../libgweather/gweather-weather.c:238
-#| msgid "Heavy duststorm"
+#: libgweather/gweather-weather.c:237
 msgid "heavy duststorm"
 msgstr "ਭਾਰੀ ਘੱਟੇ ਦਾ ਤੂਫਾਨ"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/gweather-weather.c:239
-#| msgid "Funnel cloud"
+#: libgweather/gweather-weather.c:238
 msgid "funnel cloud"
 msgstr "ਧੂੰਏ ਵਾਲੇ ਬੱਦਲ"
 
 #. TORNADO
-#: ../libgweather/gweather-weather.c:240
-#| msgid "Tornado"
+#: libgweather/gweather-weather.c:239
 msgid "tornado"
 msgstr "ਝੱਖੜ"
 
 #. DUST_WHIRLS
-#: ../libgweather/gweather-weather.c:241
-#| msgid "Dust whirls"
+#: libgweather/gweather-weather.c:240
 msgid "dust whirls"
 msgstr "ਘੱਟੇ ਦੇ ਵਾਵਰੋਲ"
 
-#: ../libgweather/gweather-weather.c:241
-#| msgid "Dust whirls in the vicinity"
+#: libgweather/gweather-weather.c:240
 msgid "dust whirls in the vicinity"
 msgstr "ਦਿੱਖ ਵਿੱਚ ਘੱਟੇ ਦੇ ਵਾਵਰੋਲੇ"
 
@@ -638,303 +543,303 @@ msgstr "ਦਿੱਖ ਵਿੱਚ ਘੱਟੇ ਦੇ ਵਾਵਰੋਲੇ"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/gweather-weather.c:254 ../libgweather/gweather-weather.c:256
+#: libgweather/gweather-weather.c:253 libgweather/gweather-weather.c:255
 msgid "Thunderstorm"
 msgstr "ਤੂਫ਼ਾਨ"
 
 #. DRIZZLE
-#: ../libgweather/gweather-weather.c:255
+#: libgweather/gweather-weather.c:254
 msgid "Drizzle"
 msgstr "ਬੂੰਦਾਬਾਂਦੀ"
 
-#: ../libgweather/gweather-weather.c:255
+#: libgweather/gweather-weather.c:254
 msgid "Light drizzle"
 msgstr "ਹਲਕੀ ਬੂੰਦਾਬਾਂਦੀ"
 
-#: ../libgweather/gweather-weather.c:255
+#: libgweather/gweather-weather.c:254
 msgid "Moderate drizzle"
 msgstr "ਮੱਧਮ ਬੂੰਦਾਬਾਂਦੀ"
 
-#: ../libgweather/gweather-weather.c:255
+#: libgweather/gweather-weather.c:254
 msgid "Heavy drizzle"
 msgstr "ਭਾਰੀ ਬੂੰਦਾਬਾਂਦੀ"
 
-#: ../libgweather/gweather-weather.c:255
+#: libgweather/gweather-weather.c:254
 msgid "Freezing drizzle"
 msgstr "ਜਮਾਉ ਬੂੰਦਾਬਾਂਦੀ"
 
 #. RAIN
-#: ../libgweather/gweather-weather.c:256
+#: libgweather/gweather-weather.c:255
 msgid "Rain"
 msgstr "ਮੀਂਹ"
 
-#: ../libgweather/gweather-weather.c:256
+#: libgweather/gweather-weather.c:255
 msgid "Light rain"
 msgstr "ਹਲਕਾ ਮੀਂਹ"
 
-#: ../libgweather/gweather-weather.c:256
+#: libgweather/gweather-weather.c:255
 msgid "Moderate rain"
 msgstr "ਮੱਧਮ ਮੀਂਹ"
 
-#: ../libgweather/gweather-weather.c:256
+#: libgweather/gweather-weather.c:255
 msgid "Heavy rain"
 msgstr "ਭਾਰੀ ਮੀਂਹ"
 
-#: ../libgweather/gweather-weather.c:256
+#: libgweather/gweather-weather.c:255
 msgid "Rain showers"
 msgstr "ਫੁਹਾਰਾਂ (ਮੀਂਹ)"
 
-#: ../libgweather/gweather-weather.c:256
+#: libgweather/gweather-weather.c:255
 msgid "Freezing rain"
 msgstr "ਜਮਾਉ ਮੀਹ"
 
 #. SNOW
-#: ../libgweather/gweather-weather.c:257
+#: libgweather/gweather-weather.c:256
 msgid "Snow"
 msgstr "ਬਰਫ਼ਬਾਰੀ"
 
-#: ../libgweather/gweather-weather.c:257
+#: libgweather/gweather-weather.c:256
 msgid "Light snow"
 msgstr "ਹਲਕੀ ਬਰਫ਼ਬਾਰੀ"
 
-#: ../libgweather/gweather-weather.c:257
+#: libgweather/gweather-weather.c:256
 msgid "Moderate snow"
 msgstr "ਮੱਧਮ ਬਰਫ਼ਬਾਰੀ"
 
-#: ../libgweather/gweather-weather.c:257
+#: libgweather/gweather-weather.c:256
 msgid "Heavy snow"
 msgstr "ਭਾਰੀ ਬਰਫ਼ਬਾਰੀ"
 
-#: ../libgweather/gweather-weather.c:257
+#: libgweather/gweather-weather.c:256
 msgid "Snowstorm"
 msgstr "ਬਰਫੀਲਾ ਤੂਫਾਨ"
 
-#: ../libgweather/gweather-weather.c:257
+#: libgweather/gweather-weather.c:256
 msgid "Blowing snowfall"
 msgstr "ਬਹੁਤ ਭਾਰੀ ਬਰਫ਼ਬਾਰੀ"
 
-#: ../libgweather/gweather-weather.c:257
+#: libgweather/gweather-weather.c:256
 msgid "Snow showers"
 msgstr "ਫੁਹਾਰ (ਬਰਫ਼)"
 
-#: ../libgweather/gweather-weather.c:257
+#: libgweather/gweather-weather.c:256
 msgid "Drifting snow"
 msgstr "ਬਰਫ਼ਬਾਰੀ"
 
 #. SNOW_GRAINS
-#: ../libgweather/gweather-weather.c:258
+#: libgweather/gweather-weather.c:257
 msgid "Snow grains"
 msgstr "ਬਰਫ਼ ਗੜੇਮਾਰ"
 
-#: ../libgweather/gweather-weather.c:258
+#: libgweather/gweather-weather.c:257
 msgid "Light snow grains"
 msgstr "ਹਲਕੀ ਗੜ੍ਹੇਮਾਰ"
 
-#: ../libgweather/gweather-weather.c:258
+#: libgweather/gweather-weather.c:257
 msgid "Moderate snow grains"
 msgstr "ਮੱਧਮ ਗੜ੍ਹੇਮਾਰ"
 
-#: ../libgweather/gweather-weather.c:258
+#: libgweather/gweather-weather.c:257
 msgid "Heavy snow grains"
 msgstr "ਭਾਰੀ ਗੜੇਮਾਰ"
 
 #. ICE_CRYSTALS
-#: ../libgweather/gweather-weather.c:259
+#: libgweather/gweather-weather.c:258
 msgid "Ice crystals"
 msgstr "ਬਰ ਰਵੇ"
 
 #. ICE_PELLETS
-#: ../libgweather/gweather-weather.c:260
+#: libgweather/gweather-weather.c:259
 msgid "Sleet"
 msgstr "ਸਲੀਟ (ਖੁਰੀ ਬਰਫ਼)"
 
-#: ../libgweather/gweather-weather.c:260
+#: libgweather/gweather-weather.c:259
 msgid "Little sleet"
 msgstr "ਹਲਕੀ ਸਲੀਟ"
 
-#: ../libgweather/gweather-weather.c:260
+#: libgweather/gweather-weather.c:259
 msgid "Moderate sleet"
 msgstr "ਮੱਧਮ ਸਲੀਟ"
 
-#: ../libgweather/gweather-weather.c:260
+#: libgweather/gweather-weather.c:259
 msgid "Heavy sleet"
 msgstr "ਭਾਰੀ ਸਲੀਟ"
 
-#: ../libgweather/gweather-weather.c:260
+#: libgweather/gweather-weather.c:259
 msgid "Sleet storm"
 msgstr "ਸਲੀਟ ਤੂਫਾਨ"
 
-#: ../libgweather/gweather-weather.c:260
+#: libgweather/gweather-weather.c:259
 msgid "Showers of sleet"
 msgstr "ਸਲੀਟ ਫੁਹਾਰ"
 
 #. HAIL
-#: ../libgweather/gweather-weather.c:261
+#: libgweather/gweather-weather.c:260
 msgid "Hail"
 msgstr "ਗੜ੍ਹੇ"
 
-#: ../libgweather/gweather-weather.c:261
+#: libgweather/gweather-weather.c:260
 msgid "Hailstorm"
 msgstr "ਗੜਿਆਂ ਦਾ ਤੂਫ਼ਾਨ"
 
-#: ../libgweather/gweather-weather.c:261
+#: libgweather/gweather-weather.c:260
 msgid "Hail showers"
 msgstr "ਫੁਹਾਰ (ਗੜ੍ਹੇ)"
 
 #. SMALL_HAIL
-#: ../libgweather/gweather-weather.c:262
+#: libgweather/gweather-weather.c:261
 msgid "Small hail"
 msgstr "ਛਟੇ ਗੜ੍ਹੇ"
 
-#: ../libgweather/gweather-weather.c:262
+#: libgweather/gweather-weather.c:261
 msgid "Small hailstorm"
 msgstr "ਛੋਟੇ ਗੜ੍ਹੇ (ਤੂਫਾਨ)"
 
-#: ../libgweather/gweather-weather.c:262
+#: libgweather/gweather-weather.c:261
 msgid "Showers of small hail"
 msgstr "ਛੋਟੇ ਗੜ੍ਹੇ ਦੀ ਫੁਹਾਰ"
 
 #. PRECIPITATION
-#: ../libgweather/gweather-weather.c:263
+#: libgweather/gweather-weather.c:262
 msgid "Unknown precipitation"
 msgstr "ਬੇਉਮੀਦ ਮੀਹ"
 
 #. MIST
-#: ../libgweather/gweather-weather.c:264
+#: libgweather/gweather-weather.c:263
 msgid "Mist"
 msgstr "ਕੋਹਰਾ"
 
 #. FOG
-#: ../libgweather/gweather-weather.c:265
+#: libgweather/gweather-weather.c:264
 msgid "Fog"
 msgstr "ਧੁੰਦ"
 
-#: ../libgweather/gweather-weather.c:265
+#: libgweather/gweather-weather.c:264
 msgid "Fog in the vicinity"
 msgstr "ਦਿੱਖ ਵਿੱਚ ਧੁੰਦ"
 
-#: ../libgweather/gweather-weather.c:265
+#: libgweather/gweather-weather.c:264
 msgid "Shallow fog"
 msgstr "ਹਲਕੀ ਧੁੰਦ"
 
-#: ../libgweather/gweather-weather.c:265
+#: libgweather/gweather-weather.c:264
 msgid "Patches of fog"
 msgstr "ਧੁੰਦ ਦੇ ਸਮੂਹ"
 
-#: ../libgweather/gweather-weather.c:265
+#: libgweather/gweather-weather.c:264
 msgid "Partial fog"
 msgstr "ਥੋੜੀ ਧੁੰਦ"
 
-#: ../libgweather/gweather-weather.c:265
+#: libgweather/gweather-weather.c:264
 msgid "Freezing fog"
 msgstr "ਜਮਾਉ ਧੁੰਦ"
 
 #. SMOKE
-#: ../libgweather/gweather-weather.c:266
+#: libgweather/gweather-weather.c:265
 msgid "Smoke"
 msgstr "ਧੂੰਆਂ"
 
 #. VOLCANIC_ASH
-#: ../libgweather/gweather-weather.c:267
+#: libgweather/gweather-weather.c:266
 msgid "Volcanic ash"
 msgstr "ਜਵਾਲਾਮੁਖੀ ਸੁਆਹ"
 
 #. SAND
-#: ../libgweather/gweather-weather.c:268
+#: libgweather/gweather-weather.c:267
 msgid "Sand"
 msgstr "ਮਿੱਟੀ"
 
-#: ../libgweather/gweather-weather.c:268
+#: libgweather/gweather-weather.c:267
 msgid "Blowing sand"
 msgstr "ਵਗਦੀ ਮਿੱਟੀ"
 
-#: ../libgweather/gweather-weather.c:268
+#: libgweather/gweather-weather.c:267
 msgid "Drifting sand"
 msgstr "ਭਾਰੀ ਮਿੱਟੀ"
 
 #. HAZE
-#: ../libgweather/gweather-weather.c:269
+#: libgweather/gweather-weather.c:268
 msgid "Haze"
 msgstr "ਘੱਟਾ"
 
 #. SPRAY
-#: ../libgweather/gweather-weather.c:270
+#: libgweather/gweather-weather.c:269
 msgid "Blowing sprays"
 msgstr "ਵਗਦੀ ਫੁਹਾਰ"
 
 #. DUST
-#: ../libgweather/gweather-weather.c:271
+#: libgweather/gweather-weather.c:270
 msgid "Dust"
 msgstr "ਘੱਟਾ"
 
-#: ../libgweather/gweather-weather.c:271
+#: libgweather/gweather-weather.c:270
 msgid "Blowing dust"
 msgstr "ਵਗਦਾ ਘੱਟਾ"
 
-#: ../libgweather/gweather-weather.c:271
+#: libgweather/gweather-weather.c:270
 msgid "Drifting dust"
 msgstr "ਭਾਰੀ ਘੱਟਾ"
 
 #. SQUALL
-#: ../libgweather/gweather-weather.c:272
+#: libgweather/gweather-weather.c:271
 msgid "Squall"
 msgstr "ਝੱਖੜ"
 
 #. SANDSTORM
-#: ../libgweather/gweather-weather.c:273
+#: libgweather/gweather-weather.c:272
 msgid "Sandstorm"
 msgstr "ਮਿੱਟੀ ਦਾ ਤੂਫਾਨ"
 
-#: ../libgweather/gweather-weather.c:273
+#: libgweather/gweather-weather.c:272
 msgid "Sandstorm in the vicinity"
 msgstr "ਦਿੱਖ ਵਿੱਚ ਮਿੱਟੀ ਦਾ ਤੂਫਾਨ"
 
-#: ../libgweather/gweather-weather.c:273
+#: libgweather/gweather-weather.c:272
 msgid "Heavy sandstorm"
 msgstr "ਭਾਰੀ ਮਿੱਟੀ ਦਾ ਤੂਫਾਨ"
 
 #. DUSTSTORM
-#: ../libgweather/gweather-weather.c:274
+#: libgweather/gweather-weather.c:273
 msgid "Duststorm"
 msgstr "ਘੱਟਾ ਤੂਫਾਨ"
 
-#: ../libgweather/gweather-weather.c:274
+#: libgweather/gweather-weather.c:273
 msgid "Duststorm in the vicinity"
 msgstr "ਦਿੱਖ ਵਿੱਚ ਘੱਟੇ ਦਾ ਤੂਫਾਨ"
 
-#: ../libgweather/gweather-weather.c:274
+#: libgweather/gweather-weather.c:273
 msgid "Heavy duststorm"
 msgstr "ਭਾਰੀ ਘੱਟੇ ਦਾ ਤੂਫਾਨ"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/gweather-weather.c:275
+#: libgweather/gweather-weather.c:274
 msgid "Funnel cloud"
 msgstr "ਧੂੰਆਂ ਬੱਦਲ"
 
 #. TORNADO
-#: ../libgweather/gweather-weather.c:276
+#: libgweather/gweather-weather.c:275
 msgid "Tornado"
 msgstr "ਝੱਖੜ"
 
 #. DUST_WHIRLS
-#: ../libgweather/gweather-weather.c:277
+#: libgweather/gweather-weather.c:276
 msgid "Dust whirls"
 msgstr "ਘੱਟੇ ਦੇ ਵਾਵਰੋਲੇ"
 
-#: ../libgweather/gweather-weather.c:277
+#: libgweather/gweather-weather.c:276
 msgid "Dust whirls in the vicinity"
 msgstr "ਦਿੱਖ ਵਿੱਚ ਘੱਟੇ ਦੇ ਵਾਵਰੋਲੇ"
 
-#: ../libgweather/gweather-weather.c:800
+#: libgweather/gweather-weather.c:845
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a, %d %b / %H:%M"
 
-#: ../libgweather/gweather-weather.c:806
+#: libgweather/gweather-weather.c:851
 msgid "Unknown observation time"
 msgstr "ਅਣਜਾਣ ਜਾਣਕਾਰੀ ਟਾਈਮ"
 
 # gnome-session/gsm-client-row.c:43
-#: ../libgweather/gweather-weather.c:818
+#: libgweather/gweather-weather.c:863
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
@@ -945,92 +850,100 @@ msgstr "ਅਣਜਾਣ"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: ../libgweather/gweather-weather.c:840
+#: libgweather/gweather-weather.c:885
 msgid "default:mm"
 msgstr "default:mm"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
-#: ../libgweather/gweather-weather.c:892
-#, c-format
-msgid "%.1f ℉"
-msgstr "%.1f ℉"
-
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
-#: ../libgweather/gweather-weather.c:895
-#, c-format
-msgid "%d ℉"
-msgstr "%d ℉"
-
-#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
-#: ../libgweather/gweather-weather.c:901
-#, c-format
-msgid "%.1f ℃"
-msgstr "%.1f ℃"
-
-#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
-#: ../libgweather/gweather-weather.c:904
-#, c-format
-msgid "%d ℃"
-msgstr "%d ℃"
-
-#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
-#: ../libgweather/gweather-weather.c:910
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:938
 #, c-format
 #| msgid "%.1f ℉"
-msgid "%.1f K"
-msgstr "%.1f K"
+msgid "%.1f ℉"
+msgstr "%.1f ℉"
+
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)i
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:942
+#, c-format
+msgid "%d ℉"
+msgstr ""
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:949
+#, c-format
+#| msgid "%.1f ℃"
+msgid "%.1f ℃"
+msgstr "%.1f ℃"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:953
+#, c-format
+msgid "%d ℃"
+msgstr ""
 
 #. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
-#: ../libgweather/gweather-weather.c:913
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:960
 #, c-format
-msgid "%d K"
-msgstr "%d K"
+#| msgid "%.1f K"
+msgid "%.1f K"
+msgstr "%.1f K"
+
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#. * with a non-break space (U+00A0) between the digits and the degrees sign
+#: libgweather/gweather-weather.c:964
+#, c-format
+msgid "%d K"
+msgstr ""
 
 # gnome-session/gsm-client-row.c:43
-#: ../libgweather/gweather-weather.c:936 ../libgweather/gweather-weather.c:952
-#: ../libgweather/gweather-weather.c:968 ../libgweather/gweather-weather.c:1030
+#: libgweather/gweather-weather.c:987 libgweather/gweather-weather.c:1003
+#: libgweather/gweather-weather.c:1019 libgweather/gweather-weather.c:1081
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
 
 # gnome-session/gsm-client-row.c:43
-#: ../libgweather/gweather-weather.c:990
+#: libgweather/gweather-weather.c:1041
 msgctxt "dew"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
 
 # gnome-session/gsm-client-row.c:43
-#: ../libgweather/gweather-weather.c:1010
+#: libgweather/gweather-weather.c:1061
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/gweather-weather.c:1013
+#: libgweather/gweather-weather.c:1064
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/gweather-weather.c:1059
+#: libgweather/gweather-weather.c:1110
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f ਨਾਟ"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/gweather-weather.c:1062
+#: libgweather/gweather-weather.c:1113
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f mph"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/gweather-weather.c:1065
+#: libgweather/gweather-weather.c:1116
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f km/h"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/gweather-weather.c:1068
+#: libgweather/gweather-weather.c:1119
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f m/s"
@@ -1038,114 +951,117 @@ msgstr "%.1f m/s"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/gweather-weather.c:1073
+#: libgweather/gweather-weather.c:1124
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "Beaufort ਬਲ %.1f"
 
 # gnome-session/gsm-client-row.c:43
-#: ../libgweather/gweather-weather.c:1094
+#: libgweather/gweather-weather.c:1145
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
 
-#: ../libgweather/gweather-weather.c:1096
+#: libgweather/gweather-weather.c:1147
 msgid "Calm"
 msgstr "ਕੈਲਮ"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/gweather-weather.c:1104
+#: libgweather/gweather-weather.c:1155
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
 # gnome-session/gsm-client-row.c:43
-#: ../libgweather/gweather-weather.c:1140
+#: libgweather/gweather-weather.c:1191
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/gweather-weather.c:1146
+#: libgweather/gweather-weather.c:1197
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f inHg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/gweather-weather.c:1149
+#: libgweather/gweather-weather.c:1200
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f mmHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/gweather-weather.c:1152
+#: libgweather/gweather-weather.c:1203
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f kPa"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/gweather-weather.c:1155
+#: libgweather/gweather-weather.c:1206
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f hPa"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/gweather-weather.c:1158
+#: libgweather/gweather-weather.c:1209
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f mb"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/gweather-weather.c:1161
+#: libgweather/gweather-weather.c:1212
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f atm"
 
 # gnome-session/gsm-client-row.c:43
-#: ../libgweather/gweather-weather.c:1199
+#: libgweather/gweather-weather.c:1250
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/gweather-weather.c:1205
+#: libgweather/gweather-weather.c:1256
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f ਮੀਲ"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/gweather-weather.c:1208
+#: libgweather/gweather-weather.c:1259
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f km"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/gweather-weather.c:1211
+#: libgweather/gweather-weather.c:1262
 #, c-format
 msgid "%.0fm"
 msgstr "%.0fm"
 
-#: ../libgweather/gweather-weather.c:1239
-#: ../libgweather/gweather-weather.c:1264
+#: libgweather/gweather-weather.c:1290 libgweather/gweather-weather.c:1315
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
-#: ../libgweather/gweather-weather.c:1358
+#: libgweather/gweather-weather.c:1407
 msgid "Retrieval failed"
 msgstr "ਮੁੜ-ਪ੍ਰਾਪਤੀ ਫੇਲ੍ਹ"
 
 #. Translators: %d is an error code, and %s the error string
-#: ../libgweather/weather-metar.c:573
+#: libgweather/weather-metar.c:599
 #, c-format
 msgid "Failed to get METAR data: %d %s.\n"
 msgstr "ਮੀਟਰ ਡਾਟਾ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਨ ਵਿੱਚ ਫੇਲ੍ਹ: %d %s\n"
 
-#: ../libgweather/weather-owm.c:383
+#: libgweather/weather-owm.c:399
+#| msgid ""
+#| "Weather data from the <a href=\"http://openweathermap.org\">Open Weather "
+#| "Map project</a>"
 msgid ""
-"Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
-"project</a>"
+"Weather data from the <a href=\"https://openweathermap.org\">Open Weather "
+"Map project</a>"
 msgstr ""
-"<a href=\"http://openweathermap.org\">ਓਪਨ ਮੌਸਮ ਨਕਸ਼ਾ ਪਰੋਜੈਕਟ</a> ਤੋਂ ਮੌਸਮ ਡਾਟਾ"
+"<a href=\"https://openweathermap.org\">ਓਪਨ ਮੌਸਮ ਨਕਸ਼ਾ ਪਰੋਜੈਕਟ</a> ਤੋਂ ਮੌਸਮੀ"
+" ਡਾਟਾ"
 
 #. The new (documented but not advertised) API is less strict in the
 #. format of the attribution, and just requires a generic CC-BY compatible
@@ -1153,34 +1069,33 @@ msgstr ""
 #.
 #. That's very nice of them!
 #.
-#: ../libgweather/weather-yrno.c:507
+#: libgweather/weather-yrno.c:386
 #| msgid ""
-#| "Weather data from the <a href=\"https://www.met.no/\">Norwegian Meteorological "
-#| "Institute</a>"
+#| "Weather data from the <a href=\"http://www.met.no/\">Norwegian "
+#| "Meteorological Institute</a>"
 msgid ""
-"Weather data from the <a href=\"http://www.met.no/\">Norwegian "
-"Meteorological Institute</a>"
-msgstr "<a href=\"http://www.met.no/\">ਨਾਰਵੇ ਦੇ ਮੌਸਮੀ ਸੰਗਠਨ</a> ਤੋਂ ਮੌਸਮੀ ਡਾਟਾ"
+"Weather data from the <a href=\"https://www.met.no/\">Norwegian "
+"Meteorological Institute</a>."
+msgstr ""
+"<a href=\"https://www.met.no/\">ਨਾਰਵੇ ਦੇ ਮੌਸਮੀ ਸੰਗਠਨ</a> ਤੋਂ ਮੌਸਮੀ ਡਾਟਾ"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:1
+#: schemas/org.gnome.GWeather.gschema.xml:5
 msgid "URL for the radar map"
 msgstr "ਰਾਡਾਰ ਨਕਸ਼ੇ ਲਈ URL"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:2
+#: schemas/org.gnome.GWeather.gschema.xml:6
 msgid ""
 "The custom URL from where to retrieve a radar map, or empty for disabling "
 "radar maps."
 msgstr ""
-"ਪਸੰਦੀਦਾ URL, ਜਿਥੋਂ ਕਿ ਰੇਡਾਰ ਨਕਸ਼ਾ ਪ੍ਰਾਪਤ ਕਰਨਾ ਹੈ ਜਾਂ ਰੇਡਾਰ ਨਕਸ਼ਿਆਂ ਨੂੰ ਬੰਦ ਕਰਨ ਲਈ ਖਾਲੀ ਛੱਡੋ।"
+"ਪਸੰਦੀਦਾ URL, ਜਿਥੋਂ ਕਿ ਰੇਡਾਰ ਨਕਸ਼ਾ ਪ੍ਰਾਪਤ ਕਰਨਾ ਹੈ ਜਾਂ ਰੇਡਾਰ ਨਕਸ਼ਿਆਂ ਨੂੰ ਬੰਦ ਕਰਨ"
+" ਲਈ ਖਾਲੀ ਛੱਡੋ।"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:3
+#: schemas/org.gnome.GWeather.gschema.xml:13
 msgid "Temperature unit"
 msgstr "ਤਾਪਮਾਨ ਯੂਨਿਟ"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:4
-#| msgid ""
-#| "The unit of temperature used for showing weather. Valid values are "
-#| "'kelvin', 'centigrade' and 'fahrenheit'."
+#: schemas/org.gnome.GWeather.gschema.xml:14
 msgid ""
 "The unit of temperature used for showing weather. Valid values are “kelvin”, "
 "“centigrade” and “fahrenheit”."
@@ -1188,32 +1103,25 @@ msgstr ""
 "ਮੌਸਮ ਵੇਖਾਉਣ ਲਈ ਤਾਪਮਾਨ ਦੀ ਇਕਾਈ ਹੈ। ਠੀਕ ਮੁੱਲ ਹਨ “centigrade“, “kelvin“, ਅਤੇ "
 "“fahrenheit“।"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
+#: schemas/org.gnome.GWeather.gschema.xml:21
 msgid "Distance unit"
 msgstr "ਦੂਰੀ ਯੂਨਿਟ"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
-#| msgid ""
-#| "The unit of distance used for showing weather (for example for visibility "
-#| "or for distance of important events). Valid values are 'meters', 'km' and "
-#| "'miles'."
+#: schemas/org.gnome.GWeather.gschema.xml:22
 msgid ""
 "The unit of distance used for showing weather (for example for visibility or "
 "for distance of important events). Valid values are “meters”, “km” and "
 "“miles”."
 msgstr ""
-"ਮੌਸਮ ਵੇਖਾਉਣ ਲਈ ਵਰਤਣ ਵਾਸਤੇ ਦੂਰੀ ਦੀ ਇਕਾਈ ਹੈ (ਮਿਸਾਲ ਲਈ ਦਿੱਖ ਜਾਂ ਖਾਸ ਘਟਨਾਵਾਂ ਦੀ ਦੂਰੀ)। "
+"ਮੌਸਮ ਵੇਖਾਉਣ ਲਈ ਵਰਤਣ ਵਾਸਤੇ ਦੂਰੀ ਦੀ ਇਕਾਈ ਹੈ (ਮਿਸਾਲ ਲਈ ਦਿੱਖ ਜਾਂ ਖਾਸ ਘਟਨਾਵਾਂ ਦੀ"
+" ਦੂਰੀ)। "
 "ਸਹੀ ਮੁੱਲ ਹਨ “km“,  “meters“ ਅਤੇ “miles“"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
+#: schemas/org.gnome.GWeather.gschema.xml:29
 msgid "Speed unit"
 msgstr "ਗਤੀ ਯੂਨਿਟ"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:8
-#| msgid ""
-#| "The unit of speed used for showing weather (for example for wind speed). "
-#| "Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
-#| "'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+#: schemas/org.gnome.GWeather.gschema.xml:30
 msgid ""
 "The unit of speed used for showing weather (for example for wind speed). "
 "Valid values are “ms” (meters per second), “kph” (kilometers per hour), "
@@ -1223,43 +1131,81 @@ msgstr ""
 "“kph“ (ਕਿਲੋਮੀਟਰ ਪ੍ਰਤੀ ਘੰਟਾ), “ms“ (ਮੀਟਰ ਪ੍ਰਤੀ ਸਕਿੰਟ), “mph“ (ਮੀਲ ਪ੍ਰਤੀ ਘੰਟਾ), "
 "“knots“ ਅਤੇ “bft“ (ਬਾਉਫੋਰਟ ਸਕੇਲ)।"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:9
+#: schemas/org.gnome.GWeather.gschema.xml:38
 msgid "Pressure unit"
 msgstr "ਦਬਾਉ ਯੂਨਿਟ"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
-#| msgid ""
-#| "The unit of pressure used for showing weather. Valid values are "
-#| "'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
-#| "equivalent to 1 hPa but shown differently), 'mm-hg' (millimeters of "
-#| "mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+#: schemas/org.gnome.GWeather.gschema.xml:39
 msgid ""
 "The unit of pressure used for showing weather. Valid values are "
 "“kpa” (kilopascal), “hpa” (hectopascal), “mb” (millibar, mathematically "
 "equivalent to 1 hPa but shown differently), “mm-hg” (millimeters of "
 "mercury), “inch-hg” (inches of mercury), “atm” (atmospheres)."
 msgstr ""
-"ਮੌਸਮ ਵਿੱਚ ਵੇਖਾਉਣ ਲਈ ਦਬਾਉ ਇਕਾਈ। ਮੁੱਲ ਹਨ: “kpa“ (ਕਿਲੋਪਾਸਕਲ), “hpa“ (ਹੈਕਟੋਪਾਕਸਲ), "
+"ਮੌਸਮ ਵਿੱਚ ਵੇਖਾਉਣ ਲਈ ਦਬਾਉ ਇਕਾਈ। ਮੁੱਲ ਹਨ: “kpa“ (ਕਿਲੋਪਾਸਕਲ), “hpa“"
+" (ਹੈਕਟੋਪਾਕਸਲ), "
 "“mb“ (ਮਿਲੀਬਾਰ, ਅੰਕੀ ਹਿਸਾਬ ਨਾਲ 1 hPa ਦੇ ਬਰਾਬਰ, ਪਰ ਵੇਖਾਇਆ ਵੱਖ ਜਾਂਦਾ ਹੈ), “mm-"
 "hg“ (ਪਾਰੇ ਦਾ ਇੱਕ ਮਿਲੀਮੀਟਰ), “inch-hg“ (ਪਾਰਾ ਇੰਚਾਂ ਵਿੱਚ), “atm“ (ਆਟਮੋਸਫੀਅਰ)"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
+#. TRANSLATORS: pick a default location to use in the weather applet. This should
+#. usually be the largest city or the capital of your country. If you're not picking
+#. a <location> in the database, don't forget to set name and coordinates.
+#. Do NOT change or localize the quotation marks!
+#: schemas/org.gnome.GWeather.gschema.xml:51
+msgid "('', 'KNYC', nothing)"
+msgstr "('Amritsar', 'KNYC', ਕੋਈ ਨਹੀਂ)"
+
+#: schemas/org.gnome.GWeather.gschema.xml:52
 msgid "Default location"
 msgstr "ਮੂਲ ਟਿਕਾਣਾ"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
+#: schemas/org.gnome.GWeather.gschema.xml:53
+#| msgid ""
+#| "The default location for the weather applet. The first field is the name "
+#| "that will be shown. If empty, it will be taken from the locations "
+#| "database. The second field is the METAR code for the default weather "
+#| "station. It must not be empty and must correspond to a &lt;code&gt; tag "
+#| "in the Locations.xml file. The third field is a tuple of (latitude, "
+#| "longitude), to override the value taken from the database. This is only "
+#| "used for sunrise and moon phase calculations, not for weather forecast."
 msgid ""
 "The default location for the weather applet. The first field is the name "
 "that will be shown. If empty, it will be taken from the locations database. "
 "The second field is the METAR code for the default weather station. It must "
-"not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml "
-"file. The third field is a tuple of (latitude, longitude), to override the "
-"value taken from the database. This is only used for sunrise and moon phase "
+"not be empty and must correspond to a <code> tag in the Locations.xml file. "
+"The third field is a tuple of (latitude, longitude), to override the value "
+"taken from the database. This is only used for sunrise and moon phase "
 "calculations, not for weather forecast."
 msgstr ""
-"ਮੌਸਮ ਟਿਕਾਣਾ ਲਈ ਮੂਲ ਟਿਕਾਣਾ ਹੈ। ਪਹਿਲਾਂ ਖੇਤਰ ਨਾਂ ਹੈ, ਜੋ ਕਿ ਵੇਖਾਇਆ ਜਾਵੇਗਾ। ਜੇ ਖਾਲੀ ਹੈ ਤਾਂ ਇਸ "
-"ਨੂੰ ਟਿਕਾਣਾ ਡਾਟਾਬੇਸ ਵੱਚੋਂ ਲਿਆ ਜਾਵੇਗਾ। ਦੂਜਾ ਖੇਤਰ ਹੈ ਮੂਲ ਮੌਸਮ ਵਿਭਾਗ ਦਾ METAR ਕੋਡ ਹੈ। ਇਹ ਖਾਲੀ "
-"ਨਹੀਂ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ ਅਤੇ Locations.xml ਫਾਇਲ ਵਿੱਚੋਂ &lt;code&gt; ਟੈਗ ਦੇ ਨਾਲ ਸਬੰਧਿਤ ਹੋਣਾ "
-"ਚਾਹੀਦਾ ਹੈ। ਤੀਜਾ ਖੇਤਰ ਹੈ (ਲੰਬਕਾਰੀ, ਵਿਥਕਾਰੀ) ਦਾ ਦੂਹਰਾ ਮੁੱਲ (ਟੱਪਲ), ਜੋ ਕਿ ਡਾਟਾਬੇਸ ਮੁੱਲ ਨੂੰ "
-"ਅਣਡਿੱਠਾ ਕਰੇ। ਇਹ ਕੇਵਲ ਸੂਰਜ-ਚੜ੍ਹਨ ਅਤੇ ਚੰਦ ਕਲਾਵਾਂ ਕੱਢਣ ਲਈ ਹੀ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਨਾ ਕਿ ਮੌਸਮ ਦੀ "
+"ਮੌਸਮ ਟਿਕਾਣਾ ਲਈ ਮੂਲ ਟਿਕਾਣਾ ਹੈ। ਪਹਿਲਾਂ ਖੇਤਰ ਨਾਂ ਹੈ, ਜੋ ਕਿ ਵੇਖਾਇਆ ਜਾਵੇਗਾ। ਜੇ"
+" ਖਾਲੀ ਹੈ ਤਾਂ ਇਸ "
+"ਨੂੰ ਟਿਕਾਣਾ ਡਾਟਾਬੇਸ ਵੱਚੋਂ ਲਿਆ ਜਾਵੇਗਾ। ਦੂਜਾ ਖੇਤਰ ਹੈ ਮੂਲ ਮੌਸਮ ਵਿਭਾਗ ਦਾ METAR ਕੋਡ"
+" ਹੈ। ਇਹ ਖਾਲੀ "
+"ਨਹੀਂ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ ਅਤੇ Locations.xml ਫਾਇਲ ਵਿੱਚੋਂ <code> ਟੈਗ ਦੇ ਨਾਲ ਸਬੰਧਿਤ"
+" ਹੋਣਾ "
+"ਚਾਹੀਦਾ ਹੈ। ਤੀਜਾ ਖੇਤਰ ਹੈ (ਲੰਬਕਾਰੀ, ਵਿਥਕਾਰੀ) ਦਾ ਦੂਹਰਾ ਮੁੱਲ (ਟੱਪਲ), ਜੋ ਕਿ"
+" ਡਾਟਾਬੇਸ ਮੁੱਲ ਨੂੰ "
+"ਅਣਡਿੱਠਾ ਕਰੇ। ਇਹ ਕੇਵਲ ਸੂਰਜ-ਚੜ੍ਹਨ ਅਤੇ ਚੰਦ ਕਲਾਵਾਂ ਕੱਢਣ ਲਈ ਹੀ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਨਾ"
+" ਕਿ ਮੌਸਮ ਦੀ "
 "ਭਵਿੱਖਬਾਣੀ ਕਰਨੀ ਲਈ।"
+
+#~ msgid "Location Entry"
+#~ msgstr "ਟਿਕਾਣਾ ਐਂਟਰੀ"
+
+#~ msgid "Timezone Menu"
+#~ msgstr "ਸਮਾਂ-ਖੇਤਰ ਮੇਨੂ"
+
+#~ msgid "Timezone"
+#~ msgstr "ਸਮਾਂ-ਖੇਤਰ"
+
+#~ msgid "GWeather"
+#~ msgstr "ਜੀ-ਮੌਸਮ"
+
+#~ msgid "%d ℉"
+#~ msgstr "%d ℉"
+
+#~ msgid "%d ℃"
+#~ msgstr "%d ℃"
+
+#~ msgid "%d K"
+#~ msgstr "%d K"
