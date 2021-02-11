@@ -557,7 +557,7 @@ gweather_location_get_parent (GWeatherLocation *loc)
  *     }
  * ]|
  *
- * Returns: (transfer full): The next child, or %NULL
+ * Returns: (transfer full) (nullable): The next child, or %NULL
  *
  * Since: 40
  **/
