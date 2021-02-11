@@ -543,7 +543,7 @@ gweather_location_get_parent (GWeatherLocation *loc)
 /**
  * gweather_location_next_child:
  * @loc: a #GWeatherLocation
- * @child: (transfer full): The child
+ * @child: (transfer full) (nullable): The child
  *
  * Allows iterating all children. Pass %NULL to get the first child,
  * and any child to get the next one. Note that the reference to @child
