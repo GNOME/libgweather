@@ -735,7 +735,7 @@ match_selected (GtkEntryCompletion *completion,
 	char *display_name;
 	GeocodeLocation *loc;
 	GWeatherLocation *location;
-	GWeatherLocation *scope;
+	GWeatherLocation *scope = NULL;
 	const char* country_code;
 
 	gtk_tree_model_get (model, iter,
