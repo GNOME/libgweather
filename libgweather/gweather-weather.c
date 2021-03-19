@@ -634,6 +634,30 @@ dump_and_unref_cache (SoupCache *cache)
 
 static SoupSession *static_session;
 
+static const char *
+app_id (void)
+{
+    GApplication *app = g_application_get_default ();
+    const char *id;
+
+    if (app) {
+        id = g_application_get_application_id (app);
+        if (id)
+            return id;
+    }
+
+    return g_get_prgname ();
+}
+
+static const char *
+user_agent (void)
+{
+    static char *ua = NULL;
+    if (ua == NULL)
+        ua = g_strdup_printf ("libgweather/%s (+https://gitlab.gnome.org/GNOME/libgweather/) (%s) ", LIBGWEATHER_VERSION, app_id ());
+    return ua;
+}
+
 static SoupSession *
 ref_session (void)
 {
@@ -646,8 +670,7 @@ ref_session (void)
 	return g_object_ref (session);
 
     session = soup_session_new ();
-    g_object_set (G_OBJECT (session), SOUP_SESSION_USER_AGENT,
-                  "libgweather/" LIBGWEATHER_VERSION " (+https://gitlab.gnome.org/GNOME/libgweather/) ", NULL);
+    g_object_set (G_OBJECT (session), SOUP_SESSION_USER_AGENT, user_agent (), NULL);
 
     cache = get_cache ();
     if (cache != NULL) {
