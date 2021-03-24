@@ -293,14 +293,15 @@ fill_info_from_node (GWeatherInfo *info,
 
 static void
 parse_forecast_xml_new (GWeatherInfo *original_info,
-                        SoupMessageBody *body)
+                        const char *data,
+                        gsize length)
 {
     xmlDocPtr doc;
     xmlXPathContextPtr xpath_ctx;
     xmlXPathObjectPtr xpath_result;
     int i;
 
-    doc = xmlParseMemory (body->data, body->length);
+    doc = xmlParseMemory (data, length);
     if (!doc)
         return;
 
@@ -377,6 +378,59 @@ out:
     xmlFreeDoc (doc);
 }
 
+#if SOUP_CHECK_VERSION (2, 99, 2)
+static void
+metno_finish_new (GObject *source,
+                  GAsyncResult *result,
+                  gpointer data)
+{
+    GWeatherInfo *info;
+    WeatherLocation *loc;
+    SoupSession *session = SOUP_SESSION (source);
+    SoupMessage *msg = soup_session_get_async_result_message (session, result);
+    GBytes *body;
+    GError *error = NULL;
+    guint num_forecasts;
+    const char *content;
+    gsize body_size;
+
+    body = soup_session_send_and_read_finish (session, result, &error);
+
+    if (!body) {
+        /* forecast data is not really interesting anyway ;) */
+        if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
+            g_debug ("Failed to get met.no forecast data: %s\n", error->message);
+            return;
+        }
+        g_message ("Failed to get met.no forecast data: %s\n", error->message);
+        g_clear_error (&error);
+        _gweather_info_request_done (data, msg);
+        return;
+    } else if (!SOUP_STATUS_IS_SUCCESSFUL (soup_message_get_status (msg))) {
+        g_message ("Failed to get met.no forecast data: %d %s\n",
+                   soup_message_get_status (msg),
+                   soup_message_get_reason_phrase (msg));
+        _gweather_info_request_done (data, msg);
+        return;
+    }
+
+    content = g_bytes_get_data (body, &body_size);
+
+    info = data;
+    loc = &info->location;
+    g_debug ("metno data for %lf, %lf", loc->latitude, loc->longitude);
+    g_debug ("%s", content);
+
+    parse_forecast_xml_new (info, content, body_size);
+    num_forecasts = g_slist_length (info->forecast_list);
+    g_debug ("metno parsed %d forecast infos", num_forecasts);
+    if (!info->valid)
+        info->valid = (num_forecasts > 0);
+
+    g_bytes_unref (body);
+    _gweather_info_request_done (info, msg);
+}
+#else
 static void
 metno_finish_new (SoupSession *session,
                   SoupMessage *msg,
@@ -406,7 +460,8 @@ metno_finish_new (SoupSession *session,
     g_debug ("metno data for %lf, %lf", loc->latitude, loc->longitude);
     g_debug ("%s", msg->response_body->data);
 
-    parse_forecast_xml_new (info, msg->response_body);
+    parse_forecast_xml_new (info, msg->response_body->data,
+                             msg->response_body->length);
     num_forecasts = g_slist_length (info->forecast_list);
     g_debug ("metno parsed %d forecast infos", num_forecasts);
     if (!info->valid)
@@ -414,6 +469,7 @@ metno_finish_new (SoupSession *session,
 
     _gweather_info_request_done (info, msg);
 }
+#endif
 
 gboolean
 metno_start_open (GWeatherInfo *info)
@@ -439,7 +495,7 @@ metno_start_open (GWeatherInfo *info)
 
     message = soup_message_new ("GET", url);
     _gweather_info_begin_request (info, message);
-    soup_session_queue_message (info->session, message, metno_finish_new, info);
+    _gweather_info_queue_request (info, message, metno_finish_new);
 
     g_free (url);
 

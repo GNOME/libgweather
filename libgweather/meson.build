@@ -96,9 +96,19 @@ configure_file(
   install_dir: includedir / header_subdir,
 )
 
+if get_option('soup2')
+  libsoup_name = 'libsoup-2.4'
+  libsoup_req_version = '>= 2.44.0'
+else
+  libsoup_name = 'libsoup-3.0'
+  libsoup_req_version = '>= 2.99.2'
+endif
+
+libsoup_dep = dependency(libsoup_name, version: libsoup_req_version)
+
 deps_libgweather = [
   dependency('gio-2.0', version: glib_req_version),
-  dependency('libsoup-2.4', version: libsoup_req_version),
+  libsoup_dep,
   dependency('libxml-2.0', version: libxml_req_version),
   dependency('geocode-glib-1.0'),
 

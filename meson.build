@@ -31,11 +31,12 @@ pkgdatadir = datadir / 'libgweather-4'
 pkglibdir = libdir / 'libgweather-4'
 
 glib_req_version = '>= 2.44.0'
-libsoup_req_version = '>= 2.44.0'
 libxml_req_version = '>= 2.6.0'
 
 GETTEXT_PACKAGE = libgweather_full_version
 LOCATIONS_GETTEXT_PACKAGE = libgweather_full_version + '-locations'
+
+c_compiler = meson.get_compiler('c')
 
 pylint = find_program('pylint-3', 'pylint3', 'pylint', required: false)
 pylint_flags = [
@@ -69,6 +70,7 @@ summary({
 summary({
     'Debug': get_option('debug'),
     'Optimization': get_option('optimization'),
+    'Use libsoup-2': get_option('soup2'),
     'Introspection': build_gir,
     'Generate VAPI': build_vapi,
     'API reference': get_option('gtk_doc'),

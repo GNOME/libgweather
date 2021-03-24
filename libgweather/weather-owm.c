@@ -347,14 +347,15 @@ make_info_from_node (GWeatherInfo *original_info,
 
 static void
 parse_forecast_xml (GWeatherInfo *original_info,
-                    SoupMessageBody *body)
+                    const char *data,
+                    gsize length)
 {
     xmlDocPtr doc;
     xmlXPathContextPtr xpath_ctx;
     xmlXPathObjectPtr xpath_result;
     int i;
 
-    doc = xmlParseMemory (body->data, body->length);
+    doc = xmlParseMemory (data, length);
     if (!doc)
         return;
 
@@ -389,6 +390,56 @@ out:
     xmlFreeDoc (doc);
 }
 
+#if SOUP_CHECK_VERSION (2, 99, 2)
+static void
+owm_finish (GObject *source,
+            GAsyncResult *result,
+            gpointer data)
+{
+    GWeatherInfo *info;
+    WeatherLocation *loc;
+    SoupSession *session = SOUP_SESSION (source);
+    SoupMessage *msg = soup_session_get_async_result_message (session, result);
+    GBytes *body;
+    GError *error = NULL;
+    const char *content;
+    gsize length;
+
+    body = soup_session_send_and_read_finish (session, result, &error);
+
+    if (!body) {
+        /* forecast data is not really interesting anyway ;) */
+        if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
+            g_debug ("Failed to get OpenWeatheRMap forecast data: %s\n",
+                     error->message);
+            return;
+        }
+        g_warning ("Failed to get OpenWeatherMap forecast data: %s\n",
+                   error->message);
+        g_clear_error (&error);
+        _gweather_info_request_done (data, msg);
+        return;
+    } else if (!SOUP_STATUS_IS_SUCCESSFUL (soup_message_get_status (msg))) {
+        g_bytes_unref (body);
+        g_warning ("Failed to get OpenWeatherMap forecast data: %d %s\n",
+               soup_message_get_status (msg),
+               soup_message_get_reason_phrase (msg));
+        _gweather_info_request_done (data, msg);
+        return;
+    }
+
+    content = g_bytes_get_data (body, &length);
+
+    info = data;
+    loc = &info->location;
+    g_debug ("owm data for %lf, %lf", loc->latitude, loc->longitude);
+    g_debug ("%s", content);
+
+    parse_forecast_xml (info, content, length);
+    g_bytes_unref (body);
+    _gweather_info_request_done (info, msg);
+}
+#else
 static void
 owm_finish (SoupSession *session,
             SoupMessage *msg,
@@ -417,9 +468,11 @@ owm_finish (SoupSession *session,
     g_debug ("owm data for %lf, %lf", loc->latitude, loc->longitude);
     g_debug ("%s", msg->response_body->data);
 
-    parse_forecast_xml (info, msg->response_body);
+    parse_forecast_xml (info, msg->response_body->data,
+                        msg->response_body->length);
     _gweather_info_request_done (info, msg);
 }
+#endif
 
 gboolean
 owm_start_open (GWeatherInfo *info)
@@ -454,7 +507,7 @@ owm_start_open (GWeatherInfo *info)
 
     message = soup_message_new ("GET", url);
     _gweather_info_begin_request (info, message);
-    soup_session_queue_message (info->session, message, owm_finish, info);
+    _gweather_info_queue_request (info, message, owm_finish);
 
     g_free (url);
 
