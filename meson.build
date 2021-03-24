@@ -31,11 +31,29 @@ pkgdatadir = datadir / 'libgweather-4'
 pkglibdir = libdir / 'libgweather-4'
 
 glib_req_version = '>= 2.44.0'
-libsoup_req_version = '>= 2.44.0'
 libxml_req_version = '>= 2.6.0'
 
 GETTEXT_PACKAGE = libgweather_full_version
 LOCATIONS_GETTEXT_PACKAGE = libgweather_full_version + '-locations'
+gtk_req_version = '>= 3.13.5'
+libxml_req_version = '>= 2.6.0'
+
+if get_option('soup2')
+  libsoup_name = 'libsoup-2.4'
+  libsoup_req_version = '>= 2.44.0'
+else
+  libsoup_name = 'libsoup-3.0'
+  libsoup_req_version = '>= 2.99.2'
+endif
+
+c_compiler = meson.get_compiler('c')
+gtk_dep = dependency('gtk+-3.0', version: gtk_req_version)
+glib_dep = dependency('gio-2.0', version: glib_req_version)
+libsoup_dep = dependency(libsoup_name, version: libsoup_req_version)
+libxml_dep = dependency('libxml-2.0', version: libxml_req_version)
+geocode_glib_dep = dependency('geocode-glib-1.0')
+math_dep = c_compiler.find_library('m', required : false)
+deps_libgweather = [math_dep, gtk_dep, glib_dep, libsoup_dep, libxml_dep, geocode_glib_dep]
 
 pylint = find_program('pylint-3', 'pylint3', 'pylint', required: false)
 pylint_flags = [

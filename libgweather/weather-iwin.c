@@ -296,6 +296,52 @@ parseForecastXml (const char *buff, GWeatherInfo *original_info)
     return res;
 }
 
+#if SOUP_CHECK_VERSION (2, 99, 2)
+static void
+iwin_finish (GObject *source, GAsyncResult *result, gpointer data)
+{
+    GWeatherInfo *info;
+    WeatherLocation *loc;
+    SoupSession *session = SOUP_SESSION (source);
+    SoupMessage *msg = soup_session_get_async_result_message (session, result);
+    GBytes *body;
+    GError *error = NULL;
+    const char *content;
+
+    body = soup_session_send_and_read_finish (session, result, &error);
+
+    if (!body) {
+        /* forecast data is not really interesting anyway ;) */
+        if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
+            g_debug ("Failed to get IWIN forecast data: %s\n", error->message);
+            return;
+        }
+        g_warning ("Failed to get IWIN forecast data: %s\n", error->message);
+        g_clear_error (&error);
+        _gweather_info_request_done (data, msg);
+        return;
+    } else if (!SOUP_STATUS_IS_SUCCESSFUL (soup_message_get_status (msg))) {
+        g_bytes_unref (body);
+        g_warning ("Failed to get IWIN forecast data: %d %s\n",
+               soup_message_get_status (msg),
+               soup_message_get_reason_phrase (msg));
+        _gweather_info_request_done (data, msg);
+        return;
+    }
+
+    info = data;
+    loc = &info->location;
+    content = g_bytes_get_data (body, NULL);
+
+    g_debug ("iwin data for %s", loc->zone);
+    g_debug ("%s", content);
+
+    info->forecast_list = parseForecastXml (content, info);
+    g_bytes_unref (body);
+
+    _gweather_info_request_done (info, msg);
+}
+#else
 static void
 iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 {
@@ -325,6 +371,7 @@ iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
     _gweather_info_request_done (info, msg);
 }
+#endif
 
 /* Get forecast into newly alloc'ed string */
 gboolean
@@ -365,7 +412,7 @@ iwin_start_open (GWeatherInfo *info)
     g_debug ("iwin_start_open, requesting: %s", url);
     msg = soup_message_new ("GET", url);
     _gweather_info_begin_request (info, msg);
-    soup_session_queue_message (info->session, msg, iwin_finish, info);
+    _gweather_info_queue_request (info, msg, iwin_finish);
 
     g_free (url);
 

@@ -234,6 +234,16 @@ void
 _gweather_info_request_done (GWeatherInfo *info,
                              SoupMessage *message);
 
+#if SOUP_CHECK_VERSION (2, 99, 2)
+void        _gweather_info_queue_request (GWeatherInfo *info,
+                                          SoupMessage *message,
+                                          GAsyncReadyCallback callback);
+#else
+void        _gweather_info_queue_request (GWeatherInfo *info,
+                                          SoupMessage *message,
+                                          SoupSessionCallback callback);
+#endif
+
 void
 ecl2equ (double t,
          double eclipLon,

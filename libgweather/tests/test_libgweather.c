@@ -414,24 +414,44 @@ test_metar_weather_stations (void)
     SoupSession *session;
     GHashTable *stations_ht;
     char *contents;
+#if SOUP_CHECK_VERSION (2, 99, 2)
+    GBytes *body;
+    GError *error = NULL;
+    gsize bsize;
+#endif
 
     world = gweather_location_get_world ();
     g_assert_nonnull (world);
 
     msg = soup_message_new ("GET", METAR_SOURCES);
     session = soup_session_new ();
+#if SOUP_CHECK_VERSION (2, 99, 2)
+    body = soup_session_send_and_read (session, msg, NULL, &error);
+    if (error && error->domain == G_TLS_ERROR)
+#else
     soup_session_send_message (session, msg);
-    if (msg->status_code == SOUP_STATUS_SSL_FAILED) {
+    if (msg->status_code == SOUP_STATUS_SSL_FAILED)
+#endif
+    {
         g_test_message ("SSL/TLS failure, please check your glib-networking installation");
         g_test_failed ();
         return;
     }
+#if SOUP_CHECK_VERSION (2, 99, 2)
+    g_assert_null (error);
+    g_assert_cmpint (soup_message_get_status (msg), >=, 200);
+    g_assert_cmpint (soup_message_get_status (msg), <, 300);
+    g_assert_nonnull (body);
+    contents = g_bytes_unref_to_data (body, &bsize);
+    contents = g_strndup (contents, bsize);
+    g_bytes_unref (body);
+#else
     g_assert_cmpint (msg->status_code, >=, 200);
     g_assert_cmpint (msg->status_code, <, 300);
-    g_object_unref (session);
     g_assert_nonnull (msg->response_body);
-
     contents = g_strndup (msg->response_body->data, msg->response_body->length);
+#endif
+    g_object_unref (session);
     g_object_unref (msg);
 
     stations_ht = parse_metar_stations (contents);

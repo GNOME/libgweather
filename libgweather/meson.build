@@ -97,7 +97,7 @@ configure_file(
 deps_libgweather = [
   dependency('gio-2.0', version: glib_req_version),
   dependency('gdk-pixbuf-2.0'),
-  dependency('libsoup-2.4', version: libsoup_req_version),
+  libsoup_dep,
   dependency('libxml-2.0', version: libxml_req_version),
   dependency('geocode-glib-1.0'),
 

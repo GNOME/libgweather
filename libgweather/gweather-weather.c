@@ -360,7 +360,7 @@ _gweather_info_request_done (GWeatherInfo *info,
 			     SoupMessage  *message)
 {
     info->requests_pending = g_slist_remove (info->requests_pending, message);
-    g_object_ref (message);
+    g_object_unref (message);
 
     if (info->requests_pending == NULL) {
         fixup_current_conditions (info);
@@ -370,6 +370,29 @@ _gweather_info_request_done (GWeatherInfo *info,
                  g_slist_length (info->requests_pending));
     }
 }
+
+#if SOUP_CHECK_VERSION (2, 99, 2)
+void
+_gweather_info_queue_request (GWeatherInfo *info,
+                              SoupMessage *msg,
+                              GAsyncReadyCallback callback)
+{
+    GCancellable *cancellable = g_cancellable_new ();
+    g_object_set_data_full (G_OBJECT (msg), "request-cancellable",
+                            cancellable, g_object_unref);
+    soup_session_send_and_read_async (info->session, msg, G_PRIORITY_DEFAULT,
+                                      cancellable, callback, info);
+    g_object_unref (msg);
+}
+#else
+void
+_gweather_info_queue_request (GWeatherInfo *info,
+                              SoupMessage *msg,
+                              SoupSessionCallback callback)
+{
+    soup_session_queue_message (info->session, msg, callback, info);
+}
+#endif
 
 /* it's OK to pass in NULL */
 void
@@ -623,7 +646,7 @@ ref_session (GWeatherInfo *info)
                                   LIBGWEATHER_VERSION,
                                   info->application_id,
                                   info->contact_info);
-    g_object_set (G_OBJECT (session), SOUP_SESSION_USER_AGENT, user_agent, NULL);
+    g_object_set (G_OBJECT (session), "user-agent", user_agent, NULL);
 
     cache = get_cache ();
     if (cache != NULL) {
@@ -734,7 +757,11 @@ gweather_info_abort (GWeatherInfo *info)
     info->requests_pending = &dummy;
 
     for (iter = list; iter; iter = iter->next)
-	soup_session_cancel_message (info->session, iter->data, SOUP_STATUS_CANCELLED);
+#if SOUP_CHECK_VERSION (2, 99, 2)
+        g_cancellable_cancel (g_object_get_data (iter->data, "request-cancellable"));
+#else
+        soup_session_cancel_message (info->session, iter->data, SOUP_STATUS_CANCELLED);
+#endif
     g_slist_free (list);
 
     info->requests_pending = NULL;
