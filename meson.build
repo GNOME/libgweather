@@ -49,11 +49,12 @@ libxml_req_version = '>= 2.6.0'
 c_compiler = meson.get_compiler('c')
 gtk_dep = dependency('gtk+-3.0', version: gtk_req_version)
 glib_dep = dependency('gio-2.0', version: glib_req_version)
+gmodule_dep = dependency('gmodule-2.0', version: glib_req_version)
 libsoup_dep = dependency('libsoup-2.4', version: libsoup_req_version)
 libxml_dep = dependency('libxml-2.0', version: libxml_req_version)
 geocode_glib_dep = dependency('geocode-glib-1.0')
 math_dep = c_compiler.find_library('m', required : false)
-deps_libgweather = [math_dep, gtk_dep, glib_dep, libsoup_dep, libxml_dep, geocode_glib_dep]
+deps_libgweather = [math_dep, gtk_dep, glib_dep, gmodule_dep, libsoup_dep, libxml_dep, geocode_glib_dep]
 
 pylint = find_program('pylint-3', 'pylint3', 'pylint', required: false)
 pylint_flags = ['-d', 'C0111', '-d', 'W0511', '-d', 'F0401', '-d', 'C0326' ]
