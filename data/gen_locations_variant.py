@@ -211,4 +211,5 @@ if struct.pack('h', 0x01)[0]:
     pass
 
 data = res.get_data_as_bytes().get_data()
-open(sys.argv[2], 'bw').write(data)
+with open(sys.argv[2], 'bw') as f:
+    f.write(data)
