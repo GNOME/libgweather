@@ -241,6 +241,9 @@ pkgconfig.generate(
     'libxml-2.0',
     'geocode-glib-1.0',
   ],
+  variables: [
+    'soupapiversion=' + libsoup_api_version,
+  ]
 )
 
 subdir('tests')

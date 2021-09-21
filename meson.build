@@ -41,9 +41,11 @@ libxml_req_version = '>= 2.6.0'
 if get_option('soup2')
   libsoup_name = 'libsoup-2.4'
   libsoup_req_version = '>= 2.44.0'
+  libsoup_api_version = '2.4'
 else
   libsoup_name = 'libsoup-3.0'
   libsoup_req_version = '>= 2.99.2'
+  libsoup_api_version = '3.0'
 endif
 
 c_compiler = meson.get_compiler('c')
@@ -54,6 +56,14 @@ libxml_dep = dependency('libxml-2.0', version: libxml_req_version)
 geocode_glib_dep = dependency('geocode-glib-1.0')
 math_dep = c_compiler.find_library('m', required : false)
 deps_libgweather = [math_dep, gtk_dep, glib_dep, libsoup_dep, libxml_dep, geocode_glib_dep]
+
+geocode_soup_version = geocode_glib_dep.get_pkgconfig_variable('soupapiversion')
+if geocode_soup_version == ''
+  geocode_soup_version = '2.4' # Pre libsoup3 support
+endif
+if geocode_soup_version != libsoup_api_version
+  error('geocode-glib was built against a different API of libsoup. @0@ instead of @1@.'.format(geocode_soup_version, libsoup_api_version))
+endif
 
 pylint = find_program('pylint-3', 'pylint3', 'pylint', required: false)
 pylint_flags = [
