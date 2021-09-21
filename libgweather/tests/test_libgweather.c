@@ -438,7 +438,7 @@ test_metar_weather_stations (void)
         return;
     }
 #if SOUP_CHECK_VERSION (2, 99, 2)
-    g_assert_null (error);
+    g_assert_no_error (error);
     g_assert_cmpint (soup_message_get_status (msg), >=, 200);
     g_assert_cmpint (soup_message_get_status (msg), <, 300);
     g_assert_nonnull (body);
