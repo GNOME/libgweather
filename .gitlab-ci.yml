@@ -90,6 +90,7 @@ fedora-x86_64:
       gettext
       git
       gobject-introspection-devel
+      gtk3-devel
       itstool
       libsoup-devel
       libxml2-devel
@@ -103,6 +104,67 @@ fedora-x86_64:
       vala
     MESON_VERSION: "0.55.3"
     MESON_EXTRA_FLAGS: "--buildtype=debug -Dwerror=true -Dgtk_doc=false"
+
+fedora-x86_64-soup3:
+  extends: .build-default
+  stage: build
+  needs: []
+  variables:
+    PROJECT_DEPS:
+      gcc-c++
+      gdk-pixbuf2-devel
+      geocode-glib-devel
+      gettext
+      git
+      gnutls-devel
+      gobject-introspection-devel
+      gtk3-devel
+      itstool
+      json-glib-devel
+      libnghttp2-devel
+      libpsl-devel
+      libsoup-devel
+      libxml2-devel
+      ninja-build
+      pylint
+      python3
+      python3-gobject
+      python3-pip
+      python3-wheel
+      redhat-rpm-config
+      sqlite-devel
+      vala
+    MESON_VERSION: "0.55.3"
+    MESON_EXTRA_FLAGS: "--buildtype=debug -Dwerror=true -Dgtk_doc=false -Dsoup2=false"
+  before_script:
+    # Undo delangification present in the Fedora Docker images
+    - rm -f /etc/rpm/macros.image-language-conf
+    - dnf reinstall -y glib2 glibc || dnf update -y glib2 glibc
+    # Add French locale support for tests
+    - dnf install -y glibc-langpack-fr
+    - dnf install -y ${PROJECT_DEPS}
+    - pip3 install --user meson==${MESON_VERSION}
+    - export PATH="$PATH:$HOME/.local/bin"
+    # Build newer glib and glib-networking for libsoup3, can be removed with Fedora 35's release
+    - git clone https://gitlab.gnome.org/GNOME/glib.git && pushd glib
+    - git checkout 2.70.0
+    - meson _build --prefix=/usr
+    - ninja -C _build install
+    - popd
+    - git clone https://gitlab.gnome.org/GNOME/glib-networking.git && pushd glib-networking
+    - git checkout 2.70.0
+    - meson _build --prefix=/usr
+    - ninja -C _build install
+    - popd
+    # Build libsoup3 and geocode-glib against libsoup3
+    - git clone --depth=1 https://gitlab.gnome.org/GNOME/libsoup.git && pushd libsoup
+    - meson _build --prefix=/usr -Dtls_check=false -Dgtk_doc=false
+    - ninja -C _build install
+    - popd
+    - git clone https://gitlab.gnome.org/GNOME/geocode-glib.git && pushd geocode-glib
+    - meson _build --prefix=/usr -Dsoup2=false -Denable-gtk-doc=false
+    - ninja -C _build install
+    - popd
 
 static-scan:
   extends: .build-setup
@@ -118,6 +180,7 @@ static-scan:
       gettext
       git
       gobject-introspection-devel
+      gtk3-devel
       itstool
       libsoup-devel
       libxml2-devel
@@ -154,6 +217,7 @@ asan-build:
       gettext
       git
       gobject-introspection-devel
+      gtk3-devel
       itstool
       libasan
       libsoup-devel
@@ -189,6 +253,7 @@ reference:
       gettext
       git
       gobject-introspection-devel
+      gtk3-devel
       itstool
       libsoup-devel
       libxml2-devel
