@@ -431,8 +431,6 @@ test_metar_weather_stations (void)
     g_assert_cmpint (soup_message_get_status (msg), <, 300);
     g_assert_nonnull (body);
     contents = g_bytes_unref_to_data (body, &bsize);
-    contents = g_strndup (contents, bsize);
-    g_bytes_unref (body);
 #else
     g_assert_cmpint (msg->status_code, >=, 200);
     g_assert_cmpint (msg->status_code, <, 300);
