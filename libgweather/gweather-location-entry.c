@@ -46,7 +46,7 @@ struct _GWeatherLocationEntryPrivate {
     GtkTreeModel     *model;
 };
 
-G_DEFINE_TYPE (GWeatherLocationEntry, gweather_location_entry, GTK_TYPE_SEARCH_ENTRY)
+G_DEFINE_TYPE_WITH_PRIVATE (GWeatherLocationEntry, gweather_location_entry, GTK_TYPE_SEARCH_ENTRY)
 
 enum {
     PROP_0,
@@ -108,7 +108,7 @@ gweather_location_entry_init (GWeatherLocationEntry *entry)
     GtkEntryCompletion *completion;
     GWeatherLocationEntryPrivate *priv;
 
-    priv = entry->priv = G_TYPE_INSTANCE_GET_PRIVATE (entry, GWEATHER_TYPE_LOCATION_ENTRY, GWeatherLocationEntryPrivate);
+    priv = entry->priv = gweather_location_entry_get_instance_private (entry);
 
     completion = gtk_entry_completion_new ();
 
@@ -245,8 +245,6 @@ gweather_location_entry_class_init (GWeatherLocationEntryClass *location_entry_c
 			    "The selected GWeatherLocation",
 			    GWEATHER_TYPE_LOCATION,
 			    G_PARAM_READWRITE));
-
-    g_type_class_add_private (location_entry_class, sizeof (GWeatherLocationEntryPrivate));
 }
 
 static void
