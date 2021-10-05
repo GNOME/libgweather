@@ -4,6 +4,10 @@
 #include <string.h>
 #include <glib.h>
 
+#if !GLIB_CHECK_VERSION (2, 68, 0)
+# define g_memdup2(ptr,sz) g_memdup(ptr,sz)
+#endif
+
 /********** Basic types *****************/
 
 typedef struct {
@@ -247,7 +251,7 @@ Db_variant_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 Db_variant_dup_to_gvariant (DbVariantRef v)
 {
-  return g_variant_new_from_data (G_VARIANT_TYPE_VARIANT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
+  return g_variant_new_from_data (G_VARIANT_TYPE_VARIANT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
@@ -255,7 +259,7 @@ Db_variant_to_gvariant (DbVariantRef v,
                               GDestroyNotify      notify,
                               gpointer            user_data)
 {
-  return g_variant_new_from_data (G_VARIANT_TYPE_VARIANT, g_memdup (v.base, v.size), v.size, TRUE, notify, user_data);
+  return g_variant_new_from_data (G_VARIANT_TYPE_VARIANT, g_memdup2 (v.base, v.size), v.size, TRUE, notify, user_data);
 }
 
 static inline GVariant *
@@ -285,7 +289,7 @@ Db_variant_dup_child_to_gvariant (DbVariantRef v)
 {
   const GVariantType  *type;
   DbRef child = Db_variant_get_child (v, &type);
-  return g_variant_new_from_data (type, g_memdup (child.base, child.size), child.size, TRUE, g_free, NULL);
+  return g_variant_new_from_data (type, g_memdup2 (child.base, child.size), child.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
@@ -414,7 +418,7 @@ db_i18n_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_i18n_dup_to_gvariant (DbI18nRef v)
 {
-  return g_variant_new_from_data (DB_I18N_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
+  return g_variant_new_from_data (DB_I18N_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
@@ -530,7 +534,7 @@ db_arrayofstring_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_arrayofstring_dup_to_gvariant (DbArrayofstringRef v)
 {
-  return g_variant_new_from_data (DB_ARRAYOFSTRING_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
+  return g_variant_new_from_data (DB_ARRAYOFSTRING_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
@@ -669,7 +673,7 @@ db_timezone_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_timezone_dup_to_gvariant (DbTimezoneRef v)
 {
-  return g_variant_new_from_data (DB_TIMEZONE_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
+  return g_variant_new_from_data (DB_TIMEZONE_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
@@ -789,7 +793,7 @@ db_coordinate_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_coordinate_dup_to_gvariant (DbCoordinateRef v)
 {
-  return g_variant_new_from_data (DB_COORDINATE_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
+  return g_variant_new_from_data (DB_COORDINATE_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
@@ -895,7 +899,7 @@ db_arrayofuint16_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_arrayofuint16_dup_to_gvariant (DbArrayofuint16Ref v)
 {
-  return g_variant_new_from_data (DB_ARRAYOFUINT16_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
+  return g_variant_new_from_data (DB_ARRAYOFUINT16_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
@@ -1004,7 +1008,7 @@ db_location_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_location_dup_to_gvariant (DbLocationRef v)
 {
-  return g_variant_new_from_data (DB_LOCATION_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
+  return g_variant_new_from_data (DB_LOCATION_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
@@ -1306,7 +1310,7 @@ db_world_loc_by_country_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_world_loc_by_country_dup_to_gvariant (DbWorldLocByCountryRef v)
 {
-  return g_variant_new_from_data (DB_WORLD_LOC_BY_COUNTRY_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
+  return g_variant_new_from_data (DB_WORLD_LOC_BY_COUNTRY_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
@@ -1501,7 +1505,7 @@ db_world_loc_by_metar_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_world_loc_by_metar_dup_to_gvariant (DbWorldLocByMetarRef v)
 {
-  return g_variant_new_from_data (DB_WORLD_LOC_BY_METAR_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
+  return g_variant_new_from_data (DB_WORLD_LOC_BY_METAR_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
@@ -1696,7 +1700,7 @@ db_world_timezones_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_world_timezones_dup_to_gvariant (DbWorldTimezonesRef v)
 {
-  return g_variant_new_from_data (DB_WORLD_TIMEZONES_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
+  return g_variant_new_from_data (DB_WORLD_TIMEZONES_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
@@ -1886,7 +1890,7 @@ db_arrayof_location_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_arrayof_location_dup_to_gvariant (DbArrayofLocationRef v)
 {
-  return g_variant_new_from_data (DB_ARRAYOF_LOCATION_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
+  return g_variant_new_from_data (DB_ARRAYOF_LOCATION_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
@@ -2006,7 +2010,7 @@ db_world_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_world_dup_to_gvariant (DbWorldRef v)
 {
-  return g_variant_new_from_data (DB_WORLD_TYPEFORMAT, g_memdup (v.base, v.size), v.size, TRUE, g_free, NULL);
+  return g_variant_new_from_data (DB_WORLD_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
 }
 
 static inline GVariant *
