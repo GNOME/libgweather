@@ -26,7 +26,6 @@
 #include <math.h>
 #include <locale.h>
 #include <glib/gi18n-lib.h>
-#include <gtk/gtk.h>
 #include <libxml/xmlreader.h>
 #include <geocode-glib/geocode-glib.h>
 
