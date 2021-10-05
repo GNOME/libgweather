@@ -131,7 +131,10 @@ date_to_time_t (const xmlChar *str, const char * tzid)
     if (*after == 'Z')
 	tzid = "UTC";
 
-    tz = g_time_zone_new (tzid);
+    tz = g_time_zone_new_identifier (tzid);
+    if (tz == NULL)
+        tz = g_time_zone_new_utc ();
+
     dt = g_date_time_new (tz,
 			  time.tm_year + 1900,
 			  time.tm_mon + 1,
