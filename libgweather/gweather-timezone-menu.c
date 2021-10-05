@@ -234,9 +234,13 @@ insert_locations (GtkTreeStore *store, GWeatherLocation *loc)
     if (gweather_location_get_level (loc) < GWEATHER_LOCATION_COUNTRY) {
 	GWeatherLocation **children;
 
+        G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+
 	children = gweather_location_get_children (loc);
 	for (i = 0; children[i]; i++)
 	    insert_locations (store, children[i]);
+
+        G_GNUC_END_IGNORE_DEPRECATIONS
     } else {
 	GWeatherTimezone **zones;
 	GtkTreeIter iter;

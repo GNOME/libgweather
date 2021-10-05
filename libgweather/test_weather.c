@@ -19,6 +19,8 @@ find_loc_children (GWeatherLocation  *location,
     GWeatherLocation **children;
     guint i;
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+
     children = gweather_location_get_children (location);
     for (i = 0; children[i] != NULL; i++) {
         if (gweather_location_get_level (children[i]) == GWEATHER_LOCATION_WEATHER_STATION) {
@@ -34,6 +36,8 @@ find_loc_children (GWeatherLocation  *location,
                 return TRUE;
         }
     }
+
+    G_GNUC_END_IGNORE_DEPRECATIONS
 
     return FALSE;
 }
