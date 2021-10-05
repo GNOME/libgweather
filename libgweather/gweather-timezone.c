@@ -262,7 +262,7 @@ gweather_timezone_unref (GWeatherTimezone *zone)
 GType
 gweather_timezone_get_type (void)
 {
-    static volatile gsize type_volatile = 0;
+    static gsize type_volatile = 0;
 
     if (g_once_init_enter (&type_volatile)) {
 	GType type = g_boxed_type_register_static (
