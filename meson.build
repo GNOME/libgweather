@@ -18,14 +18,6 @@ libgweather_lt_c=16
 libgweather_lt_r=0
 libgweather_lt_a=0
 
-# convert to soname
-libgweather_so_version = '@0@.@1@.@2@'.format((libgweather_lt_c - libgweather_lt_a),
-                                            libgweather_lt_a, libgweather_lt_r)
-
-current = libgweather_lt_c - libgweather_lt_a
-interface_age = libgweather_lt_r
-libgweather_darwin_versions = [current + 1, '@0@.@1@'.format(current + 1, interface_age)]
-
 pkgconfig = import('pkgconfig')
 gnome = import('gnome')
 i18n = import('i18n')
@@ -47,22 +39,7 @@ gtk_req_version = '>= 3.13.5'
 libsoup_req_version = '>= 2.44.0'
 libxml_req_version = '>= 2.6.0'
 
-c_compiler = meson.get_compiler('c')
-
-gtk_dep = dependency('gtk+-3.0', version: gtk_req_version)
-glib_dep = dependency('gio-2.0', version: glib_req_version)
-libsoup_dep = dependency('libsoup-2.4', version: libsoup_req_version)
-libxml_dep = dependency('libxml-2.0', version: libxml_req_version)
-geocode_glib_dep = dependency('geocode-glib-1.0')
-math_dep = c_compiler.find_library('m', required : false)
-deps_libgweather = [
-  math_dep,
-  gtk_dep,
-  glib_dep,
-  libsoup_dep,
-  libxml_dep,
-  geocode_glib_dep,
-]
+GETTEXT_PACKAGE = 'libgweather-3.0'
 
 pylint = find_program('pylint-3', 'pylint3', 'pylint', required: false)
 pylint_flags = [
@@ -71,35 +48,6 @@ pylint_flags = [
   '-d', 'F0401',
   '-d', 'C0326',
 ]
-
-config_h = configuration_data()
-GETTEXT_PACKAGE = 'libgweather-3.0'
-config_h.set_quoted('GETTEXT_PACKAGE', GETTEXT_PACKAGE)
-config_h.set_quoted('LOCALEDIR', join_paths(datadir, 'locale'))
-config_h.set_quoted('GNOMELOCALEDIR', join_paths(datadir, 'locale'))
-config_h.set_quoted('G_LOG_DOMAIN', 'GWeather')
-config_h.set_quoted('GWEATHER_BIN_LOCATION_DIR', pkglibdir)
-config_h.set_quoted('LIBGWEATHER_VERSION', meson.project_version())
-
-if c_compiler.has_member('struct tm', 'tm_gmtoff', prefix: '#include <time.h>')
-  config_h.set('HAVE_TM_TM_GMOFF', 1)
-endif
-
-if c_compiler.has_header_symbol('time.h', 'timezone')
-  config_h.set('HAVE_TIMEZONE', 1)
-endif
-
-if c_compiler.has_header_symbol('langinfo.h', '_NL_MEASUREMENT_MEASUREMENT')
-  config_h.set('HAVE__NL_MEASUREMENT_MEASUREMENT', 1)
-endif
-
-config_h.set_quoted('ZONEINFO_DIR', get_option('zoneinfo_dir'))
-config_h.set_quoted('OWM_APIKEY', get_option('owm_apikey'))
-
-configure_file(
-  output: 'config.h',
-  configuration: config_h,
-)
 
 if get_option('glade_catalog') == 'false'
   enable_glade_catalog = false
@@ -117,8 +65,6 @@ if enable_vala == 'auto'
 else
   enable_vala = enable_vala != 'false'
 endif
-
-root_inc = include_directories('.')
 
 subdir('data')
 subdir('libgweather')
