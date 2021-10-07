@@ -32,14 +32,15 @@ i18n = import('i18n')
 
 prefix = get_option('prefix')
 
-bindir = join_paths(prefix, get_option('bindir'))
-datadir = join_paths(prefix, get_option('datadir'))
-libdir = join_paths(prefix, get_option('libdir'))
-includedir = join_paths(prefix, get_option('includedir'))
-libexecdir = join_paths(prefix, get_option('libexecdir'))
-sysconfdir = join_paths(prefix, get_option('sysconfdir'))
-pkgdatadir = join_paths(datadir, 'libgweather')
-pkglibdir = join_paths(libdir, 'libgweather')
+bindir = prefix / get_option('bindir')
+datadir = prefix / get_option('datadir')
+libdir = prefix / get_option('libdir')
+includedir = prefix / get_option('includedir')
+libexecdir = prefix / get_option('libexecdir')
+sysconfdir = prefix / get_option('sysconfdir')
+
+pkgdatadir = datadir / 'libgweather'
+pkglibdir = libdir / 'libgweather'
 
 glib_req_version = '>= 2.44.0'
 gtk_req_version = '>= 3.13.5'
@@ -47,16 +48,29 @@ libsoup_req_version = '>= 2.44.0'
 libxml_req_version = '>= 2.6.0'
 
 c_compiler = meson.get_compiler('c')
+
 gtk_dep = dependency('gtk+-3.0', version: gtk_req_version)
 glib_dep = dependency('gio-2.0', version: glib_req_version)
 libsoup_dep = dependency('libsoup-2.4', version: libsoup_req_version)
 libxml_dep = dependency('libxml-2.0', version: libxml_req_version)
 geocode_glib_dep = dependency('geocode-glib-1.0')
 math_dep = c_compiler.find_library('m', required : false)
-deps_libgweather = [math_dep, gtk_dep, glib_dep, libsoup_dep, libxml_dep, geocode_glib_dep]
+deps_libgweather = [
+  math_dep,
+  gtk_dep,
+  glib_dep,
+  libsoup_dep,
+  libxml_dep,
+  geocode_glib_dep,
+]
 
 pylint = find_program('pylint-3', 'pylint3', 'pylint', required: false)
-pylint_flags = ['-d', 'C0111', '-d', 'W0511', '-d', 'F0401', '-d', 'C0326' ]
+pylint_flags = [
+  '-d', 'C0111',
+  '-d', 'W0511',
+  '-d', 'F0401',
+  '-d', 'C0326',
+]
 
 config_h = configuration_data()
 GETTEXT_PACKAGE = 'libgweather-3.0'
@@ -90,10 +104,10 @@ configure_file(
 if get_option('glade_catalog') == 'false'
   enable_glade_catalog = false
 else
-  glade_dep = dependency('gladeui-2.0', required: (get_option('glade_catalog') == 'true'))
+  glade_dep = dependency('gladeui-2.0', required: get_option('glade_catalog') == 'true')
   enable_glade_catalog = glade_dep.found()
   if enable_glade_catalog
-    glade_catalogdir = join_paths(datadir, 'glade', 'catalogs')
+    glade_catalogdir = datadir / 'glade/catalogs'
   endif
 endif
 

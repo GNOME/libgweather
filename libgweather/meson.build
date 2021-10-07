@@ -6,13 +6,13 @@ add_project_arguments([
 ], language: 'c')
 
 header_subdir = 'libgweather-3.0/libgweather'
-libgweather_map = join_paths(meson.current_source_dir(), 'libgweather.map')
+libgweather_map = meson.current_source_dir() / 'libgweather.map'
 link_depends = []
 link_args = []
 
 if c_compiler.has_link_argument('-Wl,--version-script,' + libgweather_map)
-        link_depends += libgweather_map
-        link_args += ['-Wl,--version-script,' + libgweather_map]
+  link_depends += libgweather_map
+  link_args += ['-Wl,--version-script,' + libgweather_map]
 endif
 
 versionconf = configuration_data()
@@ -25,7 +25,7 @@ configure_file(
   output: 'gweather-version.h',
   configuration: versionconf,
   install: true,
-  install_dir: join_paths(includedir, header_subdir),
+  install_dir: includedir / header_subdir,
 )
 
 gweather_new_headers = [
@@ -37,12 +37,15 @@ gweather_new_headers = [
   'gweather-weather.h',
   'gweather-enums.h'
 ]
+
 gweather_enum_types = gnome.mkenums('gweather-enum-types',
   sources: gweather_new_headers,
   c_template: 'gweather-enum-types.c.tmpl',
   h_template: 'gweather-enum-types.h.tmpl',
   install_header: true,
-  install_dir: join_paths(includedir, header_subdir))
+  install_dir: includedir / header_subdir,
+)
+
 install_headers(gweather_new_headers,
   subdir: header_subdir)
 
@@ -60,7 +63,9 @@ gweather_c_sources = [
   'gweather-location.c',
   'gweather-timezone.c',
   'gweather-location-entry.c',
-  'gweather-timezone-menu.c']
+  'gweather-timezone-menu.c',
+]
+
 introspection_sources = gweather_c_sources + gweather_new_headers
 
 lib_libgweather = shared_library('gweather-3',
@@ -105,44 +110,57 @@ if enable_vala
     sources: gweather_gir[0],
     packages: ['gobject-2.0', 'gtk+-3.0'],
     metadata_dirs: '.',
-    install: true
+    install: true,
   )
 endif
 
-test_cargs = ['-DTEST_LOCATIONS="@0@"'.format(locations_bin.full_path()),
-              '-DSCHEMASDIR="@0@/schemas"'.format(meson.source_root()),
-              '-DSCHEMAS_BUILDDIR="@0@/schemas"'.format(meson.build_root())]
+test_cargs = [
+  '-DTEST_LOCATIONS="@0@"'.format(locations_bin.full_path()),
+  '-DSCHEMASDIR="@0@/schemas"'.format(meson.source_root()),
+  '-DSCHEMAS_BUILDDIR="@0@/schemas"'.format(meson.build_root()),
+]
 
 executable('test_locations',
-  ['test_locations.c'],
+  sources: ['test_locations.c'],
   c_args: test_cargs,
   dependencies: libgweather_dep,
-  install: false)
-executable('test_locations_utc',
-  ['test_locations_utc.c'],
-  c_args: test_cargs,
-  dependencies: libgweather_dep,
-  install: false)
+  install: false,
+)
 
-exe = executable('test_libgweather',
-  ['test_libgweather.c'],
+executable('test_locations_utc',
+  sources: ['test_locations_utc.c'],
   c_args: test_cargs,
   dependencies: libgweather_dep,
-  install: false)
-test('test_libgweather', exe, depends: [locations_bin])
+  install: false,
+)
+
+test('test_libgweather',
+  executable('test_libgweather',
+    sources: ['test_libgweather.c'],
+    c_args: test_cargs,
+    dependencies: libgweather_dep,
+    install: false,
+  ),
+  depends: [locations_bin],
+)
 
 executable('test_metar',
-  ['test_metar.c', gweather_c_sources],
+  sources: ['test_metar.c', gweather_c_sources],
   c_args: test_cargs,
   dependencies: libgweather_dep,
-  install: false)
+  install: false,
+)
+
 executable('test_sun_moon',
-  ['test_sun_moon.c', 'weather-sun.c', 'weather-moon.c'],
+  sources: ['test_sun_moon.c', 'weather-sun.c', 'weather-moon.c'],
   c_args: test_cargs,
   dependencies: libgweather_dep,
-  install: false)
+  install: false,
+)
+
 executable('test_weather',
-  ['test_weather.c'],
+  sources: ['test_weather.c'],
   c_args: test_cargs,
   dependencies: libgweather_dep,
-  install: false)
+  install: false,
+)

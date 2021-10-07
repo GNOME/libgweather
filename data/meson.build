@@ -25,10 +25,10 @@ endif
 # The generated file is architecture dependent (i.e. host endianness)
 locations_bin = custom_target('locations-db',
   command: [gen_locations_variant, '@INPUT@', '@OUTPUT@' ],
-  install: true,
-  install_dir: pkglibdir,
   input: files('Locations.xml'),
   output: '@BASENAME@.bin',
+  install: true,
+  install_dir: pkglibdir,
 )
 
 install_data('Locations.xml',
