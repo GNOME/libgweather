@@ -133,3 +133,21 @@ pkgconfig.generate(
     'geocode-glib-1.0',
   ],
 )
+
+summary({
+    'prefix': prefix,
+    'libdir': libdir,
+    'datadir': datadir,
+    'zone info': get_option('zoneinfo_dir'),
+  },
+  section: 'Directories',
+)
+
+summary({
+    'Glade catalog': enable_glade_catalog,
+    'Generate VAPI': enable_vala,
+    'API reference': get_option('gtk_doc'),
+  },
+  section: 'Build',
+  bool_yn: true,
+)
