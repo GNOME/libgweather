@@ -77,7 +77,7 @@ parseForecastXml (const char *buff, GWeatherInfo *original_info)
         if (isElem (node, "data")) {
             xmlNode *n;
             char *time_layout = NULL;
-            time_t update_times[7] = {0};
+            gint64 update_times[7] = {0};
 
             for (n = node->children; n; n = n->next) {
                 if (!n->name)
@@ -100,10 +100,12 @@ parseForecastXml (const char *buff, GWeatherInfo *original_info)
                                 xmlChar *val = xmlNodeGetContent (c);
 
                                 if (val) {
-                                    GTimeVal tv;
+                                    GDateTime *dt;
 
-                                    if (g_time_val_from_iso8601 ((const char *)val, &tv)) {
-                                        update_times[count] = tv.tv_sec;
+                                    dt = g_date_time_new_from_iso8601 ((const char *)val, NULL);
+                                    if (dt != NULL) {
+                                        update_times[count] = g_date_time_to_unix (dt);
+                                        g_date_time_unref (dt);
                                     } else {
                                         update_times[count] = 0;
                                     }
