@@ -1,6 +1,6 @@
 project('libgweather', 'c',
   version: '40.0',
-  meson_version: '>= 0.50.0',
+  meson_version: '>= 0.55.0',
 )
 
 # Add another 0, so that we can release without a suffix
