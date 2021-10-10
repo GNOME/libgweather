@@ -4,6 +4,7 @@ project('libgweather', 'c',
   default_options: [
     'warning_level=2',
     'buildtype=debugoptimized',
+    'c_std=gnu99',
   ],
 )
 
