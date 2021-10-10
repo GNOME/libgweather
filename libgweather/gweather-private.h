@@ -33,7 +33,7 @@
 #include "gweather-db.h"
 
 #define INVALID_IDX G_MAXUINT16
-#define IDX_VALID(idx) ((idx) >= 0 && (idx) < 0xffff)
+#define IDX_VALID(idx) ((idx) < 0xffff)
 #define EMPTY_TO_NULL(s) ((s)[0] == '\0' ? NULL : (s))
 
 void        _gweather_gettext_init (void);
