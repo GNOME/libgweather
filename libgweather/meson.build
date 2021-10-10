@@ -7,6 +7,22 @@ add_project_arguments([
 
 c_compiler = meson.get_compiler('c')
 
+add_project_arguments(c_compiler.get_supported_arguments([
+  # Warnings we care about
+  '-Wimplicit-fallthrough',
+  '-Wmisleading-indentation',
+  '-Wstrict-prototypes',
+  '-Wunused',
+
+  # We have legacy code and callbacks
+  '-Wno-unused-parameter',
+
+  '-Werror=format=2',
+  '-Werror=implicit-function-declaration',
+  '-Werror=init-self',
+  '-Werror=missing-include-dirs',
+]), language: 'c')
+
 header_subdir = 'libgweather-3.0/libgweather'
 libgweather_map = meson.current_source_dir() / 'libgweather.map'
 link_depends = []
