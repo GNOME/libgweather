@@ -108,6 +108,8 @@ summary({
 )
 
 summary({
+    'Debug': get_option('debug'),
+    'Optimization': get_option('optimization'),
     'Glade catalog': enable_glade_catalog,
     'Generate VAPI': enable_vala,
     'API reference': get_option('gtk_doc'),
