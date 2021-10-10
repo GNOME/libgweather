@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2021 Emmanuele Bassi
+#
+# SPDX-License-Identifier: CC0-1.0
+
+root = true
+
+[*]
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+end_of_line = lf
+charset = utf-8
+
+[meson.build]
+indent_size = 2
+
+[*.c]
+indent_size = 4
+max_line_length = 80
+
+[*.h]
+indent_size = 8
+max_line_length = 120
+
+[*.py]
+indent_size = 4
+max_line_length = 120
+balanced_wrapping = true
+not_skip = __init__.py
+
+[*.json]
+indent_size = 2
+
+[*.md]
+max_line_length = 79
+
+[*.xml]
+indent_size = 2
+
+[*.its]
+indent_size = 2
