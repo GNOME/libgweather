@@ -1,7 +1,11 @@
+/* test_locations_utc.c: Test GWeatherLocationEntry with UTC time zone
+ *
+ * SPDX-FileCopyrightText: The GWeather authors
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
 
-#include <gweather-version.h>
-#include "gweather-location-entry.h"
-#include "gweather-timezone-menu.h"
+#include <gtk/gtk.h>
+#include <libgweather/gweather.h>
 
 static void
 deleted (GtkWidget *widget, GdkEvent *event, gpointer data)

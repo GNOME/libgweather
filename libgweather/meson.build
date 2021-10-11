@@ -156,7 +156,10 @@ libgweather_static = static_library('gweather',
 )
 
 libgweather_static_dep = declare_dependency(sources: gweather_c_sources,
-  include_directories: include_directories('..'),
+  include_directories: [
+    include_directories('.'),
+    include_directories('..'),
+  ],
   dependencies: deps_libgweather,
   link_with: libgweather_static,
 )
@@ -210,53 +213,5 @@ if enable_vala
   )
 endif
 
-test_cargs = [
-  '-DTEST_LOCATIONS="@0@"'.format(locations_bin.full_path()),
-  '-DSCHEMASDIR="@0@/schemas"'.format(meson.source_root()),
-  '-DSCHEMAS_BUILDDIR="@0@/schemas"'.format(meson.build_root()),
-]
-
-executable('test_locations',
-  sources: ['test_locations.c'],
-  c_args: test_cargs,
-  dependencies: libgweather_static_dep,
-  install: false,
-)
-
-executable('test_locations_utc',
-  sources: ['test_locations_utc.c'],
-  c_args: test_cargs,
-  dependencies: libgweather_static_dep,
-  install: false,
-)
-
-test('test_libgweather',
-  executable('test_libgweather',
-    sources: ['test_libgweather.c'],
-    c_args: test_cargs,
-    dependencies: libgweather_static_dep,
-    install: false,
-  ),
-  depends: [locations_bin],
-)
-
-executable('test_metar',
-  sources: ['test_metar.c', gweather_c_sources, gweather_priv_sources],
-  c_args: test_cargs,
-  dependencies: libgweather_static_dep,
-  install: false,
-)
-
-executable('test_sun_moon',
-  sources: ['test_sun_moon.c', 'weather-sun.c', 'weather-moon.c'],
-  c_args: test_cargs,
-  dependencies: libgweather_static_dep,
-  install: false,
-)
-
-executable('test_weather',
-  sources: ['test_weather.c'],
-  c_args: test_cargs,
-  dependencies: libgweather_static_dep,
-  install: false,
-)
+subdir('tests')
+subdir('tools')
