@@ -25,8 +25,8 @@
 
 G_BEGIN_DECLS
 
-void        _gweather_gettext_init (void);
-
+void
+_gweather_gettext_init (void);
 
 typedef struct {
     GMappedFile *map;
@@ -47,15 +47,26 @@ struct _GWeatherLocation {
     DbLocationRef ref;
 
     /* Attributes with _ may be fetched/filled from the database on the fly */
-    char *_english_name, *_local_name, *_local_sort_name, *_english_sort_name;
-    guint16 parent_idx; /* From the DB, except for nearest clones */
-    GWeatherLocation *_parent, **_children;
+    char *_english_name;
+    char *_local_name;
+    char *_local_sort_name;
+    char *_english_sort_name;
+
+    /* From the DB, except for nearest clones */
+    guint16 parent_idx;
+
+    GWeatherLocation *_parent;
+    GWeatherLocation **_children;
+
     GWeatherTimezone *_timezone;
     GWeatherLocationLevel level;
     char *_country_code;
     guint16 tz_hint_idx;
     char *_station_code;
-    double latitude, longitude;
+
+    double latitude;
+    double longitude;
+
     gboolean latlon_valid;
 
     int ref_count;
@@ -64,39 +75,41 @@ struct _GWeatherLocation {
 #define WEATHER_LOCATION_CODE_LEN 4
 
 typedef struct {
-    gchar *name;
-    gchar *code;
-    gchar *zone;
-    gchar *radar;
+    char *name;
+    char *code;
+    char *zone;
+    char *radar;
     gboolean latlon_valid;
-    gdouble  latitude;
-    gdouble  longitude;
-    gchar *country_code;
-    gchar *tz_hint;
+    double  latitude;
+    double  longitude;
+    char *country_code;
+    char *tz_hint;
 } WeatherLocation;
 
-GWeatherLocation *_gweather_location_new_detached (GWeatherLocation *nearest_station,
-						   const char       *name,
-						   gboolean          latlon_valid,
-						   gdouble           latitude,
-						   gdouble           longitude);
+GWeatherLocation *
+_gweather_location_new_detached (GWeatherLocation *nearest_station,
+                                 const char *name,
+                                 gboolean latlon_valid,
+                                 double latitude,
+                                 double longitude);
 
-void              _gweather_location_update_weather_location (GWeatherLocation *gloc,
-							      WeatherLocation  *loc);
+void
+_gweather_location_update_weather_location (GWeatherLocation *gloc,
+                                            WeatherLocation *loc);
 
-GWeatherTimezone * _gweather_timezone_ref_for_idx (GWeatherDb       *db,
-						    guint             idx);
-
+GWeatherTimezone *
+_gweather_timezone_ref_for_idx (GWeatherDb *db,
+                                guint idx);
 
 /*
  * Weather information.
  */
 
-typedef gdouble GWeatherTemperature;
-typedef gdouble GWeatherHumidity;
-typedef gdouble GWeatherWindSpeed;
-typedef gdouble GWeatherPressure;
-typedef gdouble GWeatherVisibility;
+typedef double GWeatherTemperature;
+typedef double GWeatherHumidity;
+typedef double GWeatherWindSpeed;
+typedef double GWeatherPressure;
+typedef double GWeatherVisibility;
 typedef time_t GWeatherUpdate;
 
 struct _GWeatherInfo {
@@ -143,9 +156,9 @@ struct _GWeatherInfo {
     GWeatherMoonPhase moonphase;
     GWeatherMoonLatitude moonlatitude;
     GSList *forecast_list; /* list of GWeatherInfo* for the forecast, NULL if not available */
-    gchar *forecast_attribution;
-    gchar *radar_buffer;
-    gchar *radar_url;
+    char *forecast_attribution;
+    char *radar_buffer;
+    char *radar_url;
     GdkPixbufLoader *radar_loader;
     GdkPixbufAnimation *radar;
     SoupSession *session;
@@ -154,75 +167,95 @@ struct _GWeatherInfo {
 
 /* Values common to the parsing source files */
 
-#define DATA_SIZE			5000
+#define DATA_SIZE 5000
 
-#define CONST_DIGITS			"0123456789"
-#define CONST_ALPHABET			"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#define CONST_DIGITS "0123456789"
+#define CONST_ALPHABET "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 /* Units conversions and names */
 
-#define TEMP_F_TO_C(f)			(((f) - 32.0) * 0.555556)
-#define TEMP_F_TO_K(f)			(TEMP_F_TO_C (f) + 273.15)
-#define TEMP_C_TO_F(c)			(((c) * 1.8) + 32.0)
+#define TEMP_F_TO_C(f)                  (((f) - 32.0) * 0.555556)
+#define TEMP_F_TO_K(f)                  (TEMP_F_TO_C (f) + 273.15)
+#define TEMP_C_TO_F(c)                  (((c) * 1.8) + 32.0)
 
-#define WINDSPEED_KNOTS_TO_KPH(knots)	((knots) * 1.851965)
-#define WINDSPEED_KNOTS_TO_MPH(knots)	((knots) * 1.150779)
-#define WINDSPEED_KNOTS_TO_MS(knots)	((knots) * 0.514444)
-#define WINDSPEED_MS_TO_KNOTS(ms)	((ms) / 0.514444)
+#define WINDSPEED_KNOTS_TO_KPH(knots)   ((knots) * 1.851965)
+#define WINDSPEED_KNOTS_TO_MPH(knots)   ((knots) * 1.150779)
+#define WINDSPEED_KNOTS_TO_MS(knots)    ((knots) * 0.514444)
+#define WINDSPEED_MS_TO_KNOTS(ms)       ((ms) / 0.514444)
 /* 1 bft ~= (1 m/s / 0.836) ^ (2/3) */
-#define WINDSPEED_KNOTS_TO_BFT(knots)	(pow ((knots) * 0.615363, 0.666666))
+#define WINDSPEED_KNOTS_TO_BFT(knots)   (pow ((knots) * 0.615363, 0.666666))
 
-#define PRESSURE_INCH_TO_KPA(inch)	((inch) * 3.386)
-#define PRESSURE_INCH_TO_HPA(inch)	((inch) * 33.86)
-#define PRESSURE_INCH_TO_MM(inch)	((inch) * 25.40005)
-#define PRESSURE_INCH_TO_MB(inch)	(PRESSURE_INCH_TO_HPA (inch))
-#define PRESSURE_INCH_TO_ATM(inch)	((inch) * 0.033421052)
-#define PRESSURE_MBAR_TO_INCH(mbar)	((mbar) * 0.029533373)
+#define PRESSURE_INCH_TO_KPA(inch)      ((inch) * 3.386)
+#define PRESSURE_INCH_TO_HPA(inch)      ((inch) * 33.86)
+#define PRESSURE_INCH_TO_MM(inch)       ((inch) * 25.40005)
+#define PRESSURE_INCH_TO_MB(inch)       (PRESSURE_INCH_TO_HPA (inch))
+#define PRESSURE_INCH_TO_ATM(inch)      ((inch) * 0.033421052)
+#define PRESSURE_MBAR_TO_INCH(mbar)     ((mbar) * 0.029533373)
 
-#define VISIBILITY_SM_TO_KM(sm)		((sm) * 1.609344)
-#define VISIBILITY_SM_TO_M(sm)		(VISIBILITY_SM_TO_KM (sm) * 1000)
+#define VISIBILITY_SM_TO_KM(sm)         ((sm) * 1.609344)
+#define VISIBILITY_SM_TO_M(sm)          (VISIBILITY_SM_TO_KM (sm) * 1000)
 
-#define DEGREES_TO_RADIANS(deg)		((fmod ((deg),360.) / 180.) * M_PI)
-#define RADIANS_TO_DEGREES(rad)		((rad) * 180. / M_PI)
-#define RADIANS_TO_HOURS(rad)		((rad) * 12. / M_PI)
+#define DEGREES_TO_RADIANS(deg)         ((fmod ((deg), 360.) / 180.) * M_PI)
+#define RADIANS_TO_DEGREES(rad)         ((rad) * 180. / M_PI)
+#define RADIANS_TO_HOURS(rad)           ((rad) * 12. / M_PI)
 
-char           *_radians_to_degrees_str (gdouble radians);
+char *
+_radians_to_degrees_str (double radians);
 
 /*
  * Planetary Mean Orbit and their progressions from J2000 are based on the
  * values in http://ssd.jpl.nasa.gov/txt/aprx_pos_planets.pdf
  * converting longitudes from heliocentric to geocentric coordinates (+180)
  */
-#define EPOCH_TO_J2000(t)          ((gdouble)(t)-946727935.816)
-#define MEAN_ECLIPTIC_LONGITUDE(d) (280.46457166 + (d)/36525.*35999.37244981)
-#define SOL_PROGRESSION            (360./365.242191)
-#define PERIGEE_LONGITUDE(d)       (282.93768193 + (d)/36525.*0.32327364)
+#define EPOCH_TO_J2000(t)               ((double) (t) - 946727935.816)
+#define MEAN_ECLIPTIC_LONGITUDE(d)      (280.46457166 + (d) / 36525. * 35999.37244981)
+#define SOL_PROGRESSION                 (360. / 365.242191)
+#define PERIGEE_LONGITUDE(d)            (282.93768193 + (d) / 36525. * 0.32327364)
 
-void		metar_start_open	(GWeatherInfo *info);
-gboolean	iwin_start_open		(GWeatherInfo *info);
-gboolean        metno_start_open         (GWeatherInfo *info);
-gboolean        owm_start_open          (GWeatherInfo *info);
+void
+metar_start_open (GWeatherInfo *info);
 
-gboolean	metar_parse		(gchar *metar,
-					 GWeatherInfo *info);
+gboolean
+iwin_start_open (GWeatherInfo *info);
 
-void            _gweather_info_begin_request (GWeatherInfo *info,
-					      SoupMessage  *message);
-void		_gweather_info_request_done (GWeatherInfo *info,
-					     SoupMessage  *message);
+gboolean
+metno_start_open (GWeatherInfo *info);
 
-void		ecl2equ			(gdouble t,
-					 gdouble eclipLon,
-					 gdouble eclipLat,
-					 gdouble *ra,
-					 gdouble *decl);
-gdouble		sunEclipLongitude	(time_t t);
+gboolean
+owm_start_open (GWeatherInfo *info);
 
-void            _gweather_info_ensure_sun  (GWeatherInfo *info);
-void            _gweather_info_ensure_moon (GWeatherInfo *info);
+gboolean
+metar_parse (char *metar,
+             GWeatherInfo *info);
 
-void		free_forecast_list	  (GWeatherInfo *info);
+void
+_gweather_info_begin_request (GWeatherInfo *info,
+                              SoupMessage *message);
 
-GWeatherInfo   *_gweather_info_new_clone  (GWeatherInfo *original);
+void
+_gweather_info_request_done (GWeatherInfo *info,
+                             SoupMessage *message);
+
+void
+ecl2equ (double t,
+         double eclipLon,
+         double eclipLat,
+         double *ra,
+         double *decl);
+
+double
+sunEclipLongitude (time_t t);
+
+void
+_gweather_info_ensure_sun (GWeatherInfo *info);
+
+void
+_gweather_info_ensure_moon (GWeatherInfo *info);
+
+void
+free_forecast_list (GWeatherInfo *info);
+
+GWeatherInfo *
+_gweather_info_new_clone (GWeatherInfo *original);
 
 G_END_DECLS
