@@ -93,7 +93,7 @@ GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_next_child            (GWeatherLocation  *loc,
                                                                  GWeatherLocation  *child);
 
-G_DEPRECATED_FOR(gweather_location_next_child) _GWEATHER_EXTERN
+GWEATHER_DEPRECATED_FOR(gweather_location_next_child)
 GWeatherLocation **     gweather_location_get_children          (GWeatherLocation  *loc);
 
 GWEATHER_AVAILABLE_IN_ALL
