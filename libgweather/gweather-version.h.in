@@ -22,6 +22,21 @@
 #define GWEATHER_AVAILABLE_IN_ALL       _GWEATHER_EXTERN
 
 /**
+ * GWEATHER_DISABLE_DEPRECATION_WARNINGS:
+ *
+ * Disable deprecation warnings from GWeather API.
+ *
+ * Must be defined before including `libgweather/gweather.h`.
+ */
+#ifdef GWEATHER_DISABLE_DEPRECATION_WARNINGS
+# define GWEATHER_DEPRECATED _GWEATHER_EXTERN
+# define GWEATHER_DEPRECATED_FOR(f) _GWEATHER_EXTERN
+#else
+# define GWEATHER_DEPRECATED G_DEPRECATED _GWEATHER_EXTERN
+# define GWEATHER_DEPRECATED_FOR(f) G_DEPRECATED_FOR(f) _GWEATHER_EXTERN
+#endif
+
+/**
  * SECTION:gweatherversion
  * @short_description: libgweather version checking
  *
