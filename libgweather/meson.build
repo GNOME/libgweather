@@ -1,5 +1,4 @@
 add_project_arguments([
-  '-DHAVE_CONFIG_H',
   '-DGWEATHER_COMPILATION',
   '-D_XOPEN_SOURCE=700',
   '-D_DEFAULT_SOURCE',
