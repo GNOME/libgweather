@@ -1,16 +1,16 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-/*
- * Simple program to reproduce METAR parsing results from command line
+/* test_metar.c: Simple program to reproduce METAR parsing results from command line
+ *
+ * SPDX-FileCopyrightText: The GWeather authors
+ * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+#include "config.h"
 
-#include <glib.h>
+#include "gweather-private.h"
+
 #include <string.h>
 #include <stdio.h>
-#include "gweather-private.h"
+#include <glib.h>
 
 #ifndef BUFLEN
 #define BUFLEN 4096

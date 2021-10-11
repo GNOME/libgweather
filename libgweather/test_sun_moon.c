@@ -1,8 +1,11 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+/* test_sun_moon.c: Test for Sun and Moon computations
+ *
+ * SPDX-FileCopyrightText: 2009 Frank Solensky
+ * SPDX-FileCopyrightText: 2011, 2012, 2015 Giovanni Campagna
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+#include "config.h"
 
 #include <glib.h>
 #include <string.h>
