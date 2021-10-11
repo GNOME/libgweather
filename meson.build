@@ -80,7 +80,8 @@ if get_option('gtk_doc')
 endif
 subdir('po')
 subdir('po-locations')
-meson.add_install_script('meson/meson_post_install.py')
+
+meson.add_install_script('build-aux/meson/meson_post_install.py')
 
 pkgconfig.generate(
   filebase: 'gweather-3.0',
