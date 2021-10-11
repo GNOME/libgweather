@@ -72,6 +72,8 @@ else
   enable_vala = enable_vala != 'false'
 endif
 
+gen_locations_variant = find_program('build-aux/meson/gen_locations_variant.py')
+
 subdir('data')
 subdir('libgweather')
 subdir('schemas')

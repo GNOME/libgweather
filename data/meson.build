@@ -16,10 +16,14 @@ if xmllint.found()
        ])
 endif
 
-gen_locations_variant = find_program('gen_locations_variant.py')
-
 if pylint.found()
-  test('pylint-gen-locations-variant', pylint, args: pylint_flags + files([ 'gen_locations_variant.py' ]))
+  test('pylint-gen-locations-variant',
+    pylint,
+    args: [
+      pylint_flags,
+      gen_locations_variant.full_path(),
+    ],
+  )
 endif
 
 # The generated file is architecture dependent (i.e. host endianness)
