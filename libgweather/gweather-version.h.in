@@ -1,28 +1,14 @@
 /* gweather-version.h - libgweather versioning information
  *
- * This file is part of libgweather
- * Copyright (C) 2014  Javier Jardón <jjardon@gnome.org>
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library. If not, see <https://www.gnu.org/licenses/>.
+ * SPDX-FileCopyrightText: 2014  Javier Jardón <jjardon@gnome.org>
+ * SPDX-License-Identifier: LGPL-2.0-or-later
  *
  * Based on json-version from json-glib
  * Authored by Emmanuele Bassi <ebassi@gnome.org>
  * Adapted for libgweather by Javier Jardón <jjardon@gnome.org>
  */
 
-#ifndef __GWEATHER_VERSION_H__
-#define __GWEATHER_VERSION_H__
+#pragma once
 
 #if !(defined(IN_GWEATHER_H) || defined(GWEATHER_COMPILATION))
 #error "gweather-version.h must not be included individually, include gweather.h instead"
@@ -102,5 +88,3 @@
          (GWEATHER_MAJOR_VERSION == (major) && GWEATHER_MINOR_VERSION > (minor)) || \
          (GWEATHER_MAJOR_VERSION == (major) && GWEATHER_MINOR_VERSION == (minor) && \
           GWEATHER_MICRO_VERSION >= (micro)))
-
-#endif /* __GWEATHER_VERSION_H__ */

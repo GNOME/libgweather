@@ -1,29 +1,18 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
 /* gweather-enums.h: enumerations for GWeather settings
  *
- * Copyright: 2011 Giovanni Campagna <scampa.giovanni@gmail.com>
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License as
- * published by the Free Software Foundation; either version 2 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, see
- * <https://www.gnu.org/licenses/>.
+ * SPDX-FileCopyrightText: 2011 Giovanni Campagna <scampa.giovanni@gmail.com>
+ * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
-#ifndef __GWEATHER_ENUMS_H_
-#define __GWEATHER_ENUMS_H_
+#pragma once
 
 #if !(defined(IN_GWEATHER_H) || defined(GWEATHER_COMPILATION))
 #error "gweather-enums.h must not be included individually, include gweather.h instead"
 #endif
+
+#include <glib.h>
+
+G_BEGIN_DECLS
 
 /**
  * GWeatherTemperatureUnit:
@@ -60,11 +49,11 @@ typedef enum { /*< underscore_name=gweather_temperature_unit >*/
 typedef enum { /*< underscore_name=gweather_speed_unit >*/
     GWEATHER_SPEED_UNIT_INVALID = 0,
     GWEATHER_SPEED_UNIT_DEFAULT,
-    GWEATHER_SPEED_UNIT_MS,    /* metres per second */
-    GWEATHER_SPEED_UNIT_KPH,   /* kilometres per hour */
-    GWEATHER_SPEED_UNIT_MPH,   /* miles per hour */
-    GWEATHER_SPEED_UNIT_KNOTS, /* Knots */
-    GWEATHER_SPEED_UNIT_BFT    /* Beaufort scale */
+    GWEATHER_SPEED_UNIT_MS,
+    GWEATHER_SPEED_UNIT_KPH,
+    GWEATHER_SPEED_UNIT_MPH,
+    GWEATHER_SPEED_UNIT_KNOTS,
+    GWEATHER_SPEED_UNIT_BFT
 } GWeatherSpeedUnit;
 
 /**
@@ -73,7 +62,7 @@ typedef enum { /*< underscore_name=gweather_speed_unit >*/
  * @GWEATHER_PRESSURE_UNIT_DEFAULT: the user preferred pressure unit
  * @GWEATHER_PRESSURE_UNIT_KPA: kiloPascal (* 10^3 Pa)
  * @GWEATHER_PRESSURE_UNIT_HPA: hectoPascal (* 10^2 Pa); also known
- *                              as millibars, but formatted differently
+ *   as millibars, but formatted differently
  * @GWEATHER_PRESSURE_UNIT_MB: millibars; same as %GWEATHER_PRESSURE_UNIT_HPA
  * @GWEATHER_PRESSURE_UNIT_MM_HG: millimeters of mercury
  * @GWEATHER_PRESSURE_UNIT_INCH_HG: inches of mercury
@@ -85,12 +74,12 @@ typedef enum { /*< underscore_name=gweather_speed_unit >*/
 typedef enum { /*< underscore_name=gweather_pressure_unit >*/
     GWEATHER_PRESSURE_UNIT_INVALID = 0,
     GWEATHER_PRESSURE_UNIT_DEFAULT,
-    GWEATHER_PRESSURE_UNIT_KPA,    /* kiloPascal */
-    GWEATHER_PRESSURE_UNIT_HPA,    /* hectoPascal */
-    GWEATHER_PRESSURE_UNIT_MB,     /* 1 millibars = 1 hectoPascal */
-    GWEATHER_PRESSURE_UNIT_MM_HG,  /* millimeters of mercury */
-    GWEATHER_PRESSURE_UNIT_INCH_HG, /* inches of mercury */
-    GWEATHER_PRESSURE_UNIT_ATM     /* atmosphere */
+    GWEATHER_PRESSURE_UNIT_KPA,
+    GWEATHER_PRESSURE_UNIT_HPA,
+    GWEATHER_PRESSURE_UNIT_MB,
+    GWEATHER_PRESSURE_UNIT_MM_HG,
+    GWEATHER_PRESSURE_UNIT_INCH_HG,
+    GWEATHER_PRESSURE_UNIT_ATM
 } GWeatherPressureUnit;
 
 /**
@@ -116,12 +105,12 @@ typedef enum { /*< underscore_name=gweather_distance_unit >*/
  * GWeatherFormatOptions:
  * @GWEATHER_FORMAT_OPTION_DEFAULT: The default string format
  * @GWEATHER_FORMAT_OPTION_SENTENCE_CAPITALIZATION: Capitalize as if the string
- *                                                  was starting a sentence
+ *   was starting a sentence
  * @GWEATHER_FORMAT_OPTION_NO_CAPITALIZATION: Capitalize as if the string was
- *                                            appearing within a sentence
+ *   appearing within a sentence
  *
- * Format options to influence the returned string of the
- * gweather_*_to_string_full() functions.
+ * Format options to influence the text returned by the
+ * `gweather_*_to_string_full()` functions.
  */
 typedef enum { /*< underscore_name=gweather_format_options >*/
     GWEATHER_FORMAT_OPTION_DEFAULT                 = 0,
@@ -129,4 +118,4 @@ typedef enum { /*< underscore_name=gweather_format_options >*/
     GWEATHER_FORMAT_OPTION_NO_CAPITALIZATION       = 1 << 1
 } GWeatherFormatOptions;
 
-#endif /* __GWEATHER_ENUMS_H_ */
+G_END_DECLS

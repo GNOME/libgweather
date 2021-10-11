@@ -1,23 +1,10 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-/* weather.h - Public header for weather server functions.
+/* gweather-weather.h - Public header for weather server functions
  *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License as
- * published by the Free Software Foundation; either version 2 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, see
- * <https://www.gnu.org/licenses/>.
+ * SPDX-FileCopyrightText: The GWeather authors
+ * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
-#ifndef __WEATHER_H_
-#define __WEATHER_H_
+#pragma once
 
 #if !(defined(IN_GWEATHER_H) || defined(GWEATHER_COMPILATION))
 #error "gweather-weather.h must not be included individually, include gweather.h instead"
@@ -50,59 +37,60 @@ typedef enum { /*< flags, underscore_name=gweather_provider >*/
 } GWeatherProvider;
 
 #define GWEATHER_TYPE_INFO (gweather_info_get_type ())
-G_DECLARE_FINAL_TYPE(GWeatherInfo, gweather_info, GWEATHER, INFO, GObject)
+G_DECLARE_FINAL_TYPE (GWeatherInfo, gweather_info, GWEATHER, INFO, GObject)
 
-GWeatherInfo *           gweather_info_new                 (GWeatherLocation *location);
-void                     gweather_info_update              (GWeatherInfo *info);
-void			 gweather_info_abort		   (GWeatherInfo *info);
-void                     gweather_info_store_cache         (void);
+void                            gweather_info_store_cache               (void);
 
-GWeatherProvider         gweather_info_get_enabled_providers (GWeatherInfo        *info);
-void                     gweather_info_set_enabled_providers (GWeatherInfo        *info,
-							      GWeatherProvider     providers);
+GWeatherInfo *                  gweather_info_new                       (GWeatherLocation *location);
+void                            gweather_info_update                    (GWeatherInfo *info);
+void                            gweather_info_abort                     (GWeatherInfo *info);
 
-const char             * gweather_info_get_application_id  (GWeatherInfo *info);
-void                     gweather_info_set_application_id  (GWeatherInfo *info,
-							    const char   *application_id);
+GWeatherProvider                gweather_info_get_enabled_providers     (GWeatherInfo *info);
+void                            gweather_info_set_enabled_providers     (GWeatherInfo  *info,
+                                                                         GWeatherProvider providers);
 
-const char             * gweather_info_get_contact_info    (GWeatherInfo *info);
-void                     gweather_info_set_contact_info    (GWeatherInfo *info,
-							    const char   *contact_info);
+const char *                    gweather_info_get_application_id        (GWeatherInfo *info);
+void                            gweather_info_set_application_id        (GWeatherInfo *info,
+                                                                         const char *application_id);
 
-gboolean		 gweather_info_is_valid		   (GWeatherInfo *info);
-gboolean		 gweather_info_network_error	   (GWeatherInfo *info);
+const char *                    gweather_info_get_contact_info          (GWeatherInfo *info);
+void                            gweather_info_set_contact_info          (GWeatherInfo *info,
+                                                                         const char *contact_info);
 
-const GWeatherLocation * gweather_info_get_location	   (GWeatherInfo *info);
-void                     gweather_info_set_location        (GWeatherInfo *info,
-							    GWeatherLocation *location);
-gchar *		         gweather_info_get_location_name   (GWeatherInfo *info);
-gchar * 		 gweather_info_get_update	   (GWeatherInfo *info);
-gchar * 		 gweather_info_get_sky		   (GWeatherInfo *info);
-gchar *	                 gweather_info_get_conditions	   (GWeatherInfo *info);
+gboolean                        gweather_info_is_valid                  (GWeatherInfo *info);
+gboolean                        gweather_info_network_error             (GWeatherInfo *info);
 
-gchar * 	  	 gweather_info_get_temp		   (GWeatherInfo *info);
-gchar * 	 	 gweather_info_get_temp_min	   (GWeatherInfo *info);
-gchar * 		 gweather_info_get_temp_max	   (GWeatherInfo *info);
-gchar * 		 gweather_info_get_dew		   (GWeatherInfo *info);
-gchar * 		 gweather_info_get_humidity	   (GWeatherInfo *info);
-gchar * 		 gweather_info_get_wind		   (GWeatherInfo *info);
-gchar * 		 gweather_info_get_pressure	   (GWeatherInfo *info);
-gchar * 		 gweather_info_get_visibility	   (GWeatherInfo *info);
-gchar * 		 gweather_info_get_apparent	   (GWeatherInfo *info);
-gchar * 		 gweather_info_get_sunrise	   (GWeatherInfo *info);
-gchar * 		 gweather_info_get_sunset	   (GWeatherInfo *info);
-GSList *		 gweather_info_get_forecast_list   (GWeatherInfo *info);
-GdkPixbufAnimation *	 gweather_info_get_radar	   (GWeatherInfo *info);
-const gchar             *gweather_info_get_attribution     (GWeatherInfo *info);
+const GWeatherLocation *        gweather_info_get_location              (GWeatherInfo *info);
+void                            gweather_info_set_location              (GWeatherInfo *info,
+                                                                         GWeatherLocation *location);
+char *                          gweather_info_get_location_name         (GWeatherInfo *info);
+char *                          gweather_info_get_update                (GWeatherInfo *info);
+char *                          gweather_info_get_sky                   (GWeatherInfo *info);
+char *                          gweather_info_get_conditions            (GWeatherInfo *info);
 
-gchar * 		 gweather_info_get_temp_summary	   (GWeatherInfo *info);
-gchar *			 gweather_info_get_weather_summary (GWeatherInfo *info);
+char *                          gweather_info_get_temp                  (GWeatherInfo *info);
+char *                          gweather_info_get_temp_min              (GWeatherInfo *info);
+char *                          gweather_info_get_temp_max              (GWeatherInfo *info);
+char *                          gweather_info_get_dew                   (GWeatherInfo *info);
+char *                          gweather_info_get_humidity              (GWeatherInfo *info);
+char *                          gweather_info_get_wind                  (GWeatherInfo *info);
+char *                          gweather_info_get_pressure              (GWeatherInfo *info);
+char *                          gweather_info_get_visibility            (GWeatherInfo *info);
+char *                          gweather_info_get_apparent              (GWeatherInfo *info);
+char *                          gweather_info_get_sunrise               (GWeatherInfo *info);
+char *                          gweather_info_get_sunset                (GWeatherInfo *info);
+GSList *                        gweather_info_get_forecast_list         (GWeatherInfo *info);
+GdkPixbufAnimation *            gweather_info_get_radar                 (GWeatherInfo *info);
+const char *                    gweather_info_get_attribution           (GWeatherInfo *info);
 
-const gchar *		 gweather_info_get_icon_name	   (GWeatherInfo *info);
-const gchar *		 gweather_info_get_symbolic_icon_name	   (GWeatherInfo *info);
-gint			 gweather_info_next_sun_event	   (GWeatherInfo *info);
+char *                          gweather_info_get_temp_summary          (GWeatherInfo *info);
+char *                          gweather_info_get_weather_summary       (GWeatherInfo *info);
 
-gboolean                 gweather_info_is_daytime          (GWeatherInfo *info);
+const char *                    gweather_info_get_icon_name             (GWeatherInfo *info);
+const char *                    gweather_info_get_symbolic_icon_name    (GWeatherInfo *info);
+
+int                             gweather_info_next_sun_event            (GWeatherInfo *info);
+gboolean                        gweather_info_is_daytime                (GWeatherInfo *info);
 
 /* values retrieving functions */
 
@@ -154,9 +142,9 @@ typedef enum { /*< underscore_name=gweather_wind_direction >*/
     GWEATHER_WIND_LAST
 } GWeatherWindDirection;
 
-const gchar * gweather_wind_direction_to_string (GWeatherWindDirection wind);
-const gchar * gweather_wind_direction_to_string_full (GWeatherWindDirection wind,
-                                                      GWeatherFormatOptions options);
+const char *    gweather_wind_direction_to_string       (GWeatherWindDirection wind);
+const char *    gweather_wind_direction_to_string_full  (GWeatherWindDirection wind,
+                                                         GWeatherFormatOptions options);
 
 /**
  * GWeatherSky:
@@ -183,9 +171,9 @@ typedef enum { /*< underscore_name=gweather_sky >*/
     GWEATHER_SKY_LAST
 } GWeatherSky;
 
-const gchar * gweather_sky_to_string (GWeatherSky sky);
-const gchar * gweather_sky_to_string_full (GWeatherSky        sky,
-                                           GWeatherFormatOptions options);
+const char *    gweather_sky_to_string          (GWeatherSky sky);
+const char *    gweather_sky_to_string_full     (GWeatherSky sky,
+                                                 GWeatherFormatOptions options);
 
 /**
  * GWeatherConditionPhenomenon:
@@ -232,32 +220,32 @@ typedef enum { /*< underscore_name=gweather_phenomenon >*/
  * GWeatherConditionQualifier:
  * @GWEATHER_QUALIFIER_INVALID: value not available
  * @GWEATHER_QUALIFIER_NONE: no qualifier for the phenomenon
- * @GWEATHER_QUALIFIER_VICINITY: phenomenon happening in the proximity
- *                               of the location, not in the actual location
+ * @GWEATHER_QUALIFIER_VICINITY: phenomenon happening in the proximity of the
+ *   location, not in the actual location
  * @GWEATHER_QUALIFIER_LIGHT: phenomenon is light or predicted to be light
  * @GWEATHER_QUALIFIER_MODERATE: phenomenon is moderate or predicted to be
- *                               moderate
+ *   moderate
  * @GWEATHER_QUALIFIER_HEAVY: phenomenon is heavy or predicted to be heavy
  * @GWEATHER_QUALIFIER_SHALLOW: shallow fog (only valid with
- *                              %GWEATHER_PHENOMENON_FOG)
+ *   %GWEATHER_PHENOMENON_FOG)
  * @GWEATHER_QUALIFIER_PATCHES: patches of fog (only valid with
- *                              %GWEATHER_PHENOMENON_FOG)
+ *   %GWEATHER_PHENOMENON_FOG)
  * @GWEATHER_QUALIFIER_PARTIAL: partial fog (only valid with
- *                             %GWEATHER_PHENOMENON_FOG)
- * @GWEATHER_QUALIFIER_THUNDERSTORM: phenomenon will be a thunderstorm
- *                                   and/or will include lightning
+ *   %GWEATHER_PHENOMENON_FOG)
+ * @GWEATHER_QUALIFIER_THUNDERSTORM: phenomenon will be a thunderstorm and/or
+ *   will include lightning
  * @GWEATHER_QUALIFIER_BLOWING: phenomenon is blowing (valid with
- *                              %GWEATHER_PHENOMENON_SNOW, %GWEATHER_PHENOMENON_SAND,
- *                              %GWEATHER_PHENOMENON_SPRAY, %GWEATHER_PHENOMENON_DUST)
+ *   %GWEATHER_PHENOMENON_SNOW, %GWEATHER_PHENOMENON_SAND,
+ *   %GWEATHER_PHENOMENON_SPRAY, %GWEATHER_PHENOMENON_DUST)
  * @GWEATHER_QUALIFIER_SHOWERS: phenomenon is heavy and involves showers
- * @GWEATHER_QUALIFIER_DRIFTING: phenomenon is moving across (valid
- *                               with %GWEATHER_PHENOMENON_SAND and
- *                               %GWEATHER_PHENOMENON_DUST)
+ * @GWEATHER_QUALIFIER_DRIFTING: phenomenon is moving across (valid with
+ *   %GWEATHER_PHENOMENON_SAND and %GWEATHER_PHENOMENON_DUST)
  * @GWEATHER_QUALIFIER_FREEZING: phenomenon is freezing and involves ice
- * @GWEATHER_QUALIFIER_LAST: maximum value of the enumeration.
+ * @GWEATHER_QUALIFIER_LAST: maximum value of the enumeration
  *
  * An additional modifier applied to a #GWeatherConditionPhenomenon to
  * describe the current or forecasted weather conditions.
+ *
  * The exact meaning of each qualifier is described at
  * http://www.weather.com/glossary/ and
  * http://www.crh.noaa.gov/arx/wx.tbl.php
@@ -290,30 +278,56 @@ typedef enum { /*< underscore_name=gweather_qualifier >*/
  * The current phase of the moon, represented as degrees,
  * where 0 is the new moon, 90 is the first quarter, etc.
  */
-typedef gdouble GWeatherMoonPhase;
+typedef double GWeatherMoonPhase;
 
 /**
  * GWeatherMoonLatitude:
  *
  * The moon declension, in degrees.
  */
-typedef gdouble GWeatherMoonLatitude;
+typedef double GWeatherMoonLatitude;
 
-gboolean gweather_info_get_value_update		(GWeatherInfo *info, time_t *value);
-gboolean gweather_info_get_value_sky		(GWeatherInfo *info, GWeatherSky *sky);
-gboolean gweather_info_get_value_conditions	(GWeatherInfo *info, GWeatherConditionPhenomenon *phenomenon, GWeatherConditionQualifier *qualifier);
-gboolean gweather_info_get_value_temp		(GWeatherInfo *info, GWeatherTemperatureUnit unit, gdouble *value);
-gboolean gweather_info_get_value_temp_min	(GWeatherInfo *info, GWeatherTemperatureUnit unit, gdouble *value);
-gboolean gweather_info_get_value_temp_max	(GWeatherInfo *info, GWeatherTemperatureUnit unit, gdouble *value);
-gboolean gweather_info_get_value_dew		(GWeatherInfo *info, GWeatherTemperatureUnit unit, gdouble *value);
-gboolean gweather_info_get_value_apparent	(GWeatherInfo *info, GWeatherTemperatureUnit unit, gdouble *value);
-gboolean gweather_info_get_value_wind		(GWeatherInfo *info, GWeatherSpeedUnit unit, gdouble *speed, GWeatherWindDirection *direction);
-gboolean gweather_info_get_value_pressure	(GWeatherInfo *info, GWeatherPressureUnit unit, gdouble *value);
-gboolean gweather_info_get_value_visibility	(GWeatherInfo *info, GWeatherDistanceUnit unit, gdouble *value);
-gboolean gweather_info_get_value_sunrise	(GWeatherInfo *info, time_t *value);
-gboolean gweather_info_get_value_sunset 	(GWeatherInfo *info, time_t *value);
-gboolean gweather_info_get_value_moonphase      (GWeatherInfo *info, GWeatherMoonPhase *value, GWeatherMoonLatitude *lat);
-gboolean gweather_info_get_upcoming_moonphases  (GWeatherInfo *info, time_t *phases);
+gboolean        gweather_info_get_value_update          (GWeatherInfo *info,
+                                                         time_t *value);
+gboolean        gweather_info_get_value_sky             (GWeatherInfo *info,
+                                                         GWeatherSky *sky);
+gboolean        gweather_info_get_value_conditions      (GWeatherInfo *info,
+                                                         GWeatherConditionPhenomenon *phenomenon,
+                                                         GWeatherConditionQualifier *qualifier);
+gboolean        gweather_info_get_value_temp            (GWeatherInfo *info,
+                                                         GWeatherTemperatureUnit unit,
+                                                         double *value);
+gboolean        gweather_info_get_value_temp_min        (GWeatherInfo *info,
+                                                         GWeatherTemperatureUnit unit,
+                                                         double *value);
+gboolean        gweather_info_get_value_temp_max        (GWeatherInfo *info,
+                                                         GWeatherTemperatureUnit unit,
+                                                         double *value);
+gboolean        gweather_info_get_value_dew             (GWeatherInfo *info,
+                                                         GWeatherTemperatureUnit unit,
+                                                         double *value);
+gboolean        gweather_info_get_value_apparent        (GWeatherInfo *info,
+                                                         GWeatherTemperatureUnit unit,
+                                                         double *value);
+gboolean        gweather_info_get_value_wind            (GWeatherInfo *info,
+                                                         GWeatherSpeedUnit unit,
+                                                         double *speed,
+                                                         GWeatherWindDirection *direction);
+gboolean        gweather_info_get_value_pressure        (GWeatherInfo *info,
+                                                         GWeatherPressureUnit unit,
+                                                         double *value);
+gboolean        gweather_info_get_value_visibility      (GWeatherInfo *info,
+                                                         GWeatherDistanceUnit unit,
+                                                         double *value);
+gboolean        gweather_info_get_value_sunrise        (GWeatherInfo *info,
+                                                         time_t *value);
+gboolean        gweather_info_get_value_sunset          (GWeatherInfo *info,
+                                                         time_t *value);
+gboolean        gweather_info_get_value_moonphase       (GWeatherInfo *info,
+                                                         GWeatherMoonPhase *value,
+                                                         GWeatherMoonLatitude *lat);
+gboolean        gweather_info_get_upcoming_moonphases   (GWeatherInfo *info,
+                                                         time_t *phases);
 
 typedef struct _GWeatherConditions GWeatherConditions;
 
@@ -339,14 +353,12 @@ struct _GWeatherConditions {
     GWeatherConditionQualifier qualifier;
 };
 
-const gchar * gweather_conditions_to_string (GWeatherConditions *conditions);
-const gchar * gweather_conditions_to_string_full (GWeatherConditions *conditions,
-                                                  GWeatherFormatOptions options);
+const char *    gweather_conditions_to_string           (GWeatherConditions *conditions);
+const char *    gweather_conditions_to_string_full      (GWeatherConditions *conditions,
+                                                         GWeatherFormatOptions options);
 
-GWeatherTemperatureUnit gweather_temperature_unit_to_real (GWeatherTemperatureUnit unit);
+GWeatherTemperatureUnit gweather_temperature_unit_to_real       (GWeatherTemperatureUnit unit);
 
-const gchar * gweather_speed_unit_to_string (GWeatherSpeedUnit unit);
+const char *    gweather_speed_unit_to_string   (GWeatherSpeedUnit unit);
 
 G_END_DECLS
-
-#endif /* __WEATHER_H_ */

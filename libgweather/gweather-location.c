@@ -60,39 +60,6 @@ _iter_up(GWeatherLocation *loc)
  * hierarchy of locations works.
  */
 
-/**
- * GWeatherLocationLevel:
- * @GWEATHER_LOCATION_WORLD: A location representing the entire world.
- * @GWEATHER_LOCATION_REGION: A location representing a continent or
- * other top-level region.
- * @GWEATHER_LOCATION_COUNTRY: A location representing a "country" (or
- * other geographic unit that has an ISO-3166 country code)
- * @GWEATHER_LOCATION_ADM1: A location representing a "first-level
- * administrative division"; ie, a state, province, or similar
- * division.
- * @GWEATHER_LOCATION_CITY: A location representing a city
- * @GWEATHER_LOCATION_WEATHER_STATION: A location representing a
- * weather station.
- * @GWEATHER_LOCATION_DETACHED: A location that is detached from the
- * database, for example because it was loaded from external storage
- * and could not be fully recovered. The parent of this location is
- * the nearest weather station.
- * @GWEATHER_LOCATION_NAMED_TIMEZONE: A location representing a named
- * or special timezone in the world, such as UTC
- *
- * The size/scope of a particular #GWeatherLocation.
- *
- * Locations form a hierarchy, with a %GWEATHER_LOCATION_WORLD
- * location at the top, divided into regions or countries, and so on.
- * Countries may or may not be divided into "adm1"s, and "adm1"s may
- * or may not be divided into "adm2"s. A city will have at least one,
- * and possibly several, weather stations inside it. Weather stations
- * will never appear outside of cities.
- *
- * Building a database with gweather_location_get_world() will never
- * create detached instances, but deserializing might.
- **/
-
 static GWeatherLocation *
 location_new (GWeatherLocationLevel level)
 {

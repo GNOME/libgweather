@@ -1,23 +1,10 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-/* weather-priv.h - Private header for weather server functions.
+/* gweather-private.h - Private header for weather server functions
  *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License as
- * published by the Free Software Foundation; either version 2 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, see
- * <https://www.gnu.org/licenses/>.
+ * SPDX-FileCopyrightText: The GWeather authors
+ * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
-#ifndef __WEATHER_PRIV_H_
-#define __WEATHER_PRIV_H_
+#pragma once
 
 #include "config.h"
 
@@ -35,6 +22,8 @@
 #define INVALID_IDX G_MAXUINT16
 #define IDX_VALID(idx) ((idx) < 0xffff)
 #define EMPTY_TO_NULL(s) ((s)[0] == '\0' ? NULL : (s))
+
+G_BEGIN_DECLS
 
 void        _gweather_gettext_init (void);
 
@@ -236,5 +225,4 @@ void		free_forecast_list	  (GWeatherInfo *info);
 
 GWeatherInfo   *_gweather_info_new_clone  (GWeatherInfo *original);
 
-#endif /* __WEATHER_PRIV_H_ */
-
+G_END_DECLS
