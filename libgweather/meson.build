@@ -23,9 +23,6 @@ add_project_arguments(c_compiler.get_supported_arguments([
 ]), language: 'c')
 
 header_subdir = 'libgweather-3.0/libgweather'
-libgweather_map = meson.current_source_dir() / 'libgweather.map'
-link_depends = []
-link_args = []
 
 # convert to soname
 current = libgweather_lt_c - libgweather_lt_a
@@ -40,11 +37,6 @@ libgweather_darwin_versions = [
   current + 1,
   '@0@.@1@'.format(current + 1, interface_age),
 ]
-
-if c_compiler.has_link_argument('-Wl,--version-script,' + libgweather_map)
-  link_depends += libgweather_map
-  link_args += ['-Wl,--version-script,' + libgweather_map]
-endif
 
 config_h = configuration_data()
 config_h.set_quoted('GETTEXT_PACKAGE', GETTEXT_PACKAGE)
@@ -68,6 +60,19 @@ endif
 
 config_h.set_quoted('ZONEINFO_DIR', get_option('zoneinfo_dir'))
 config_h.set_quoted('OWM_APIKEY', get_option('owm_apikey'))
+
+if host_machine.system() == 'windows'
+  visibility_define = '__declspec(dllexport) extern'
+else
+  visibility_define = '__attribute__((visibility("default"))) extern'
+endif
+
+if get_option('default_library') != 'static'
+  config_h.set('_GWEATHER_EXTERN', visibility_define)
+  if host_machine.system() == 'windows'
+    config_h.set('DLL_EXPORT', true)
+  endif
+endif
 
 configure_file(
   output: 'config.h',
@@ -138,18 +143,31 @@ gweather_priv_sources = [
 
 introspection_sources = gweather_c_sources + gweather_headers
 
-lib_libgweather = shared_library('gweather-3',
+libgweather_static = static_library('gweather',
   sources: [
     gweather_c_sources,
     gweather_priv_sources,
   ],
   dependencies: deps_libgweather,
-  link_depends: link_depends,
-  link_args: link_args,
-  version: libgweather_so_version,
-  darwin_versions: libgweather_darwin_versions,
   include_directories: [
     include_directories('.'),
+    include_directories('..'),
+  ],
+)
+
+libgweather_static_dep = declare_dependency(sources: gweather_c_sources,
+  include_directories: include_directories('..'),
+  dependencies: deps_libgweather,
+  link_with: libgweather_static,
+)
+
+lib_libgweather = shared_library('gweather-3',
+  dependencies: deps_libgweather,
+  link_whole: libgweather_static,
+  version: libgweather_so_version,
+  gnu_symbol_visibility: 'hidden',
+  darwin_versions: libgweather_darwin_versions,
+  include_directories: [
     include_directories('..'),
   ],
   install: true,
@@ -178,7 +196,9 @@ libgweather_dep = declare_dependency(
   sources: [gweather_enum_types[1], gweather_gir],
   dependencies: deps_libgweather,
   link_with: lib_libgweather,
-  include_directories: include_directories('..'),
+  include_directories: [
+    include_directories('..'),
+  ],
 )
 
 if enable_vala
@@ -199,14 +219,14 @@ test_cargs = [
 executable('test_locations',
   sources: ['test_locations.c'],
   c_args: test_cargs,
-  dependencies: libgweather_dep,
+  dependencies: libgweather_static_dep,
   install: false,
 )
 
 executable('test_locations_utc',
   sources: ['test_locations_utc.c'],
   c_args: test_cargs,
-  dependencies: libgweather_dep,
+  dependencies: libgweather_static_dep,
   install: false,
 )
 
@@ -214,7 +234,7 @@ test('test_libgweather',
   executable('test_libgweather',
     sources: ['test_libgweather.c'],
     c_args: test_cargs,
-    dependencies: libgweather_dep,
+    dependencies: libgweather_static_dep,
     install: false,
   ),
   depends: [locations_bin],
@@ -223,20 +243,20 @@ test('test_libgweather',
 executable('test_metar',
   sources: ['test_metar.c', gweather_c_sources, gweather_priv_sources],
   c_args: test_cargs,
-  dependencies: libgweather_dep,
+  dependencies: libgweather_static_dep,
   install: false,
 )
 
 executable('test_sun_moon',
   sources: ['test_sun_moon.c', 'weather-sun.c', 'weather-moon.c'],
   c_args: test_cargs,
-  dependencies: libgweather_dep,
+  dependencies: libgweather_static_dep,
   install: false,
 )
 
 executable('test_weather',
   sources: ['test_weather.c'],
   c_args: test_cargs,
-  dependencies: libgweather_dep,
+  dependencies: libgweather_static_dep,
   install: false,
 )

@@ -63,78 +63,113 @@ typedef enum { /*< underscore_name=gweather_location_level >*/
 } GWeatherLocationLevel;
 
 #define GWEATHER_TYPE_LOCATION (gweather_location_get_type ())
+
+GWEATHER_AVAILABLE_IN_ALL
 GType gweather_location_get_type (void);
 
+
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_get_world             (void);
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_ref                   (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 void                    gweather_location_unref                 (GWeatherLocation  *loc);
 
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (GWeatherLocation, gweather_location_unref);
 
+GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_name              (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_sort_name         (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_english_name      (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_english_sort_name (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocationLevel   gweather_location_get_level             (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_get_parent            (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_next_child            (GWeatherLocation  *loc,
                                                                  GWeatherLocation  *child);
 
-G_DEPRECATED_FOR(gweather_location_next_child)
+G_DEPRECATED_FOR(gweather_location_next_child) _GWEATHER_EXTERN
 GWeatherLocation **     gweather_location_get_children          (GWeatherLocation  *loc);
 
+GWEATHER_AVAILABLE_IN_ALL
 gboolean                gweather_location_has_coords            (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 void                    gweather_location_get_coords            (GWeatherLocation  *loc,
                                                                  double            *latitude,
                                                                  double            *longitude);
+GWEATHER_AVAILABLE_IN_ALL
 double                  gweather_location_get_distance          (GWeatherLocation  *loc,
                                                                  GWeatherLocation  *loc2);
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_find_nearest_city     (GWeatherLocation  *loc,
                                                                  double             lat,
                                                                  double             lon);
 
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_find_nearest_city_full        (GWeatherLocation   *loc,
                                                                          double              lat,
                                                                          double              lon,
                                                                          GWeatherFilterFunc  func,
                                                                          gpointer            user_data,
                                                                          GDestroyNotify      destroy);
+GWEATHER_AVAILABLE_IN_ALL
 void                    gweather_location_detect_nearest_city           (GWeatherLocation   *loc,
                                                                          double              lat,
                                                                          double              lon,
                                                                          GCancellable       *cancellable,
                                                                          GAsyncReadyCallback callback,
                                                                          gpointer            user_data);
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_detect_nearest_city_finish    (GAsyncResult       *result,
                                                                          GError            **error);
 
+GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_country           (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherTimezone *      gweather_location_get_timezone          (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_timezone_str      (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherTimezone **     gweather_location_get_timezones         (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 void                    gweather_location_free_timezones        (GWeatherLocation  *loc,
                                                                  GWeatherTimezone **zones);
+GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_code              (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 char *                  gweather_location_get_city_name         (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 char *                  gweather_location_get_country_name      (GWeatherLocation  *loc);
 
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_find_by_station_code  (GWeatherLocation  *world,
                                                                  const char        *station_code);
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_find_by_country_code  (GWeatherLocation  *world,
                                                                  const char        *country_code);
 
+GWEATHER_AVAILABLE_IN_ALL
 gboolean                gweather_location_equal                 (GWeatherLocation  *one,
                                                                  GWeatherLocation  *two);
 
+GWEATHER_AVAILABLE_IN_ALL
 GVariant *              gweather_location_serialize             (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_deserialize           (GWeatherLocation  *world,
                                                                  GVariant          *serialized);
 
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_new_detached          (const char        *name,
                                                                  const char        *icao,
                                                                  double             latitude,
                                                                  double             longitude);
 
+GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_level_to_string       (GWeatherLocationLevel level);
 
 G_END_DECLS

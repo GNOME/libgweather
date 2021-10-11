@@ -37,10 +37,14 @@ struct _GWeatherTimezoneMenuClass {
 
 };
 
+GWEATHER_AVAILABLE_IN_ALL
 GType           gweather_timezone_menu_get_type         (void);
+GWEATHER_AVAILABLE_IN_ALL
 GtkWidget *     gweather_timezone_menu_new              (GWeatherLocation *top);
+GWEATHER_AVAILABLE_IN_ALL
 void            gweather_timezone_menu_set_tzid         (GWeatherTimezoneMenu *menu,
 						         const char *tzid);
+GWEATHER_AVAILABLE_IN_ALL
 const char *    gweather_timezone_menu_get_tzid         (GWeatherTimezoneMenu *menu);
 
 G_END_DECLS

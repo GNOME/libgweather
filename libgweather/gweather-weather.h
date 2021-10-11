@@ -13,6 +13,7 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <libgweather/gweather-enums.h>
 #include <libgweather/gweather-location.h>
+#include <libgweather/gweather-version.h>
 
 G_BEGIN_DECLS
 
@@ -37,59 +38,99 @@ typedef enum { /*< flags, underscore_name=gweather_provider >*/
 } GWeatherProvider;
 
 #define GWEATHER_TYPE_INFO (gweather_info_get_type ())
+
+GWEATHER_AVAILABLE_IN_ALL
 G_DECLARE_FINAL_TYPE (GWeatherInfo, gweather_info, GWEATHER, INFO, GObject)
 
+GWEATHER_AVAILABLE_IN_ALL
 void                            gweather_info_store_cache               (void);
 
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherInfo *                  gweather_info_new                       (GWeatherLocation *location);
+GWEATHER_AVAILABLE_IN_ALL
 void                            gweather_info_update                    (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 void                            gweather_info_abort                     (GWeatherInfo *info);
 
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherProvider                gweather_info_get_enabled_providers     (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 void                            gweather_info_set_enabled_providers     (GWeatherInfo  *info,
                                                                          GWeatherProvider providers);
 
+GWEATHER_AVAILABLE_IN_ALL
 const char *                    gweather_info_get_application_id        (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 void                            gweather_info_set_application_id        (GWeatherInfo *info,
                                                                          const char *application_id);
 
+GWEATHER_AVAILABLE_IN_ALL
 const char *                    gweather_info_get_contact_info          (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 void                            gweather_info_set_contact_info          (GWeatherInfo *info,
                                                                          const char *contact_info);
 
+GWEATHER_AVAILABLE_IN_ALL
 gboolean                        gweather_info_is_valid                  (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean                        gweather_info_network_error             (GWeatherInfo *info);
 
+GWEATHER_AVAILABLE_IN_ALL
 const GWeatherLocation *        gweather_info_get_location              (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 void                            gweather_info_set_location              (GWeatherInfo *info,
                                                                          GWeatherLocation *location);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_location_name         (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_update                (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_sky                   (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_conditions            (GWeatherInfo *info);
 
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_temp                  (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_temp_min              (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_temp_max              (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_dew                   (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_humidity              (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_wind                  (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_pressure              (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_visibility            (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_apparent              (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_sunrise               (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_sunset                (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 GSList *                        gweather_info_get_forecast_list         (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 GdkPixbufAnimation *            gweather_info_get_radar                 (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 const char *                    gweather_info_get_attribution           (GWeatherInfo *info);
 
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_temp_summary          (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 char *                          gweather_info_get_weather_summary       (GWeatherInfo *info);
 
+GWEATHER_AVAILABLE_IN_ALL
 const char *                    gweather_info_get_icon_name             (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 const char *                    gweather_info_get_symbolic_icon_name    (GWeatherInfo *info);
 
+GWEATHER_AVAILABLE_IN_ALL
 int                             gweather_info_next_sun_event            (GWeatherInfo *info);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean                        gweather_info_is_daytime                (GWeatherInfo *info);
 
 /* values retrieving functions */
@@ -142,7 +183,9 @@ typedef enum { /*< underscore_name=gweather_wind_direction >*/
     GWEATHER_WIND_LAST
 } GWeatherWindDirection;
 
+GWEATHER_AVAILABLE_IN_ALL
 const char *    gweather_wind_direction_to_string       (GWeatherWindDirection wind);
+GWEATHER_AVAILABLE_IN_ALL
 const char *    gweather_wind_direction_to_string_full  (GWeatherWindDirection wind,
                                                          GWeatherFormatOptions options);
 
@@ -171,7 +214,9 @@ typedef enum { /*< underscore_name=gweather_sky >*/
     GWEATHER_SKY_LAST
 } GWeatherSky;
 
+GWEATHER_AVAILABLE_IN_ALL
 const char *    gweather_sky_to_string          (GWeatherSky sky);
+GWEATHER_AVAILABLE_IN_ALL
 const char *    gweather_sky_to_string_full     (GWeatherSky sky,
                                                  GWeatherFormatOptions options);
 
@@ -287,45 +332,60 @@ typedef double GWeatherMoonPhase;
  */
 typedef double GWeatherMoonLatitude;
 
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_value_update          (GWeatherInfo *info,
                                                          time_t *value);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_value_sky             (GWeatherInfo *info,
                                                          GWeatherSky *sky);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_value_conditions      (GWeatherInfo *info,
                                                          GWeatherConditionPhenomenon *phenomenon,
                                                          GWeatherConditionQualifier *qualifier);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_value_temp            (GWeatherInfo *info,
                                                          GWeatherTemperatureUnit unit,
                                                          double *value);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_value_temp_min        (GWeatherInfo *info,
                                                          GWeatherTemperatureUnit unit,
                                                          double *value);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_value_temp_max        (GWeatherInfo *info,
                                                          GWeatherTemperatureUnit unit,
                                                          double *value);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_value_dew             (GWeatherInfo *info,
                                                          GWeatherTemperatureUnit unit,
                                                          double *value);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_value_apparent        (GWeatherInfo *info,
                                                          GWeatherTemperatureUnit unit,
                                                          double *value);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_value_wind            (GWeatherInfo *info,
                                                          GWeatherSpeedUnit unit,
                                                          double *speed,
                                                          GWeatherWindDirection *direction);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_value_pressure        (GWeatherInfo *info,
                                                          GWeatherPressureUnit unit,
                                                          double *value);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_value_visibility      (GWeatherInfo *info,
                                                          GWeatherDistanceUnit unit,
                                                          double *value);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_value_sunrise        (GWeatherInfo *info,
                                                          time_t *value);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_value_sunset          (GWeatherInfo *info,
                                                          time_t *value);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_value_moonphase       (GWeatherInfo *info,
                                                          GWeatherMoonPhase *value,
                                                          GWeatherMoonLatitude *lat);
+GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_upcoming_moonphases   (GWeatherInfo *info,
                                                          time_t *phases);
 
@@ -353,12 +413,16 @@ struct _GWeatherConditions {
     GWeatherConditionQualifier qualifier;
 };
 
+GWEATHER_AVAILABLE_IN_ALL
 const char *    gweather_conditions_to_string           (GWeatherConditions *conditions);
+GWEATHER_AVAILABLE_IN_ALL
 const char *    gweather_conditions_to_string_full      (GWeatherConditions *conditions,
                                                          GWeatherFormatOptions options);
 
+GWEATHER_AVAILABLE_IN_ALL
 GWeatherTemperatureUnit gweather_temperature_unit_to_real       (GWeatherTemperatureUnit unit);
 
+GWEATHER_AVAILABLE_IN_ALL
 const char *    gweather_speed_unit_to_string   (GWeatherSpeedUnit unit);
 
 G_END_DECLS

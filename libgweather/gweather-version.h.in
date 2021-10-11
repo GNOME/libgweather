@@ -14,6 +14,13 @@
 #error "gweather-version.h must not be included individually, include gweather.h instead"
 #endif
 
+#ifndef _GWEATHER_EXTERN
+#define _GWEATHER_EXTERN extern
+#endif
+
+/* Backstop for all symbols available before the introduction of versioned macros */
+#define GWEATHER_AVAILABLE_IN_ALL       _GWEATHER_EXTERN
+
 /**
  * SECTION:gweatherversion
  * @short_description: libgweather version checking
