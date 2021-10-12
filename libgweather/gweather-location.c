@@ -109,7 +109,8 @@ void
 _gweather_location_reset_world (void)
 {
 	gsize i;
-	g_return_if_fail (world_db);
+
+	g_return_if_fail (world_db != NULL);
 
 	/* At this point, we had a leak if the caches are not completely empty. */
 	for (i = 0; i < world_db->locations->len; i++) {
@@ -143,19 +144,18 @@ G_DEFINE_BOXED_TYPE (GWeatherLocation, gweather_location, gweather_location_ref,
  * location, or %NULL if Locations.xml could not be found or could not be parsed.
  **/
 GWeatherLocation *
-gweather_location_get_world ()
+gweather_location_get_world (void)
 {
-    g_autoptr(GError) error = NULL;
-    GMappedFile *map;
-
-    if (!world_db) {
-        const char *locations_path;
+    if (world_db == NULL) {
+        g_autoptr(GError) error = NULL;
         g_autofree char *filename = NULL;
+        g_autoptr(GMappedFile) map;
+        const char *locations_path;
         time_t now;
         struct tm tm;
 
         locations_path = g_getenv ("LIBGWEATHER_LOCATIONS_PATH");
-        if (locations_path) {
+        if (locations_path != NULL) {
             filename = g_strdup (locations_path);
             if (!g_file_test (filename, G_FILE_TEST_IS_REGULAR)) {
 		g_warning ("User specified database %s does not exist", filename);
@@ -163,24 +163,25 @@ gweather_location_get_world ()
 	    }
         }
 
-        if (!filename)
+        if (filename == NULL) {
 	    filename = g_build_filename (GWEATHER_BIN_LOCATION_DIR, "Locations.bin", NULL);
+        }
 
 	map = g_mapped_file_new (filename, FALSE, &error);
-	if (!map) {
-	    g_warning ("Faile to open database %s: %s", filename, error->message);
+	if (map == NULL) {
+	    g_critical ("Failed to open database %s: %s", filename, error->message);
 	    return NULL;
 	}
 
 	world_db = g_new0 (GWeatherDb, 1);
-	world_db->map = map;
 	world_db->world = db_world_from_data (g_mapped_file_get_contents (map), g_mapped_file_get_length (map));
 	/* This is GWthDB01 */
 	if (db_world_get_magic (world_db->world) != 0x5747687442443130) {
-	    g_mapped_file_unref (world_db->map);
 	    g_free (world_db);
 	    return NULL;
 	}
+
+	world_db->map = g_steal_pointer (&map);
 
 	world_db->locations_ref = db_world_get_locations (world_db->world);
 	world_db->timezones_ref = db_world_get_timezones (world_db->world);
