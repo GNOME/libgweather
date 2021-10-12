@@ -128,12 +128,14 @@ _gweather_location_reset_world (void)
 	}
 }
 
+G_DEFINE_BOXED_TYPE (GWeatherLocation, gweather_location, gweather_location_ref, gweather_location_unref)
+
 /**
  * gweather_location_get_world:
  *
  * Obtains the shared #GWeatherLocation of type %GWEATHER_LOCATION_WORLD,
  * representing a hierarchy containing all of the locations from
- * Locations.xml.
+ * `Locations.xml`.
  *
  * Prior to version 40 no reference was returned.
  *
@@ -261,21 +263,6 @@ gweather_location_unref (GWeatherLocation *loc)
     g_clear_pointer (&loc->_timezone, gweather_timezone_unref);
 
     g_slice_free (GWeatherLocation, loc);
-}
-
-GType
-gweather_location_get_type (void)
-{
-    static gsize type_volatile = 0;
-
-    if (g_once_init_enter (&type_volatile)) {
-	GType type = g_boxed_type_register_static (
-	    g_intern_static_string ("GWeatherLocation"),
-	    (GBoxedCopyFunc) gweather_location_ref,
-	    (GBoxedFreeFunc) gweather_location_unref);
-	g_once_init_leave (&type_volatile, type);
-    }
-    return type_volatile;
 }
 
 /**
