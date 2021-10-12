@@ -77,9 +77,7 @@ gen_locations_variant = find_program('build-aux/meson/gen_locations_variant.py')
 subdir('data')
 subdir('libgweather')
 subdir('schemas')
-if get_option('gtk_doc')
-  subdir('doc')
-endif
+subdir('doc')
 subdir('po')
 subdir('po-locations')
 

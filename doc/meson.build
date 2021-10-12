@@ -1,35 +1,41 @@
-version_conf = configuration_data()
-version_conf.set('LIBGWEATHER_VERSION', meson.project_version())
-configure_file(input: 'version.xml.in', output: 'version.xml', configuration: version_conf)
+if get_option('gtk_doc')
+  dependency('gi-docgen', version: '>= 2021.6',
+    fallback: ['gi-docgen', 'dummy_dep'],
+  )
 
-glib_prefix = dependency('glib-2.0').get_pkgconfig_variable('prefix')
-glib_docpath = glib_prefix / 'share/gtk-doc/html'
+  gidocgen = find_program('gi-docgen', required: get_option('gtk_doc'))
 
-gtk_prefix = dependency('gtk+-3.0').get_pkgconfig_variable('prefix')
-gtk_docpath = gtk_prefix / 'share/gtk-doc/html'
+  gweather_docdir = get_option('datadir') / 'doc'
 
-docpath = datadir / 'gtk-doc/html'
+  toml_conf = configuration_data()
+  toml_conf.set('GWEATHER_VERSION', meson.project_version())
 
-gnome.gtkdoc('libgweather',
-  main_xml: 'libgweather-docs.xml',
-  src_dir: include_directories('../libgweather'),
-  dependencies: libgweather_dep,
-  gobject_typesfile: 'libgweather.types',
-  ignore_headers: [
-    'gweather-enum-types.h',
-    'gweather-parser.h',
-    'gweather-private.h',
-  ],
-  mkdb_args: ['--xml-mode', '--output-format=xml'],
-  scan_args: [
-    '--deprecated-guards="GWEATHER_DISABLE_DEPRECATED"'
-  ],
-  fixxref_args: [
-    '--html-dir=@0@'.format(docpath),
-    '--extra-dir=@0@'.format(glib_docpath / 'glib'),
-    '--extra-dir=@0@'.format(glib_docpath /'gobject'),
-    '--extra-dir=@0@'.format(glib_docpath / 'gio'),
-    '--extra-dir=@0@'.format(gtk_docpath / 'gtk'),
-  ],
-  install: true,
-)
+  gweather_toml = configure_file(
+    input: 'libgweather.toml.in',
+    output: 'libgweather.toml',
+    configuration: toml_conf,
+  )
+
+  gweather_content_files = [
+  ]
+
+  custom_target('libgweather-doc',
+    input: gweather_gir[0],
+    output: 'libgweather-3.0',
+    command: [
+      gidocgen,
+      'generate',
+      '--quiet',
+      '--fatal-warnings',
+      '--config', gweather_toml,
+      '--output-dir=@OUTPUT@',
+      '--no-namespace-dir',
+      '--content-dir=@0@'.format(meson.current_source_dir()),
+      '@INPUT@',
+    ],
+    depend_files: [ gweather_toml, gweather_content_files ],
+    build_by_default: true,
+    install: true,
+    install_dir: gweather_docdir,
+  )
+endif
