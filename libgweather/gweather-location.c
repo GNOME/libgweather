@@ -36,16 +36,6 @@ _iter_up(GWeatherLocation *loc)
 }
 #define ITER_UP(start, _p) for ((_p) = gweather_location_ref (start); (_p); (_p) = _iter_up(_p))
 
-/**
- * SECTION:gweatherlocation
- * @Title: GWeatherLocation
- *
- * A #GWeatherLocation represents a "location" of some type known to
- * libgweather; anything from a single weather station to the entire
- * world. See #GWeatherLocationLevel for information about how the
- * hierarchy of locations works.
- */
-
 static GWeatherLocation *
 location_new (GWeatherLocationLevel level)
 {

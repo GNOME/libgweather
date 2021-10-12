@@ -15,11 +15,10 @@
 #include <geocode-glib/geocode-glib.h>
 
 /**
- * SECTION:gweatherlocationentry
- * @Title: GWeatherLocationEntry
+ * GWeatherLocationEntry:
  *
- * A subclass of #GtkSearchEntry that provides autocompletion on
- * #GWeatherLocation<!-- -->s
+ * A subclass of [class@Gtk.SearchEntry] that provides autocompletion on
+ * [struct@GWeather.Location]s.
  */
 
 struct _GWeatherLocationEntryPrivate {

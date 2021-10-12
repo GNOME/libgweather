@@ -13,10 +13,9 @@
 #include <string.h>
 
 /**
- * SECTION:gweathertimezonemenu
- * @Title: GWeatherTimezoneMenu
+ * GWeatherTimezoneMenu:
  *
- * A #GtkComboBox subclass for choosing a #GWeatherTimezone
+ * A [class@Gtk.ComboBox] subclass for choosing a [struct@GWeather.Timezone].
  */
 
 G_DEFINE_TYPE (GWeatherTimezoneMenu, gweather_timezone_menu, GTK_TYPE_COMBO_BOX)

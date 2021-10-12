@@ -13,10 +13,9 @@
 #include <string.h>
 
 /**
- * SECTION:gweathertimezone
- * @Title: GWeatherTimezone
+ * GWeatherTimezone:
  *
- * A timezone.
+ * The representation of a timezone.
  *
  * Timezones are global to the GWeather world (as obtained by
  * gweather_location_get_world()); they can be gotten by passing

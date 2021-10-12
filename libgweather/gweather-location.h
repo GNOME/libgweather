@@ -15,6 +15,16 @@
 
 G_BEGIN_DECLS
 
+/**
+ * GWeatherLocation:
+ *
+ * A `GWeatherLocation` represents a "location" of some type known to
+ * libgweather; anything from a single weather station to the entire
+ * world.
+ *
+ * See [enum@GWeather.LocationLevel] for information about how the
+ * hierarchy of locations works.
+ */
 typedef struct _GWeatherLocation GWeatherLocation;
 
 typedef gboolean (* GWeatherFilterFunc) (GWeatherLocation* location, gpointer user_data);

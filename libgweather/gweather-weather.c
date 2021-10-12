@@ -28,11 +28,10 @@
 
 
 /**
- * SECTION:gweatherinfo
- * @Title: GWeatherInfo
+ * GWeatherInfo:
  *
- * #GWeatherInfo provides a handy way to access weather conditions
- * and forecasts from a #GWeatherLocation, aggregating multiple
+ * `GWeatherInfo` provides a handy way to access weather conditions
+ * and forecasts from a [struct@GWeather.Location], aggregating multiple
  * different web services.
  *
  * It includes also astronomical data such as sunrise times and
@@ -46,8 +45,6 @@
 #define PRESSURE_UNIT    "pressure-unit"
 #define RADAR_KEY        "radar"
 #define DEFAULT_LOCATION "default-location"
-
-#include "gweather-private.h"
 
 enum {
     PROP_0,
