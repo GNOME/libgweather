@@ -42,6 +42,8 @@ stages:
     - meson install -C _build
     - meson test -C _build
   artifacts:
+    reports:
+      junit: "_build/meson-logs/testlog.junit.xml"
     when: always
     name: "libgweather-${CI_COMMIT_REF_NAME}"
     paths:
