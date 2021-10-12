@@ -48,6 +48,8 @@ stages:
     name: "libgweather-${CI_COMMIT_REF_NAME}"
     paths:
       - "${CI_PROJECT_DIR}/_build/meson-logs"
+      - "${CI_PROJECT_DIR}/_build/libgweather/GWeather-3.0.gir"
+      - "${CI_PROJECT_DIR}/_build/libgweather/GWeather-3.0.vapi"
 
 # Inherit to build the API reference via gi-docgen
 # @PROJECT_DEPS: the dependencies of the project (on Fedora)
