@@ -243,20 +243,7 @@ gweather_timezone_unref (GWeatherTimezone *zone)
     }
 }
 
-GType
-gweather_timezone_get_type (void)
-{
-    static gsize type_volatile = 0;
-
-    if (g_once_init_enter (&type_volatile)) {
-	GType type = g_boxed_type_register_static (
-	    g_intern_static_string ("GWeatherTimezone"),
-	    (GBoxedCopyFunc) gweather_timezone_ref,
-	    (GBoxedFreeFunc) gweather_timezone_unref);
-	g_once_init_leave (&type_volatile, type);
-    }
-    return type_volatile;
-}
+G_DEFINE_BOXED_TYPE (GWeatherTimezone, gweather_timezone, gweather_timezone_ref, gweather_timezone_unref)
 
 /**
  * gweather_timezone_get_utc:
