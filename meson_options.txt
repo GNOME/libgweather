@@ -8,3 +8,5 @@ option('enable_vala', type: 'combo', choices : ['true', 'false', 'auto'], value 
        description: 'Install vala bindings')
 option('gtk_doc', type: 'boolean', value: false,
        description: 'Whether to generate the API reference')
+option('introspection', type: 'boolean', value: true,
+       description: 'Whether to generate introspection data')

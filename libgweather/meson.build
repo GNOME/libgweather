@@ -176,24 +176,39 @@ lib_libgweather = shared_library('gweather-3',
   install: true,
 )
 
-gweather_gir = gnome.generate_gir(lib_libgweather,
-  sources: introspection_sources,
-  dependencies: deps_libgweather,
-  nsversion: '3.0',
-  namespace: 'GWeather',
-  includes: ['GObject-2.0', 'Gtk-3.0'],
-  symbol_prefix: 'gweather',
-  identifier_prefix: 'GWeather',
-  export_packages: 'gweather-3.0',
-  header: 'libgweather/gweather.h',
-  extra_args: [
-    '--warn-all',
-    '--quiet',
-    '-DGWEATHER_COMPILATION',
-  ],
-  fatal_warnings: get_option('werror'),
-  install: true,
-)
+g_ir_scanner = find_program('g-ir-scanner', required: get_option('introspection'))
+build_gir = get_option('introspection') and g_ir_scanner.found() and not meson.is_cross_build()
+
+enable_vala = get_option('enable_vala')
+vapigen = find_program('vapigen', required: enable_vala == 'true')
+if enable_vala == 'auto' or enable_vala == 'true'
+  build_vapi = vapigen.found() and get_option('introspection')
+else
+  build_vapi = false
+endif
+
+if build_gir
+  gweather_gir = gnome.generate_gir(lib_libgweather,
+    sources: introspection_sources,
+    dependencies: deps_libgweather,
+    nsversion: '3.0',
+    namespace: 'GWeather',
+    includes: ['GObject-2.0', 'Gtk-3.0'],
+    symbol_prefix: 'gweather',
+    identifier_prefix: 'GWeather',
+    export_packages: 'gweather-3.0',
+    header: 'libgweather/gweather.h',
+    extra_args: [
+      '--warn-all',
+      '--quiet',
+      '-DGWEATHER_COMPILATION',
+    ],
+    fatal_warnings: get_option('werror'),
+    install: true,
+  )
+else
+  gweather_gir = []
+endif
 
 libgweather_dep = declare_dependency(
   sources: [gweather_enum_types[1], gweather_gir],
@@ -204,7 +219,7 @@ libgweather_dep = declare_dependency(
   ],
 )
 
-if enable_vala
+if build_vapi and build_gir
   gnome.generate_vapi('gweather-3.0',
     sources: gweather_gir[0],
     packages: ['gobject-2.0', 'gtk+-3.0'],

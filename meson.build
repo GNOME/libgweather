@@ -65,13 +65,6 @@ else
   endif
 endif
 
-enable_vala = get_option('enable_vala')
-if enable_vala == 'auto'
-  enable_vala = find_program('vapigen', required: false).found()
-else
-  enable_vala = enable_vala != 'false'
-endif
-
 gen_locations_variant = find_program('build-aux/meson/gen_locations_variant.py')
 
 subdir('data')
@@ -114,7 +107,8 @@ summary({
     'Debug': get_option('debug'),
     'Optimization': get_option('optimization'),
     'Glade catalog': enable_glade_catalog,
-    'Generate VAPI': enable_vala,
+    'Introspection': build_gir,
+    'Generate VAPI': build_vapi,
     'API reference': get_option('gtk_doc'),
   },
   section: 'Build',
