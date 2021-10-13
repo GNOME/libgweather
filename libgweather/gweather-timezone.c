@@ -304,9 +304,9 @@ gweather_timezone_get_name (GWeatherTimezone *zone)
 	return NULL;
 
     if (msgctxt)
-        zone->_name = g_strdup (g_dpgettext2 ("libgweather-locations", msgctxt, name));
+        zone->_name = g_strdup (g_dpgettext2 (LOCATIONS_GETTEXT_PACKAGE, msgctxt, name));
     else
-        zone->_name = g_strdup (g_dgettext ("libgweather-locations", name));
+        zone->_name = g_strdup (g_dgettext (LOCATIONS_GETTEXT_PACKAGE, name));
     return zone->_name;
 }
 

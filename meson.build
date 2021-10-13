@@ -1,5 +1,5 @@
 project('libgweather', 'c',
-  version: '40.0',
+  version: '3.90.0',
   license: 'GPL-2.0-or-later',
   meson_version: '>= 0.55.0',
   default_options: [
@@ -9,20 +9,9 @@ project('libgweather', 'c',
   ],
 )
 
-# Add another 0, so that we can release without a suffix
-libgweather_version = meson.project_version().split('.') + [0]
-
-# We use libtool-version numbers because it's easier to understand.
-# Before making a release, the libgweather_so_*
-# numbers should be modified. The components are of the form C:R:A.
-# a) If binary compatibility has been broken (eg removed or changed interfaces)
-#    change to C+1:0:0.
-# b) If interfaces have been changed or added, but binary compatibility has
-#    been preserved, change to C+1:0:A+1
-# c) If the interface is the same as the previous version, change to C:R+1:A
-libgweather_lt_c=16
-libgweather_lt_r=0
-libgweather_lt_a=0
+libgweather_version = meson.project_version().split('.')
+libgweather_api_version = '4.0'
+libgweather_full_version = '@0@-@1@'.format(meson.project_name(), libgweather_api_version)
 
 pkgconfig = import('pkgconfig')
 gnome = import('gnome')
@@ -45,7 +34,8 @@ gtk_req_version = '>= 3.13.5'
 libsoup_req_version = '>= 2.44.0'
 libxml_req_version = '>= 2.6.0'
 
-GETTEXT_PACKAGE = 'libgweather-3.0'
+GETTEXT_PACKAGE = libgweather_full_version
+LOCATIONS_GETTEXT_PACKAGE = libgweather_full_version + '-locations'
 
 pylint = find_program('pylint-3', 'pylint3', 'pylint', required: false)
 pylint_flags = [
@@ -77,12 +67,12 @@ subdir('po-locations')
 meson.add_install_script('build-aux/meson/meson_post_install.py')
 
 pkgconfig.generate(
-  filebase: 'gweather-3.0',
+  filebase: 'gweather-' + libgweather_api_version,
   name: 'GWeather',
   description: 'GWeather shared library',
   version: meson.project_version(),
   libraries: lib_libgweather,
-  subdirs: 'libgweather-3.0',
+  subdirs: libgweather_full_version,
   requires: [
     'gtk+-3.0',
   ],

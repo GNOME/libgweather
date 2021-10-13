@@ -1,2 +1,1 @@
-i18n.gettext('libgweather-3.0',
-             preset: 'glib')
+i18n.gettext(GETTEXT_PACKAGE, preset: 'glib')

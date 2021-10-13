@@ -457,22 +457,22 @@ set_gsettings (void)
 	g_assert_nonnull (tmpdir);
 
 	/* Copy the schemas files */
-	g_assert_true (g_file_get_contents (SCHEMAS_BUILDDIR "/org.gnome.GWeather.enums.xml", &schema_text, NULL, NULL));
-	dest = g_strdup_printf ("%s/org.gnome.GWeather.enums.xml", tmpdir);
+	g_assert_true (g_file_get_contents (SCHEMAS_BUILDDIR "/org.gnome.GWeather4.enums.xml", &schema_text, NULL, NULL));
+	dest = g_build_filename (tmpdir, "org.gnome.GWeather4.enums.xml", NULL);
 	g_assert_true (g_file_set_contents (dest, schema_text, -1, NULL));
 	g_free (dest);
 	g_free (schema_text);
 
-	g_assert_true (g_file_get_contents (SCHEMASDIR "/org.gnome.GWeather.gschema.xml", &schema_text, NULL, NULL));
-	dest = g_strdup_printf ("%s/org.gnome.GWeather.gschema.xml", tmpdir);
+	g_assert_true (g_file_get_contents (SCHEMASDIR "/org.gnome.GWeather4.gschema.xml", &schema_text, NULL, NULL));
+	dest = g_build_filename (tmpdir, "org.gnome.GWeather4.gschema.xml", NULL);
 	g_assert_true (g_file_set_contents (dest, schema_text, -1, NULL));
 	g_free (dest);
 	g_free (schema_text);
 
 	/* Compile the schemas */
 	cmdline = g_strdup_printf ("glib-compile-schemas --targetdir=%s "
-				   "--schema-file=%s/org.gnome.GWeather.enums.xml "
-				   "--schema-file=%s/org.gnome.GWeather.gschema.xml",
+				   "--schema-file=%s/org.gnome.GWeather4.enums.xml "
+				   "--schema-file=%s/org.gnome.GWeather4.gschema.xml",
 				   tmpdir, SCHEMAS_BUILDDIR, SCHEMASDIR);
 	g_assert_true (g_spawn_command_line_sync (cmdline, NULL, NULL, &result, NULL));
 	g_assert_cmpint (result, ==, 0);

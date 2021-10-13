@@ -289,10 +289,11 @@ gweather_location_get_name (GWeatherLocation *loc)
 	msgctxt = EMPTY_TO_NULL (db_i18n_get_msgctxt (db_location_get_name (loc->ref)));
 
 	if (msgctxt) {
-	    loc->_local_name = g_strdup (g_dpgettext2 ("libgweather-locations",
+	    loc->_local_name = g_strdup (g_dpgettext2 (LOCATIONS_GETTEXT_PACKAGE,
 						       msgctxt, english_name));
 	} else {
-	    loc->_local_name = g_strdup (g_dgettext ("libgweather-locations", english_name));
+	    loc->_local_name = g_strdup (g_dgettext (LOCATIONS_GETTEXT_PACKAGE,
+                                                     english_name));
 	}
 	return loc->_local_name;
     } else {

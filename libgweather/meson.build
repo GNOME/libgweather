@@ -22,16 +22,17 @@ add_project_arguments(c_compiler.get_supported_arguments([
   '-Werror=missing-include-dirs',
 ]), language: 'c')
 
-header_subdir = 'libgweather-3.0/libgweather'
+header_subdir = libgweather_full_version / 'libgweather'
 
-# convert to soname
-current = libgweather_lt_c - libgweather_lt_a
-interface_age = libgweather_lt_r
-libgweather_so_version = '@0@.@1@.@2@'.format(
-  current,
-  libgweather_lt_a,
-  interface_age,
-)
+libgweather_major = libgweather_version[0].to_int()
+libgweather_minor = libgweather_version[1].to_int()
+libgweather_micro = libgweather_version[2].to_int()
+interface_age = libgweather_minor.is_odd() ? 0 : libgweather_micro
+binary_age = libgweather_minor * 100 + libgweather_micro
+current = binary_age - interface_age
+
+libgweather_soversion = 0
+libgweather_library_version = '@0@.@1@.@2@'.format(libgweather_soversion, current, interface_age)
 
 libgweather_darwin_versions = [
   current + 1,
@@ -40,6 +41,7 @@ libgweather_darwin_versions = [
 
 config_h = configuration_data()
 config_h.set_quoted('GETTEXT_PACKAGE', GETTEXT_PACKAGE)
+config_h.set_quoted('LOCATIONS_GETTEXT_PACKAGE', LOCATIONS_GETTEXT_PACKAGE)
 config_h.set_quoted('LOCALEDIR', datadir / 'locale')
 config_h.set_quoted('GNOMELOCALEDIR', datadir / 'locale')
 config_h.set_quoted('G_LOG_DOMAIN', 'GWeather')
@@ -80,9 +82,9 @@ configure_file(
 )
 
 versionconf = configuration_data()
-versionconf.set('GWEATHER_MAJOR_VERSION', libgweather_version[0])
-versionconf.set('GWEATHER_MINOR_VERSION', libgweather_version[1])
-versionconf.set('GWEATHER_MICRO_VERSION', libgweather_version[2])
+versionconf.set('GWEATHER_MAJOR_VERSION', libgweather_major)
+versionconf.set('GWEATHER_MINOR_VERSION', libgweather_minor)
+versionconf.set('GWEATHER_MICRO_VERSION', libgweather_micro)
 versionconf.set_quoted('GWEATHER_VERSION', meson.project_version())
 configure_file(
   input: 'gweather-version.h.in',
@@ -164,10 +166,11 @@ libgweather_static_dep = declare_dependency(sources: gweather_c_sources,
   link_with: libgweather_static,
 )
 
-lib_libgweather = shared_library('gweather-3',
+lib_libgweather = shared_library('gweather-4',
   dependencies: deps_libgweather,
   link_whole: libgweather_static,
-  version: libgweather_so_version,
+  soversion: libgweather_soversion,
+  version: libgweather_library_version,
   gnu_symbol_visibility: 'hidden',
   darwin_versions: libgweather_darwin_versions,
   include_directories: [
@@ -191,12 +194,12 @@ if build_gir
   gweather_gir = gnome.generate_gir(lib_libgweather,
     sources: introspection_sources,
     dependencies: deps_libgweather,
-    nsversion: '3.0',
+    nsversion: libgweather_api_version,
     namespace: 'GWeather',
     includes: ['GObject-2.0', 'Gtk-3.0'],
     symbol_prefix: 'gweather',
     identifier_prefix: 'GWeather',
-    export_packages: 'gweather-3.0',
+    export_packages: 'gweather-' + libgweather_api_version,
     header: 'libgweather/gweather.h',
     extra_args: [
       '--warn-all',
@@ -220,7 +223,7 @@ libgweather_dep = declare_dependency(
 )
 
 if build_vapi and build_gir
-  gnome.generate_vapi('gweather-3.0',
+  gnome.generate_vapi('gweather-' + libgweather_api_version,
     sources: gweather_gir[0],
     packages: ['gobject-2.0', 'gtk+-3.0'],
     metadata_dirs: '.',

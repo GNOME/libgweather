@@ -1,5 +1,5 @@
-<schemalist gettext-domain="libgweather-3.0">
-  <schema id="org.gnome.GWeather" path="/org/gnome/GWeather/">
+<schemalist gettext-domain="libgweather-4.0">
+  <schema id="org.gnome.GWeather4" path="/org/gnome/GWeather4/">
     <key name="radar" type="s">
       <default>''</default>
       <summary>URL for the radar map</summary>
@@ -8,7 +8,7 @@
 	for disabling radar maps.
       </description>
     </key>
-    <key name="temperature-unit" enum="org.gnome.GWeather.GWeatherTemperatureUnit">
+    <key name="temperature-unit" enum="org.gnome.GWeather4.GWeatherTemperatureUnit">
       <default>'default'</default>
       <summary>Temperature unit</summary>
       <description>
@@ -16,7 +16,7 @@
 	“centigrade” and “fahrenheit”.
       </description>
     </key>
-    <key name="distance-unit" enum="org.gnome.GWeather.GWeatherDistanceUnit">
+    <key name="distance-unit" enum="org.gnome.GWeather4.GWeatherDistanceUnit">
       <default>'default'</default>
       <summary>Distance unit</summary>
       <description>
@@ -24,7 +24,7 @@
 	distance of important events). Valid values are “meters”, “km” and “miles”.
       </description>
     </key>
-    <key name="speed-unit" enum="org.gnome.GWeather.GWeatherSpeedUnit">
+    <key name="speed-unit" enum="org.gnome.GWeather4.GWeatherSpeedUnit">
       <default>'default'</default>
       <summary>Speed unit</summary>
       <description>
@@ -33,7 +33,7 @@
 	per hour), “knots” and “bft” (Beaufort scale).
       </description>
     </key>
-    <key name="pressure-unit" enum="org.gnome.GWeather.GWeatherPressureUnit">
+    <key name="pressure-unit" enum="org.gnome.GWeather4.GWeatherPressureUnit">
       <default>'default'</default>
       <summary>Pressure unit</summary>
       <description>

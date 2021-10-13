@@ -75,9 +75,9 @@ _gweather_gettext_init (void)
         bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 #endif
 
-        bindtextdomain ("libgweather-locations", GNOMELOCALEDIR);
+        bindtextdomain (LOCATIONS_GETTEXT_PACKAGE, GNOMELOCALEDIR);
 #ifdef HAVE_BIND_TEXTDOMAIN_CODESET
-        bind_textdomain_codeset ("libgweather-locations", "UTF-8");
+        bind_textdomain_codeset (LOCATIONS_GETTEXT_PACKAGE, "UTF-8");
 #endif
 
         g_once_init_leave (&gweather_gettext_initialized, TRUE);
@@ -563,7 +563,7 @@ void
 gweather_info_init (GWeatherInfo *info)
 {
     info->providers = GWEATHER_PROVIDER_METAR | GWEATHER_PROVIDER_IWIN;
-    info->settings = g_settings_new ("org.gnome.GWeather");
+    info->settings = g_settings_new ("org.gnome.GWeather4");
 
     g_signal_connect_object (info->settings, "changed",
 			     G_CALLBACK (settings_changed_cb), info, 0);

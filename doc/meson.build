@@ -21,7 +21,7 @@ if get_option('gtk_doc') and get_option('introspection')
 
   custom_target('libgweather-doc',
     input: gweather_gir[0],
-    output: 'libgweather-3.0',
+    output: libgweather_full_version,
     command: [
       gidocgen,
       'generate',
