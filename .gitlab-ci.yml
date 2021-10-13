@@ -104,36 +104,6 @@ fedora-x86_64:
     MESON_VERSION: "0.55.3"
     MESON_EXTRA_FLAGS: "--buildtype=debug -Dwerror=true -Dgtk_doc=false"
 
-abi-check:
-  extends: .build-setup
-  stage: analysis
-  needs: []
-  variables:
-    PROJECT_DEPS:
-      geocode-glib-devel
-      gettext
-      git
-      gobject-introspection-devel
-      gtk3-devel
-      itstool
-      libabigail
-      libsoup-devel
-      libxml2-devel
-      ninja-build
-      pylint
-      python3
-      python3-gobject
-      python3-pip
-      python3-wheel
-      redhat-rpm-config
-      vala
-    MESON_VERSION: "0.55.3"
-    LAST_ABI_BREAK: f1f0bdd9ab47ff8ddba17e2125802c928226da64
-  script:
-    - meson setup --prefix /usr -Dgtk_doc=false _build .
-    - meson compile -C _build
-    - ./.ci/check-abi ${LAST_ABI_BREAK} $(git rev-parse HEAD)
-
 static-scan:
   extends: .build-setup
   stage: analysis
