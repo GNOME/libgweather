@@ -7,10 +7,6 @@
 
 #pragma once
 
-#if !(defined(GWEATHER_COMPILATION) || defined(GWEATHER_I_KNOW_THIS_IS_UNSTABLE))
-#error "libgweather should only be used if you understand that it's subject to change, and is not supported as a fixed API/ABI or as part of the platform"
-#endif
-
 #define IN_GWEATHER_H
 
 #include <libgweather/gweather-version.h>
