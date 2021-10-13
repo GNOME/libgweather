@@ -96,7 +96,7 @@ configure_file(
 
 deps_libgweather = [
   dependency('gio-2.0', version: glib_req_version),
-  dependency('gtk+-3.0', version: gtk_req_version),
+  dependency('gdk-pixbuf-2.0'),
   dependency('libsoup-2.4', version: libsoup_req_version),
   dependency('libxml-2.0', version: libxml_req_version),
   dependency('geocode-glib-1.0'),
@@ -106,9 +106,7 @@ deps_libgweather = [
 
 gweather_headers = [
   'gweather-location.h',
-  'gweather-location-entry.h',
   'gweather-timezone.h',
-  'gweather-timezone-menu.h',
   'gweather-weather.h',
   'gweather-enums.h'
 ]
@@ -129,8 +127,6 @@ gweather_c_sources = [
   'gweather-weather.c',
   'gweather-location.c',
   'gweather-timezone.c',
-  'gweather-location-entry.c',
-  'gweather-timezone-menu.c',
 ]
 
 gweather_priv_sources = [
@@ -196,7 +192,7 @@ if build_gir
     dependencies: deps_libgweather,
     nsversion: libgweather_api_version,
     namespace: 'GWeather',
-    includes: ['GObject-2.0', 'Gtk-3.0'],
+    includes: ['Gio-2.0', 'GdkPixbuf-2.0'],
     symbol_prefix: 'gweather',
     identifier_prefix: 'GWeather',
     export_packages: 'gweather-' + libgweather_api_version,
@@ -225,7 +221,7 @@ libgweather_dep = declare_dependency(
 if build_vapi and build_gir
   gnome.generate_vapi('gweather-' + libgweather_api_version,
     sources: gweather_gir[0],
-    packages: ['gobject-2.0', 'gtk+-3.0'],
+    packages: ['gio-2.0', 'gdk-pixbuf-2.0'],
     metadata_dirs: '.',
     install: true,
   )

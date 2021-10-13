@@ -6,7 +6,7 @@ repository_url = "https://gitlab.gnome.org/GNOME/libgweather.git"
 authors = "The GWeather authors"
 license = "GPL-2.0-or-later"
 description = "Weather data collection"
-dependencies = [ "GObject-2.0", "Gio-2.0", "Gtk-3.0" ]
+dependencies = [ "GObject-2.0", "Gio-2.0", "GdkPixbuf-2.0" ]
 devhelp = true
 search_index = true
 
@@ -20,10 +20,10 @@ search_index = true
   description = "GObject interfaces and objects"
   docs_url = "https://docs.gtk.org/gio/"
 
-  [dependencies."Gtk-3.0"]
-  name = "Gtk"
-  description = "The GTK toolkit"
-  docs_url = "https://docs.gtk.org/gtk3/"
+  [dependencies."GdkPixbuf-2.0"]
+  name = "GdkPixbuf"
+  description = "Image loading library"
+  docs_url = "https://docs.gtk.org/gdk-pixbuf/"
 
 [theme]
 name = "basic"

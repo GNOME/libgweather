@@ -30,7 +30,6 @@ pkgdatadir = datadir / 'libgweather'
 pkglibdir = libdir / 'libgweather'
 
 glib_req_version = '>= 2.44.0'
-gtk_req_version = '>= 3.13.5'
 libsoup_req_version = '>= 2.44.0'
 libxml_req_version = '>= 2.6.0'
 
@@ -44,16 +43,6 @@ pylint_flags = [
   '-d', 'F0401',
   '-d', 'C0326',
 ]
-
-if get_option('glade_catalog') == 'false'
-  enable_glade_catalog = false
-else
-  glade_dep = dependency('gladeui-2.0', required: get_option('glade_catalog') == 'true')
-  enable_glade_catalog = glade_dep.found()
-  if enable_glade_catalog
-    glade_catalogdir = datadir / 'glade/catalogs'
-  endif
-endif
 
 gen_locations_variant = find_program('build-aux/meson/gen_locations_variant.py')
 
@@ -73,11 +62,9 @@ pkgconfig.generate(
   version: meson.project_version(),
   libraries: lib_libgweather,
   subdirs: libgweather_full_version,
-  requires: [
-    'gtk+-3.0',
-  ],
   requires_private: [
     'gio-2.0',
+    'gdk-pixbuf-2.0',
     'libsoup-2.4',
     'libxml-2.0',
     'geocode-glib-1.0',
@@ -96,7 +83,6 @@ summary({
 summary({
     'Debug': get_option('debug'),
     'Optimization': get_option('optimization'),
-    'Glade catalog': enable_glade_catalog,
     'Introspection': build_gir,
     'Generate VAPI': build_vapi,
     'API reference': get_option('gtk_doc'),

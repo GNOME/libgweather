@@ -1,11 +1,5 @@
 tools = [
   {
-    'name': 'locations',
-  },
-  {
-    'name': 'locations_utc',
-  },
-  {
     'name': 'metar',
   },
   {

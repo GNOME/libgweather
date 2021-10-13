@@ -1,9 +1,3 @@
-if enable_glade_catalog
-  install_data('glade/libgweather.xml',
-    install_dir: glade_catalogdir,
-  )
-endif
-
 xmllint = find_program('xmllint', required: false)
 if xmllint.found()
   test('Valid Locations file',

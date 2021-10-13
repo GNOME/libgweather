@@ -2,8 +2,6 @@ option('zoneinfo_dir', type: 'string', value: '/usr/share/zoneinfo',
        description: 'zoneinfo directory')
 option('owm_apikey', type: 'string', value: '',
        description: 'Specify an API key for OpenWeatherMap (optional)')
-option('glade_catalog', type: 'combo', choices : ['true', 'false', 'auto'], value : 'auto',
-       description: 'Install a glade catalog file')
 option('enable_vala', type: 'combo', choices : ['true', 'false', 'auto'], value : 'auto',
        description: 'Install vala bindings')
 option('gtk_doc', type: 'boolean', value: true,
