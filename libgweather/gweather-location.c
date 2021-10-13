@@ -339,7 +339,6 @@ gweather_location_get_sort_name (GWeatherLocation *loc)
  * Gets @loc's English name.
  *
  * Return value: @loc's English name
- * Since: 3.36
  **/
 const char *
 gweather_location_get_english_name (GWeatherLocation *loc)
@@ -365,7 +364,6 @@ gweather_location_get_english_name (GWeatherLocation *loc)
  * user input against a location name.
  *
  * Return value: @loc's English name for sorting
- * Since: 3.38
  **/
 const char *
 gweather_location_get_english_sort_name (GWeatherLocation *loc)
@@ -489,8 +487,6 @@ gweather_location_get_parent (GWeatherLocation *loc)
  * ]|
  *
  * Returns: (transfer full) (nullable): The next child, or %NULL
- *
- * Since: 40
  **/
 GWeatherLocation*
 gweather_location_next_child  (GWeatherLocation  *loc, GWeatherLocation  *_child)
@@ -716,9 +712,7 @@ find_nearest_city (GWeatherLocation *location,
  * @loc, or are in the same region and timezone as the return value.
  *
  * Returns: (transfer full): the city closest to (@lat, @lon), in the
- *          region or administrative district of @loc.
- *
- * Since: 3.12
+ *   region or administrative district of @loc.
  */
 GWeatherLocation *
 gweather_location_find_nearest_city (GWeatherLocation *loc,
@@ -769,9 +763,7 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
  * This restriction may be lifted in a future version.
  *
  * Returns: (transfer full): the city closest to (@lat, @lon), in the
- *          region or administrative district of @loc with validation of filter function.
- *
- * Since: 3.12
+ *   region or administrative district of @loc with validation of filter function.
  */
 GWeatherLocation *
 gweather_location_find_nearest_city_full (GWeatherLocation  *loc,
@@ -864,8 +856,6 @@ _got_place (GObject      *source_object,
  *
  * @loc must be at most a %GWEATHER_LOCATION_ADM1 location.
  * This restriction may be lifted in a future version.
- *
- * Since: 3.12
  */
 void
 gweather_location_detect_nearest_city (GWeatherLocation    *loc,
@@ -909,8 +899,6 @@ gweather_location_detect_nearest_city (GWeatherLocation    *loc,
  * Fetches the location from @result.
  *
  * Returns: (transfer full): Customized GWeatherLocation
- *
- * Since: 3.12
  */
 
 GWeatherLocation *

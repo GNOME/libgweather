@@ -40,8 +40,6 @@
  * GWEATHER_MAJOR_VERSION:
  *
  * LibGweather major version component (e.g. 1 if %GWEATHER_VERSION is 1.2.3)
- *
- * Since: 3.12
  */
 #mesondefine GWEATHER_MAJOR_VERSION
 
@@ -49,8 +47,6 @@
  * GWEATHER_MINOR_VERSION:
  *
  * LibGweather minor version component (e.g. 2 if %GWEATHER_VERSION is 1.2.3)
- *
- * Since: 3.12
  */
 #mesondefine GWEATHER_MINOR_VERSION
 
@@ -60,8 +56,6 @@
  * LibGweather micro version component (e.g. 3 if %GWEATHER_VERSION is 1.2.3)
  *
  * Since version 40 of the library, always 0.
- *
- * Since: 3.12
  */
 #mesondefine GWEATHER_MICRO_VERSION
 
@@ -69,8 +63,6 @@
  * GWEATHER_VERSION
  *
  * LibGweather version.
- *
- * Since: 3.12
  */
 #mesondefine GWEATHER_VERSION
 
@@ -79,8 +71,6 @@
  *
  * LibGweather version, encoded as an hexadecimal number, useful for
  * integer comparisons.
- *
- * Since: 3.12
  */
 #define GWEATHER_VERSION_HEX                (GWEATHER_MAJOR_VERSION << 24 | \
                                              GWEATHER_MINOR_VERSION << 16 | \
@@ -94,8 +84,6 @@
  *
  * Compile-time version checking. Evaluates to %TRUE if the version
  * of LibGweather is greater than the required one.
- *
- * Since: 3.12
  */
 #define GWEATHER_CHECK_VERSION(major,minor,micro)   \
         (GWEATHER_MAJOR_VERSION > (major) || \

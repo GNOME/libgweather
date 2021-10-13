@@ -182,8 +182,6 @@ _gweather_timezone_ref_for_idx (GWeatherDb       *db,
  * Prior to version 40 no reference was returned.
  *
  * Returns: (transfer full): A #GWeatherTimezone.
- *
- * Since: 3.12
  */
 GWeatherTimezone *
 gweather_timezone_get_by_tzid (const char *tzid)
