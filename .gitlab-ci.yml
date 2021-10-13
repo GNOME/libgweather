@@ -85,11 +85,11 @@ fedora-x86_64:
   needs: []
   variables:
     PROJECT_DEPS:
+      gdk-pixbuf2-devel
       geocode-glib-devel
       gettext
       git
       gobject-introspection-devel
-      gtk3-devel
       itstool
       libsoup-devel
       libxml2-devel
@@ -113,11 +113,11 @@ static-scan:
       clang
       clang-analyzer
       clang-tools-extra
+      gdk-pixbuf2-devel
       geocode-glib-devel
       gettext
       git
       gobject-introspection-devel
-      gtk3-devel
       itstool
       libsoup-devel
       libxml2-devel
@@ -149,11 +149,11 @@ asan-build:
       clang
       clang-analyzer
       clang-tools-extra
+      gdk-pixbuf2-devel
       geocode-glib-devel
       gettext
       git
       gobject-introspection-devel
-      gtk3-devel
       itstool
       libasan
       libsoup-devel
@@ -184,11 +184,11 @@ reference:
   extends: .gidocgen-build
   variables:
     PROJECT_DEPS:
+      gdk-pixbuf2-devel
       geocode-glib-devel
       gettext
       git
       gobject-introspection-devel
-      gtk3-devel
       itstool
       libsoup-devel
       libxml2-devel
