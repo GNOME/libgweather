@@ -26,8 +26,8 @@ includedir = prefix / get_option('includedir')
 libexecdir = prefix / get_option('libexecdir')
 sysconfdir = prefix / get_option('sysconfdir')
 
-pkgdatadir = datadir / 'libgweather'
-pkglibdir = libdir / 'libgweather'
+pkgdatadir = datadir / 'libgweather-4'
+pkglibdir = libdir / 'libgweather-4'
 
 glib_req_version = '>= 2.44.0'
 libsoup_req_version = '>= 2.44.0'
