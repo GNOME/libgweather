@@ -227,5 +227,21 @@ if build_vapi and build_gir
   )
 endif
 
+pkgconfig.generate(
+  filebase: 'gweather-' + libgweather_api_version,
+  name: 'GWeather',
+  description: 'GWeather shared library',
+  version: meson.project_version(),
+  libraries: lib_libgweather,
+  subdirs: libgweather_full_version,
+  requires_private: [
+    'gio-2.0',
+    'gdk-pixbuf-2.0',
+    'libsoup-2.4',
+    'libxml-2.0',
+    'geocode-glib-1.0',
+  ],
+)
+
 subdir('tests')
 subdir('tools')
