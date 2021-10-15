@@ -16,28 +16,22 @@ find_loc_children (GWeatherLocation  *location,
 		   const char        *search_str,
 		   GWeatherLocation **ret)
 {
-    GWeatherLocation **children;
-    guint i;
+    g_autoptr (GWeatherLocation) child = NULL;
 
-    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-
-    children = gweather_location_get_children (location);
-    for (i = 0; children[i] != NULL; i++) {
-        if (gweather_location_get_level (children[i]) == GWEATHER_LOCATION_WEATHER_STATION) {
+    while ((child = gweather_location_next_child (location, child)) != NULL) {
+        if (gweather_location_get_level (child) == GWEATHER_LOCATION_WEATHER_STATION) {
             const char *code;
 
-            code = gweather_location_get_code (children[i]);
+            code = gweather_location_get_code (child);
             if (g_strcmp0 (search_str, code) == 0) {
-                *ret = gweather_location_ref (children[i]);
+                *ret = gweather_location_ref (child);
                 return TRUE;
             }
         } else {
-            if (find_loc_children (children[i], search_str, ret))
+            if (find_loc_children (child, search_str, ret))
                 return TRUE;
         }
     }
-
-    G_GNUC_END_IGNORE_DEPRECATIONS
 
     return FALSE;
 }
