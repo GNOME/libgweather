@@ -27,7 +27,17 @@ G_BEGIN_DECLS
  */
 typedef struct _GWeatherLocation GWeatherLocation;
 
-typedef gboolean (* GWeatherFilterFunc) (GWeatherLocation* location, gpointer user_data);
+/**
+ * GWeatherFilterFunc:
+ * @location: the location to check
+ * @user_data: data passed to [method@GWeather.Location.find_nearest_city_full]
+ *
+ * A filter function for locations.
+ *
+ * Returns: `FALSE` if the location should be skipped, and `TRUE` otherwise
+ */
+typedef gboolean (* GWeatherFilterFunc) (GWeatherLocation* location,
+                                         gpointer user_data);
 
 /**
  * GWeatherLocationLevel:
@@ -48,17 +58,17 @@ typedef gboolean (* GWeatherFilterFunc) (GWeatherLocation* location, gpointer us
  * @GWEATHER_LOCATION_NAMED_TIMEZONE: A location representing a named or
  *   special timezone in the world, such as UTC
  *
- * The size/scope of a particular #GWeatherLocation.
+ * The size/scope of a particular [struct@GWeather.Location].
  *
- * Locations form a hierarchy, with a %GWEATHER_LOCATION_WORLD
- * location at the top, divided into regions or countries, and so on.
+ * Locations form a hierarchy, with a `GWEATHER_LOCATION_WORLD` location
+ * at the top, divided into regions or countries, and so on.
  *
- * Countries may or may not be divided into "adm1"s, and "adm1"s may
- * or may not be divided into "adm2"s. A city will have at least one,
- * and possibly several, weather stations inside it. Weather stations
- * will never appear outside of cities.
+ * Countries may or may not be divided into "adm1"s, and "adm1"s may or
+ * may not be divided into "adm2"s. A city will have at least one, and
+ * possibly several, weather stations inside it. Weather stations will
+ * never appear outside of cities.
  *
- * Building a database with gweather_location_get_world() will never
+ * Building a database with [func@GWeather.Location.get_world] will never
  * create detached instances, but deserializing might.
  */
 typedef enum { /*< underscore_name=gweather_location_level >*/
@@ -76,7 +86,6 @@ typedef enum { /*< underscore_name=gweather_location_level >*/
 
 GWEATHER_AVAILABLE_IN_ALL
 GType gweather_location_get_type (void);
-
 
 GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_get_world             (void);

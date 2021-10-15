@@ -134,14 +134,13 @@ G_DEFINE_BOXED_TYPE (GWeatherLocation, gweather_location, gweather_location_ref,
 /**
  * gweather_location_get_world:
  *
- * Obtains the shared #GWeatherLocation of type %GWEATHER_LOCATION_WORLD,
- * representing a hierarchy containing all of the locations from
- * `Locations.xml`.
+ * Obtains the shared `GWeatherLocation` of type `GWEATHER_LOCATION_WORLD`,
+ * representing a hierarchy containing all of the locations from the
+ * location data.
  *
- * Prior to version 40 no reference was returned.
- *
- * Return value: (allow-none) (transfer full): a %GWEATHER_LOCATION_WORLD
- * location, or %NULL if Locations.xml could not be found or could not be parsed.
+ * Return value: (nullable) (transfer full): a `GWEATHER_LOCATION_WORLD`
+ *   location, or `NULL` if the locations data could not be found or could
+ *   not be parsed.
  **/
 GWeatherLocation *
 gweather_location_get_world (void)
@@ -209,11 +208,11 @@ gweather_location_get_world (void)
 
 /**
  * gweather_location_ref:
- * @loc: a #GWeatherLocation
+ * @loc: a location
  *
- * Adds 1 to @loc's reference count.
+ * Acquire a reference to the location.
  *
- * Return value: @loc
+ * Return value: (transfer full): the location, with an additional reference
  **/
 GWeatherLocation *
 gweather_location_ref (GWeatherLocation *loc)
@@ -221,15 +220,18 @@ gweather_location_ref (GWeatherLocation *loc)
     g_return_val_if_fail (loc != NULL, NULL);
 
     loc->ref_count++;
+
     return loc;
 }
 
 /**
  * gweather_location_unref:
- * @loc: a #GWeatherLocation
+ * @loc: (transfer full): a location
  *
- * Subtracts 1 from @loc's reference count, and frees it if the
- * reference count reaches 0.
+ * Releases a reference on the location.
+ *
+ * If the reference was the last one held, this function will free
+ * the resources allocated by the location.
  **/
 void
 gweather_location_unref (GWeatherLocation *loc)
@@ -270,9 +272,9 @@ gweather_location_unref (GWeatherLocation *loc)
  * gweather_location_get_name:
  * @loc: a #GWeatherLocation
  *
- * Gets @loc's name, localized into the current language.
+ * Gets the location's name, localized into the current language.
  *
- * Return value: @loc's name
+ * Return value: (nullable) (transfer none): the location's name
  **/
 const char *
 gweather_location_get_name (GWeatherLocation *loc)
@@ -305,12 +307,15 @@ gweather_location_get_name (GWeatherLocation *loc)
  * gweather_location_get_sort_name:
  * @loc: a #GWeatherLocation
  *
- * Gets @loc's "sort name", which is the name after having
- * g_utf8_normalize() (with %G_NORMALIZE_ALL) and g_utf8_casefold()
- * called on it. You can use this to sort locations, or to comparing
- * user input against a location name.
+ * Gets the location's name, localized into the current language,
+ * in a representation useful for comparisons.
  *
- * Return value: @loc's sort name
+ * The "sort name" is the location's name after having g_utf8_normalize()
+ * (with `G_NORMALIZE_ALL`) and g_utf8_casefold() called on it. You can
+ * use this to sort locations, or to comparing user input against a
+ * location name.
+ *
+ * Return value: (nullable) (transfer none): the sort name of the location
  **/
 const char *
 gweather_location_get_sort_name (GWeatherLocation *loc)
@@ -336,9 +341,9 @@ gweather_location_get_sort_name (GWeatherLocation *loc)
  * gweather_location_get_english_name:
  * @loc: a #GWeatherLocation
  *
- * Gets @loc's English name.
+ * Gets the location's name.
  *
- * Return value: @loc's English name
+ * Return value: (transfer none) (nullable): the location's name
  **/
 const char *
 gweather_location_get_english_name (GWeatherLocation *loc)
@@ -358,12 +363,14 @@ gweather_location_get_english_name (GWeatherLocation *loc)
  * gweather_location_get_english_sort_name:
  * @loc: a #GWeatherLocation
  *
- * Gets @loc's english "sort name", which is the english name after having
- * g_utf8_normalize() (with %G_NORMALIZE_ALL) and g_utf8_casefold()
- * called on it. You can use this to sort locations, or to comparing
- * user input against a location name.
+ * Gets the location's name, in a representation useful for comparisons.
  *
- * Return value: @loc's English name for sorting
+ * The "sort name" is the location's name after having g_utf8_normalize()
+ * (with `G_NORMALIZE_ALL`) and g_utf8_casefold() called on it. You can
+ * use this to sort locations, or to comparing user input against a
+ * location name.
+ *
+ * Return value: (nullable) (transfer none): the sort name of the location
  **/
 const char *
 gweather_location_get_english_sort_name (GWeatherLocation *loc)
@@ -439,14 +446,11 @@ gweather_location_level_to_string (GWeatherLocationLevel level)
 
 /**
  * gweather_location_get_parent:
- * @loc: a #GWeatherLocation
+ * @loc: a location
  *
- * Gets @loc's parent location.
+ * Gets the location's parent.
  *
- * Prior to version 40 no reference was returned.
- *
- * Return value: (transfer full) (allow-none): @loc's parent, or %NULL
- * if @loc is a %GWEATHER_LOCATION_WORLD node.
+ * Return value: (transfer full) (nullable): the location's parent
  **/
 GWeatherLocation *
 gweather_location_get_parent (GWeatherLocation *loc)
@@ -474,9 +478,12 @@ gweather_location_get_parent (GWeatherLocation *loc)
  * @loc: a #GWeatherLocation
  * @child: (transfer full) (nullable): The child
  *
- * Allows iterating all children. Pass %NULL to get the first child,
- * and any child to get the next one. Note that the reference to @child
- * is taken, meaning iterating all children is as simple as:
+ * Allows iterating all children.
+ *
+ * Pass %NULL to get the first child, and any child to get the next one.
+ *
+ * Note that the reference to @child is taken, meaning iterating all
+ * children is as simple as:
  *
  * |[<!-- language="C" -->
  *   g_autoptr(GWeatherLocation) child = NULL;
@@ -486,10 +493,11 @@ gweather_location_get_parent (GWeatherLocation *loc)
  *     }
  * ]|
  *
- * Returns: (transfer full) (nullable): The next child, or %NULL
+ * Returns: (transfer full) (nullable): The next child, if one exists
  **/
-GWeatherLocation*
-gweather_location_next_child  (GWeatherLocation  *loc, GWeatherLocation  *_child)
+GWeatherLocation *
+gweather_location_next_child  (GWeatherLocation *loc,
+                               GWeatherLocation *_child)
 {
     g_autoptr(GWeatherLocation) child = _child;
     DbArrayofuint16Ref children_ref;
@@ -577,10 +585,10 @@ invalid_child:
  * not remain valid if @loc is freed.
  *
  * Return value: (transfer none) (array zero-terminated=1): @loc's
- * children. (May be empty, but will not be %NULL.)
+ *   children. (May be empty, but will not be %NULL.)
  *
- * Deprecated: 40. Use gweather_location_next_child() instead to avoid high
- * memory consumption
+ * Deprecated: 40.0: Use gweather_location_next_child() instead to
+ *   avoid high memory consumption
  **/
 GWeatherLocation **
 gweather_location_get_children (GWeatherLocation *loc)
@@ -749,7 +757,7 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
  * @lat: Latitude, in degrees
  * @lon: Longitude, in degrees
  * @func: (scope notified) (allow-none): returns true to continue check for
- *                                       the location and false to filter the location out
+ *    the location and false to filter the location out
  * @user_data: for customization
  * @destroy: to destroy user_data
  *
@@ -1009,11 +1017,7 @@ gweather_location_get_country (GWeatherLocation *loc)
  *
  * Gets the timezone associated with @loc, if known.
  *
- * The timezone is owned either by @loc or by one of its parents.
- * FIXME.
- *
- * Return value: (transfer none) (allow-none): @loc's timezone, or
- * %NULL
+ * Return value: (transfer none) (nullable): the location's timezone
  **/
 GWeatherTimezone *
 gweather_location_get_timezone (GWeatherLocation *loc)
@@ -1041,11 +1045,8 @@ gweather_location_get_timezone (GWeatherLocation *loc)
  *
  * Gets the timezone associated with @loc, if known, as a string.
  *
- * The timezone string is owned either by @loc or by one of its
- * parents, do not free it.
- *
- * Return value: (transfer none) (allow-none): @loc's timezone as
- * a string, or %NULL
+ * Return value: (transfer none) (nullable): the location's timezone as
+ *   a string
  **/
 const char *
 gweather_location_get_timezone_str (GWeatherLocation *loc)
@@ -1096,11 +1097,12 @@ add_timezones (GWeatherLocation *loc, GPtrArray *zones)
  * @loc: a #GWeatherLocation
  *
  * Gets an array of all timezones associated with any location under
- * @loc. You can use gweather_location_free_timezones() to free this
- * array.
+ * @loc.
  *
- * Return value: (transfer full) (array zero-terminated=1): an array
- * of timezones. May be empty but will not be %NULL.
+ * Use gweather_location_free_timezones() to free this array.
+ *
+ * Return value: (transfer full) (array zero-terminated=1): the timezones
+ *   associated with the location
  **/
 GWeatherTimezone **
 gweather_location_get_timezones (GWeatherLocation *loc)
