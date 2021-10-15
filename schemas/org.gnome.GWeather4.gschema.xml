@@ -1,13 +1,5 @@
 <schemalist gettext-domain="libgweather-4.0">
   <schema id="org.gnome.GWeather4" path="/org/gnome/GWeather4/">
-    <key name="radar" type="s">
-      <default>''</default>
-      <summary>URL for the radar map</summary>
-      <description>
-	The custom URL from where to retrieve a radar map, or empty
-	for disabling radar maps.
-      </description>
-    </key>
     <key name="temperature-unit" enum="org.gnome.GWeather4.GWeatherTemperatureUnit">
       <default>'default'</default>
       <summary>Temperature unit</summary>
