@@ -36,3 +36,8 @@ while ((iter = gweather_location_next_child (location, iter)) != NULL) {
 method will consume the reference of the iterated child; if you are keeping
 a reference to each child `GWeatherLocation` you should acquire a strong
 reference to it, using [method@GWeather.Location.ref].
+
+### Stop using `gweather_info_get_radar()`
+
+The radar image provider stopped working a while ago, and the `get_radar()`
+method has been returning `NULL` since then.

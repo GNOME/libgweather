@@ -114,8 +114,6 @@ char *                          gweather_info_get_sunset                (GWeathe
 GWEATHER_AVAILABLE_IN_ALL
 GSList *                        gweather_info_get_forecast_list         (GWeatherInfo *info);
 GWEATHER_AVAILABLE_IN_ALL
-GdkPixbufAnimation *            gweather_info_get_radar                 (GWeatherInfo *info);
-GWEATHER_AVAILABLE_IN_ALL
 const char *                    gweather_info_get_attribution           (GWeatherInfo *info);
 
 GWEATHER_AVAILABLE_IN_ALL

@@ -43,7 +43,6 @@
 #define DISTANCE_UNIT    "distance-unit"
 #define SPEED_UNIT       "speed-unit"
 #define PRESSURE_UNIT    "pressure-unit"
-#define RADAR_KEY        "radar"
 #define DEFAULT_LOCATION "default-location"
 
 enum {
@@ -518,8 +517,6 @@ gweather_info_reset (GWeatherInfo *info)
 
     free_forecast_list (info);
 
-    g_clear_object (&info->radar);
-
     info->update = 0;
     info->current_time = time(NULL);
     info->sky = -1;
@@ -567,11 +564,6 @@ gweather_info_init (GWeatherInfo *info)
 
     g_signal_connect_object (info->settings, "changed",
 			     G_CALLBACK (settings_changed_cb), info, 0);
-
-    info->radar_url = g_settings_get_string (info->settings, RADAR_KEY);
-    if (g_strcmp0 (info->radar_url, "") == 0) {
-        g_clear_pointer (&info->radar_url, g_free);
-    }
 
     gweather_info_reset (info);
 }
@@ -750,7 +742,6 @@ gweather_info_dispose (GObject *object)
     g_clear_object (&info->session);
 
     free_forecast_list (info);
-    g_clear_object (&info->radar);
 
     info->valid = FALSE;
 
@@ -768,7 +759,6 @@ gweather_info_finalize (GObject *object)
     if (info->glocation)
 	gweather_location_unref (info->glocation);
 
-    g_clear_pointer (&info->radar_url, g_free);
     g_clear_pointer (&info->application_id, g_free);
     g_clear_pointer (&info->contact_info, g_free);
 
@@ -1325,19 +1315,6 @@ gweather_info_get_forecast_list (GWeatherInfo *info)
 	return NULL;
 
     return info->forecast_list;
-}
-
-/**
- * gweather_info_get_radar:
- * @info: a #GWeatherInfo
- *
- * Returns: (transfer none): what?
- */
-GdkPixbufAnimation *
-gweather_info_get_radar (GWeatherInfo *info)
-{
-    g_return_val_if_fail (GWEATHER_IS_INFO (info), NULL);
-    return info->radar;
 }
 
 /**

@@ -155,10 +155,6 @@ struct _GWeatherInfo {
     GWeatherMoonLatitude moonlatitude;
     GSList *forecast_list; /* list of GWeatherInfo* for the forecast, NULL if not available */
     char *forecast_attribution;
-    char *radar_buffer;
-    char *radar_url;
-    GdkPixbufLoader *radar_loader;
-    GdkPixbufAnimation *radar;
     SoupSession *session;
     GSList *requests_pending;
 };
