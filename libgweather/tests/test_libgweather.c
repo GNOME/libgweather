@@ -15,10 +15,6 @@
 /* We use internal API */
 #include "gweather-private.h"
 
-/* We use/test gweather_location_get_children */
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
 extern void _gweather_location_reset_world (void);
 
 /* For test_metar_weather_stations */
@@ -32,23 +28,21 @@ static void
 test_named_timezones (void)
 {
     g_autoptr(GWeatherLocation) world = NULL;
-    GWeatherLocation **children;
-    guint i;
 
     world = gweather_location_get_world ();
     g_assert_nonnull (world);
 
-    children = gweather_location_get_children (world);
-    for (i = 0; children[i] != NULL; i++) {
+    g_autoptr(GWeatherLocation) child = NULL;
+    while ((child = gweather_location_next_child (world, child)) != NULL) {
         GWeatherLocationLevel level;
         const char *code;
 
-        level = gweather_location_get_level (children[i]);
+        level = gweather_location_get_level (child);
         if (level != GWEATHER_LOCATION_NAMED_TIMEZONE)
             continue;
 
         /* Verify that timezone codes start with a '@' */
-        code = gweather_location_get_code (children[i]);
+        code = gweather_location_get_code (child);
         g_assert_nonnull (code);
         g_assert_true (code[0] == '@');
     }
@@ -225,15 +219,12 @@ test_timezone (GWeatherLocation *location)
 static void
 test_timezones_children (GWeatherLocation *location)
 {
-    GWeatherLocation **children;
-    guint i;
+    g_autoptr(GWeatherLocation) child = NULL;
+    while ((child = gweather_location_next_child (location, child)) != NULL) {
+        if (gweather_location_get_level (child) >= GWEATHER_LOCATION_COUNTRY)
+            test_timezone (child);
 
-    children = gweather_location_get_children (location);
-    for (i = 0; children[i] != NULL; i++) {
-        if (gweather_location_get_level (children[i]) >= GWEATHER_LOCATION_COUNTRY)
-            test_timezone (children[i]);
-
-        test_timezones_children (children[i]);
+        test_timezones_children (child);
     }
 }
 
@@ -275,15 +266,13 @@ test_distance (GWeatherLocation *location)
 static void
 test_airport_distance_children (GWeatherLocation *location)
 {
-    GWeatherLocation **children;
-    guint i;
+    g_autoptr(GWeatherLocation) child = NULL;
 
-    children = gweather_location_get_children (location);
-    for (i = 0; children[i] != NULL; i++) {
-        if (gweather_location_get_level (children[i]) == GWEATHER_LOCATION_WEATHER_STATION)
-            test_distance (children[i]);
+    while ((child = gweather_location_next_child (location, child)) != NULL) {
+        if (gweather_location_get_level (child) == GWEATHER_LOCATION_WEATHER_STATION)
+            test_distance (child);
         else
-            test_airport_distance_children (children[i]);
+            test_airport_distance_children (child);
     }
 }
 
@@ -394,15 +383,13 @@ static void
 test_metar_weather_stations_children (GWeatherLocation *location,
                                       GHashTable       *stations_ht)
 {
-    GWeatherLocation **children;
-    guint i;
+    g_autoptr(GWeatherLocation) child = NULL;
 
-    children = gweather_location_get_children (location);
-    for (i = 0; children[i] != NULL; i++) {
-        if (gweather_location_get_level (children[i]) == GWEATHER_LOCATION_WEATHER_STATION)
-            test_metar_weather_station (children[i], stations_ht);
+    while ((child = gweather_location_next_child (location, child)) != NULL) {
+        if (gweather_location_get_level (child) == GWEATHER_LOCATION_WEATHER_STATION)
+            test_metar_weather_station (child, stations_ht);
         else
-            test_metar_weather_stations_children (children[i], stations_ht);
+            test_metar_weather_stations_children (child, stations_ht);
     }
 }
 
@@ -533,13 +520,13 @@ check_bad_duplicate_weather_stations (gpointer key,
 
     dedup = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
     for (i = 0; i < stations->len; i++) {
-        double latitude, longitude;
+        GWeatherLocation *location = g_ptr_array_index (stations, i);
 
-        gweather_location_get_coords (g_ptr_array_index (stations, i),
-                                      &latitude, &longitude);
-        g_hash_table_insert (dedup,
-                             g_strdup_printf ("%.10lf %.10lf", latitude, longitude),
-                             GUINT_TO_POINTER (1));
+        double latitude, longitude;
+        gweather_location_get_coords (location, &latitude, &longitude);
+
+        char *coords = g_strdup_printf ("%.10lf %.10lf", latitude, longitude);
+        g_hash_table_insert (dedup, coords, GUINT_TO_POINTER (1));
     }
 
     if (g_hash_table_size (dedup) > 1) {
@@ -558,24 +545,22 @@ static void
 test_bad_duplicate_weather_stations_children (GWeatherLocation *location,
                                               GHashTable       *stations_ht)
 {
-    GWeatherLocation **children;
-    guint i;
-
-    children = gweather_location_get_children (location);
-    for (i = 0; children[i] != NULL; i++) {
-        if (gweather_location_get_level (children[i]) == GWEATHER_LOCATION_WEATHER_STATION) {
+    g_autoptr(GWeatherLocation) child = NULL;
+    while ((child = gweather_location_next_child (location, child)) != NULL) {
+        if (gweather_location_get_level (child) == GWEATHER_LOCATION_WEATHER_STATION) {
             GPtrArray *stations;
             const char *code;
 
-            code = gweather_location_get_code (children[i]);
+            code = gweather_location_get_code (child);
 
             stations = g_hash_table_lookup (stations_ht, code);
-            if (!stations)
-                stations = g_ptr_array_new ();
-            g_ptr_array_add (stations, children[i]);
-            g_hash_table_insert (stations_ht, g_strdup (code), stations);
+            if (!stations) {
+                stations = g_ptr_array_new_with_free_func ((GDestroyNotify) gweather_location_unref);
+                g_hash_table_insert (stations_ht, g_strdup (code), stations);
+            }
+            g_ptr_array_add (stations, gweather_location_ref (child));
         } else {
-            test_bad_duplicate_weather_stations_children (children[i], stations_ht);
+            test_bad_duplicate_weather_stations_children (child, stations_ht);
         }
     }
 }
@@ -606,17 +591,15 @@ test_bad_duplicate_weather_stations (void)
 static void
 test_duplicate_weather_stations_children (GWeatherLocation *location)
 {
-    GWeatherLocation **children;
-    GHashTable *stations_ht = NULL;
-    guint i;
+    g_autoptr(GHashTable) stations_ht = NULL;
 
-    children = gweather_location_get_children (location);
-    for (i = 0; children[i] != NULL; i++) {
-        if (gweather_location_get_level (children[i]) == GWEATHER_LOCATION_WEATHER_STATION) {
+    g_autoptr(GWeatherLocation) child = NULL;
+    while ((child = gweather_location_next_child (location, child)) != NULL) {
+        if (gweather_location_get_level (child) == GWEATHER_LOCATION_WEATHER_STATION) {
             const char *code;
 
-            code = gweather_location_get_code (children[i]);
-            if (!stations_ht) {
+            code = gweather_location_get_code (child);
+            if (stations_ht == NULL) {
                 stations_ht = g_hash_table_new_full (g_str_hash, g_str_equal,
                                                      g_free, (GDestroyNotify) NULL);
             } else {
@@ -636,12 +619,9 @@ test_duplicate_weather_stations_children (GWeatherLocation *location)
 
             g_hash_table_insert (stations_ht, g_strdup (code), GINT_TO_POINTER (1));
         } else {
-            test_duplicate_weather_stations_children (children[i]);
+            test_duplicate_weather_stations_children (child);
         }
     }
-
-    if (stations_ht)
-        g_hash_table_destroy (stations_ht);
 }
 
 static void
@@ -708,21 +688,18 @@ find_loc_children (GWeatherLocation  *location,
 		   const char        *search_str,
 		   GWeatherLocation **ret)
 {
-    GWeatherLocation **children;
-    guint i;
-
-    children = gweather_location_get_children (location);
-    for (i = 0; children[i] != NULL; i++) {
-        if (gweather_location_get_level (children[i]) == GWEATHER_LOCATION_WEATHER_STATION) {
+    g_autoptr(GWeatherLocation) child = NULL;
+    while ((child = gweather_location_next_child (location, child)) != NULL) {
+        if (gweather_location_get_level (child) == GWEATHER_LOCATION_WEATHER_STATION) {
             const char *code;
 
-            code = gweather_location_get_code (children[i]);
+            code = gweather_location_get_code (child);
             if (g_strcmp0 (search_str, code) == 0) {
-                *ret = gweather_location_ref (children[i]);
+                *ret = gweather_location_ref (child);
                 return TRUE;
             }
         } else {
-            if (find_loc_children (children[i], search_str, ret))
+            if (find_loc_children (child, search_str, ret))
                 return TRUE;
         }
     }
