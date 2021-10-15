@@ -655,7 +655,6 @@ test_location_names (void)
     g_assert_cmpstr (gweather_location_get_name (brussels), ==, "Brussels");
     g_assert_cmpstr (gweather_location_get_sort_name (brussels), ==, "brussels");
     g_assert_cmpstr (gweather_location_get_english_name (brussels), ==, "Brussels");
-    gweather_location_unref (brussels);
 
     old_locale = setlocale (LC_ALL, "fr_FR.UTF-8");
     if (old_locale == NULL) {
