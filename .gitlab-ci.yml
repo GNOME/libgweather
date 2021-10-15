@@ -167,10 +167,11 @@ asan-build:
       redhat-rpm-config
       vala
     MESON_VERSION: "0.55.3"
-    MESON_EXTRA_FLAGS: "--buildtype=debugoptimized -Db_sanitize=address -Db_lundef=false -Dintrospection=false -Dgtk_doc=false"
+    MESON_EXTRA_FLAGS: "--buildtype=debug -Db_sanitize=address -Db_lundef=false -Dintrospection=false -Dgtk_doc=false"
   script:
     - CC=clang meson setup --prefix /usr ${MESON_EXTRA_FLAGS} _asan_build .
     - meson compile -C _asan_build
+    - meson test -C _asan_build
   artifacts:
     name: "gweather-${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
     when: always
