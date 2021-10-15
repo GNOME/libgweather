@@ -21,7 +21,6 @@ G_BEGIN_DECLS
  * @GWEATHER_PROVIDER_NONE: no provider, no weather information available
  * @GWEATHER_PROVIDER_METAR: METAR office, providing current conditions worldwide
  * @GWEATHER_PROVIDER_IWIN: US weather office, providing 7 days of forecast
- * @GWEATHER_PROVIDER_YAHOO: Yahoo Weather Service, removed in 3.27.1
  * @GWEATHER_PROVIDER_MET_NO: MET.no service, worldwide but requires attribution and a subscription to the [API users mailing-list](https://lists.met.no/mailman/listinfo/api-users).
  * @GWEATHER_PROVIDER_OWM: OpenWeatherMap, worldwide and possibly more reliable, but requires attribution and is limited in the number of queries
  * @GWEATHER_PROVIDER_ALL: enable all available providers
@@ -30,10 +29,9 @@ typedef enum { /*< flags, underscore_name=gweather_provider >*/
     GWEATHER_PROVIDER_NONE = 0,
     GWEATHER_PROVIDER_METAR = 1,
     GWEATHER_PROVIDER_IWIN = 1 << 2,
-    GWEATHER_PROVIDER_YAHOO = 1 << 3,
-    GWEATHER_PROVIDER_MET_NO = 1 << 4,
-    GWEATHER_PROVIDER_OWM = 1 << 5,
-    GWEATHER_PROVIDER_ALL = (GWEATHER_PROVIDER_METAR | GWEATHER_PROVIDER_IWIN | GWEATHER_PROVIDER_YAHOO | GWEATHER_PROVIDER_MET_NO | GWEATHER_PROVIDER_OWM)
+    GWEATHER_PROVIDER_MET_NO = 1 << 3,
+    GWEATHER_PROVIDER_OWM = 1 << 4,
+    GWEATHER_PROVIDER_ALL = (GWEATHER_PROVIDER_METAR | GWEATHER_PROVIDER_IWIN | GWEATHER_PROVIDER_MET_NO | GWEATHER_PROVIDER_OWM)
 } GWeatherProvider;
 
 #define GWEATHER_TYPE_INFO (gweather_info_get_type ())

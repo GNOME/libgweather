@@ -111,8 +111,6 @@ set_providers (GWeatherInfo *info)
         ADD_PROVIDER_STR("METAR");
     if (providers & GWEATHER_PROVIDER_IWIN)
         ADD_PROVIDER_STR("IWIN");
-    if (providers & GWEATHER_PROVIDER_YAHOO)
-        ADD_PROVIDER_STR("YAHOO");
     if (providers & GWEATHER_PROVIDER_MET_NO)
         ADD_PROVIDER_STR("MET_NO");
     if (providers & GWEATHER_PROVIDER_OWM)

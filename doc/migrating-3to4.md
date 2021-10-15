@@ -41,3 +41,7 @@ reference to it, using [method@GWeather.Location.ref].
 
 The radar image provider stopped working a while ago, and the `get_radar()`
 method has been returning `NULL` since then.
+
+### Stop using `GWEATHER_PROVIDER_YAHOO`
+
+The Yahoo! provider was removed in libgweather 3.28.
