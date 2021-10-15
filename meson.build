@@ -10,7 +10,8 @@ project('libgweather', 'c',
 )
 
 libgweather_version = meson.project_version().split('.')
-libgweather_api_version = '4.0'
+libgweather_api = 4
+libgweather_api_version = '@0@.0'.format(libgweather_api)
 libgweather_full_version = '@0@-@1@'.format(meson.project_name(), libgweather_api_version)
 
 pkgconfig = import('pkgconfig')

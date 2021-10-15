@@ -219,7 +219,7 @@ libgweather_dep = declare_dependency(
 )
 
 if build_vapi and build_gir
-  gnome.generate_vapi('gweather-' + libgweather_api_version,
+  gnome.generate_vapi('gweather@0@'.format(libgweather_api),
     sources: gweather_gir[0],
     packages: ['gio-2.0', 'gdk-pixbuf-2.0'],
     metadata_dirs: '.',
@@ -228,9 +228,9 @@ if build_vapi and build_gir
 endif
 
 pkgconfig.generate(
-  filebase: 'gweather-' + libgweather_api_version,
+  filebase: 'gweather@0@'.format(libgweather_api),
   name: 'GWeather',
-  description: 'GWeather shared library',
+  description: 'Gather weather information from online services',
   version: meson.project_version(),
   libraries: lib_libgweather,
   subdirs: libgweather_full_version,
