@@ -112,9 +112,6 @@ GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_next_child            (GWeatherLocation  *loc,
                                                                  GWeatherLocation  *child);
 
-GWEATHER_DEPRECATED_FOR(gweather_location_next_child)
-GWeatherLocation **     gweather_location_get_children          (GWeatherLocation  *loc);
-
 GWEATHER_AVAILABLE_IN_ALL
 gboolean                gweather_location_has_coords            (GWeatherLocation  *loc);
 GWEATHER_AVAILABLE_IN_ALL

@@ -577,59 +577,6 @@ invalid_child:
     return NULL;
 }
 
-/**
- * gweather_location_get_children:
- * @loc: a #GWeatherLocation
- *
- * Gets an array of @loc's children; this is owned by @loc and will
- * not remain valid if @loc is freed.
- *
- * Return value: (transfer none) (array zero-terminated=1): @loc's
- *   children. (May be empty, but will not be %NULL.)
- *
- * Deprecated: 40.0: Use gweather_location_next_child() instead to
- *   avoid high memory consumption
- **/
-GWeatherLocation **
-gweather_location_get_children (GWeatherLocation *loc)
-{
-    static GWeatherLocation *no_children = NULL;
-    DbArrayofuint16Ref children_ref;
-    gsize length;
-    gsize i;
-
-    g_return_val_if_fail (loc != NULL, &no_children);
-
-    if (loc->_children)
-	return loc->_children;
-
-    if (!loc->db)
-	return &no_children;
-
-    /* Fill in the magic nearest child if we need to and should. */
-    if (!g_getenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST") &&
-        IDX_VALID (db_location_get_nearest (loc->ref))) {
-	loc->_children = g_new0 (GWeatherLocation*, 2);
-	loc->_children[0] = location_ref_for_idx (loc->db, db_location_get_nearest (loc->ref), loc);
-
-	return loc->_children;
-    }
-
-    /* Get the actual children. */
-    children_ref = db_location_get_children (loc->ref);
-    length = db_arrayofuint16_get_length (children_ref);
-    if (length == 0)
-	return &no_children;
-
-    loc->_children = g_new0 (GWeatherLocation*, length + 1);
-    for (i = 0; i < length; i++)
-	loc->_children[i] = location_ref_for_idx (loc->db,
-						 db_arrayofuint16_get_at (children_ref, i),
-						 NULL);
-
-    return loc->_children;
-}
-
 static void
 foreach_city (GWeatherLocation  *loc,
               GFunc              callback,
