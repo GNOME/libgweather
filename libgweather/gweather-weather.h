@@ -10,7 +10,6 @@
 #error "gweather-weather.h must not be included individually, include gweather.h instead"
 #endif
 
-#include <gdk-pixbuf/gdk-pixbuf.h>
 #include <libgweather/gweather-enums.h>
 #include <libgweather/gweather-location.h>
 #include <libgweather/gweather-version.h>

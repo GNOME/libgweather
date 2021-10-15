@@ -96,7 +96,6 @@ configure_file(
 
 deps_libgweather = [
   dependency('gio-2.0', version: glib_req_version),
-  dependency('gdk-pixbuf-2.0'),
   dependency('libsoup-2.4', version: libsoup_req_version),
   dependency('libxml-2.0', version: libxml_req_version),
   dependency('geocode-glib-1.0'),
@@ -192,7 +191,7 @@ if build_gir
     dependencies: deps_libgweather,
     nsversion: libgweather_api_version,
     namespace: 'GWeather',
-    includes: ['Gio-2.0', 'GdkPixbuf-2.0'],
+    includes: ['Gio-2.0'],
     symbol_prefix: 'gweather',
     identifier_prefix: 'GWeather',
     export_packages: 'gweather'.format(libgweather_api),
@@ -221,7 +220,7 @@ libgweather_dep = declare_dependency(
 if build_vapi and build_gir
   gnome.generate_vapi('gweather@0@'.format(libgweather_api),
     sources: gweather_gir[0],
-    packages: ['gio-2.0', 'gdk-pixbuf-2.0'],
+    packages: ['gio-2.0'],
     metadata_dirs: '.',
     install: true,
   )
@@ -236,7 +235,6 @@ pkgconfig.generate(
   subdirs: libgweather_full_version,
   requires_private: [
     'gio-2.0',
-    'gdk-pixbuf-2.0',
     'libsoup-2.4',
     'libxml-2.0',
     'geocode-glib-1.0',
