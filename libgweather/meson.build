@@ -195,7 +195,7 @@ if build_gir
     includes: ['Gio-2.0', 'GdkPixbuf-2.0'],
     symbol_prefix: 'gweather',
     identifier_prefix: 'GWeather',
-    export_packages: 'gweather-' + libgweather_api_version,
+    export_packages: 'gweather'.format(libgweather_api),
     header: 'libgweather/gweather.h',
     extra_args: [
       '--warn-all',
