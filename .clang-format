@@ -1,0 +1,91 @@
+BasedOnStyle: GNU
+Language: Cpp
+
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: None
+AlignConsecutiveBitFields: AcrossEmptyLinesAndComments
+AlignConsecutiveDeclarations: None
+AlignConsecutiveMacros: Consecutive
+AlignEscapedNewlines: Right
+AlignOperands: AlignAfterOperator
+AlignTrailingComments: true
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortBlocksOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakAfterReturnType: TopLevel
+AlwaysBreakBeforeMultilineStrings: false
+BreakBeforeBinaryOperators: None
+BreakBeforeBraces: Custom
+BinPackArguments: false
+BinPackParameters: false
+BitFieldColonSpacing: Both
+BraceWrapping:
+  AfterCaseLabel: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterStruct: true
+  BeforeElse: false
+  BeforeWhile: false
+BreakBeforeBinaryOperators: None
+BreakBeforeTernaryOperators: true
+BreakStringLiterals: true
+ForEachMacros: ['ITER_UP']
+IncludeBlocks: Preserve
+IndentCaseBlocks: true
+IndentCaseLabels: true
+IndentGotoLabels: false
+IndentWidth: 4
+#clang-format 13
+#PPIndentWidth: 1
+PointerAlignment: Right
+#clang-format 14
+#QualifierAlignment: Left
+#QualifierOrder: ['static', 'inline', 'const', 'volatile', 'type']
+ReflowComments: false
+#clang-format 13
+#SortIncludes: CaseSensitive
+SortIncludes: true
+SpaceAfterCStyleCast: true
+SpaceAfterLogicalNot: false
+SpaceAroundPointerQualifiers: Both
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCaseColon: false
+SpaceBeforeParens: Always
+SpaceBeforeSquareBrackets: false
+SpaceInEmptyBlock: true
+SpaceInEmptyParentheses: false
+SpacesInCStyleCastParentheses: false
+SpacesInConditionalStatement: false
+SpacesInContainerLiterals: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+StatementMacros: [
+  'G_DEFINE_ABSTRACT_TYPE',
+  'G_DEFINE_BOXED_TYPE',
+  'G_DEFINE_FINAL_TYPE',
+  'G_DEFINE_FINAL_TYPE_WITH_CODE',
+  'G_DEFINE_FINAL_TYPE_WITH_PRIVATE',
+  'G_DEFINE_INTERFACE',
+  'G_DEFINE_TYPE',
+  'G_DEFINE_TYPE_WITH_PRIVATE',
+  'G_DEFINE_TYPE_WITH_CODE',
+]
+TabWidth: 8
+TypenameMacros: [
+  'g_autoptr',
+  'g_auto',
+  'g_autofree',
+]
+UseTab: Never
+#WhitespaceSensitiveMacros: ['C_', 'NC_', 'N_', '_',]
+
+# Our column limit is actually 80, but setting that results in clang-format
+# making a lot of dubious hanging-indent choices; disable it and assume the
+# developer will line wrap appropriately. clang-format will still check
+# existing hanging indents.
+ColumnLimit: 0
