@@ -241,5 +241,7 @@ pkgconfig.generate(
   ],
 )
 
-subdir('tests')
-subdir('tools')
+if get_option('tests')
+  subdir('tests')
+  subdir('tools')
+endif

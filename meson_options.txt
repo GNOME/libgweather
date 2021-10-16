@@ -8,3 +8,5 @@ option('gtk_doc', type: 'boolean', value: true,
        description: 'Whether to generate the API reference')
 option('introspection', type: 'boolean', value: true,
        description: 'Whether to generate introspection data')
+option('tests', type: 'boolean', value: true,
+       description: 'Whether to build the tests and tools')
