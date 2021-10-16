@@ -132,6 +132,23 @@ Typically, you should work on your own branch:
 $ git switch -C your-branch
 ```
 
+The coding style of libgweather is maintained through
+[clang-format](https://clang.llvm.org/docs/ClangFormat.html). The
+configuration is provided by libgweather itself. Before committing your
+changes, you should run:
+
+```sh
+clang-format \
+	--style=file \
+	libgweather/*.c \
+	libgweather/tests/*.c \
+	libgweather/tools/*.c
+```
+
+to ensure that the changes are formatted using the same coding style as the
+rest of the project. The project's own continuous integration pipeline will
+enforce the coding style.
+
 Once you’ve finished working on the bug fix or feature, push the branch
 to the Git repository and open a new merge request, to let the libgweather
 core developers review your contribution.
@@ -264,6 +281,6 @@ There are a number of requirements for those tokens:
 - One should be provided in the patch for testing purposes, and be easily
   overridable by distributions wishing to have a separate identifier and limits
 - The test token should have high enough limits that you're reasonably confident
-  that lots of people running `make check` won’t cause the token to be revoked
+  that lots of people running `meson test` won’t cause the token to be revoked
   and break everyone’s tests
 - Instructions on how to get a token for the application must be provided
