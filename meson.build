@@ -45,6 +45,7 @@ pylint_flags = [
   '-d', 'C0326',
 ]
 
+py = import('python').find_installation('python3', modules: ['gi'])
 gen_locations_variant = find_program('build-aux/meson/gen_locations_variant.py')
 
 subdir('data')
