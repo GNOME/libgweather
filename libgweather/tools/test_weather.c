@@ -1,6 +1,6 @@
 
-#include <gweather-version.h>
 #include "gweather-weather.h"
+#include <gweather-version.h>
 
 #include <locale.h>
 
@@ -12,9 +12,9 @@ static GWeatherProvider providers = GWEATHER_PROVIDER_METAR | GWEATHER_PROVIDER_
 //static GWeatherProvider providers = GWEATHER_PROVIDER_METAR | GWEATHER_PROVIDER_IWIN;
 
 static gboolean
-find_loc_children (GWeatherLocation  *location,
-		   const char        *search_str,
-		   GWeatherLocation **ret)
+find_loc_children (GWeatherLocation *location,
+                   const char *search_str,
+                   GWeatherLocation **ret)
 {
     g_autoptr (GWeatherLocation) child = NULL;
 
@@ -38,7 +38,7 @@ find_loc_children (GWeatherLocation  *location,
 
 static GWeatherLocation *
 find_loc (GWeatherLocation *world,
-	  const char       *search_str)
+          const char *search_str)
 {
     GWeatherLocation *loc = NULL;
 
@@ -48,7 +48,7 @@ find_loc (GWeatherLocation *world,
 
 static void
 weather_updated (GWeatherInfo *info,
-                 GMainLoop    *loop)
+                 GMainLoop *loop)
 {
     GSList *forecasts, *l;
     time_t val;
@@ -68,7 +68,7 @@ weather_updated (GWeatherInfo *info,
     forecasts = gweather_info_get_forecast_list (info);
     if (!forecasts) {
         if (!weather_printed)
-           g_warning ("No forecasts, but no weather either?!");
+            g_warning ("No forecasts, but no weather either?!");
         return;
     }
 
@@ -95,11 +95,12 @@ weather_updated (GWeatherInfo *info,
         g_main_loop_quit (loop);
 }
 
-#define ADD_PROVIDER_STR(x) {			\
-	if (s->len != 0)			\
-		g_string_append (s, ", ");	\
-	g_string_append(s, x);			\
-}
+#define ADD_PROVIDER_STR(x)            \
+    {                                  \
+        if (s->len != 0)               \
+            g_string_append (s, ", "); \
+        g_string_append (s, x);        \
+    }
 
 static gboolean
 set_providers (GWeatherInfo *info)
@@ -108,13 +109,13 @@ set_providers (GWeatherInfo *info)
 
     s = g_string_new (NULL);
     if (providers & GWEATHER_PROVIDER_METAR)
-        ADD_PROVIDER_STR("METAR");
+        ADD_PROVIDER_STR ("METAR");
     if (providers & GWEATHER_PROVIDER_IWIN)
-        ADD_PROVIDER_STR("IWIN");
+        ADD_PROVIDER_STR ("IWIN");
     if (providers & GWEATHER_PROVIDER_MET_NO)
-        ADD_PROVIDER_STR("MET_NO");
+        ADD_PROVIDER_STR ("MET_NO");
     if (providers & GWEATHER_PROVIDER_OWM)
-        ADD_PROVIDER_STR("OWM");
+        ADD_PROVIDER_STR ("OWM");
     if (providers == GWEATHER_PROVIDER_NONE) {
         g_string_free (s, TRUE);
         g_warning ("No providers enabled, failing");
@@ -157,8 +158,7 @@ main (int argc, char **argv)
     if (!set_providers (info))
         return 1;
     gweather_info_set_location (info, loc);
-    g_signal_connect (G_OBJECT (info), "updated",
-                      G_CALLBACK (weather_updated), loop);
+    g_signal_connect (G_OBJECT (info), "updated", G_CALLBACK (weather_updated), loop);
     gweather_info_update (info);
 
     g_main_loop_run (loop);

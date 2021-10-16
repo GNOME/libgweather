@@ -13,7 +13,8 @@
 #include <string.h>
 #include <sys/types.h>
 
-enum {
+enum
+{
     TIME_RE,
     WIND_RE,
     VIS_RE,
@@ -45,8 +46,8 @@ make_time (gint utcDate, gint utcHour, gint utcMin)
         tm.tm_mday = utcDate;
     }
     tm.tm_hour = utcHour;
-    tm.tm_min  = utcMin;
-    tm.tm_sec  = 0;
+    tm.tm_min = utcMin;
+    tm.tm_sec = 0;
 
     /* mktime() assumes value is local, not UTC.  Use tm_gmtoff to compensate */
 #ifdef HAVE_TM_TM_GMOFF
@@ -90,15 +91,15 @@ metar_tok_wind (gchar *tokp, GWeatherInfo *info)
     gustp = strchr (tokp, 'G');
     if (gustp) {
         memset (sgust, 0, sizeof (sgust));
-	glen = strspn (gustp + 1, CONST_DIGITS);
+        glen = strspn (gustp + 1, CONST_DIGITS);
         strncpy (sgust, gustp + 1, glen);
-	tokp = gustp + 1 + glen;
+        tokp = gustp + 1 + glen;
     }
 
     if (!strcmp (tokp, "MPS"))
-	info->windspeed = WINDSPEED_MS_TO_KNOTS ((GWeatherWindSpeed)spd);
+        info->windspeed = WINDSPEED_MS_TO_KNOTS ((GWeatherWindSpeed) spd);
     else
-	info->windspeed = (GWeatherWindSpeed)spd;
+        info->windspeed = (GWeatherWindSpeed) spd;
 
     if ((349 <= dir) || (dir <= 11))
         info->wind = GWEATHER_WIND_N;
@@ -145,41 +146,41 @@ metar_tok_vis (gchar *tokp, GWeatherInfo *info)
 
     memset (sval, 0, sizeof (sval));
 
-    if (!strcmp (tokp,"CAVOK")) {
+    if (!strcmp (tokp, "CAVOK")) {
         // "Ceiling And Visibility OK": visibility >= 10 KM
-        info->visibility=10000. / VISIBILITY_SM_TO_M (1.);
+        info->visibility = 10000. / VISIBILITY_SM_TO_M (1.);
         info->sky = GWEATHER_SKY_CLEAR;
     } else if (0 != (pend = strstr (tokp, "SM"))) {
         // US observation: field ends with "SM"
         pfrac = strchr (tokp, '/');
         if (pfrac) {
-	    if (*tokp == 'M') {
-	        info->visibility = 0.001;
-	    } else {
-	        num = (*(pfrac - 1) - '0');
-		strncpy (sval, pfrac + 1, pend - pfrac - 1);
-		den = atoi (sval);
-		info->visibility =
-		    ((GWeatherVisibility)num / ((GWeatherVisibility)den));
+            if (*tokp == 'M') {
+                info->visibility = 0.001;
+            } else {
+                num = (*(pfrac - 1) - '0');
+                strncpy (sval, pfrac + 1, pend - pfrac - 1);
+                den = atoi (sval);
+                info->visibility =
+                    ((GWeatherVisibility) num / ((GWeatherVisibility) den));
 
-		psp = strchr (tokp, ' ');
-		if (psp) {
-		    *psp = '\0';
-		    val = atoi (tokp);
-		    info->visibility += (GWeatherVisibility)val;
-		}
-	    }
-	} else {
-	    strncpy (sval, tokp, pend - tokp);
+                psp = strchr (tokp, ' ');
+                if (psp) {
+                    *psp = '\0';
+                    val = atoi (tokp);
+                    info->visibility += (GWeatherVisibility) val;
+                }
+            }
+        } else {
+            strncpy (sval, tokp, pend - tokp);
             val = atoi (sval);
-            info->visibility = (GWeatherVisibility)val;
-	}
+            info->visibility = (GWeatherVisibility) val;
+        }
     } else {
         // International observation: NNNN(DD NNNNDD)?
         // For now: use only the minimum visibility and ignore its direction
         strncpy (sval, tokp, strspn (tokp, CONST_DIGITS));
-	val = atoi (sval);
-	info->visibility = (GWeatherVisibility)val / VISIBILITY_SM_TO_M (1.);
+        val = atoi (sval);
+        info->visibility = (GWeatherVisibility) val / VISIBILITY_SM_TO_M (1.);
     }
 }
 
@@ -231,8 +232,8 @@ metar_tok_pres (gchar *tokp, GWeatherInfo *info)
         sfract[2] = 0;
         fract = atoi (sfract);
 
-        info->pressure = (GWeatherPressure)intg + (((GWeatherPressure)fract)/100.0);
-    } else {  /* *tokp == 'Q' */
+        info->pressure = (GWeatherPressure) intg + (((GWeatherPressure) fract) / 100.0);
+    } else { /* *tokp == 'Q' */
         gchar spres[5];
         gint pres;
 
@@ -240,7 +241,7 @@ metar_tok_pres (gchar *tokp, GWeatherInfo *info)
         spres[4] = 0;
         pres = atoi (spres);
 
-        info->pressure = PRESSURE_MBAR_TO_INCH ((GWeatherPressure)pres);
+        info->pressure = PRESSURE_MBAR_TO_INCH ((GWeatherPressure) pres);
     }
 }
 
@@ -257,20 +258,20 @@ metar_tok_temp (gchar *tokp, GWeatherInfo *info)
     pdew = psep + 1;
 
     info->temp = (*ptemp == 'M') ? TEMP_C_TO_F (-atoi (ptemp + 1))
-	: TEMP_C_TO_F (atoi (ptemp));
+                                 : TEMP_C_TO_F (atoi (ptemp));
     if (*pdew) {
-	info->dew = (*pdew == 'M') ? TEMP_C_TO_F (-atoi (pdew + 1))
-	    : TEMP_C_TO_F (atoi (pdew));
+        info->dew = (*pdew == 'M') ? TEMP_C_TO_F (-atoi (pdew + 1))
+                                   : TEMP_C_TO_F (atoi (pdew));
     } else {
-	info->dew = -1000.0;
+        info->dew = -1000.0;
     }
 }
 
 /* How "important" are the conditions to be reported to the user.
    Indexed by GWeatherConditionPhenomenon */
 static const int importance_scale[] = {
-    0, /* invalid */
-    0, /* none */
+    0,  /* invalid */
+    0,  /* none */
     20, /* drizzle */
     30, /* rain */
     35, /* snow */
@@ -298,16 +299,16 @@ static const int importance_scale[] = {
 
 static gboolean
 condition_more_important (GWeatherConditions *which,
-			  GWeatherConditions *than)
+                          GWeatherConditions *than)
 {
     if (!than->significant)
-	return TRUE;
+        return TRUE;
     if (!which->significant)
-	return FALSE;
+        return FALSE;
 
     if (importance_scale[than->phenomenon] <
-	importance_scale[which->phenomenon])
-	return TRUE;
+        importance_scale[which->phenomenon])
+        return TRUE;
 
     return FALSE;
 }
@@ -322,7 +323,7 @@ metar_tok_cond (gchar *tokp, GWeatherInfo *info)
     g_debug ("metar_tok_cond: %s", tokp);
 
     if ((strlen (tokp) > 3) && ((*tokp == '+') || (*tokp == '-')))
-        ++tokp;   /* FIX */
+        ++tokp; /* FIX */
 
     if ((*tokp == '+') || (*tokp == '-'))
         pphen = tokp + 1;
@@ -337,7 +338,7 @@ metar_tok_cond (gchar *tokp, GWeatherInfo *info)
 
     memset (sphen, 0, sizeof (sphen));
     strncpy (sphen, pphen, sizeof (sphen));
-    sphen[sizeof (sphen)-1] = '\0';
+    sphen[sizeof (sphen) - 1] = '\0';
 
     /* Defaults */
     new_cond.qualifier = GWEATHER_QUALIFIER_NONE;
@@ -426,14 +427,14 @@ metar_tok_cond (gchar *tokp, GWeatherInfo *info)
         new_cond.significant = TRUE;
 
     if (condition_more_important (&new_cond, &info->cond))
-	info->cond = new_cond;
+        info->cond = new_cond;
 }
 
-#define TIME_RE_STR  "([0-9]{6})Z"
-#define WIND_RE_STR  "(([0-9]{3})|VRB)([0-9]?[0-9]{2})(G[0-9]?[0-9]{2})?(KT|MPS)"
-#define VIS_RE_STR   "((([0-9]?[0-9])|(M?([12] )?([1357]/1?[0-9])))SM)|" \
-    "([0-9]{4}(N|NE|E|SE|S|SW|W|NW( [0-9]{4}(N|NE|E|SE|S|SW|W|NW))?)?)|" \
-    "CAVOK"
+#define TIME_RE_STR "([0-9]{6})Z"
+#define WIND_RE_STR "(([0-9]{3})|VRB)([0-9]?[0-9]{2})(G[0-9]?[0-9]{2})?(KT|MPS)"
+#define VIS_RE_STR  "((([0-9]?[0-9])|(M?([12] )?([1357]/1?[0-9])))SM)|"                 \
+                   "([0-9]{4}(N|NE|E|SE|S|SW|W|NW( [0-9]{4}(N|NE|E|SE|S|SW|W|NW))?)?)|" \
+                   "CAVOK"
 #define COND_RE_STR  "(-|\\+)?(VC|MI|BC|PR|TS|BL|SH|DR|FZ)?(DZ|RA|SN|SG|IC|PE|GR|GS|UP|BR|FG|FU|VA|SA|HZ|PY|DU|SQ|SS|DS|PO|\\+?FC)"
 #define CLOUD_RE_STR "((CLR|BKN|SCT|FEW|OVC|SKC|NSC)([0-9]{3}|///)?(CB|TCU|///)?)"
 #define TEMP_RE_STR  "(M?[0-9][0-9])/(M?(//|[0-9][0-9])?)"
@@ -505,21 +506,22 @@ metar_parse (gchar *metar, GWeatherInfo *info)
         int token_start, token_end;
 
         i2 = RE_NUM;
-        token_start = strlen(p);
+        token_start = strlen (p);
         token_end = token_start;
 
         for (i = 0; i < RE_NUM; i++) {
             GMatchInfo *match_info;
 
-            if (g_regex_match_full (metar_re[i], p, -1, 0, 0, &match_info, NULL))
-            {
+            if (g_regex_match_full (metar_re[i], p, -1, 0, 0, &match_info, NULL)) {
                 int tmp_token_start, tmp_token_end;
                 /* Skip leading and trailing space characters, if present.
                    (the regular expressions include those characters to
                    only get matches limited to whole words). */
                 g_match_info_fetch_pos (match_info, 0, &tmp_token_start, &tmp_token_end);
-                if (p[tmp_token_start] == ' ') tmp_token_start++;
-                if (p[tmp_token_end - 1] == ' ') tmp_token_end--;
+                if (p[tmp_token_start] == ' ')
+                    tmp_token_start++;
+                if (p[tmp_token_end - 1] == ' ')
+                    tmp_token_end--;
 
                 /* choose the regular expression with the earliest match */
                 if (tmp_token_start < token_start) {
@@ -534,7 +536,7 @@ metar_parse (gchar *metar, GWeatherInfo *info)
 
         if (i2 != RE_NUM) {
             tokp = g_strndup (p + token_start, token_end - token_start);
-            metar_f[i2] (tokp, info);
+            metar_f[i2](tokp, info);
             g_free (tokp);
         }
 
@@ -555,22 +557,24 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
         if (msg->status_code == SOUP_STATUS_CANCELLED) {
-	    g_debug ("Failed to get METAR data: %d %s.\n",
-		     msg->status_code, msg->reason_phrase);
-	    return;
-	}
+            g_debug ("Failed to get METAR data: %d %s.\n",
+                     msg->status_code,
+                     msg->reason_phrase);
+            return;
+        }
 
-	info = data;
-	if (SOUP_STATUS_IS_TRANSPORT_ERROR (msg->status_code)) {
-	    info->network_error = TRUE;
-	} else {
-	    /* Translators: %d is an error code, and %s the error string */
-	    g_warning (_("Failed to get METAR data: %d %s.\n"),
-		       msg->status_code, msg->reason_phrase);
-	}
+        info = data;
+        if (SOUP_STATUS_IS_TRANSPORT_ERROR (msg->status_code)) {
+            info->network_error = TRUE;
+        } else {
+            /* Translators: %d is an error code, and %s the error string */
+            g_warning (_ ("Failed to get METAR data: %d %s.\n"),
+                       msg->status_code,
+                       msg->reason_phrase);
+        }
 
-	_gweather_info_request_done (info, msg);
-	return;
+        _gweather_info_request_done (info, msg);
+        return;
     }
 
     info = data;
@@ -583,27 +587,27 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     p = strstr (msg->response_body->data, searchkey);
 
     if (p) {
-	p += strlen (searchkey);
-	eoln = strstr (p, "</raw_text>");
-	if (eoln)
-	    metar = g_strndup (p, eoln - p);
-	else
-	    metar = g_strdup (p);
-	success = metar_parse (metar, info);
-	g_free (metar);
-	if (success)
-	  g_debug ("Successfully parsed METAR for %s", loc->code);
-	else
-	  g_debug ("Failed to parse raw_text METAR for %s", loc->code);
+        p += strlen (searchkey);
+        eoln = strstr (p, "</raw_text>");
+        if (eoln)
+            metar = g_strndup (p, eoln - p);
+        else
+            metar = g_strdup (p);
+        success = metar_parse (metar, info);
+        g_free (metar);
+        if (success)
+            g_debug ("Successfully parsed METAR for %s", loc->code);
+        else
+            g_debug ("Failed to parse raw_text METAR for %s", loc->code);
     } else if (!strstr (msg->response_body->data, "aviationweather.gov")) {
-	/* The response doesn't even seem to have come from NOAA...
+        /* The response doesn't even seem to have come from NOAA...
 	 * most likely it is a wifi hotspot login page. Call that a
 	 * network error.
 	 */
-	info->network_error = TRUE;
-	g_debug ("Response to query for %s did not come from correct server", loc->code);
+        info->network_error = TRUE;
+        g_debug ("Response to query for %s did not come from correct server", loc->code);
     } else {
-      g_debug ("Failed to parse METAR for %s", loc->code);
+        g_debug ("Failed to parse METAR for %s", loc->code);
     }
 
     g_free (searchkey);
@@ -630,15 +634,23 @@ metar_start_open (GWeatherInfo *info)
 
     g_debug ("metar_start_open, requesting: https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=3&mostRecent=true&fields=raw_text&stationString=%s", loc->code);
     msg = soup_form_request_new (
-	"GET", "https://www.aviationweather.gov/adds/dataserver_current/httpparam",
-	"dataSource", "metars",
-	"requestType", "retrieve",
-	"format", "xml",
-	"hoursBeforeNow", "3",
-	"mostRecent", "true",
-	"fields", "raw_text",
-	"stationString", loc->code,
-	NULL);
+        "GET",
+        "https://www.aviationweather.gov/adds/dataserver_current/httpparam",
+        "dataSource",
+        "metars",
+        "requestType",
+        "retrieve",
+        "format",
+        "xml",
+        "hoursBeforeNow",
+        "3",
+        "mostRecent",
+        "true",
+        "fields",
+        "raw_text",
+        "stationString",
+        loc->code,
+        NULL);
     _gweather_info_begin_request (info, msg);
     soup_session_queue_message (info->session, msg, metar_finish, info);
 }

@@ -8,87 +8,89 @@
 
 #include "gweather-private.h"
 
+#include <assert.h>
+#include <ctype.h>
+#include <langinfo.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h>
 #include <string.h>
-#include <ctype.h>
-#include <math.h>
 #include <time.h>
 #include <unistd.h>
-#include <langinfo.h>
 
 #include <libxml/parser.h>
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 
-#define XC(t) ((const xmlChar *)(t))
+#define XC(t) ((const xmlChar *) (t))
 
 /* Reference for symbols at http://bugs.openweathermap.org/projects/api/wiki/Weather_Condition_Codes */
 /* FIXME: the libgweather API is not expressive enough */
-static struct owm_symbol {
+static struct owm_symbol
+{
     int symbol;
     GWeatherSky sky;
     GWeatherConditions condition;
 } symbols[] = {
-    { 200, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } }, /* Thunderstorm with light rain */
-    { 201, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } }, /* Thunderstorm with rain */
-    { 202, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } }, /* Thunderstorm with heavy rain */
-    { 210, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } }, /* Light thunderstorm */
-    { 211, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } }, /* Thunderstorm */
-    { 212, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } }, /* Heavy thunderstorm */
-    { 221, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } }, /* Ragged thunderstorm */
+    { 200, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } },    /* Thunderstorm with light rain */
+    { 201, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } },    /* Thunderstorm with rain */
+    { 202, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } },    /* Thunderstorm with heavy rain */
+    { 210, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } },    /* Light thunderstorm */
+    { 211, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } },    /* Thunderstorm */
+    { 212, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } },    /* Heavy thunderstorm */
+    { 221, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_THUNDERSTORM } },    /* Ragged thunderstorm */
     { 230, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_THUNDERSTORM } }, /* Thunderstorm with light drizzle */
     { 231, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_THUNDERSTORM } }, /* Thunderstorm with drizzle */
     { 232, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_THUNDERSTORM } }, /* Thunderstorm with heavy drizzle */
 
-    { 300, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_LIGHT } }, /* Light intensity drizzle */
-    { 301, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_NONE } }, /* Drizzle */
-    { 302, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_HEAVY } }, /* Heavy intensity drizzle */
-    { 310, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_LIGHT } }, /* Light intensity drizzle rain */
-    { 311, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_NONE } }, /* Drizzle rain */
-    { 312, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_HEAVY } }, /* Heavy intensity drizzle rain */
+    { 300, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_LIGHT } },   /* Light intensity drizzle */
+    { 301, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_NONE } },    /* Drizzle */
+    { 302, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_HEAVY } },   /* Heavy intensity drizzle */
+    { 310, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_LIGHT } },   /* Light intensity drizzle rain */
+    { 311, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_NONE } },    /* Drizzle rain */
+    { 312, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_HEAVY } },   /* Heavy intensity drizzle rain */
     { 321, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_DRIZZLE, GWEATHER_QUALIFIER_SHOWERS } }, /* Drizzle showers */
 
-    { 500, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_LIGHT } }, /* Light rain */
+    { 500, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_LIGHT } },    /* Light rain */
     { 501, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_MODERATE } }, /* Moderate rain */
-    { 502, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_HEAVY } }, /* Heavy intensity rain */
-    { 503, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_HEAVY } }, /* Very heavy rain */
-    { 504, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_HEAVY } }, /* Extreme rain */
+    { 502, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_HEAVY } },    /* Heavy intensity rain */
+    { 503, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_HEAVY } },    /* Very heavy rain */
+    { 504, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_HEAVY } },    /* Extreme rain */
     { 511, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_FREEZING } }, /* Freezing rain */
-    { 520, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_SHOWERS } }, /* Light intensity shower rain */
-    { 521, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_SHOWERS } }, /* Shower rain */
-    { 522, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_SHOWERS } }, /* Heavy intensity shower rain */
+    { 520, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_SHOWERS } },  /* Light intensity shower rain */
+    { 521, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_SHOWERS } },  /* Shower rain */
+    { 522, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_RAIN, GWEATHER_QUALIFIER_SHOWERS } },  /* Heavy intensity shower rain */
 
-    { 600, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_SNOW, GWEATHER_QUALIFIER_LIGHT } }, /* Light snow */
-    { 601, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_SNOW, GWEATHER_QUALIFIER_NONE } }, /* Snow */
-    { 602, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_SNOW, GWEATHER_QUALIFIER_HEAVY } }, /* Heavy snow */
+    { 600, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_SNOW, GWEATHER_QUALIFIER_LIGHT } },       /* Light snow */
+    { 601, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_SNOW, GWEATHER_QUALIFIER_NONE } },        /* Snow */
+    { 602, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_SNOW, GWEATHER_QUALIFIER_HEAVY } },       /* Heavy snow */
     { 611, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_ICE_PELLETS, GWEATHER_QUALIFIER_NONE } }, /* Sleet */
-    { 621, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_SNOW, GWEATHER_QUALIFIER_SHOWERS } }, /* Shower snow */
+    { 621, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_SNOW, GWEATHER_QUALIFIER_SHOWERS } },     /* Shower snow */
 
-    { 701, GWEATHER_SKY_CLEAR, { TRUE, GWEATHER_PHENOMENON_MIST, GWEATHER_QUALIFIER_NONE } }, /* Mist */
-    { 711, GWEATHER_SKY_CLEAR, { TRUE, GWEATHER_PHENOMENON_SMOKE, GWEATHER_QUALIFIER_NONE } }, /* Smoke */
-    { 721, GWEATHER_SKY_CLEAR, { TRUE, GWEATHER_PHENOMENON_HAZE, GWEATHER_QUALIFIER_NONE } }, /* Haze */
+    { 701, GWEATHER_SKY_CLEAR, { TRUE, GWEATHER_PHENOMENON_MIST, GWEATHER_QUALIFIER_NONE } },        /* Mist */
+    { 711, GWEATHER_SKY_CLEAR, { TRUE, GWEATHER_PHENOMENON_SMOKE, GWEATHER_QUALIFIER_NONE } },       /* Smoke */
+    { 721, GWEATHER_SKY_CLEAR, { TRUE, GWEATHER_PHENOMENON_HAZE, GWEATHER_QUALIFIER_NONE } },        /* Haze */
     { 731, GWEATHER_SKY_CLEAR, { TRUE, GWEATHER_PHENOMENON_DUST_WHIRLS, GWEATHER_QUALIFIER_NONE } }, /* Dust/sand whirls */
-    { 741, GWEATHER_SKY_CLEAR, { TRUE, GWEATHER_PHENOMENON_FOG, GWEATHER_QUALIFIER_NONE } }, /* Fog */
+    { 741, GWEATHER_SKY_CLEAR, { TRUE, GWEATHER_PHENOMENON_FOG, GWEATHER_QUALIFIER_NONE } },         /* Fog */
 
-    { 800, GWEATHER_SKY_CLEAR, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } }, /* Clear sky */
-    { 801, GWEATHER_SKY_FEW, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } }, /* Few clouds */
+    { 800, GWEATHER_SKY_CLEAR, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } },     /* Clear sky */
+    { 801, GWEATHER_SKY_FEW, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } },       /* Few clouds */
     { 802, GWEATHER_SKY_SCATTERED, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } }, /* Scattered clouds */
-    { 803, GWEATHER_SKY_BROKEN, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } }, /* Broken clouds */
-    { 804, GWEATHER_SKY_OVERCAST, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } }, /* Overcast clouds */
+    { 803, GWEATHER_SKY_BROKEN, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } },    /* Broken clouds */
+    { 804, GWEATHER_SKY_OVERCAST, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } },  /* Overcast clouds */
 
     /* XXX: all these are a bit iffy */
     { 900, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_TORNADO, GWEATHER_QUALIFIER_NONE } }, /* Tornado */
     { 901, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_TORNADO, GWEATHER_QUALIFIER_NONE } }, /* Tropical storm */
     { 902, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_TORNADO, GWEATHER_QUALIFIER_NONE } }, /* Hurricane */
-    { 903, GWEATHER_SKY_CLEAR, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } }, /* Cold */
-    { 904, GWEATHER_SKY_CLEAR, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } }, /* Hot */
-    { 905, GWEATHER_SKY_CLEAR, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } }, /* Windy */
-    { 906, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_HAIL, GWEATHER_QUALIFIER_NONE } }, /* Hail */
+    { 903, GWEATHER_SKY_CLEAR, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } },      /* Cold */
+    { 904, GWEATHER_SKY_CLEAR, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } },      /* Hot */
+    { 905, GWEATHER_SKY_CLEAR, { FALSE, GWEATHER_PHENOMENON_NONE, GWEATHER_QUALIFIER_NONE } },      /* Windy */
+    { 906, GWEATHER_SKY_OVERCAST, { TRUE, GWEATHER_PHENOMENON_HAIL, GWEATHER_QUALIFIER_NONE } },    /* Hail */
 };
 
-static struct {
+static struct
+{
     const char *name;
     GWeatherWindDirection direction;
 } wind_directions[] = {
@@ -111,7 +113,7 @@ static struct {
 };
 
 static time_t
-date_to_time_t (const xmlChar *str, const char * tzid)
+date_to_time_t (const xmlChar *str, const char *tzid)
 {
     struct tm time = { 0 };
     GTimeZone *tz;
@@ -119,26 +121,26 @@ date_to_time_t (const xmlChar *str, const char * tzid)
     time_t rval;
     char *after;
 
-    after = strptime ((const char*) str, "%Y-%m-%dT%T", &time);
+    after = strptime ((const char *) str, "%Y-%m-%dT%T", &time);
     if (after == NULL) {
-	g_warning ("Cannot parse date string \"%s\"", str);
-	return 0;
+        g_warning ("Cannot parse date string \"%s\"", str);
+        return 0;
     }
 
     if (*after == 'Z')
-	tzid = "UTC";
+        tzid = "UTC";
 
     tz = g_time_zone_new_identifier (tzid);
     if (tz == NULL)
         tz = g_time_zone_new_utc ();
 
     dt = g_date_time_new (tz,
-			  time.tm_year + 1900,
-			  time.tm_mon + 1,
-			  time.tm_mday,
-			  time.tm_hour,
-			  time.tm_min,
-			  time.tm_sec);
+                          time.tm_year + 1900,
+                          time.tm_mon + 1,
+                          time.tm_mday,
+                          time.tm_hour,
+                          time.tm_min,
+                          time.tm_sec);
 
     rval = g_date_time_to_unix (dt);
 
@@ -160,17 +162,16 @@ symbol_compare (const void *key,
 
 static inline void
 read_symbol (GWeatherInfo *info,
-	     xmlNodePtr    node)
+             xmlNodePtr node)
 {
     xmlChar *val;
     struct owm_symbol *obj, ref;
 
-    val = xmlGetProp (node, XC("number"));
+    val = xmlGetProp (node, XC ("number"));
 
-    ref.symbol = strtol ((char*) val, NULL, 0) - 1;
+    ref.symbol = strtol ((char *) val, NULL, 0) - 1;
     xmlFree (val);
-    obj = bsearch (&ref, symbols, G_N_ELEMENTS (symbols),
-                   sizeof (struct owm_symbol), symbol_compare);
+    obj = bsearch (&ref, symbols, G_N_ELEMENTS (symbols), sizeof (struct owm_symbol), symbol_compare);
 
     if (obj == NULL) {
         g_warning ("Unknown symbol %d returned from OpenWeatherMap",
@@ -185,110 +186,110 @@ read_symbol (GWeatherInfo *info,
 
 static inline void
 read_wind_direction (GWeatherInfo *info,
-		     xmlNodePtr    node)
+                     xmlNodePtr node)
 {
     xmlChar *val;
     unsigned int i;
 
-    val = xmlGetProp (node, XC("code"));
+    val = xmlGetProp (node, XC ("code"));
     if (val == NULL)
-	return;
+        return;
 
     for (i = 0; i < G_N_ELEMENTS (wind_directions); i++) {
-	if (strcmp ((char*) val, wind_directions[i].name) == 0) {
-	    info->wind = wind_directions[i].direction;
-	    xmlFree (val);
-	    return;
-	}
+        if (strcmp ((char *) val, wind_directions[i].name) == 0) {
+            info->wind = wind_directions[i].direction;
+            xmlFree (val);
+            return;
+        }
     }
     xmlFree (val);
 }
 
 static inline void
 read_wind_speed (GWeatherInfo *info,
-		 xmlNodePtr    node)
+                 xmlNodePtr node)
 {
     xmlChar *val;
     double mps;
 
-    val = xmlGetProp (node, XC("mps"));
+    val = xmlGetProp (node, XC ("mps"));
     if (val == NULL)
-	return;
+        return;
 
-    mps = g_ascii_strtod ((char*) val, NULL);
+    mps = g_ascii_strtod ((char *) val, NULL);
     info->windspeed = WINDSPEED_MS_TO_KNOTS (mps);
     xmlFree (val);
 }
 
 static inline void
 read_temperature (GWeatherInfo *info,
-		  xmlNodePtr    node)
+                  xmlNodePtr node)
 {
     xmlChar *unit;
     xmlChar *val;
     double celsius;
 
-    unit = xmlGetProp (node, XC("unit"));
-    if (unit == NULL || strcmp ((char*)unit, "celsius")) {
+    unit = xmlGetProp (node, XC ("unit"));
+    if (unit == NULL || strcmp ((char *) unit, "celsius")) {
         xmlFree (unit);
         return;
     }
 
     xmlFree (unit);
-    val = xmlGetProp (node, XC("value"));
+    val = xmlGetProp (node, XC ("value"));
     if (val == NULL)
-	return;
+        return;
 
-    celsius = g_ascii_strtod ((char*) val, NULL);
+    celsius = g_ascii_strtod ((char *) val, NULL);
     info->temp = TEMP_C_TO_F (celsius);
     xmlFree (val);
 }
 
 static inline void
 read_pressure (GWeatherInfo *info,
-	       xmlNodePtr    node)
+               xmlNodePtr node)
 {
     xmlChar *unit;
     xmlChar *val;
     double hpa;
 
     /* hPa == mbar */
-    unit = xmlGetProp (node, XC("unit"));
-    if (unit == NULL || strcmp ((char*)unit, "hPa")) {
+    unit = xmlGetProp (node, XC ("unit"));
+    if (unit == NULL || strcmp ((char *) unit, "hPa")) {
         xmlFree (unit);
         return;
     }
 
     xmlFree (unit);
-    val = xmlGetProp (node, XC("value"));
+    val = xmlGetProp (node, XC ("value"));
     if (val == NULL)
-	return;
+        return;
 
-    hpa = g_ascii_strtod ((char*) val, NULL);
+    hpa = g_ascii_strtod ((char *) val, NULL);
     info->pressure = PRESSURE_MBAR_TO_INCH (hpa);
     xmlFree (val);
 }
 
 static inline void
 read_humidity (GWeatherInfo *info,
-               xmlNodePtr    node)
+               xmlNodePtr node)
 {
     xmlChar *unit;
     xmlChar *val;
     double percent;
 
-    unit = xmlGetProp (node, XC("unit"));
-    if (unit == NULL || strcmp ((char*)unit, "%")) {
+    unit = xmlGetProp (node, XC ("unit"));
+    if (unit == NULL || strcmp ((char *) unit, "%")) {
         xmlFree (unit);
         return;
     }
 
     xmlFree (unit);
-    val = xmlGetProp (node, XC("value"));
+    val = xmlGetProp (node, XC ("value"));
     if (val == NULL)
-	return;
+        return;
 
-    percent = g_ascii_strtod ((char*) val, NULL);
+    percent = g_ascii_strtod ((char *) val, NULL);
     info->humidity = percent;
     info->hasHumidity = TRUE;
     xmlFree (val);
@@ -296,37 +297,37 @@ read_humidity (GWeatherInfo *info,
 
 static inline void
 read_child_node (GWeatherInfo *info,
-		 xmlNodePtr    node)
+                 xmlNodePtr node)
 {
-    if (strcmp ((char*) node->name, "symbol") == 0)
-	read_symbol (info, node);
-    else if (strcmp ((char*) node->name, "windDirection") == 0)
-	read_wind_direction (info, node);
-    else if (strcmp ((char*) node->name, "windSpeed") == 0)
-	read_wind_speed (info, node);
-    else if (strcmp ((char*) node->name, "temperature") == 0)
-	read_temperature (info, node);
-    else if (strcmp ((char*) node->name, "pressure") == 0)
-	read_pressure (info, node);
-    else if (strcmp ((char*) node->name, "humidity") == 0)
+    if (strcmp ((char *) node->name, "symbol") == 0)
+        read_symbol (info, node);
+    else if (strcmp ((char *) node->name, "windDirection") == 0)
+        read_wind_direction (info, node);
+    else if (strcmp ((char *) node->name, "windSpeed") == 0)
+        read_wind_speed (info, node);
+    else if (strcmp ((char *) node->name, "temperature") == 0)
+        read_temperature (info, node);
+    else if (strcmp ((char *) node->name, "pressure") == 0)
+        read_pressure (info, node);
+    else if (strcmp ((char *) node->name, "humidity") == 0)
         read_humidity (info, node);
 }
 
 static inline void
 fill_info_from_node (GWeatherInfo *info,
-		     xmlNodePtr    node)
+                     xmlNodePtr node)
 {
     xmlNodePtr child;
 
     for (child = node->children; child != NULL; child = child->next) {
-	if (child->type == XML_ELEMENT_NODE)
-	    read_child_node (info, child);
+        if (child->type == XML_ELEMENT_NODE)
+            read_child_node (info, child);
     }
 }
 
 static GWeatherInfo *
 make_info_from_node (GWeatherInfo *original_info,
-                     xmlNodePtr    node)
+                     xmlNodePtr node)
 {
     GWeatherInfo *info;
     xmlChar *val;
@@ -335,7 +336,7 @@ make_info_from_node (GWeatherInfo *original_info,
 
     info = _gweather_info_new_clone (original_info);
 
-    val = xmlGetProp (node, XC("from"));
+    val = xmlGetProp (node, XC ("from"));
     info->current_time = info->update = date_to_time_t (val, info->location.tz_hint);
     xmlFree (val);
 
@@ -345,7 +346,7 @@ make_info_from_node (GWeatherInfo *original_info,
 }
 
 static void
-parse_forecast_xml (GWeatherInfo    *original_info,
+parse_forecast_xml (GWeatherInfo *original_info,
                     SoupMessageBody *body)
 {
     xmlDocPtr doc;
@@ -355,35 +356,35 @@ parse_forecast_xml (GWeatherInfo    *original_info,
 
     doc = xmlParseMemory (body->data, body->length);
     if (!doc)
-	return;
+        return;
 
     xpath_ctx = xmlXPathNewContext (doc);
-    xpath_result = xmlXPathEval (XC("/weatherdata/forecast/time"), xpath_ctx);
+    xpath_result = xmlXPathEval (XC ("/weatherdata/forecast/time"), xpath_ctx);
 
     if (!xpath_result || xpath_result->type != XPATH_NODESET)
-	goto out;
+        goto out;
 
     for (i = 0; i < xpath_result->nodesetval->nodeNr; i++) {
-	xmlNodePtr node;
-	GWeatherInfo *info;
+        xmlNodePtr node;
+        GWeatherInfo *info;
 
-	node = xpath_result->nodesetval->nodeTab[i];
-	info = make_info_from_node (original_info, node);
+        node = xpath_result->nodesetval->nodeTab[i];
+        info = make_info_from_node (original_info, node);
 
-	info->forecast_list = g_slist_append (info->forecast_list, info);
+        info->forecast_list = g_slist_append (info->forecast_list, info);
     }
 
     xmlXPathFreeObject (xpath_result);
 
-    xpath_result = xmlXPathEval (XC("/weatherdata/credit/link"), xpath_ctx);
+    xpath_result = xmlXPathEval (XC ("/weatherdata/credit/link"), xpath_ctx);
     if (!xpath_result || xpath_result->type != XPATH_NODESET)
-	goto out;
+        goto out;
 
-    original_info->forecast_attribution = g_strdup(_("Weather data from the <a href=\"https://openweathermap.org\">Open Weather Map project</a>"));
+    original_info->forecast_attribution = g_strdup (_ ("Weather data from the <a href=\"https://openweathermap.org\">Open Weather Map project</a>"));
 
- out:
+out:
     if (xpath_result)
-	xmlXPathFreeObject (xpath_result);
+        xmlXPathFreeObject (xpath_result);
     xmlXPathFreeContext (xpath_ctx);
     xmlFreeDoc (doc);
 }
@@ -391,22 +392,24 @@ parse_forecast_xml (GWeatherInfo    *original_info,
 static void
 owm_finish (SoupSession *session,
             SoupMessage *msg,
-            gpointer     user_data)
+            gpointer user_data)
 {
     GWeatherInfo *info;
     WeatherLocation *loc;
 
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
-	/* forecast data is not really interesting anyway ;) */
-	if (msg->status_code == SOUP_STATUS_CANCELLED) {
-	    g_debug ("Failed to get OpenWeatherMap forecast data: %d %s\n",
-		     msg->status_code, msg->reason_phrase);
-	    return;
-	}
-	g_warning ("Failed to get OpenWeatherMap forecast data: %d %s\n",
-		   msg->status_code, msg->reason_phrase);
-	_gweather_info_request_done (user_data, msg);
-	return;
+        /* forecast data is not really interesting anyway ;) */
+        if (msg->status_code == SOUP_STATUS_CANCELLED) {
+            g_debug ("Failed to get OpenWeatherMap forecast data: %d %s\n",
+                     msg->status_code,
+                     msg->reason_phrase);
+            return;
+        }
+        g_warning ("Failed to get OpenWeatherMap forecast data: %d %s\n",
+                   msg->status_code,
+                   msg->reason_phrase);
+        _gweather_info_request_done (user_data, msg);
+        return;
     }
 
     info = user_data;
@@ -430,7 +433,7 @@ owm_start_open (GWeatherInfo *info)
     loc = &info->location;
 
     if (!loc->latlon_valid)
-	return FALSE;
+        return FALSE;
 
     /* see the description here: http://bugs.openweathermap.org/projects/api/wiki/Api_2_5_forecast */
 
@@ -439,9 +442,9 @@ owm_start_open (GWeatherInfo *info)
 
 #define TEMPLATE_START "https://api.openweathermap.org/data/2.5/forecast?lat=%s&lon=%s&mode=xml&units=metric"
 #ifdef OWM_APIKEY
- #define TEMPLATE TEMPLATE_START "&APPID=" OWM_APIKEY
+#define TEMPLATE TEMPLATE_START "&APPID=" OWM_APIKEY
 #else
- #define TEMPLATE TEMPLATE_START
+#define TEMPLATE TEMPLATE_START
 #endif
 
     url = g_strdup_printf (TEMPLATE, latstr, lonstr);

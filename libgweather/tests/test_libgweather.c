@@ -6,16 +6,17 @@
 
 #include "config.h"
 
+#include <libsoup/soup.h>
 #include <locale.h>
 #include <string.h>
-#include <libsoup/soup.h>
 
 #include <libgweather/gweather-version.h>
 
 /* We use internal API */
 #include "gweather-private.h"
 
-extern void _gweather_location_reset_world (void);
+extern void
+_gweather_location_reset_world (void);
 
 /* For test_metar_weather_stations */
 #define METAR_SOURCES "https://www.aviationweather.gov/docs/metar/stations.txt"
@@ -27,12 +28,12 @@ static double max_distance = 0.0;
 static void
 test_named_timezones (void)
 {
-    g_autoptr(GWeatherLocation) world = NULL;
+    g_autoptr (GWeatherLocation) world = NULL;
 
     world = gweather_location_get_world ();
     g_assert_nonnull (world);
 
-    g_autoptr(GWeatherLocation) child = NULL;
+    g_autoptr (GWeatherLocation) child = NULL;
     while ((child = gweather_location_next_child (world, child)) != NULL) {
         GWeatherLocationLevel level;
         const char *code;
@@ -95,7 +96,7 @@ get_list_from_configuration (GWeatherLocation *world,
             g_free (key);
         }
 
-	g_variant_unref (child);
+        g_variant_unref (child);
     }
 
     g_variant_unref (v);
@@ -111,12 +112,13 @@ get_list_from_configuration (GWeatherLocation *world,
                         {'location': <(uint32 2, <('Perm', 'USPP', true, [(1.0122909661567112, 0.98174770424681035)], [(1.0122909661567112, 0.98174770424681035)])>)>}                   \
                        ]"
 
-static void test_timezones (void);
+static void
+test_timezones (void);
 
 static void
 test_named_timezones_deserialized (void)
 {
-    g_autoptr(GWeatherLocation) world = NULL;
+    g_autoptr (GWeatherLocation) world = NULL;
     GList *list, *l;
 
     world = gweather_location_get_world ();
@@ -152,9 +154,9 @@ static void
 test_no_code_serialize (void)
 {
     GVariant *variant;
-    g_autoptr(GWeatherLocation) world = NULL;
-    g_autoptr(GWeatherLocation) loc = NULL;
-    g_autoptr(GWeatherLocation) new_loc = NULL;
+    g_autoptr (GWeatherLocation) world = NULL;
+    g_autoptr (GWeatherLocation) loc = NULL;
+    g_autoptr (GWeatherLocation) new_loc = NULL;
     GString *str;
 
     world = gweather_location_get_world ();
@@ -186,7 +188,7 @@ test_no_code_serialize (void)
 static void
 test_timezone (GWeatherLocation *location)
 {
-    g_autoptr(GWeatherTimezone) gtz = NULL;
+    g_autoptr (GWeatherTimezone) gtz = NULL;
     const char *tz;
 
     tz = gweather_location_get_timezone_str (location);
@@ -219,7 +221,7 @@ test_timezone (GWeatherLocation *location)
 static void
 test_timezones_children (GWeatherLocation *location)
 {
-    g_autoptr(GWeatherLocation) child = NULL;
+    g_autoptr (GWeatherLocation) child = NULL;
     while ((child = gweather_location_next_child (location, child)) != NULL) {
         if (gweather_location_get_level (child) >= GWEATHER_LOCATION_COUNTRY)
             test_timezone (child);
@@ -231,7 +233,7 @@ test_timezones_children (GWeatherLocation *location)
 static void
 test_timezones (void)
 {
-    g_autoptr(GWeatherLocation) world = NULL;
+    g_autoptr (GWeatherLocation) world = NULL;
 
     world = gweather_location_get_world ();
     g_assert_nonnull (world);
@@ -245,12 +247,12 @@ test_timezones (void)
 static void
 test_distance (GWeatherLocation *location)
 {
-    g_autoptr(GWeatherLocation) parent = NULL;
+    g_autoptr (GWeatherLocation) parent = NULL;
     double distance;
 
     parent = gweather_location_get_parent (location);
     if (gweather_location_get_level (parent) < GWEATHER_LOCATION_CITY)
-      return;
+        return;
     distance = gweather_location_get_distance (location, parent);
 
     if (distance > TOO_FAR) {
@@ -258,7 +260,7 @@ test_distance (GWeatherLocation *location)
                  gweather_location_get_name (location),
                  gweather_location_get_name (parent),
                  distance);
-        max_distance = MAX(max_distance, distance);
+        max_distance = MAX (max_distance, distance);
         g_test_fail ();
     }
 }
@@ -266,7 +268,7 @@ test_distance (GWeatherLocation *location)
 static void
 test_airport_distance_children (GWeatherLocation *location)
 {
-    g_autoptr(GWeatherLocation) child = NULL;
+    g_autoptr (GWeatherLocation) child = NULL;
 
     while ((child = gweather_location_next_child (location, child)) != NULL) {
         if (gweather_location_get_level (child) == GWEATHER_LOCATION_WEATHER_STATION)
@@ -279,7 +281,7 @@ test_airport_distance_children (GWeatherLocation *location)
 static void
 test_airport_distance_sanity (void)
 {
-    g_autoptr(GWeatherLocation) world = NULL;
+    g_autoptr (GWeatherLocation) world = NULL;
 
     world = gweather_location_get_world ();
     g_assert_nonnull (world);
@@ -353,7 +355,7 @@ parse_metar_stations (const char *contents)
 
 static void
 test_metar_weather_station (GWeatherLocation *location,
-                            GHashTable       *stations_ht)
+                            GHashTable *stations_ht)
 {
     const char *code, *line;
 
@@ -381,9 +383,9 @@ test_metar_weather_station (GWeatherLocation *location,
 
 static void
 test_metar_weather_stations_children (GWeatherLocation *location,
-                                      GHashTable       *stations_ht)
+                                      GHashTable *stations_ht)
 {
-    g_autoptr(GWeatherLocation) child = NULL;
+    g_autoptr (GWeatherLocation) child = NULL;
 
     while ((child = gweather_location_next_child (location, child)) != NULL) {
         if (gweather_location_get_level (child) == GWEATHER_LOCATION_WEATHER_STATION)
@@ -396,7 +398,7 @@ test_metar_weather_stations_children (GWeatherLocation *location,
 static void
 test_metar_weather_stations (void)
 {
-    g_autoptr(GWeatherLocation) world = NULL;
+    g_autoptr (GWeatherLocation) world = NULL;
     SoupMessage *msg;
     SoupSession *session;
     GHashTable *stations_ht;
@@ -436,74 +438,76 @@ test_metar_weather_stations (void)
 static void
 set_gsettings (void)
 {
-	char *tmpdir, *schema_text, *dest, *cmdline;
-	int result;
+    char *tmpdir, *schema_text, *dest, *cmdline;
+    int result;
 
-	/* Create the installed schemas directory */
-	tmpdir = g_dir_make_tmp ("libgweather-test-XXXXXX", NULL);
-	g_assert_nonnull (tmpdir);
+    /* Create the installed schemas directory */
+    tmpdir = g_dir_make_tmp ("libgweather-test-XXXXXX", NULL);
+    g_assert_nonnull (tmpdir);
 
-	/* Copy the schemas files */
-	g_assert_true (g_file_get_contents (SCHEMAS_BUILDDIR "/org.gnome.GWeather4.enums.xml", &schema_text, NULL, NULL));
-	dest = g_build_filename (tmpdir, "org.gnome.GWeather4.enums.xml", NULL);
-	g_assert_true (g_file_set_contents (dest, schema_text, -1, NULL));
-	g_free (dest);
-	g_free (schema_text);
+    /* Copy the schemas files */
+    g_assert_true (g_file_get_contents (SCHEMAS_BUILDDIR "/org.gnome.GWeather4.enums.xml", &schema_text, NULL, NULL));
+    dest = g_build_filename (tmpdir, "org.gnome.GWeather4.enums.xml", NULL);
+    g_assert_true (g_file_set_contents (dest, schema_text, -1, NULL));
+    g_free (dest);
+    g_free (schema_text);
 
-	g_assert_true (g_file_get_contents (SCHEMASDIR "/org.gnome.GWeather4.gschema.xml", &schema_text, NULL, NULL));
-	dest = g_build_filename (tmpdir, "org.gnome.GWeather4.gschema.xml", NULL);
-	g_assert_true (g_file_set_contents (dest, schema_text, -1, NULL));
-	g_free (dest);
-	g_free (schema_text);
+    g_assert_true (g_file_get_contents (SCHEMASDIR "/org.gnome.GWeather4.gschema.xml", &schema_text, NULL, NULL));
+    dest = g_build_filename (tmpdir, "org.gnome.GWeather4.gschema.xml", NULL);
+    g_assert_true (g_file_set_contents (dest, schema_text, -1, NULL));
+    g_free (dest);
+    g_free (schema_text);
 
-	/* Compile the schemas */
-	cmdline = g_strdup_printf ("glib-compile-schemas --targetdir=%s "
-				   "--schema-file=%s/org.gnome.GWeather4.enums.xml "
-				   "--schema-file=%s/org.gnome.GWeather4.gschema.xml",
-				   tmpdir, SCHEMAS_BUILDDIR, SCHEMASDIR);
-	g_assert_true (g_spawn_command_line_sync (cmdline, NULL, NULL, &result, NULL));
-	g_assert_cmpint (result, ==, 0);
-	g_free (cmdline);
+    /* Compile the schemas */
+    cmdline = g_strdup_printf ("glib-compile-schemas --targetdir=%s "
+                               "--schema-file=%s/org.gnome.GWeather4.enums.xml "
+                               "--schema-file=%s/org.gnome.GWeather4.gschema.xml",
+                               tmpdir,
+                               SCHEMAS_BUILDDIR,
+                               SCHEMASDIR);
+    g_assert_true (g_spawn_command_line_sync (cmdline, NULL, NULL, &result, NULL));
+    g_assert_cmpint (result, ==, 0);
+    g_free (cmdline);
 
-	/* Set envvar */
-	g_setenv ("GSETTINGS_SCHEMA_DIR", tmpdir, TRUE);
-	g_setenv ("GSETTINGS_BACKEND", "memory", TRUE);
+    /* Set envvar */
+    g_setenv ("GSETTINGS_SCHEMA_DIR", tmpdir, TRUE);
+    g_setenv ("GSETTINGS_BACKEND", "memory", TRUE);
 
-	g_free (tmpdir);
+    g_free (tmpdir);
 }
 
 static void
 test_utc_sunset (void)
 {
-	g_autoptr(GWeatherLocation) world = NULL;
-	g_autoptr(GWeatherLocation) utc = NULL;
-	GWeatherInfo *info;
-	char *sunset;
-	GWeatherMoonPhase phase;
-	GWeatherMoonLatitude lat;
-	gboolean ret;
+    g_autoptr (GWeatherLocation) world = NULL;
+    g_autoptr (GWeatherLocation) utc = NULL;
+    GWeatherInfo *info;
+    char *sunset;
+    GWeatherMoonPhase phase;
+    GWeatherMoonLatitude lat;
+    gboolean ret;
 
-	world = gweather_location_get_world ();
-	g_assert_nonnull (world);
-	utc = gweather_location_find_by_station_code (world, "@UTC");
-	g_assert_nonnull (utc);
+    world = gweather_location_get_world ();
+    g_assert_nonnull (world);
+    utc = gweather_location_find_by_station_code (world, "@UTC");
+    g_assert_nonnull (utc);
 
-	info = gweather_info_new (utc);
-	gweather_info_set_enabled_providers (info, GWEATHER_PROVIDER_NONE);
-	gweather_info_update (info);
+    info = gweather_info_new (utc);
+    gweather_info_set_enabled_providers (info, GWEATHER_PROVIDER_NONE);
+    gweather_info_update (info);
 
-	sunset = gweather_info_get_sunset (info);
-	g_assert_nonnull (sunset);
-	g_free (sunset);
+    sunset = gweather_info_get_sunset (info);
+    g_assert_nonnull (sunset);
+    g_free (sunset);
 
-	ret = gweather_info_get_value_moonphase (info, &phase, &lat);
-	g_assert_false (ret);
+    ret = gweather_info_get_value_moonphase (info, &phase, &lat);
+    g_assert_false (ret);
 
-	g_object_unref (info);
+    g_object_unref (info);
 
-	g_clear_pointer (&world, gweather_location_unref);
-	g_clear_pointer (&utc, gweather_location_unref);
-	_gweather_location_reset_world ();
+    g_clear_pointer (&world, gweather_location_unref);
+    g_clear_pointer (&utc, gweather_location_unref);
+    _gweather_location_reset_world ();
 }
 
 static void
@@ -531,7 +535,8 @@ check_bad_duplicate_weather_stations (gpointer key,
 
     if (g_hash_table_size (dedup) > 1) {
         g_print ("Airport '%s' is defined %u times in different ways\n",
-                 (const char *) key, stations->len);
+                 (const char *) key,
+                 stations->len);
         g_test_fail ();
     }
 
@@ -543,9 +548,9 @@ out:
 
 static void
 test_bad_duplicate_weather_stations_children (GWeatherLocation *location,
-                                              GHashTable       *stations_ht)
+                                              GHashTable *stations_ht)
 {
-    g_autoptr(GWeatherLocation) child = NULL;
+    g_autoptr (GWeatherLocation) child = NULL;
     while ((child = gweather_location_next_child (location, child)) != NULL) {
         if (gweather_location_get_level (child) == GWEATHER_LOCATION_WEATHER_STATION) {
             GPtrArray *stations;
@@ -568,15 +573,14 @@ test_bad_duplicate_weather_stations_children (GWeatherLocation *location,
 static void
 test_bad_duplicate_weather_stations (void)
 {
-    g_autoptr(GWeatherLocation) world = NULL;
+    g_autoptr (GWeatherLocation) world = NULL;
     GHashTable *stations_ht;
 
     g_setenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST", "1", TRUE);
     world = gweather_location_get_world ();
     g_assert_nonnull (world);
 
-    stations_ht = g_hash_table_new_full (g_str_hash, g_str_equal,
-                                         g_free, (GDestroyNotify) NULL);
+    stations_ht = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, (GDestroyNotify) NULL);
     test_bad_duplicate_weather_stations_children (world, stations_ht);
 
     g_hash_table_foreach (stations_ht, check_bad_duplicate_weather_stations, NULL);
@@ -591,17 +595,16 @@ test_bad_duplicate_weather_stations (void)
 static void
 test_duplicate_weather_stations_children (GWeatherLocation *location)
 {
-    g_autoptr(GHashTable) stations_ht = NULL;
+    g_autoptr (GHashTable) stations_ht = NULL;
 
-    g_autoptr(GWeatherLocation) child = NULL;
+    g_autoptr (GWeatherLocation) child = NULL;
     while ((child = gweather_location_next_child (location, child)) != NULL) {
         if (gweather_location_get_level (child) == GWEATHER_LOCATION_WEATHER_STATION) {
             const char *code;
 
             code = gweather_location_get_code (child);
             if (stations_ht == NULL) {
-                stations_ht = g_hash_table_new_full (g_str_hash, g_str_equal,
-                                                     g_free, (GDestroyNotify) NULL);
+                stations_ht = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, (GDestroyNotify) NULL);
             } else {
                 gboolean exists;
 
@@ -611,7 +614,8 @@ test_duplicate_weather_stations_children (GWeatherLocation *location)
 
                     parent_level = gweather_location_get_level (location);
                     g_print ("Duplicate weather station '%s' in %s (level '%s')\n",
-                             code, gweather_location_get_name (location),
+                             code,
+                             gweather_location_get_name (location),
                              gweather_location_level_to_string (parent_level));
                     g_test_fail ();
                 }
@@ -627,7 +631,7 @@ test_duplicate_weather_stations_children (GWeatherLocation *location)
 static void
 test_duplicate_weather_stations (void)
 {
-    g_autoptr(GWeatherLocation) world = NULL;
+    g_autoptr (GWeatherLocation) world = NULL;
 
     g_setenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST", "1", TRUE);
     world = gweather_location_get_world ();
@@ -643,8 +647,8 @@ test_duplicate_weather_stations (void)
 static void
 test_location_names (void)
 {
-    g_autoptr(GWeatherLocation) world = NULL;
-    g_autoptr(GWeatherLocation) brussels = NULL;
+    g_autoptr (GWeatherLocation) world = NULL;
+    g_autoptr (GWeatherLocation) brussels = NULL;
     char *old_locale;
 
     world = gweather_location_get_world ();
@@ -683,11 +687,11 @@ test_location_names (void)
 }
 
 static gboolean
-find_loc_children (GWeatherLocation  *location,
-		   const char        *search_str,
-		   GWeatherLocation **ret)
+find_loc_children (GWeatherLocation *location,
+                   const char *search_str,
+                   GWeatherLocation **ret)
 {
-    g_autoptr(GWeatherLocation) child = NULL;
+    g_autoptr (GWeatherLocation) child = NULL;
     while ((child = gweather_location_next_child (location, child)) != NULL) {
         if (gweather_location_get_level (child) == GWEATHER_LOCATION_WEATHER_STATION) {
             const char *code;
@@ -708,7 +712,7 @@ find_loc_children (GWeatherLocation  *location,
 
 static GWeatherLocation *
 find_loc (GWeatherLocation *world,
-	  const char       *search_str)
+          const char *search_str)
 {
     GWeatherLocation *loc = NULL;
 
@@ -718,7 +722,7 @@ find_loc (GWeatherLocation *world,
 
 static void
 weather_updated (GWeatherInfo *info,
-                 GMainLoop    *loop)
+                 GMainLoop *loop)
 {
     g_assert_not_reached ();
 }
@@ -726,15 +730,15 @@ weather_updated (GWeatherInfo *info,
 static gboolean
 stop_loop_cb (gpointer user_data)
 {
-	g_main_loop_quit (user_data);
-	return G_SOURCE_REMOVE;
+    g_main_loop_quit (user_data);
+    return G_SOURCE_REMOVE;
 }
 
 static void
 test_weather_loop_use_after_free (void)
 {
     GMainLoop *loop;
-    g_autoptr(GWeatherLocation) world = NULL;
+    g_autoptr (GWeatherLocation) world = NULL;
     GWeatherLocation *loc;
     GWeatherInfo *info;
     const char *search_str = "LFLL";
@@ -755,13 +759,12 @@ test_weather_loop_use_after_free (void)
     gweather_info_set_application_id (info, "org.gnome.LibGWeather");
     gweather_info_set_contact_info (info, "https://gitlab.gnome.org/GNOME/libgweather/");
     gweather_info_set_enabled_providers (info,
-					 GWEATHER_PROVIDER_METAR |
-					 GWEATHER_PROVIDER_IWIN |
-					 GWEATHER_PROVIDER_MET_NO |
-					 GWEATHER_PROVIDER_OWM);
+                                         GWEATHER_PROVIDER_METAR |
+                                             GWEATHER_PROVIDER_IWIN |
+                                             GWEATHER_PROVIDER_MET_NO |
+                                             GWEATHER_PROVIDER_OWM);
     gweather_info_set_location (info, loc);
-    g_signal_connect (G_OBJECT (info), "updated",
-                      G_CALLBACK (weather_updated), loop);
+    g_signal_connect (G_OBJECT (info), "updated", G_CALLBACK (weather_updated), loop);
     gweather_info_update (info);
     g_object_unref (info);
 
@@ -775,39 +778,39 @@ test_weather_loop_use_after_free (void)
 static void
 test_walk_world (void)
 {
-    g_autoptr(GWeatherLocation) cur = NULL, next = NULL;
+    g_autoptr (GWeatherLocation) cur = NULL, next = NULL;
     gint visited = 0;
 
     next = gweather_location_get_world ();
     while (next) {
-	/* Update cur pointer. */
-	g_clear_pointer (&cur, gweather_location_unref);
-	cur = g_steal_pointer (&next);
-	visited += 1;
-	g_assert_cmpint (cur->ref_count, ==, 1);
+        /* Update cur pointer. */
+        g_clear_pointer (&cur, gweather_location_unref);
+        cur = g_steal_pointer (&next);
+        visited += 1;
+        g_assert_cmpint (cur->ref_count, ==, 1);
 
-	/* Select next item, which is in this order:
+        /* Select next item, which is in this order:
 	 *  1. The first child
 	 *  2. Walk up the parent tree and try to find a sibbling
 	 * Note that cur remains valid after the loop and points to the world
 	 * again.
 	 */
-	if ((next = gweather_location_next_child (cur, NULL)))
-	    continue;
+        if ((next = gweather_location_next_child (cur, NULL)))
+            continue;
 
-	while (TRUE) {
-	    g_autoptr(GWeatherLocation) child = NULL;
-	    /* Move cur to the parent, keeping the child as reference. */
-	    child = g_steal_pointer (&cur);
-	    cur = gweather_location_get_parent (child);
-	    if (!cur)
-		break;
-	    g_assert_cmpint (cur->ref_count, ==, 1);
-	    g_assert_cmpint (child->ref_count, ==, 1);
+        while (TRUE) {
+            g_autoptr (GWeatherLocation) child = NULL;
+            /* Move cur to the parent, keeping the child as reference. */
+            child = g_steal_pointer (&cur);
+            cur = gweather_location_get_parent (child);
+            if (!cur)
+                break;
+            g_assert_cmpint (cur->ref_count, ==, 1);
+            g_assert_cmpint (child->ref_count, ==, 1);
 
-	    if ((next = gweather_location_next_child (cur, gweather_location_ref (child))))
-		break;
-	}
+            if ((next = gweather_location_next_child (cur, gweather_location_ref (child))))
+                break;
+        }
     }
 
     /* cur must be NULL at this point */
@@ -841,39 +844,39 @@ test_radians_to_degrees_str (void)
 static void
 log_handler (const char *log_domain, GLogLevelFlags log_level, const char *message, gpointer user_data)
 {
-	g_print ("%s\n", message);
+    g_print ("%s\n", message);
 }
 
 int
 main (int argc, char *argv[])
 {
-	setlocale (LC_ALL, "");
+    setlocale (LC_ALL, "");
 
-	g_test_init (&argc, &argv, NULL);
-	g_test_bug_base ("http://gitlab.gnome.org/GNOME/libgweather/issues/");
+    g_test_init (&argc, &argv, NULL);
+    g_test_bug_base ("http://gitlab.gnome.org/GNOME/libgweather/issues/");
 
-	/* We need to handle log messages produced by g_message so they're interpreted correctly by the GTester framework */
-	g_log_set_handler (NULL, G_LOG_LEVEL_MESSAGE | G_LOG_LEVEL_INFO | G_LOG_LEVEL_DEBUG, log_handler, NULL);
+    /* We need to handle log messages produced by g_message so they're interpreted correctly by the GTester framework */
+    g_log_set_handler (NULL, G_LOG_LEVEL_MESSAGE | G_LOG_LEVEL_INFO | G_LOG_LEVEL_DEBUG, log_handler, NULL);
 
-	g_setenv ("LIBGWEATHER_LOCATIONS_PATH",
-		  TEST_LOCATIONS,
-		  FALSE);
-	set_gsettings ();
+    g_setenv ("LIBGWEATHER_LOCATIONS_PATH",
+              TEST_LOCATIONS,
+              FALSE);
+    set_gsettings ();
 
-	g_test_add_func ("/weather/radians-to-degrees_str", test_radians_to_degrees_str);
-	g_test_add_func ("/weather/named-timezones", test_named_timezones);
-	g_test_add_func ("/weather/named-timezones-deserialized", test_named_timezones_deserialized);
-	g_test_add_func ("/weather/no-code-serialize", test_no_code_serialize);
-	g_test_add_func ("/weather/timezones", test_timezones);
-	g_test_add_func ("/weather/airport_distance_sanity", test_airport_distance_sanity);
-	g_test_add_func ("/weather/metar_weather_stations", test_metar_weather_stations);
-	g_test_add_func ("/weather/utc_sunset", test_utc_sunset);
-	g_test_add_func ("/weather/weather-loop-use-after-free", test_weather_loop_use_after_free);
-	/* Modifies environment, so needs to run last */
-	g_test_add_func ("/weather/bad_duplicate_weather_stations", test_bad_duplicate_weather_stations);
-	g_test_add_func ("/weather/duplicate_weather_stations", test_duplicate_weather_stations);
-	g_test_add_func ("/weather/location-names", test_location_names);
-	g_test_add_func ("/weather/walk_world", test_walk_world);
+    g_test_add_func ("/weather/radians-to-degrees_str", test_radians_to_degrees_str);
+    g_test_add_func ("/weather/named-timezones", test_named_timezones);
+    g_test_add_func ("/weather/named-timezones-deserialized", test_named_timezones_deserialized);
+    g_test_add_func ("/weather/no-code-serialize", test_no_code_serialize);
+    g_test_add_func ("/weather/timezones", test_timezones);
+    g_test_add_func ("/weather/airport_distance_sanity", test_airport_distance_sanity);
+    g_test_add_func ("/weather/metar_weather_stations", test_metar_weather_stations);
+    g_test_add_func ("/weather/utc_sunset", test_utc_sunset);
+    g_test_add_func ("/weather/weather-loop-use-after-free", test_weather_loop_use_after_free);
+    /* Modifies environment, so needs to run last */
+    g_test_add_func ("/weather/bad_duplicate_weather_stations", test_bad_duplicate_weather_stations);
+    g_test_add_func ("/weather/duplicate_weather_stations", test_duplicate_weather_stations);
+    g_test_add_func ("/weather/location-names", test_location_names);
+    g_test_add_func ("/weather/walk_world", test_walk_world);
 
-	return g_test_run ();
+    return g_test_run ();
 }

@@ -16,11 +16,11 @@
 
 #include "gweather-private.h"
 
+#include <glib.h>
 #include <math.h>
 #include <time.h>
-#include <glib.h>
 
-#define ECCENTRICITY(d)         (0.01671123 - (d)/36525.*0.00004392)
+#define ECCENTRICITY(d) (0.01671123 - (d) / 36525. * 0.00004392)
 
 /* 
  * Ecliptic longitude of the sun at specified time (UT)
@@ -28,38 +28,34 @@
  * Return value is in radians
  */
 gdouble
-sunEclipLongitude(time_t t)
+sunEclipLongitude (time_t t)
 {
     gdouble ndays, meanAnom, eccenAnom, delta, e, longitude;
 
     /*
      * Start with an estimate based on a fixed daily rate
      */
-    ndays = EPOCH_TO_J2000(t) / 86400.;
-    meanAnom = DEGREES_TO_RADIANS(MEAN_ECLIPTIC_LONGITUDE(ndays)
-				  - PERIGEE_LONGITUDE(ndays));
-    
+    ndays = EPOCH_TO_J2000 (t) / 86400.;
+    meanAnom = DEGREES_TO_RADIANS (MEAN_ECLIPTIC_LONGITUDE (ndays) - PERIGEE_LONGITUDE (ndays));
+
     /*
      * Approximate solution of Kepler's equation:
      * Find E which satisfies  E - e sin(E) = M (mean anomaly)
-     */                                         
+     */
     eccenAnom = meanAnom;
-    e = ECCENTRICITY(ndays);
+    e = ECCENTRICITY (ndays);
 
-    while (1e-12 < fabs( delta = eccenAnom - e * sin(eccenAnom) - meanAnom))
-    {
-	eccenAnom -= delta / (1.- e * cos(eccenAnom));
+    while (1e-12 < fabs (delta = eccenAnom - e * sin (eccenAnom) - meanAnom)) {
+        eccenAnom -= delta / (1. - e * cos (eccenAnom));
     }
 
     /*
      * Earth's longitude on the ecliptic
      */
-    longitude = fmod( DEGREES_TO_RADIANS (PERIGEE_LONGITUDE(ndays))
-		      + 2. * atan (sqrt ((1.+e)/(1.-e))
-				   * tan (eccenAnom / 2.)),
-		      2. * M_PI);
+    longitude = fmod (DEGREES_TO_RADIANS (PERIGEE_LONGITUDE (ndays)) + 2. * atan (sqrt ((1. + e) / (1. - e)) * tan (eccenAnom / 2.)),
+                      2. * M_PI);
     if (longitude < 0.) {
-	longitude += 2 * M_PI;
+        longitude += 2 * M_PI;
     }
     return longitude;
 }
@@ -68,11 +64,8 @@ static gdouble
 ecliptic_obliquity (gdouble time)
 {
     gdouble jc = EPOCH_TO_J2000 (time) / (36525. * 86400.);
-    gdouble eclip_secs = (84381.448
-			  - (46.84024 * jc)
-			  - (59.e-5 * jc * jc)
-			  + (1.813e-3 * jc * jc * jc));
-    return DEGREES_TO_RADIANS(eclip_secs / 3600.);
+    gdouble eclip_secs = (84381.448 - (46.84024 * jc) - (59.e-5 * jc * jc) + (1.813e-3 * jc * jc * jc));
+    return DEGREES_TO_RADIANS (eclip_secs / 3600.);
 }
 
 /*
@@ -82,21 +75,21 @@ ecliptic_obliquity (gdouble time)
  */
 void
 ecl2equ (gdouble time,
-	 gdouble eclipLon, gdouble eclipLat,
-	 gdouble *ra, gdouble *decl)
+         gdouble eclipLon,
+         gdouble eclipLat,
+         gdouble *ra,
+         gdouble *decl)
 {
-    gdouble mEclipObliq = ecliptic_obliquity(time);
+    gdouble mEclipObliq = ecliptic_obliquity (time);
 
     if (ra) {
-	*ra = RADIANS_TO_HOURS (atan2 ((sin (eclipLon) * cos (mEclipObliq)
-					- tan (eclipLat) * sin(mEclipObliq)),
-				       cos (eclipLon)));
-	if (*ra < 0.)
-	    *ra += 24.;
+        *ra = RADIANS_TO_HOURS (atan2 ((sin (eclipLon) * cos (mEclipObliq) - tan (eclipLat) * sin (mEclipObliq)),
+                                       cos (eclipLon)));
+        if (*ra < 0.)
+            *ra += 24.;
     }
     if (decl) {
-	*decl = asin (( sin (eclipLat) * cos (mEclipObliq))
-		      + cos (eclipLat) * sin (mEclipObliq) * sin(eclipLon));
+        *decl = asin ((sin (eclipLat) * cos (mEclipObliq)) + cos (eclipLat) * sin (mEclipObliq) * sin (eclipLon));
     }
 }
 
@@ -106,16 +99,14 @@ ecl2equ (gdouble time,
  * Returned "rise" and "set" values are sideral times in hours
  */
 static void
-gstObsv (gdouble ra, gdouble decl,
-	 gdouble obsLat, gdouble obsLon,
-	 gdouble *rise, gdouble *set)
+gstObsv (gdouble ra, gdouble decl, gdouble obsLat, gdouble obsLon, gdouble *rise, gdouble *set)
 {
     double a = acos (-tan (obsLat) * tan (decl));
     double b;
 
     if (isnan (a) != 0) {
-	*set = *rise = a;
-	return;
+        *set = *rise = a;
+        return;
     }
     a = RADIANS_TO_HOURS (a);
     b = 24. - a + ra;
@@ -123,25 +114,23 @@ gstObsv (gdouble ra, gdouble decl,
     a -= RADIANS_TO_HOURS (obsLon);
     b -= RADIANS_TO_HOURS (obsLon);
     if ((a = fmod (a, 24.)) < 0)
-	a += 24.;
+        a += 24.;
     if ((b = fmod (b, 24.)) < 0)
-	b += 24.;
+        b += 24.;
 
     *set = a;
     *rise = b;
 }
 
-
 static gdouble
 t0 (time_t date)
 {
-    gdouble t = ((gdouble)(EPOCH_TO_J2000 (date) / 86400)) / 36525.0;
+    gdouble t = ((gdouble) (EPOCH_TO_J2000 (date) / 86400)) / 36525.0;
     gdouble t0 = fmod (6.697374558 + 2400.051366 * t + 2.5862e-5 * t * t, 24.);
     if (t0 < 0.)
         t0 += 24.;
     return t0;
 }
-
 
 static gboolean
 calc_sun (GWeatherInfo *info, time_t t)
@@ -178,22 +167,24 @@ calc_sun (GWeatherInfo *info, time_t t)
      */
     ecl2equ (lcl_midn, lambda, 0., &ra1, &decl1);
     ecl2equ (lcl_midn + 86400.,
-	     lambda + DEGREES_TO_RADIANS(SOL_PROGRESSION), 0.,
-	     &ra2, &decl2);
+             lambda + DEGREES_TO_RADIANS (SOL_PROGRESSION),
+             0.,
+             &ra2,
+             &decl2);
 
     /*
      * If the observer is within the Arctic or Antarctic Circles then
      * the sun may be above or below the horizon for the full day.
      */
-    decl_midn = MIN(decl1,decl2);
-    decl_noon = (decl1+decl2)/2.;
+    decl_midn = MIN (decl1, decl2);
+    decl_noon = (decl1 + decl2) / 2.;
     info->midnightSun =
-	(obsLat > (M_PI/2.-decl_midn)) || (obsLat < (-M_PI/2.-decl_midn));
+        (obsLat > (M_PI / 2. - decl_midn)) || (obsLat < (-M_PI / 2. - decl_midn));
     info->polarNight =
-	(obsLat > (M_PI/2.+decl_noon)) || (obsLat < (-M_PI/2.+decl_noon));
+        (obsLat > (M_PI / 2. + decl_noon)) || (obsLat < (-M_PI / 2. + decl_noon));
     if (info->midnightSun || info->polarNight) {
-	info->sunriseValid = info->sunsetValid = FALSE;
-	return FALSE;
+        info->sunriseValid = info->sunsetValid = FALSE;
+        return FALSE;
     }
 
     /*
@@ -204,8 +195,8 @@ calc_sun (GWeatherInfo *info, time_t t)
     gstObsv (ra2, decl2, obsLat, obsLon - (gm_hoff * M_PI / 12.), &rise2, &set2);
 
     /* TODO: include calculations for regions near the poles. */
-    if (isnan(rise1) || isnan(rise2)) {
-	info->sunriseValid = info->sunsetValid = FALSE;
+    if (isnan (rise1) || isnan (rise2)) {
+        info->sunriseValid = info->sunsetValid = FALSE;
         return FALSE;
     }
 
@@ -216,8 +207,8 @@ calc_sun (GWeatherInfo *info, time_t t)
         set2 += 24.;
     }
 
-    tt = t0(lcl_midn);
-    t00 = tt - (gm_hoff + RADIANS_TO_HOURS(obsLon)) * 1.002737909;
+    tt = t0 (lcl_midn);
+    t00 = tt - (gm_hoff + RADIANS_TO_HOURS (obsLon)) * 1.002737909;
 
     if (t00 < 0.)
         t00 += 24.;
@@ -227,8 +218,8 @@ calc_sun (GWeatherInfo *info, time_t t)
         rise2 += 24.;
     }
     if (set1 < t00) {
-        set1  += 24.;
-        set2  += 24.;
+        set1 += 24.;
+        set2 += 24.;
     }
 
     /*
@@ -243,9 +234,9 @@ calc_sun (GWeatherInfo *info, time_t t)
      * refraction and the Sun's finite diameter (steps 9,10)
      */
     decl2 = (decl1 + decl2) / 2.;
-    x = DEGREES_TO_RADIANS(0.830725);
-    u = acos ( sin(obsLat) / cos(decl2) );
-    dt = RADIANS_TO_HOURS ( asin ( sin(x) / sin(u) ) / cos(decl2) );
+    x = DEGREES_TO_RADIANS (0.830725);
+    u = acos (sin (obsLat) / cos (decl2));
+    dt = RADIANS_TO_HOURS (asin (sin (x) / sin (u)) / cos (decl2));
 
     /*
      * Subtract the correction value from sunrise and add to sunset,
@@ -253,17 +244,17 @@ calc_sun (GWeatherInfo *info, time_t t)
      */
     rise1 = (rise1 - dt - tt) * 0.9972695661;
     if (rise1 < 0.)
-	rise1 += 24;
+        rise1 += 24;
     else if (rise1 >= 24.)
-	rise1 -= 24.;
+        rise1 -= 24.;
     info->sunriseValid = ((rise1 >= 0.) && (rise1 < 24.));
     info->sunrise = (rise1 * 3600.) + lcl_midn;
 
-    set1  = (set1 + dt - tt) * 0.9972695661;
+    set1 = (set1 + dt - tt) * 0.9972695661;
     if (set1 < 0.)
-	set1 += 24;
+        set1 += 24;
     else if (set1 >= 24.)
-	set1 -= 24.;
+        set1 -= 24.;
     info->sunsetValid = ((set1 >= 0.) && (set1 < 24.));
     info->sunset = (set1 * 3600.) + lcl_midn;
 
@@ -277,7 +268,7 @@ _gweather_info_ensure_sun (GWeatherInfo *info)
         return;
 
     if (!info->sunriseValid && !info->sunsetValid)
-	calc_sun (info, info->current_time);
+        calc_sun (info, info->current_time);
 }
 
 /**
@@ -292,9 +283,9 @@ _gweather_info_ensure_sun (GWeatherInfo *info)
 gint
 gweather_info_next_sun_event (GWeatherInfo *info)
 {
-    time_t    now = time (NULL);
+    time_t now = time (NULL);
     struct tm ltm;
-    time_t    nxtEvent;
+    time_t nxtEvent;
 
     g_return_val_if_fail (info != NULL, -1);
 
@@ -309,10 +300,10 @@ gweather_info_next_sun_event (GWeatherInfo *info)
     nxtEvent = mktime (&ltm);
 
     if (info->sunsetValid &&
-	(info->sunset > now) && (info->sunset < nxtEvent))
-	nxtEvent = info->sunset;
+        (info->sunset > now) && (info->sunset < nxtEvent))
+        nxtEvent = info->sunset;
     if (info->sunriseValid &&
-	(info->sunrise > now) && (info->sunrise < nxtEvent))
-	nxtEvent = info->sunrise;
-    return (gint)(nxtEvent - now);
+        (info->sunrise > now) && (info->sunrise < nxtEvent))
+        nxtEvent = info->sunrise;
+    return (gint) (nxtEvent - now);
 }

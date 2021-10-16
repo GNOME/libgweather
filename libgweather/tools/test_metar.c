@@ -8,9 +8,9 @@
 
 #include "gweather-private.h"
 
-#include <string.h>
-#include <stdio.h>
 #include <glib.h>
+#include <stdio.h>
+#include <string.h>
 
 #ifndef BUFLEN
 #define BUFLEN 4096
@@ -41,7 +41,7 @@ print_info (GWeatherInfo *info)
 
 static void
 weather_updated_cb (GWeatherInfo *info,
-		    gpointer      user_data)
+                    gpointer user_data)
 {
     print_info (info);
     g_main_loop_quit (user_data);
@@ -51,15 +51,15 @@ int
 main (int argc, char **argv)
 {
     FILE *stream = stdin;
-    gchar* filename = NULL;
-    gchar* code = NULL;
+    gchar *filename = NULL;
+    gchar *code = NULL;
     GOptionEntry entries[] = {
-	{ "file", 'f', 0, G_OPTION_ARG_FILENAME, &filename, "file containing METAR observations", NULL },
-	{ "code", 'c', 0, G_OPTION_ARG_STRING, &code, "ICAO code to get METAR observations from", NULL },
+        { "file", 'f', 0, G_OPTION_ARG_FILENAME, &filename, "file containing METAR observations", NULL },
+        { "code", 'c', 0, G_OPTION_ARG_STRING, &code, "ICAO code to get METAR observations from", NULL },
         { NULL }
     };
-    GOptionContext* context;
-    GError* error = NULL;
+    GOptionContext *context;
+    GError *error = NULL;
     char buf[BUFLEN];
     int len;
     GWeatherInfo *info;
@@ -69,8 +69,8 @@ main (int argc, char **argv)
     g_option_context_parse (context, &argc, &argv, &error);
 
     if (error) {
-	perror (error->message);
-	return error->code;
+        perror (error->message);
+        return error->code;
     }
 
     if (code) {
@@ -82,8 +82,7 @@ main (int argc, char **argv)
         info->location.code = g_strdup (code);
         info->location.latlon_valid = TRUE;
         info->session = soup_session_new ();
-        g_signal_connect (G_OBJECT (info), "updated",
-                          G_CALLBACK (weather_updated_cb), loop);
+        g_signal_connect (G_OBJECT (info), "updated", G_CALLBACK (weather_updated_cb), loop);
 
         metar_start_open (info);
 
@@ -93,27 +92,27 @@ main (int argc, char **argv)
     }
 
     if (filename) {
-	stream = fopen (filename, "r");
-	if (!stream) {
-	    perror ("fopen");
-	    return -1;
-	}
+        stream = fopen (filename, "r");
+        if (!stream) {
+            perror ("fopen");
+            return -1;
+        }
     } else {
-	fprintf (stderr, "Enter a METAR string...\n");
+        fprintf (stderr, "Enter a METAR string...\n");
     }
 
     while (fgets (buf, sizeof (buf), stream)) {
-	len = strlen (buf);
-	if (buf[len - 1] == '\n') {
-	    buf[--len] = '\0';
-	}
-	printf ("\n%s\n", buf);
+        len = strlen (buf);
+        if (buf[len - 1] == '\n') {
+            buf[--len] = '\0';
+        }
+        printf ("\n%s\n", buf);
 
-	/* a bit hackish... */
-	info = g_object_new (GWEATHER_TYPE_INFO, NULL);
-	info->valid = 1;
-	metar_parse (buf, info);
-	print_info (info);
+        /* a bit hackish... */
+        info = g_object_new (GWEATHER_TYPE_INFO, NULL);
+        info->valid = 1;
+        metar_parse (buf, info);
+        print_info (info);
     }
     return 0;
 }

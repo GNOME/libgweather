@@ -23,7 +23,8 @@
  * or "Europe/London".
  */
 
-struct _GWeatherTimezone {
+struct _GWeatherTimezone
+{
     GWeatherDb *db;
     guint db_idx;
 
@@ -35,18 +36,17 @@ struct _GWeatherTimezone {
     int ref_count;
 };
 
-#define TZ_MAGIC "TZif"
-#define TZ_HEADER_SIZE 44
-#define TZ_TIMECNT_OFFSET 32
+#define TZ_MAGIC              "TZif"
+#define TZ_HEADER_SIZE        44
+#define TZ_TIMECNT_OFFSET     32
 #define TZ_TRANSITIONS_OFFSET 44
 
-#define TZ_TTINFO_SIZE 6
+#define TZ_TTINFO_SIZE          6
 #define TZ_TTINFO_GMTOFF_OFFSET 0
-#define TZ_TTINFO_ISDST_OFFSET 4
+#define TZ_TTINFO_ISDST_OFFSET  4
 
 static gboolean
-parse_tzdata (const char *tz_name, time_t start, time_t end,
-	      int *offset, gboolean *has_dst, int *dst_offset)
+parse_tzdata (const char *tz_name, time_t start, time_t end, int *offset, gboolean *has_dst, int *dst_offset)
 {
     char *filename, *contents;
     gsize length;
@@ -60,23 +60,23 @@ parse_tzdata (const char *tz_name, time_t start, time_t end,
 
     filename = g_build_filename (ZONEINFO_DIR, tz_name, NULL);
     if (!g_file_get_contents (filename, &contents, &length, NULL)) {
-	g_free (filename);
-	return FALSE;
+        g_free (filename);
+        return FALSE;
     }
     g_free (filename);
 
     if (length < TZ_HEADER_SIZE ||
-	strncmp (contents, TZ_MAGIC, strlen (TZ_MAGIC)) != 0) {
-	g_free (contents);
-	return FALSE;
+        strncmp (contents, TZ_MAGIC, strlen (TZ_MAGIC)) != 0) {
+        g_free (contents);
+        return FALSE;
     }
 
-    timecnt = GUINT32_FROM_BE (*(guint32 *)(void *)(contents + TZ_TIMECNT_OFFSET));
-    transitions = (void *)(contents + TZ_TRANSITIONS_OFFSET);
+    timecnt = GUINT32_FROM_BE (*(guint32 *) (void *) (contents + TZ_TIMECNT_OFFSET));
+    transitions = (void *) (contents + TZ_TRANSITIONS_OFFSET);
     transitions_size = timecnt * sizeof (*transitions);
-    ttinfo_map = (void *)(contents + TZ_TRANSITIONS_OFFSET + transitions_size);
+    ttinfo_map = (void *) (contents + TZ_TRANSITIONS_OFFSET + transitions_size);
     ttinfo_map_size = timecnt;
-    ttinfos = (void *)(ttinfo_map + ttinfo_map_size);
+    ttinfos = (void *) (ttinfo_map + ttinfo_map_size);
 
     /* @transitions is an array of @timecnt time_t values. We need to
      * find the transition into the current offset, which is the last
@@ -85,51 +85,51 @@ parse_tzdata (const char *tz_name, time_t start, time_t end,
      * doing DST.
      */
     for (i = 1; i < timecnt && initial_transition == -1; i++) {
-	if (GINT32_FROM_BE (transitions[i]) > start) {
-	    initial_transition = ttinfo_map[i - 1];
-	    if (GINT32_FROM_BE (transitions[i]) < end)
-		second_transition = ttinfo_map[i];
-	}
+        if (GINT32_FROM_BE (transitions[i]) > start) {
+            initial_transition = ttinfo_map[i - 1];
+            if (GINT32_FROM_BE (transitions[i]) < end)
+                second_transition = ttinfo_map[i];
+        }
     }
     if (initial_transition == -1) {
-	if (timecnt)
-	    initial_transition = ttinfo_map[timecnt - 1];
-	else
-	    initial_transition = 0;
+        if (timecnt)
+            initial_transition = ttinfo_map[timecnt - 1];
+        else
+            initial_transition = 0;
     }
 
     /* Copy the data out of the corresponding ttinfo structs */
-    initial_offset = *(gint32 *)(void *)(ttinfos +
-				 initial_transition * TZ_TTINFO_SIZE +
-				 TZ_TTINFO_GMTOFF_OFFSET);
+    initial_offset = *(gint32 *) (void *) (ttinfos +
+                                           initial_transition * TZ_TTINFO_SIZE +
+                                           TZ_TTINFO_GMTOFF_OFFSET);
     initial_offset = GINT32_FROM_BE (initial_offset);
     initial_isdst = *(ttinfos +
-		      initial_transition * TZ_TTINFO_SIZE +
-		      TZ_TTINFO_ISDST_OFFSET);
+                      initial_transition * TZ_TTINFO_SIZE +
+                      TZ_TTINFO_ISDST_OFFSET);
 
     if (second_transition != -1) {
-	second_offset = *(gint32 *)(void *)(ttinfos +
-				    second_transition * TZ_TTINFO_SIZE +
-				    TZ_TTINFO_GMTOFF_OFFSET);
-	second_offset = GINT32_FROM_BE (second_offset);
-	second_isdst = *(ttinfos +
-			 second_transition * TZ_TTINFO_SIZE +
-			 TZ_TTINFO_ISDST_OFFSET);
+        second_offset = *(gint32 *) (void *) (ttinfos +
+                                              second_transition * TZ_TTINFO_SIZE +
+                                              TZ_TTINFO_GMTOFF_OFFSET);
+        second_offset = GINT32_FROM_BE (second_offset);
+        second_isdst = *(ttinfos +
+                         second_transition * TZ_TTINFO_SIZE +
+                         TZ_TTINFO_ISDST_OFFSET);
 
-	*has_dst = (initial_isdst != second_isdst);
+        *has_dst = (initial_isdst != second_isdst);
     } else
-	*has_dst = FALSE;
+        *has_dst = FALSE;
 
     if (!*has_dst)
-	*offset = initial_offset / 60;
+        *offset = initial_offset / 60;
     else {
-	if (initial_isdst) {
-	    *offset = second_offset / 60;
-	    *dst_offset = initial_offset / 60;
-	} else {
-	    *offset = initial_offset / 60;
-	    *dst_offset = second_offset / 60;
-	}
+        if (initial_isdst) {
+            *offset = second_offset / 60;
+            *dst_offset = initial_offset / 60;
+        } else {
+            *offset = initial_offset / 60;
+            *dst_offset = second_offset / 60;
+        }
     }
 
     g_free (contents);
@@ -137,8 +137,8 @@ parse_tzdata (const char *tz_name, time_t start, time_t end,
 }
 
 GWeatherTimezone *
-_gweather_timezone_ref_for_idx (GWeatherDb       *db,
-				 guint             idx)
+_gweather_timezone_ref_for_idx (GWeatherDb *db,
+                                guint idx)
 {
     GWeatherTimezone *zone;
     DbWorldTimezonesEntryRef ref;
@@ -155,19 +155,18 @@ _gweather_timezone_ref_for_idx (GWeatherDb       *db,
     ref = db_world_timezones_get_at (db->timezones_ref, idx);
     id = db_world_timezones_entry_get_key (ref);
 
-    if (parse_tzdata (id, db->year_start, db->year_end,
-		      &offset, &has_dst, &dst_offset)) {
-	zone = g_slice_new0 (GWeatherTimezone);
-	zone->ref_count = 1;
-	zone->db = db;
-	zone->db_idx = idx;
+    if (parse_tzdata (id, db->year_start, db->year_end, &offset, &has_dst, &dst_offset)) {
+        zone = g_slice_new0 (GWeatherTimezone);
+        zone->ref_count = 1;
+        zone->db = db;
+        zone->db_idx = idx;
 
-	zone->offset = offset;
-	zone->has_dst = has_dst;
-	zone->dst_offset = dst_offset;
+        zone->offset = offset;
+        zone->has_dst = has_dst;
+        zone->dst_offset = dst_offset;
 
-	/* Insert weak reference */
-	g_ptr_array_index (db->timezones, idx) = zone;
+        /* Insert weak reference */
+        g_ptr_array_index (db->timezones, idx) = zone;
     }
 
     return zone;
@@ -198,7 +197,7 @@ gweather_timezone_get_by_tzid (const char *tzid)
     gweather_location_unref (world);
 
     if (!db_world_timezones_lookup (db->timezones_ref, tzid, &idx, NULL))
-	return NULL;
+        return NULL;
 
     return _gweather_timezone_ref_for_idx (db, idx);
 }
@@ -232,12 +231,12 @@ gweather_timezone_unref (GWeatherTimezone *zone)
     g_return_if_fail (zone != NULL);
 
     if (!--zone->ref_count) {
-	if (zone->db)
-		g_ptr_array_index (zone->db->timezones, zone->db_idx) = 0;
+        if (zone->db)
+            g_ptr_array_index (zone->db->timezones, zone->db_idx) = 0;
 
-	g_free (zone->_id);
-	g_free (zone->_name);
-	g_slice_free (GWeatherTimezone, zone);
+        g_free (zone->_id);
+        g_free (zone->_name);
+        g_slice_free (GWeatherTimezone, zone);
     }
 }
 
@@ -259,7 +258,7 @@ gweather_timezone_get_utc (void)
     zone->ref_count = 1;
     zone->db_idx = INVALID_IDX;
     zone->_id = g_strdup ("GMT");
-    zone->_name = g_strdup (_("Greenwich Mean Time"));
+    zone->_name = g_strdup (_ ("Greenwich Mean Time"));
     zone->offset = 0;
     zone->has_dst = FALSE;
     zone->dst_offset = 0;
@@ -292,14 +291,14 @@ gweather_timezone_get_name (GWeatherTimezone *zone)
         return zone->_name;
 
     if (!zone->db || !IDX_VALID (zone->db_idx))
-	return NULL;
+        return NULL;
 
     ref = db_world_timezones_entry_get_value (db_world_timezones_get_at (zone->db->timezones_ref, zone->db_idx));
     name = EMPTY_TO_NULL (db_i18n_get_str (db_timezone_get_name (ref)));
     msgctxt = EMPTY_TO_NULL (db_i18n_get_msgctxt (db_timezone_get_name (ref)));
 
     if (!name)
-	return NULL;
+        return NULL;
 
     if (msgctxt)
         zone->_name = g_strdup (g_dpgettext2 (LOCATIONS_GETTEXT_PACKAGE, msgctxt, name));
@@ -324,7 +323,7 @@ gweather_timezone_get_tzid (GWeatherTimezone *zone)
         return zone->_id;
 
     if (!zone->db || !IDX_VALID (zone->db_idx))
-	return NULL;
+        return NULL;
 
     return db_world_timezones_entry_get_key (db_world_timezones_get_at (zone->db->timezones_ref, zone->db_idx));
 }
@@ -377,4 +376,3 @@ gweather_timezone_get_dst_offset (GWeatherTimezone *zone)
     g_return_val_if_fail (zone->has_dst, 0);
     return zone->dst_offset;
 }
-
