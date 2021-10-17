@@ -39,6 +39,8 @@ libgweather_darwin_versions = [
   '@0@.@1@'.format(current + 1, interface_age),
 ]
 
+gweather_pc = 'gweather@0@'.format(libgweather_api)
+
 config_h = configuration_data()
 config_h.set_quoted('GETTEXT_PACKAGE', GETTEXT_PACKAGE)
 config_h.set_quoted('LOCATIONS_GETTEXT_PACKAGE', LOCATIONS_GETTEXT_PACKAGE)
@@ -194,7 +196,7 @@ if build_gir
     includes: ['Gio-2.0'],
     symbol_prefix: 'gweather',
     identifier_prefix: 'GWeather',
-    export_packages: 'gweather'.format(libgweather_api),
+    export_packages: gweather_pc,
     header: 'libgweather/gweather.h',
     extra_args: [
       '--warn-all',
@@ -218,7 +220,7 @@ libgweather_dep = declare_dependency(
 )
 
 if build_vapi and build_gir
-  gnome.generate_vapi('gweather@0@'.format(libgweather_api),
+  gnome.generate_vapi(gweather_pc,
     sources: gweather_gir[0],
     packages: ['gio-2.0'],
     metadata_dirs: '.',
@@ -227,7 +229,7 @@ if build_vapi and build_gir
 endif
 
 pkgconfig.generate(
-  filebase: 'gweather@0@'.format(libgweather_api),
+  filebase: gweather_pc,
   name: 'GWeather',
   description: 'Gather weather information from online services',
   version: meson.project_version(),
