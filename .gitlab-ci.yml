@@ -10,6 +10,7 @@ stages:
 .only-default:
   only:
     - merge_requests
+    - branches
   except:
     - tags
 
@@ -26,6 +27,7 @@ style-check-diff:
 # @MESON_VERSION: the version of Meson required by the project
 .build-setup:
   image: fedora:latest
+  extends: .only-default
   before_script:
     # Undo delangification present in the Fedora Docker images
     - rm -f /etc/rpm/macros.image-language-conf
@@ -42,6 +44,7 @@ style-check-diff:
 # @MESON_EXTRA_FLAGS: extra arguments for the meson setup invocation
 .build-default:
   image: fedora:latest
+  extends: .only-default
   before_script:
     # Undo delangification present in the Fedora Docker images
     - rm -f /etc/rpm/macros.image-language-conf
