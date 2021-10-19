@@ -18,7 +18,7 @@ style-check-diff:
   image: fedora:latest
   stage: style-check
   script:
-    - dnf install -y clang-tools-extra diffutils git
+    - dnf install -y clang-tools-extra curl diffutils git
     - sh -x ./.gitlab-ci/run-style-check.sh
 
 # Recipe for setting up the build
