@@ -376,17 +376,15 @@ _gweather_info_request_done (GWeatherInfo *info,
     }
 }
 
-#if SOUP_CHECK_VERSION (2, 99, 2)
+#if SOUP_CHECK_VERSION(2, 99, 2)
 void
 _gweather_info_queue_request (GWeatherInfo *info,
                               SoupMessage *msg,
                               GAsyncReadyCallback callback)
 {
     GCancellable *cancellable = g_cancellable_new ();
-    g_object_set_data_full (G_OBJECT (msg), "request-cancellable",
-                            cancellable, g_object_unref);
-    soup_session_send_and_read_async (info->session, msg, G_PRIORITY_DEFAULT,
-                                      cancellable, callback, info);
+    g_object_set_data_full (G_OBJECT (msg), "request-cancellable", cancellable, g_object_unref);
+    soup_session_send_and_read_async (info->session, msg, G_PRIORITY_DEFAULT, cancellable, callback, info);
     g_object_unref (msg);
 }
 #else
@@ -731,7 +729,7 @@ gweather_info_abort (GWeatherInfo *info)
     info->requests_pending = &dummy;
 
     for (iter = list; iter; iter = iter->next) {
-#if SOUP_CHECK_VERSION (2, 99, 2)
+#if SOUP_CHECK_VERSION(2, 99, 2)
         g_cancellable_cancel (g_object_get_data (iter->data, "request-cancellable"));
 #else
         soup_session_cancel_message (info->session, iter->data, SOUP_STATUS_CANCELLED);

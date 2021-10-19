@@ -403,7 +403,7 @@ test_metar_weather_stations (void)
     SoupSession *session;
     GHashTable *stations_ht;
     char *contents;
-#if SOUP_CHECK_VERSION (2, 99, 2)
+#if SOUP_CHECK_VERSION(2, 99, 2)
     GBytes *body;
     GError *error = NULL;
     gsize bsize;
@@ -414,7 +414,7 @@ test_metar_weather_stations (void)
 
     msg = soup_message_new ("GET", METAR_SOURCES);
     session = soup_session_new ();
-#if SOUP_CHECK_VERSION (2, 99, 2)
+#if SOUP_CHECK_VERSION(2, 99, 2)
     body = soup_session_send_and_read (session, msg, NULL, &error);
     if (error && error->domain == G_TLS_ERROR) {
 #else
@@ -425,7 +425,7 @@ test_metar_weather_stations (void)
         g_test_failed ();
         return;
     }
-#if SOUP_CHECK_VERSION (2, 99, 2)
+#if SOUP_CHECK_VERSION(2, 99, 2)
     g_assert_no_error (error);
     g_assert_cmpint (soup_message_get_status (msg), >=, 200);
     g_assert_cmpint (soup_message_get_status (msg), <, 300);

@@ -390,7 +390,7 @@ out:
     xmlFreeDoc (doc);
 }
 
-#if SOUP_CHECK_VERSION (2, 99, 2)
+#if SOUP_CHECK_VERSION(2, 99, 2)
 static void
 owm_finish (GObject *source,
             GAsyncResult *result,
@@ -422,8 +422,8 @@ owm_finish (GObject *source,
     } else if (!SOUP_STATUS_IS_SUCCESSFUL (soup_message_get_status (msg))) {
         g_bytes_unref (body);
         g_warning ("Failed to get OpenWeatherMap forecast data: %d %s\n",
-               soup_message_get_status (msg),
-               soup_message_get_reason_phrase (msg));
+                   soup_message_get_status (msg),
+                   soup_message_get_reason_phrase (msg));
         _gweather_info_request_done (data, msg);
         return;
     }
@@ -468,8 +468,7 @@ owm_finish (SoupSession *session,
     g_debug ("owm data for %lf, %lf", loc->latitude, loc->longitude);
     g_debug ("%s", msg->response_body->data);
 
-    parse_forecast_xml (info, msg->response_body->data,
-                        msg->response_body->length);
+    parse_forecast_xml (info, msg->response_body->data, msg->response_body->length);
     _gweather_info_request_done (info, msg);
 }
 #endif

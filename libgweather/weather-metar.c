@@ -546,7 +546,7 @@ metar_parse (gchar *metar, GWeatherInfo *info)
     return TRUE;
 }
 
-#if SOUP_CHECK_VERSION (2, 99, 2)
+#if SOUP_CHECK_VERSION(2, 99, 2)
 static void
 metar_finish (GObject *source, GAsyncResult *result, gpointer data)
 #else
@@ -554,7 +554,7 @@ static void
 metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 #endif
 {
-#if SOUP_CHECK_VERSION (2, 99, 2)
+#if SOUP_CHECK_VERSION(2, 99, 2)
     SoupSession *session = SOUP_SESSION (source);
     SoupMessage *msg = soup_session_get_async_result_message (session, result);
     GError *error = NULL;
@@ -568,7 +568,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
     info = data;
 
-#if SOUP_CHECK_VERSION (2, 99, 2)
+#if SOUP_CHECK_VERSION(2, 99, 2)
     body = soup_session_send_and_read_finish (session, result, &error);
     if (!body) {
         if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
@@ -647,7 +647,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     if (!info->valid)
         info->valid = success;
 
-#if SOUP_CHECK_VERSION (2, 99, 2)
+#if SOUP_CHECK_VERSION(2, 99, 2)
     g_bytes_unref (body);
 #endif
     _gweather_info_request_done (info, msg);
@@ -659,7 +659,7 @@ metar_start_open (GWeatherInfo *info)
 {
     WeatherLocation *loc;
     SoupMessage *msg;
-#if SOUP_CHECK_VERSION (2, 99, 2)
+#if SOUP_CHECK_VERSION(2, 99, 2)
     GUri *uri;
 #else
     SoupURI *uri;
@@ -676,19 +676,27 @@ metar_start_open (GWeatherInfo *info)
 
     g_debug ("metar_start_open, requesting: https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=3&mostRecent=true&fields=raw_text&stationString=%s", loc->code);
     query = soup_form_encode (
-        "dataSource", "metars",
-        "requestType", "retrieve",
-        "format", "xml",
-        "hoursBeforeNow", "3",
-        "mostRecent", "true",
-        "fields", "raw_text",
-        "stationString", loc->code,
-        NULL
-    );
-#if SOUP_CHECK_VERSION (2, 99, 2)
+        "dataSource",
+        "metars",
+        "requestType",
+        "retrieve",
+        "format",
+        "xml",
+        "hoursBeforeNow",
+        "3",
+        "mostRecent",
+        "true",
+        "fields",
+        "raw_text",
+        "stationString",
+        loc->code,
+        NULL);
+#if SOUP_CHECK_VERSION(2, 99, 2)
     uri = g_uri_build (SOUP_HTTP_URI_FLAGS,
-                       "https", NULL,
-                       "www.aviationweather.gov", -1,
+                       "https",
+                       NULL,
+                       "www.aviationweather.gov",
+                       -1,
                        "/adds/dataserver_current/httpparam",
                        query,
                        NULL);

@@ -298,7 +298,7 @@ parseForecastXml (const char *buff, GWeatherInfo *original_info)
     return res;
 }
 
-#if SOUP_CHECK_VERSION (2, 99, 2)
+#if SOUP_CHECK_VERSION(2, 99, 2)
 static void
 iwin_finish (GObject *source, GAsyncResult *result, gpointer data)
 {
@@ -325,8 +325,8 @@ iwin_finish (GObject *source, GAsyncResult *result, gpointer data)
     } else if (!SOUP_STATUS_IS_SUCCESSFUL (soup_message_get_status (msg))) {
         g_bytes_unref (body);
         g_warning ("Failed to get IWIN forecast data: %d %s\n",
-               soup_message_get_status (msg),
-               soup_message_get_reason_phrase (msg));
+                   soup_message_get_status (msg),
+                   soup_message_get_reason_phrase (msg));
         _gweather_info_request_done (data, msg);
         return;
     }

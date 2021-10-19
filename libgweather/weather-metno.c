@@ -378,7 +378,7 @@ out:
     xmlFreeDoc (doc);
 }
 
-#if SOUP_CHECK_VERSION (2, 99, 2)
+#if SOUP_CHECK_VERSION(2, 99, 2)
 static void
 metno_finish_new (GObject *source,
                   GAsyncResult *result,
@@ -460,8 +460,7 @@ metno_finish_new (SoupSession *session,
     g_debug ("metno data for %lf, %lf", loc->latitude, loc->longitude);
     g_debug ("%s", msg->response_body->data);
 
-    parse_forecast_xml_new (info, msg->response_body->data,
-                             msg->response_body->length);
+    parse_forecast_xml_new (info, msg->response_body->data, msg->response_body->length);
     num_forecasts = g_slist_length (info->forecast_list);
     g_debug ("metno parsed %d forecast infos", num_forecasts);
     if (!info->valid)
