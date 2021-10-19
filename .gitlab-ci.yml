@@ -9,7 +9,7 @@ stages:
 
 .only-default:
   only:
-    - branches
+    - merge_requests
   except:
     - tags
 
