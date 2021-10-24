@@ -1344,7 +1344,7 @@ gweather_info_get_weather_summary (GWeatherInfo *info)
         buf = gweather_info_get_sky (info);
     }
 
-    out = g_strdup_printf ("%s: %s", gweather_info_get_location_name (info), buf);
+    out = g_strdup_printf ("%s: %s", info->location.name, buf);
 
     g_free (buf);
     return out;
