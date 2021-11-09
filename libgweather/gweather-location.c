@@ -279,39 +279,6 @@ gweather_location_get_world (void)
 }
 
 /**
- * gweather_location_ref:
- * @loc: a location
- *
- * Acquires a reference to the location.
- *
- * Return value: (transfer full): the location, with an additional reference
- *
- * Deprecated: 4.0: Use [method@GObject.Object.ref] instead
- **/
-GWeatherLocation *
-gweather_location_ref (GWeatherLocation *loc)
-{
-    return g_object_ref (loc);
-}
-
-/**
- * gweather_location_unref:
- * @loc: (transfer full): a location
- *
- * Releases a reference on the location.
- *
- * If the reference was the last one held, this function will free
- * the resources allocated by the location.
- *
- * Deprecated: 4.0: Use [method@GObject.Object.unref] instead
- **/
-void
-gweather_location_unref (GWeatherLocation *loc)
-{
-    g_object_unref (loc);
-}
-
-/**
  * gweather_location_get_name:
  * @loc: a #GWeatherLocation
  *

@@ -89,10 +89,6 @@ G_DECLARE_FINAL_TYPE (GWeatherLocation, gweather_location, GWEATHER, LOCATION, G
 
 GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_get_world             (void);
-GWEATHER_AVAILABLE_IN_ALL
-GWeatherLocation *      gweather_location_ref                   (GWeatherLocation  *loc);
-GWEATHER_AVAILABLE_IN_ALL
-void                    gweather_location_unref                 (GWeatherLocation  *loc);
 
 GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_name              (GWeatherLocation  *loc);

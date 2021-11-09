@@ -35,7 +35,7 @@ while ((iter = gweather_location_next_child (location, iter)) != NULL) {
 **Note**: Unlike `gweather_location_get_children()`, the `next_child()`
 method will consume the reference of the iterated child; if you are keeping
 a reference to each child `GWeatherLocation` you should acquire a strong
-reference to it, using [method@GWeather.Location.ref].
+reference to it, using [method@GObject.Object.ref].
 
 ### Stop using `gweather_info_get_radar()`
 
@@ -45,3 +45,14 @@ method has been returning `NULL` since then.
 ### Stop using `GWEATHER_PROVIDER_YAHOO`
 
 The Yahoo! provider was removed in libgweather 3.28.
+
+### `GWeatherLocation` is a GObject
+
+[class@GWeather.Location] has been promoted to a full `GObject` type. This
+means that properties using `GWeatherLocation` should be defined using
+[`func@GObject.param_spec_object`], and `GValue`s should be accessed using
+[`method@GObject.Value.set_object`] and [`method@GObject.Value.get_object`].
+If you are using `gweather_location_ref()` to acquire a reference on a location
+instance, you should now use [`method@GObject.Object.ref`]; if you are using
+`gweather_location_unref()` to release a reference on a location instance,
+you should now use [`method@GObject.Object.unref`].
