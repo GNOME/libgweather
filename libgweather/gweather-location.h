@@ -85,7 +85,7 @@ typedef enum { /*< underscore_name=gweather_location_level >*/
 #define GWEATHER_TYPE_LOCATION (gweather_location_get_type ())
 
 GWEATHER_AVAILABLE_IN_ALL
-GType gweather_location_get_type (void);
+G_DECLARE_FINAL_TYPE (GWeatherLocation, gweather_location, GWEATHER, LOCATION, GObject)
 
 GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_get_world             (void);
@@ -93,8 +93,6 @@ GWEATHER_AVAILABLE_IN_ALL
 GWeatherLocation *      gweather_location_ref                   (GWeatherLocation  *loc);
 GWEATHER_AVAILABLE_IN_ALL
 void                    gweather_location_unref                 (GWeatherLocation  *loc);
-
-G_DEFINE_AUTOPTR_CLEANUP_FUNC (GWeatherLocation, gweather_location_unref);
 
 GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_name              (GWeatherLocation  *loc);

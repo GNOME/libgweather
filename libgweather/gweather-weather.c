@@ -61,6 +61,8 @@ enum
 
 static guint gweather_info_signals[SIGNAL_LAST];
 
+static GParamSpec *gweather_info_pspecs[PROP_LAST];
+
 G_DEFINE_TYPE (GWeatherInfo, gweather_info, G_TYPE_OBJECT);
 
 void
@@ -766,10 +768,9 @@ gweather_info_finalize (GObject *object)
     GWeatherInfo *info = GWEATHER_INFO (object);
 
     _weather_location_free (&info->location);
-    g_clear_object (&info->settings);
 
-    if (info->glocation)
-        gweather_location_unref (info->glocation);
+    g_clear_object (&info->settings);
+    g_clear_object (&info->glocation);
 
     g_clear_pointer (&info->application_id, g_free);
     g_clear_pointer (&info->contact_info, g_free);
@@ -2098,13 +2099,13 @@ gweather_info_set_location_internal (GWeatherInfo *info,
     if (info->glocation == location)
         return;
 
-    if (info->glocation)
-        gweather_location_unref (info->glocation);
+    if (info->glocation != NULL)
+        g_object_unref (info->glocation);
 
     info->glocation = location;
 
-    if (info->glocation) {
-        gweather_location_ref (location);
+    if (info->glocation != NULL) {
+        g_object_ref (info->glocation);
     } else {
         g_autoptr (GWeatherLocation) world = NULL;
         const gchar *station_code;
@@ -2122,8 +2123,7 @@ gweather_info_set_location_internal (GWeatherInfo *info,
 
     if (info->glocation) {
         _weather_location_free (&info->location);
-        _gweather_location_update_weather_location (info->glocation,
-                                                    &info->location);
+        _gweather_location_update_weather_location (info->glocation, &info->location);
     }
 
     if (name) {
@@ -2144,11 +2144,12 @@ gweather_info_set_location_internal (GWeatherInfo *info,
 /**
  * gweather_info_set_location:
  * @info: a #GWeatherInfo
- * @location: (allow-none): a location for which weather is desired
+ * @location: (nullable): a location for which weather is desired
  *
- * Changes @info to report weather for @location.
- * Note that this will clear any forecast or current conditions from
- * @info, you must call gweather_info_update() to obtain the new data.
+ * Changes the location of the weather report.
+ *
+ * Note that this will clear any forecast or current conditions, and
+ * you must call [method@GWeather.Info.update] to obtain the new data.
  */
 void
 gweather_info_set_location (GWeatherInfo *info,
@@ -2205,7 +2206,8 @@ gweather_info_set_enabled_providers (GWeatherInfo *info,
     info->providers = providers;
 
     gweather_info_abort (info);
-    g_object_notify (G_OBJECT (info), "enabled-providers");
+
+    g_object_notify_by_pspec (G_OBJECT (info), gweather_info_pspecs[PROP_ENABLED_PROVIDERS]);
 }
 
 /**
@@ -2310,7 +2312,7 @@ gweather_info_set_property (GObject *object,
 
     switch (property_id) {
         case PROP_LOCATION:
-            gweather_info_set_location_internal (self, (GWeatherLocation *) g_value_get_boxed (value));
+            gweather_info_set_location_internal (self, g_value_get_object (value));
             break;
         case PROP_ENABLED_PROVIDERS:
             gweather_info_set_enabled_providers (self, g_value_get_flags (value));
@@ -2336,7 +2338,7 @@ gweather_info_get_property (GObject *object,
 
     switch (property_id) {
         case PROP_LOCATION:
-            g_value_set_boxed (value, self->glocation);
+            g_value_set_object (value, self->glocation);
             break;
         case PROP_ENABLED_PROVIDERS:
             g_value_set_flags (value, self->providers);
@@ -2353,25 +2355,27 @@ gweather_info_get_property (GObject *object,
 }
 
 static void
-gweather_info_constructed (GObject *object)
+gweather_info_constructed (GObject *gobject)
 {
-    GWeatherInfo *info = GWEATHER_INFO (object);
-    GApplication *app;
+    GWeatherInfo *self = GWEATHER_INFO (gobject);
 
-    if (info->application_id != NULL)
-        return;
-    app = g_application_get_default ();
-    if (!app)
-        return;
+    /* Use the application id of the default GApplication instance as the
+     * fallback value
+     */
+    if (self->application_id == NULL) {
+        GApplication *app = g_application_get_default ();
 
-    gweather_info_set_application_id (info,
-                                      g_application_get_application_id (app));
+        if (app != NULL) {
+            gweather_info_set_application_id (self, g_application_get_application_id (app));
+        }
+    }
+
+    G_OBJECT_CLASS (gweather_info_parent_class)->constructed (gobject);
 }
 
 void
 gweather_info_class_init (GWeatherInfoClass *klass)
 {
-    GParamSpec *pspec;
     GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 
     gobject_class->dispose = gweather_info_dispose;
@@ -2380,80 +2384,109 @@ gweather_info_class_init (GWeatherInfoClass *klass)
     gobject_class->get_property = gweather_info_get_property;
     gobject_class->constructed = gweather_info_constructed;
 
-    pspec = g_param_spec_boxed ("location",
-                                "Location",
-                                "The location this info represents",
-                                GWEATHER_TYPE_LOCATION,
-                                G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
-    g_object_class_install_property (gobject_class, PROP_LOCATION, pspec);
+    /**
+     * GWeatherInfo:location:
+     *
+     * The location of the weather information.
+     */
+    gweather_info_pspecs[PROP_LOCATION] =
+        g_param_spec_object ("location",
+                             "Location",
+                             "The location this info represents",
+                             GWEATHER_TYPE_LOCATION,
+                             G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
+    /**
+     * GWeatherInfo:enabled-providers:
+     *
+     * The enabled weather providers.
+     */
+    gweather_info_pspecs[PROP_ENABLED_PROVIDERS] =
+        g_param_spec_flags ("enabled-providers",
+                            "Enabled providers",
+                            "A bitmask of enabled weather service providers",
+                            GWEATHER_TYPE_PROVIDER,
+                            GWEATHER_PROVIDER_NONE,
+                            G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
+    /**
+     * GWeatherInfo:application-id:
+     *
+     * A unique identifier, typically in the form of reverse DNS notation,
+     * for the application that is querying the weather information.
+     *
+     * Weather providers require this information.
+     */
+    gweather_info_pspecs[PROP_APPLICATION_ID] =
+        g_param_spec_string ("application-id",
+                             "Application ID",
+                             "An unique reverse-DNS application ID",
+                             NULL,
+                             G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
+    /**
+     * GWeatherInfo:contact-info:
+     *
+     * An email address or any other contact form URL.
+     *
+     * Weather providers require this information.
+     */
+    gweather_info_pspecs[PROP_CONTACT_INFO] =
+        g_param_spec_string ("contact-info",
+                             "Contact information",
+                             "An email address or contact form URL",
+                             NULL,
+                             G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
 
-    pspec = g_param_spec_flags ("enabled-providers",
-                                "Enabled providers",
-                                "A bitmask of enabled weather service providers",
-                                GWEATHER_TYPE_PROVIDER,
-                                GWEATHER_PROVIDER_NONE,
-                                G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
-    g_object_class_install_property (gobject_class, PROP_ENABLED_PROVIDERS, pspec);
-
-    pspec = g_param_spec_string ("application-id",
-                                 "Application ID",
-                                 "An unique reverse-DNS application ID",
-                                 NULL,
-                                 G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
-    g_object_class_install_property (gobject_class, PROP_APPLICATION_ID, pspec);
-
-    pspec = g_param_spec_string ("contact-info",
-                                 "Contact information",
-                                 "An email address or contact form URL",
-                                 NULL,
-                                 G_PARAM_STATIC_STRINGS | G_PARAM_READWRITE);
-    g_object_class_install_property (gobject_class, PROP_CONTACT_INFO, pspec);
+    g_object_class_install_properties (gobject_class, PROP_LAST, gweather_info_pspecs);
 
     /**
      * GWeatherInfo::updated:
-     * @object: the emitter of the signal.
+     * @object: the object that emitted the signal
      *
      * This signal is emitted after the initial fetch of the weather
      * data from upstream services, and after every successful call
-     * to @gweather_info_update().
+     * to [method@GWeather.Info.update].
      */
-    gweather_info_signals[SIGNAL_UPDATED] = g_signal_new ("updated",
-                                                          GWEATHER_TYPE_INFO,
-                                                          G_SIGNAL_RUN_FIRST,
-                                                          0,
-                                                          NULL, /* accumulator */
-                                                          NULL, /* accu_data */
-                                                          g_cclosure_marshal_VOID__VOID,
-                                                          G_TYPE_NONE,
-                                                          0);
+    gweather_info_signals[SIGNAL_UPDATED] =
+        g_signal_new (g_intern_static_string ("updated"),
+                      GWEATHER_TYPE_INFO,
+                      G_SIGNAL_RUN_FIRST,
+                      0,
+                      NULL, /* accumulator */
+                      NULL, /* accu_data */
+                      g_cclosure_marshal_VOID__VOID,
+                      G_TYPE_NONE,
+                      0);
 
     _gweather_gettext_init ();
 }
 
 /**
  * gweather_info_new:
- * @location: (allow-none): the desidered #GWeatherLocation (%NULL for default)
+ * @location: (nullable): the desidered location
  *
- * Builds a new #GWeatherInfo that will provide weather information about
- * @location.
+ * Builds a new `GWeatherInfo` that will provide weather information about
+ * the given location.
  *
- * Since version 40, this does not automatically call gweather_info_update().
- * gweather_info_update() must be called manually once all the necessary set up
- * has been made, such as setting the enabled providers.
+ * In order to retrieve the weather information, you will need to enable
+ * the desired providers and then call [method@GWeather.Info.update]. If
+ * you want to be notified of the completion of the weather information
+ * update, you should connect to the [signal@GWeather.Info::updated]
+ * signal before updating the `GWeatherInfo` instance.
  *
- * Returns: (transfer full): a new #GWeatherInfo
+ * Returns: (transfer full): a new weather information instance
  */
 GWeatherInfo *
 gweather_info_new (GWeatherLocation *location)
 {
-    if (location != NULL)
-        return g_object_new (GWEATHER_TYPE_INFO, "location", location, NULL);
-    return g_object_new (GWEATHER_TYPE_INFO, NULL);
+    g_return_val_if_fail (location == NULL || GWEATHER_IS_LOCATION (location), NULL);
+
+    return g_object_new (GWEATHER_TYPE_INFO, "location", location, NULL);
 }
 
 GWeatherInfo *
 _gweather_info_new_clone (GWeatherInfo *original)
 {
+    g_return_val_if_fail (GWEATHER_IS_INFO (original), NULL);
+
     return g_object_new (GWEATHER_TYPE_INFO,
                          "application-id",
                          original->application_id,

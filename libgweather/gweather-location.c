@@ -25,28 +25,82 @@
  * airport to a city, see also test_distance() */
 #define AIRPORT_MAX_DISTANCE 100.0
 
+G_DEFINE_TYPE (GWeatherLocation, gweather_location, G_TYPE_OBJECT)
+
+static void
+gweather_location_finalize (GObject *gobject)
+{
+    GWeatherLocation *self = GWEATHER_LOCATION (gobject);
+
+    /* Remove weak reference from DB object; but only if it points to us.
+     * It may point elsewhere if we are an implicit nearest child. */
+    if (self->db && g_ptr_array_index (self->db->locations, self->db_idx) == self)
+        g_ptr_array_index (self->db->locations, self->db_idx) = NULL;
+
+    g_free (self->_english_name);
+    g_free (self->_local_name);
+    g_free (self->_local_sort_name);
+    g_free (self->_english_sort_name);
+    g_free (self->_country_code);
+    g_free (self->_station_code);
+
+    g_clear_pointer (&self->_timezone, gweather_timezone_unref);
+
+    G_OBJECT_CLASS (gweather_location_parent_class)->finalize (gobject);
+}
+
+static void
+gweather_location_dispose (GObject *gobject)
+{
+    GWeatherLocation *self = GWEATHER_LOCATION (gobject);
+
+    if (self->_children) {
+        for (int i = 0; self->_children[i]; i++) {
+            g_object_unref (self->_children[i]);
+        }
+        g_free (self->_children);
+        self->_children = NULL;
+    }
+
+    g_clear_object (&self->_parent);
+
+    G_OBJECT_CLASS (gweather_location_parent_class)->dispose (gobject);
+}
+
+static void
+gweather_location_class_init (GWeatherLocationClass *klass)
+{
+    G_OBJECT_CLASS (klass)->dispose = gweather_location_dispose;
+    G_OBJECT_CLASS (klass)->finalize = gweather_location_finalize;
+}
+
+static void
+gweather_location_init (GWeatherLocation *self)
+{
+    self->latitude = self->longitude = DBL_MAX;
+    self->db_idx = INVALID_IDX;
+    self->tz_hint_idx = INVALID_IDX;
+}
+
 static inline GWeatherLocation *
 _iter_up (GWeatherLocation *loc)
 {
     GWeatherLocation *tmp;
 
     tmp = gweather_location_get_parent (loc);
-    gweather_location_unref (loc);
+    g_object_unref (loc);
+
     return tmp;
 }
-#define ITER_UP(start, _p) for ((_p) = gweather_location_ref (start); (_p); (_p) = _iter_up (_p))
+#define ITER_UP(start, _p) for ((_p) = g_object_ref (start); (_p); (_p) = _iter_up (_p))
 
 static GWeatherLocation *
 location_new (GWeatherLocationLevel level)
 {
     GWeatherLocation *loc;
 
-    loc = g_slice_new0 (GWeatherLocation);
-    loc->latitude = loc->longitude = DBL_MAX;
+    loc = g_object_new (GWEATHER_TYPE_LOCATION, NULL);
     loc->level = level;
-    loc->ref_count = 1;
-    loc->db_idx = INVALID_IDX;
-    loc->tz_hint_idx = INVALID_IDX;
 
     return loc;
 }
@@ -69,7 +123,7 @@ location_ref_for_idx (GWeatherDb *db,
     if (!nearest_of) {
         loc = g_ptr_array_index (db->locations, idx);
         if (loc) {
-            return gweather_location_ref (loc);
+            return g_object_ref (loc);
         }
     }
 
@@ -132,7 +186,78 @@ _gweather_location_reset_world (void)
     }
 }
 
-G_DEFINE_BOXED_TYPE (GWeatherLocation, gweather_location, gweather_location_ref, gweather_location_unref)
+static gpointer
+ensure_world (gpointer dummy G_GNUC_UNUSED)
+{
+    g_autoptr (GError) error = NULL;
+    g_autofree char *filename = NULL;
+    g_autoptr (GMappedFile) map;
+    const char *locations_path;
+    time_t now;
+    struct tm tm;
+    GWeatherDb *db = NULL;
+
+    locations_path = g_getenv ("LIBGWEATHER_LOCATIONS_PATH");
+    if (locations_path != NULL) {
+        filename = g_strdup (locations_path);
+        if (!g_file_test (filename, G_FILE_TEST_IS_REGULAR)) {
+            g_warning ("User specified database %s does not exist", filename);
+            g_clear_pointer (&filename, g_free);
+        }
+    }
+
+    if (filename == NULL) {
+        filename = g_build_filename (GWEATHER_BIN_LOCATION_DIR, "Locations.bin", NULL);
+    }
+
+    map = g_mapped_file_new (filename, FALSE, &error);
+    if (map == NULL) {
+        g_critical ("Failed to open database %s: %s", filename, error->message);
+        return NULL;
+    }
+
+    db = g_new0 (GWeatherDb, 1);
+    db->world = db_world_from_data (g_mapped_file_get_contents (map), g_mapped_file_get_length (map));
+    /* This is GWthDB01 */
+    if (db_world_get_magic (db->world) != 0x5747687442443130) {
+        g_free (db);
+        return NULL;
+    }
+
+    db->map = g_steal_pointer (&map);
+
+    db->locations_ref = db_world_get_locations (db->world);
+    db->timezones_ref = db_world_get_timezones (db->world);
+
+    db->locations = g_ptr_array_new ();
+    db->timezones = g_ptr_array_new ();
+
+    g_ptr_array_set_size (db->locations, db_arrayof_location_get_length (db->locations_ref));
+    g_ptr_array_set_size (db->timezones, db_world_timezones_get_length (db->timezones_ref));
+
+    /* Get timestamps for the start and end of this year.
+     * This is used to parse timezone information. */
+    now = time (NULL);
+    tm = *gmtime (&now);
+    tm.tm_mon = 0;
+    tm.tm_mday = 1;
+    tm.tm_hour = tm.tm_min = tm.tm_sec = 0;
+    db->year_start = mktime (&tm);
+    tm.tm_year++;
+    db->year_end = mktime (&tm);
+
+    world_db = db;
+
+    return db;
+}
+
+static void
+gweather_location_ensure_world (void)
+{
+    static GOnce ensure_world_once = G_ONCE_INIT;
+
+    g_once (&ensure_world_once, ensure_world, NULL);
+}
 
 /**
  * gweather_location_get_world:
@@ -148,63 +273,7 @@ G_DEFINE_BOXED_TYPE (GWeatherLocation, gweather_location, gweather_location_ref,
 GWeatherLocation *
 gweather_location_get_world (void)
 {
-    if (world_db == NULL) {
-        g_autoptr (GError) error = NULL;
-        g_autofree char *filename = NULL;
-        g_autoptr (GMappedFile) map;
-        const char *locations_path;
-        time_t now;
-        struct tm tm;
-
-        locations_path = g_getenv ("LIBGWEATHER_LOCATIONS_PATH");
-        if (locations_path != NULL) {
-            filename = g_strdup (locations_path);
-            if (!g_file_test (filename, G_FILE_TEST_IS_REGULAR)) {
-                g_warning ("User specified database %s does not exist", filename);
-                g_clear_pointer (&filename, g_free);
-            }
-        }
-
-        if (filename == NULL) {
-            filename = g_build_filename (GWEATHER_BIN_LOCATION_DIR, "Locations.bin", NULL);
-        }
-
-        map = g_mapped_file_new (filename, FALSE, &error);
-        if (map == NULL) {
-            g_critical ("Failed to open database %s: %s", filename, error->message);
-            return NULL;
-        }
-
-        world_db = g_new0 (GWeatherDb, 1);
-        world_db->world = db_world_from_data (g_mapped_file_get_contents (map), g_mapped_file_get_length (map));
-        /* This is GWthDB01 */
-        if (db_world_get_magic (world_db->world) != 0x5747687442443130) {
-            g_free (world_db);
-            return NULL;
-        }
-
-        world_db->map = g_steal_pointer (&map);
-
-        world_db->locations_ref = db_world_get_locations (world_db->world);
-        world_db->timezones_ref = db_world_get_timezones (world_db->world);
-
-        world_db->locations = g_ptr_array_new ();
-        world_db->timezones = g_ptr_array_new ();
-
-        g_ptr_array_set_size (world_db->locations, db_arrayof_location_get_length (world_db->locations_ref));
-        g_ptr_array_set_size (world_db->timezones, db_world_timezones_get_length (world_db->timezones_ref));
-
-        /* Get timestamps for the start and end of this year.
-	 * This is used to parse timezone information. */
-        now = time (NULL);
-        tm = *gmtime (&now);
-        tm.tm_mon = 0;
-        tm.tm_mday = 1;
-        tm.tm_hour = tm.tm_min = tm.tm_sec = 0;
-        world_db->year_start = mktime (&tm);
-        tm.tm_year++;
-        world_db->year_end = mktime (&tm);
-    }
+    gweather_location_ensure_world ();
 
     return location_ref_for_idx (world_db, 0, NULL);
 }
@@ -213,18 +282,16 @@ gweather_location_get_world (void)
  * gweather_location_ref:
  * @loc: a location
  *
- * Acquire a reference to the location.
+ * Acquires a reference to the location.
  *
  * Return value: (transfer full): the location, with an additional reference
+ *
+ * Deprecated: 4.0: Use [method@GObject.Object.ref] instead
  **/
 GWeatherLocation *
 gweather_location_ref (GWeatherLocation *loc)
 {
-    g_return_val_if_fail (loc != NULL, NULL);
-
-    loc->ref_count++;
-
-    return loc;
+    return g_object_ref (loc);
 }
 
 /**
@@ -235,40 +302,13 @@ gweather_location_ref (GWeatherLocation *loc)
  *
  * If the reference was the last one held, this function will free
  * the resources allocated by the location.
+ *
+ * Deprecated: 4.0: Use [method@GObject.Object.unref] instead
  **/
 void
 gweather_location_unref (GWeatherLocation *loc)
 {
-    g_return_if_fail (loc != NULL);
-
-    int i;
-
-    if (--loc->ref_count)
-        return;
-
-    /* Remove weak reference from DB object; but only if it points to us.
-     * It may point elsewhere if we are an implicit nearest child. */
-    if (loc->db && g_ptr_array_index (loc->db->locations, loc->db_idx) == loc)
-        g_ptr_array_index (loc->db->locations, loc->db_idx) = NULL;
-
-    g_free (loc->_english_name);
-    g_free (loc->_local_name);
-    g_free (loc->_local_sort_name);
-    g_free (loc->_english_sort_name);
-    g_free (loc->_country_code);
-    g_free (loc->_station_code);
-
-    if (loc->_children) {
-        for (i = 0; loc->_children[i]; i++) {
-            gweather_location_unref (loc->_children[i]);
-        }
-        g_free (loc->_children);
-    }
-
-    g_clear_pointer (&loc->_parent, gweather_location_unref);
-    g_clear_pointer (&loc->_timezone, gweather_timezone_unref);
-
-    g_slice_free (GWeatherLocation, loc);
+    g_object_unref (loc);
 }
 
 /**
@@ -462,7 +502,7 @@ gweather_location_get_parent (GWeatherLocation *loc)
     g_return_val_if_fail (loc != NULL, NULL);
 
     if (loc->_parent)
-        return gweather_location_ref (loc->_parent);
+        return g_object_ref (loc->_parent);
 
     if (loc->level == GWEATHER_LOCATION_WORLD)
         return NULL;
@@ -515,7 +555,7 @@ gweather_location_next_child (GWeatherLocation *loc,
     if (loc->_children) {
         if (child == NULL) {
             if (loc->_children[0])
-                return gweather_location_ref (loc->_children[0]);
+                return g_object_ref (loc->_children[0]);
             else
                 return NULL;
         }
@@ -523,7 +563,7 @@ gweather_location_next_child (GWeatherLocation *loc,
         for (i = 0; loc->_children[i]; i++) {
             if (loc->_children[i] == child) {
                 if (loc->_children[i + 1])
-                    return gweather_location_ref (loc->_children[i + 1]);
+                    return g_object_ref (loc->_children[i + 1]);
                 else
                     return NULL;
             }
@@ -653,8 +693,8 @@ find_nearest_city (GWeatherLocation *location,
                                          data->longitude);
 
     if (data->location == NULL || data->distance > distance) {
-        g_clear_pointer (&data->location, gweather_location_unref);
-        data->location = gweather_location_ref (location);
+        g_clear_object (&data->location);
+        data->location = g_object_ref (location);
         data->distance = distance;
     }
 }
@@ -695,7 +735,7 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
         if (G_UNLIKELY (loc == NULL))
             return NULL;
     } else {
-        gweather_location_ref (loc);
+        g_object_ref (loc);
     }
 
     lat = lat * M_PI / 180.0;
@@ -709,7 +749,7 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
     foreach_city (loc, (GFunc) find_nearest_city, &data, NULL, NULL, NULL);
 
     if (loc != world)
-        gweather_location_unref (loc);
+        g_object_unref (loc);
 
     return data.location;
 }
@@ -759,7 +799,7 @@ gweather_location_find_nearest_city_full (GWeatherLocation *loc,
         if (G_UNLIKELY (world == NULL))
             return NULL;
     } else {
-        gweather_location_ref (loc);
+        g_object_ref (loc);
     }
 
     lat = lat * M_PI / 180.0;
@@ -775,7 +815,7 @@ gweather_location_find_nearest_city_full (GWeatherLocation *loc,
     destroy (user_data);
 
     if (loc != world)
-        gweather_location_unref (loc);
+        g_object_unref (loc);
 
     return data.location;
 }
@@ -808,7 +848,7 @@ _got_place (GObject *source_object,
 
     foreach_city (info->location, (GFunc) find_nearest_city, &data, country_code, NULL, NULL);
 
-    gweather_location_unref (info->location);
+    g_object_unref (info->location);
     g_slice_free (ArgData, info);
 
     if (data.location == NULL) {
@@ -821,7 +861,7 @@ _got_place (GObject *source_object,
                                              data.latitude,
                                              data.longitude);
 
-        g_task_return_pointer (task, location, (GDestroyNotify) gweather_location_unref);
+        g_task_return_pointer (task, location, (GDestroyNotify) g_object_unref);
     }
 
     g_object_unref (task);
@@ -875,7 +915,7 @@ gweather_location_detect_nearest_city (GWeatherLocation *loc,
     data->latitude = lat;
     data->longitude = lon;
     data->location = loc != NULL
-                       ? gweather_location_ref (loc)
+                       ? g_object_ref (loc)
                        : g_steal_pointer (&world);
     data->task = task;
 
@@ -883,8 +923,8 @@ gweather_location_detect_nearest_city (GWeatherLocation *loc,
 }
 
 /**
- * gweather_location_detect_nearest_location_finish:
- * @result:
+ * gweather_location_detect_nearest_city_finish:
+ * @result: the result of the asynchronous operation
  * @error: Stores error if any occurs in retrieving the result
  *
  * Fetches the location from @result.
@@ -893,7 +933,8 @@ gweather_location_detect_nearest_city (GWeatherLocation *loc,
  */
 
 GWeatherLocation *
-gweather_location_detect_nearest_city_finish (GAsyncResult *result, GError **error)
+gweather_location_detect_nearest_city_finish (GAsyncResult *result,
+                                              GError **error)
 {
     GTask *task;
 
@@ -1226,7 +1267,7 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
             start = first_child;
     }
     if (!start)
-        start = gweather_location_ref (gloc);
+        start = g_object_ref (gloc);
 
     ITER_UP (start, l) {
         if (!code)
@@ -1413,7 +1454,7 @@ gweather_location_format_two_serialize (GWeatherLocation *location)
         is_city = FALSE;
     }
     if (!real_loc)
-        real_loc = gweather_location_ref (location);
+        real_loc = g_object_ref (location);
 
     parent = gweather_location_get_parent (real_loc);
 
@@ -1508,7 +1549,7 @@ gweather_location_common_deserialize (GWeatherLocation *world,
         if (found && (g_strcmp0 (name, gweather_location_get_english_name (found)) == 0 ||
                       g_strcmp0 (name, gweather_location_get_name (found)) == 0))
             return g_steal_pointer (&found);
-        g_clear_pointer (&found, gweather_location_unref);
+        g_clear_object (&found);
     }
 
     if (station_code[0] == '\0')
@@ -1576,9 +1617,9 @@ gweather_location_common_deserialize (GWeatherLocation *world,
             if (name == NULL ||
                 g_str_equal (name, gweather_location_get_english_name (found)) ||
                 g_str_equal (name, gweather_location_get_name (found)))
-                found = gweather_location_ref (found);
+                found = g_object_ref (found);
             else
-                found = _gweather_location_new_detached (gweather_location_ref (ws), name, TRUE, latitude, longitude);
+                found = _gweather_location_new_detached (g_object_ref (ws), name, TRUE, latitude, longitude);
 
             return found;
         }
@@ -1727,7 +1768,7 @@ gweather_location_deserialize (GWeatherLocation *world,
 }
 
 /**
- * gweather_location_new_detached:
+ * gweather_location_new_detached: (constructor)
  * @name: the user visible location name
  * @icao: (nullable): the ICAO code of the location
  * @latitude: the latitude of the location
@@ -1735,6 +1776,8 @@ gweather_location_deserialize (GWeatherLocation *world,
  *
  * Construct a new location from the given data, supplementing
  * any missing information from the static database.
+ *
+ * Returns: (transfer full): the newly created detached location
  */
 GWeatherLocation *
 gweather_location_new_detached (const char *name,
@@ -1743,7 +1786,6 @@ gweather_location_new_detached (const char *name,
                                 gdouble longitude)
 {
     g_autoptr (GWeatherLocation) world = NULL;
-    g_autoptr (GWeatherLocation) city = NULL;
 
     g_return_val_if_fail (name != NULL, NULL);
 
@@ -1758,10 +1800,11 @@ gweather_location_new_detached (const char *name,
     if (icao != NULL) {
         return gweather_location_common_deserialize (world, name, icao, FALSE, TRUE, latitude, longitude, FALSE, 0, 0);
     } else {
-        city = gweather_location_find_nearest_city (world, latitude, longitude);
+        g_autoptr (GWeatherLocation) city = gweather_location_find_nearest_city (world, latitude, longitude);
 
         latitude = DEGREES_TO_RADIANS (latitude);
         longitude = DEGREES_TO_RADIANS (longitude);
+
         return _gweather_location_new_detached (g_steal_pointer (&city), name, TRUE, latitude, longitude);
     }
 }

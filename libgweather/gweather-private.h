@@ -40,8 +40,10 @@ typedef struct {
 } GWeatherDb;
 
 struct _GWeatherLocation {
+    GObject parent_instance;
+
     GWeatherDb *db;
-    guint       db_idx;
+    guint db_idx;
     DbLocationRef ref;
 
     /* Attributes with _ may be fetched/filled from the database on the fly */
@@ -66,8 +68,6 @@ struct _GWeatherLocation {
     double longitude;
 
     gboolean latlon_valid;
-
-    int ref_count;
 };
 
 #define WEATHER_LOCATION_CODE_LEN 4

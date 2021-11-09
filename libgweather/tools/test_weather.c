@@ -24,7 +24,7 @@ find_loc_children (GWeatherLocation *location,
 
             code = gweather_location_get_code (child);
             if (g_strcmp0 (search_str, code) == 0) {
-                *ret = gweather_location_ref (child);
+                *ret = g_object_ref (child);
                 return TRUE;
             }
         } else {

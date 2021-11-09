@@ -48,7 +48,7 @@ test_named_timezones (void)
         g_assert_true (code[0] == '@');
     }
 
-    g_clear_pointer (&world, gweather_location_unref);
+    g_clear_object (&world);
     _gweather_location_reset_world ();
 }
 
@@ -126,7 +126,7 @@ test_named_timezones_deserialized (void)
 
     list = get_list_from_configuration (world, CONFIGURATION, 3);
     for (l = list; l != NULL; l = l->next)
-        gweather_location_unref (l->data);
+        g_object_unref (l->data);
     g_list_free (list);
 
     list = get_list_from_configuration (world, CONFIGURATION, 3);
@@ -141,11 +141,11 @@ test_named_timezones_deserialized (void)
         g_assert_nonnull (tzid);
         gweather_location_get_level (loc);
 
-        gweather_location_unref (loc);
+        g_object_unref (loc);
     }
     g_list_free (list);
 
-    g_clear_pointer (&world, gweather_location_unref);
+    g_clear_object (&world);
     /* test_timezones will clear the DB */
     test_timezones ();
 }
@@ -179,9 +179,9 @@ test_no_code_serialize (void)
     g_assert_cmpstr (gweather_location_get_name (loc), ==, gweather_location_get_name (new_loc));
     g_assert_true (gweather_location_equal (loc, new_loc));
 
-    g_clear_pointer (&world, gweather_location_unref);
-    g_clear_pointer (&loc, gweather_location_unref);
-    g_clear_pointer (&new_loc, gweather_location_unref);
+    g_clear_object (&world);
+    g_clear_object (&loc);
+    g_clear_pointer (&new_loc, g_object_unref);
     _gweather_location_reset_world ();
 }
 
@@ -240,7 +240,7 @@ test_timezones (void)
 
     test_timezones_children (world);
 
-    g_clear_pointer (&world, gweather_location_unref);
+    g_clear_object (&world);
     _gweather_location_reset_world ();
 }
 
@@ -291,7 +291,7 @@ test_airport_distance_sanity (void)
     if (g_test_failed ())
         g_warning ("Maximum city to airport distance is %.1f km", max_distance);
 
-    g_clear_pointer (&world, gweather_location_unref);
+    g_clear_object (&world);
     _gweather_location_reset_world ();
 }
 
@@ -448,7 +448,7 @@ test_metar_weather_stations (void)
 
     g_hash_table_unref (stations_ht);
 
-    g_clear_pointer (&world, gweather_location_unref);
+    g_clear_object (&world);
     _gweather_location_reset_world ();
 }
 
@@ -522,8 +522,8 @@ test_utc_sunset (void)
 
     g_object_unref (info);
 
-    g_clear_pointer (&world, gweather_location_unref);
-    g_clear_pointer (&utc, gweather_location_unref);
+    g_clear_object (&world);
+    g_clear_object (&utc);
     _gweather_location_reset_world ();
 }
 
@@ -577,10 +577,10 @@ test_bad_duplicate_weather_stations_children (GWeatherLocation *location,
 
             stations = g_hash_table_lookup (stations_ht, code);
             if (!stations) {
-                stations = g_ptr_array_new_with_free_func ((GDestroyNotify) gweather_location_unref);
+                stations = g_ptr_array_new_with_free_func ((GDestroyNotify) g_object_unref);
                 g_hash_table_insert (stations_ht, g_strdup (code), stations);
             }
-            g_ptr_array_add (stations, gweather_location_ref (child));
+            g_ptr_array_add (stations, g_object_ref (child));
         } else {
             test_bad_duplicate_weather_stations_children (child, stations_ht);
         }
@@ -605,7 +605,7 @@ test_bad_duplicate_weather_stations (void)
     g_hash_table_unref (stations_ht);
 
     g_unsetenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST");
-    g_clear_pointer (&world, gweather_location_unref);
+    g_clear_object (&world);
     _gweather_location_reset_world ();
 }
 
@@ -657,7 +657,7 @@ test_duplicate_weather_stations (void)
     test_duplicate_weather_stations_children (world);
 
     g_unsetenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST");
-    g_clear_pointer (&world, gweather_location_unref);
+    g_clear_object (&world);
     _gweather_location_reset_world ();
 }
 
@@ -683,8 +683,8 @@ test_location_names (void)
         return;
     }
 
-    g_clear_pointer (&world, gweather_location_unref);
-    g_clear_pointer (&brussels, gweather_location_unref);
+    g_clear_object (&world);
+    g_clear_object (&brussels);
     _gweather_location_reset_world ();
 
     world = gweather_location_get_world ();
@@ -695,11 +695,11 @@ test_location_names (void)
     g_assert_cmpstr (gweather_location_get_name (brussels), ==, "Bruxelles");
     g_assert_cmpstr (gweather_location_get_sort_name (brussels), ==, "bruxelles");
     g_assert_cmpstr (gweather_location_get_english_name (brussels), ==, "Brussels");
-    gweather_location_unref (brussels);
+    g_clear_object (&brussels);
+
+    g_clear_object (&world);
 
     setlocale (LC_ALL, old_locale);
-    g_clear_pointer (&world, gweather_location_unref);
-    g_clear_pointer (&brussels, gweather_location_unref);
     _gweather_location_reset_world ();
 }
 
@@ -715,7 +715,7 @@ find_loc_children (GWeatherLocation *location,
 
             code = gweather_location_get_code (child);
             if (g_strcmp0 (search_str, code) == 0) {
-                *ret = gweather_location_ref (child);
+                *ret = g_object_ref (child);
                 return TRUE;
             }
         } else {
@@ -785,7 +785,7 @@ test_weather_loop_use_after_free (void)
     gweather_info_update (info);
     g_object_unref (info);
 
-    gweather_location_unref (loc);
+    g_object_unref (loc);
 
     g_timeout_add_seconds (5, stop_loop_cb, loop);
     g_main_loop_run (loop);
@@ -801,31 +801,30 @@ test_walk_world (void)
     next = gweather_location_get_world ();
     while (next) {
         /* Update cur pointer. */
-        g_clear_pointer (&cur, gweather_location_unref);
+        g_clear_object (&cur);
+
         cur = g_steal_pointer (&next);
         visited += 1;
-        g_assert_cmpint (cur->ref_count, ==, 1);
 
         /* Select next item, which is in this order:
-	 *  1. The first child
-	 *  2. Walk up the parent tree and try to find a sibbling
-	 * Note that cur remains valid after the loop and points to the world
-	 * again.
-	 */
+	     *  1. The first child
+	     *  2. Walk up the parent tree and try to find a sibbling
+	     * Note that cur remains valid after the loop and points to the world
+	     * again.
+	     */
         if ((next = gweather_location_next_child (cur, NULL)))
             continue;
 
         while (TRUE) {
             g_autoptr (GWeatherLocation) child = NULL;
+
             /* Move cur to the parent, keeping the child as reference. */
             child = g_steal_pointer (&cur);
             cur = gweather_location_get_parent (child);
             if (!cur)
                 break;
-            g_assert_cmpint (cur->ref_count, ==, 1);
-            g_assert_cmpint (child->ref_count, ==, 1);
 
-            if ((next = gweather_location_next_child (cur, gweather_location_ref (child))))
+            if ((next = gweather_location_next_child (cur, g_object_ref (child))))
                 break;
         }
     }
@@ -838,7 +837,7 @@ test_walk_world (void)
      * of DB entries. */
     cur = gweather_location_get_world ();
     g_assert_cmpint (visited, >, cur->db->locations->len);
-    g_clear_pointer (&cur, gweather_location_unref);
+    g_clear_object (&cur);
 
     /* noop, but asserts we did not leak */
     _gweather_location_reset_world ();

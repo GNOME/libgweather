@@ -185,7 +185,7 @@ _gweather_timezone_ref_for_idx (GWeatherDb *db,
 GWeatherTimezone *
 gweather_timezone_get_by_tzid (const char *tzid)
 {
-    GWeatherLocation *world;
+    g_autoptr (GWeatherLocation) world = NULL;
     GWeatherDb *db;
     gsize idx;
 
@@ -194,7 +194,6 @@ gweather_timezone_get_by_tzid (const char *tzid)
     /* TODO: Get the DB directly */
     world = gweather_location_get_world ();
     db = world->db;
-    gweather_location_unref (world);
 
     if (!db_world_timezones_lookup (db->timezones_ref, tzid, &idx, NULL))
         return NULL;
@@ -216,6 +215,7 @@ gweather_timezone_ref (GWeatherTimezone *zone)
     g_return_val_if_fail (zone != NULL, NULL);
 
     zone->ref_count++;
+
     return zone;
 }
 
