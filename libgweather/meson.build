@@ -184,7 +184,7 @@ libgweather_static_dep = declare_dependency(sources: gweather_c_sources,
   link_with: libgweather_static,
 )
 
-lib_libgweather = shared_library('gweather-4',
+lib_libgweather = library('gweather-4',
   dependencies: deps_libgweather,
   link_whole: libgweather_static,
   soversion: libgweather_soversion,
@@ -250,18 +250,12 @@ if build_vapi and build_gir
 endif
 
 pkgconfig.generate(
+  lib_libgweather,
   filebase: gweather_pc,
   name: 'GWeather',
   description: 'Gather weather information from online services',
   version: meson.project_version(),
-  libraries: lib_libgweather,
   subdirs: libgweather_full_version,
-  requires_private: [
-    'gio-2.0',
-    'libsoup-2.4',
-    'libxml-2.0',
-    'geocode-glib-1.0',
-  ],
   variables: [
     'soupapiversion=' + libsoup_api_version,
   ]
