@@ -399,15 +399,15 @@ metno_finish_new (GObject *source,
     if (!body) {
         /* forecast data is not really interesting anyway ;) */
         if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
-            g_debug ("Failed to get met.no forecast data: %s\n", error->message);
+            g_debug ("Failed to get met.no forecast data: %s", error->message);
             return;
         }
-        g_message ("Failed to get met.no forecast data: %s\n", error->message);
+        g_message ("Failed to get met.no forecast data: %s", error->message);
         g_clear_error (&error);
         _gweather_info_request_done (data, msg);
         return;
     } else if (!SOUP_STATUS_IS_SUCCESSFUL (soup_message_get_status (msg))) {
-        g_message ("Failed to get met.no forecast data: %d %s\n",
+        g_message ("Failed to get met.no forecast data: [status: %d] %s",
                    soup_message_get_status (msg),
                    soup_message_get_reason_phrase (msg));
         _gweather_info_request_done (data, msg);
@@ -443,14 +443,13 @@ metno_finish_new (SoupSession *session,
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
         /* forecast data is not really interesting anyway ;) */
         if (msg->status_code == SOUP_STATUS_CANCELLED) {
-            g_debug ("Failed to get met.no forecast data: %d %s\n",
-                     msg->status_code,
+            g_debug ("Failed to get met.no forecast data: %s",
                      msg->reason_phrase);
             return;
         }
-        g_message ("Failed to get met.no forecast data: %d %s\n",
-                   msg->status_code,
-                   msg->reason_phrase);
+        g_debug ("Failed to get met.no forecast data: [status: %d]: %s",
+                 msg->status_code,
+                 msg->reason_phrase);
         _gweather_info_request_done (user_data, msg);
         return;
     }

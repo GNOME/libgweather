@@ -410,18 +410,18 @@ owm_finish (GObject *source,
     if (!body) {
         /* forecast data is not really interesting anyway ;) */
         if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
-            g_debug ("Failed to get OpenWeatheRMap forecast data: %s\n",
+            g_debug ("Failed to get OpenWeatheRMap forecast data: %s",
                      error->message);
             return;
         }
-        g_warning ("Failed to get OpenWeatherMap forecast data: %s\n",
+        g_warning ("Failed to get OpenWeatherMap forecast data: %s",
                    error->message);
         g_clear_error (&error);
         _gweather_info_request_done (data, msg);
         return;
     } else if (!SOUP_STATUS_IS_SUCCESSFUL (soup_message_get_status (msg))) {
         g_bytes_unref (body);
-        g_warning ("Failed to get OpenWeatherMap forecast data: %d %s\n",
+        g_warning ("Failed to get OpenWeatherMap forecast data: [status: %d]: %s",
                    soup_message_get_status (msg),
                    soup_message_get_reason_phrase (msg));
         _gweather_info_request_done (data, msg);
@@ -451,12 +451,11 @@ owm_finish (SoupSession *session,
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
         /* forecast data is not really interesting anyway ;) */
         if (msg->status_code == SOUP_STATUS_CANCELLED) {
-            g_debug ("Failed to get OpenWeatherMap forecast data: %d %s\n",
-                     msg->status_code,
+            g_debug ("Failed to get OpenWeatherMap forecast data: %s",
                      msg->reason_phrase);
             return;
         }
-        g_warning ("Failed to get OpenWeatherMap forecast data: %d %s\n",
+        g_warning ("Failed to get OpenWeatherMap forecast data: [status: %d]: %s",
                    msg->status_code,
                    msg->reason_phrase);
         _gweather_info_request_done (user_data, msg);

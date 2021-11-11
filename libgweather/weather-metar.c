@@ -571,10 +571,10 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     body = soup_session_send_and_read_finish (session, result, &error);
     if (!body) {
         if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
-            g_debug ("Failed to get METAR data: %s.\n", error->message);
+            g_debug ("Failed to get METAR data: %s", error->message);
             return;
         }
-        g_warning ("Failed to get METAR data: %s.\n", error->message);
+        g_warning ("Failed to get METAR data: %s", error->message);
         _gweather_info_request_done (info, msg);
         return;
     } else if (!SOUP_STATUS_IS_SUCCESSFUL (soup_message_get_status (msg))) {
@@ -587,8 +587,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 #else
     if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
         if (msg->status_code == SOUP_STATUS_CANCELLED) {
-            g_debug ("Failed to get METAR data: %d %s.\n",
-                     msg->status_code,
+            g_debug ("Failed to get METAR data: %s",
                      msg->reason_phrase);
             return;
         }
@@ -597,9 +596,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
         if (SOUP_STATUS_IS_TRANSPORT_ERROR (msg->status_code)) {
             info->network_error = TRUE;
         } else {
-            /* Translators: %d is an error code, and %s the error string */
-            g_warning (_ ("Failed to get METAR data: %d %s.\n"),
-                       msg->status_code,
+            g_warning ("Failed to get METAR data: %s",
                        msg->reason_phrase);
         }
 
