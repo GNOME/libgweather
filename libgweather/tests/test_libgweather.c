@@ -170,7 +170,7 @@ test_no_code_serialize (void)
     variant = gweather_location_serialize (loc);
     g_assert_nonnull (variant);
     str = g_variant_print_string (variant, NULL, TRUE);
-    g_message ("variant: %s", str->str);
+    g_test_message ("variant: %s", str->str);
     g_string_free (str, TRUE);
 
     new_loc = gweather_location_deserialize (world, variant);
@@ -201,8 +201,8 @@ test_timezone (GWeatherLocation *location)
         /* Only countries should have multiple timezones associated */
         if ((tzs[0] == NULL && gweather_location_get_level (location) < GWEATHER_LOCATION_WEATHER_STATION) &&
             gweather_location_get_level (location) >= GWEATHER_LOCATION_COUNTRY) {
-            g_print ("Location '%s' does not have an associated timezone\n",
-                     gweather_location_get_name (location));
+            g_test_message ("Location '%s' does not have an associated timezone\n",
+                            gweather_location_get_name (location));
             g_test_fail ();
         }
         gweather_location_free_timezones (location, tzs);
@@ -211,9 +211,9 @@ test_timezone (GWeatherLocation *location)
 
     gtz = gweather_timezone_get_by_tzid (tz);
     if (!gtz) {
-        g_print ("Location '%s' has invalid timezone '%s'\n",
-                 gweather_location_get_name (location),
-                 tz);
+        g_test_message ("Location '%s' has invalid timezone '%s'\n",
+                        gweather_location_get_name (location),
+                        tz);
         g_test_fail ();
     }
 }
@@ -256,10 +256,10 @@ test_distance (GWeatherLocation *location)
     distance = gweather_location_get_distance (location, parent);
 
     if (distance > TOO_FAR) {
-        g_print ("Airport '%s' is too far from city '%s' (%.1lf km)\n",
-                 gweather_location_get_name (location),
-                 gweather_location_get_name (parent),
-                 distance);
+        g_test_message ("Airport '%s' is too far from city '%s' (%.1lf km)\n",
+                        gweather_location_get_name (location),
+                        gweather_location_get_name (parent),
+                        distance);
         max_distance = MAX (max_distance, distance);
         g_test_fail ();
     }
@@ -336,7 +336,7 @@ parse_metar_stations (const char *contents)
                 g_free (station);
                 continue;
             }
-            g_print ("Weather station '%s' already defined\n", station);
+            g_test_message ("Weather station '%s' already defined\n", station);
         }
 
         g_hash_table_insert (stations_ht, station, g_strdup (line));
@@ -348,7 +348,7 @@ parse_metar_stations (const char *contents)
     /* Duplicates? */
     g_assert_cmpuint (num_stations, ==, g_hash_table_size (stations_ht));
 
-    g_print ("Parsed %u weather stations\n", num_stations);
+    g_test_message ("Parsed %u weather stations", num_stations);
 
     return stations_ht;
 }
@@ -364,17 +364,17 @@ test_metar_weather_station (GWeatherLocation *location,
 
     line = g_hash_table_lookup (stations_ht, code);
     if (!line) {
-        g_print ("Could not find airport for '%s' in " METAR_SOURCES "\n", code);
+        g_test_message ("Could not find airport for '%s' in " METAR_SOURCES "\n", code);
         g_test_fail ();
     } else {
         char *has_metar;
 
         has_metar = g_strndup (line + 62, 1);
         if (*has_metar == 'Z') {
-            g_print ("Airport weather station '%s' is obsolete\n", code);
+            g_test_message ("Airport weather station '%s' is obsolete\n", code);
             g_test_fail ();
         } else if (*has_metar == ' ') {
-            g_print ("Could not find weather station for '%s' in " METAR_SOURCES "\n", code);
+            g_test_message ("Could not find weather station for '%s' in " METAR_SOURCES "\n", code);
             g_test_fail ();
         }
         g_free (has_metar);
@@ -551,9 +551,9 @@ check_bad_duplicate_weather_stations (gpointer key,
     }
 
     if (g_hash_table_size (dedup) > 1) {
-        g_print ("Airport '%s' is defined %u times in different ways\n",
-                 (const char *) key,
-                 stations->len);
+        g_test_message ("Airport '%s' is defined %u times in different ways\n",
+                        (const char *) key,
+                        stations->len);
         g_test_fail ();
     }
 
@@ -630,11 +630,12 @@ test_duplicate_weather_stations_children (GWeatherLocation *location)
                     GWeatherLocationLevel parent_level;
 
                     parent_level = gweather_location_get_level (location);
-                    g_print ("Duplicate weather station '%s' in %s (level '%s')\n",
-                             code,
-                             gweather_location_get_name (location),
-                             gweather_location_level_to_string (parent_level));
+                    g_test_message ("Duplicate weather station '%s' in %s (level '%s')\n",
+                                    code,
+                                    gweather_location_get_name (location),
+                                    gweather_location_level_to_string (parent_level));
                     g_test_fail ();
+                    return;
                 }
             }
 
@@ -764,12 +765,12 @@ test_weather_loop_use_after_free (void)
     loc = find_loc (world, search_str);
 
     if (!loc) {
-        g_message ("Could not find station for %s", search_str);
+        g_test_message ("Could not find station for %s", search_str);
         g_test_failed ();
         return;
     }
 
-    g_message ("Found station %s for '%s'", gweather_location_get_name (loc), search_str);
+    g_test_message ("Found station %s for '%s'", gweather_location_get_name (loc), search_str);
 
     loop = g_main_loop_new (NULL, TRUE);
     info = gweather_info_new (NULL);
@@ -857,12 +858,6 @@ test_radians_to_degrees_str (void)
     g_assert_cmpstr (short_version, ==, "72.2365");
 }
 
-static void
-log_handler (const char *log_domain, GLogLevelFlags log_level, const char *message, gpointer user_data)
-{
-    g_print ("%s\n", message);
-}
-
 int
 main (int argc, char *argv[])
 {
@@ -870,9 +865,6 @@ main (int argc, char *argv[])
 
     g_test_init (&argc, &argv, NULL);
     g_test_bug_base ("http://gitlab.gnome.org/GNOME/libgweather/issues/");
-
-    /* We need to handle log messages produced by g_message so they're interpreted correctly by the GTester framework */
-    g_log_set_handler (NULL, G_LOG_LEVEL_MESSAGE | G_LOG_LEVEL_INFO | G_LOG_LEVEL_DEBUG, log_handler, NULL);
 
     g_setenv ("LIBGWEATHER_LOCATIONS_PATH",
               TEST_LOCATIONS,
