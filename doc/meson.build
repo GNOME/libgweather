@@ -17,6 +17,7 @@ if get_option('gtk_doc') and get_option('introspection')
   )
 
   gweather_content_files = [
+    'adding-locations.md',
     'migrating-3to4.md',
   ]
 
