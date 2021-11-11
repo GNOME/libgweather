@@ -707,4 +707,9 @@ metar_start_open (GWeatherInfo *info)
     msg = soup_message_new_from_uri ("GET", uri);
     _gweather_info_begin_request (info, msg);
     _gweather_info_queue_request (info, msg, metar_finish);
+#if SOUP_CHECK_VERSION(2, 99, 2)
+    g_uri_unref (uri);
+#else
+    soup_uri_free (uri);
+#endif
 }
