@@ -560,6 +560,7 @@ fill_location_entry_model (GtkListStore *store, GWeatherLocation *loc,
 				       show_named_timezones);
 
 	g_free (display_name);
+	g_free (local_sort_name);
 	g_free (local_compare_name);
 	g_free (english_compare_name);
 	break;
@@ -595,6 +596,7 @@ fill_location_entry_model (GtkListStore *store, GWeatherLocation *loc,
 					   -1);
 
 	g_free (display_name);
+	g_free (local_sort_name);
 	g_free (local_compare_name);
 	g_free (english_compare_name);
 	break;
