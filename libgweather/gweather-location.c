@@ -771,7 +771,7 @@ gweather_location_find_nearest_city_full (GWeatherLocation *loc,
     if (loc != world)
         gweather_location_unref (loc);
 
-    return gweather_location_ref (data.location);
+    return data.location;
 }
 
 static void
