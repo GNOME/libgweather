@@ -480,7 +480,7 @@ metar_parse (gchar *metar, GWeatherInfo *info)
 {
     gchar *p;
     //gchar *rmk;
-    gint i, i2;
+    gint i2;
     gchar *tokp;
 
     g_return_val_if_fail (info != NULL, FALSE);
@@ -501,7 +501,6 @@ metar_parse (gchar *metar, GWeatherInfo *info)
     }
 
     p = metar;
-    i = TIME_RE;
     while (*p) {
         int token_start, token_end;
 
@@ -509,7 +508,7 @@ metar_parse (gchar *metar, GWeatherInfo *info)
         token_start = strlen (p);
         token_end = token_start;
 
-        for (i = 0; i < RE_NUM; i++) {
+        for (int i = 0; i < RE_NUM; i++) {
             GMatchInfo *match_info;
 
             if (g_regex_match_full (metar_re[i], p, -1, 0, 0, &match_info, NULL)) {
