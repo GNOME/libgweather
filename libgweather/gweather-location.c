@@ -789,13 +789,18 @@ _got_place (GObject *source_object,
 
     foreach_city (info->location, (GFunc) find_nearest_city, &data, country_code, NULL, NULL);
 
+    gweather_location_unref (info->location);
     g_slice_free (ArgData, info);
 
     if (data.location == NULL) {
         g_task_return_pointer (task, NULL, NULL);
     } else {
-        GWeatherLocation *location;
-        location = _gweather_location_new_detached (data.location, geocode_place_get_town (place), TRUE, data.latitude, data.longitude);
+        GWeatherLocation *location =
+            _gweather_location_new_detached (data.location,
+                                             geocode_place_get_town (place),
+                                             TRUE,
+                                             data.latitude,
+                                             data.longitude);
 
         g_task_return_pointer (task, location, (GDestroyNotify) gweather_location_unref);
     }
@@ -805,18 +810,19 @@ _got_place (GObject *source_object,
 
 /**
  * gweather_location_detect_nearest_city:
- * @loc: (allow-none): The parent location, which will be searched recursively
+ * @loc: (nullable): the parent location, which will be searched recursively
  * @lat: Latitude, in degrees
  * @lon: Longitude, in degrees
- * @cancellable: optional, NULL to ignore
- * @callback: callback function for GAsyncReadyCallback argument for GAsyncResult
+ * @cancellable: (nullable): a cancellable instance
+ * @callback: callback function
  * @user_data: user data passed to @callback
  *
- * Initializes geocode reversing to find place for (@lat, @lon) coordinates. Calls the callback
- * function passed by user when the result is ready.
+ * Initializes geocode reversing to find place for (@lat, @lon) coordinates.
  *
- * @loc must be at most a %GWEATHER_LOCATION_ADM1 location.
- * This restriction may be lifted in a future version.
+ * Calls the callback function passed by user when the result is ready.
+ *
+ * The given location must be at most a %GWEATHER_LOCATION_ADM1 location; this
+ * restriction may be lifted in a future version.
  */
 void
 gweather_location_detect_nearest_city (GWeatherLocation *loc,
@@ -836,7 +842,7 @@ gweather_location_detect_nearest_city (GWeatherLocation *loc,
                       loc->level == GWEATHER_LOCATION_NAMED_TIMEZONE);
 
     if (loc == NULL)
-        loc = world = gweather_location_get_world ();
+        world = gweather_location_get_world ();
 
     location = geocode_location_new (lat, lon, GEOCODE_LOCATION_ACCURACY_CITY);
     reverse = geocode_reverse_new_for_location (location);
@@ -846,7 +852,9 @@ gweather_location_detect_nearest_city (GWeatherLocation *loc,
     data = g_slice_new0 (ArgData);
     data->latitude = lat;
     data->longitude = lon;
-    data->location = loc;
+    data->location = loc != NULL
+                       ? gweather_location_ref (loc)
+                       : g_steal_pointer (&world);
     data->task = task;
 
     geocode_reverse_resolve_async (reverse, cancellable, _got_place, data);
@@ -854,7 +862,7 @@ gweather_location_detect_nearest_city (GWeatherLocation *loc,
 
 /**
  * gweather_location_detect_nearest_location_finish:
- * @result: 
+ * @result:
  * @error: Stores error if any occurs in retrieving the result
  *
  * Fetches the location from @result.
