@@ -852,17 +852,8 @@ gweather_info_get_conditions (GWeatherInfo *info)
 static gboolean
 is_locale_metric (void)
 {
-    /* Translate to the default units to use for presenting
-     * lengths to the user. Translate to default:inch if you
-     * want inches, otherwise translate to default:mm.
-     * Do *not* translate it to "predefinito:mm", if it
-     * it isn't default:mm or default:inch it will not work
-     */
-    gchar *e = _ ("default:mm");
-
 #ifdef HAVE__NL_MEASUREMENT_MEASUREMENT
-    const char *fmt;
-    fmt = nl_langinfo (_NL_MEASUREMENT_MEASUREMENT);
+    const char *fmt = nl_langinfo (_NL_MEASUREMENT_MEASUREMENT);
 
     if (fmt && *fmt == 2)
         return FALSE;
@@ -870,12 +861,24 @@ is_locale_metric (void)
         return TRUE;
 #endif
 
+    /* Translate to the default units to use for presenting
+     * lengths to the user. Translate to default:inch if you
+     * want inches, otherwise translate to default:mm.
+     * Do *not* translate it to "predefinito:mm", if it
+     * it isn't default:mm or default:inch it will not work
+     */
+    const char *e = _ ("default:mm");
+
     if (strcmp (e, "default:inch") == 0)
         return FALSE;
-    else if (strcmp (e, "default:mm"))
-        g_warning ("Whoever translated default:mm did so wrongly.\n");
-
-    return TRUE;
+    else if (strcmp (e, "default:mm") == 1)
+        return TRUE;
+    else {
+        g_warning ("Wrong translation for libgweather; please file "
+                   "file an issue at: https://gitlab.gnome.org/GNOME/libgweather/issues/new "
+                   "and make sure to include your locale and language");
+        return TRUE;
+    }
 }
 
 /**
