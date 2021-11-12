@@ -411,29 +411,32 @@ free_forecast_list (GWeatherInfo *info)
 /* Relative humidity computation - thanks to <Olof.Oberg@modopaper.modogroup.com>
    calc_dew is simply the inverse of calc_humidity */
 
-static inline gdouble
-calc_dew (gdouble temp, gdouble humidity)
+static inline double
+calc_dew (double temp,
+          double humidity)
 {
-    gdouble esat, esurf, tmp;
+    double esurf;
 
     if (temp > -500.0 && humidity > -1.0) {
         temp = TEMP_F_TO_C (temp);
 
-        esat = 6.11 * pow (10.0, (7.5 * temp) / (237.7 + temp));
+        double esat = 6.11 * pow (10.0, (7.5 * temp) / (237.7 + temp));
+
         esurf = (humidity / 100) * esat;
     } else {
         esurf = -1.0;
-        esat = 1.0;
     }
 
-    tmp = log10 (esurf / 6.11);
+    double tmp = log10 (esurf / 6.11);
+
     return TEMP_C_TO_F (tmp * 237.7 / (tmp + 7.5));
 }
 
-static inline gdouble
-calc_humidity (gdouble temp, gdouble dewp)
+static inline double
+calc_humidity (double temp,
+               double dewp)
 {
-    gdouble esat, esurf;
+    double esat, esurf;
 
     if (temp > -500.0 && dewp > -500.0) {
         temp = TEMP_F_TO_C (temp);
