@@ -647,7 +647,10 @@ find_nearest_city (GWeatherLocation *location,
 {
     struct FindNearestCityData *data = user_data;
 
-    double distance = location_distance (location->latitude, location->longitude, data->latitude, data->longitude);
+    double distance = location_distance (location->latitude,
+                                         location->longitude,
+                                         data->latitude,
+                                         data->longitude);
 
     if (data->location == NULL || data->distance > distance) {
         g_clear_pointer (&data->location, gweather_location_unref);
@@ -689,6 +692,8 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
 
     if (loc == NULL)
         loc = world = gweather_location_get_world ();
+    else
+        gweather_location_ref (loc);
 
     lat = lat * M_PI / 180.0;
     lon = lon * M_PI / 180.0;
@@ -699,6 +704,9 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
     data.distance = 0.0;
 
     foreach_city (loc, (GFunc) find_nearest_city, &data, NULL, NULL, NULL);
+
+    if (loc != world)
+        gweather_location_unref (loc);
 
     return data.location;
 }
@@ -745,6 +753,8 @@ gweather_location_find_nearest_city_full (GWeatherLocation *loc,
 
     if (loc == NULL)
         loc = world = gweather_location_get_world ();
+    else
+        gweather_location_ref (loc);
 
     lat = lat * M_PI / 180.0;
     lon = lon * M_PI / 180.0;
@@ -757,6 +767,9 @@ gweather_location_find_nearest_city_full (GWeatherLocation *loc,
     foreach_city (loc, (GFunc) find_nearest_city, &data, NULL, func, user_data);
 
     destroy (user_data);
+
+    if (loc != world)
+        gweather_location_unref (loc);
 
     return gweather_location_ref (data.location);
 }
