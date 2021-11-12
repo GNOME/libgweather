@@ -690,10 +690,13 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
 
     g_return_val_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY, NULL);
 
-    if (loc == NULL)
+    if (loc == NULL) {
         loc = world = gweather_location_get_world ();
-    else
+        if (G_UNLIKELY (loc == NULL))
+            return NULL;
+    } else {
         gweather_location_ref (loc);
+    }
 
     lat = lat * M_PI / 180.0;
     lon = lon * M_PI / 180.0;
@@ -751,10 +754,13 @@ gweather_location_find_nearest_city_full (GWeatherLocation *loc,
                               loc->level == GWEATHER_LOCATION_NAMED_TIMEZONE,
                           NULL);
 
-    if (loc == NULL)
+    if (loc == NULL) {
         loc = world = gweather_location_get_world ();
-    else
+        if (G_UNLIKELY (world == NULL))
+            return NULL;
+    } else {
         gweather_location_ref (loc);
+    }
 
     lat = lat * M_PI / 180.0;
     lon = lon * M_PI / 180.0;
@@ -854,8 +860,11 @@ gweather_location_detect_nearest_city (GWeatherLocation *loc,
     g_return_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY ||
                       loc->level == GWEATHER_LOCATION_NAMED_TIMEZONE);
 
-    if (loc == NULL)
+    if (loc == NULL) {
         world = gweather_location_get_world ();
+        if (G_UNLIKELY (world == NULL))
+            return;
+    }
 
     location = geocode_location_new (lat, lon, GEOCODE_LOCATION_ACCURACY_CITY);
     reverse = geocode_reverse_new_for_location (location);
@@ -1742,6 +1751,9 @@ gweather_location_new_detached (const char *name,
         name = NULL;
 
     world = gweather_location_get_world ();
+    if (G_UNLIKELY (world == NULL)) {
+        return NULL;
+    }
 
     if (icao != NULL) {
         return gweather_location_common_deserialize (world, name, icao, FALSE, TRUE, latitude, longitude, FALSE, 0, 0);
