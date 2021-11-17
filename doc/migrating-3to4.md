@@ -14,7 +14,7 @@ guidelines](https://developer.gnome.org/hig/).
 
 ### Stop using `gweather_location_get_children()`
 
-In order to iterate over the child locations of a [struct@GWeather.Location],
+In order to iterate over the child locations of a [class@GWeather.Location],
 you should use the iterator method [`method@GWeather.Location.next_child`]:
 
 ```c

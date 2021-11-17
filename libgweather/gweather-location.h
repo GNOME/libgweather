@@ -58,7 +58,7 @@ typedef gboolean (* GWeatherFilterFunc) (GWeatherLocation* location,
  * @GWEATHER_LOCATION_NAMED_TIMEZONE: A location representing a named or
  *   special timezone in the world, such as UTC
  *
- * The size/scope of a particular [struct@GWeather.Location].
+ * The size/scope of a particular [class@GWeather.Location].
  *
  * Locations form a hierarchy, with a `GWEATHER_LOCATION_WORLD` location
  * at the top, divided into regions or countries, and so on.

@@ -30,7 +30,7 @@
  * GWeatherInfo:
  *
  * `GWeatherInfo` provides a handy way to access weather conditions
- * and forecasts from a [struct@GWeather.Location], aggregating multiple
+ * and forecasts from a [class@GWeather.Location], aggregating multiple
  * different web services.
  *
  * It includes also astronomical data such as sunrise times and
