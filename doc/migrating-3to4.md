@@ -1,6 +1,6 @@
 Title: Migrating from GWeather 3.x to GWeather 4
 
-## Migrating from GWeather 3.x to GWeather 4
+# Migrating from GWeather 3.x to GWeather 4
 
 GWeather 4 is a new major version that breaks API and ABI compared with
 GWeather 3.
@@ -11,6 +11,11 @@ GWeather 4 does not provide GTK widgets for selecting a location or a time
 zone. Applications should provide their own UI, if needed, according to the
 best practices of the [GNOME human interface
 guidelines](https://developer.gnome.org/hig/).
+
+## Preparations
+
+Before migrating to GWeather 4, there are steps to follow in order to minimise
+the changes you have to implement once you switch.
 
 ### Stop using `gweather_location_get_children()`
 
@@ -45,6 +50,11 @@ method has been returning `NULL` since then.
 ### Stop using `GWEATHER_PROVIDER_YAHOO`
 
 The Yahoo! provider was removed in libgweather 3.28.
+
+## Changes
+
+The following changes in GWeather 4 are incompatible with GWeather 3.x, and
+must be performed at the time of the port.
 
 ### `GWeatherLocation` is a GObject
 
