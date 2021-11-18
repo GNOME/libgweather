@@ -1,6 +1,6 @@
 
-#include "gweather-weather.h"
-#include <gweather-version.h>
+#include "gweather-info.h"
+#include "gweather-version.h"
 
 #include <locale.h>
 

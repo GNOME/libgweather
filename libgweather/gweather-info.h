@@ -1,4 +1,4 @@
-/* gweather-weather.h - Public header for weather server functions
+/* gweather-info.h - Weather information data
  *
  * SPDX-FileCopyrightText: The GWeather authors
  * SPDX-License-Identifier: GPL-2.0-or-later

@@ -13,7 +13,6 @@
 #include <time.h>
 
 #include "gweather-private.h"
-#include "gweather-weather.h"
 
 int
 main (int argc, char **argv)

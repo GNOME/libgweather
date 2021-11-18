@@ -13,7 +13,7 @@
 #include <libsoup/soup.h>
 #include <glib/gi18n-lib.h>
 
-#include "gweather-weather.h"
+#include "gweather-info.h"
 #include "gweather-location.h"
 #include "gweather-db.h"
 

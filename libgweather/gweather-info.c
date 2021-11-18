@@ -1,4 +1,4 @@
-/* gweather-weather.c - Overall weather server functions
+/* gweather-info.c: Weather information data
  *
  * SPDX-FileCopyrightText: The GWeather authors
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -6,7 +6,7 @@
 
 #include "config.h"
 
-#include "gweather-weather.h"
+#include "gweather-info.h"
 
 #include "gweather-enum-types.h"
 #include "gweather-private.h"

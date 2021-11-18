@@ -134,9 +134,9 @@ deps_libgweather = [
 ]
 
 gweather_headers = [
+  'gweather-info.h',
   'gweather-location.h',
   'gweather-timezone.h',
-  'gweather-weather.h',
   'gweather-enums.h'
 ]
 
@@ -153,7 +153,7 @@ install_headers(gweather_headers + ['gweather.h'], subdir: header_subdir)
 gweather_c_sources = [
   gweather_enum_types,
   'gweather.c',
-  'gweather-weather.c',
+  'gweather-info.c',
   'gweather-location.c',
   'gweather-timezone.c',
 ]
