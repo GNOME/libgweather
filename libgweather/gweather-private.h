@@ -99,6 +99,12 @@ GWeatherTimezone *
 _gweather_timezone_ref_for_idx (GWeatherDb *db,
                                 guint idx);
 
+void
+gweather_location_ensure_world (void);
+
+GWeatherDb *
+gweather_get_db (void);
+
 /*
  * Weather information.
  */
