@@ -24,7 +24,7 @@ gweather_tests = [
 
 foreach t: gweather_tests
   test_name = t['name']
-  test_sources = [test_name + '.c'] + t.get('sources', [])
+  test_sources = [test_name + '.c', 'gweather-test-utils.c'] + t.get('sources', [])
   test_c_args = gweather_test_cargs + t.get('c_args', [])
   test_env = gweather_test_env
 

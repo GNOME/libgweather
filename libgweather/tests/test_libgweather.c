@@ -12,13 +12,11 @@
 #include <locale.h>
 #include <string.h>
 
-#include <libgweather/gweather-version.h>
+#include <libgweather/gweather.h>
 
-/* We use internal API */
+#include "gweather-test-utils.h"
+
 #include "gweather-private.h"
-
-extern void
-_gweather_location_reset_world (void);
 
 /* For test_metar_weather_stations */
 #define METAR_SOURCES "https://www.aviationweather.gov/docs/metar/stations.txt"
@@ -51,7 +49,7 @@ test_named_timezones (void)
     }
 
     g_clear_object (&world);
-    _gweather_location_reset_world ();
+    gweather_test_reset_world ();
 }
 
 static GList *
@@ -184,7 +182,8 @@ test_no_code_serialize (void)
     g_clear_object (&world);
     g_clear_object (&loc);
     g_clear_pointer (&new_loc, g_object_unref);
-    _gweather_location_reset_world ();
+
+    gweather_test_reset_world ();
 }
 
 static void
@@ -243,7 +242,8 @@ test_timezones (void)
     test_timezones_children (world);
 
     g_clear_object (&world);
-    _gweather_location_reset_world ();
+
+    gweather_test_reset_world ();
 }
 
 static void
@@ -294,7 +294,8 @@ test_airport_distance_sanity (void)
         g_warning ("Maximum city to airport distance is %.1f km", max_distance);
 
     g_clear_object (&world);
-    _gweather_location_reset_world ();
+
+    gweather_test_reset_world ();
 }
 
 static GHashTable *
@@ -451,72 +452,8 @@ test_metar_weather_stations (void)
     g_hash_table_unref (stations_ht);
 
     g_clear_object (&world);
-    _gweather_location_reset_world ();
-}
 
-/* Set up the temporary directory with the GSettings schemas */
-static char *
-setup_gsettings (void)
-{
-    char *tmpdir, *schema_text, *dest, *cmdline;
-    int result;
-
-    /* Create the installed schemas directory */
-    GError *error = NULL;
-    tmpdir = g_dir_make_tmp ("libgweather-test-XXXXXX", &error);
-    g_assert_no_error (error);
-
-    g_test_message ("Using temporary directory: %s", tmpdir);
-
-    /* Copy the schemas files */
-    g_assert_true (g_file_get_contents (SCHEMAS_BUILDDIR "/org.gnome.GWeather4.enums.xml", &schema_text, NULL, NULL));
-    dest = g_build_filename (tmpdir, "org.gnome.GWeather4.enums.xml", NULL);
-    g_assert_true (g_file_set_contents (dest, schema_text, -1, NULL));
-    g_free (dest);
-    g_free (schema_text);
-
-    g_assert_true (g_file_get_contents (SCHEMASDIR "/org.gnome.GWeather4.gschema.xml", &schema_text, NULL, NULL));
-    dest = g_build_filename (tmpdir, "org.gnome.GWeather4.gschema.xml", NULL);
-    g_assert_true (g_file_set_contents (dest, schema_text, -1, NULL));
-    g_free (dest);
-    g_free (schema_text);
-
-    /* Compile the schemas */
-    cmdline = g_strdup_printf ("glib-compile-schemas --targetdir=%s "
-                               "--schema-file=%s/org.gnome.GWeather4.enums.xml "
-                               "--schema-file=%s/org.gnome.GWeather4.gschema.xml",
-                               tmpdir,
-                               SCHEMAS_BUILDDIR,
-                               SCHEMASDIR);
-    g_assert_true (g_spawn_command_line_sync (cmdline, NULL, NULL, &result, NULL));
-    g_assert_cmpint (result, ==, 0);
-    g_free (cmdline);
-
-    /* Set envvar */
-    g_setenv ("GSETTINGS_SCHEMA_DIR", tmpdir, TRUE);
-
-    return tmpdir;
-}
-
-/* Tear down the temporary directory with the GSettings schemas */
-static void
-teardown_gsettings (const char *schemas_dir)
-{
-    char *dest = NULL;
-
-    dest = g_build_filename (schemas_dir, "org.gnome.GWeather4.enums.xml", NULL);
-    g_assert_no_errno (g_unlink (dest));
-    g_free (dest);
-
-    dest = g_build_filename (schemas_dir, "org.gnome.GWeather4.gschema.xml", NULL);
-    g_assert_no_errno (g_unlink (dest));
-    g_free (dest);
-
-    dest = g_build_filename (schemas_dir, "gschemas.compiled", NULL);
-    g_assert_no_errno (g_unlink (dest));
-    g_free (dest);
-
-    g_assert_no_errno (g_rmdir (schemas_dir));
+    gweather_test_reset_world ();
 }
 
 static void
@@ -550,7 +487,8 @@ test_utc_sunset (void)
 
     g_clear_object (&world);
     g_clear_object (&utc);
-    _gweather_location_reset_world ();
+
+    gweather_test_reset_world ();
 }
 
 static void
@@ -577,7 +515,7 @@ test_location_names (void)
 
     g_clear_object (&world);
     g_clear_object (&brussels);
-    _gweather_location_reset_world ();
+    gweather_test_reset_world ();
 
     world = gweather_location_get_world ();
     g_assert_nonnull (world);
@@ -592,7 +530,7 @@ test_location_names (void)
     g_clear_object (&world);
 
     setlocale (LC_ALL, old_locale);
-    _gweather_location_reset_world ();
+    gweather_test_reset_world ();
 }
 
 static gboolean
@@ -732,7 +670,7 @@ test_walk_world (void)
     g_clear_object (&cur);
 
     /* noop, but asserts we did not leak */
-    _gweather_location_reset_world ();
+    gweather_test_reset_world ();
 }
 
 static void
@@ -757,26 +695,23 @@ main (int argc, char *argv[])
     g_test_init (&argc, &argv, NULL);
     g_test_bug_base ("http://gitlab.gnome.org/GNOME/libgweather/issues/");
 
-    char *schemas_dir = setup_gsettings ();
+    g_autofree char *schemas_dir = gweather_test_setup_gsettings ();
 
     g_test_add_func ("/weather/radians-to-degrees_str", test_radians_to_degrees_str);
     g_test_add_func ("/weather/named-timezones", test_named_timezones);
     g_test_add_func ("/weather/named-timezones-deserialized", test_named_timezones_deserialized);
-    g_test_add_func ("/weather/no-code-serialize", test_no_code_serialize);
     g_test_add_func ("/weather/timezones", test_timezones);
+    g_test_add_func ("/weather/no-code-serialize", test_no_code_serialize);
     g_test_add_func ("/weather/airport_distance_sanity", test_airport_distance_sanity);
     g_test_add_func ("/weather/metar_weather_stations", test_metar_weather_stations);
     g_test_add_func ("/weather/utc_sunset", test_utc_sunset);
     g_test_add_func ("/weather/weather-loop-use-after-free", test_weather_loop_use_after_free);
-    /* Modifies environment, so needs to run last */
     g_test_add_func ("/weather/location-names", test_location_names);
     g_test_add_func ("/weather/walk_world", test_walk_world);
 
     int res = g_test_run ();
 
-    teardown_gsettings (schemas_dir);
-
-    g_free (schemas_dir);
+    gweather_test_teardown_gsettings (schemas_dir);
 
     return res;
 }
