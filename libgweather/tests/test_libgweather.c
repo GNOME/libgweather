@@ -6,14 +6,6 @@
 
 #include "config.h"
 
-#include <glib.h>
-#include <glib/gstdio.h>
-#include <libsoup/soup.h>
-#include <locale.h>
-#include <string.h>
-
-#include <libgweather/gweather.h>
-
 #include "gweather-test-utils.h"
 
 #include "gweather-private.h"
