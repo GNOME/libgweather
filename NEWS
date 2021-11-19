@@ -1,3 +1,33 @@
+GWeather 3.90.0 (development snapshot)
+======================================
+
+Changes since GWeather 40.0
+---------------------------
+
+- New major API
+- Remove uses of deprecated API
+- Use explicit symbol versioning
+- Move to gi-docgen for generating the API reference
+- Remove the widgets, along with the GTK3 dependency
+- Remove the dependency on gdk-pixbuf
+- Fix a memory leak in GWeather.Info.get_location_name() [#80]
+- Use the appropriate Unicode for temperature units [#8]
+- Support building libgweather with libsoup3
+- Translation updates
+
+Changes in the locations database
+---------------------------------
+
+- Add missing Italian capitals of provinces
+- Add missing Spanish capitals of provinces
+- Add Petrozavodsk city
+- Add city Multan, Pakistan and Multan Airport
+- Add Half Moon Bay for a coastal Bay Area reference
+- Quetta and Peshawar added (cities in Pakistan)
+- Added Albany Airport, Western Australia (YABA)
+- Add Santa Fe city and its airport
+- Fix Astrakhan' timezone [#83]
+
 ==================
 Version 40.0
 ==================
@@ -960,7 +990,7 @@ Version 2.29.91
 	* Emilio Pozuelo Monfort (Canberra, AU)
 	* Frank Solensky (St. Moritz, CH and Ankara, TR)
 	* Vincent Untz (Antartica)
-        
+
   Translators
 	* Alexander Shopov (bg)
 	* Petr Kovar (cs)
