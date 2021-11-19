@@ -204,6 +204,14 @@ enable_vala = get_option('enable_vala')
 vapigen = find_program('vapigen', required: enable_vala == 'true')
 if enable_vala == 'auto' or enable_vala == 'true'
   build_vapi = vapigen.found() and get_option('introspection')
+  if enable_vala == 'true' and not build_vapi
+    if not vapigen.found()
+      msg = 'vapigen not found'
+    elif not get_option('introspection')
+      msg = 'introspection disabled'
+    endif
+    error('Vala bindings were enabled but cannot be generated: @0@'.format(msg))
+  endif
 else
   build_vapi = false
 endif
