@@ -6,6 +6,8 @@
 
 #include "config.h"
 
+#include <glib.h>
+#include <glib/gstdio.h>
 #include <libsoup/soup.h>
 #include <locale.h>
 #include <string.h>
@@ -452,15 +454,19 @@ test_metar_weather_stations (void)
     _gweather_location_reset_world ();
 }
 
-static void
-set_gsettings (void)
+/* Set up the temporary directory with the GSettings schemas */
+static char *
+setup_gsettings (void)
 {
     char *tmpdir, *schema_text, *dest, *cmdline;
     int result;
 
     /* Create the installed schemas directory */
-    tmpdir = g_dir_make_tmp ("libgweather-test-XXXXXX", NULL);
-    g_assert_nonnull (tmpdir);
+    GError *error = NULL;
+    tmpdir = g_dir_make_tmp ("libgweather-test-XXXXXX", &error);
+    g_assert_no_error (error);
+
+    g_test_message ("Using temporary directory: %s", tmpdir);
 
     /* Copy the schemas files */
     g_assert_true (g_file_get_contents (SCHEMAS_BUILDDIR "/org.gnome.GWeather4.enums.xml", &schema_text, NULL, NULL));
@@ -488,9 +494,29 @@ set_gsettings (void)
 
     /* Set envvar */
     g_setenv ("GSETTINGS_SCHEMA_DIR", tmpdir, TRUE);
-    g_setenv ("GSETTINGS_BACKEND", "memory", TRUE);
 
-    g_free (tmpdir);
+    return tmpdir;
+}
+
+/* Tear down the temporary directory with the GSettings schemas */
+static void
+teardown_gsettings (const char *schemas_dir)
+{
+    char *dest = NULL;
+
+    dest = g_build_filename (schemas_dir, "org.gnome.GWeather4.enums.xml", NULL);
+    g_assert_no_errno (g_unlink (dest));
+    g_free (dest);
+
+    dest = g_build_filename (schemas_dir, "org.gnome.GWeather4.gschema.xml", NULL);
+    g_assert_no_errno (g_unlink (dest));
+    g_free (dest);
+
+    dest = g_build_filename (schemas_dir, "gschemas.compiled", NULL);
+    g_assert_no_errno (g_unlink (dest));
+    g_free (dest);
+
+    g_assert_no_errno (g_rmdir (schemas_dir));
 }
 
 static void
@@ -866,10 +892,7 @@ main (int argc, char *argv[])
     g_test_init (&argc, &argv, NULL);
     g_test_bug_base ("http://gitlab.gnome.org/GNOME/libgweather/issues/");
 
-    g_setenv ("LIBGWEATHER_LOCATIONS_PATH",
-              TEST_LOCATIONS,
-              FALSE);
-    set_gsettings ();
+    char *schemas_dir = setup_gsettings ();
 
     g_test_add_func ("/weather/radians-to-degrees_str", test_radians_to_degrees_str);
     g_test_add_func ("/weather/named-timezones", test_named_timezones);
@@ -886,5 +909,11 @@ main (int argc, char *argv[])
     g_test_add_func ("/weather/location-names", test_location_names);
     g_test_add_func ("/weather/walk_world", test_walk_world);
 
-    return g_test_run ();
+    int res = g_test_run ();
+
+    teardown_gsettings (schemas_dir);
+
+    g_free (schemas_dir);
+
+    return res;
 }
