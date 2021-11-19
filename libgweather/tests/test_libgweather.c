@@ -309,9 +309,8 @@ test_walk_world (void)
     /* Check that we visited a reasonable number of nodes.
      * Due to implicit nearest nodes, this needs to be more than the number
      * of DB entries. */
-    cur = gweather_location_get_world ();
-    g_assert_cmpint (visited, >, cur->db->locations->len);
-    g_clear_object (&cur);
+    GWeatherDb *db = gweather_get_db ();
+    g_assert_cmpint (visited, >, db->locations->len);
 
     /* noop, but asserts we did not leak */
     gweather_test_reset_world ();
