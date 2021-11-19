@@ -94,11 +94,9 @@ test_airport_distance_sanity (void)
 
     test_airport_distance_children (world);
 
-    if (g_test_failed ())
-        g_warning ("Maximum city to airport distance is %.1f km", max_distance);
+    g_test_message ("Maximum airport distance: %g", max_distance);
 
     g_clear_object (&world);
-
     gweather_test_reset_world ();
 }
 
