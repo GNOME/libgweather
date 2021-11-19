@@ -20,6 +20,7 @@ gweather_tests = [
       'LIBGWEATHER_LOCATIONS_NO_NEAREST': '1',
     },
   },
+  { 'name': 'timezones' },
 ]
 
 foreach t: gweather_tests
