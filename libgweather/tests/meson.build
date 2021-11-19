@@ -20,6 +20,7 @@ gweather_tests = [
     },
   },
   { 'name': 'timezones' },
+  { 'name': 'metar' },
 ]
 
 foreach t: gweather_tests
