@@ -7,15 +7,22 @@ add_project_arguments([
 c_compiler = meson.get_compiler('c')
 
 add_project_arguments(c_compiler.get_supported_arguments([
+  # We use G_DECLARE_* macros
+  '-Wno-typedef-redefinition',
+
+  # We have legacy code and callbacks
+  '-Wno-unused-parameter',
+
+  # We are using GObject
+  '-fno-strict-aliasing',
+
   # Warnings we care about
   '-Wimplicit-fallthrough',
   '-Wmisleading-indentation',
   '-Wstrict-prototypes',
   '-Wunused',
 
-  # We have legacy code and callbacks
-  '-Wno-unused-parameter',
-
+  # We guarantee that our code base does not fail these
   '-Werror=format=2',
   '-Werror=implicit-function-declaration',
   '-Werror=init-self',
