@@ -8,6 +8,8 @@
 
 #include "gweather-test-utils.h"
 
+#include <glib/gstdio.h>
+
 /* We use internal API */
 #include "gweather-private.h"
 
