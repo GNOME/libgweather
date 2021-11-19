@@ -3,7 +3,7 @@ install_data('org.gnome.GWeather4.gschema.xml',
   install_dir: gsettingsdir,
 )
 
-gnome.mkenums('org.gnome.GWeather4.enums.xml',
+schemas_enums = gnome.mkenums('org.gnome.GWeather4.enums.xml',
   comments: '<!-- @comment@ -->',
   fhead: '<schemalist>',
   vhead: '<@type@ id="org.gnome.GWeather4.@EnumName@">',

@@ -44,6 +44,6 @@ foreach t: gweather_tests
     args: ['--tap', '-k'],
     protocol: 'tap',
     env: test_env,
-    depends: [locations_bin],
+    depends: [locations_bin, schemas_enums],
   )
 endforeach
