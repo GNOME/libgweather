@@ -92,17 +92,81 @@ _iter_up (GWeatherLocation *loc)
 
     return tmp;
 }
+
 #define ITER_UP(start, _p) for ((_p) = g_object_ref (start); (_p); (_p) = _iter_up (_p))
 
+/*< private >
+ * gweather_location_new_full:
+ * @level: the level of the location
+ * @nearest_station: (nullable) (transfer full): the nearest location
+ * @name: (nullable): the name of the location
+ * @latlon_valid: whether the @latitude and @longitude arguments are set
+ * @latitude: the latitude of the location
+ * @longitude: the longitude of the location
+ *
+ * Creates a new `GWeatherLocation` for the given level.
+ *
+ * If @name is set, it will be used to set the localised and non-localised
+ * name; otherwise, if @nearest_station is set, it will be used to populate
+ * the localised and non-localised name.
+ *
+ * The new location will use @nearest_station as its parent.
+ *
+ * If @latlon_valid is `TRUE`, the coordinates of the new location will
+ * be taken from the @latitude and @longitude arguments; otherwise, the
+ * coordinates of the @nearest_station will be used.
+ *
+ * Returns: (transfer full): the newly created location
+ */
 static GWeatherLocation *
-location_new (GWeatherLocationLevel level)
+gweather_location_new_full (GWeatherLocationLevel level,
+                            GWeatherLocation *nearest_station,
+                            const char *name,
+                            gboolean latlon_valid,
+                            double latitude,
+                            double longitude)
 {
-    GWeatherLocation *loc;
+    GWeatherLocation *self;
+    char *normalized;
 
-    loc = g_object_new (GWEATHER_TYPE_LOCATION, NULL);
-    loc->level = level;
+    self = g_object_new (GWEATHER_TYPE_LOCATION, NULL);
 
-    return loc;
+    self->level = level;
+
+    if (name != NULL) {
+        self->_english_name = g_strdup (name);
+        self->_local_name = g_strdup (name);
+
+        normalized = g_utf8_normalize (name, -1, G_NORMALIZE_ALL);
+        self->_english_sort_name = g_utf8_casefold (normalized, -1);
+        self->_local_sort_name = g_strdup (self->_english_sort_name);
+        g_free (normalized);
+    } else if (nearest_station != NULL) {
+        self->_english_name = g_strdup (gweather_location_get_english_name (nearest_station));
+        self->_local_name = g_strdup (gweather_location_get_name (nearest_station));
+        self->_english_sort_name = g_strdup (gweather_location_get_english_sort_name (nearest_station));
+        self->_local_sort_name = g_strdup (gweather_location_get_sort_name (nearest_station));
+    }
+
+    self->_parent = nearest_station; /* the new location owns the parent */
+    self->_children = NULL;
+
+    if (nearest_station != NULL)
+        self->_station_code = g_strdup (gweather_location_get_code (nearest_station));
+
+    if (latlon_valid) {
+        self->latlon_valid = TRUE;
+        self->latitude = latitude;
+        self->longitude = longitude;
+    } else if (nearest_station != NULL) {
+        self->latlon_valid = nearest_station->latlon_valid;
+        self->latitude = nearest_station->latitude;
+        self->longitude = nearest_station->longitude;
+    } else {
+        self->latlon_valid = FALSE;
+    }
+
+    return self;
 }
 
 static void
@@ -128,7 +192,17 @@ location_ref_for_idx (GWeatherDb *db,
     }
 
     ref = db_arrayof_location_get_at (db->locations_ref, idx);
-    loc = location_new (db_location_get_level (ref));
+
+    double latitude = db_coordinate_get_lat (db_location_get_coordinates (ref));
+    double longitude = db_coordinate_get_lon (db_location_get_coordinates (ref));
+    gboolean latlon_valid = isfinite (latitude) && isfinite (longitude);
+
+    loc = gweather_location_new_full (db_location_get_level (ref),
+                                      NULL,
+                                      NULL,
+                                      latlon_valid,
+                                      latitude,
+                                      longitude);
     loc->db = db;
     loc->db_idx = idx;
     loc->ref = ref;
@@ -141,17 +215,16 @@ location_ref_for_idx (GWeatherDb *db,
 
     loc->tz_hint_idx = db_location_get_tz_hint (ref);
 
-    loc->latitude = db_coordinate_get_lat (db_location_get_coordinates (ref));
-    loc->longitude = db_coordinate_get_lon (db_location_get_coordinates (ref));
-    loc->latlon_valid = isfinite (loc->latitude) && isfinite (loc->longitude);
-
     /* Note, we used to sort locations by distance (for cities) and name;
-     * Distance sorting is done in the variant already,
-     * name sorting however needs translations and is not done anymore. */
+     * distance sorting is done in the variant already, name sorting however
+     * needs translations and is not done anymore.
+     */
 
     /* Store a weak reference in the cache.
+     *
      * Implicit "nearest" copies do not have a weak reference, they simply
-     * belong to the parent. */
+     * belong to the parent.
+     */
     if (!nearest_of)
         g_ptr_array_index (db->locations, idx) = loc;
 
@@ -709,11 +782,12 @@ _got_place (GObject *source_object,
         g_task_return_pointer (task, NULL, NULL);
     } else {
         GWeatherLocation *location =
-            _gweather_location_new_detached (data.location,
-                                             geocode_place_get_town (place),
-                                             TRUE,
-                                             data.latitude,
-                                             data.longitude);
+            gweather_location_new_full (GWEATHER_LOCATION_DETACHED,
+                                        data.location,
+                                        geocode_place_get_town (place),
+                                        TRUE,
+                                        data.latitude,
+                                        data.longitude);
 
         g_task_return_pointer (task, location, (GDestroyNotify) g_object_unref);
     }
@@ -1332,53 +1406,6 @@ gweather_location_format_two_serialize (GWeatherLocation *location)
                           &parent_latlon_builder);
 }
 
-GWeatherLocation *
-_gweather_location_new_detached (GWeatherLocation *nearest_station,
-                                 const char *name,
-                                 gboolean latlon_valid,
-                                 gdouble latitude,
-                                 gdouble longitude)
-{
-    GWeatherLocation *self;
-    char *normalized;
-
-    self = location_new (GWEATHER_LOCATION_DETACHED);
-    if (name != NULL) {
-        self->_english_name = g_strdup (name);
-        self->_local_name = g_strdup (name);
-
-        normalized = g_utf8_normalize (name, -1, G_NORMALIZE_ALL);
-        self->_english_sort_name = g_utf8_casefold (normalized, -1);
-        self->_local_sort_name = g_strdup (self->_english_sort_name);
-        g_free (normalized);
-    } else if (nearest_station) {
-        self->_english_name = g_strdup (gweather_location_get_english_name (nearest_station));
-        self->_local_name = g_strdup (gweather_location_get_name (nearest_station));
-        self->_english_sort_name = g_strdup (gweather_location_get_english_sort_name (nearest_station));
-        self->_local_sort_name = g_strdup (gweather_location_get_sort_name (nearest_station));
-    }
-
-    self->_parent = nearest_station; /* a reference is passed */
-    self->_children = NULL;
-
-    if (nearest_station)
-        self->_station_code = g_strdup (gweather_location_get_code (nearest_station));
-
-    g_assert (nearest_station || latlon_valid);
-
-    if (latlon_valid) {
-        self->latlon_valid = TRUE;
-        self->latitude = latitude;
-        self->longitude = longitude;
-    } else {
-        self->latlon_valid = nearest_station->latlon_valid;
-        self->latitude = nearest_station->latitude;
-        self->longitude = nearest_station->longitude;
-    }
-
-    return self;
-}
-
 static GWeatherLocation *
 gweather_location_common_deserialize (GWeatherLocation *world,
                                       const char *name,
@@ -1409,8 +1436,14 @@ gweather_location_common_deserialize (GWeatherLocation *world,
         g_clear_object (&found);
     }
 
-    if (station_code[0] == '\0')
-        return _gweather_location_new_detached (NULL, name, latlon_valid, latitude, longitude);
+    if (station_code[0] == '\0') {
+        return gweather_location_new_full (GWEATHER_LOCATION_DETACHED,
+                                           NULL,
+                                           name,
+                                           latlon_valid,
+                                           latitude,
+                                           longitude);
+    }
 
     /* Lookup by station code, this may return NULL. */
     by_station_code = gweather_location_find_by_station_code (world, station_code);
@@ -1426,11 +1459,12 @@ gweather_location_common_deserialize (GWeatherLocation *world,
      */
     if (!latlon_valid)
         return by_station_code
-                 ? _gweather_location_new_detached (g_steal_pointer (&by_station_code),
-                                                    name,
-                                                    FALSE,
-                                                    0,
-                                                    0)
+                 ? gweather_location_new_full (GWEATHER_LOCATION_DETACHED,
+                                               g_steal_pointer (&by_station_code),
+                                               name,
+                                               FALSE,
+                                               0,
+                                               0)
                  : NULL;
 
     found = NULL;
@@ -1476,7 +1510,12 @@ gweather_location_common_deserialize (GWeatherLocation *world,
                 g_str_equal (name, gweather_location_get_name (found)))
                 found = g_object_ref (found);
             else
-                found = _gweather_location_new_detached (g_object_ref (ws), name, TRUE, latitude, longitude);
+                found = gweather_location_new_full (GWEATHER_LOCATION_DETACHED,
+                                                    g_object_ref (ws),
+                                                    name,
+                                                    TRUE,
+                                                    latitude,
+                                                    longitude);
 
             return found;
         }
@@ -1485,11 +1524,12 @@ gweather_location_common_deserialize (GWeatherLocation *world,
     /* No weather station matches the serialized data, let's pick
        one at random from the station code list */
     if (by_station_code)
-        return _gweather_location_new_detached (g_steal_pointer (&by_station_code),
-                                                name,
-                                                TRUE,
-                                                latitude,
-                                                longitude);
+        return gweather_location_new_full (GWEATHER_LOCATION_DETACHED,
+                                           g_steal_pointer (&by_station_code),
+                                           name,
+                                           TRUE,
+                                           latitude,
+                                           longitude);
     else
         return NULL;
 }
@@ -1667,8 +1707,8 @@ gweather_location_deserialize (GWeatherLocation *world,
 GWeatherLocation *
 gweather_location_new_detached (const char *name,
                                 const char *icao,
-                                gdouble latitude,
-                                gdouble longitude)
+                                double latitude,
+                                double longitude)
 {
     g_autoptr (GWeatherLocation) world = NULL;
 
@@ -1685,11 +1725,17 @@ gweather_location_new_detached (const char *name,
     if (icao != NULL) {
         return gweather_location_common_deserialize (world, name, icao, FALSE, TRUE, latitude, longitude, FALSE, 0, 0);
     } else {
-        g_autoptr (GWeatherLocation) city = gweather_location_find_nearest_city (world, latitude, longitude);
+        g_autoptr (GWeatherLocation) city =
+            gweather_location_find_nearest_city (world, latitude, longitude);
 
         latitude = DEGREES_TO_RADIANS (latitude);
         longitude = DEGREES_TO_RADIANS (longitude);
 
-        return _gweather_location_new_detached (g_steal_pointer (&city), name, TRUE, latitude, longitude);
+        return gweather_location_new_full (GWEATHER_LOCATION_DETACHED,
+                                           g_steal_pointer (&city),
+                                           name,
+                                           TRUE,
+                                           latitude,
+                                           longitude);
     }
 }

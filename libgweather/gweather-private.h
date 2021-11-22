@@ -84,13 +84,6 @@ typedef struct {
     char *tz_hint;
 } WeatherLocation;
 
-GWeatherLocation *
-_gweather_location_new_detached (GWeatherLocation *nearest_station,
-                                 const char *name,
-                                 gboolean latlon_valid,
-                                 double latitude,
-                                 double longitude);
-
 void
 _gweather_location_update_weather_location (GWeatherLocation *gloc,
                                             WeatherLocation *loc);
