@@ -58,7 +58,7 @@ struct _GWeatherLocation {
     GWeatherLocation *_parent;
     GWeatherLocation **_children;
 
-    GWeatherTimezone *_timezone;
+    GTimeZone *_timezone;
     GWeatherLocationLevel level;
     char *_country_code;
     guint16 tz_hint_idx;
@@ -87,10 +87,6 @@ typedef struct {
 void
 _gweather_location_update_weather_location (GWeatherLocation *gloc,
                                             WeatherLocation *loc);
-
-GWeatherTimezone *
-_gweather_timezone_ref_for_idx (GWeatherDb *db,
-                                guint idx);
 
 void
 gweather_location_ensure_world (void);

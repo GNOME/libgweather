@@ -9,7 +9,6 @@
 #include "gweather-location.h"
 
 #include "gweather-private.h"
-#include "gweather-timezone.h"
 
 #include <geocode-glib/geocode-glib.h>
 #include <glib/gi18n-lib.h>
@@ -44,7 +43,7 @@ gweather_location_finalize (GObject *gobject)
     g_free (self->_country_code);
     g_free (self->_station_code);
 
-    g_clear_pointer (&self->_timezone, gweather_timezone_unref);
+    g_clear_pointer (&self->_timezone, g_time_zone_unref);
 
     G_OBJECT_CLASS (gweather_location_parent_class)->finalize (gobject);
 }
@@ -170,7 +169,28 @@ gweather_location_new_full (GWeatherLocationLevel level,
 }
 
 static void
-add_timezones (GWeatherLocation *loc, GPtrArray *zones);
+add_timezones (GWeatherLocation *loc,
+               GPtrArray *zones);
+
+static GTimeZone *
+timezone_ref_for_idx (GWeatherDb *db,
+                      guint16 idx)
+{
+    DbWorldTimezonesEntryRef ref;
+    const char *id;
+
+    g_assert (db);
+    g_assert (idx < db->timezones->len);
+
+    GTimeZone *zone = g_ptr_array_index (db->timezones, idx);
+    if (zone != NULL)
+        return g_time_zone_ref (zone);
+
+    ref = db_world_timezones_get_at (db->timezones_ref, idx);
+    id = db_world_timezones_entry_get_key (ref);
+
+    return g_time_zone_new_identifier (id);
+}
 
 static GWeatherLocation *
 location_ref_for_idx (GWeatherDb *db,
@@ -657,7 +677,7 @@ find_nearest_city (GWeatherLocation *location,
  * This restriction may be lifted in a future version.
  *
  * Note that this function does not check if (@lat, @lon) fall inside
- * @loc, or are in the same region and timezone as the return value.
+ * @loc, or are in the same region and time zone as the return value.
  *
  * Returns: (transfer full): the city closest to (@lat, @lon), in the
  *   region or administrative district of @loc.
@@ -965,7 +985,7 @@ gweather_location_get_country (GWeatherLocation *loc)
  *
  * Return value: (transfer none) (nullable): the location's timezone
  **/
-GWeatherTimezone *
+GTimeZone *
 gweather_location_get_timezone (GWeatherLocation *loc)
 {
     g_autoptr (GWeatherLocation) s = NULL;
@@ -979,9 +999,11 @@ gweather_location_get_timezone (GWeatherLocation *loc)
         if (!IDX_VALID (s->tz_hint_idx))
             continue;
 
-        loc->_timezone = _gweather_timezone_ref_for_idx (s->db, s->tz_hint_idx);
+        loc->_timezone = timezone_ref_for_idx (s->db, s->tz_hint_idx);
+
         return loc->_timezone;
     }
+
     return NULL;
 }
 
@@ -1003,7 +1025,7 @@ gweather_location_get_timezone_str (GWeatherLocation *loc)
 
     ITER_UP (loc, s) {
         if (s->_timezone)
-            return gweather_timezone_get_tzid (s->_timezone);
+            return g_time_zone_get_identifier (s->_timezone);
 
         if (s->db && IDX_VALID (s->tz_hint_idx)) {
             return db_world_timezones_entry_get_key (db_world_timezones_get_at (s->db->timezones_ref, s->tz_hint_idx));
@@ -1014,10 +1036,9 @@ gweather_location_get_timezone_str (GWeatherLocation *loc)
 }
 
 static void
-add_timezones (GWeatherLocation *loc, GPtrArray *zones)
+add_timezones (GWeatherLocation *loc,
+               GPtrArray *zones)
 {
-    gsize i;
-
     /* NOTE: Only DB backed locations can have timezones */
     if (loc->db && IDX_VALID (loc->db_idx)) {
         DbArrayofuint16Ref ref;
@@ -1025,11 +1046,13 @@ add_timezones (GWeatherLocation *loc, GPtrArray *zones)
 
         ref = db_location_get_timezones (loc->ref);
         len = db_arrayofuint16_get_length (ref);
-        for (i = 0; i < len; i++)
-            g_ptr_array_add (zones,
-                             _gweather_timezone_ref_for_idx (loc->db,
-                                                             db_arrayofuint16_get_at (ref, i)));
+        for (gsize i = 0; i < len; i++) {
+            guint16 tz_idx = db_arrayofuint16_get_at (ref, i);
+
+            g_ptr_array_add (zones, timezone_ref_for_idx (loc->db, tz_idx));
+        }
     }
+
     if (loc->level < GWEATHER_LOCATION_COUNTRY) {
         g_autoptr (GWeatherLocation) child = NULL;
 
@@ -1050,7 +1073,7 @@ add_timezones (GWeatherLocation *loc, GPtrArray *zones)
  * Return value: (transfer full) (array zero-terminated=1): the timezones
  *   associated with the location
  **/
-GWeatherTimezone **
+GTimeZone **
 gweather_location_get_timezones (GWeatherLocation *loc)
 {
     g_return_val_if_fail (GWEATHER_IS_LOCATION (loc), NULL);
@@ -1059,7 +1082,7 @@ gweather_location_get_timezones (GWeatherLocation *loc)
     add_timezones (loc, zones);
     g_ptr_array_add (zones, NULL);
 
-    return (GWeatherTimezone **) g_ptr_array_free (zones, FALSE);
+    return (GTimeZone **) g_ptr_array_free (zones, FALSE);
 }
 
 /**
@@ -1073,13 +1096,13 @@ gweather_location_get_timezones (GWeatherLocation *loc)
  */
 void
 gweather_location_free_timezones (GWeatherLocation *loc,
-                                  GWeatherTimezone **zones)
+                                  GTimeZone **zones)
 {
     g_return_if_fail (GWEATHER_IS_LOCATION (loc));
     g_return_if_fail (zones != NULL);
 
     for (int i = 0; zones[i]; i++)
-        gweather_timezone_unref (zones[i]);
+        g_time_zone_unref (zones[i]);
 
     g_free (zones);
 }

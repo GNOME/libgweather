@@ -136,7 +136,6 @@ deps_libgweather = [
 gweather_headers = [
   'gweather-info.h',
   'gweather-location.h',
-  'gweather-timezone.h',
   'gweather-enums.h'
 ]
 
@@ -155,7 +154,6 @@ gweather_c_sources = [
   'gweather.c',
   'gweather-info.c',
   'gweather-location.c',
-  'gweather-timezone.c',
 ]
 
 gweather_priv_sources = [

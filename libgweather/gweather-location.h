@@ -11,7 +11,7 @@
 #endif
 
 #include <gio/gio.h>
-#include <libgweather/gweather-timezone.h>
+#include <libgweather/gweather-version.h>
 
 G_BEGIN_DECLS
 
@@ -141,14 +141,14 @@ GWeatherLocation *      gweather_location_detect_nearest_city_finish    (GAsyncR
 GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_country           (GWeatherLocation  *loc);
 GWEATHER_AVAILABLE_IN_ALL
-GWeatherTimezone *      gweather_location_get_timezone          (GWeatherLocation  *loc);
+GTimeZone *             gweather_location_get_timezone          (GWeatherLocation  *loc);
 GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_timezone_str      (GWeatherLocation  *loc);
 GWEATHER_AVAILABLE_IN_ALL
-GWeatherTimezone **     gweather_location_get_timezones         (GWeatherLocation  *loc);
+GTimeZone **            gweather_location_get_timezones         (GWeatherLocation  *loc);
 GWEATHER_AVAILABLE_IN_ALL
 void                    gweather_location_free_timezones        (GWeatherLocation  *loc,
-                                                                 GWeatherTimezone **zones);
+                                                                 GTimeZone        **zones);
 GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_code              (GWeatherLocation  *loc);
 GWEATHER_AVAILABLE_IN_ALL

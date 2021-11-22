@@ -115,13 +115,13 @@ test_named_timezones_deserialized (void)
     list = get_list_from_configuration (world, CONFIGURATION, 3);
     for (l = list; l != NULL; l = l->next) {
         GWeatherLocation *loc = l->data;
-        GWeatherTimezone *tz;
+        GTimeZone *tz;
         const char *tzid;
 
         tz = gweather_location_get_timezone (loc);
         g_assert_nonnull (tz);
 
-        tzid = gweather_timezone_get_tzid (tz);
+        tzid = g_time_zone_get_identifier (tz);
         g_assert_nonnull (tzid);
 
         g_object_unref (loc);
@@ -137,12 +137,12 @@ test_named_timezones_deserialized (void)
 static void
 test_timezone (GWeatherLocation *location)
 {
-    g_autoptr (GWeatherTimezone) gtz = NULL;
+    g_autoptr (GTimeZone) gtz = NULL;
     const char *tz;
 
     tz = gweather_location_get_timezone_str (location);
     if (!tz) {
-        GWeatherTimezone **tzs;
+        GTimeZone **tzs;
 
         tzs = gweather_location_get_timezones (location);
         g_assert_nonnull (tzs);
@@ -158,8 +158,8 @@ test_timezone (GWeatherLocation *location)
         return;
     }
 
-    gtz = gweather_timezone_get_by_tzid (tz);
-    if (!gtz) {
+    gtz = g_time_zone_new_identifier (tz);
+    if (gtz == NULL) {
         g_test_message ("Location '%s' has invalid timezone '%s'\n",
                         gweather_location_get_name (location),
                         tz);

@@ -33,7 +33,7 @@ _gweather_location_reset_world (void)
         if (G_UNLIKELY (g_ptr_array_index (world_db->timezones, i) != NULL)) {
             g_warning ("Timezone with index %li and tzid %s is still referenced!",
                        i,
-                       gweather_timezone_get_tzid (g_ptr_array_index (world_db->timezones, i)));
+                       g_time_zone_get_identifier (g_ptr_array_index (world_db->timezones, i)));
             g_assert_not_reached ();
         }
     }

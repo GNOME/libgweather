@@ -13,6 +13,5 @@
 #include <libgweather/gweather-enum-types.h>
 #include <libgweather/gweather-info.h>
 #include <libgweather/gweather-location.h>
-#include <libgweather/gweather-timezone.h>
 
 #undef IN_GWEATHER_H
