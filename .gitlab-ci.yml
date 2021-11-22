@@ -216,7 +216,6 @@ static-scan:
     when: always
     paths:
       - "_scan_build/meson-logs/scanbuild"
-  allow_failure: true
 
 asan-build:
   extends: .build-setup
