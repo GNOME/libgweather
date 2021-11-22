@@ -73,3 +73,12 @@ If you are using `gweather_location_ref()` to acquire a reference on a location
 instance, you should now use [`method@GObject.Object.ref`]; if you are using
 `gweather_location_unref()` to release a reference on a location instance,
 you should now use [`method@GObject.Object.unref`].
+
+### Use `GTimeZone` instead of `GWeatherTimezone`
+
+The `GWeatherTimezone` type has been removed, in favor of the existing
+`GTimeZone` type provided by GLib.
+
+The [struct@GLib.TimeZone] type provides all the functionality of the
+`GWeatherTimezone` structure, and includes all the interval data from
+the time zone database.
