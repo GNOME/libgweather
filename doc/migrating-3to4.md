@@ -51,6 +51,13 @@ method has been returning `NULL` since then.
 
 The Yahoo! provider was removed in libgweather 3.28.
 
+### Always pass a location to find and detect nearest location API
+
+The [`method@GWeather.Location.find_nearest_city`],
+[`method@GWeather.Location.find_nearest_city_full`], and
+[`method@GWeather.Location.detect_nearest_city`] methods do not accept
+`NULL` as the instance argument any more.
+
 ## Changes
 
 The following changes in GWeather 4 are incompatible with GWeather 3.x, and

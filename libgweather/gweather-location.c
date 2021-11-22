@@ -573,14 +573,14 @@ find_nearest_city (GWeatherLocation *location,
 
 /**
  * gweather_location_find_nearest_city:
- * @loc: (allow-none): The parent location, which will be searched recursively
+ * @loc: The parent location, which will be searched recursively
  * @lat: Latitude, in degrees
  * @lon: Longitude, in degrees
  *
  * Finds the nearest city to the passed latitude and
  * longitude, among the descendants of @loc.
  *
- * @loc must be at most a %GWEATHER_LOCATION_ADM1 location.
+ * The given location must be at most a %GWEATHER_LOCATION_ADM1 location.
  * This restriction may be lifted in a future version.
  *
  * Note that this function does not check if (@lat, @lon) fall inside
@@ -600,16 +600,8 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
      * an O(n) search. */
     struct FindNearestCityData data;
 
-    g_return_val_if_fail (loc == NULL || GWEATHER_IS_LOCATION (loc), NULL);
-    g_return_val_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY, NULL);
-
-    if (loc == NULL) {
-        loc = world = gweather_location_get_world ();
-        if (G_UNLIKELY (loc == NULL))
-            return NULL;
-    } else {
-        g_object_ref (loc);
-    }
+    g_return_val_if_fail (GWEATHER_IS_LOCATION (loc), NULL);
+    g_return_val_if_fail (loc->level < GWEATHER_LOCATION_CITY, NULL);
 
     lat = lat * M_PI / 180.0;
     lon = lon * M_PI / 180.0;
@@ -621,19 +613,17 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
 
     foreach_city (loc, (GFunc) find_nearest_city, &data, NULL, NULL, NULL);
 
-    if (loc != world)
-        g_object_unref (loc);
-
     return data.location;
 }
 
 /**
  * gweather_location_find_nearest_city_full:
- * @loc: (allow-none): The parent location, which will be searched recursively
+ * @loc: the parent location, which will be searched recursively
  * @lat: Latitude, in degrees
  * @lon: Longitude, in degrees
- * @func: (scope notified) (allow-none): returns true to continue check for
- *    the location and false to filter the location out
+ * @func: (scope notified) (nullable) (closure user_data): a function to iterate
+ *   over the locations; the function must return `TRUE` to continue checking
+ *   for the location, and `FALSE` to filter the location out
  * @user_data: for customization
  * @destroy: to destroy user_data
  *
@@ -641,13 +631,15 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
  * longitude, among the descendants of @loc.
  *
  * Supports the use of own filter function to filter out locations.
+ *
  * Geocoding should be done on the application side if needed.
  *
  * @loc must be at most a %GWEATHER_LOCATION_ADM1 location.
  * This restriction may be lifted in a future version.
  *
  * Returns: (transfer full): the city closest to (@lat, @lon), in the
- *   region or administrative district of @loc with validation of filter function.
+ *   region or administrative district of @loc with validation of
+ *   filter function
  */
 GWeatherLocation *
 gweather_location_find_nearest_city_full (GWeatherLocation *loc,
@@ -657,25 +649,15 @@ gweather_location_find_nearest_city_full (GWeatherLocation *loc,
                                           gpointer user_data,
                                           GDestroyNotify destroy)
 {
-    g_autoptr (GWeatherLocation) world = NULL;
     /* The data set really isn't too big. Don't concern ourselves
      * with a proper nearest neighbors search. Instead, just do
      * an O(n) search. */
     struct FindNearestCityData data;
 
-    g_return_val_if_fail (loc == NULL || GWEATHER_IS_LOCATION (loc), NULL);
-    g_return_val_if_fail (loc == NULL ||
-                              (loc->level < GWEATHER_LOCATION_CITY ||
-                               loc->level == GWEATHER_LOCATION_NAMED_TIMEZONE),
+    g_return_val_if_fail (GWEATHER_IS_LOCATION (loc), NULL);
+    g_return_val_if_fail ((loc->level < GWEATHER_LOCATION_CITY ||
+                           loc->level == GWEATHER_LOCATION_NAMED_TIMEZONE),
                           NULL);
-
-    if (loc == NULL) {
-        loc = world = gweather_location_get_world ();
-        if (G_UNLIKELY (world == NULL))
-            return NULL;
-    } else {
-        g_object_ref (loc);
-    }
 
     lat = lat * M_PI / 180.0;
     lon = lon * M_PI / 180.0;
@@ -688,9 +670,6 @@ gweather_location_find_nearest_city_full (GWeatherLocation *loc,
     foreach_city (loc, (GFunc) find_nearest_city, &data, NULL, func, user_data);
 
     destroy (user_data);
-
-    if (loc != world)
-        g_object_unref (loc);
 
     return data.location;
 }
@@ -744,7 +723,7 @@ _got_place (GObject *source_object,
 
 /**
  * gweather_location_detect_nearest_city:
- * @loc: (nullable): the parent location, which will be searched recursively
+ * @loc: the parent location, which will be searched recursively
  * @lat: Latitude, in degrees
  * @lon: Longitude, in degrees
  * @cancellable: (nullable): a cancellable instance
@@ -766,22 +745,13 @@ gweather_location_detect_nearest_city (GWeatherLocation *loc,
                                        GAsyncReadyCallback callback,
                                        gpointer user_data)
 {
-    g_autoptr (GWeatherLocation) world = NULL;
     ArgData *data;
     GeocodeLocation *location;
     GeocodeReverse *reverse;
     GTask *task;
 
-    g_return_if_fail (loc == NULL || GWEATHER_IS_LOCATION (loc));
-    g_return_if_fail (loc == NULL ||
-                      (loc->level < GWEATHER_LOCATION_CITY ||
-                       loc->level == GWEATHER_LOCATION_NAMED_TIMEZONE));
-
-    if (loc == NULL) {
-        world = gweather_location_get_world ();
-        if (G_UNLIKELY (world == NULL))
-            return;
-    }
+    g_return_if_fail (GWEATHER_IS_LOCATION (loc));
+    g_return_if_fail (loc->level < GWEATHER_LOCATION_CITY || loc->level == GWEATHER_LOCATION_NAMED_TIMEZONE);
 
     location = geocode_location_new (lat, lon, GEOCODE_LOCATION_ACCURACY_CITY);
     reverse = geocode_reverse_new_for_location (location);
@@ -791,9 +761,7 @@ gweather_location_detect_nearest_city (GWeatherLocation *loc,
     data = g_slice_new0 (ArgData);
     data->latitude = lat;
     data->longitude = lon;
-    data->location = loc != NULL
-                       ? g_object_ref (loc)
-                       : g_steal_pointer (&world);
+    data->location = g_object_ref (loc);
     data->task = task;
 
     geocode_reverse_resolve_async (reverse, cancellable, _got_place, data);
