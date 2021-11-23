@@ -46,8 +46,6 @@ ensure_world (gpointer dummy G_GNUC_UNUSED)
     g_autofree char *filename = NULL;
     g_autoptr (GMappedFile) map;
     const char *locations_path;
-    time_t now;
-    struct tm tm;
     GWeatherDb *db = NULL;
 
     locations_path = g_getenv ("LIBGWEATHER_LOCATIONS_PATH");
@@ -87,17 +85,6 @@ ensure_world (gpointer dummy G_GNUC_UNUSED)
 
     g_ptr_array_set_size (db->locations, db_arrayof_location_get_length (db->locations_ref));
     g_ptr_array_set_size (db->timezones, db_world_timezones_get_length (db->timezones_ref));
-
-    /* Get timestamps for the start and end of this year.
-     * This is used to parse timezone information. */
-    now = time (NULL);
-    tm = *gmtime (&now);
-    tm.tm_mon = 0;
-    tm.tm_mday = 1;
-    tm.tm_hour = tm.tm_min = tm.tm_sec = 0;
-    db->year_start = mktime (&tm);
-    tm.tm_year++;
-    db->year_end = mktime (&tm);
 
     world_db = db;
 

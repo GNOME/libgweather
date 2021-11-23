@@ -34,9 +34,6 @@ typedef struct {
 
     GPtrArray *locations;
     GPtrArray *timezones;
-
-    time_t year_start;
-    time_t year_end;
 } GWeatherDb;
 
 struct _GWeatherLocation {
