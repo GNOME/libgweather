@@ -687,7 +687,6 @@ gweather_location_find_nearest_city (GWeatherLocation *loc,
                                      double lat,
                                      double lon)
 {
-    g_autoptr (GWeatherLocation) world = NULL;
     /* The data set really isn't too big. Don't concern ourselves
      * with a proper nearest neighbors search. Instead, just do
      * an O(n) search. */
