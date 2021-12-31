@@ -1007,6 +1007,35 @@ gweather_location_get_timezone (GWeatherLocation *loc)
 }
 
 /**
+ * gweather_location_has_timezone:
+ * @loc: the location
+ *
+ * Checks whether the location has a timezone.
+ *
+ * Returns: true if the location has a timezone; false otherwise
+ */
+gboolean
+gweather_location_has_timezone (GWeatherLocation *loc)
+{
+    g_return_val_if_fail (GWEATHER_IS_LOCATION (loc), FALSE);
+
+    if (loc->_timezone != NULL)
+        return TRUE;
+
+    g_autoptr (GWeatherLocation) s = NULL;
+
+    ITER_UP (loc, s) {
+        if (!IDX_VALID (s->tz_hint_idx))
+            continue;
+
+        loc->_timezone = timezone_ref_for_idx (s->db, s->tz_hint_idx);
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+/**
  * gweather_location_get_timezone_str:
  * @loc: a #GWeatherLocation
  *

@@ -141,6 +141,8 @@ GWeatherLocation *      gweather_location_detect_nearest_city_finish    (GAsyncR
 GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_country           (GWeatherLocation  *loc);
 GWEATHER_AVAILABLE_IN_ALL
+gboolean                gweather_location_has_timezone          (GWeatherLocation  *loc);
+GWEATHER_AVAILABLE_IN_ALL
 GTimeZone *             gweather_location_get_timezone          (GWeatherLocation  *loc);
 GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_timezone_str      (GWeatherLocation  *loc);
