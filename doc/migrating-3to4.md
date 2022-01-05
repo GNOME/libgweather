@@ -82,3 +82,38 @@ The `GWeatherTimezone` type has been removed, in favor of the existing
 The [struct@GLib.TimeZone] type provides all the functionality of the
 `GWeatherTimezone` structure, and includes all the interval data from
 the time zone database.
+
+If you are using `gweather_timezone_get_offset()` to compare two time
+zones, you can replace that with [`method@GLib.TimeZone.find_interval`]
+to find the interval relative to the current time; and then use
+[`method@GLib.TimeZone.get_offset`] to retrieve the offset. For instance,
+this code:
+
+```c
+GWeatherTimezone *tz_a = gweather_location_get_timezone (location_a);
+GWeatherTimezone *tz_b = gweather_location_get_timezone (location_b);
+
+int offset_a = gweather_timezone_get_offset (tz_a);
+int offset_b = gweather_timezone_get_offset (tz_b);
+```
+
+can be rewritten as:
+
+```c
+GTimeZone *tz_a = gweather_location_get_timezone (location_a);
+GTimeZone *tz_b = gweather_location_get_timezone (location_b);
+
+// Find the interval relative to the current time; if you are performing
+// the offset comparison in a loop, for instance to sort a list of time
+// zones, you may want to hoist the computation of the "now" outside the
+// loop, to ensure that the intervals are all relative to the same time
+g_autoptr (GDateTime) dt = g_date_time_new_now_local ();
+gint64 now = g_date_time_to_unix (dt);
+
+int interval_a = g_time_zone_find_interval (tz_a, G_TIME_TYPE_STANDARD, now);
+int interval_b = g_time_zone_find_interval (tz_b, G_TIME_TYPE_STANDARD, now);
+
+// Retrieve the offset for the given interval
+int offset_a = g_time_zone_get_offset (tz_a, interval_a);
+int offset_b = g_time_zone_get_offset (tz_b, interval_b);
+```
