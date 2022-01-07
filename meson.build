@@ -30,7 +30,7 @@ sysconfdir = prefix / get_option('sysconfdir')
 pkgdatadir = datadir / 'libgweather-4'
 pkglibdir = libdir / 'libgweather-4'
 
-glib_req_version = '>= 2.44.0'
+glib_req_version = '>= 2.68.0'
 libxml_req_version = '>= 2.6.0'
 
 GETTEXT_PACKAGE = libgweather_full_version
