@@ -147,6 +147,9 @@ GTimeZone *             gweather_location_get_timezone          (GWeatherLocatio
 GWEATHER_AVAILABLE_IN_ALL
 const char *            gweather_location_get_timezone_str      (GWeatherLocation  *loc);
 GWEATHER_AVAILABLE_IN_ALL
+const char *            gweather_location_get_timezone_name     (GWeatherLocation  *loc,
+                                                                 const char        *tzid);
+GWEATHER_AVAILABLE_IN_ALL
 GTimeZone **            gweather_location_get_timezones         (GWeatherLocation  *loc);
 GWEATHER_AVAILABLE_IN_ALL
 void                    gweather_location_free_timezones        (GWeatherLocation  *loc,

@@ -1063,6 +1063,109 @@ gweather_location_get_timezone_str (GWeatherLocation *loc)
     return NULL;
 }
 
+static const char *
+timezone_ref_get_name (GWeatherDb *db,
+                       guint16 idx)
+{
+    DbWorldTimezonesEntryRef entry_ref =
+        db_world_timezones_get_at (db->timezones_ref, idx);
+
+    DbTimezoneRef tz_ref = db_world_timezones_entry_get_value (entry_ref);
+    DbI18nRef tz_name = db_timezone_get_name (tz_ref);
+
+    const char *name = EMPTY_TO_NULL (db_i18n_get_str (tz_name));
+    const char *msgctxt = EMPTY_TO_NULL (db_i18n_get_msgctxt (tz_name));
+
+    if (name != NULL) {
+        if (msgctxt != NULL) {
+            return g_dpgettext2 (LOCATIONS_GETTEXT_PACKAGE, msgctxt, name);
+        } else {
+            return g_dgettext (LOCATIONS_GETTEXT_PACKAGE, name);
+        }
+    }
+
+    return NULL;
+}
+
+static void
+add_timezones_name (GWeatherLocation *self,
+                    const char *identifier,
+                    GPtrArray *names)
+{
+    /* NOTE: Only DB backed locations can have timezones */
+    if (self->db && IDX_VALID (self->db_idx)) {
+        DbArrayofuint16Ref ref;
+        gsize len;
+
+        ref = db_location_get_timezones (self->ref);
+        len = db_arrayofuint16_get_length (ref);
+        for (gsize i = 0; i < len; i++) {
+            guint16 tz_idx = db_arrayofuint16_get_at (ref, i);
+
+            g_autoptr (GTimeZone) tz = timezone_ref_for_idx (self->db, tz_idx);
+            const char *tz_id = g_time_zone_get_identifier (tz);
+
+            if (identifier == NULL || g_strcmp0 (identifier, tz_id) == 0) {
+                g_ptr_array_add (names, (gpointer) timezone_ref_get_name (self->db, tz_idx));
+            }
+        }
+    }
+
+    /* Collect regions and world */
+    if (self->level < GWEATHER_LOCATION_COUNTRY) {
+        g_autoptr (GWeatherLocation) child = NULL;
+
+        while ((child = gweather_location_next_child (self, child)))
+            add_timezones_name (child, identifier, names);
+    }
+}
+
+/**
+ * gweather_location_get_timezone_name:
+ * @loc: the location to query
+ * @tzid: (nullable): the identifier of a timezone
+ *
+ * Retrieves the human readable, localized name of the timezone available
+ * at the given location, if any.
+ *
+ * If @tzid is omitted then the returned name will be the one of the first
+ * available timezone.
+ *
+ * If @loc is `GWEATHER_LOCATION_WORLD` and @tzid is `NULL` then this
+ * function will return the localized name for the Coordinated Universal
+ * Time (UTC).
+ *
+ * Returns: (transfer none) (nullable): the human readable name of the
+ *   location's timezone
+ */
+const char *
+gweather_location_get_timezone_name (GWeatherLocation *loc,
+                                     const char *tzid)
+{
+    g_autoptr (GWeatherLocation) s = NULL;
+
+    g_return_val_if_fail (GWEATHER_IS_LOCATION (loc), NULL);
+
+    /* We need to special-case UTC, because that's what the old libgweather-3
+     * used to do
+     */
+    if (loc->level == GWEATHER_LOCATION_WORLD && tzid == NULL) {
+        return _ ("Coordinated Universal Time (UTC)");
+    }
+
+    /* The names are constant strings inside the translation catalogue */
+    g_autoptr (GPtrArray) names = g_ptr_array_new ();
+
+    add_timezones_name (loc, tzid, names);
+
+    /* No name found */
+    if (names->len == 0)
+        return NULL;
+
+    /* The first item is always the result */
+    return g_ptr_array_index (names, 0);
+}
+
 static void
 add_timezones (GWeatherLocation *loc,
                GPtrArray *zones)

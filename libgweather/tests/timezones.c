@@ -147,6 +147,19 @@ test_timezone (GWeatherLocation *location)
         tzs = gweather_location_get_timezones (location);
         g_assert_nonnull (tzs);
 
+        for (int i = 0; tzs[i] != NULL; i++) {
+            GTimeZone *tz = tzs[i];
+
+            const char *tz_id = g_time_zone_get_identifier (tz);
+            const char *tz_name = gweather_location_get_timezone_name (location, tz_id);
+            g_test_message ("Location '%s': timezone (%s) = '%s'",
+                            gweather_location_get_name (location),
+                            tz_id,
+                            tz_name);
+
+            g_assert_nonnull (tz_name);
+        }
+
         /* Only countries should have multiple timezones associated */
         if ((tzs[0] == NULL && gweather_location_get_level (location) < GWEATHER_LOCATION_WEATHER_STATION) &&
             gweather_location_get_level (location) >= GWEATHER_LOCATION_COUNTRY) {
@@ -194,6 +207,41 @@ test_timezones (void)
     gweather_test_reset_world ();
 }
 
+static void
+test_utc_name (void)
+{
+    g_autoptr (GWeatherLocation) world = NULL;
+
+    world = gweather_location_get_world ();
+    g_assert_nonnull (world);
+
+    g_test_message ("Root location has no direct timezones");
+    GTimeZone *utc_tz = gweather_location_get_timezone (world);
+    g_assert_null (utc_tz);
+
+    g_test_message ("Root location has a default timezone name of UTC");
+    const char *utc_name = gweather_location_get_timezone_name (world, NULL);
+    g_assert_nonnull (utc_name);
+
+    GTimeZone **world_tzs = gweather_location_get_timezones (world);
+
+    for (int i = 0; world_tzs[i] != NULL; i++) {
+        GTimeZone *tz = world_tzs[i];
+        const char *tz_id = g_time_zone_get_identifier (tz);
+        const char *tz_name = gweather_location_get_timezone_name (world, tz_id);
+
+        g_test_message ("World: timezone (%s) = '%s'",
+                        tz_id,
+                        tz_name);
+    }
+
+    gweather_location_free_timezones (world, world_tzs);
+
+    g_clear_object (&world);
+
+    gweather_test_reset_world ();
+}
+
 int
 main (int argc,
       char *argv[])
@@ -208,6 +256,7 @@ main (int argc,
     g_test_add_func ("/weather/named-timezones", test_named_timezones);
     g_test_add_func ("/weather/named-timezones-deserialized", test_named_timezones_deserialized);
     g_test_add_func ("/weather/timezones", test_timezones);
+    g_test_add_func ("/weather/utc-name", test_utc_name);
 
     int res = g_test_run ();
 
