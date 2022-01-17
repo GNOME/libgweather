@@ -150,7 +150,6 @@ gweather_enum_types = gnome.mkenums('gweather-enum-types',
 install_headers(gweather_headers + ['gweather.h'], subdir: header_subdir)
 
 gweather_c_sources = [
-  gweather_enum_types,
   'gweather.c',
   'gweather-info.c',
   'gweather-location.c',
@@ -166,10 +165,15 @@ gweather_priv_sources = [
   'weather-moon.c',
 ]
 
-introspection_sources = gweather_c_sources + gweather_headers
+introspection_sources = [
+  gweather_enum_types,
+  gweather_c_sources,
+  gweather_headers,
+]
 
 libgweather_static = static_library('gweather',
   sources: [
+    gweather_enum_types,
     gweather_c_sources,
     gweather_priv_sources,
   ],
@@ -180,7 +184,8 @@ libgweather_static = static_library('gweather',
   ],
 )
 
-libgweather_static_dep = declare_dependency(sources: gweather_c_sources,
+libgweather_static_dep = declare_dependency(
+  sources: gweather_enum_types,
   include_directories: [
     include_directories('.'),
     include_directories('..'),
@@ -277,4 +282,13 @@ pkgconfig.generate(
 if get_option('tests')
   subdir('tests')
   subdir('tools')
+
+  clang_format = find_program('clang-format', required: false)
+  if clang_format.found()
+    test('style-format', clang_format,
+      args: ['--dry-run', '--Werror', gweather_c_sources],
+      workdir: meson.current_source_dir(),
+      suite: ['lint'],
+    )
+  endif
 endif
