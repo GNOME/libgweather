@@ -83,6 +83,8 @@ The [struct@GLib.TimeZone] type provides all the functionality of the
 `GWeatherTimezone` structure, and includes all the interval data from
 the time zone database.
 
+#### Timezone offsets
+
 If you are using `gweather_timezone_get_offset()` to compare two time
 zones, you can replace that with [`method@GLib.TimeZone.find_interval`]
 to find the interval relative to the current time; and then use
@@ -116,4 +118,23 @@ int interval_b = g_time_zone_find_interval (tz_b, G_TIME_TYPE_STANDARD, now);
 // Retrieve the offset for the given interval
 int offset_a = g_time_zone_get_offset (tz_a, interval_a);
 int offset_b = g_time_zone_get_offset (tz_b, interval_b);
+```
+
+#### Timezone names
+
+If you are using `gweather_timezone_get_name()` to retrieve the localized
+name of a time zone, you can replace that function with
+[`method@GWeather.Location.get_timezone_name`], with the time zone identifier
+returned by [`method@GLib.TimeZone.get_identifier`]. If you were using
+`gweather_timezone_get_utc()` like this:
+
+```c
+GWeatherTimezone *utc = gweather_timezone_get_utc ();
+const char *name = gweather_timezone_get_name (utc);
+
+you can replace it with:
+
+```c
+GWeatherLocation *world = gweather_location_get_world ();
+const char *name = gweather_location_get_timezone_name (world, NULL);
 ```
