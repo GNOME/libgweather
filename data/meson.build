@@ -1,13 +1,15 @@
 xmllint = find_program('xmllint', required: false)
 if xmllint.found()
   test('Valid Locations file',
-       xmllint,
-       args: [
-         '--path', '@0@'.format(meson.current_source_dir()),
-         '--noout',
-         '--valid',
-         'Locations.xml',
-       ])
+    xmllint,
+    args: [
+      '--path', '@0@'.format(meson.current_source_dir()),
+      '--noout',
+      '--valid',
+      'Locations.xml',
+    ],
+    suite: ['lint'],
+  )
 endif
 
 if pylint.found()
@@ -17,6 +19,7 @@ if pylint.found()
       pylint_flags,
       gen_locations_variant.full_path(),
     ],
+    suite: ['lint'],
   )
 endif
 
