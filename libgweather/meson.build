@@ -288,7 +288,7 @@ if get_option('tests')
     test('style-format', clang_format,
       args: ['--dry-run', '--Werror', gweather_c_sources],
       workdir: meson.current_source_dir(),
-      suite: ['lint'],
+      suite: ['style'],
     )
   endif
 endif
