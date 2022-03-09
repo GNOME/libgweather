@@ -1,5 +1,5 @@
 # libgweather ja.po.
-# Copyright (C) 1998-2009, 2012, 2019-2020 Free Software Foundation, Inc.
+# Copyright (C) 1998-2009, 2012, 2019-2020, 2022 Free Software Foundation, Inc.
 # Yukihiro Nakai <Nakai@abricot.co.jp>, 1998, 2000.
 # Yasuyuki Furukawa <yasu@on.cs.keio.ac.jp>, 1999.
 # Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1999.
@@ -11,14 +11,14 @@
 # KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003.
 # Takeshi AIHANA <takeshi.aihana@gmail.com>, 2003-2009.
 # Satoru SATOH <ss@gnome.gr.jp>, 2006.
-# sicklylife <translation@sicklylife.jp>, 2019-2020.
+# sicklylife <translation@sicklylife.jp>, 2019-2020, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgweather master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgweather/issues\n"
 "POT-Creation-Date: 2021-11-23 12:39+0000\n"
-"PO-Revision-Date: 2020-08-21 22:45+0900\n"
+"PO-Revision-Date: 2022-03-09 20:00+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -833,10 +833,9 @@ msgstr ""
 #. * degrees sign (U+00B0), followed by the letter F
 #.
 #: libgweather/gweather-info.c:921
-#, fuzzy, c-format
-#| msgid "%.1f °F"
+#, c-format
 msgid "%.1f °F"
-msgstr "%.1f °F"
+msgstr "%.1f °F"
 
 #. TRANSLATOR: This is the temperature in degrees Fahrenheit
 #. * with a non-break space (U+00A0) between the digits and the
@@ -845,17 +844,16 @@ msgstr "%.1f °F"
 #: libgweather/gweather-info.c:927
 #, c-format
 msgid "%d °F"
-msgstr ""
+msgstr "%d °F"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius
 #. * with a non-break space (U+00A0) between the digits and
 #. * the degrees sign (U+00B0), followed by the letter C
 #.
 #: libgweather/gweather-info.c:936
-#, fuzzy, c-format
-#| msgid "%.1f °C"
+#, c-format
 msgid "%.1f °C"
-msgstr "%.1f °C"
+msgstr "%.1f °C"
 
 #. TRANSLATOR: This is the temperature in degrees Celsius
 #. * with a non-break space (U+00A0) between the digits and
@@ -864,7 +862,7 @@ msgstr "%.1f °C"
 #: libgweather/gweather-info.c:942
 #, c-format
 msgid "%d °C"
-msgstr ""
+msgstr "%d °C"
 
 #. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
 #. * with a non-break space (U+00A0) between the digits and the degrees
@@ -955,10 +953,8 @@ msgstr "%s / %s"
 
 #. TRANSLATOR: This is the wind speed in knots
 #: libgweather/gweather-info.c:1150
-#, fuzzy
-#| msgid "'knots'"
 msgid "knots"
-msgstr "'ms'"
+msgstr "ノット"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
 #: libgweather/gweather-info.c:1153
@@ -979,10 +975,8 @@ msgstr "メートル/秒"
 #. * (commonly used in nautical wind estimation).
 #.
 #: libgweather/gweather-info.c:1164
-#, fuzzy
-#| msgid "Beaufort force %.1f"
 msgid "Beaufort force"
-msgstr "ビューフォート風力 %.1f"
+msgstr "ビューフォート風力"
 
 #: libgweather/gweather-info.c:1197
 msgctxt "pressure"
