@@ -1,5 +1,5 @@
 project('libgweather', 'c',
-  version: '4.0.0',
+  version: '4.0.1',
   license: 'GPL-2.0-or-later',
   meson_version: '>= 0.55.0',
   default_options: [
