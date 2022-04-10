@@ -41,20 +41,11 @@ parse_metar_stations (const char *contents)
             continue;
         }
 
+        /* If it is a duplicate discard it */
         if (g_hash_table_lookup (stations_ht, station)) {
-            const char * const known_duplicates[] = {
-                "VOGO",
-                "KHQG",
-                "KOEL",
-                "KTQK",
-                "KX26",
-                NULL
-            };
-            if (g_strv_contains (known_duplicates, station)) {
-                g_free (station);
-                continue;
-            }
             g_test_message ("Weather station '%s' already defined\n", station);
+            g_free (station);
+            continue;
         }
 
         g_hash_table_insert (stations_ht, station, g_strdup (line));
