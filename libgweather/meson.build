@@ -122,6 +122,7 @@ deps_libgweather = [
   libsoup_dep,
   dependency('libxml-2.0', version: libxml_req_version),
   geocode_glib_dep,
+  dependency('json-glib-1.0'),
 
   c_compiler.find_library('m', required: false),
 ]
@@ -154,6 +155,7 @@ gweather_priv_sources = [
   'weather-iwin.c',
   'weather-metno.c',
   'weather-owm.c',
+  'weather-nws.c',
   'weather-sun.c',
   'weather-moon.c',
 ]

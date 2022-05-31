@@ -700,6 +700,11 @@ gweather_info_update (GWeatherInfo *info)
 
     ok = FALSE;
     /* Try national forecast services first */
+    if (info->providers & GWEATHER_PROVIDER_NWS)
+        ok = nws_start_open (info);
+    if (ok)
+        return;
+
     if (info->providers & GWEATHER_PROVIDER_IWIN)
         ok = iwin_start_open (info);
     if (ok)
