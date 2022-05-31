@@ -116,6 +116,8 @@ set_providers (GWeatherInfo *info)
         ADD_PROVIDER_STR ("MET_NO");
     if (providers & GWEATHER_PROVIDER_OWM)
         ADD_PROVIDER_STR ("OWM");
+    if (providers & GWEATHER_PROVIDER_NWS)
+        ADD_PROVIDER_STR ("NWS");
     if (providers == GWEATHER_PROVIDER_NONE) {
         g_string_free (s, TRUE);
         g_warning ("No providers enabled, failing");

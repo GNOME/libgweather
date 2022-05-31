@@ -211,6 +211,9 @@ gboolean
 owm_start_open (GWeatherInfo *info);
 
 gboolean
+nws_start_open (GWeatherInfo *info);
+
+gboolean
 metar_parse (char *metar,
              GWeatherInfo *info);
 
