@@ -321,7 +321,8 @@ reference:
       redhat-rpm-config
       vala
     MESON_VERSION: "0.55.3"
-    DOCS_FLAGS: -Dgtk_doc=true
+    MESON_EXTRA_FLAGS: "-Dsoup2=true"
+    DOCS_FLAGS: "-Dgtk_doc=true"
     DOCS_PATH: doc/libgweather-4.0
 
 pages:
