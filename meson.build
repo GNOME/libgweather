@@ -39,6 +39,7 @@ LOCATIONS_GETTEXT_PACKAGE = libgweather_full_version + '-locations'
 c_compiler = meson.get_compiler('c')
 
 pylint = find_program('pylint-3', 'pylint3', 'pylint', required: false)
+nomalloc = environment({'MALLOC_PERTURB_': '0'})
 pylint_flags = [
   '-d', 'C0111',
   '-d', 'W0511',

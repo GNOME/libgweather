@@ -19,6 +19,7 @@ if pylint.found()
       pylint_flags,
       gen_locations_variant.full_path(),
     ],
+    env: nomalloc,
     suite: ['lint'],
   )
 endif
