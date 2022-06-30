@@ -107,19 +107,12 @@ if get_option('soup2')
   libsoup_name = 'libsoup-2.4'
   libsoup_req_version = '>= 2.44.0'
   libsoup_api_version = '2.4'
+  geocode_glib_dep = dependency('geocode-glib-1.0')
 else
   libsoup_name = 'libsoup-3.0'
   libsoup_req_version = '>= 2.99.2'
   libsoup_api_version = '3.0'
-endif
-
-geocode_glib_dep = dependency('geocode-glib-1.0')
-geocode_soup_version = geocode_glib_dep.get_pkgconfig_variable('soupapiversion')
-if geocode_soup_version == ''
-  geocode_soup_version = '2.4' # Pre libsoup3 support
-endif
-if geocode_soup_version != libsoup_api_version
-  error('geocode-glib was built against a different API of libsoup. @0@ instead of @1@.'.format(geocode_soup_version, libsoup_api_version))
+  geocode_glib_dep = dependency('geocode-glib-2.0')
 endif
 
 libsoup_dep = dependency(libsoup_name, version: libsoup_req_version)
