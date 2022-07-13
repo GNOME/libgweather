@@ -458,13 +458,18 @@ metar_init_re (void)
         return;
     initialized = TRUE;
 
-    metar_re[TIME_RE] = g_regex_new (RE_PREFIX TIME_RE_STR RE_SUFFIX, G_REGEX_OPTIMIZE, 0, NULL);
-    metar_re[WIND_RE] = g_regex_new (RE_PREFIX WIND_RE_STR RE_SUFFIX, G_REGEX_OPTIMIZE, 0, NULL);
-    metar_re[VIS_RE] = g_regex_new (RE_PREFIX VIS_RE_STR RE_SUFFIX, G_REGEX_OPTIMIZE, 0, NULL);
-    metar_re[COND_RE] = g_regex_new (RE_PREFIX COND_RE_STR RE_SUFFIX, G_REGEX_OPTIMIZE, 0, NULL);
-    metar_re[CLOUD_RE] = g_regex_new (RE_PREFIX CLOUD_RE_STR RE_SUFFIX, G_REGEX_OPTIMIZE, 0, NULL);
-    metar_re[TEMP_RE] = g_regex_new (RE_PREFIX TEMP_RE_STR RE_SUFFIX, G_REGEX_OPTIMIZE, 0, NULL);
-    metar_re[PRES_RE] = g_regex_new (RE_PREFIX PRES_RE_STR RE_SUFFIX, G_REGEX_OPTIMIZE, 0, NULL);
+    int re_flags = 0;
+#if !GLIB_CHECK_VERSION(2, 73, 2)
+    re_flags |= G_REGEX_OPTIMIZE;
+#endif
+
+    metar_re[TIME_RE] = g_regex_new (RE_PREFIX TIME_RE_STR RE_SUFFIX, re_flags, 0, NULL);
+    metar_re[WIND_RE] = g_regex_new (RE_PREFIX WIND_RE_STR RE_SUFFIX, re_flags, 0, NULL);
+    metar_re[VIS_RE] = g_regex_new (RE_PREFIX VIS_RE_STR RE_SUFFIX, re_flags, 0, NULL);
+    metar_re[COND_RE] = g_regex_new (RE_PREFIX COND_RE_STR RE_SUFFIX, re_flags, 0, NULL);
+    metar_re[CLOUD_RE] = g_regex_new (RE_PREFIX CLOUD_RE_STR RE_SUFFIX, re_flags, 0, NULL);
+    metar_re[TEMP_RE] = g_regex_new (RE_PREFIX TEMP_RE_STR RE_SUFFIX, re_flags, 0, NULL);
+    metar_re[PRES_RE] = g_regex_new (RE_PREFIX PRES_RE_STR RE_SUFFIX, re_flags, 0, NULL);
 
     metar_f[TIME_RE] = metar_tok_time;
     metar_f[WIND_RE] = metar_tok_wind;
