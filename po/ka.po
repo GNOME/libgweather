@@ -1,936 +1,1127 @@
-# translation of gnome-applets.HEAD.po to Georgian
-# Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
-# Alina Kirakosyan <alinakirakosyan@gmail.com>
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# Vladimer Sichinava <vlsichinava@gmail.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-applets.HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-26 21:39-0500\n"
-"PO-Revision-Date: 2006-09-09 05:33+0200\n"
-"Last-Translator: Vladimer Sichinava <vlsichinava@gmail.com>\n"
-"Language-Team: Georgian <www.gia.ge>\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgweather/issues\n"
+"POT-Creation-Date: 2022-08-15 19:52+0000\n"
+"PO-Revision-Date: 2022-08-15 22:02+0200\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: \n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
-"X-Generator: KBabel 1.11.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
 
-#. TRANSLATOR: Change this to the default location name,
-#. * used when you first start the Weather Applet. This is
-#. * the common localised name that corresponds to
-#. * the location code (DEFAULT_CODE) you will put on the next message
-#. * For example, for the Greek locale, we set this to "Athens", the
-#. * capital city and we write it in Greek. It's important to translate
-#. * this name.
-#. *
-#. * If you do not require a DEFAULT_LOCATION, set this to
-#. * "DEFAULT_LOCATION".
-#.
-#: ../libgweather/gweather-gconf.c:163 ../libgweather/gweather-gconf.c:164
-#: ../libgweather/gweather.schemas.in.h:5
-msgid "DEFAULT_LOCATION"
-msgstr "თბილისი/თბილისის აეროპორტი"
+#: libgweather/gweather-info.c:108
+msgid "variable"
+msgstr "ცვლადი"
 
-#. TRANSLATOR: Change this to the code of your default location that
-#. * corresponds to the DEFAULT_LOCATION name you put above. This is
-#. * normally a four-letter (ICAO) code and can be found in
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
-#. * NB. The web page is over 1.7MB in size.
-#. * Pick a default location like a capital city so that it would be ok
-#. * for more of your users. For example, for Greek, we use "LGAV" for
-#. * the capital city, Athens.
-#. *
-#. * If you do not require a DEFAULT_CODE, set this to "DEFAULT_CODE".
-#.
-#: ../libgweather/gweather-gconf.c:183 ../libgweather/gweather-gconf.c:184
-#: ../libgweather/gweather.schemas.in.h:3
-msgid "DEFAULT_CODE"
-msgstr "UUEE"
+#: libgweather/gweather-info.c:109
+msgid "north"
+msgstr "ჩრდილოეთი"
 
-#. TRANSLATOR: Change this to the zone of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have zones while the rest do not.
-#. * Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
-#. * as any zone you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a zone, set this to
-#. * "DEFAULT_ZONE".
-#.
-#: ../libgweather/gweather-gconf.c:203 ../libgweather/gweather-gconf.c:204
-#: ../libgweather/gweather.schemas.in.h:7
-msgid "DEFAULT_ZONE"
-msgstr "DEFAULT_ZONE"
+#: libgweather/gweather-info.c:109
+msgid "north — northeast"
+msgstr "ჩრდილოეთი — ჩრდილოაღმოსავლეთი"
 
-#. TRANSLATOR: Change this to the radar of your default location that
-#. * corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put above.
-#. * Normally, US and Canada locations have radar names while the rest do
-#. * not. Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
-#. * as any radar you put here must also be present in the Locations.xml
-#. * file.
-#. *
-#. * If your default location does not have a radar, set this to " "
-#. * (or space).
-#. * If you do not have a default location, set this to DEFAULT_RADAR.
-#.
-#: ../libgweather/gweather-gconf.c:224 ../libgweather/gweather-gconf.c:225
-#: ../libgweather/gweather.schemas.in.h:6
-msgid "DEFAULT_RADAR"
-msgstr "---"
+#: libgweather/gweather-info.c:109
+msgid "northeast"
+msgstr "ჩრდილოაღმოსავლეთი"
 
-#. TRANSLATOR: Change this to the coordinates of your default location
-#. * that corresponds to the DEFAULT_LOCATION and DEFAULT_CODE you put
-#. * above. Check
-#. * http://svn.gnome.org/viewvc/libgweather/trunk/data/Locations.xml.in?view=markup
-#. * as any coordinates you put here must also be present in the
-#. * Locations.xml file.
-#. *
-#. * If your default location does not have known coordinates, set this
-#. * to " " (or space).
-#. * If you do not have a default location, set this to
-#. * DEFAULT_COORDINATES.
-#.
-#: ../libgweather/gweather-gconf.c:245 ../libgweather/gweather-gconf.c:246
-#: ../libgweather/gweather.schemas.in.h:4
-msgid "DEFAULT_COORDINATES"
-msgstr "55-59N 037-30E"
+#: libgweather/gweather-info.c:109
+msgid "east — northeast"
+msgstr "აღმოსავლეთი — ჩრდილოაღმოსავლეთი"
 
-#: ../libgweather/gweather-prefs.c:25 ../libgweather/gweather-prefs.c:36
-#: ../libgweather/gweather-prefs.c:51 ../libgweather/gweather-prefs.c:68
-msgid "Default"
-msgstr "ნაგულისხმევი"
+#: libgweather/gweather-info.c:110
+msgid "east"
+msgstr "აღმოსავლეთი"
 
-#. translators: Kelvin
-#: ../libgweather/gweather-prefs.c:27
-msgid "K"
-msgstr ""
+#: libgweather/gweather-info.c:110
+msgid "east — southeast"
+msgstr "აღმოსავლეთი — სამხრეთაღმოსავლეთი"
 
-#. translators: Celsius
-#: ../libgweather/gweather-prefs.c:29
-msgid "C"
-msgstr ""
+#: libgweather/gweather-info.c:110
+msgid "southeast"
+msgstr "სამხრეთაღმოსავლეთი"
 
-#. translators: Fahrenheit
-#: ../libgweather/gweather-prefs.c:31
-msgid "F"
-msgstr ""
+#: libgweather/gweather-info.c:110
+msgid "south — southeast"
+msgstr "სამხრეთი — სამხრეთაღმოსავლეთი"
 
-#. translators: meters per second
-#: ../libgweather/gweather-prefs.c:38
-msgid "m/s"
-msgstr "მ/წ"
+#: libgweather/gweather-info.c:111
+msgid "south"
+msgstr "სამხრეთი"
 
-#. translators: kilometers per hour
-#: ../libgweather/gweather-prefs.c:40
-msgid "km/h"
-msgstr "კმ/ს"
+#: libgweather/gweather-info.c:111
+msgid "south — southwest"
+msgstr "სამხრეთი — სამხრეთდასავლეთი"
 
-#. translators: miles per hour
-#: ../libgweather/gweather-prefs.c:42
-msgid "mph"
-msgstr "მილი/საათში"
+#: libgweather/gweather-info.c:111
+msgid "southwest"
+msgstr "სამხრეთდასავლეთი"
 
-#. translators: knots (speed unit)
-#: ../libgweather/gweather-prefs.c:44
-msgid "knots"
-msgstr "კვანძი"
+#: libgweather/gweather-info.c:111
+msgid "west — southwest"
+msgstr "დასავლეთი — სამხრეთდასავლეთი"
 
-#. translators: wind speed
-#: ../libgweather/gweather-prefs.c:46
-msgid "Beaufort scale"
-msgstr "ბოფორტის შკალა"
+#: libgweather/gweather-info.c:112
+msgid "west"
+msgstr "დასავლეთი"
 
-#. translators: kilopascals
-#: ../libgweather/gweather-prefs.c:53
-msgid "kPa"
-msgstr "კილოპასკალი"
+#: libgweather/gweather-info.c:112
+msgid "west — northwest"
+msgstr "დასავლეთი — ჩრდილოდასავლეთი"
 
-#. translators: hectopascals
-#: ../libgweather/gweather-prefs.c:55
-msgid "hPa"
-msgstr "ჰექტოპასკალი"
+#: libgweather/gweather-info.c:112
+msgid "northwest"
+msgstr "ჩრდილოდასავლეთი"
 
-#. translators: millibars
-#: ../libgweather/gweather-prefs.c:57
-msgid "mb"
-msgstr "მილიბარი"
+#: libgweather/gweather-info.c:112
+msgid "north — northwest"
+msgstr "ჩრდილოეთი — ჩრდილოდასავლეთი"
 
-#. translators: millimeters of mercury
-#: ../libgweather/gweather-prefs.c:59
-msgid "mmHg"
-msgstr "მმ ვერცხლ.წყ"
-
-#. translators: inches of mercury
-#: ../libgweather/gweather-prefs.c:61
-msgid "inHg"
-msgstr "დიუიმი ვერცხლ.წყ"
-
-#. translators: atmosphere
-#: ../libgweather/gweather-prefs.c:63
-msgid "atm"
-msgstr "atm"
-
-#. translators: meters
-#: ../libgweather/gweather-prefs.c:70
-#, fuzzy
-msgid "m"
-msgstr "მილიბარი"
-
-#. translators: kilometers
-#: ../libgweather/gweather-prefs.c:72
-msgid "km"
-msgstr "კმ"
-
-#. translators: miles
-#: ../libgweather/gweather-prefs.c:74
-msgid "mi"
-msgstr ""
-
-#. TRANSLATOR: This is the default unit to use for temperature measurements.
-#. Valid values are: "K" (Kelvin), "C" (Celsius) and "F" (Fahrenheit)
-#: ../libgweather/gweather-prefs.c:93 ../libgweather/gweather-prefs.c:102
-msgid "DEFAULT_TEMP_UNIT"
-msgstr "C°"
-
-#. TRANSLATOR: This is the default unit to use for wind speed.
-#. Valid values are: "m/s" (meters per second), "km/h" (kilometers per hour),
-#. "mph" (miles per hour) and "knots"
-#: ../libgweather/gweather-prefs.c:131 ../libgweather/gweather-prefs.c:141
-msgid "DEFAULT_SPEED_UNIT"
-msgstr "მ/წმ"
-
-#. TRANSLATOR: This is the default unit to use for atmospheric pressure.
-#. Valid values are: "kPa" (kiloPascals), "hPa" (hectoPascals),
-#. "mb" (millibars), "mmHg" (millimeters of mercury),
-#. "inHg" (inches of mercury) and "atm" (atmosphere)
-#: ../libgweather/gweather-prefs.c:172 ../libgweather/gweather-prefs.c:183
-msgid "DEFAULT_PRESSURE_UNIT"
-msgstr "გ/ცელსიუსი"
-
-#. TRANSLATOR: This is the default unit to use for visibility distance.
-#. Valid values are: "m" (meters), "km" (kilometers) and "mi" (miles)
-#: ../libgweather/gweather-prefs.c:212 ../libgweather/gweather-prefs.c:221
-msgid "DEFAULT_DISTANCE_UNIT"
-msgstr "კმ"
-
-#: ../libgweather/gweather.schemas.in.h:1
-msgid ""
-"A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/"
-"Locations.xml.in"
-msgstr ""
-"A three-digit-long code for retrieving radar maps from weather.com, found "
-"from http://cvs.gnome.org/viewcvs/*checkout*/gnome-applets/gweather/"
-"Locations.xml.in"
-
-#: ../libgweather/gweather.schemas.in.h:2
-msgid ""
-"A unique zone for the city, as found from http://cvs.gnome.org/viewcvs/"
-"*checkout*/gnome-applets/gweather/Locations.xml.in"
-msgstr ""
-"A unique zone for the city, as found from http://cvs.gnome.org/viewcvs/"
-"*checkout*/gnome-applets/gweather/Locations.xml.in"
-
-#: ../libgweather/gweather.schemas.in.h:8
-msgid ""
-"Determines whether the applet automatically updates its weather statistics "
-"or not."
-msgstr "ქალაქის მიხედვით ინფორმაციის ავტომატური განსაზღვრა."
-
-#: ../libgweather/gweather.schemas.in.h:9
-msgid "Display radar map"
-msgstr "რადარული რუქის ჩვენება"
-
-#: ../libgweather/gweather.schemas.in.h:10
-msgid "Distance unit"
-msgstr "მანძილის ერთეული"
-
-#: ../libgweather/gweather.schemas.in.h:11
-msgid "Fetch a radar map on each update."
-msgstr "ყოველი განახლებისას რადარული რუქის შეცვლა."
-
-#: ../libgweather/gweather.schemas.in.h:12
-msgid ""
-"If true, then retrieve a radar map from a location specified by the \"radar"
-"\" key."
-msgstr ""
-"თუ ჩართულია, რადარის რუქის მიღება განხორციელდება გასაღებ \"radar\"-ის "
-"მიხედვით."
-
-#: ../libgweather/gweather.schemas.in.h:13
-msgid ""
-"Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-"
-"SS[EW]."
-msgstr ""
-"თქვენი მდებარეობის განედი და გრძედი წარმოდგენილია DD-MM-SS[NS] DD-MM-SS[EW] "
-"ფორმატში."
-
-#: ../libgweather/gweather.schemas.in.h:14
-msgid "Location coordinates"
-msgstr "მდებარეობის კოორდინატები"
-
-#: ../libgweather/gweather.schemas.in.h:15
-msgid "Nearby city"
-msgstr "ახლომდებარე ქალაქი"
-
-#: ../libgweather/gweather.schemas.in.h:16
-msgid ""
-"Nearby major zone, such as a capital city, as found from http://cvs.gnome."
-"org/viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
-msgstr ""
-"ახლომდებარე ზონა, როგორიც არის დედაქალაქი, იხილეთ http://cvs.gnome.org/"
-"viewcvs/*checkout*/gnome-applets/gweather/Locations.xml.in"
-
-#: ../libgweather/gweather.schemas.in.h:17
-msgid "Not used anymore"
-msgstr "აღარ გამოიყენება"
-
-#: ../libgweather/gweather.schemas.in.h:18
-msgid "Pressure unit"
-msgstr "წნევის ერთეული"
-
-#: ../libgweather/gweather.schemas.in.h:19
-msgid "Radar location"
-msgstr "რადარის მდებარეობა"
-
-#: ../libgweather/gweather.schemas.in.h:20
-msgid "Speed unit"
-msgstr "სიჩქარის ერთეული"
-
-#: ../libgweather/gweather.schemas.in.h:21
-msgid "Temperature unit"
-msgstr "ტემპერატურის ერთეული"
-
-#: ../libgweather/gweather.schemas.in.h:22
-msgid "The city that gweather displays information for."
-msgstr "ქალაქი რომლისთვისაც gweather-ი ინფორმაციას აჩვენებს"
-
-#: ../libgweather/gweather.schemas.in.h:23
-msgid "The custom url from where to retrieve a radar map."
-msgstr "საკუთარი მისამართი საიდანაც რადარის რუქის მიღებაა შესაძლებელი."
-
-#: ../libgweather/gweather.schemas.in.h:24
-msgid "The interval, in seconds, between automatic updates."
-msgstr "ინტერვალი (წამებში) ავტომატურ განახლებებს შორის."
-
-#: ../libgweather/gweather.schemas.in.h:25
-msgid "The unit to use for pressure."
-msgstr "წნევის განმსაზღვრელი ერთეული."
-
-#: ../libgweather/gweather.schemas.in.h:26
-msgid "The unit to use for temperature."
-msgstr "ტემპერატურის განმსაზღვრელი ერთეული."
-
-#: ../libgweather/gweather.schemas.in.h:27
-msgid "The unit to use for visibility."
-msgstr "ხილვადობის განმსაზღვრელი ერთეული."
-
-#: ../libgweather/gweather.schemas.in.h:28
-msgid "The unit to use for wind speed."
-msgstr "ქარის სიჩქარის განმსაზღვრელი ერთეული."
-
-#: ../libgweather/gweather.schemas.in.h:29
-msgid "Update interval"
-msgstr "განახლების ინტერვალი"
-
-#: ../libgweather/gweather.schemas.in.h:30
-msgid "Update the data automatically"
-msgstr "მონაცემების ავტომატური განახლება"
-
-#: ../libgweather/gweather.schemas.in.h:31
-msgid "Url for the radar map"
-msgstr "რადარული რუქის მისამართი"
-
-#: ../libgweather/gweather.schemas.in.h:32
-msgid "Use custom url for the radar map"
-msgstr "რადარული რუქისთვის საკუთარი მისამართის გამოყენება"
-
-#: ../libgweather/gweather.schemas.in.h:33
-msgid "Use metric units"
-msgstr "მეტრული სისტემის გამოყენება"
-
-#: ../libgweather/gweather.schemas.in.h:34
-msgid "Use metric units instead of english units."
-msgstr "ინგლისური ერთეულების მაგივრად მეტრული სისტემის გამოყენება"
-
-#: ../libgweather/gweather.schemas.in.h:35
-msgid "Weather for a city"
-msgstr "ქალაქის ამინდი"
-
-#: ../libgweather/gweather.schemas.in.h:36
-msgid "Weather location information"
-msgstr "ადგილმდებაეობის ამინდის შესახებ ინფორმაცია"
-
-#: ../libgweather/gweather.schemas.in.h:37
-msgid "Weather location information."
-msgstr "ადგილმდებაეობის ამინდის შესახებ ინფორმაცია."
-
-#: ../libgweather/gweather.schemas.in.h:38
-msgid "Zone location"
-msgstr "ზონის მდებარეობა"
-
-#: ../libgweather/weather-iwin.c:135 ../libgweather/weather-metar.c:554
-#: ../libgweather/weather-metar.c:582
-msgid "WeatherInfo missing location"
-msgstr "არ არსებული WeatherInfo-ს ადგილმდებარეობა"
-
-#: ../libgweather/weather-metar.c:527 ../libgweather/weather-metar.c:562
-#: ../libgweather/weather-wx.c:63
-msgid "Failed to get METAR data.\n"
-msgstr "ვერ განხორციელდა META მონაცემების გადმოტანა.\n"
-
-#: ../libgweather/weather.c:180
+#: libgweather/gweather-info.c:116
 msgid "Variable"
 msgstr "ცვლადი"
 
-#: ../libgweather/weather.c:181
+#: libgweather/gweather-info.c:117
 msgid "North"
 msgstr "ჩრდილოეთი"
 
-#: ../libgweather/weather.c:181
-msgid "North - NorthEast"
-msgstr "ჩრდილო-ჩრდილო-აღმოსავლური"
+#: libgweather/gweather-info.c:117
+msgid "North — Northeast"
+msgstr "ჩრდილოეთი — ჩრდილოაღმოსავლეთი"
 
-#: ../libgweather/weather.c:181
+#: libgweather/gweather-info.c:117
 msgid "Northeast"
-msgstr "ჩრდილო აღმოსავლეთის"
+msgstr "ჩრდილოაღმოსავლეთი"
 
-#: ../libgweather/weather.c:181
-msgid "East - NorthEast"
-msgstr "აღმოსავლეთ-ჩრდილო-აღმოსავლეთის"
+#: libgweather/gweather-info.c:117
+msgid "East — Northeast"
+msgstr "აღმოსავლეთი — ჩრდილოაღმოსავლეთი"
 
-#: ../libgweather/weather.c:182
+#: libgweather/gweather-info.c:118
 msgid "East"
 msgstr "აღმოსავლეთი"
 
-#: ../libgweather/weather.c:182
-msgid "East - Southeast"
-msgstr "აღმოსავლეთ-სამხრეთ-აღმოსავლეთის"
+#: libgweather/gweather-info.c:118
+msgid "East — Southeast"
+msgstr "აღმოსავლეთი — სამხრეთაღმოსავლეთი"
 
-#: ../libgweather/weather.c:182
+#: libgweather/gweather-info.c:118
 msgid "Southeast"
-msgstr "სამხრეთ-აღმოსავლეთის"
+msgstr "სამხრეთაღმოსავლეთი"
 
-#: ../libgweather/weather.c:182
-msgid "South - Southeast"
-msgstr "სამხრეთ-სამხრეთ-აღმოსავლეთის"
+#: libgweather/gweather-info.c:118
+msgid "South — Southeast"
+msgstr "სამხრეთი — სამხრეთაღმოსავლეთი"
 
-#: ../libgweather/weather.c:183
+#: libgweather/gweather-info.c:119
 msgid "South"
 msgstr "სამხრეთი"
 
-#: ../libgweather/weather.c:183
-msgid "South - Southwest"
-msgstr "სამხრეთ-სამხრეთ-დასავლეთის"
+#: libgweather/gweather-info.c:119
+msgid "South — Southwest"
+msgstr "სამხრეთი — სამხრეთდასავლეთი"
 
-#: ../libgweather/weather.c:183
+#: libgweather/gweather-info.c:119
 msgid "Southwest"
-msgstr "სამხრეთ-დასავლეთის"
+msgstr "სამხრეთდასავლეთი"
 
-#: ../libgweather/weather.c:183
-msgid "West - Southwest"
-msgstr "დასავლეთ-სამხრეთ-დასავლეთის"
+#: libgweather/gweather-info.c:119
+msgid "West — Southwest"
+msgstr "დასავლეთი — სამხრეთდასავლეთი"
 
-#: ../libgweather/weather.c:184
+#: libgweather/gweather-info.c:120
 msgid "West"
 msgstr "დასავლეთი"
 
-#: ../libgweather/weather.c:184
-msgid "West - Northwest"
-msgstr "დასავლეთ-ჩრდილო-დასავლეთის"
+#: libgweather/gweather-info.c:120
+msgid "West — Northwest"
+msgstr "დასავლეთი — ჩრდილოდასავლეთი"
 
-#: ../libgweather/weather.c:184
+#: libgweather/gweather-info.c:120
 msgid "Northwest"
-msgstr "ჩრდილო-დასავლეთის"
+msgstr "ჩრდილოდასავლეთი"
 
-#: ../libgweather/weather.c:184
-msgid "North - Northwest"
-msgstr "ჩრდილო-ჩრდილო-დასავლეთის"
+#: libgweather/gweather-info.c:120
+msgid "North — Northwest"
+msgstr "ჩრდილოეთი — ჩრდილოდასავლეთი"
 
-#: ../libgweather/weather.c:190 ../libgweather/weather.c:690
-#: ../libgweather/weather.c:739 ../libgweather/weather.c:752
-#: ../libgweather/weather.c:764 ../libgweather/weather.c:779
-#: ../libgweather/weather.c:795 ../libgweather/weather.c:832
-#: ../libgweather/weather.c:844 ../libgweather/weather.c:863
-#: ../libgweather/weather.c:895 ../libgweather/weather.c:908
-#: ../libgweather/weather.c:928
-msgid "Unknown"
-msgstr "უცნობი"
-
-#: ../libgweather/weather.c:192 ../libgweather/weather.c:209
-#: ../libgweather/weather.c:280
+#: libgweather/gweather-info.c:131
+msgctxt "wind direction"
 msgid "Invalid"
-msgstr "მიუღებელი"
+msgstr "არასწორი"
 
-#: ../libgweather/weather.c:198
-msgid "Clear Sky"
+#: libgweather/gweather-info.c:132
+msgctxt "wind direction"
+msgid "invalid"
+msgstr "მცდარი"
+
+#: libgweather/gweather-info.c:145
+msgid "clear sky"
 msgstr "სუფთა ცა"
 
-#: ../libgweather/weather.c:199
+#: libgweather/gweather-info.c:146
+msgid "broken clouds"
+msgstr "დამტვრეული ღრუბლები"
+
+#: libgweather/gweather-info.c:147
+msgid "scattered clouds"
+msgstr "გაფანტული ღრუბლები"
+
+#: libgweather/gweather-info.c:148
+msgid "few clouds"
+msgstr "აქა-იქ ღრუბლები"
+
+#: libgweather/gweather-info.c:149
+msgid "overcast"
+msgstr "მოღრუბლული"
+
+#: libgweather/gweather-info.c:153
+msgid "Clear sky"
+msgstr "სუფთა ცა"
+
+#: libgweather/gweather-info.c:154
 msgid "Broken clouds"
-msgstr "აქა-იქ ღრუბლიანი ცა"
+msgstr "დამტვრეული ღრუბლები"
 
-#: ../libgweather/weather.c:200
+#: libgweather/gweather-info.c:155
 msgid "Scattered clouds"
-msgstr "არახშირი მოღრუბლულობა"
+msgstr "გაფანტული ღრუბლები"
 
-#: ../libgweather/weather.c:201
+#: libgweather/gweather-info.c:156
 msgid "Few clouds"
-msgstr "მცირედი მოღრუბლულობა"
+msgstr "აქა-იქ ღრუბლები"
 
-#: ../libgweather/weather.c:202
+#: libgweather/gweather-info.c:157
 msgid "Overcast"
-msgstr "ხშირი მოღრუბლულობა"
+msgstr "მოღრუბლული"
+
+#: libgweather/gweather-info.c:173 libgweather/gweather-info.c:290
+msgctxt "sky conditions"
+msgid "Invalid"
+msgstr "არასწორი"
+
+#: libgweather/gweather-info.c:174 libgweather/gweather-info.c:291
+msgctxt "sky conditions"
+msgid "invalid"
+msgstr "მცდარი"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
-#. * http://www.crh.noaa.gov/arx/wx.tbl.html
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/weather.c:241 ../libgweather/weather.c:243
+#: libgweather/gweather-info.c:208 libgweather/gweather-info.c:210
+msgid "thunderstorm"
+msgstr "ჭექა-ქუხილი"
+
+#. DRIZZLE
+#: libgweather/gweather-info.c:209
+msgid "drizzle"
+msgstr "ჟინჟღლი"
+
+#: libgweather/gweather-info.c:209
+msgid "light drizzle"
+msgstr "მსუბუქი ჟინჟღლი"
+
+#: libgweather/gweather-info.c:209
+msgid "moderate drizzle"
+msgstr "საშუალო ჟინჟღლი"
+
+#: libgweather/gweather-info.c:209
+msgid "heavy drizzle"
+msgstr "ძლიერი ჟინჟღლი"
+
+#: libgweather/gweather-info.c:209
+msgid "freezing drizzle"
+msgstr "გაყინული ჟინჟღლი"
+
+#. RAIN
+#: libgweather/gweather-info.c:210
+msgid "rain"
+msgstr "წვიმა"
+
+#: libgweather/gweather-info.c:210
+msgid "light rain"
+msgstr "მსუბუქი წვიმა"
+
+#: libgweather/gweather-info.c:210
+msgid "moderate rain"
+msgstr "საშუალო წვიმა"
+
+#: libgweather/gweather-info.c:210
+msgid "heavy rain"
+msgstr "თავსხმა წვიმა"
+
+#: libgweather/gweather-info.c:210
+msgid "rain showers"
+msgstr "ოდნავი წვიმა"
+
+#: libgweather/gweather-info.c:210
+msgid "freezing rain"
+msgstr "გაყინული წვიმა"
+
+#. SNOW
+#: libgweather/gweather-info.c:211
+msgid "snow"
+msgstr "თოვლი"
+
+#: libgweather/gweather-info.c:211
+msgid "light snow"
+msgstr "მსუბუქი თოვლი"
+
+#: libgweather/gweather-info.c:211
+msgid "moderate snow"
+msgstr "საშუალო თოვლი"
+
+#: libgweather/gweather-info.c:211
+msgid "heavy snow"
+msgstr "ძლიერი თოვლი"
+
+#: libgweather/gweather-info.c:211
+msgid "snowstorm"
+msgstr "ქარბუქი"
+
+#: libgweather/gweather-info.c:211
+msgid "blowing snowfall"
+msgstr "ქარბუქი"
+
+#: libgweather/gweather-info.c:211
+msgid "snow showers"
+msgstr "თოვლის წვიმა"
+
+#: libgweather/gweather-info.c:211
+msgid "drifting snow"
+msgstr "სრიალა თოვლი"
+
+#. SNOW_GRAINS
+#: libgweather/gweather-info.c:212
+msgid "snow grains"
+msgstr "თოვლის მარცვლები"
+
+#: libgweather/gweather-info.c:212
+msgid "light snow grains"
+msgstr "მსუბუქი თოვლის მარცვლები"
+
+#: libgweather/gweather-info.c:212
+msgid "moderate snow grains"
+msgstr "საშუალო თოვლის მარცვლები"
+
+#: libgweather/gweather-info.c:212
+msgid "heavy snow grains"
+msgstr "ძლიერი თოვლის მარცვლები"
+
+#. ICE_CRYSTALS
+#: libgweather/gweather-info.c:213
+msgid "ice crystals"
+msgstr "ყინულის კრისტალები"
+
+#. ICE_PELLETS
+#: libgweather/gweather-info.c:214
+msgid "sleet"
+msgstr "ჭყაპი"
+
+#: libgweather/gweather-info.c:214
+msgid "little sleet"
+msgstr "მცირე ჭყაპი"
+
+#: libgweather/gweather-info.c:214
+msgid "moderate sleet"
+msgstr "საშუალო ჭყაპი"
+
+#: libgweather/gweather-info.c:214
+msgid "heavy sleet"
+msgstr "მძიმე ჭყაპი"
+
+#: libgweather/gweather-info.c:214
+msgid "sleet storm"
+msgstr "წვიმიანი ქარიშხალი"
+
+#: libgweather/gweather-info.c:214
+msgid "showers of sleet"
+msgstr "ჭყაპიანი წვიმა"
+
+#. HAIL
+#: libgweather/gweather-info.c:215
+msgid "hail"
+msgstr "სეტყვა"
+
+#: libgweather/gweather-info.c:215
+msgid "hailstorm"
+msgstr "სეტყვანარევი ქარიშხალი"
+
+#: libgweather/gweather-info.c:215
+msgid "hail showers"
+msgstr "ხოშკაკალი"
+
+#. SMALL_HAIL
+#: libgweather/gweather-info.c:216
+msgid "small hail"
+msgstr "წვრილი სეტყვა"
+
+#: libgweather/gweather-info.c:216
+msgid "small hailstorm"
+msgstr "მცირე ხოშკაკალი"
+
+#: libgweather/gweather-info.c:216
+msgid "showers of small hail"
+msgstr ""
+
+#. PRECIPITATION
+#: libgweather/gweather-info.c:217
+msgid "unknown precipitation"
+msgstr "უცნობი ნალექი"
+
+#. MIST
+#: libgweather/gweather-info.c:218
+msgid "mist"
+msgstr "ბურუსი"
+
+#. FOG
+#: libgweather/gweather-info.c:219
+msgid "fog"
+msgstr "ნისლი"
+
+#: libgweather/gweather-info.c:219
+msgid "fog in the vicinity"
+msgstr "ნისლი სიახლოვეში"
+
+#: libgweather/gweather-info.c:219
+msgid "shallow fog"
+msgstr "მსუბუქი ნისლი"
+
+#: libgweather/gweather-info.c:219
+msgid "patches of fog"
+msgstr "აქა-იქ ნისლი"
+
+#: libgweather/gweather-info.c:219
+msgid "partial fog"
+msgstr "ნაწილობრივი ნისლი"
+
+#: libgweather/gweather-info.c:219
+msgid "freezing fog"
+msgstr "გაყინული ნისლი"
+
+#. SMOKE
+#: libgweather/gweather-info.c:220
+msgid "smoke"
+msgstr "კვამლი"
+
+#. VOLCANIC_ASH
+#: libgweather/gweather-info.c:221
+msgid "volcanic ash"
+msgstr "ვულკანური ფერფლი"
+
+#. SAND
+#: libgweather/gweather-info.c:222
+msgid "sand"
+msgstr "ქვიშა"
+
+#: libgweather/gweather-info.c:222
+msgid "blowing sand"
+msgstr ""
+
+#: libgweather/gweather-info.c:222
+msgid "drifting sand"
+msgstr "სრიალა ქვიშა"
+
+#. HAZE
+#: libgweather/gweather-info.c:223
+msgid "haze"
+msgstr "თხელი ნისლი"
+
+#. SPRAY
+#: libgweather/gweather-info.c:224
+msgid "blowing sprays"
+msgstr ""
+
+#. DUST
+#: libgweather/gweather-info.c:225
+msgid "dust"
+msgstr "მტვერი"
+
+#: libgweather/gweather-info.c:225
+msgid "blowing dust"
+msgstr ""
+
+#: libgweather/gweather-info.c:225
+msgid "drifting dust"
+msgstr ""
+
+#. SQUALL
+#: libgweather/gweather-info.c:226
+msgid "squall"
+msgstr "წყვეტილად დაქროლა"
+
+#. SANDSTORM
+#: libgweather/gweather-info.c:227
+msgid "sandstorm"
+msgstr "ქვიშის ქარი"
+
+#: libgweather/gweather-info.c:227
+msgid "sandstorm in the vicinity"
+msgstr ""
+
+#: libgweather/gweather-info.c:227
+msgid "heavy sandstorm"
+msgstr "ქვიშის ძლიერი ქარი"
+
+#. DUSTSTORM
+#: libgweather/gweather-info.c:228
+msgid "duststorm"
+msgstr "მტვრის ქარი"
+
+#: libgweather/gweather-info.c:228
+msgid "duststorm in the vicinity"
+msgstr ""
+
+#: libgweather/gweather-info.c:228
+msgid "heavy duststorm"
+msgstr "მტვრის ძლიერი ქარი"
+
+#. FUNNEL_CLOUD
+#: libgweather/gweather-info.c:229
+msgid "funnel cloud"
+msgstr ""
+
+#. TORNADO
+#: libgweather/gweather-info.c:230
+msgid "tornado"
+msgstr "ტორნადო"
+
+#. DUST_WHIRLS
+#: libgweather/gweather-info.c:231
+msgid "dust whirls"
+msgstr ""
+
+#: libgweather/gweather-info.c:231
+msgid "dust whirls in the vicinity"
+msgstr ""
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
+#. NONE
+#: libgweather/gweather-info.c:244 libgweather/gweather-info.c:246
 msgid "Thunderstorm"
 msgstr "ჭექა-ქუხილი"
 
 #. DRIZZLE
-#: ../libgweather/weather.c:242
+#: libgweather/gweather-info.c:245
 msgid "Drizzle"
-msgstr "ჟინჟლავს"
+msgstr "ჟინჟღლი"
 
-#: ../libgweather/weather.c:242
+#: libgweather/gweather-info.c:245
 msgid "Light drizzle"
-msgstr "მცირედი ჟინჟვლა"
+msgstr "მსუბუქი ჟინჟღლი"
 
-#: ../libgweather/weather.c:242
+#: libgweather/gweather-info.c:245
 msgid "Moderate drizzle"
-msgstr "ზომიერი მცირედი წვიმა"
+msgstr "საშუალო ჟინჟღლი"
 
-#: ../libgweather/weather.c:242
+#: libgweather/gweather-info.c:245
 msgid "Heavy drizzle"
-msgstr "ხშირი წვიმა"
+msgstr "ძლიერი ჟინჟღლი"
 
-#: ../libgweather/weather.c:242
+#: libgweather/gweather-info.c:245
 msgid "Freezing drizzle"
-msgstr "ცივი სეტყვისებრი წვიმა"
+msgstr "გაყინული წვიმა"
 
 #. RAIN
-#: ../libgweather/weather.c:243
+#: libgweather/gweather-info.c:246
 msgid "Rain"
 msgstr "წვიმა"
 
-#: ../libgweather/weather.c:243
+#: libgweather/gweather-info.c:246
 msgid "Light rain"
-msgstr "სუსტი წვიმა"
+msgstr "მსუბუქი წვიმა"
 
-#: ../libgweather/weather.c:243
+#: libgweather/gweather-info.c:246
 msgid "Moderate rain"
-msgstr "ზომიერი წვიმა"
+msgstr "საშუალო წვიმა"
 
-#: ../libgweather/weather.c:243
+#: libgweather/gweather-info.c:246
 msgid "Heavy rain"
-msgstr "ძლიერი წვიმა"
+msgstr "თავსხმა წვიმა"
 
-#: ../libgweather/weather.c:243
+#: libgweather/gweather-info.c:246
 msgid "Rain showers"
-msgstr "კოკისპირული წვიმა"
+msgstr "ოდნავი წვიმა"
 
-#: ../libgweather/weather.c:243
+#: libgweather/gweather-info.c:246
 msgid "Freezing rain"
-msgstr "სეტყვიანი წვიმა"
+msgstr "გაყინული წვიმა"
 
 #. SNOW
-#: ../libgweather/weather.c:244
+#: libgweather/gweather-info.c:247
 msgid "Snow"
 msgstr "თოვლი"
 
-#: ../libgweather/weather.c:244
+#: libgweather/gweather-info.c:247
 msgid "Light snow"
-msgstr "მცირე თოვლი"
+msgstr "მსუბუქი თოვლი"
 
-#: ../libgweather/weather.c:244
+#: libgweather/gweather-info.c:247
 msgid "Moderate snow"
-msgstr "ზომიერი თოვლი"
+msgstr "საშუალო თოვლი"
 
-#: ../libgweather/weather.c:244
+#: libgweather/gweather-info.c:247
 msgid "Heavy snow"
-msgstr "ხშირი თოვლი"
+msgstr "ძლიერი თოვლი"
 
-#: ../libgweather/weather.c:244
+#: libgweather/gweather-info.c:247
 msgid "Snowstorm"
-msgstr "თოვლიანი ქარბუქი"
+msgstr "ქარბუქი"
 
-#: ../libgweather/weather.c:244
+#: libgweather/gweather-info.c:247
 msgid "Blowing snowfall"
-msgstr "ძლიერი თოვლიანი ქარბუქი"
+msgstr "ქარბუქი"
 
-#: ../libgweather/weather.c:244
+#: libgweather/gweather-info.c:247
 msgid "Snow showers"
-msgstr "კოკისპირული თოვლიანობა"
+msgstr "თოვლის წვიმა"
 
-#: ../libgweather/weather.c:244
+#: libgweather/gweather-info.c:247
 msgid "Drifting snow"
-msgstr "თოვლის დიუნები"
+msgstr "სრიალა თოვლი"
 
 #. SNOW_GRAINS
-#: ../libgweather/weather.c:245
+#: libgweather/gweather-info.c:248
 msgid "Snow grains"
-msgstr "თოვლიანი ცვიმა"
+msgstr "თოვლის მარცვლები"
 
-#: ../libgweather/weather.c:245
+#: libgweather/gweather-info.c:248
 msgid "Light snow grains"
-msgstr "მცირე თოვლიანი წვიმა"
+msgstr "მსუბუქი თოვლის მარცვლები"
 
-#: ../libgweather/weather.c:245
+#: libgweather/gweather-info.c:248
 msgid "Moderate snow grains"
-msgstr "ზომიეღი თოვლიანი წვიმა"
+msgstr "საშუალო თოვლის მარცვლები"
 
-#: ../libgweather/weather.c:245
+#: libgweather/gweather-info.c:248
 msgid "Heavy snow grains"
-msgstr "ხშირი თოვლიანი წვიმა"
+msgstr "ძლიერი თოვლის მარცვლები"
 
 #. ICE_CRYSTALS
-#: ../libgweather/weather.c:246
+#: libgweather/gweather-info.c:249
 msgid "Ice crystals"
 msgstr "ყინულის კრისტალები"
 
 #. ICE_PELLETS
-#: ../libgweather/weather.c:247
-msgid "Ice pellets"
-msgstr "სეტყვა"
+#: libgweather/gweather-info.c:250
+msgid "Sleet"
+msgstr "ჭყაპი"
 
-#: ../libgweather/weather.c:247
-msgid "Few ice pellets"
-msgstr "ცოტაოდენი სეტყვა"
+#: libgweather/gweather-info.c:250
+msgid "Little sleet"
+msgstr "მცირე ჭყაპი"
 
-#: ../libgweather/weather.c:247
-msgid "Moderate ice pellets"
-msgstr "ზომიერი სეტყვა"
+#: libgweather/gweather-info.c:250
+msgid "Moderate sleet"
+msgstr "საშუალო ჭყაპი"
 
-#: ../libgweather/weather.c:247
-msgid "Heavy ice pellets"
-msgstr "ხშირი სეტყვა"
+#: libgweather/gweather-info.c:250
+msgid "Heavy sleet"
+msgstr "მძიმე ჭყაპი"
 
-#: ../libgweather/weather.c:247
-msgid "Ice pellet storm"
-msgstr "სეტყვიანი ქარბუქი"
+#: libgweather/gweather-info.c:250
+msgid "Sleet storm"
+msgstr ""
 
-#: ../libgweather/weather.c:247
-msgid "Showers of ice pellets"
-msgstr "სეტყვიანი კოკისპირული წვიმა"
+#: libgweather/gweather-info.c:250
+msgid "Showers of sleet"
+msgstr "ჭყაპიანი წვიმა"
 
 #. HAIL
-#: ../libgweather/weather.c:248
+#: libgweather/gweather-info.c:251
 msgid "Hail"
 msgstr "სეტყვა"
 
-#: ../libgweather/weather.c:248
+#: libgweather/gweather-info.c:251
 msgid "Hailstorm"
-msgstr "სეტყვიანი შტორმი"
+msgstr "სეტყვანარევი ქარიშხალი"
 
-#: ../libgweather/weather.c:248
+#: libgweather/gweather-info.c:251
 msgid "Hail showers"
-msgstr "აქა-იქ სეტყვა"
+msgstr "ხოშკაკალი"
 
 #. SMALL_HAIL
-#: ../libgweather/weather.c:249
+#: libgweather/gweather-info.c:252
 msgid "Small hail"
 msgstr "წვრილი სეტყვა"
 
-#: ../libgweather/weather.c:249
+#: libgweather/gweather-info.c:252
 msgid "Small hailstorm"
-msgstr "მცირე სეტყვიანი შტორმი"
+msgstr "მცირე ხოშკაკალი"
 
-#: ../libgweather/weather.c:249
+#: libgweather/gweather-info.c:252
 msgid "Showers of small hail"
-msgstr "წვიმა და წვრილი სეტყვა"
+msgstr ""
 
 #. PRECIPITATION
-#: ../libgweather/weather.c:250
+#: libgweather/gweather-info.c:253
 msgid "Unknown precipitation"
-msgstr "უცნობი ნალექიანობა"
+msgstr "უცნობი ნალექი"
 
 #. MIST
-#: ../libgweather/weather.c:251
+#: libgweather/gweather-info.c:254
 msgid "Mist"
-msgstr "ნისლი"
+msgstr "ბურუსი"
 
 #. FOG
-#: ../libgweather/weather.c:252
+#: libgweather/gweather-info.c:255
 msgid "Fog"
-msgstr "კვამლი"
+msgstr "ნისლი"
 
-#: ../libgweather/weather.c:252
+#: libgweather/gweather-info.c:255
 msgid "Fog in the vicinity"
-msgstr "კვამლი ახლო მდებარე ტერიტორიაზე"
+msgstr "ნისლი სიახლოვეში"
 
-#: ../libgweather/weather.c:252
+#: libgweather/gweather-info.c:255
 msgid "Shallow fog"
-msgstr "ხშირი ბინდი"
+msgstr "მსუბუქი ნისლი"
 
-#: ../libgweather/weather.c:252
+#: libgweather/gweather-info.c:255
 msgid "Patches of fog"
-msgstr "აქა-იქ დაბინდული"
+msgstr "აქა-იქ ნისლი"
 
-#: ../libgweather/weather.c:252
+#: libgweather/gweather-info.c:255
 msgid "Partial fog"
-msgstr "დროდადრო ბინდი"
+msgstr "ნაწილობრივი ნისლი"
 
-#: ../libgweather/weather.c:252
+#: libgweather/gweather-info.c:255
 msgid "Freezing fog"
-msgstr "გაყინული ბინდი"
+msgstr "გაყინული ნისლი"
 
 #. SMOKE
-#: ../libgweather/weather.c:253
+#: libgweather/gweather-info.c:256
 msgid "Smoke"
 msgstr "კვამლი"
 
 #. VOLCANIC_ASH
-#: ../libgweather/weather.c:254
+#: libgweather/gweather-info.c:257
 msgid "Volcanic ash"
 msgstr "ვულკანური ფერფლი"
 
 #. SAND
-#: ../libgweather/weather.c:255
+#: libgweather/gweather-info.c:258
 msgid "Sand"
 msgstr "ქვიშა"
 
-#: ../libgweather/weather.c:255
+#: libgweather/gweather-info.c:258
 msgid "Blowing sand"
-msgstr "ქვიშის ქარბუქი"
+msgstr ""
 
-#: ../libgweather/weather.c:255
+#: libgweather/gweather-info.c:258
 msgid "Drifting sand"
-msgstr "მტვრის ნამქერი"
+msgstr "სრიალა ქვიშა"
 
 #. HAZE
-#: ../libgweather/weather.c:256
+#: libgweather/gweather-info.c:259
 msgid "Haze"
-msgstr "მტვრიანი ნისლი"
+msgstr "თხელი ნისლი"
 
 #. SPRAY
-#: ../libgweather/weather.c:257
+#: libgweather/gweather-info.c:260
 msgid "Blowing sprays"
-msgstr "ძლიერი მტვრიანი ქარი"
+msgstr ""
 
 #. DUST
-#: ../libgweather/weather.c:258
+#: libgweather/gweather-info.c:261
 msgid "Dust"
 msgstr "მტვერი"
 
-#: ../libgweather/weather.c:258
+#: libgweather/gweather-info.c:261
 msgid "Blowing dust"
-msgstr "მტვრის ქარბუქი"
+msgstr "მტვრიანი ქარი"
 
-#: ../libgweather/weather.c:258
+#: libgweather/gweather-info.c:261
 msgid "Drifting dust"
-msgstr "მტვრის ნიავქარი"
+msgstr ""
 
 #. SQUALL
-#: ../libgweather/weather.c:259
+#: libgweather/gweather-info.c:262
 msgid "Squall"
-msgstr "შკვალი"
+msgstr ""
 
 #. SANDSTORM
-#: ../libgweather/weather.c:260
+#: libgweather/gweather-info.c:263
 msgid "Sandstorm"
-msgstr "ქვიშის ქარბუქი"
+msgstr "ქვიშის ქარი"
 
-#: ../libgweather/weather.c:260
+#: libgweather/gweather-info.c:263
 msgid "Sandstorm in the vicinity"
-msgstr "ახლომახლო ქვიშის ქარბუქი"
+msgstr ""
 
-#: ../libgweather/weather.c:260
+#: libgweather/gweather-info.c:263
 msgid "Heavy sandstorm"
-msgstr "ძლიერი ქვიშის ქარი"
+msgstr "ქვიშის ძლიერი ქარი"
 
 #. DUSTSTORM
-#: ../libgweather/weather.c:261
+#: libgweather/gweather-info.c:264
 msgid "Duststorm"
-msgstr "მტვრის ქარბუქი"
+msgstr "მტვრის ქარი"
 
-#: ../libgweather/weather.c:261
+#: libgweather/gweather-info.c:264
 msgid "Duststorm in the vicinity"
-msgstr "ახლო-მახლო მტვრის ქარბუქი"
+msgstr ""
 
-#: ../libgweather/weather.c:261
+#: libgweather/gweather-info.c:264
 msgid "Heavy duststorm"
-msgstr "ძლიერი მტვრიანი ქარი"
+msgstr "მტვრის ძლიერი ქარი"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/weather.c:262
+#: libgweather/gweather-info.c:265
 msgid "Funnel cloud"
-msgstr "ქარბორბალა"
+msgstr ""
 
 #. TORNADO
-#: ../libgweather/weather.c:263
+#: libgweather/gweather-info.c:266
 msgid "Tornado"
 msgstr "ტორნადო"
 
 #. DUST_WHIRLS
-#: ../libgweather/weather.c:264
+#: libgweather/gweather-info.c:267
 msgid "Dust whirls"
-msgstr "მტვრიანი ქარი"
+msgstr ""
 
-#: ../libgweather/weather.c:264
+#: libgweather/gweather-info.c:267
 msgid "Dust whirls in the vicinity"
-msgstr "ახლომახლო მტვრის ქარბორბალები"
+msgstr ""
 
-#. TRANSLATOR: this is a format string for strftime
-#. *             see `man 3 strftime` for more details
-#.
-#: ../libgweather/weather.c:662
-msgid "%a, %b %d / %H:%M"
-msgstr "%a, %b %d / %H:%M"
+#: libgweather/gweather-info.c:825
+msgid "%a, %b %d / %H∶%M"
+msgstr "%a, %b %d / %H∶%M"
 
-#: ../libgweather/weather.c:677
+#: libgweather/gweather-info.c:831
 msgid "Unknown observation time"
-msgstr "დაკვირვების უცნობი დრო"
+msgstr ""
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:710
-#, fuzzy, c-format
-msgid "%.1f ℉"
-msgstr "%.1f K"
+#: libgweather/gweather-info.c:843
+msgctxt "sky conditions"
+msgid "Unknown"
+msgstr ""
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\342\204\211 is the "DEGREE FAHRENHEIT" symbol)
-#: ../libgweather/weather.c:713
-#, fuzzy, c-format
-msgid "%d ℉"
-msgstr "%d K"
+#. Translate to the default units to use for presenting
+#. * lengths to the user. Translate to default:inch if you
+#. * want inches, otherwise translate to default:mm.
+#. * Do *not* translate it to "predefinito:mm", if it
+#. * it isn't default:mm or default:inch it will not work
+#.
+#: libgweather/gweather-info.c:874
+msgid "default:mm"
+msgstr "default:mm"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:719
-#, fuzzy, c-format
-msgid "%.1f ℃"
-msgstr "%.1f K"
-
-#. TRANSLATOR: This is the temperature in degrees Celsius (\342\204\203 is the "DEGREE CELSIUS" symbol)
-#: ../libgweather/weather.c:722
-#, fuzzy, c-format
-msgid "%d ℃"
-msgstr "%d K"
-
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:728
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit
+#. * with a non-break space (U+00A0) between the digits and the
+#. * degrees sign (U+00B0), followed by the letter F
+#.
+#: libgweather/gweather-info.c:921
 #, c-format
-msgid "%.1f K"
-msgstr "%.1f K"
+msgid "%.1f °F"
+msgstr "%.1f °F"
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/weather.c:731
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit
+#. * with a non-break space (U+00A0) between the digits and the
+#. * degrees sign (U+00B0), followed by the letter F
+#.
+#: libgweather/gweather-info.c:927
 #, c-format
-msgid "%d K"
-msgstr "%d K"
+msgid "%d °F"
+msgstr "%d °F"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius
+#. * with a non-break space (U+00A0) between the digits and
+#. * the degrees sign (U+00B0), followed by the letter C
+#.
+#: libgweather/gweather-info.c:936
+#, c-format
+msgid "%.1f °C"
+msgstr "%.1f °C"
+
+#. TRANSLATOR: This is the temperature in degrees Celsius
+#. * with a non-break space (U+00A0) between the digits and
+#. * the degrees sign (U+00B0), followed by the letter C
+#.
+#: libgweather/gweather-info.c:942
+#, c-format
+msgid "%d °C"
+msgstr "%d °C"
+
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#. * with a non-break space (U+00A0) between the digits and the degrees
+#. * sign
+#.
+#: libgweather/gweather-info.c:951
+#, c-format
+msgid "%.1f K"
+msgstr "%.1f K"
+
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#. * with a non-break space (U+00A0) between the digits and the degrees
+#. * sign
+#.
+#: libgweather/gweather-info.c:957
+#, c-format
+msgid "%d K"
+msgstr "%d K"
+
+#: libgweather/gweather-info.c:977 libgweather/gweather-info.c:990
+#: libgweather/gweather-info.c:1003 libgweather/gweather-info.c:1061
+msgctxt "temperature"
+msgid "Unknown"
+msgstr ""
+
+#: libgweather/gweather-info.c:1023
+msgctxt "dew"
+msgid "Unknown"
+msgstr ""
+
+#: libgweather/gweather-info.c:1043
+msgctxt "humidity"
+msgid "Unknown"
+msgstr ""
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/weather.c:782
+#: libgweather/gweather-info.c:1046
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/weather.c:807
+#: libgweather/gweather-info.c:1088
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f კვანძი"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/weather.c:811
+#: libgweather/gweather-info.c:1091
 #, c-format
 msgid "%.1f mph"
-msgstr "%.1f მილი/სთ"
+msgstr "%.1f მ/სთ"
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/weather.c:815
+#: libgweather/gweather-info.c:1094
 #, c-format
 msgid "%.1f km/h"
-msgstr "%.1f კმ/ს"
+msgstr "%.1f კმ/სთ"
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/weather.c:819
+#: libgweather/gweather-info.c:1097
 #, c-format
 msgid "%.1f m/s"
-msgstr "%.1f მ/წ"
+msgstr "%.1f მ/წმ"
 
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/weather.c:825
+#: libgweather/gweather-info.c:1102
 #, c-format
 msgid "Beaufort force %.1f"
-msgstr "%.1f ბალი ბოფორტის შკალით"
+msgstr ""
 
-#: ../libgweather/weather.c:846
+#: libgweather/gweather-info.c:1119
+msgctxt "wind speed"
+msgid "Unknown"
+msgstr ""
+
+#: libgweather/gweather-info.c:1121
 msgid "Calm"
-msgstr "მშვიდი ნიავი"
+msgstr "მშვიდი"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/weather.c:850
+#: libgweather/gweather-info.c:1129
 #, c-format
 msgid "%s / %s"
-msgstr "%s / %s"
+msgstr ""
+
+#. TRANSLATOR: This is the wind speed in knots
+#: libgweather/gweather-info.c:1150
+msgid "knots"
+msgstr "კვანძი"
+
+#. TRANSLATOR: This is the wind speed in miles per hour
+#: libgweather/gweather-info.c:1153
+msgid "mph"
+msgstr "მ/სთ"
+
+#. TRANSLATOR: This is the wind speed in kilometers per hour
+#: libgweather/gweather-info.c:1156
+msgid "km/h"
+msgstr "კმ/სთ"
+
+#. TRANSLATOR: This is the wind speed in meters per second
+#: libgweather/gweather-info.c:1159
+msgid "m/s"
+msgstr "მ/წმ"
+
+#. TRANSLATOR: This is the wind speed as a Beaufort force factor
+#. * (commonly used in nautical wind estimation).
+#.
+#: libgweather/gweather-info.c:1164
+msgid "Beaufort force"
+msgstr ""
+
+#: libgweather/gweather-info.c:1197
+msgctxt "pressure"
+msgid "Unknown"
+msgstr ""
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/weather.c:868
+#: libgweather/gweather-info.c:1203
 #, c-format
 msgid "%.2f inHg"
-msgstr "%.2f inHg"
+msgstr "%.2f დ.Hg"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/weather.c:872
+#: libgweather/gweather-info.c:1206
 #, c-format
 msgid "%.1f mmHg"
-msgstr "%.1f mmHg"
+msgstr "%.1f მმHg"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/weather.c:876
+#: libgweather/gweather-info.c:1209
 #, c-format
 msgid "%.2f kPa"
-msgstr "%.2f კილო.პასკალი"
+msgstr "%.2f კპ"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/weather.c:880
+#: libgweather/gweather-info.c:1212
 #, c-format
 msgid "%.2f hPa"
-msgstr "%.2f ჰეკტო.პასკალი"
+msgstr "%.2f ჰპ"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/weather.c:884
+#: libgweather/gweather-info.c:1215
 #, c-format
 msgid "%.2f mb"
-msgstr "%.2f მილიბარი"
+msgstr "%.2f მბ"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/weather.c:888
+#: libgweather/gweather-info.c:1218
 #, c-format
 msgid "%.3f atm"
-msgstr "%.2f ატმო"
+msgstr "%.3f ატმ"
+
+#: libgweather/gweather-info.c:1252
+msgctxt "visibility"
+msgid "Unknown"
+msgstr ""
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/weather.c:913
+#: libgweather/gweather-info.c:1258
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f მილი"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/weather.c:917
+#: libgweather/gweather-info.c:1261
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f კმ"
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/weather.c:921
+#: libgweather/gweather-info.c:1264
 #, c-format
 msgid "%.0fm"
-msgstr "%.0f მ"
+msgstr "%.0fმ"
 
-#: ../libgweather/weather.c:949 ../libgweather/weather.c:969
-msgid "%H:%M"
-msgstr "%H:%M"
+#: libgweather/gweather-info.c:1289 libgweather/gweather-info.c:1311
+msgid "%H∶%M"
+msgstr "%H∶%M"
 
-#: ../libgweather/weather.c:1002
+#: libgweather/gweather-info.c:1386
 msgid "Retrieval failed"
-msgstr "მიღება ვერ შედგა."
+msgstr "მიღების შეცდომა"
+
+#: libgweather/weather-owm.c:384
+msgid ""
+"Weather data from the <a href=\"https://openweathermap.org\">Open Weather "
+"Map project</a>"
+msgstr ""
+
+#. The new (documented but not advertised) API is less strict in the
+#. format of the attribution, and just requires a generic CC-BY compatible
+#. attribution with a link to their service.
+#.
+#. That's very nice of them!
+#.
+#: libgweather/weather-metno.c:374
+msgid ""
+"Weather data from the <a href=\"https://www.met.no/\">Norwegian "
+"Meteorological Institute</a>."
+msgstr ""
+
+#: schemas/org.gnome.GWeather4.gschema.xml:5
+msgid "Temperature unit"
+msgstr "ტემპერატურის ერთეული"
+
+#: schemas/org.gnome.GWeather4.gschema.xml:6
+msgid ""
+"The unit of temperature used for showing weather. Valid values are “kelvin”, "
+"“centigrade” and “fahrenheit”."
+msgstr ""
+
+#: schemas/org.gnome.GWeather4.gschema.xml:13
+msgid "Distance unit"
+msgstr "საზომი ერთეული"
+
+#: schemas/org.gnome.GWeather4.gschema.xml:14
+msgid ""
+"The unit of distance used for showing weather (for example for visibility or "
+"for distance of important events). Valid values are “meters”, “km” and "
+"“miles”."
+msgstr ""
+
+#: schemas/org.gnome.GWeather4.gschema.xml:21
+msgid "Speed unit"
+msgstr "სიჩქარის ერთეული"
+
+#: schemas/org.gnome.GWeather4.gschema.xml:22
+msgid ""
+"The unit of speed used for showing weather (for example for wind speed). "
+"Valid values are “ms” (meters per second), “kph” (kilometers per hour), "
+"“mph” (miles per hour), “knots” and “bft” (Beaufort scale)."
+msgstr ""
+
+#: schemas/org.gnome.GWeather4.gschema.xml:30
+msgid "Pressure unit"
+msgstr "წნევის ერთეული"
+
+#: schemas/org.gnome.GWeather4.gschema.xml:31
+msgid ""
+"The unit of pressure used for showing weather. Valid values are "
+"“kpa” (kilopascal), “hpa” (hectopascal), “mb” (millibar, mathematically "
+"equivalent to 1 hPa but shown differently), “mm-hg” (millimeters of "
+"mercury), “inch-hg” (inches of mercury), “atm” (atmospheres)."
+msgstr ""
+
+#. TRANSLATORS: pick a default location to use in the weather applet. This should
+#. usually be the largest city or the capital of your country. If you're not picking
+#. a <location> in the database, don't forget to set name and coordinates.
+#. Do NOT change or localize the quotation marks!
+#: schemas/org.gnome.GWeather4.gschema.xml:43
+msgid "('', 'KNYC', nothing)"
+msgstr "('', 'KNYC', არაფერი)"
+
+#: schemas/org.gnome.GWeather4.gschema.xml:44
+msgid "Default location"
+msgstr "ნაგულისხმები მდებარეობა"
+
+#: schemas/org.gnome.GWeather4.gschema.xml:45
+msgid ""
+"The default location for the weather applet. The first field is the name "
+"that will be shown. If empty, it will be taken from the locations database. "
+"The second field is the METAR code for the default weather station. It must "
+"not be empty and must correspond to a <code> tag in the Locations.xml file. "
+"The third field is a tuple of (latitude, longitude), to override the value "
+"taken from the database. This is only used for sunrise and moon phase "
+"calculations, not for weather forecast."
+msgstr ""
