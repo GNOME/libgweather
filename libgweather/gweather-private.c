@@ -44,7 +44,7 @@ ensure_world (gpointer dummy G_GNUC_UNUSED)
 {
     g_autoptr (GError) error = NULL;
     g_autofree char *filename = NULL;
-    g_autoptr (GMappedFile) map;
+    g_autoptr (GMappedFile) map = NULL;
     const char *locations_path;
     GWeatherDb *db = NULL;
 
