@@ -200,9 +200,6 @@ lib_libgweather = library('gweather-4',
   install: true,
 )
 
-g_ir_scanner = find_program('g-ir-scanner', required: get_option('introspection'))
-build_gir = get_option('introspection') and g_ir_scanner.found() and not meson.is_cross_build()
-
 enable_vala = get_option('enable_vala')
 vapigen = find_program('vapigen', required: enable_vala == 'true')
 if enable_vala == 'auto' or enable_vala == 'true'
