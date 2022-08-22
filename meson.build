@@ -50,6 +50,10 @@ pylint_flags = [
 py = import('python').find_installation('python3', modules: ['gi'])
 gen_locations_variant = find_program('build-aux/meson/gen_locations_variant.py')
 
+g_ir_scanner = find_program('g-ir-scanner', required: get_option('introspection'))
+build_gir = get_option('introspection') and g_ir_scanner.found() and not meson.is_cross_build()
+build_docs = get_option('gtk_doc') and build_gir
+
 subdir('data')
 subdir('schemas')
 subdir('libgweather')
@@ -74,7 +78,7 @@ summary({
     'Use libsoup-2': get_option('soup2'),
     'Introspection': build_gir,
     'Generate VAPI': build_vapi,
-    'API reference': get_option('gtk_doc'),
+    'API reference': build_docs,
   },
   section: 'Build',
   bool_yn: true,
