@@ -1,7 +1,7 @@
 project('libgweather', 'c',
   version: '4.1.1',
   license: 'GPL-2.0-or-later',
-  meson_version: '>= 0.55.0',
+  meson_version: '>= 0.57.0',
   default_options: [
     'warning_level=2',
     'buildtype=debugoptimized',
@@ -61,7 +61,9 @@ subdir('doc')
 subdir('po')
 subdir('po-locations')
 
-meson.add_install_script('build-aux/meson/meson_post_install.py')
+gnome.post_install(
+  glib_compile_schemas: true,
+)
 
 summary({
     'prefix': prefix,
