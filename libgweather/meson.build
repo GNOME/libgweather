@@ -203,7 +203,7 @@ lib_libgweather = library('gweather-4',
 )
 
 enable_vala = get_option('enable_vala')
-vapigen = find_program('vapigen', required: enable_vala == 'true')
+vapigen = dependency('vapigen', required: enable_vala == 'true')
 if enable_vala == 'auto' or enable_vala == 'true'
   build_vapi = vapigen.found() and get_option('introspection')
   if enable_vala == 'true' and not build_vapi
