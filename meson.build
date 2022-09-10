@@ -54,6 +54,9 @@ g_ir_scanner = find_program('g-ir-scanner', required: get_option('introspection'
 build_gir = get_option('introspection') and g_ir_scanner.found() and not meson.is_cross_build()
 build_docs = get_option('gtk_doc') and build_gir
 
+schemas_srcdir = meson.project_source_root() / 'schemas'
+schemas_builddir = meson.project_build_root() / 'schemas'
+
 subdir('data')
 subdir('schemas')
 subdir('libgweather')

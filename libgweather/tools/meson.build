@@ -15,9 +15,6 @@ tools = [
   }
 ]
 
-schemas_srcdir = meson.project_source_root() / 'schemas'
-schemas_builddir = meson.project_build_root() / 'schemas'
-
 tools_cargs = [
   '-DTEST_LOCATIONS="@0@"'.format(locations_bin.full_path()),
   '-DSCHEMASDIR="@0@"'.format(schemas_srcdir),
