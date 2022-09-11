@@ -17,8 +17,8 @@ tools = [
 
 tools_cargs = [
   '-DTEST_LOCATIONS="@0@"'.format(locations_bin.full_path()),
-  '-DSCHEMASDIR="@0@/schemas"'.format(meson.source_root()),
-  '-DSCHEMAS_BUILDDIR="@0@/schemas"'.format(meson.build_root()),
+  '-DSCHEMASDIR="@0@"'.format(schemas_srcdir),
+  '-DSCHEMAS_BUILDDIR="@0@"'.format(schemas_builddir),
 ]
 
 foreach tool: tools

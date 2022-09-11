@@ -1,6 +1,6 @@
 gweather_test_cargs = [
-  '-DSCHEMASDIR="@0@/schemas"'.format(meson.source_root()),
-  '-DSCHEMAS_BUILDDIR="@0@/schemas"'.format(meson.build_root()),
+  '-DSCHEMASDIR="@0@"'.format(schemas_srcdir),
+  '-DSCHEMAS_BUILDDIR="@0@"'.format(schemas_builddir),
 ]
 
 gweather_test_env = environment()
