@@ -493,10 +493,11 @@ gweather_location_get_parent (GWeatherLocation *loc)
  * children is as simple as:
  *
  * ```c
- *   g_autoptr (GWeatherLocation) child = NULL;
+ *   GWeatherLocation *child = NULL;
  *   while ((child = gweather_location_next_child (location, child)))
  *     {
  *        // Do something with child
+ *        g_object_unref (child);
  *     }
  * ```
  *
