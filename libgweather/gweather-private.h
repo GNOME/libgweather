@@ -27,6 +27,7 @@ void
 _gweather_gettext_init (void);
 
 typedef struct {
+    char *filename;
     GMappedFile *map;
     DbWorldRef world;
     DbArrayofLocationRef locations_ref;

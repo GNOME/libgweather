@@ -76,6 +76,7 @@ ensure_world (gpointer dummy G_GNUC_UNUSED)
     }
 
     db->map = g_steal_pointer (&map);
+    db->filename = g_steal_pointer (&filename);
 
     db->locations_ref = db_world_get_locations (db->world);
     db->timezones_ref = db_world_get_timezones (db->world);
