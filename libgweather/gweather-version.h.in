@@ -64,6 +64,9 @@
  */
 #mesondefine GWEATHER_VERSION
 
+#define GWEATHER_ENCODE_VERSION(major,minor,micro) \
+        ((major) << 24 | (minor) << 16 | (micro) << 8)
+
 /**
  * GWEATHER_VERSION_HEX:
  *
@@ -88,3 +91,31 @@
          (GWEATHER_MAJOR_VERSION == (major) && GWEATHER_MINOR_VERSION > (minor)) || \
          (GWEATHER_MAJOR_VERSION == (major) && GWEATHER_MINOR_VERSION == (minor) && \
           GWEATHER_MICRO_VERSION >= (micro)))
+
+#define GWEATHER_UNAVAILABLE(major, minor) G_UNAVAILABLE(major, minor) _GWEATHER_EXTERN
+
+/**
+ * GWEATHER_VERSION_4_4:
+ *
+ * A macro that evaluates to the 4.4 version of GWeather, in a format
+ * that can be used by the C pre-processor.
+ *
+ * Since: 4.4
+ */
+#define GWEATHER_VERSION_4_4 (GWEATHER_ENCODE_VERSION (4, 4, 0))
+#if GWEATHER_VERSION_MAX_ALLOWED < GWEATHER_VERSION_4_4
+# define GWEATHER_AVAILABLE_IN_4_4 GWEATHER_UNAVAILABLE(4, 4)
+#else
+# define GWEATHER_AVAILABLE_IN_4_4 _GWEATHER_EXTERN
+#endif
+#if GWEATHER_VERSION_MIN_REQUIRED >= GWEATHER_VERSION_4_4
+# define GWEATHER_DEPRECATED_IN_4_4             _GWEATHER_DEPRECATED
+# define GWEATHER_DEPRECATED_IN_4_4_FOR(f)      _GWEATHER_DEPRECATED_FOR(f)
+# define GWEATHER_DEPRECATED_TYPE_IN_4_4        _GWEATHER_DEPRECATED_TYPE
+# define GWEATHER_DEPRECATED_TYPE_IN_4_4_FOR(f) _GWEATHER_DEPRECATED_TYPE_FOR(f)
+#else
+# define GWEATHER_DEPRECATED_IN_4_4             _GWEATHER_EXTERN
+# define GWEATHER_DEPRECATED_IN_4_4_FOR(f)      _GWEATHER_EXTERN
+# define GWEATHER_DEPRECATED_TYPE_IN_4_4
+# define GWEATHER_DEPRECATED_TYPE_IN_4_4_FOR(f)
+#endif

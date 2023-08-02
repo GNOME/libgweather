@@ -166,6 +166,13 @@ introspection_sources = [
   gweather_headers,
 ]
 
+lib_libgweather_c_args = []
+if libgweather_minor % 2 == 1
+  lib_libgweather_c_args += [
+    '-DGWEATHER_VERSION_MAX_ALLOWED=GWEATHER_VERSION_@0@_@1@'.format(libgweather_major, libgweather_minor+1),
+  ]
+endif
+
 libgweather_static = static_library('gweather',
   sources: [
     gweather_enum_types,
@@ -177,6 +184,7 @@ libgweather_static = static_library('gweather',
     include_directories('.'),
     include_directories('..'),
   ],
+  c_args: lib_libgweather_c_args,
 )
 
 libgweather_static_dep = declare_dependency(
@@ -199,6 +207,7 @@ lib_libgweather = library('gweather-4',
   include_directories: [
     include_directories('..'),
   ],
+  c_args: lib_libgweather_c_args,
   install: true,
 )
 
