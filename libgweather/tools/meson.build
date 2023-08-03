@@ -12,10 +12,14 @@ tools = [
   },
   {
     'name': 'weather',
+  },
+  {
+    'name': 'search',
   }
 ]
 
 tools_cargs = [
+  lib_libgweather_c_args,
   '-DTEST_LOCATIONS="@0@"'.format(locations_bin.full_path()),
   '-DSCHEMASDIR="@0@"'.format(schemas_srcdir),
   '-DSCHEMAS_BUILDDIR="@0@"'.format(schemas_builddir),
