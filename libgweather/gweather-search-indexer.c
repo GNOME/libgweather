@@ -41,11 +41,17 @@ gweather_index_location_recurse (SearchIndexBuilder *builder,
                                  GWeatherLocation   *location)
 {
   g_autoptr(GWeatherLocation) child = NULL;
+  GWeatherLocationLevel level = gweather_location_get_level (location);
 
-  if (gweather_location_get_level (location) >= GWEATHER_LOCATION_CITY)
+  if (level >= GWEATHER_LOCATION_CITY)
     {
       g_autoptr(GVariant) variant = gweather_location_serialize (location);
+      g_autoptr(GWeatherLocation) first_child = gweather_location_next_child (location, NULL);
       g_autoptr(GBytes) bytes = NULL;
+
+      /* Ignore cities with no children */
+      if (level == GWEATHER_LOCATION_CITY && first_child == NULL)
+        return;
 
       if (variant != NULL &&
           (bytes = g_variant_get_data_as_bytes (variant)))
