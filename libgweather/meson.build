@@ -118,9 +118,9 @@ endif
 libsoup_dep = dependency(libsoup_name, version: libsoup_req_version)
 
 deps_libgweather = [
-  dependency('gio-2.0', version: glib_req_version),
+  dependency('gio-2.0', version: glib_req),
   libsoup_dep,
-  dependency('libxml-2.0', version: libxml_req_version),
+  dependency('libxml-2.0', version: libxml_req),
   geocode_glib_dep,
   dependency('json-glib-1.0'),
 
@@ -166,7 +166,16 @@ introspection_sources = [
   gweather_headers,
 ]
 
-lib_libgweather_c_args = []
+glib_version_arr = glib_req_version.split('.')
+glib_major_version = glib_version_arr[0]
+glib_minor_version = glib_version_arr[1]
+
+lib_libgweather_c_args = [
+  '-DG_DISABLE_DEPRECATED',
+  '-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_@0@_@1@'.format(glib_major_version, glib_minor_version),
+  '-DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_@0@_@1@'.format(glib_major_version, glib_minor_version),
+]
+
 if libgweather_minor % 2 == 1
   lib_libgweather_c_args += [
     '-DGWEATHER_VERSION_MAX_ALLOWED=GWEATHER_VERSION_@0@_@1@'.format(libgweather_major, libgweather_minor+1),
