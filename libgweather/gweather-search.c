@@ -107,7 +107,7 @@ gweather_search_get_world (void)
 static GVariant *
 deserialize_bytes (GBytes *bytes)
 {
-  GVariant *variant = g_variant_new_from_bytes (G_VARIANT_TYPE ("(uv)"), bytes, FALSE);
+  GVariant *variant = g_variant_new_from_bytes (G_VARIANT_TYPE ("(uv)"), bytes, TRUE);
   g_bytes_unref (bytes);
   return variant;
 }
