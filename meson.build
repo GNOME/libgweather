@@ -60,6 +60,27 @@ build_docs = get_option('gtk_doc') and build_gir
 schemas_srcdir = meson.project_source_root() / 'schemas'
 schemas_builddir = meson.project_build_root() / 'schemas'
 
+release_args = []
+global_link_args = []
+test_link_args = [
+  '-Wl,-z,relro',
+  '-Wl,-z,now',
+]
+if not get_option('buildtype').startswith('debug')
+  add_global_arguments(['-DG_DISABLE_CAST_CHECKS'], language: 'c')
+  release_args += [ '-DG_DISABLE_ASSERT' ]
+  test_link_args += [
+    '-Wl,-Bsymbolic',
+    '-fno-plt',
+  ]
+endif
+foreach link_arg: test_link_args
+  if c_compiler.has_link_argument(link_arg)
+    global_link_args += link_arg
+  endif
+endforeach
+add_project_link_arguments(global_link_args, language: 'c')
+
 subdir('data')
 subdir('schemas')
 subdir('libgweather')

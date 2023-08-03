@@ -174,6 +174,7 @@ glib_major_version = glib_version_arr[0]
 glib_minor_version = glib_version_arr[1]
 
 lib_libgweather_c_args = [
+  release_args,
   '-DG_DISABLE_DEPRECATED',
   '-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_@0@_@1@'.format(glib_major_version, glib_minor_version),
   '-DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_@0@_@1@'.format(glib_major_version, glib_minor_version),
