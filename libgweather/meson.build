@@ -130,7 +130,8 @@ deps_libgweather = [
 gweather_headers = [
   'gweather-info.h',
   'gweather-location.h',
-  'gweather-enums.h'
+  'gweather-enums.h',
+  'gweather-search.h',
 ]
 
 gweather_enum_types = gnome.mkenums('gweather-enum-types',
@@ -147,10 +148,12 @@ gweather_c_sources = [
   'gweather.c',
   'gweather-info.c',
   'gweather-location.c',
+  'gweather-search.c',
 ]
 
 gweather_priv_sources = [
   'gweather-private.c',
+  'search-index.c',
   'weather-metar.c',
   'weather-iwin.c',
   'weather-metno.c',
@@ -266,6 +269,11 @@ libgweather_dep = declare_dependency(
   include_directories: [
     include_directories('..'),
   ],
+)
+
+gweather_search_indexer = executable('gweather-search-indexer',
+  'gweather-search-indexer.c',
+  dependencies: libgweather_static_dep,
 )
 
 if build_vapi and build_gir
