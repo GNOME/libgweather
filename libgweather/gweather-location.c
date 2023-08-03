@@ -33,6 +33,9 @@ gweather_location_finalize (GObject *gobject)
 {
     GWeatherLocation *self = GWEATHER_LOCATION (gobject);
 
+    static guint count;
+    g_print ("finalize %d\n", count++);
+
     /* Remove weak reference from DB object; but only if it points to us.
      * It may point elsewhere if we are an implicit nearest child. */
     if (self->db && g_ptr_array_index (self->db->locations, self->db_idx) == self)
@@ -579,10 +582,22 @@ gweather_location_next_child (GWeatherLocation *loc,
 
     if (next_idx == length)
         return NULL;
-    else
-        return location_ref_for_idx (loc->db,
-                                     db_arrayofuint16_get_at (children_ref, next_idx),
-                                     NULL);
+
+    // TODO:
+    //
+    // Fix the fallout from this, beacuse it is what takes us from 10-15%
+    // down to 2%. Otherwise we create/finalize a few hundred thousand
+    // locations.
+    {
+      GWeatherLocation *child;
+
+      child = location_ref_for_idx (loc->db,
+                                    db_arrayofuint16_get_at (children_ref, next_idx),
+                                    NULL);
+
+      if (child != NULL)
+        child->_parent = g_object_ref (loc);
+    }
 
 invalid_child:
     g_critical ("%s: Passed child %p is not a child of the given location %p", G_STRFUNC, loc, child);
