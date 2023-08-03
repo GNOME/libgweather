@@ -4,16 +4,32 @@
 #include <string.h>
 #include <glib.h>
 
-#if !GLIB_CHECK_VERSION (2, 68, 0)
-# define g_memdup2(ptr,sz) g_memdup(ptr,sz)
-#endif
-
 /********** Basic types *****************/
 
 typedef struct {
  gconstpointer base;
  gsize size;
 } DbRef;
+
+/* Make sure generated code works with older glib versions without g_memdup2 */
+static inline gpointer
+_Db_memdup2(gconstpointer mem, gsize byte_size)
+{
+#if GLIB_CHECK_VERSION(2, 68, 0)
+    return g_memdup2(mem, byte_size);
+#else
+    gpointer new_mem;
+
+    if (mem && byte_size != 0) {
+        new_mem = g_malloc(byte_size);
+        memcpy(new_mem, mem, byte_size);
+    } else {
+        new_mem = NULL;
+    }
+
+    return new_mem;
+#endif
+}
 
 #define DB_REF_READ_FRAME_OFFSET(_v, _index) Db_ref_read_unaligned_le ((guchar*)((_v).base) + (_v).size - (offset_size * ((_index) + 1)), offset_size)
 #define DB_REF_ALIGN(_offset, _align_to) ((_offset + _align_to - 1) & ~(gsize)(_align_to - 1))
@@ -251,7 +267,8 @@ Db_variant_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 Db_variant_dup_to_gvariant (DbVariantRef v)
 {
-  return g_variant_new_from_data (G_VARIANT_TYPE_VARIANT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
+  guint8 *duped = _Db_memdup2 (v.base, v.size);
+  return g_variant_new_from_data (G_VARIANT_TYPE_VARIANT, duped, v.size, TRUE, g_free, duped);
 }
 
 static inline GVariant *
@@ -259,7 +276,7 @@ Db_variant_to_gvariant (DbVariantRef v,
                               GDestroyNotify      notify,
                               gpointer            user_data)
 {
-  return g_variant_new_from_data (G_VARIANT_TYPE_VARIANT, g_memdup2 (v.base, v.size), v.size, TRUE, notify, user_data);
+  return g_variant_new_from_data (G_VARIANT_TYPE_VARIANT, v.base, v.size, TRUE, notify, user_data);
 }
 
 static inline GVariant *
@@ -289,7 +306,8 @@ Db_variant_dup_child_to_gvariant (DbVariantRef v)
 {
   const GVariantType  *type;
   DbRef child = Db_variant_get_child (v, &type);
-  return g_variant_new_from_data (type, g_memdup2 (child.base, child.size), child.size, TRUE, g_free, NULL);
+  guint8 *duped = _Db_memdup2 (child.base, child.size);
+  return g_variant_new_from_data (type, duped, child.size, TRUE, g_free, duped);
 }
 
 static inline GVariant *
@@ -418,7 +436,8 @@ db_i18n_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_i18n_dup_to_gvariant (DbI18nRef v)
 {
-  return g_variant_new_from_data (DB_I18N_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
+  guint8 *duped = _Db_memdup2 (v.base, v.size);
+  return g_variant_new_from_data (DB_I18N_TYPEFORMAT, duped, v.size, TRUE, g_free, duped);
 }
 
 static inline GVariant *
@@ -457,7 +476,7 @@ db_i18n_get_str (DbI18nRef v)
 {
   guint offset_size = Db_ref_get_offset_size (v.size);
   guint offset = ((0) & (~(gsize)0)) + 0;
-  const char *base = (const char *)v.base;
+  G_GNUC_UNUSED const char *base = (const char *)v.base;
   gsize start = offset;
   G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 0);
   g_assert (start <= end);
@@ -474,7 +493,7 @@ db_i18n_get_msgctxt (DbI18nRef v)
   guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   guint offset = ((last_end + 0) & (~(gsize)0)) + 0;
-  const char *base = (const char *)v.base;
+  G_GNUC_UNUSED const char *base = (const char *)v.base;
   gsize start = offset;
   G_GNUC_UNUSED gsize end = v.size - offset_size * 1;
   g_assert (start <= end);
@@ -534,7 +553,8 @@ db_arrayofstring_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_arrayofstring_dup_to_gvariant (DbArrayofstringRef v)
 {
-  return g_variant_new_from_data (DB_ARRAYOFSTRING_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
+  guint8 *duped = _Db_memdup2 (v.base, v.size);
+  return g_variant_new_from_data (DB_ARRAYOFSTRING_TYPEFORMAT, duped, v.size, TRUE, g_free, duped);
 }
 
 static inline GVariant *
@@ -673,7 +693,8 @@ db_timezone_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_timezone_dup_to_gvariant (DbTimezoneRef v)
 {
-  return g_variant_new_from_data (DB_TIMEZONE_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
+  guint8 *duped = _Db_memdup2 (v.base, v.size);
+  return g_variant_new_from_data (DB_TIMEZONE_TYPEFORMAT, duped, v.size, TRUE, g_free, duped);
 }
 
 static inline GVariant *
@@ -793,7 +814,8 @@ db_coordinate_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_coordinate_dup_to_gvariant (DbCoordinateRef v)
 {
-  return g_variant_new_from_data (DB_COORDINATE_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
+  guint8 *duped = _Db_memdup2 (v.base, v.size);
+  return g_variant_new_from_data (DB_COORDINATE_TYPEFORMAT, duped, v.size, TRUE, g_free, duped);
 }
 
 static inline GVariant *
@@ -899,7 +921,8 @@ db_arrayofuint16_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_arrayofuint16_dup_to_gvariant (DbArrayofuint16Ref v)
 {
-  return g_variant_new_from_data (DB_ARRAYOFUINT16_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
+  guint8 *duped = _Db_memdup2 (v.base, v.size);
+  return g_variant_new_from_data (DB_ARRAYOFUINT16_TYPEFORMAT, duped, v.size, TRUE, g_free, duped);
 }
 
 static inline GVariant *
@@ -1008,7 +1031,8 @@ db_location_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_location_dup_to_gvariant (DbLocationRef v)
 {
-  return g_variant_new_from_data (DB_LOCATION_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
+  guint8 *duped = _Db_memdup2 (v.base, v.size);
+  return g_variant_new_from_data (DB_LOCATION_TYPEFORMAT, duped, v.size, TRUE, g_free, duped);
 }
 
 static inline GVariant *
@@ -1062,7 +1086,7 @@ db_location_get_forecast_zone (DbLocationRef v)
   guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   guint offset = ((last_end + 0) & (~(gsize)0)) + 0;
-  const char *base = (const char *)v.base;
+  G_GNUC_UNUSED const char *base = (const char *)v.base;
   gsize start = offset;
   G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 1);
   g_assert (start <= end);
@@ -1079,7 +1103,7 @@ db_location_get_radar (DbLocationRef v)
   guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 1);
   guint offset = ((last_end + 0) & (~(gsize)0)) + 0;
-  const char *base = (const char *)v.base;
+  G_GNUC_UNUSED const char *base = (const char *)v.base;
   gsize start = offset;
   G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 2);
   g_assert (start <= end);
@@ -1096,7 +1120,7 @@ db_location_get_coordinates (DbLocationRef v)
   guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 2);
   guint offset = ((last_end + 7) & (~(gsize)7)) + 0;
-  g_assert (offset + 16 < v.size);
+  g_assert (offset + 16 <= v.size);
   return (DbCoordinateRef) { G_STRUCT_MEMBER_P(v.base, offset), 16 };
 }
 
@@ -1113,7 +1137,7 @@ db_location_get_country_code (DbLocationRef v)
   guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 2);
   guint offset = ((last_end + 7) & (~(gsize)7)) + 16;
-  const char *base = (const char *)v.base;
+  G_GNUC_UNUSED const char *base = (const char *)v.base;
   gsize start = offset;
   G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 3);
   g_assert (start <= end);
@@ -1130,7 +1154,7 @@ db_location_get_metar_code (DbLocationRef v)
   guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 3);
   guint offset = ((last_end + 0) & (~(gsize)0)) + 0;
-  const char *base = (const char *)v.base;
+  G_GNUC_UNUSED const char *base = (const char *)v.base;
   gsize start = offset;
   G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 4);
   g_assert (start <= end);
@@ -1147,7 +1171,7 @@ db_location_get_tz_hint (DbLocationRef v)
   guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 4);
   guint offset = ((last_end + 1) & (~(gsize)1)) + 0;
-  g_assert (offset + 2 < v.size);
+  g_assert (offset + 2 <= v.size);
   return (guint16)G_STRUCT_MEMBER(guint16, v.base, offset);
 }
 
@@ -1159,7 +1183,7 @@ db_location_get_level (DbLocationRef v)
   guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 4);
   guint offset = ((last_end + 1) & (~(gsize)1)) + 2;
-  g_assert (offset + 1 < v.size);
+  g_assert (offset + 1 <= v.size);
   return (guint8)G_STRUCT_MEMBER(guint8, v.base, offset);
 }
 
@@ -1171,7 +1195,7 @@ db_location_get_nearest (DbLocationRef v)
   guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 4);
   guint offset = ((last_end + 1) & (~(gsize)1)) + 4;
-  g_assert (offset + 2 < v.size);
+  g_assert (offset + 2 <= v.size);
   return (guint16)G_STRUCT_MEMBER(guint16, v.base, offset);
 }
 
@@ -1183,7 +1207,7 @@ db_location_get_parent (DbLocationRef v)
   guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 4);
   guint offset = ((last_end + 1) & (~(gsize)1)) + 6;
-  g_assert (offset + 2 < v.size);
+  g_assert (offset + 2 <= v.size);
   return (guint16)G_STRUCT_MEMBER(guint16, v.base, offset);
 }
 
@@ -1310,7 +1334,8 @@ db_world_loc_by_country_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_world_loc_by_country_dup_to_gvariant (DbWorldLocByCountryRef v)
 {
-  return g_variant_new_from_data (DB_WORLD_LOC_BY_COUNTRY_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
+  guint8 *duped = _Db_memdup2 (v.base, v.size);
+  return g_variant_new_from_data (DB_WORLD_LOC_BY_COUNTRY_TYPEFORMAT, duped, v.size, TRUE, g_free, duped);
 }
 
 static inline GVariant *
@@ -1380,7 +1405,7 @@ db_world_loc_by_country_entry_get_key (DbWorldLocByCountryEntryRef v)
 {
   guint offset_size = Db_ref_get_offset_size (v.size);
   G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 0);
-  const char *base = (const char *)v.base;
+  G_GNUC_UNUSED const char *base = (const char *)v.base;
   g_assert (end < v.size);
   g_assert (base[end-1] == 0);
   return base;
@@ -1400,6 +1425,8 @@ static inline gboolean
 db_world_loc_by_country_lookup (DbWorldLocByCountryRef v, const char * key, gsize *index_out, guint16 *out)
 {
   const char * canonical_key = key;
+  if (v.size == 0)
+    return FALSE;
   guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   if (last_end > v.size)
@@ -1505,7 +1532,8 @@ db_world_loc_by_metar_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_world_loc_by_metar_dup_to_gvariant (DbWorldLocByMetarRef v)
 {
-  return g_variant_new_from_data (DB_WORLD_LOC_BY_METAR_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
+  guint8 *duped = _Db_memdup2 (v.base, v.size);
+  return g_variant_new_from_data (DB_WORLD_LOC_BY_METAR_TYPEFORMAT, duped, v.size, TRUE, g_free, duped);
 }
 
 static inline GVariant *
@@ -1575,7 +1603,7 @@ db_world_loc_by_metar_entry_get_key (DbWorldLocByMetarEntryRef v)
 {
   guint offset_size = Db_ref_get_offset_size (v.size);
   G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 0);
-  const char *base = (const char *)v.base;
+  G_GNUC_UNUSED const char *base = (const char *)v.base;
   g_assert (end < v.size);
   g_assert (base[end-1] == 0);
   return base;
@@ -1595,6 +1623,8 @@ static inline gboolean
 db_world_loc_by_metar_lookup (DbWorldLocByMetarRef v, const char * key, gsize *index_out, guint16 *out)
 {
   const char * canonical_key = key;
+  if (v.size == 0)
+    return FALSE;
   guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   if (last_end > v.size)
@@ -1700,7 +1730,8 @@ db_world_timezones_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_world_timezones_dup_to_gvariant (DbWorldTimezonesRef v)
 {
-  return g_variant_new_from_data (DB_WORLD_TIMEZONES_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
+  guint8 *duped = _Db_memdup2 (v.base, v.size);
+  return g_variant_new_from_data (DB_WORLD_TIMEZONES_TYPEFORMAT, duped, v.size, TRUE, g_free, duped);
 }
 
 static inline GVariant *
@@ -1770,7 +1801,7 @@ db_world_timezones_entry_get_key (DbWorldTimezonesEntryRef v)
 {
   guint offset_size = Db_ref_get_offset_size (v.size);
   G_GNUC_UNUSED gsize end = DB_REF_READ_FRAME_OFFSET(v, 0);
-  const char *base = (const char *)v.base;
+  G_GNUC_UNUSED const char *base = (const char *)v.base;
   g_assert (end < v.size);
   g_assert (base[end-1] == 0);
   return base;
@@ -1790,6 +1821,8 @@ static inline gboolean
 db_world_timezones_lookup (DbWorldTimezonesRef v, const char * key, gsize *index_out, DbTimezoneRef *out)
 {
   const char * canonical_key = key;
+  if (v.size == 0)
+    return FALSE;
   guint offset_size = Db_ref_get_offset_size (v.size);
   gsize last_end = DB_REF_READ_FRAME_OFFSET(v, 0);
   if (last_end > v.size)
@@ -1890,7 +1923,8 @@ db_arrayof_location_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_arrayof_location_dup_to_gvariant (DbArrayofLocationRef v)
 {
-  return g_variant_new_from_data (DB_ARRAYOF_LOCATION_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
+  guint8 *duped = _Db_memdup2 (v.base, v.size);
+  return g_variant_new_from_data (DB_ARRAYOF_LOCATION_TYPEFORMAT, duped, v.size, TRUE, g_free, duped);
 }
 
 static inline GVariant *
@@ -2010,7 +2044,8 @@ db_world_from_data (gconstpointer data, gsize size)
 static inline GVariant *
 db_world_dup_to_gvariant (DbWorldRef v)
 {
-  return g_variant_new_from_data (DB_WORLD_TYPEFORMAT, g_memdup2 (v.base, v.size), v.size, TRUE, g_free, NULL);
+  guint8 *duped = _Db_memdup2 (v.base, v.size);
+  return g_variant_new_from_data (DB_WORLD_TYPEFORMAT, duped, v.size, TRUE, g_free, duped);
 }
 
 static inline GVariant *
@@ -2048,7 +2083,7 @@ static inline guint64
 db_world_get_magic (DbWorldRef v)
 {
   guint offset = ((7) & (~(gsize)7)) + 0;
-  g_assert (offset + 8 < v.size);
+  g_assert (offset + 8 <= v.size);
   return (guint64)G_STRUCT_MEMBER(guint64, v.base, offset);
 }
 
