@@ -6,10 +6,13 @@
 
 #include "config.h"
 
+#include <math.h>
+
 #include "gweather-private.h"
 
 /* sign, 3 digits, separator, 4 decimals, nul-char */
 #define DEGREES_STR_SIZE (1 + 3 + 1 + 4 + 1)
+#define R                6372.795
 
 static GWeatherDb *world_db;
 
@@ -37,6 +40,38 @@ _gweather_location_reset_world (void)
             g_assert_not_reached ();
         }
     }
+}
+
+static struct kdtree *
+index_lat_lon (DbArrayofLocationRef locations_ref)
+{
+    struct kdtree *tree;
+    gsize size;
+
+    tree = kd_create (3);
+    size = db_arrayof_location_get_length (locations_ref);
+
+    for (gsize i = 0; i < size; i++) {
+        DbLocationRef loc_ref = db_arrayof_location_get_at (locations_ref, i);
+
+        if (db_location_get_level (loc_ref) == GWEATHER_LOCATION_CITY) {
+            DbCoordinateRef coord = db_location_get_coordinates (loc_ref);
+            double lat = db_coordinate_get_lat (coord);
+            double lon = db_coordinate_get_lon (coord);
+
+            if (isfinite (lat) && isfinite (lon)) {
+                double lat_r = lat * (M_PI / 180.0);
+                double lon_r = lon * (M_PI / 180.0);
+                double x = R * cos (lat_r) * cos (lon_r);
+                double y = R * cos (lat_r) * sin (lon_r);
+                double z = R * sin (lat_r);
+
+                kd_insert3 (tree, x, y, z, GSIZE_TO_POINTER (i));
+            }
+        }
+    }
+
+    return tree;
 }
 
 static gpointer
@@ -86,6 +121,8 @@ ensure_world (gpointer dummy G_GNUC_UNUSED)
     g_ptr_array_set_size (db->locations, db_arrayof_location_get_length (db->locations_ref));
     g_ptr_array_set_size (db->timezones, db_world_timezones_get_length (db->timezones_ref));
 
+    db->cities_kdtree = index_lat_lon (db->locations_ref);
+
     world_db = db;
 
     return db;
@@ -131,4 +168,25 @@ _radians_to_degrees_str (gdouble radians)
     /* Too many digits */
     g_return_val_if_fail (degrees <= 1000 || degrees >= -1000, NULL);
     return g_ascii_formatd (str, G_ASCII_DTOSTR_BUF_SIZE, "%g", degrees);
+}
+
+gssize
+_gweather_find_nearest_city_index (double lat,
+                                   double lon)
+{
+    double lat_r = lat * (M_PI / 180.0);
+    double lon_r = lon * (M_PI / 180.0);
+    double x = R * cos (lat_r) * cos (lon_r);
+    double y = R * cos (lat_r) * sin (lon_r);
+    double z = R * sin (lat_r);
+    struct kdres *set;
+
+    if (world_db == NULL || world_db->cities_kdtree == NULL)
+        return -1;
+
+    set = kd_nearest3 (world_db->cities_kdtree, x, y, z);
+    if (set == NULL || kd_res_size (set) == 0)
+        return -1;
+
+    return (gssize) GPOINTER_TO_SIZE (kd_res_item_data (set));
 }

@@ -1481,14 +1481,16 @@ gweather_location_common_deserialize (GWeatherLocation *world,
     /* Since weather stations are no longer attached to cities, first try to
        find what claims to be a city by name and coordinates */
     if (is_city && latitude && longitude) {
-        found = gweather_location_find_nearest_city (world,
-                                                     latitude / M_PI * 180.0,
-                                                     longitude / M_PI * 180.0);
+        gssize idx = _gweather_find_nearest_city_index (latitude, longitude);
+
+        if (idx >= 0)
+            found = location_ref_for_idx (world->db, idx, NULL);
+        else
+            found = NULL;
 
         if (found && (g_strcmp0 (name, gweather_location_get_english_name (found)) == 0 ||
                       g_strcmp0 (name, gweather_location_get_name (found)) == 0))
             return g_steal_pointer (&found);
-        g_clear_object (&found);
     }
 
     if (station_code[0] == '\0') {

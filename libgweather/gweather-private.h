@@ -17,6 +17,8 @@
 #include "gweather-location.h"
 #include "gweather-db.h"
 
+#include "kdtree.h"
+
 #define INVALID_IDX G_MAXUINT16
 #define IDX_VALID(idx) ((idx) < 0xffff)
 #define EMPTY_TO_NULL(s) ((s)[0] == '\0' ? NULL : (s))
@@ -34,6 +36,8 @@ typedef struct {
 
     GPtrArray *locations;
     GPtrArray *timezones;
+
+    struct kdtree *cities_kdtree;
 } GWeatherDb;
 
 struct _GWeatherLocation {
@@ -256,5 +260,9 @@ free_forecast_list (GWeatherInfo *info);
 
 GWeatherInfo *
 _gweather_info_new_clone (GWeatherInfo *original);
+
+gssize
+_gweather_find_nearest_city_index (double lat,
+                                   double lon);
 
 G_END_DECLS

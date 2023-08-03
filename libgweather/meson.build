@@ -151,6 +151,7 @@ gweather_c_sources = [
 
 gweather_priv_sources = [
   'gweather-private.c',
+  'kdtree.c',
   'weather-metar.c',
   'weather-iwin.c',
   'weather-metno.c',
