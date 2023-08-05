@@ -81,7 +81,7 @@ style-check-diff:
     - export PATH="$HOME/.local/bin:$PATH"
     - dnf install -y python3 python3-pip python3-wheel gobject-introspection-devel graphviz ninja-build redhat-rpm-config
     - dnf install -y ${PROJECT_DEPS}
-    - pip3 install --user meson==${MESON_VERSION} gi-docgen jinja2 Markdown markupsafe pygments toml typogrify
+    - pip3 install --user meson==${MESON_VERSION} gi-docgen jinja2 Markdown markupsafe packaging pygments toml typogrify
   script:
     - meson setup ${MESON_EXTRA_FLAGS} ${DOCS_FLAGS} _docs .
     - meson compile -C _docs
