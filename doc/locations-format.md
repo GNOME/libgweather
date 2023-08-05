@@ -70,7 +70,9 @@ A `<country>` can contain `<city>`s and `<location>`s directly, or can be
 split into `<state>`s which contain `<city>`s and `<location>`s. The name
 "state" comes from the US states, but it can be used to represent any
 sort of well-defined sub-country region that has a name which will be
-familiar to local users. A `<state>` may specify a `<tz-hint>` which will
+familiar to local users. This could for example be the primary geographical
+or administrative division of a country, like the US State, a Region in France
+or a Province in China. A `<state>` may specify a `<tz-hint>` which will
 override the `<country>`'s `<tz-hint>` for `<location>`s within the state.
 
 `<city>` is an optional element used to group together multiple
