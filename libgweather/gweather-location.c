@@ -26,6 +26,8 @@
 
 G_DEFINE_TYPE (GWeatherLocation, gweather_location, G_TYPE_OBJECT)
 
+static gboolean env_no_nearest;
+
 static void
 gweather_location_finalize (GObject *gobject)
 {
@@ -71,6 +73,8 @@ gweather_location_class_init (GWeatherLocationClass *klass)
 {
     G_OBJECT_CLASS (klass)->dispose = gweather_location_dispose;
     G_OBJECT_CLASS (klass)->finalize = gweather_location_finalize;
+
+    env_no_nearest = !!g_getenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST");
 }
 
 static void
@@ -535,7 +539,7 @@ gweather_location_next_child (GWeatherLocation *loc,
     }
 
     /* If we have a magic nearest child, iterate over that. */
-    if (!g_getenv ("LIBGWEATHER_LOCATIONS_NO_NEAREST") &&
+    if (!env_no_nearest &&
         IDX_VALID (db_location_get_nearest (loc->ref))) {
         if (child && (!child->db || !IDX_VALID (child->db_idx) || child->parent_idx != loc->db_idx))
             goto invalid_child;
@@ -1477,14 +1481,16 @@ gweather_location_common_deserialize (GWeatherLocation *world,
     /* Since weather stations are no longer attached to cities, first try to
        find what claims to be a city by name and coordinates */
     if (is_city && latitude && longitude) {
-        found = gweather_location_find_nearest_city (world,
-                                                     latitude / M_PI * 180.0,
-                                                     longitude / M_PI * 180.0);
+        gssize idx = _gweather_find_nearest_city_index (latitude, longitude);
+
+        if (idx >= 0)
+            found = location_ref_for_idx (world->db, idx, NULL);
+        else
+            found = NULL;
 
         if (found && (g_strcmp0 (name, gweather_location_get_english_name (found)) == 0 ||
                       g_strcmp0 (name, gweather_location_get_name (found)) == 0))
             return g_steal_pointer (&found);
-        g_clear_object (&found);
     }
 
     if (station_code[0] == '\0') {

@@ -150,6 +150,7 @@ gweather_c_sources = [
 ]
 
 gweather_priv_sources = [
+  'third-party/kdtree.c',
   'gweather-private.c',
   'weather-metar.c',
   'weather-iwin.c',
@@ -176,6 +177,7 @@ libgweather_static = static_library('gweather',
   include_directories: [
     include_directories('.'),
     include_directories('..'),
+    include_directories('third-party'),
   ],
 )
 
@@ -184,6 +186,7 @@ libgweather_static_dep = declare_dependency(
   include_directories: [
     include_directories('.'),
     include_directories('..'),
+    include_directories('third-party'),
   ],
   dependencies: deps_libgweather,
   link_with: libgweather_static,
