@@ -104,13 +104,13 @@ fedora-x86_64:
   variables:
     PROJECT_DEPS:
       gdk-pixbuf2-devel
-      geocode-glib-devel
+      geocode-glib2-devel
       gettext
       git
       gobject-introspection-devel
       itstool
       json-glib-devel
-      libsoup-devel
+      libsoup3-devel
       libxml2-devel
       ninja-build
       pylint
@@ -121,67 +121,7 @@ fedora-x86_64:
       redhat-rpm-config
       vala
     MESON_VERSION: "0.57.2"
-    MESON_EXTRA_FLAGS: "--buildtype=debug -Dwerror=true -Dgtk_doc=false -Dsoup2=true"
-
-fedora-x86_64-soup3:
-  extends: .build-default
-  stage: build
-  needs: []
-  variables:
-    PROJECT_DEPS:
-      gcc-c++
-      gdk-pixbuf2-devel
-      geocode-glib-devel
-      gettext
-      git
-      gnutls-devel
-      gobject-introspection-devel
-      itstool
-      json-glib-devel
-      libnghttp2-devel
-      libpsl-devel
-      libsoup-devel
-      libxml2-devel
-      ninja-build
-      pylint
-      python3
-      python3-gobject
-      python3-pip
-      python3-wheel
-      redhat-rpm-config
-      sqlite-devel
-      vala
-    MESON_VERSION: "0.57.2"
-    MESON_EXTRA_FLAGS: "--buildtype=debug -Dwerror=true -Dgtk_doc=false -Dsoup2=false"
-  before_script:
-    # Undo delangification present in the Fedora Docker images
-    - rm -f /etc/rpm/macros.image-language-conf
-    - dnf reinstall -y glib2 glibc || dnf update -y glib2 glibc
-    # Add French locale support for tests
-    - dnf install -y glibc-langpack-fr
-    - dnf install -y ${PROJECT_DEPS}
-    - pip3 install --user meson==${MESON_VERSION}
-    - export PATH="$PATH:$HOME/.local/bin"
-    # Build newer glib and glib-networking for libsoup3, can be removed with Fedora 35's release
-    - git clone https://gitlab.gnome.org/GNOME/glib.git && pushd glib
-    - git checkout 2.70.0
-    - meson _build --prefix=/usr
-    - ninja -C _build install
-    - popd
-    - git clone https://gitlab.gnome.org/GNOME/glib-networking.git && pushd glib-networking
-    - git checkout 2.70.0
-    - meson _build --prefix=/usr
-    - ninja -C _build install
-    - popd
-    # Build libsoup3 and geocode-glib against libsoup3
-    - git clone --depth=1 https://gitlab.gnome.org/GNOME/libsoup.git && pushd libsoup
-    - meson _build --prefix=/usr -Dtls_check=false -Dgtk_doc=false
-    - ninja -C _build install
-    - popd
-    - git clone https://gitlab.gnome.org/GNOME/geocode-glib.git && pushd geocode-glib
-    - meson _build --prefix=/usr -Dsoup2=false -Denable-gtk-doc=false
-    - ninja -C _build install
-    - popd
+    MESON_EXTRA_FLAGS: "--buildtype=debug -Dwerror=true -Dgtk_doc=false"
 
 static-scan:
   extends: .build-setup
@@ -193,13 +133,13 @@ static-scan:
       clang-analyzer
       clang-tools-extra
       gdk-pixbuf2-devel
-      geocode-glib-devel
+      geocode-glib2-devel
       gettext
       git
       gobject-introspection-devel
       itstool
       json-glib-devel
-      libsoup-devel
+      libsoup3-devel
       libxml2-devel
       ninja-build
       pylint
@@ -209,7 +149,7 @@ static-scan:
       python3-wheel
       redhat-rpm-config
     MESON_VERSION: "0.57.2"
-    MESON_EXTRA_FLAGS: "--buildtype=debug -Dgtk_doc=false -Dintrospection=false -Dsoup2=true"
+    MESON_EXTRA_FLAGS: "--buildtype=debug -Dgtk_doc=false -Dintrospection=false"
   script:
     - meson setup --prefix /usr ${MESON_EXTRA_FLAGS} _scan_build .
     - ninja -C _scan_build scan-build
@@ -229,14 +169,14 @@ asan-build:
       clang-analyzer
       clang-tools-extra
       gdk-pixbuf2-devel
-      geocode-glib-devel
+      geocode-glib2-devel
       gettext
       git
       gobject-introspection-devel
       itstool
       json-glib-devel
       libasan
-      libsoup-devel
+      libsoup3-devel
       libxml2-devel
       ninja-build
       pylint
@@ -247,7 +187,7 @@ asan-build:
       redhat-rpm-config
       vala
     MESON_VERSION: "0.57.2"
-    MESON_EXTRA_FLAGS: "--buildtype=debug -Db_sanitize=address -Db_lundef=false -Dintrospection=false -Dgtk_doc=false -Dsoup2=true"
+    MESON_EXTRA_FLAGS: "--buildtype=debug -Db_sanitize=address -Db_lundef=false -Dintrospection=false -Dgtk_doc=false"
   script:
     - CC=clang meson setup --prefix /usr ${MESON_EXTRA_FLAGS} _asan_build .
     - meson compile -C _asan_build
@@ -266,14 +206,14 @@ coverage:
   variables:
     PROJECT_DEPS:
       gdk-pixbuf2-devel
-      geocode-glib-devel
+      geocode-glib2-devel
       gettext
       git
       gobject-introspection-devel
       itstool
       json-glib-devel
       lcov
-      libsoup-devel
+      libsoup3-devel
       libxml2-devel
       ninja-build
       pylint
@@ -283,7 +223,7 @@ coverage:
       python3-wheel
       redhat-rpm-config
     MESON_VERSION: "0.57.2"
-    MESON_EXTRA_FLAGS: "--buildtype=debug -Dgtk_doc=false -Dintrospection=false -Dsoup2=true"
+    MESON_EXTRA_FLAGS: "--buildtype=debug -Dgtk_doc=false -Dintrospection=false"
     CFLAGS: "-coverage -ftest-coverage -fprofile-arcs"
   script:
     - meson setup --prefix /usr ${MESON_EXTRA_FLAGS} _build .
@@ -309,13 +249,13 @@ reference:
   variables:
     PROJECT_DEPS:
       gdk-pixbuf2-devel
-      geocode-glib-devel
+      geocode-glib2-devel
       gettext
       git
       gobject-introspection-devel
       itstool
       json-glib-devel
-      libsoup-devel
+      libsoup3-devel
       libxml2-devel
       ninja-build
       pylint
@@ -326,7 +266,6 @@ reference:
       redhat-rpm-config
       vala
     MESON_VERSION: "0.57.2"
-    MESON_EXTRA_FLAGS: "-Dsoup2=true"
     DOCS_FLAGS: "-Dgtk_doc=true"
     DOCS_PATH: doc/libgweather-4.0
 
