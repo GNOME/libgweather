@@ -9,7 +9,12 @@ ancestor_horizon=28  # days (4 weeks)
 
 source .gitlab-ci/search-common-ancestor.sh
 
-git diff -U0 --no-color "${newest_common_ancestor_sha}" libgweather/*.c libgweather/tests/*.c libgweather/tools/*.c | clang-format-diff -p1 > format-diff.log
+git diff -U0 --no-color "${newest_common_ancestor_sha}" \
+  libgweather/gweather-*.c \
+  libgweather/weather-*.c \
+  libgweather/tests/*.c \
+  libgweather/tools/*.c \
+  | clang-format-diff -p1 > format-diff.log
 
 )
 exit_status=$?
