@@ -108,6 +108,8 @@ typedef enum { /*< underscore_name=gweather_distance_unit >*/
  *   was starting a sentence
  * @GWEATHER_FORMAT_OPTION_NO_CAPITALIZATION: Capitalize as if the string was
  *   appearing within a sentence
+ * @GWEATHER_FORMAT_OPTION_ABBREVIATION: Use the abbreviated form, if any is
+ *   available (Since: 4.4)
  *
  * Format options to influence the text returned by the
  * `gweather_*_to_string_full()` functions.
@@ -115,7 +117,8 @@ typedef enum { /*< underscore_name=gweather_distance_unit >*/
 typedef enum { /*< underscore_name=gweather_format_options >*/
     GWEATHER_FORMAT_OPTION_DEFAULT                 = 0,
     GWEATHER_FORMAT_OPTION_SENTENCE_CAPITALIZATION = 1 << 0,
-    GWEATHER_FORMAT_OPTION_NO_CAPITALIZATION       = 1 << 1
+    GWEATHER_FORMAT_OPTION_NO_CAPITALIZATION       = 1 << 1,
+    GWEATHER_FORMAT_OPTION_ABBREVIATION            = 1 << 2
 } GWeatherFormatOptions;
 
 G_END_DECLS

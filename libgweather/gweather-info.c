@@ -119,6 +119,14 @@ static const gchar *wind_direction_caps_str[] = {
     N_("South"), N_("South — Southwest"), N_("Southwest"), N_("West — Southwest"),
     N_("West"), N_("West — Northwest"), N_("Northwest"), N_("North — Northwest")
 };
+
+static const char *wind_direction_abbr_str[] = {
+    N_("Var"),
+    N_("N"), N_("NNE"), N_("NE"), N_("ENE"),
+    N_("E"), N_("ESE"), N_("SE"), N_("SSE"),
+    N_("S"), N_("SSW"), N_("SW"), N_("WSW"),
+    N_("W"), N_("WNW"), N_("NW"), N_("NNW")
+};
 /* clang-format on */
 
 const gchar *
@@ -126,13 +134,17 @@ gweather_wind_direction_to_string_full (GWeatherWindDirection wind,
                                         GWeatherFormatOptions options)
 {
     gboolean use_caps = should_use_caps (options);
+    gboolean use_abbr = (options & GWEATHER_FORMAT_OPTION_ABBREVIATION) != 0;
 
     if (wind <= GWEATHER_WIND_INVALID || wind >= GWEATHER_WIND_LAST)
         return use_caps ? C_ ("wind direction", "Invalid")
                         : C_ ("wind direction", "invalid");
 
-    return use_caps ? _ (wind_direction_caps_str[(int) wind])
-                    : _ (wind_direction_str[(int) wind]);
+    if (use_abbr)
+        return _ (wind_direction_abbr_str[(int) wind]);
+
+    return use_caps ? g_dgettext (GETTEXT_PACKAGE, wind_direction_caps_str[(int) wind])
+                    : g_dgettext (GETTEXT_PACKAGE, wind_direction_str[(int) wind]);
 }
 
 const gchar *
