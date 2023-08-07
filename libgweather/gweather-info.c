@@ -153,21 +153,23 @@ gweather_wind_direction_to_string (GWeatherWindDirection wind)
     return gweather_wind_direction_to_string_full (wind, GWEATHER_FORMAT_OPTION_DEFAULT);
 }
 
+/* clang-format off */
 static const gchar *sky_str[] = {
-    N_ ("clear sky"),
-    N_ ("broken clouds"),
-    N_ ("scattered clouds"),
-    N_ ("few clouds"),
-    N_ ("overcast")
+    N_("clear sky"),
+    N_("broken clouds"),
+    N_("scattered clouds"),
+    N_("few clouds"),
+    N_("overcast")
 };
 
 static const gchar *sky_caps_str[] = {
-    N_ ("Clear sky"),
-    N_ ("Broken clouds"),
-    N_ ("Scattered clouds"),
-    N_ ("Few clouds"),
-    N_ ("Overcast")
+    N_("Clear sky"),
+    N_("Broken clouds"),
+    N_("Scattered clouds"),
+    N_("Few clouds"),
+    N_("Overcast")
 };
+/* clang-format on */
 
 const char *
 gweather_sky_to_string (GWeatherSky sky)
@@ -185,8 +187,8 @@ gweather_sky_to_string_full (GWeatherSky sky,
         return use_caps ? C_ ("sky conditions", "Invalid")
                         : C_ ("sky conditions", "invalid");
 
-    return use_caps ? _ (sky_caps_str[(int) sky])
-                    : _ (sky_str[(int) sky]);
+    return use_caps ? g_dgettext (GETTEXT_PACKAGE, sky_caps_str[(int) sky])
+                    : g_dgettext (GETTEXT_PACKAGE, sky_str[(int) sky]);
 }
 
 /*
@@ -296,8 +298,8 @@ gweather_conditions_to_string_full (GWeatherConditions *cond,
             cond->phenomenon < GWEATHER_PHENOMENON_LAST &&
             cond->qualifier > GWEATHER_QUALIFIER_INVALID &&
             cond->qualifier < GWEATHER_QUALIFIER_LAST)
-            str = use_caps ? _ (conditions_caps_str[(int) cond->phenomenon][(int) cond->qualifier])
-                           : _ (conditions_str[(int) cond->phenomenon][(int) cond->qualifier]);
+            str = use_caps ? g_dgettext (GETTEXT_PACKAGE, conditions_caps_str[(int) cond->phenomenon][(int) cond->qualifier])
+                           : g_dgettext (GETTEXT_PACKAGE, conditions_str[(int) cond->phenomenon][(int) cond->qualifier]);
         else
             str = use_caps ? C_ ("sky conditions", "Invalid")
                            : C_ ("sky conditions", "invalid");
