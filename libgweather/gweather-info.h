@@ -386,36 +386,6 @@ GWEATHER_AVAILABLE_IN_ALL
 gboolean        gweather_info_get_upcoming_moonphases   (GWeatherInfo *info,
                                                          time_t *phases);
 
-typedef struct _GWeatherConditions GWeatherConditions;
-
-/**
- * GWeatherConditions:
- * @significant: %TRUE if the struct contains usable data, %FALSE otherwise
- * @phenomenon: the main weather phenomenon
- * @qualifier: a modifier for @phenomenon
- *
- * A convenient way to describe the current or forecast
- * weather phenomenon, if significant, and its associated
- * modifier. If the value is not significant, the weather conditions
- * are described by gweather_info_get_sky() instead.
- *
- * In general it is discouraged to use this value directly to compute
- * the forecast icon: applications should instead use
- * gweather_info_get_icon_name() or
- * gweather_info_get_symbolic_icon_name().
- */
-struct _GWeatherConditions {
-    gboolean significant;
-    GWeatherConditionPhenomenon phenomenon;
-    GWeatherConditionQualifier qualifier;
-};
-
-GWEATHER_AVAILABLE_IN_ALL
-const char *    gweather_conditions_to_string           (GWeatherConditions *conditions);
-GWEATHER_AVAILABLE_IN_ALL
-const char *    gweather_conditions_to_string_full      (GWeatherConditions *conditions,
-                                                         GWeatherFormatOptions options);
-
 GWEATHER_AVAILABLE_IN_ALL
 GWeatherTemperatureUnit gweather_temperature_unit_to_real       (GWeatherTemperatureUnit unit);
 
