@@ -180,13 +180,21 @@ _gweather_find_nearest_city_index (double lat,
     double y = R * cos (lat_r) * sin (lon_r);
     double z = R * sin (lat_r);
     struct kdres *set;
+    gssize res = -1;
 
     if (world_db == NULL || world_db->cities_kdtree == NULL)
         return -1;
 
     set = kd_nearest3 (world_db->cities_kdtree, x, y, z);
-    if (set == NULL || kd_res_size (set) == 0)
+    if (set == NULL) {
         return -1;
+    }
 
-    return (gssize) GPOINTER_TO_SIZE (kd_res_item_data (set));
+    if (kd_res_size (set) != 0) {
+        res = (gssize) GPOINTER_TO_SIZE (kd_res_item_data (set));
+    }
+
+    kd_res_free (set);
+
+    return res;
 }
