@@ -785,7 +785,7 @@ read_visibility_sm (GWeatherInfo *info, JsonNode *node)
 static ValueReader
 select_read_visibility (const gchar *uom)
 {
-    if (strcmp (uom, "wmoUnit:m") == 0) {
+    if (g_strcmp0 (uom, "wmoUnit:m") == 0) {
         return read_visibility_m;
     }
     return read_visibility_sm;
