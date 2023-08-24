@@ -433,7 +433,7 @@ read_temperature_c (GWeatherInfo *info, JsonNode *node)
 static ValueReader
 select_read_temperature (const gchar *uom)
 {
-    if (uom != NULL && strcmp (uom, "wmoUnit:degC") == 0) {
+    if (g_strcmp0 (uom, "wmoUnit:degC") == 0) {
         return read_temperature_c;
     }
     return read_temperature_f;
@@ -460,7 +460,7 @@ read_dew_c (GWeatherInfo *info, JsonNode *node)
 static ValueReader
 select_read_dew (const gchar *uom)
 {
-    if (uom != NULL && strcmp (uom, "wmoUnit:degC") == 0) {
+    if (g_strcmp0 (uom, "wmoUnit:degC") == 0) {
         return read_dew_c;
     }
     return read_dew_f;
