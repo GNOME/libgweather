@@ -9,50 +9,189 @@
 #include "gweather-test-utils.h"
 
 #include <libsoup/soup.h>
+#include <libxml/parser.h>
+#include <libxml/xpath.h>
 
 /* For test_metar_weather_stations */
-#define METAR_SOURCES "https://www.aviationweather.gov/docs/metar/stations.txt"
+#define METAR_SOURCES "https://aviationweather.gov/data/cache/stations.cache.xml.gz"
+
+typedef struct
+{
+  char     *id;
+  gboolean  has_metar;
+} Station;
+
+static Station *
+station_new (const char *id,
+             gboolean    has_metar)
+{
+  Station *station;
+
+  station = g_new0 (Station, 1);
+  station->id = g_strdup (id);
+  station->has_metar = has_metar;
+
+  return station;
+}
+
+static void
+station_free (Station *station)
+{
+  g_free (station->id);
+  g_free (station);
+}
+
+static char *
+decompress_contents (const char *contents,
+                     gsize       len)
+{
+  GZlibDecompressor *decompressor;
+  GString *decompressed_str;
+
+  decompressor = g_zlib_decompressor_new (G_ZLIB_COMPRESSOR_FORMAT_GZIP);
+  decompressed_str = g_string_new (NULL);
+
+  while (len > 0)
+    {
+      GConverterResult result;
+      char buff[1024];
+      gsize bytes_read;
+      gsize bytes_written;
+      GError *error;
+
+      error = NULL;
+      result = g_converter_convert (G_CONVERTER(decompressor),
+                                    contents,
+                                    len,
+                                    buff,
+                                    sizeof(buff),
+                                    G_CONVERTER_NO_FLAGS,
+                                    &bytes_read,
+                                    &bytes_written,
+                                    &error);
+
+      contents += bytes_read;
+      len -= bytes_read;
+
+      if (result == G_CONVERTER_CONVERTED || result == G_CONVERTER_FINISHED)
+        {
+          g_string_append_len (decompressed_str, buff, bytes_written);
+
+          if (result == G_CONVERTER_FINISHED)
+				    break;
+        }
+      else
+        {
+          if (error != NULL)
+            {
+              g_test_message ("Failed to decompress " METAR_SOURCES ": %s\n", error->message);
+              g_error_free (error);
+            }
+
+          g_string_free (decompressed_str, TRUE);
+          g_object_unref (decompressor);
+
+          g_test_fail ();
+
+          return NULL;
+        }
+    }
+
+  g_object_unref (decompressor);
+
+  return g_string_free (decompressed_str, FALSE);
+}
 
 static GHashTable *
 parse_metar_stations (const char *contents)
 {
+    xmlDocPtr doc;
+    xmlXPathContextPtr ctx;
+    xmlXPathObjectPtr result;
     GHashTable *stations_ht;
-    char **lines;
-    guint i, num_stations;
+    guint num_stations;
+    int i;
 
-    stations_ht = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
+    doc = xmlParseMemory (contents, strlen (contents));
+
+    if (doc == NULL)
+        return NULL;
+
+    ctx = xmlXPathNewContext (doc);
+    result = xmlXPathEval ((const xmlChar *) "/response/data/Station", ctx);
+
+    if (result == NULL || result->type != XPATH_NODESET) {
+        if (result != NULL)
+            xmlXPathFreeObject (result);
+
+        xmlXPathFreeContext (ctx);
+        xmlFreeDoc (doc);
+    }
+
+    stations_ht = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, (GDestroyNotify) station_free);
     num_stations = 0;
-    lines = g_strsplit (contents, "\n", -1);
 
-    for (i = 0; lines[i] != NULL; i++) {
-        char *line = lines[i];
-        char *station;
+    for (i = 0; i < result->nodesetval->nodeNr; i++) {
+        xmlNodePtr node;
+        char *station_id;
+        gboolean has_metar;
+        xmlNode *n;
+        Station *station;
 
-        if (line[0] == '!')
+        node = result->nodesetval->nodeTab[i];
+
+        if (g_strcmp0 ((const char *) node->name, "Station") != 0)
             continue;
 
-        if (strlen (line) != 83)
-            continue;
+        station_id = NULL;
+        has_metar = FALSE;
 
-        station = g_strndup (line + 20, 4);
-        /* Skip stations with no ICAO code */
-        if (g_str_equal (station, "    ")) {
-            g_free (station);
-            continue;
+        for (n = node->children; n; n = n->next) {
+            const char *node_name;
+
+            node_name = (const char *) n->name;
+
+            if (g_strcmp0 (node_name, "station_id") == 0) {
+                xmlChar *val;
+
+                val = xmlNodeGetContent (n);
+                station_id = g_strdup ((const char *) val);
+                xmlFree (val);
+
+                if (strlen (station_id) != 4) {
+                    g_free (station_id);
+                    station_id = NULL;
+                }
+            } else if (g_strcmp0 (node_name, "site_type") == 0) {
+                xmlNode *tmp;
+
+                for (tmp = n->children; tmp; tmp = tmp->next) {
+                    if (g_strcmp0 ((const char *) tmp->name, "METAR") == 0) {
+                        has_metar = TRUE;
+                        break;
+                    }
+                }
+            }
         }
+
+        if (station_id == NULL)
+            continue;
 
         /* If it is a duplicate discard it */
-        if (g_hash_table_lookup (stations_ht, station)) {
-            g_test_message ("Weather station '%s' already defined\n", station);
-            g_free (station);
+        if (g_hash_table_lookup (stations_ht, station_id)) {
+            g_test_message ("Weather station '%s' already defined\n", station_id);
+            g_free (station_id);
             continue;
         }
 
-        g_hash_table_insert (stations_ht, station, g_strdup (line));
+        station = station_new (station_id, has_metar);
+        g_hash_table_insert (stations_ht, station_id, station);
         num_stations++;
     }
 
-    g_strfreev (lines);
+    xmlXPathFreeObject (result);
+    xmlXPathFreeContext (ctx);
+    xmlFreeDoc (doc);
 
     /* Duplicates? */
     g_assert_cmpuint (num_stations, ==, g_hash_table_size (stations_ht));
@@ -66,27 +205,21 @@ static void
 test_metar_weather_station (GWeatherLocation *location,
                             GHashTable *stations_ht)
 {
-    const char *code, *line;
+    const char *code;
+    const Station *station;
 
     code = gweather_location_get_code (location);
     g_assert_nonnull (code);
 
-    line = g_hash_table_lookup (stations_ht, code);
-    if (!line) {
+    station = g_hash_table_lookup (stations_ht, code);
+    if (station == NULL) {
         g_test_message ("Could not find airport for '%s' in " METAR_SOURCES "\n", code);
         g_test_fail ();
     } else {
-        char *has_metar;
-
-        has_metar = g_strndup (line + 62, 1);
-        if (*has_metar == 'Z') {
-            g_test_message ("Airport weather station '%s' is obsolete\n", code);
-            g_test_fail ();
-        } else if (*has_metar == ' ') {
+        if (!station->has_metar) {
             g_test_message ("Could not find weather station for '%s' in " METAR_SOURCES "\n", code);
             g_test_fail ();
         }
-        g_free (has_metar);
     }
 }
 
@@ -115,6 +248,7 @@ test_metar_weather_stations (void)
 #if SOUP_CHECK_VERSION(2, 99, 2)
     GBytes *body;
     GError *error = NULL;
+    const char *data;
     gsize bsize;
 #endif
 
@@ -139,12 +273,18 @@ test_metar_weather_stations (void)
     g_assert_cmpint (soup_message_get_status (msg), >=, 200);
     g_assert_cmpint (soup_message_get_status (msg), <, 300);
     g_assert_nonnull (body);
-    contents = g_bytes_unref_to_data (body, &bsize);
+
+    data = g_bytes_get_data (body, &bsize);
+    contents = decompress_contents (data, bsize);
+
+    g_bytes_unref (body);
 #else
     g_assert_cmpint (msg->status_code, >=, 200);
     g_assert_cmpint (msg->status_code, <, 300);
     g_assert_nonnull (msg->response_body);
-    contents = g_strndup (msg->response_body->data, msg->response_body->length);
+
+    contents = decompress_contents (msg->response_body->data,
+                                    msg->response_body->length);
 #endif
     g_object_unref (session);
     g_object_unref (msg);
