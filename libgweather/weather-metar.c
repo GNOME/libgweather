@@ -675,7 +675,7 @@ metar_start_open (GWeatherInfo *info)
     if (!loc->latlon_valid)
         return;
 
-    g_debug ("metar_start_open, requesting: https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=3&mostRecent=true&fields=raw_text&stationString=%s", loc->code);
+    g_debug ("metar_start_open, requesting: https://aviationweather.gov/cgi-bin/data/dataserver.php?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=3&mostRecent=true&fields=raw_text&stationString=%s", loc->code);
     query = soup_form_encode (
         "dataSource",
         "metars",
@@ -696,14 +696,14 @@ metar_start_open (GWeatherInfo *info)
     uri = g_uri_build (SOUP_HTTP_URI_FLAGS,
                        "https",
                        NULL,
-                       "www.aviationweather.gov",
+                       "aviationweather.gov",
                        -1,
-                       "/adds/dataserver_current/httpparam",
+                       "/cgi-bin/data/dataserver.php",
                        query,
                        NULL);
     g_free (query);
 #else
-    uri = soup_uri_new ("https://www.aviationweather.gov/adds/dataserver_current/httpparam");
+    uri = soup_uri_new ("https://aviationweather.gov/cgi-bin/data/dataserver.php");
     uri->query = query;
 #endif
     msg = soup_message_new_from_uri ("GET", uri);
