@@ -140,7 +140,7 @@ def loc_variant(loc):
                 nearest = i
                 nearest_dist = dist
 
-        if nearest:
+        if nearest is not None:
             nearest_idx = locations.index(nearest)
 
     return GLib.Variant('((ss)ss(dd)ssqyqqaqaq)', (
