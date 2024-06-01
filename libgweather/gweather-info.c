@@ -884,7 +884,7 @@ is_locale_metric (void)
         return TRUE;
     else {
         g_warning ("Wrong translation for libgweather; please file "
-                   "file an issue at: https://gitlab.gnome.org/GNOME/libgweather/issues/new "
+                   "file an issue at: https://gitlab.gnome.org/GNOME/libgweather/-/issues/ "
                    "and make sure to include your locale and language");
         return TRUE;
     }

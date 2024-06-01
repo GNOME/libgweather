@@ -60,7 +60,7 @@ All done? Onto the next part
 ### I don't know XML, I don't have time
 
 Simply tell us about the problem, and give us as much information as possible
-in [a new issue](https://gitlab.gnome.org/GNOME/libgweather/issues/new). Make
+in [a new issue](https://gitlab.gnome.org/GNOME/libgweather/-/issues/). Make
 sure to include links to explanation if at all possible. It's easier for you to
 know that a city is misnamed if you live there, but we want to be sure we're
 not making mistakes, because that would be quite frustrating.
