@@ -2,7 +2,7 @@
 
 set -e
 
-ancestor_horizon=28  # days (4 weeks)
+ancestor_horizon=96  # days
 
 # Wrap everything in a subshell so we can propagate the exit status.
 (
