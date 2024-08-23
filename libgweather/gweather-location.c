@@ -819,7 +819,7 @@ _got_place (GObject *source_object,
 }
 
 /**
- * gweather_location_detect_nearest_city:
+ * gweather_location_detect_nearest_city: (finish-func detect_nearest_city_finish)
  * @loc: the parent location, which will be searched recursively
  * @lat: Latitude, in degrees
  * @lon: Longitude, in degrees
