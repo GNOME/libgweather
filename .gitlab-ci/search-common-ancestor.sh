@@ -2,7 +2,7 @@
 
 set -e
 
-ancestor_horizon=28  # days (4 weeks)
+ancestor_horizon=96  # days (4 weeks)
 
 # We need to add a new remote for the upstream target branch, since this script
 # could be running in a personal fork of the repository which has out of date
