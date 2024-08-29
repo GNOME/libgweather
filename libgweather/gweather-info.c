@@ -387,7 +387,6 @@ _gweather_info_queue_request (GWeatherInfo *info,
     GCancellable *cancellable = g_cancellable_new ();
     g_object_set_data_full (G_OBJECT (msg), "request-cancellable", cancellable, g_object_unref);
     soup_session_send_and_read_async (info->session, msg, G_PRIORITY_DEFAULT, cancellable, callback, info);
-    g_object_unref (msg);
 }
 #else
 void

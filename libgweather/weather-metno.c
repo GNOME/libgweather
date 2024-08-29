@@ -389,7 +389,7 @@ metno_finish_new (GObject *source,
     SoupSession *session = SOUP_SESSION (source);
     SoupMessage *msg = soup_session_get_async_result_message (session, result);
     GBytes *body;
-    GError *error = NULL;
+    g_autoptr (GError) error = NULL;
     guint num_forecasts;
     const char *content;
     gsize body_size;
@@ -403,7 +403,6 @@ metno_finish_new (GObject *source,
             return;
         }
         g_message ("Failed to get met.no forecast data: %s", error->message);
-        g_clear_error (&error);
         _gweather_info_request_done (data, msg);
         return;
     } else if (!SOUP_STATUS_IS_SUCCESSFUL (soup_message_get_status (msg))) {
@@ -494,6 +493,7 @@ metno_start_open (GWeatherInfo *info)
     message = soup_message_new ("GET", url);
     _gweather_info_begin_request (info, message);
     _gweather_info_queue_request (info, message, metno_finish_new);
+    g_object_unref (message);
 
     g_free (url);
 
