@@ -493,6 +493,7 @@ metno_start_open (GWeatherInfo *info)
     message = soup_message_new ("GET", url);
     _gweather_info_begin_request (info, message);
     _gweather_info_queue_request (info, message, metno_finish_new);
+    g_object_unref (message);
 
     g_free (url);
 

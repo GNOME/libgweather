@@ -692,6 +692,7 @@ metar_start_open (GWeatherInfo *info)
         "stationString",
         loc->code,
         NULL);
+
 #if SOUP_CHECK_VERSION(2, 99, 2)
     uri = g_uri_build (SOUP_HTTP_URI_FLAGS,
                        "https",
@@ -706,9 +707,12 @@ metar_start_open (GWeatherInfo *info)
     uri = soup_uri_new ("https://aviationweather.gov/cgi-bin/data/dataserver.php");
     uri->query = query;
 #endif
+
     msg = soup_message_new_from_uri ("GET", uri);
     _gweather_info_begin_request (info, msg);
     _gweather_info_queue_request (info, msg, metar_finish);
+    g_object_unref (msg);
+
 #if SOUP_CHECK_VERSION(2, 99, 2)
     g_uri_unref (uri);
 #else
