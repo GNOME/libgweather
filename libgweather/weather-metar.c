@@ -561,7 +561,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 #if SOUP_CHECK_VERSION(2, 99, 2)
     SoupSession *session = SOUP_SESSION (source);
     SoupMessage *msg = soup_session_get_async_result_message (session, result);
-    GError *error = NULL;
+    g_autoptr (GError) error = NULL;
     GBytes *body;
 #endif
     GWeatherInfo *info;
