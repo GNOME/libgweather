@@ -191,6 +191,7 @@ asan-build:
   script:
     - CC=clang meson setup --prefix /usr ${MESON_EXTRA_FLAGS} _asan_build .
     - meson compile -C _asan_build
+    - meson install -C _asan_build
     - meson test -C _asan_build --no-suite=style --no-suite=lint
   artifacts:
     name: "gweather-${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
