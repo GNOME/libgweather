@@ -8,10 +8,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=libgweather&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-03 12:33+0000\n"
-"PO-Revision-Date: 2016-08-26 15:08+0700\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgweather/issues/\n"
+"POT-Creation-Date: 2024-08-23 12:44+0000\n"
+"PO-Revision-Date: 2024-09-21 17:40+0700\n"
 "Last-Translator: Akom Chotiphantawanon <knight2000@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
@@ -19,449 +18,821 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Poedit 3.5\n"
 
-#: ../data/glade/libgweather.xml.in.h:1
-msgid "Location Entry"
-msgstr "วิดเจ็ตป้อนตำแหน่งที่ตั้ง"
+#: libgweather/gweather-info.c:108
+msgid "variable"
+msgstr "ไม่คงทิศ"
 
-#: ../data/glade/libgweather.xml.in.h:2
-msgid "Timezone Menu"
-msgstr "เมนูเขตเวลา"
+#: libgweather/gweather-info.c:109
+msgid "north"
+msgstr "เหนือ"
 
-#: ../data/glade/libgweather.xml.in.h:3
-msgid "Timezone"
-msgstr "เขตเวลา"
+#: libgweather/gweather-info.c:109
+msgid "north — northeast"
+msgstr "เหนือ - ตะวันออกเฉียงเหนือ"
 
-#: ../data/glade/libgweather.xml.in.h:4
-msgid "GWeather"
-msgstr "GWeather"
+#: libgweather/gweather-info.c:109
+msgid "northeast"
+msgstr "ตะวันออกเฉียงเหนือ"
 
-#: ../libgweather/gweather-location-entry.c:784
-msgid "Loading..."
-msgstr "กำลังโหลด..."
+#: libgweather/gweather-info.c:109
+msgid "east — northeast"
+msgstr "ตะวันออก - ตะวันออกเฉียงเหนือ"
 
-#: ../libgweather/gweather-timezone.c:341
-msgid "Greenwich Mean Time"
-msgstr "เวลามาตรฐานกรีนิช"
+#: libgweather/gweather-info.c:110
+msgid "east"
+msgstr "ตะวันออก"
 
-#: ../libgweather/gweather-timezone-menu.c:274
-msgctxt "timezone"
-msgid "Unknown"
-msgstr "ไม่ทราบ"
+#: libgweather/gweather-info.c:110
+msgid "east — southeast"
+msgstr "ตะวันออก - ตะวันออกเฉียงใต้"
 
-#: ../libgweather/gweather-weather.c:113
+#: libgweather/gweather-info.c:110
+msgid "southeast"
+msgstr "ตะวันออกเฉียงใต้"
+
+#: libgweather/gweather-info.c:110
+msgid "south — southeast"
+msgstr "ใต้ - ตะวันออกเฉียงใต้"
+
+#: libgweather/gweather-info.c:111
+msgid "south"
+msgstr "ใต้"
+
+#: libgweather/gweather-info.c:111
+msgid "south — southwest"
+msgstr "ใต้ - ตะวันตกเฉียงใต้"
+
+#: libgweather/gweather-info.c:111
+msgid "southwest"
+msgstr "ตะวันตกเฉียงใต้"
+
+#: libgweather/gweather-info.c:111
+msgid "west — southwest"
+msgstr "ตะวันตก - ตะวันตกเฉียงใต้"
+
+#: libgweather/gweather-info.c:112
+msgid "west"
+msgstr "ตะวันตก"
+
+#: libgweather/gweather-info.c:112
+msgid "west — northwest"
+msgstr "ตะวันตก - ตะวันตกเฉียงเหนือ"
+
+#: libgweather/gweather-info.c:112
+msgid "northwest"
+msgstr "ตะวันตกเฉียงเหนือ"
+
+#: libgweather/gweather-info.c:112
+msgid "north — northwest"
+msgstr "เหนือ - ตะวันตกเฉียงเหนือ"
+
+#: libgweather/gweather-info.c:116
 msgid "Variable"
 msgstr "ไม่คงทิศ"
 
-#: ../libgweather/gweather-weather.c:114
+#: libgweather/gweather-info.c:117
 msgid "North"
 msgstr "เหนือ"
 
-#: ../libgweather/gweather-weather.c:114
-msgid "North - NorthEast"
+#: libgweather/gweather-info.c:117
+msgid "North — Northeast"
 msgstr "เหนือ - ตะวันออกเฉียงเหนือ"
 
-#: ../libgweather/gweather-weather.c:114
+#: libgweather/gweather-info.c:117
 msgid "Northeast"
 msgstr "ตะวันออกเฉียงเหนือ"
 
-#: ../libgweather/gweather-weather.c:114
-msgid "East - NorthEast"
+#: libgweather/gweather-info.c:117
+msgid "East — Northeast"
 msgstr "ตะวันออก - ตะวันออกเฉียงเหนือ"
 
-#: ../libgweather/gweather-weather.c:115
+#: libgweather/gweather-info.c:118
 msgid "East"
 msgstr "ตะวันออก"
 
-#: ../libgweather/gweather-weather.c:115
-msgid "East - Southeast"
+#: libgweather/gweather-info.c:118
+msgid "East — Southeast"
 msgstr "ตะวันออก - ตะวันออกเฉียงใต้"
 
-#: ../libgweather/gweather-weather.c:115
+#: libgweather/gweather-info.c:118
 msgid "Southeast"
 msgstr "ตะวันออกเฉียงใต้"
 
-#: ../libgweather/gweather-weather.c:115
-msgid "South - Southeast"
+#: libgweather/gweather-info.c:118
+msgid "South — Southeast"
 msgstr "ใต้ - ตะวันออกเฉียงใต้"
 
-#: ../libgweather/gweather-weather.c:116
+#: libgweather/gweather-info.c:119
 msgid "South"
 msgstr "ใต้"
 
-#: ../libgweather/gweather-weather.c:116
-msgid "South - Southwest"
+#: libgweather/gweather-info.c:119
+msgid "South — Southwest"
 msgstr "ใต้ - ตะวันตกเฉียงใต้"
 
-#: ../libgweather/gweather-weather.c:116
+#: libgweather/gweather-info.c:119
 msgid "Southwest"
 msgstr "ตะวันตกเฉียงใต้"
 
-#: ../libgweather/gweather-weather.c:116
-msgid "West - Southwest"
+#: libgweather/gweather-info.c:119
+msgid "West — Southwest"
 msgstr "ตะวันตก - ตะวันตกเฉียงใต้"
 
-#: ../libgweather/gweather-weather.c:117
+#: libgweather/gweather-info.c:120
 msgid "West"
 msgstr "ตะวันตก"
 
-#: ../libgweather/gweather-weather.c:117
-msgid "West - Northwest"
+#: libgweather/gweather-info.c:120
+msgid "West — Northwest"
 msgstr "ตะวันตก - ตะวันตกเฉียงเหนือ"
 
-#: ../libgweather/gweather-weather.c:117
+#: libgweather/gweather-info.c:120
 msgid "Northwest"
 msgstr "ตะวันตกเฉียงเหนือ"
 
-#: ../libgweather/gweather-weather.c:117
-msgid "North - Northwest"
+#: libgweather/gweather-info.c:120
+msgid "North — Northwest"
 msgstr "เหนือ - ตะวันตกเฉียงเหนือ"
 
-#: ../libgweather/gweather-weather.c:124
+#: libgweather/gweather-info.c:131
 msgctxt "wind direction"
 msgid "Invalid"
 msgstr "ไม่ถูกต้อง"
 
+#: libgweather/gweather-info.c:132
+msgctxt "wind direction"
+msgid "invalid"
+msgstr "ไม่ถูกต้อง"
+
 # These are from http://www.tmd.go.th
-#: ../libgweather/gweather-weather.c:130
-msgid "Clear Sky"
+#: libgweather/gweather-info.c:145
+msgid "clear sky"
 msgstr "ท้องฟ้าแจ่มใส"
 
-#: ../libgweather/gweather-weather.c:131
+#: libgweather/gweather-info.c:146
+msgid "broken clouds"
+msgstr "ท้องฟ้ามีเมฆเป็นส่วนมาก"
+
+#: libgweather/gweather-info.c:147
+msgid "scattered clouds"
+msgstr "ท้องฟ้ามีเมฆบางส่วน"
+
+# Can't think of a better word
+#: libgweather/gweather-info.c:148
+msgid "few clouds"
+msgstr "ท้องฟ้าโปร่ง"
+
+#: libgweather/gweather-info.c:149
+msgid "overcast"
+msgstr "ท้องฟ้ามีเมฆเต็มท้องฟ้า"
+
+# These are from http://www.tmd.go.th
+#: libgweather/gweather-info.c:153
+msgid "Clear sky"
+msgstr "ท้องฟ้าแจ่มใส"
+
+#: libgweather/gweather-info.c:154
 msgid "Broken clouds"
 msgstr "ท้องฟ้ามีเมฆเป็นส่วนมาก"
 
-#: ../libgweather/gweather-weather.c:132
+#: libgweather/gweather-info.c:155
 msgid "Scattered clouds"
 msgstr "ท้องฟ้ามีเมฆบางส่วน"
 
 # Can't think of a better word
-#: ../libgweather/gweather-weather.c:133
+#: libgweather/gweather-info.c:156
 msgid "Few clouds"
 msgstr "ท้องฟ้าโปร่ง"
 
-#: ../libgweather/gweather-weather.c:134
+#: libgweather/gweather-info.c:157
 msgid "Overcast"
 msgstr "ท้องฟ้ามีเมฆเต็มท้องฟ้า"
 
-#: ../libgweather/gweather-weather.c:141 ../libgweather/gweather-weather.c:213
+#: libgweather/gweather-info.c:173 libgweather/gweather-info.c:290
 msgctxt "sky conditions"
 msgid "Invalid"
+msgstr "ไม่ถูกต้อง"
+
+#: libgweather/gweather-info.c:174 libgweather/gweather-info.c:291
+msgctxt "sky conditions"
+msgid "invalid"
 msgstr "ไม่ถูกต้อง"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
 #. * http://www.crh.noaa.gov/arx/wx.tbl.php
 #. NONE
-#: ../libgweather/gweather-weather.c:173 ../libgweather/gweather-weather.c:175
+#: libgweather/gweather-info.c:208 libgweather/gweather-info.c:210
+msgid "thunderstorm"
+msgstr "พายุฝนฟ้าคะนอง"
+
+#. DRIZZLE
+#: libgweather/gweather-info.c:209
+msgid "drizzle"
+msgstr "ฝนละออง"
+
+#: libgweather/gweather-info.c:209
+msgid "light drizzle"
+msgstr "ฝนละอองเบาบาง"
+
+#: libgweather/gweather-info.c:209
+msgid "moderate drizzle"
+msgstr "ฝนละอองปานกลาง"
+
+#: libgweather/gweather-info.c:209
+msgid "heavy drizzle"
+msgstr "ฝนละอองหนัก"
+
+#: libgweather/gweather-info.c:209
+msgid "freezing drizzle"
+msgstr "ฝนละอองเยือกแข็ง"
+
+#. RAIN
+#: libgweather/gweather-info.c:210
+msgid "rain"
+msgstr "ฝนตก"
+
+#: libgweather/gweather-info.c:210
+msgid "light rain"
+msgstr "ฝนตกเล็กน้อย"
+
+#: libgweather/gweather-info.c:210
+msgid "moderate rain"
+msgstr "ฝนตกปานกลาง"
+
+#: libgweather/gweather-info.c:210
+msgid "heavy rain"
+msgstr "ฝนตกหนัก"
+
+# What's the difference between ประปราย and เป็นหย่อมๆ ?
+# Tempted to use ฝนไล่ช้าง :-)
+#
+#: libgweather/gweather-info.c:210
+msgid "rain showers"
+msgstr "ฝนซู่"
+
+#: libgweather/gweather-info.c:210
+msgid "freezing rain"
+msgstr "ฝนเยือกแข็ง"
+
+#. SNOW
+#: libgweather/gweather-info.c:211
+msgid "snow"
+msgstr "หิมะตก"
+
+# Make more sense than หิมะตกเบาบาง
+#: libgweather/gweather-info.c:211
+msgid "light snow"
+msgstr "หิมะตกเล็กน้อย"
+
+#: libgweather/gweather-info.c:211
+msgid "moderate snow"
+msgstr "หิมะตกปานกลาง"
+
+#: libgweather/gweather-info.c:211
+msgid "heavy snow"
+msgstr "หิมะตกหนัก"
+
+#: libgweather/gweather-info.c:211
+msgid "snowstorm"
+msgstr "พายุหิมะ"
+
+# Hope this doesn't confuse with "drifting snow"
+#: libgweather/gweather-info.c:211
+msgid "blowing snowfall"
+msgstr "หิมะฟุ้ง"
+
+#: libgweather/gweather-info.c:211
+msgid "snow showers"
+msgstr "หิมะตกประปราย"
+
+# Hope this doesn't confuse with "blowing snow"
+#: libgweather/gweather-info.c:211
+msgid "drifting snow"
+msgstr "พริ้วหิมะ"
+
+# Man, this is getting hard for Thai translation >:-|
+#. SNOW_GRAINS
+#: libgweather/gweather-info.c:212
+msgid "snow grains"
+msgstr "เม็ดหิมะ"
+
+#: libgweather/gweather-info.c:212
+msgid "light snow grains"
+msgstr "เม็ดหิมะ ตกเบาบาง"
+
+#: libgweather/gweather-info.c:212
+msgid "moderate snow grains"
+msgstr "เม็ดหิมะ ตกปานกลาง"
+
+#: libgweather/gweather-info.c:212
+msgid "heavy snow grains"
+msgstr "เม็ดหิมะ ตกหนัก"
+
+#. ICE_CRYSTALS
+#: libgweather/gweather-info.c:213
+msgid "ice crystals"
+msgstr "ผลึกน้ำแข็ง"
+
+#. ICE_PELLETS
+#: libgweather/gweather-info.c:214
+msgid "sleet"
+msgstr "ฝนน้ำแข็ง"
+
+#: libgweather/gweather-info.c:214
+msgid "little sleet"
+msgstr "ฝนน้ำแข็งตกเล็กน้อย"
+
+#: libgweather/gweather-info.c:214
+msgid "moderate sleet"
+msgstr "ฝนน้ำแข็งตกปานกลาง"
+
+#: libgweather/gweather-info.c:214
+msgid "heavy sleet"
+msgstr "ฝนน้ำแข็งตกหนัก"
+
+#: libgweather/gweather-info.c:214
+msgid "sleet storm"
+msgstr "พายุฝนน้ำแข็ง"
+
+#: libgweather/gweather-info.c:214
+msgid "showers of sleet"
+msgstr "ฝนน้ำแข็งโปรย"
+
+#. HAIL
+#: libgweather/gweather-info.c:215
+msgid "hail"
+msgstr "ลูกเห็บ"
+
+#: libgweather/gweather-info.c:215
+msgid "hailstorm"
+msgstr "พายุลูกเห็บ"
+
+#: libgweather/gweather-info.c:215
+msgid "hail showers"
+msgstr "ลูกเห็บโปรย"
+
+#. SMALL_HAIL
+#: libgweather/gweather-info.c:216
+msgid "small hail"
+msgstr "ลูกเห็บชนิดเล็ก"
+
+#: libgweather/gweather-info.c:216
+msgid "small hailstorm"
+msgstr "พายุลูกเห็บชนิดเล็ก"
+
+#: libgweather/gweather-info.c:216
+msgid "showers of small hail"
+msgstr "ลูกเห็บชนิดเล็กโปรย"
+
+#. PRECIPITATION
+#: libgweather/gweather-info.c:217
+msgid "unknown precipitation"
+msgstr "หยาดน้ำฟ้าไม่ทราบชนิด"
+
+#. MIST
+#: libgweather/gweather-info.c:218
+msgid "mist"
+msgstr "หมอกน้ำค้าง"
+
+#. FOG
+#: libgweather/gweather-info.c:219
+msgid "fog"
+msgstr "หมอก"
+
+#: libgweather/gweather-info.c:219
+msgid "fog in the vicinity"
+msgstr "หมอกในบริเวณรอบข้าง"
+
+#: libgweather/gweather-info.c:219
+msgid "shallow fog"
+msgstr "หมอกตื้น"
+
+#: libgweather/gweather-info.c:219
+msgid "patches of fog"
+msgstr "หมอกเป็นหย่อม"
+
+#: libgweather/gweather-info.c:219
+msgid "partial fog"
+msgstr "หมอกบางส่วน"
+
+#: libgweather/gweather-info.c:219
+msgid "freezing fog"
+msgstr "หมอกเยือกแข็ง"
+
+#. SMOKE
+#: libgweather/gweather-info.c:220
+msgid "smoke"
+msgstr "ควัน"
+
+#. VOLCANIC_ASH
+#: libgweather/gweather-info.c:221
+msgid "volcanic ash"
+msgstr "เถ้าภูเขาไฟ"
+
+#. SAND
+#: libgweather/gweather-info.c:222
+msgid "sand"
+msgstr "ทราย"
+
+#: libgweather/gweather-info.c:222
+msgid "blowing sand"
+msgstr "ทรายปลิว"
+
+#: libgweather/gweather-info.c:222
+msgid "drifting sand"
+msgstr "ทรายฟุ้ง"
+
+#. HAZE
+#: libgweather/gweather-info.c:223
+msgid "haze"
+msgstr "ฟ้าหลัว"
+
+# This is salt sprays blown from the sea
+#. SPRAY
+#: libgweather/gweather-info.c:224
+msgid "blowing sprays"
+msgstr "อนุภาคเกลือ"
+
+#. DUST
+#: libgweather/gweather-info.c:225
+msgid "dust"
+msgstr "ฝุ่น"
+
+#: libgweather/gweather-info.c:225
+msgid "blowing dust"
+msgstr "ฝุ่นปลิว"
+
+#: libgweather/gweather-info.c:225
+msgid "drifting dust"
+msgstr "ฝุ่นฟุ้ง"
+
+#. SQUALL
+#: libgweather/gweather-info.c:226
+msgid "squall"
+msgstr "ลมสควอลล์"
+
+#. SANDSTORM
+#: libgweather/gweather-info.c:227
+msgid "sandstorm"
+msgstr "พายุทราย"
+
+#: libgweather/gweather-info.c:227
+msgid "sandstorm in the vicinity"
+msgstr "พายุทรายในบริเวณใกล้เคียง"
+
+#: libgweather/gweather-info.c:227
+msgid "heavy sandstorm"
+msgstr "พายุทรายพัดหนัก"
+
+#. DUSTSTORM
+#: libgweather/gweather-info.c:228
+msgid "duststorm"
+msgstr "พายุฝุ่น"
+
+#: libgweather/gweather-info.c:228
+msgid "duststorm in the vicinity"
+msgstr "พายุฝุ่นในบริเวณใกล้เคียง"
+
+#: libgweather/gweather-info.c:228
+msgid "heavy duststorm"
+msgstr "พายุฝุ่นพัดหนัก"
+
+#. FUNNEL_CLOUD
+#: libgweather/gweather-info.c:229
+msgid "funnel cloud"
+msgstr "เมฆงวงช้าง"
+
+# ลมสลาตัน ;-)
+#. TORNADO
+#: libgweather/gweather-info.c:230
+msgid "tornado"
+msgstr "ทอร์นาโด"
+
+# FIXME: This could be translated better.
+#. DUST_WHIRLS
+#: libgweather/gweather-info.c:231
+msgid "dust whirls"
+msgstr "ลมฝุ่นหมุน"
+
+#: libgweather/gweather-info.c:231
+msgid "dust whirls in the vicinity"
+msgstr "ลมฝุ่นหมุนในบริเวณใกล้เคียง"
+
+#. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
+#. * etc means, you can go to http://www.weather.com/glossary/ and
+#. * http://www.crh.noaa.gov/arx/wx.tbl.php
+#. NONE
+#: libgweather/gweather-info.c:244 libgweather/gweather-info.c:246
 msgid "Thunderstorm"
 msgstr "พายุฝนฟ้าคะนอง"
 
 #. DRIZZLE
-#: ../libgweather/gweather-weather.c:174
+#: libgweather/gweather-info.c:245
 msgid "Drizzle"
 msgstr "ฝนละออง"
 
-#: ../libgweather/gweather-weather.c:174
+#: libgweather/gweather-info.c:245
 msgid "Light drizzle"
 msgstr "ฝนละอองเบาบาง"
 
-#: ../libgweather/gweather-weather.c:174
+#: libgweather/gweather-info.c:245
 msgid "Moderate drizzle"
 msgstr "ฝนละอองปานกลาง"
 
-#: ../libgweather/gweather-weather.c:174
+#: libgweather/gweather-info.c:245
 msgid "Heavy drizzle"
 msgstr "ฝนละอองหนัก"
 
-#: ../libgweather/gweather-weather.c:174
+#: libgweather/gweather-info.c:245
 msgid "Freezing drizzle"
 msgstr "ฝนละอองเยือกแข็ง"
 
 # What does "ฝนฟ้าคะนอง" mean?
 #. RAIN
-#: ../libgweather/gweather-weather.c:175
+#: libgweather/gweather-info.c:246
 msgid "Rain"
 msgstr "ฝนตก"
 
-#: ../libgweather/gweather-weather.c:175
+#: libgweather/gweather-info.c:246
 msgid "Light rain"
 msgstr "ฝนตกเล็กน้อย"
 
-#: ../libgweather/gweather-weather.c:175
+#: libgweather/gweather-info.c:246
 msgid "Moderate rain"
 msgstr "ฝนตกปานกลาง"
 
-#: ../libgweather/gweather-weather.c:175
+#: libgweather/gweather-info.c:246
 msgid "Heavy rain"
 msgstr "ฝนตกหนัก"
 
 # What's the difference between ประปราย and เป็นหย่อมๆ ?
 # Tempted to use ฝนไล่ช้าง :-)
 #
-#: ../libgweather/gweather-weather.c:175
+#: libgweather/gweather-info.c:246
 msgid "Rain showers"
 msgstr "ฝนซู่"
 
-#: ../libgweather/gweather-weather.c:175
+#: libgweather/gweather-info.c:246
 msgid "Freezing rain"
 msgstr "ฝนเยือกแข็ง"
 
 # Guess this hardly ever happen in Thailand :-).
 #. SNOW
-#: ../libgweather/gweather-weather.c:176
+#: libgweather/gweather-info.c:247
 msgid "Snow"
 msgstr "หิมะตก"
 
 # Make more sense than หิมะตกเบาบาง
-#: ../libgweather/gweather-weather.c:176
+#: libgweather/gweather-info.c:247
 msgid "Light snow"
 msgstr "หิมะตกเล็กน้อย"
 
-#: ../libgweather/gweather-weather.c:176
+#: libgweather/gweather-info.c:247
 msgid "Moderate snow"
 msgstr "หิมะตกปานกลาง"
 
-#: ../libgweather/gweather-weather.c:176
+#: libgweather/gweather-info.c:247
 msgid "Heavy snow"
 msgstr "หิมะตกหนัก"
 
-#: ../libgweather/gweather-weather.c:176
+#: libgweather/gweather-info.c:247
 msgid "Snowstorm"
 msgstr "พายุหิมะ"
 
 # Hope this doesn't confuse with "drifting snow"
-#: ../libgweather/gweather-weather.c:176
+#: libgweather/gweather-info.c:247
 msgid "Blowing snowfall"
 msgstr "หิมะฟุ้ง"
 
-#: ../libgweather/gweather-weather.c:176
+#: libgweather/gweather-info.c:247
 msgid "Snow showers"
 msgstr "หิมะตกประปราย"
 
 # Hope this doesn't confuse with "blowing snow"
-#: ../libgweather/gweather-weather.c:176
+#: libgweather/gweather-info.c:247
 msgid "Drifting snow"
 msgstr "พริ้วหิมะ"
 
 # Man, this is getting hard for Thai translation >:-|
 #. SNOW_GRAINS
-#: ../libgweather/gweather-weather.c:177
+#: libgweather/gweather-info.c:248
 msgid "Snow grains"
 msgstr "เม็ดหิมะ"
 
-#: ../libgweather/gweather-weather.c:177
+#: libgweather/gweather-info.c:248
 msgid "Light snow grains"
 msgstr "เม็ดหิมะ ตกเบาบาง"
 
-#: ../libgweather/gweather-weather.c:177
+#: libgweather/gweather-info.c:248
 msgid "Moderate snow grains"
 msgstr "เม็ดหิมะ ตกปานกลาง"
 
-#: ../libgweather/gweather-weather.c:177
+#: libgweather/gweather-info.c:248
 msgid "Heavy snow grains"
 msgstr "เม็ดหิมะ ตกหนัก"
 
 #. ICE_CRYSTALS
-#: ../libgweather/gweather-weather.c:178
+#: libgweather/gweather-info.c:249
 msgid "Ice crystals"
 msgstr "ผลึกน้ำแข็ง"
 
 #. ICE_PELLETS
-#: ../libgweather/gweather-weather.c:179
+#: libgweather/gweather-info.c:250
 msgid "Sleet"
 msgstr "ฝนน้ำแข็ง"
 
-#: ../libgweather/gweather-weather.c:179
+#: libgweather/gweather-info.c:250
 msgid "Little sleet"
 msgstr "ฝนน้ำแข็งตกเล็กน้อย"
 
-#: ../libgweather/gweather-weather.c:179
+#: libgweather/gweather-info.c:250
 msgid "Moderate sleet"
 msgstr "ฝนน้ำแข็งตกปานกลาง"
 
-#: ../libgweather/gweather-weather.c:179
+#: libgweather/gweather-info.c:250
 msgid "Heavy sleet"
 msgstr "ฝนน้ำแข็งตกหนัก"
 
-#: ../libgweather/gweather-weather.c:179
+#: libgweather/gweather-info.c:250
 msgid "Sleet storm"
 msgstr "พายุฝนน้ำแข็ง"
 
-#: ../libgweather/gweather-weather.c:179
+#: libgweather/gweather-info.c:250
 msgid "Showers of sleet"
 msgstr "ฝนน้ำแข็งโปรย"
 
 #. HAIL
-#: ../libgweather/gweather-weather.c:180
+#: libgweather/gweather-info.c:251
 msgid "Hail"
 msgstr "ลูกเห็บ"
 
-#: ../libgweather/gweather-weather.c:180
+#: libgweather/gweather-info.c:251
 msgid "Hailstorm"
 msgstr "พายุลูกเห็บ"
 
-#: ../libgweather/gweather-weather.c:180
+#: libgweather/gweather-info.c:251
 msgid "Hail showers"
 msgstr "ลูกเห็บโปรย"
 
 #. SMALL_HAIL
-#: ../libgweather/gweather-weather.c:181
+#: libgweather/gweather-info.c:252
 msgid "Small hail"
 msgstr "ลูกเห็บชนิดเล็ก"
 
-#: ../libgweather/gweather-weather.c:181
+#: libgweather/gweather-info.c:252
 msgid "Small hailstorm"
 msgstr "พายุลูกเห็บชนิดเล็ก"
 
-#: ../libgweather/gweather-weather.c:181
+#: libgweather/gweather-info.c:252
 msgid "Showers of small hail"
 msgstr "ลูกเห็บชนิดเล็กโปรย"
 
 #. PRECIPITATION
-#: ../libgweather/gweather-weather.c:182
+#: libgweather/gweather-info.c:253
 msgid "Unknown precipitation"
 msgstr "หยาดน้ำฟ้าไม่ทราบชนิด"
 
 #. MIST
-#: ../libgweather/gweather-weather.c:183
+#: libgweather/gweather-info.c:254
 msgid "Mist"
 msgstr "หมอกน้ำค้าง"
 
 #. FOG
-#: ../libgweather/gweather-weather.c:184
+#: libgweather/gweather-info.c:255
 msgid "Fog"
 msgstr "หมอก"
 
-#: ../libgweather/gweather-weather.c:184
+#: libgweather/gweather-info.c:255
 msgid "Fog in the vicinity"
 msgstr "หมอกในบริเวณรอบข้าง"
 
-#: ../libgweather/gweather-weather.c:184
+#: libgweather/gweather-info.c:255
 msgid "Shallow fog"
 msgstr "หมอกตื้น"
 
-#: ../libgweather/gweather-weather.c:184
+#: libgweather/gweather-info.c:255
 msgid "Patches of fog"
 msgstr "หมอกเป็นหย่อม"
 
-#: ../libgweather/gweather-weather.c:184
+#: libgweather/gweather-info.c:255
 msgid "Partial fog"
 msgstr "หมอกบางส่วน"
 
-#: ../libgweather/gweather-weather.c:184
+#: libgweather/gweather-info.c:255
 msgid "Freezing fog"
 msgstr "หมอกเยือกแข็ง"
 
 #. SMOKE
-#: ../libgweather/gweather-weather.c:185
+#: libgweather/gweather-info.c:256
 msgid "Smoke"
 msgstr "ควัน"
 
 #. VOLCANIC_ASH
-#: ../libgweather/gweather-weather.c:186
+#: libgweather/gweather-info.c:257
 msgid "Volcanic ash"
 msgstr "เถ้าภูเขาไฟ"
 
 #. SAND
-#: ../libgweather/gweather-weather.c:187
+#: libgweather/gweather-info.c:258
 msgid "Sand"
 msgstr "ทราย"
 
-#: ../libgweather/gweather-weather.c:187
+#: libgweather/gweather-info.c:258
 msgid "Blowing sand"
 msgstr "ทรายปลิว"
 
-#: ../libgweather/gweather-weather.c:187
+#: libgweather/gweather-info.c:258
 msgid "Drifting sand"
 msgstr "ทรายฟุ้ง"
 
 #. HAZE
-#: ../libgweather/gweather-weather.c:188
+#: libgweather/gweather-info.c:259
 msgid "Haze"
 msgstr "ฟ้าหลัว"
 
 # This is salt sprays blown from the sea
 #. SPRAY
-#: ../libgweather/gweather-weather.c:189
+#: libgweather/gweather-info.c:260
 msgid "Blowing sprays"
 msgstr "อนุภาคเกลือ"
 
 #. DUST
-#: ../libgweather/gweather-weather.c:190
+#: libgweather/gweather-info.c:261
 msgid "Dust"
 msgstr "ฝุ่น"
 
-#: ../libgweather/gweather-weather.c:190
+#: libgweather/gweather-info.c:261
 msgid "Blowing dust"
 msgstr "ฝุ่นปลิว"
 
-#: ../libgweather/gweather-weather.c:190
+#: libgweather/gweather-info.c:261
 msgid "Drifting dust"
 msgstr "ฝุ่นฟุ้ง"
 
 #. SQUALL
-#: ../libgweather/gweather-weather.c:191
+#: libgweather/gweather-info.c:262
 msgid "Squall"
 msgstr "ลมสควอลล์"
 
 #. SANDSTORM
-#: ../libgweather/gweather-weather.c:192
+#: libgweather/gweather-info.c:263
 msgid "Sandstorm"
 msgstr "พายุทราย"
 
-#: ../libgweather/gweather-weather.c:192
+#: libgweather/gweather-info.c:263
 msgid "Sandstorm in the vicinity"
 msgstr "พายุทรายในบริเวณใกล้เคียง"
 
-#: ../libgweather/gweather-weather.c:192
+#: libgweather/gweather-info.c:263
 msgid "Heavy sandstorm"
 msgstr "พายุทรายพัดหนัก"
 
 #. DUSTSTORM
-#: ../libgweather/gweather-weather.c:193
+#: libgweather/gweather-info.c:264
 msgid "Duststorm"
 msgstr "พายุฝุ่น"
 
-#: ../libgweather/gweather-weather.c:193
+#: libgweather/gweather-info.c:264
 msgid "Duststorm in the vicinity"
 msgstr "พายุฝุ่นในบริเวณใกล้เคียง"
 
-#: ../libgweather/gweather-weather.c:193
+#: libgweather/gweather-info.c:264
 msgid "Heavy duststorm"
 msgstr "พายุฝุ่นพัดหนัก"
 
 #. FUNNEL_CLOUD
-#: ../libgweather/gweather-weather.c:194
+#: libgweather/gweather-info.c:265
 msgid "Funnel cloud"
 msgstr "เมฆงวงช้าง"
 
 # ลมสลาตัน ;-)
 #. TORNADO
-#: ../libgweather/gweather-weather.c:195
+#: libgweather/gweather-info.c:266
 msgid "Tornado"
 msgstr "ทอร์นาโด"
 
 # FIXME: This could be translated better.
 #. DUST_WHIRLS
-#: ../libgweather/gweather-weather.c:196
+#: libgweather/gweather-info.c:267
 msgid "Dust whirls"
 msgstr "ลมฝุ่นหมุน"
 
-#: ../libgweather/gweather-weather.c:196
+#: libgweather/gweather-info.c:267
 msgid "Dust whirls in the vicinity"
 msgstr "ลมฝุ่นหมุนในบริเวณใกล้เคียง"
 
-#: ../libgweather/gweather-weather.c:705
+#: libgweather/gweather-info.c:830
 msgid "%a, %b %d / %H∶%M"
 msgstr "%a %d %b / %H:%M น."
 
-#: ../libgweather/gweather-weather.c:711
+#: libgweather/gweather-info.c:836
 msgid "Unknown observation time"
 msgstr "ไม่ทราบเวลาบันทึกสภาพอากาศ"
 
-#: ../libgweather/gweather-weather.c:723
+#: libgweather/gweather-info.c:848
 msgctxt "sky conditions"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
@@ -472,89 +843,108 @@ msgstr "ไม่ทราบ"
 #. * Do *not* translate it to "predefinito:mm", if it
 #. * it isn't default:mm or default:inch it will not work
 #.
-#: ../libgweather/gweather-weather.c:745
+#: libgweather/gweather-info.c:879
 msgid "default:mm"
 msgstr "default:mm"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:797
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit
+#. * with a non-break space (U+00A0) between the digits and the
+#. * degrees sign (U+00B0), followed by the letter F
+#.
+#: libgweather/gweather-info.c:926
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+msgid "%.1f °F"
+msgstr "%.1f °F"
 
-#. TRANSLATOR: This is the temperature in degrees Fahrenheit (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:800
+#. TRANSLATOR: This is the temperature in degrees Fahrenheit
+#. * with a non-break space (U+00A0) between the digits and the
+#. * degrees sign (U+00B0), followed by the letter F
+#.
+#: libgweather/gweather-info.c:932
 #, c-format
-msgid "%d °F"
-msgstr "%d °F"
+msgid "%d °F"
+msgstr "%d °F"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:806
+#. TRANSLATOR: This is the temperature in degrees Celsius
+#. * with a non-break space (U+00A0) between the digits and
+#. * the degrees sign (U+00B0), followed by the letter C
+#.
+#: libgweather/gweather-info.c:941
 #, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
+#| msgid "%.1f °C"
+msgid "%.1f °C"
+msgstr "%.1f °C"
 
-#. TRANSLATOR: This is the temperature in degrees Celsius (\302\260 is U+00B0 DEGREE SIGN)
-#: ../libgweather/gweather-weather.c:809
+#. TRANSLATOR: This is the temperature in degrees Celsius
+#. * with a non-break space (U+00A0) between the digits and
+#. * the degrees sign (U+00B0), followed by the letter C
+#.
+#: libgweather/gweather-info.c:947
 #, c-format
-msgid "%d °C"
-msgstr "%d °C"
+msgid "%d °C"
+msgstr "%d °C"
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/gweather-weather.c:815
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#. * with a non-break space (U+00A0) between the digits and the degrees
+#. * sign
+#.
+#: libgweather/gweather-info.c:956
 #, c-format
-msgid "%.1f K"
-msgstr "%.1f K"
+msgid "%.1f K"
+msgstr "%.1f K"
 
-#. TRANSLATOR: This is the temperature in kelvin
-#: ../libgweather/gweather-weather.c:818
+#. TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+#. * with a non-break space (U+00A0) between the digits and the degrees
+#. * sign
+#.
+#: libgweather/gweather-info.c:962
 #, c-format
-msgid "%d K"
-msgstr "%d K"
+msgid "%d K"
+msgstr "%d K"
 
-#: ../libgweather/gweather-weather.c:841 ../libgweather/gweather-weather.c:857
-#: ../libgweather/gweather-weather.c:873 ../libgweather/gweather-weather.c:935
+#: libgweather/gweather-info.c:982 libgweather/gweather-info.c:995
+#: libgweather/gweather-info.c:1008 libgweather/gweather-info.c:1066
 msgctxt "temperature"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
-#: ../libgweather/gweather-weather.c:895
+#: libgweather/gweather-info.c:1028
 msgctxt "dew"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
-#: ../libgweather/gweather-weather.c:915
+#: libgweather/gweather-info.c:1048
 msgctxt "humidity"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
 #. TRANSLATOR: This is the humidity in percent
-#: ../libgweather/gweather-weather.c:918
+#: libgweather/gweather-info.c:1051
 #, c-format
 msgid "%.f%%"
 msgstr "%.f%%"
 
 # from กรมอุตุนิยมวิทยา www.tmd.go.th
 #. TRANSLATOR: This is the wind speed in knots
-#: ../libgweather/gweather-weather.c:964
+#: libgweather/gweather-info.c:1093
 #, c-format
 msgid "%0.1f knots"
 msgstr "%0.1f นอต"
 
 #. TRANSLATOR: This is the wind speed in miles per hour
-#: ../libgweather/gweather-weather.c:967
+#: libgweather/gweather-info.c:1096
 #, c-format
 msgid "%.1f mph"
 msgstr "%.1f ไมล์/ชม."
 
 #. TRANSLATOR: This is the wind speed in kilometers per hour
-#: ../libgweather/gweather-weather.c:970
+#: libgweather/gweather-info.c:1099
 #, c-format
 msgid "%.1f km/h"
 msgstr "%.1f กม./ชม."
 
 #. TRANSLATOR: This is the wind speed in meters per second
-#: ../libgweather/gweather-weather.c:973
+#: libgweather/gweather-info.c:1102
 #, c-format
 msgid "%.1f m/s"
 msgstr "%.1f เมตร/วินาที"
@@ -562,111 +952,130 @@ msgstr "%.1f เมตร/วินาที"
 #. TRANSLATOR: This is the wind speed as a Beaufort force factor
 #. * (commonly used in nautical wind estimation).
 #.
-#: ../libgweather/gweather-weather.c:978
+#: libgweather/gweather-info.c:1107
 #, c-format
 msgid "Beaufort force %.1f"
 msgstr "แรงโบฟอร์ต %.1f"
 
-#: ../libgweather/gweather-weather.c:999
+#: libgweather/gweather-info.c:1124
 msgctxt "wind speed"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
-#: ../libgweather/gweather-weather.c:1001
+#: libgweather/gweather-info.c:1126
 msgid "Calm"
 msgstr "สงบ"
 
 #. TRANSLATOR: This is 'wind direction' / 'wind speed'
-#: ../libgweather/gweather-weather.c:1009
+#: libgweather/gweather-info.c:1134
 #, c-format
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../libgweather/gweather-weather.c:1045
+# from กรมอุตุนิยมวิทยา www.tmd.go.th
+#. TRANSLATOR: This is the wind speed in knots
+#: libgweather/gweather-info.c:1155
+msgid "knots"
+msgstr "นอต"
+
+#. TRANSLATOR: This is the wind speed in miles per hour
+#: libgweather/gweather-info.c:1158
+msgid "mph"
+msgstr "ไมล์/ชม."
+
+#. TRANSLATOR: This is the wind speed in kilometers per hour
+#: libgweather/gweather-info.c:1161
+msgid "km/h"
+msgstr "กม./ชม."
+
+#. TRANSLATOR: This is the wind speed in meters per second
+#: libgweather/gweather-info.c:1164
+msgid "m/s"
+msgstr "เมตร/วินาที"
+
+#. TRANSLATOR: This is the wind speed as a Beaufort force factor
+#. * (commonly used in nautical wind estimation).
+#.
+#: libgweather/gweather-info.c:1169
+msgid "Beaufort force"
+msgstr "แรงโบฟอร์ต"
+
+#: libgweather/gweather-info.c:1202
 msgctxt "pressure"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
 #. TRANSLATOR: This is pressure in inches of mercury
-#: ../libgweather/gweather-weather.c:1051
+#: libgweather/gweather-info.c:1208
 #, c-format
 msgid "%.2f inHg"
 msgstr "%.2f นิ้วปรอท"
 
 #. TRANSLATOR: This is pressure in millimeters of mercury
-#: ../libgweather/gweather-weather.c:1054
+#: libgweather/gweather-info.c:1211
 #, c-format
 msgid "%.1f mmHg"
 msgstr "%.1f มม.ปรอท"
 
 #. TRANSLATOR: This is pressure in kiloPascals
-#: ../libgweather/gweather-weather.c:1057
+#: libgweather/gweather-info.c:1214
 #, c-format
 msgid "%.2f kPa"
 msgstr "%.2f กิโลปาสคาล"
 
 #. TRANSLATOR: This is pressure in hectoPascals
-#: ../libgweather/gweather-weather.c:1060
+#: libgweather/gweather-info.c:1217
 #, c-format
 msgid "%.2f hPa"
 msgstr "%.2f เฮกโตปาสคาล"
 
 #. TRANSLATOR: This is pressure in millibars
-#: ../libgweather/gweather-weather.c:1063
+#: libgweather/gweather-info.c:1220
 #, c-format
 msgid "%.2f mb"
 msgstr "%.2f มิลลิบาร์"
 
 #. TRANSLATOR: This is pressure in atmospheres
-#: ../libgweather/gweather-weather.c:1066
+#: libgweather/gweather-info.c:1223
 #, c-format
 msgid "%.3f atm"
 msgstr "%.3f บรรยากาศ"
 
-#: ../libgweather/gweather-weather.c:1104
+#: libgweather/gweather-info.c:1257
 msgctxt "visibility"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
 #. TRANSLATOR: This is the visibility in miles
-#: ../libgweather/gweather-weather.c:1110
+#: libgweather/gweather-info.c:1263
 #, c-format
 msgid "%.1f miles"
 msgstr "%.1f ไมล์"
 
 #. TRANSLATOR: This is the visibility in kilometers
-#: ../libgweather/gweather-weather.c:1113
+#: libgweather/gweather-info.c:1266
 #, c-format
 msgid "%.1f km"
 msgstr "%.1f กม."
 
 #. TRANSLATOR: This is the visibility in meters
-#: ../libgweather/gweather-weather.c:1116
+#: libgweather/gweather-info.c:1269
 #, c-format
 msgid "%.0fm"
 msgstr "%.0f เมตร"
 
-#: ../libgweather/gweather-weather.c:1144
-#: ../libgweather/gweather-weather.c:1169
+#: libgweather/gweather-info.c:1294 libgweather/gweather-info.c:1316
 msgid "%H∶%M"
 msgstr "%H∶%M"
 
-#: ../libgweather/gweather-weather.c:1263
+#: libgweather/gweather-info.c:1391
 msgid "Retrieval failed"
 msgstr "เรียกอ่านข้อมูลไม่สำเร็จ"
 
-#: ../libgweather/weather-metar.c:573
-#, c-format
-msgid "Failed to get METAR data: %d %s.\n"
-msgstr "อ่านข้อมูล METAR ไม่สำเร็จ: %d %s\n"
-
-#: ../libgweather/weather-owm.c:383
+#: libgweather/weather-owm.c:384
 msgid ""
-"Weather data from the <a href=\"http://openweathermap.org\">Open Weather Map "
-"project</a>"
-msgstr ""
-"ข้อมูลสภาพอากาศจาก <a href=\"http://openweathermap.org"
-"\">โครงการแผนที่สภาพอากาศแบบเปิด</a>"
+"Weather data from the <a href=\"https://openweathermap.org\">Open Weather Map project</a>"
+msgstr "ข้อมูลสภาพอากาศจาก <a href=\"https://openweathermap.org\">โครงการแผนที่สภาพอากาศแบบเปิด</a>"
 
 #. The new (documented but not advertised) API is less strict in the
 #. format of the attribution, and just requires a generic CC-BY compatible
@@ -674,98 +1083,135 @@ msgstr ""
 #.
 #. That's very nice of them!
 #.
-#: ../libgweather/weather-yrno.c:507
+#: libgweather/weather-metno.c:374
 msgid ""
-"Weather data from the <a href=\"http://www.met.no/\">Norwegian "
-"Meteorological Institute</a>"
-msgstr ""
-"ข้อมูลสภาพอากาศจาก <a href=\"http://www.met.no/\">สถาบันอุตุนิยมวิทยานอร์เวย์</a>"
+"Weather data from the <a href=\"https://www.met.no/\">Norwegian Meteorological Institute</a>."
+msgstr "ข้อมูลสภาพอากาศจาก <a href=\"https://www.met.no/\">สถาบันอุตุนิยมวิทยานอร์เวย์</a>"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:1
-msgid "URL for the radar map"
-msgstr "URL สำหรับแผนที่เรดาร์"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:2
-msgid ""
-"The custom URL from where to retrieve a radar map, or empty for disabling "
-"radar maps."
-msgstr "URL กำหนดเองสำหรับใช้ดึงข้อมูลแผนที่เรดาร์ หรือเป็นค่าว่างถ้าปิดการใช้แผนที่เรดาร์"
-
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:3
+#: schemas/org.gnome.GWeather4.gschema.xml:5
 msgid "Temperature unit"
 msgstr "หน่วยอุณหภูมิ"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:4
+#: schemas/org.gnome.GWeather4.gschema.xml:6
 msgid ""
-"The unit of temperature used for showing weather. Valid values are 'kelvin', "
-"'centigrade' and 'fahrenheit'."
-msgstr ""
-"หน่วยอุณหภูมิที่จะใช้ในการแสดงสภาพอากาศ ค่าที่ใช้ได้คือ 'kelvin', 'centigrade' และ "
-"'fahrenheit'"
+"The unit of temperature used for showing weather. Valid values are “kelvin”, “centigrade” "
+"and “fahrenheit”."
+msgstr "หน่วยอุณหภูมิที่จะใช้ในการแสดงสภาพอากาศ ค่าที่ใช้ได้คือ “kelvin”, “centigrade” และ “fahrenheit”"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:5
+#: schemas/org.gnome.GWeather4.gschema.xml:13
 msgid "Distance unit"
 msgstr "หน่วยระยะทาง"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:6
+#: schemas/org.gnome.GWeather4.gschema.xml:14
 msgid ""
-"The unit of distance used for showing weather (for example for visibility or "
-"for distance of important events). Valid values are 'meters', 'km' and "
-"'miles'."
+"The unit of distance used for showing weather (for example for visibility or for distance of "
+"important events). Valid values are “meters”, “km” and “miles”."
 msgstr ""
-"หน่วยระยะทางที่จะใช้ในการแสดงสภาพอากาศ (เช่น ทัศนวิสัยหรือระยะทางของเหตุการณ์สำคัญ) "
-"ค่าที่ใช้ได้คือ 'meters', 'km' และ 'miles'"
+"หน่วยระยะทางที่จะใช้ในการแสดงสภาพอากาศ (เช่น ทัศนวิสัยหรือระยะทางของเหตุการณ์สำคัญ) ค่าที่ใช้ได้คือ “meters”, "
+"“km” และ “miles”"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:7
+#: schemas/org.gnome.GWeather4.gschema.xml:21
 msgid "Speed unit"
 msgstr "หน่วยความเร็ว"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:8
+#: schemas/org.gnome.GWeather4.gschema.xml:22
 msgid ""
-"The unit of speed used for showing weather (for example for wind speed). "
-"Valid values are 'ms' (meters per second), 'kph' (kilometers per hour), "
-"'mph' (miles per hour), 'knots' and 'bft' (Beaufort scale)."
+"The unit of speed used for showing weather (for example for wind speed). Valid values are "
+"“ms” (meters per second), “kph” (kilometers per hour), “mph” (miles per hour), “knots” and "
+"“bft” (Beaufort scale)."
 msgstr ""
-"หน่วยความเร็วที่จะใช้ในการแสดงสภาพอากาศ (เช่น ความเร็วลม) ค่าที่ใช้ได้คือ "
-"'ms' (เมตรต่อวินาที), 'kph' (กิโลเมตรต่อชั่วโมง), 'mph' (ไมล์ต่อชั่วโมง), 'knots' และ "
-"'bft' (มาตราโบฟอร์ต)"
+"หน่วยความเร็วที่จะใช้ในการแสดงสภาพอากาศ (เช่น ความเร็วลม) ค่าที่ใช้ได้คือ “ms” (เมตรต่อวินาที), “kph” "
+"(กิโลเมตรต่อชั่วโมง), “mph” (ไมล์ต่อชั่วโมง), “knots” และ “bft” (มาตราโบฟอร์ต)"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:9
+#: schemas/org.gnome.GWeather4.gschema.xml:30
 msgid "Pressure unit"
 msgstr "หน่วยความกดอากาศ:"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:10
+#: schemas/org.gnome.GWeather4.gschema.xml:31
 msgid ""
-"The unit of pressure used for showing weather. Valid values are "
-"'kpa' (kilopascal), 'hpa' (hectopascal), 'mb' (millibar, mathematically "
-"equivalent to 1 hPa but shown differently), 'mm-hg' (millimeters of "
-"mercury), 'inch-hg' (inches of mercury), 'atm' (atmospheres)."
+"The unit of pressure used for showing weather. Valid values are “kpa” (kilopascal), “hpa” "
+"(hectopascal), “mb” (millibar, mathematically equivalent to 1 hPa but shown differently), "
+"“mm-hg” (millimeters of mercury), “inch-hg” (inches of mercury), “atm” (atmospheres)."
 msgstr ""
-"หน่วยความกดอากาศที่จะใช้ในการแสดงสภาพอากาศ ค่าที่ใช้ได้คือ 'kpa' (กิโลปาสคาล), "
-"'hpa' (เฮกโตปาสคาล), 'mb' (มิลลิบาร์ ซึ่งเท่ากับ 1 hPa ในทางคณิตศาสตร์ "
-"แต่แสดงเป็นคนละหน่วยเท่านั้น), 'mm-hg' (มิลลิเมตรของปรอท), 'inch-hg' (นิ้วของปรอท), "
-"'atm' (บรรยากาศ)"
+"หน่วยความกดอากาศที่จะใช้ในการแสดงสภาพอากาศ ค่าที่ใช้ได้คือ “kpa” (กิโลปาสคาล), “hpa” (เฮกโตปาสคาล), "
+"“mb” (มิลลิบาร์ ซึ่งเท่ากับ 1 hPa ในทางคณิตศาสตร์ แต่แสดงเป็นคนละหน่วยเท่านั้น), “mm-hg” (มิลลิเมตรของปรอท), "
+"“inch-hg” (นิ้วของปรอท), “atm” (บรรยากาศ)"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:11
+#. TRANSLATORS: pick a default location to use in the weather applet. This should
+#. usually be the largest city or the capital of your country. If you're not picking
+#. a <location> in the database, don't forget to set name and coordinates.
+#. Do NOT change or localize the quotation marks!
+#: schemas/org.gnome.GWeather4.gschema.xml:43
+msgid "('', 'KNYC', nothing)"
+msgstr "('', 'VTBS', nothing)"
+
+#: schemas/org.gnome.GWeather4.gschema.xml:44
 msgid "Default location"
 msgstr "ตำแหน่งที่ตั้งปริยาย"
 
-#: ../schemas/org.gnome.GWeather.gschema.xml.h:12
+#: schemas/org.gnome.GWeather4.gschema.xml:45
 msgid ""
-"The default location for the weather applet. The first field is the name "
-"that will be shown. If empty, it will be taken from the locations database. "
-"The second field is the METAR code for the default weather station. It must "
-"not be empty and must correspond to a &lt;code&gt; tag in the Locations.xml "
-"file. The third field is a tuple of (latitude, longitude), to override the "
-"value taken from the database. This is only used for sunrise and moon phase "
-"calculations, not for weather forecast."
+"The default location for the weather applet. The first field is the name that will be shown. "
+"If empty, it will be taken from the locations database. The second field is the METAR code "
+"for the default weather station. It must not be empty and must correspond to a <code> tag in "
+"the Locations.xml file. The third field is a tuple of (latitude, longitude), to override the "
+"value taken from the database. This is only used for sunrise and moon phase calculations, "
+"not for weather forecast."
 msgstr ""
 "ตำแหน่งที่ตั้งปริยายสำหรับแอพเพล็ตรายงานสภาพอากาศ ค่าแรกคือชื่อที่จะแสดง ซึ่งถ้าว่างเปล่า "
-"ก็จะอ่านเอาจากฐานข้อมูลตำแหน่งที่ตั้ง ค่าที่สองคือรหัส METAR ของตำแหน่งที่ตั้งปริยาย "
-"ซึ่งต้องไม่เป็นค่าว่างเปล่า และต้องตรงกับแท็ก &lt;code&gt; ค่าใดค่าหนึ่งในแฟ้ม Locations.xml "
-"ค่าที่สามคือพิกัดภูมิศาสตร์ (ละติจูด, ลองจิจูด) ซึ่งจะมีผลทับค่าที่ได้จากฐานข้อมูล "
-"ค่านี้จะใช้สำหรับคำนวณการขึ้น-ตกของดวงอาทิตย์และข้างขึ้น-ข้างแรมของดวงจันทร์เท่านั้น "
+"ก็จะอ่านเอาจากฐานข้อมูลตำแหน่งที่ตั้ง ค่าที่สองคือรหัส METAR ของตำแหน่งที่ตั้งปริยาย ซึ่งต้องไม่เป็นค่าว่างเปล่า "
+"และต้องตรงกับแท็ก <code> ค่าใดค่าหนึ่งในแฟ้ม Locations.xml ค่าที่สามคือพิกัดภูมิศาสตร์ (ละติจูด, ลองจิจูด) "
+"ซึ่งจะมีผลทับค่าที่ได้จากฐานข้อมูล ค่านี้จะใช้สำหรับคำนวณการขึ้น-ตกของดวงอาทิตย์และข้างขึ้น-ข้างแรมของดวงจันทร์เท่านั้น "
 "ไม่ใช้สำหรับการพยากรณ์อากาศ"
+
+#~ msgid "Location Entry"
+#~ msgstr "วิดเจ็ตป้อนตำแหน่งที่ตั้ง"
+
+#~ msgid "Timezone Menu"
+#~ msgstr "เมนูเขตเวลา"
+
+#~ msgid "Timezone"
+#~ msgstr "เขตเวลา"
+
+#~ msgid "GWeather"
+#~ msgstr "GWeather"
+
+#~ msgid "Loading..."
+#~ msgstr "กำลังโหลด..."
+
+#~ msgid "Greenwich Mean Time"
+#~ msgstr "เวลามาตรฐานกรีนิช"
+
+#~ msgctxt "timezone"
+#~ msgid "Unknown"
+#~ msgstr "ไม่ทราบ"
+
+#, c-format
+#~ msgid "%d °F"
+#~ msgstr "%d °F"
+
+#, c-format
+#~ msgid "%d °C"
+#~ msgstr "%d °C"
+
+#, c-format
+#~ msgid "%.1f K"
+#~ msgstr "%.1f K"
+
+#, c-format
+#~ msgid "%d K"
+#~ msgstr "%d K"
+
+#, c-format
+#~ msgid "Failed to get METAR data: %d %s.\n"
+#~ msgstr "อ่านข้อมูล METAR ไม่สำเร็จ: %d %s\n"
+
+#~ msgid "URL for the radar map"
+#~ msgstr "URL สำหรับแผนที่เรดาร์"
+
+#~ msgid ""
+#~ "The custom URL from where to retrieve a radar map, or empty for disabling radar maps."
+#~ msgstr "URL กำหนดเองสำหรับใช้ดึงข้อมูลแผนที่เรดาร์ หรือเป็นค่าว่างถ้าปิดการใช้แผนที่เรดาร์"
 
 #~ msgid "Ice pellets"
 #~ msgstr "ลูกปรายน้ำแข็ง"
