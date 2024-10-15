@@ -57,6 +57,10 @@ config_h.set_quoted('G_LOG_DOMAIN', 'GWeather')
 config_h.set_quoted('GWEATHER_BIN_LOCATION_DIR', pkglibdir)
 config_h.set_quoted('LIBGWEATHER_VERSION', meson.project_version())
 
+if c_compiler.has_header('alloca.h')
+  config_h.set('HAVE_ALLOCA_H', 1)
+endif
+
 if c_compiler.has_member('struct tm', 'tm_gmtoff', prefix: '#include <time.h>')
   config_h.set('HAVE_TM_TM_GMOFF', 1)
 endif
