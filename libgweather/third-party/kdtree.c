@@ -26,15 +26,17 @@ OF SUCH DAMAGE.
 */
 /* single nearest neighbor search written by Tamas Nepusz <tamas@cs.rhul.ac.uk> */
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+#include "config.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #include "kdtree.h"
+
+#ifdef HAVE_ALLOCA_H
+#include <alloca.h>
+#endif
 
 #if defined(WIN32) || defined(__WIN32__)
 #include <malloc.h>
