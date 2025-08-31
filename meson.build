@@ -1,7 +1,7 @@
 project('libgweather', 'c',
-  version: '4.4.5',
+  version: '4.5.0',
   license: 'GPL-2.0-or-later',
-  meson_version: '>= 0.57.0',
+  meson_version: '>= 1.5',
   default_options: [
     'warning_level=2',
     'buildtype=debugoptimized',
