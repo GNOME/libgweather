@@ -23,18 +23,18 @@ How to report bugs
 
 Bugs should be reported to the libgweather issues tracking system:
 
-   https://gitlab.gnome.org/GNOME/libgweather/issues
+  https://gitlab.gnome.org/GNOME/libgweather/-/issues
 
 You might need to create an account for yourself.
 
-Please read the following page on how to prepare a useful bug report:
+Please read the GNOME Handbook on how to report an issue:
 
-   https://wiki.gnome.org/Community/GettingInTouch/BugReportingGuidelines
+  https://handbook.gnome.org/issues/reporting.html
 
 If you are interested in adding new locations (weather stations, or
 cities), please refer to this page in the GNOME Wiki:
 
-   https://wiki.gnome.org/Projects/LibGWeather/ImprovingLocations
+  https://gnome.pages.gitlab.gnome.org/libgweather/adding-locations.html
 
 Please read the [contribution guide](./CONTRIBUTING.md) for information on
 how to contribute to the project.
