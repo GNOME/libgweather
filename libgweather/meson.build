@@ -76,6 +76,8 @@ endif
 config_h.set_quoted('ZONEINFO_DIR', get_option('zoneinfo_dir'))
 config_h.set_quoted('OWM_APIKEY', get_option('owm_apikey'))
 
+config_h.set_quoted('GWEATHER_LOCATIONS_DB', locations_bin)
+
 if host_machine.system() == 'windows'
   visibility_define = '__declspec(dllexport) extern'
 else

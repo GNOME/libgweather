@@ -93,7 +93,7 @@ ensure_world (gpointer dummy G_GNUC_UNUSED)
     }
 
     if (filename == NULL) {
-        filename = g_build_filename (GWEATHER_BIN_LOCATION_DIR, "Locations.bin", NULL);
+        filename = g_strdup (GWEATHER_LOCATIONS_DB);
     }
 
     map = g_mapped_file_new (filename, FALSE, &error);
