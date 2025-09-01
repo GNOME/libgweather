@@ -3,7 +3,7 @@
 set -e
 
 for path in _coverage/*.lcov; do
-        lcov --config-file .gitlab-ci/lcovrc -r "${path}" '*/_build/*' -o "$(pwd)/${path}"
+        lcov --config-file .gitlab-ci/lcovrc -r "${path}" '*/_coverage_build/*' -o "$(pwd)/${path}"
         lcov --config-file .gitlab-ci/lcovrc -e "${path}" "$(pwd)/*" -o "$(pwd)/${path}"
 done
 
