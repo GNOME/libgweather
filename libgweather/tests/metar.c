@@ -264,6 +264,7 @@ test_metar_weather_stations (void)
     soup_session_send_message (session, msg);
     if (msg->status_code == SOUP_STATUS_SSL_FAILED) {
 #endif
+        g_clear_error (&error);
         g_test_message ("SSL/TLS failure, please check your glib-networking installation");
         g_test_failed ();
         return;
