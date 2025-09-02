@@ -48,7 +48,7 @@ default:
 
 .container.fedora:
   variables:
-    BASE_TAG: '2025-09-01.1'
+    BASE_TAG: '2025-09-01.2'
     FDO_DISTRIBUTION_VERSION: 42
     FDO_DISTRIBUTION_TAG: "x86_64-${BASE_TAG}"
     FDO_DISTRIBUTION_PACKAGES:
@@ -100,7 +100,7 @@ default:
       dnf install -y glibc-langpack-fr &&
 
       # Build and install gweather-locations
-      git clone --depth=1 https://gitlab.gnome.org/ebassi/gweather-locations.git &&
+      git clone --depth=1 https://gitlab.gnome.org/GNOME/gweather-locations.git &&
       meson setup --prefix /usr _locations gweather-locations &&
       meson compile -C _locations &&
       meson install -C _locations
