@@ -4,22 +4,23 @@
 # Mișu Moldovan <dumol@gnome.ro>, 2004.
 # Dan Damian <dand@ubuntu.ro>, 2005-2007.
 # Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2010.
+# Antonio Marin <gnmer.6qxyg@slmail.me>, 2025.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgweather/issues\n"
-"POT-Creation-Date: 2023-10-09 16:23+0000\n"
-"PO-Revision-Date: 2023-07-29 14:04+0300\n"
-"Last-Translator: Florentina Mușat <florentina [dot] musat [dot] 28 [at] "
-"gmail [dot] com>\n"
-"Language-Team: Romanian GNOME Team <gnomero-list@lists.sourceforge.net>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgweather/issues/\n"
+"POT-Creation-Date: 2025-09-05 08:52+0000\n"
+"PO-Revision-Date: 2025-09-05 12:00+0200\n"
+"Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
+"Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2);;\n"
-"X-Generator: Poedit 3.3.2\n"
+"20)) ? 1 : 2);\n"
+"X-Generator: Gtranslator 48.0\n"
 
 #: libgweather/gweather-info.c:108
 msgid "variable"
@@ -160,12 +161,12 @@ msgstr "Nord — Nord-Vest"
 #: libgweather/gweather-info.c:131
 msgctxt "wind direction"
 msgid "Invalid"
-msgstr "Nevalidă"
+msgstr "Indisponibilă"
 
 #: libgweather/gweather-info.c:132
 msgctxt "wind direction"
 msgid "invalid"
-msgstr "nevalidă"
+msgstr "indisponibilă"
 
 #: libgweather/gweather-info.c:145
 msgid "clear sky"
@@ -210,12 +211,12 @@ msgstr "Cer acoperit"
 #: libgweather/gweather-info.c:173 libgweather/gweather-info.c:290
 msgctxt "sky conditions"
 msgid "Invalid"
-msgstr "Nevalide"
+msgstr "Indisponibile"
 
 #: libgweather/gweather-info.c:174 libgweather/gweather-info.c:291
 msgctxt "sky conditions"
 msgid "invalid"
-msgstr "nevalide"
+msgstr "indisponibile"
 
 #. TRANSLATOR: If you want to know what "blowing" "shallow" "partial"
 #. * etc means, you can go to http://www.weather.com/glossary/ and
@@ -1075,8 +1076,8 @@ msgid ""
 "The unit of temperature used for showing weather. Valid values are “kelvin”, "
 "“centigrade” and “fahrenheit”."
 msgstr ""
-"Unitatea de temperatură utilizată pentru afișarea vremii. Valorile valide "
-"sunt „kelvin”, „celsius” și „fahrenheit”."
+"Unitatea de temperatură utilizată pentru afișarea vremii. Valorile corecte "
+"sunt „kelvin”, „centigrade” (celsius) și „fahrenheit”."
 
 #: schemas/org.gnome.GWeather4.gschema.xml:13
 msgid "Distance unit"
@@ -1090,7 +1091,7 @@ msgid ""
 msgstr ""
 "Unitatea de distanță utilizată pentru afișarea vremii (de exemplu pentru "
 "vizibilitate sau pentru distanța până la evenimente importante). Valorile "
-"valide sunt „metri”, „km” și „mile”."
+"corecte sunt „meters” (metri), „km” și „miles” (mile)."
 
 #: schemas/org.gnome.GWeather4.gschema.xml:21
 msgid "Speed unit"
@@ -1103,8 +1104,8 @@ msgid ""
 "“mph” (miles per hour), “knots” and “bft” (Beaufort scale)."
 msgstr ""
 "Unitatea de viteză utilizată pentru afișarea vremii (de exemplu pentru "
-"viteza vântului). Valorile valide sunt „ms” (metri pe secundă), "
-"„kph” (kilometri pe oră), „mph” (mile pe oră), „noduri” și „bft” (scala "
+"viteza vântului). Valorile corecte sunt „ms” (metri pe secundă), „kph” "
+"(kilometri pe oră), „mph” (mile pe oră), „knots” (noduri) și „bft” (scala "
 "Beaufort)."
 
 #: schemas/org.gnome.GWeather4.gschema.xml:30
@@ -1113,15 +1114,15 @@ msgstr "Unitate de presiune"
 
 #: schemas/org.gnome.GWeather4.gschema.xml:31
 msgid ""
-"The unit of pressure used for showing weather. Valid values are "
-"“kpa” (kilopascal), “hpa” (hectopascal), “mb” (millibar, mathematically "
-"equivalent to 1 hPa but shown differently), “mm-hg” (millimeters of "
-"mercury), “inch-hg” (inches of mercury), “atm” (atmospheres)."
+"The unit of pressure used for showing weather. Valid values are “kpa” "
+"(kilopascal), “hpa” (hectopascal), “mb” (millibar, mathematically equivalent "
+"to 1 hPa but shown differently), “mm-hg” (millimeters of mercury), “inch-hg” "
+"(inches of mercury), “atm” (atmospheres)."
 msgstr ""
-"Unitatea de presiune utilizată pentru afișarea vremii. Valorile valide sunt "
+"Unitatea de presiune utilizată pentru afișarea vremii. Valorile corecte sunt "
 "„kpa” (kilopascal), „hpa” (hectopascal), „mb” (milibar, echivalent matematic "
-"cu 1 hPa dar arătat diferit), „mm-hg” (milimetri de mercur), „inch-hg” (inci "
-"de mercur), „atm” (atmosfere)."
+"cu 1 hPa dar arătat diferit), „mm-hg” (milimetri coloană de mercur), „inch-"
+"hg” (inci coloană de mercur), „atm” (atmosfere)."
 
 #. TRANSLATORS: pick a default location to use in the weather applet. This should
 #. usually be the largest city or the capital of your country. If you're not picking
@@ -1133,7 +1134,7 @@ msgstr "('', 'LRBS', nothing)"
 
 #: schemas/org.gnome.GWeather4.gschema.xml:44
 msgid "Default location"
-msgstr "Locație implicită"
+msgstr "Localitatea prestabilită"
 
 #: schemas/org.gnome.GWeather4.gschema.xml:45
 msgid ""
@@ -1145,253 +1146,11 @@ msgid ""
 "taken from the database. This is only used for sunrise and moon phase "
 "calculations, not for weather forecast."
 msgstr ""
-"Locația implicită pentru aplicația de vreme. Primul câmp este numele care va "
-"fi afișat. Dacă este gol, el va fi luat din baza de date de locații. Al "
-"doilea câmp este codul METAR pentru stația meteorologică implicită. Acesta "
-"nu trebuie să fie gol și trebuie să corespundă la un tag <code> în fișierul "
-"Locations.xml. Al treilea câmp este un tuplu de (latitudine, longitudine), "
-"pentru a suprascrie valoarea luată din baza de date. Acesta este utilizat "
-"doar pentru calcularea răsăritului și fazelor lunii, nu pentru prognoza "
-"meteo."
-
-#, c-format
-#~ msgid "%s, %s"
-#~ msgstr "%s, %s"
-
-#~ msgid "Loading…"
-#~ msgstr "Se încarcă…"
-
-#~ msgid "Greenwich Mean Time"
-#~ msgstr "Ora Greenwich"
-
-#~ msgctxt "timezone"
-#~ msgid "Unknown"
-#~ msgstr "Necunoscută"
-
-#, c-format
-#~ msgid "%.1f ℉"
-#~ msgstr "%.1f ℉"
-
-#, c-format
-#~ msgid "%d ℉"
-#~ msgstr "%d ℉"
-
-#, c-format
-#~ msgid "%.1f ℃"
-#~ msgstr "%.1f ℃"
-
-#, c-format
-#~ msgid "%d ℃"
-#~ msgstr "%d ℃"
-
-#, c-format
-#~ msgid "Failed to get METAR data: %d %s.\n"
-#~ msgstr "A eșuat obținerea de date METAR: %d %s.\n"
-
-#~ msgid "URL for the radar map"
-#~ msgstr "URL pentru harta radar"
-
-#~ msgid ""
-#~ "The custom URL from where to retrieve a radar map, or empty for disabling "
-#~ "radar maps."
-#~ msgstr ""
-#~ "URL-ul personalizat de la care se obține o hartă radar, sau gol pentru a "
-#~ "dezactiva hărțile radar."
-
-#~ msgid "DEFAULT_LOCATION"
-#~ msgstr "București"
-
-#~ msgid "DEFAULT_CODE"
-#~ msgstr "LRBS"
-
-#~ msgid "DEFAULT_ZONE"
-#~ msgstr "DEFAULT_ZONE"
-
-#~ msgid "DEFAULT_RADAR"
-#~ msgstr " "
-
-#~ msgid "DEFAULT_COORDINATES"
-#~ msgstr "44.500000 26.133333"
-
-#~ msgid "K"
-#~ msgstr "K"
-
-#~ msgid "C"
-#~ msgstr "C"
-
-#~ msgid "F"
-#~ msgstr "F"
-
-#~ msgid "Beaufort scale"
-#~ msgstr "Scara Beaufort"
-
-#~ msgid "kPa"
-#~ msgstr "kPa"
-
-#~ msgid "hPa"
-#~ msgstr "hPa"
-
-#~ msgid "mb"
-#~ msgstr "mb"
-
-#~ msgid "mmHg"
-#~ msgstr "mmHg"
-
-#~ msgid "inHg"
-#~ msgstr "inHg"
-
-#~ msgid "atm"
-#~ msgstr "atm"
-
-#~ msgid "m"
-#~ msgstr "m"
-
-#~ msgid "km"
-#~ msgstr "km"
-
-#~ msgid "mi"
-#~ msgstr "mi"
-
-#~ msgid "DEFAULT_TEMP_UNIT"
-#~ msgstr "C"
-
-#~ msgid "DEFAULT_SPEED_UNIT"
-#~ msgstr "km/h"
-
-#~ msgid "DEFAULT_PRESSURE_UNIT"
-#~ msgstr "mb"
-
-#~ msgid "DEFAULT_DISTANCE_UNIT"
-#~ msgstr "km"
-
-#~ msgid ""
-#~ "A three-digit-long code for retrieving radar maps from weather.com, found "
-#~ "from http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-#~ msgstr ""
-#~ "Un cod de trei cifre pentru a prelua hărți radar de la weather.com, aflat "
-#~ "de la http://git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-
-#~ msgid ""
-#~ "A unique zone for the city, as found from http://git.gnome.org/cgit/"
-#~ "libgweather/plain/data/Locations.xml.in"
-#~ msgstr ""
-#~ "O zonă unică pentru oraș, care se găsește în http://git.gnome.org/cgit/"
-#~ "libgweather/plain/data/Locations.xml.in"
-
-#~ msgid ""
-#~ "Determines whether the applet automatically updates its weather "
-#~ "statistics or not."
-#~ msgstr ""
-#~ "Decide dacă miniaplicația își actualizează automat statisticile "
-#~ "meteorologice sau nu."
-
-#~ msgid "Display radar map"
-#~ msgstr "Afișează harta radar"
-
-#~ msgid "Fetch a radar map on each update."
-#~ msgstr "Preia o hartă radar la fiecare actualizare."
-
-#~ msgid ""
-#~ "If true, then retrieve a radar map from a location specified by the "
-#~ "\"radar\" key."
-#~ msgstr ""
-#~ "Dacă este definit ca „true”, atunci găsește o hartă radar dintr-o locație "
-#~ "specificată de cheia „radar”."
-
-#~ msgid ""
-#~ "Latitude and longitude of your location expressed in DD-MM-SS[NS] DD-MM-"
-#~ "SS[EW]."
-#~ msgstr ""
-#~ "Latitudinea și longitudinea locației dumneavoastră exprimate în GG-MM-"
-#~ "SS[NS] GG-MM-SS[EV]."
-
-#~ msgid "Location coordinates"
-#~ msgstr "Coordonatele locației"
-
-#~ msgid "Nearby city"
-#~ msgstr "Oraș din apropiere"
-
-#~ msgid ""
-#~ "Nearby major zone, such as a capital city, as found from http://git.gnome."
-#~ "org/cgit/libgweather/plain/data/Locations.xml.in"
-#~ msgstr ""
-#~ "O zonă majoră apropiată, cum ar fi o capitală, după cum apare la http://"
-#~ "git.gnome.org/cgit/libgweather/plain/data/Locations.xml.in"
-
-#~ msgid "Not used anymore"
-#~ msgstr "Nu se mai folosește"
-
-#~ msgid "Radar location"
-#~ msgstr "Locație radar"
-
-#~ msgid "The city that gweather displays information for."
-#~ msgstr "Orașul pentru care gweather afișează informații."
-
-#~ msgid "The interval, in seconds, between automatic updates."
-#~ msgstr "Intervalul, în secunde, dintre actualizările automate."
-
-#~ msgid "The unit to use for pressure."
-#~ msgstr "Unitatea care va fi utilizată pentru presiune."
-
-#~ msgid "The unit to use for temperature."
-#~ msgstr "Unitatea care va fi utilizată pentru temperatură."
-
-#~ msgid "The unit to use for visibility."
-#~ msgstr "Unitatea care va fi utilizată pentru vizibilitate."
-
-#~ msgid "The unit to use for wind speed."
-#~ msgstr "Unitatea care va fi utilizată pentru viteza vântului."
-
-#~ msgid "Update interval"
-#~ msgstr "Interval de actualizare"
-
-#~ msgid "Update the data automatically"
-#~ msgstr "Actualizează datele automat"
-
-#~ msgid "Use custom url for the radar map"
-#~ msgstr "Utilizează url-ul ales pentru harta radar"
-
-#~ msgid "Use metric units"
-#~ msgstr "Utilizează unități metrice"
-
-#~ msgid "Use metric units instead of english units."
-#~ msgstr "Utilizează unități metrice în loc de unități englezești."
-
-#~ msgid "Weather for a city"
-#~ msgstr "Buletin meteo pentru un oraș"
-
-#~ msgid "Weather location information"
-#~ msgstr "Informații despre locația stației meteo"
-
-#~ msgid "Weather location information."
-#~ msgstr "Informații despre locația stației meteo."
-
-#~ msgid "WeatherInfo missing location"
-#~ msgstr "Locație lipsă pentru WeatherInfo"
-
-#~ msgid "Ice pellets"
-#~ msgstr "Granule de gheață"
-
-#~ msgid "Few ice pellets"
-#~ msgstr "Granule de gheață, rar"
-
-#~ msgid "Moderate ice pellets"
-#~ msgstr "Granule de gheață, moderat"
-
-#~ msgid "Heavy ice pellets"
-#~ msgstr "Granule de gheață, puternic"
-
-#~ msgid "%d °F"
-#~ msgstr "%d °F"
-
-#~ msgid "%d °C"
-#~ msgstr "%d °C"
-
-#~ msgid "%.1f K"
-#~ msgstr "%.1f K"
-
-#~ msgid "%d K"
-#~ msgstr "%d K"
-
-#~ msgid "%H:%M"
-#~ msgstr "%H:%M"
+"Localitatea prestabilită pentru aplicația de vreme. Prima rubrică este "
+"numele care va fi afișat. Dacă este goală, el va fi luat din baza de date cu "
+"localități. A doua rubrică este codul METAR pentru stația meteorologică "
+"prestabilită. Acesta nu trebuie să lipsească și trebuie să corespundă unui "
+"tag <code> din fișierul Locations.xml. A treia rubrică este o pereche "
+"(latitudine, longitudine), pentru a suprascrie valoarea luată din baza de "
+"date. Aceasta este utilizată doar pentru calcularea răsăritului și fazelor "
+"lunii, nu pentru prognoza meteo."
