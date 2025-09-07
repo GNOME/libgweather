@@ -9,7 +9,7 @@ gweather_test_env.set('G_TEST_BUILDDIR', meson.current_build_dir())
 gweather_test_env.set('GIO_USE_VFS', 'local')
 gweather_test_env.set('GSETTINGS_BACKED', 'memory')
 gweather_test_env.set('G_ENABLE_DIAGNOSTIC', '0')
-gweather_test_env.set('LIBGWEATHER_LOCATIONS_PATH', locations_bin.full_path())
+gweather_test_env.set('LIBGWEATHER_LOCATIONS_PATH', locations_bin)
 
 gweather_tests = [
   { 'name': 'test_libgweather' },
@@ -44,6 +44,6 @@ foreach t: gweather_tests
     args: ['--tap', '-k'],
     protocol: 'tap',
     env: test_env,
-    depends: [locations_bin, schemas_enums],
+    depends: [schemas_enums],
   )
 endforeach

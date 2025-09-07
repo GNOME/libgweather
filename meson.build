@@ -1,7 +1,7 @@
 project('libgweather', 'c',
-  version: '4.4.5',
+  version: '4.5.0',
   license: 'GPL-2.0-or-later',
-  meson_version: '>= 0.57.0',
+  meson_version: '>= 1.5',
   default_options: [
     'warning_level=2',
     'buildtype=debugoptimized',
@@ -34,7 +34,7 @@ glib_req_version = '>= 2.68.0'
 libxml_req_version = '>= 2.6.0'
 
 GETTEXT_PACKAGE = libgweather_full_version
-LOCATIONS_GETTEXT_PACKAGE = libgweather_full_version + '-locations'
+LOCATIONS_GETTEXT_PACKAGE = 'gweather-locations'
 
 c_compiler = meson.get_compiler('c')
 
@@ -54,15 +54,18 @@ g_ir_scanner = find_program('g-ir-scanner', required: get_option('introspection'
 build_gir = get_option('introspection') and g_ir_scanner.found() and not meson.is_cross_build()
 build_docs = get_option('gtk_doc') and build_gir
 
+locations_bin = dependency('gweather-locations').get_variable(
+  pkgconfig: 'locations_db',
+  default_value: get_option('prefix') / get_option('libdir') / 'gweather-locations/Locations.bin',
+)
+
 schemas_srcdir = meson.project_source_root() / 'schemas'
 schemas_builddir = meson.project_build_root() / 'schemas'
 
-subdir('data')
 subdir('schemas')
 subdir('libgweather')
 subdir('doc')
 subdir('po')
-subdir('po-locations')
 
 gnome.post_install(
   glib_compile_schemas: true,
@@ -73,6 +76,7 @@ summary({
     'libdir': libdir,
     'datadir': datadir,
     'zone info': get_option('zoneinfo_dir'),
+    'locations': locations_bin,
   },
   section: 'Directories',
 )

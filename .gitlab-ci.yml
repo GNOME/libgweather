@@ -1,284 +1,316 @@
-variables:
+include:
+  - project: 'Infrastructure/freedesktop-ci-templates'
+    ref: '707b49ef'
+    file:
+      - 'templates/fedora.yml'
+  - component: "gitlab.gnome.org/GNOME/citemplates/release-service@master"
+    inputs:
+      job-stage: "build"
+      dist-job-name: "release-build"
 
 stages:
-  - style-check
+  - prepare
+  - check
   - build
   - analysis
   - docs
   - deploy
 
-.only-default:
-  only:
-    - merge_requests
-    - branches
-  except:
-    - tags
+# Common variables
+variables:
+  FDO_UPSTREAM_REPO: GNOME/libgweather
+  CCACHE_DIR: _ccache
+  COMMON_MESON_FLAGS: "-Dwerror=true --prefix /usr"
+  MESON_TEST_TIMEOUT_MULTIPLIER: 3
 
-style-check-diff:
-  extends: .only-default
-  image: fedora:latest
-  stage: style-check
-  script:
-    - dnf install -y clang-tools-extra curl diffutils git
-    - sh -x ./.gitlab-ci/run-style-check.sh
+workflow:
+  rules:
+    # run merge request pipelines
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    # do not run branch pipelines if corresponding merge requests exist...
+    # (this avoids duplicate pipelines)
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    # ...but otherwise run branch pipelines
+    - if: $CI_COMMIT_BRANCH
+    # run tag pipelines
+    - if: $CI_COMMIT_TAG
 
-# Recipe for setting up the build
-# @PROJECT_DEPS: the dependencies of the project (on Fedora)
-# @MESON_VERSION: the version of Meson required by the project
-.build-setup:
-  image: fedora:latest
-  extends: .only-default
-  before_script:
-    # Undo delangification present in the Fedora Docker images
-    - rm -f /etc/rpm/macros.image-language-conf
-    - dnf reinstall -y glib2 glibc || dnf update -y glib2 glibc
-    # Add French locale support for tests
-    - dnf install -y glibc-langpack-fr
-    - dnf install -y ${PROJECT_DEPS}
-    - pip3 install --user meson==${MESON_VERSION}
-    - export PATH="$PATH:$HOME/.local/bin"
+default:
+  retry:
+    max: 2
+    when:
+      - 'runner_system_failure'
+      - 'stuck_or_timeout_failure'
+      - 'scheduler_failure'
+      - 'api_failure'
+  interruptible: true
 
-# Default build recipe
-# @PROJECT_DEPS: the dependencies of the project (on Fedora)
-# @MESON_VERSION: the version of Meson required by the project
-# @MESON_EXTRA_FLAGS: extra arguments for the meson setup invocation
-.build-default:
-  image: fedora:latest
-  extends: .only-default
-  before_script:
-    # Undo delangification present in the Fedora Docker images
-    - rm -f /etc/rpm/macros.image-language-conf
-    - dnf reinstall -y glib2 glibc || dnf update -y glib2 glibc
-    # Add French locale support for tests
-    - dnf install -y glibc-langpack-fr
-    - dnf install -y ${PROJECT_DEPS}
-    - pip3 install --user meson==${MESON_VERSION}
-    - export PATH="$PATH:$HOME/.local/bin"
-  script:
-    - meson setup ${MESON_EXTRA_FLAGS} --prefix /usr _build .
-    - meson compile -C _build
-    - meson install -C _build
-    - meson test -C _build --no-suite=style
-  artifacts:
-    reports:
-      junit: "_build/meson-logs/testlog.junit.xml"
-    when: always
-    name: "libgweather-${CI_COMMIT_REF_NAME}"
-    paths:
-      - "${CI_PROJECT_DIR}/_build/meson-logs"
-      - "${CI_PROJECT_DIR}/_build/libgweather/GWeather-4.0.gir"
-      - "${CI_PROJECT_DIR}/_build/libgweather/gweather4.vapi"
-
-# Inherit to build the API reference via gi-docgen
-# @PROJECT_DEPS: the dependencies of the project (on Fedora)
-# @MESON_VERSION: the version of Meson required by the project
-# @MESON_EXTRA_FLAGS: extra arguments for the meson setup invocation
-# @DOCS_FLAGS: doc-related arguments for the meson setup invocation
-# @DOCS_PATH: the docs output directory under the build directory
-.gidocgen-build:
-  image: fedora:latest
-  before_script:
-    - export PATH="$HOME/.local/bin:$PATH"
-    - dnf install -y python3 python3-pip python3-wheel gobject-introspection-devel graphviz ninja-build redhat-rpm-config
-    - dnf install -y ${PROJECT_DEPS}
-    - pip3 install --user meson==${MESON_VERSION} gi-docgen jinja2 Markdown markupsafe packaging pygments toml typogrify
-  script:
-    - meson setup ${MESON_EXTRA_FLAGS} ${DOCS_FLAGS} _docs .
-    - meson compile -C _docs
-    - |
-      pushd "_docs/${DOCS_PATH}" > /dev/null
-      tar cf ${CI_PROJECT_NAME}-docs.tar .
-      popd > /dev/null
-    - mv _docs/${DOCS_PATH}/${CI_PROJECT_NAME}-docs.tar .
-  artifacts:
-    when: always
-    name: 'Documentation'
-    expose_as: 'Download the API reference'
-    paths:
-      - ${CI_PROJECT_NAME}-docs.tar
-
-fedora-x86_64:
-  extends: .build-default
-  stage: build
-  needs: []
+.container.fedora:
   variables:
-    PROJECT_DEPS:
-      gdk-pixbuf2-devel
-      geocode-glib2-devel
-      gettext
-      git
-      gobject-introspection-devel
-      itstool
-      json-glib-devel
-      libsoup3-devel
-      libxml2-devel
-      ninja-build
-      pylint
-      python3
-      python3-gobject
-      python3-pip
-      python3-wheel
-      redhat-rpm-config
-      vala
-    MESON_VERSION: "0.57.2"
-    MESON_EXTRA_FLAGS: "--buildtype=debug -Dwerror=true -Dgtk_doc=false"
-
-static-scan:
-  extends: .build-setup
-  stage: analysis
-  needs: []
-  variables:
-    PROJECT_DEPS:
+    BASE_TAG: '2025-09-01.2'
+    FDO_DISTRIBUTION_VERSION: 42
+    FDO_DISTRIBUTION_TAG: "x86_64-${BASE_TAG}"
+    FDO_DISTRIBUTION_PACKAGES:
+      ccache
       clang
       clang-analyzer
+      clang-format
       clang-tools-extra
+      curl
+      diffutils
+      gcc
+      gcc-c++
+      gettext
+      gettext-devel
       gdk-pixbuf2-devel
       geocode-glib2-devel
-      gettext
-      git
-      gobject-introspection-devel
-      itstool
-      json-glib-devel
-      libsoup3-devel
-      libxml2-devel
-      ninja-build
-      pylint
-      python3
-      python3-gobject
-      python3-pip
-      python3-wheel
-      redhat-rpm-config
-    MESON_VERSION: "0.57.2"
-    MESON_EXTRA_FLAGS: "--buildtype=debug -Dgtk_doc=false -Dintrospection=false"
-  script:
-    - meson setup --prefix /usr ${MESON_EXTRA_FLAGS} _scan_build .
-    - ninja -C _scan_build scan-build
-  artifacts:
-    name: "gweather-${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
-    when: always
-    paths:
-      - "_scan_build/meson-logs/scanbuild"
-
-asan-build:
-  extends: .build-setup
-  stage: analysis
-  needs: []
-  variables:
-    PROJECT_DEPS:
-      clang
-      clang-analyzer
-      clang-tools-extra
-      gdk-pixbuf2-devel
-      geocode-glib2-devel
-      gettext
-      git
-      gobject-introspection-devel
-      itstool
-      json-glib-devel
-      libasan
-      libsoup3-devel
-      libxml2-devel
-      ninja-build
-      pylint
-      python3
-      python3-gobject
-      python3-pip
-      python3-wheel
-      redhat-rpm-config
-      vala
-    MESON_VERSION: "0.57.2"
-    MESON_EXTRA_FLAGS: "--buildtype=debug -Db_sanitize=address -Db_lundef=false -Dintrospection=false -Dgtk_doc=false"
-  script:
-    - CC=clang meson setup --prefix /usr ${MESON_EXTRA_FLAGS} _asan_build .
-    - meson compile -C _asan_build
-    - meson install -C _asan_build
-    - meson test -C _asan_build --no-suite=style --no-suite=lint
-  artifacts:
-    name: "gweather-${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
-    when: always
-    paths:
-      - "_asan_build/meson-logs"
-  allow_failure: true
-
-coverage:
-  extends: .build-setup
-  stage: analysis
-  needs: []
-  variables:
-    PROJECT_DEPS:
-      gdk-pixbuf2-devel
-      geocode-glib2-devel
-      gettext
+      gi-docgen
       git
       gobject-introspection-devel
       itstool
       json-glib-devel
       lcov
+      libasan
       libsoup3-devel
+      libubsan
       libxml2-devel
+      meson
       ninja-build
       pylint
       python3
+      python3-docutils
       python3-gobject
+      python3-jinja2
+      python3-markdown
       python3-pip
-      python3-wheel
-      redhat-rpm-config
-    MESON_VERSION: "0.57.2"
-    MESON_EXTRA_FLAGS: "--buildtype=debug -Dgtk_doc=false -Dintrospection=false"
-    CFLAGS: "-coverage -ftest-coverage -fprofile-arcs"
-  script:
-    - meson setup --prefix /usr ${MESON_EXTRA_FLAGS} _build .
-    - meson compile -C _build
-    - meson install -C _build
-    - mkdir -p _coverage
-    - lcov --config-file .gitlab-ci/lcovrc --directory _build --capture --initial --output-file "_coverage/${CI_JOB_NAME}-baseline.lcov"
-    - meson test -C _build --no-suite=style --no-suite=lint
-    - lcov --config-file .gitlab-ci/lcovrc --directory _build --capture --output-file "_coverage/${CI_JOB_NAME}.lcov"
-    - bash -x .gitlab-ci/gen-coverage.sh
-  coverage: '/^\s+lines\.+:\s+([\d.]+\%)\s+/'
-  artifacts:
-    name: "gweather-${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
-    when: always
-    paths:
-      - "_build/meson-logs"
-      - "_coverage"
-
-reference:
-  stage: docs
-  needs: []
-  extends: .gidocgen-build
-  variables:
-    PROJECT_DEPS:
-      gdk-pixbuf2-devel
-      geocode-glib2-devel
-      gettext
-      git
-      gobject-introspection-devel
-      itstool
-      json-glib-devel
-      libsoup3-devel
-      libxml2-devel
-      ninja-build
-      pylint
-      python3
-      python3-gobject
-      python3-pip
+      python3-pygments
+      python3-setuptools
+      python3-toml
+      python3-typogrify
       python3-wheel
       redhat-rpm-config
       vala
-    MESON_VERSION: "0.57.2"
-    DOCS_FLAGS: "-Dgtk_doc=true"
-    DOCS_PATH: doc/libgweather-4.0
+    FDO_DISTRIBUTION_EXEC: |
+      # Undo delangification present in the Fedora Docker images
+      rm -f /etc/rpm/macros.image-language-conf &&
+      dnf reinstall -y glib2 glibc || dnf update -y glib2 glibc &&
+
+      # Add French locale support for tests
+      dnf install -y glibc-langpack-fr &&
+
+      # Build and install gweather-locations
+      git clone --depth=1 https://gitlab.gnome.org/GNOME/gweather-locations.git &&
+      meson setup --prefix /usr _locations gweather-locations &&
+      meson compile -C _locations &&
+      meson install -C _locations
+
+.distribution.fedora:
+  extends:
+    - .fdo.distribution-image@fedora
+    - .container.fedora
+
+container:fedora:
+  extends:
+    - .container.fedora
+    - .fdo.container-build@fedora@x86_64
+  # DNS issues can cause this to fail
+  retry:
+    max: 2
+    exit_codes: 137
+  stage: prepare
+
+.test-runner:
+  artifacts:
+    name: "libgweather-${CI_COMMIT_REF_NAME}"
+    when: always
+    reports:
+      junit:
+        - "${CI_PROJECT_DIR}/_build/meson-logs/testlog.junit.xml"
+    paths:
+      - "${CI_PROJECT_DIR}/_build/meson-logs"
+      - "${CI_PROJECT_DIR}/_build/meson-dist"
+
+.dist-runner:
+  artifacts:
+    name: "libgweather-dist-${CI_COMMIT_REF_NAME}"
+    when: always
+    paths:
+      - "${CI_PROJECT_DIR}/public-dist"
+
+.scan-runner:
+  artifacts:
+    name: "libgweather-scan-${CI_COMMIT_REF_NAME}"
+    when: always
+    paths:
+      - "${CI_PROJECT_DIR}/_scan_build/meson-logs"
+      - "${CI_PROJECT_DIR}/_static_scan"
+
+.build-fedora-default:
+  extends:
+    - .distribution.fedora
+  cache:
+    key: "$CI_JOB_NAME"
+    paths:
+      - _ccache/
+
+style-check-diff:
+  extends:
+    - .build-fedora-default
+  needs: ['container:fedora']
+  stage: check
+  allow_failure: true
+  script:
+    - sh -x ./.gitlab-ci/run-style-check.sh
+
+fedora-x86_64:
+  extends:
+    - .test-runner
+    - .build-fedora-default
+  stage: build
+  needs: ["container:fedora"]
+  variables:
+    EXTRA_MESON_FLAGS: "-Dbuildtype=debug"
+  script:
+    - meson setup ${COMMON_MESON_FLAGS} ${EXTRA_MESON_FLAGS} _build
+    - meson compile -C _build
+    - meson install -C _build
+    - meson test -C _build
+
+release-build:
+  extends:
+    - .dist-runner
+    - .build-fedora-default
+  stage: build
+  needs: ['container:fedora']
+  variables:
+    EXTRA_MESON_FLAGS: "--buildtype=release"
+  script:
+    - mkdir _install
+    - git config --global --add safe.directory $CI_PROJECT_DIR
+    - meson setup
+            --prefix=${CI_PROJECT_DIR}/_install
+            ${COMMON_MESON_FLAGS}
+            ${EXTRA_MESON_FLAGS}
+            _build
+    - meson compile -C _build
+    - meson install -C _build
+    - meson dist -C _build
+    - cp -r "_build/meson-dist" "${CI_PROJECT_DIR}/public-dist/"
+
+asan-build:
+  extends:
+    - .test-runner
+    - .build-fedora-default
+  tags: [ asan ]
+  stage: analysis
+  needs: ['container:fedora']
+  variables:
+    EXTRA_MESON_FLAGS: "--buildtype=debug -Dgtk_doc=false -Dintrospection=false"
+    ASAN_OPTIONS: allocator_may_return_null=1
+  script:
+    - meson setup
+        ${COMMON_MESON_FLAGS}
+        ${EXTRA_MESON_FLAGS}
+        -Db_sanitize=address
+        -Db_lundef=false
+        _build
+    - meson compile -C _build
+    - meson install -C _build
+    - meson test -C _build
+
+ubsan-build:
+  extends:
+    - .test-runner
+    - .build-fedora-default
+  tags: [ asan ]
+  stage: analysis
+  needs: ['container:fedora']
+  variables:
+    EXTRA_MESON_FLAGS: "--buildtype=debug -Dgtk_doc=false -Dintrospection=false"
+  script:
+    - meson setup
+        ${COMMON_MESON_FLAGS}
+        ${EXTRA_MESON_FLAGS}
+        -Db_sanitize=undefined
+        -Db_lundef=false
+        _build
+    - meson compile -C _build
+    - meson install -C _build
+    - meson test -C _build
+
+static-scan:
+  extends:
+    - .scan-runner
+    - .build-fedora-default
+  stage: analysis
+  needs: ['container:fedora']
+  variables:
+    EXTRA_MESON_FLAGS: "--buildtype=debug -Dgtk_doc=false -Dintrospection=false"
+  script:
+    - CC=clang meson setup
+        ${COMMON_MESON_FLAGS}
+        ${EXTRA_MESON_FLAGS}
+        _scan_build
+    - ninja -C _scan_build scan-build
+    - cp -r _scan_build/meson-logs/scanbuild _static_scan
+  allow_failure: true
+
+coverage:
+  extends:
+    - .test-runner
+    - .build-fedora-default
+  stage: analysis
+  needs: ['container:fedora']
+  variables:
+    EXTRA_MESON_FLAGS: "--buildtype=debug -Dgtk_doc=false -Dintrospection=false"
+    CFLAGS: "-coverage -ftest-coverage -fprofile-arcs"
+  script:
+    - meson setup --prefix /usr ${MESON_EXTRA_FLAGS} _coverage_build
+    - meson compile -C _coverage_build
+    - meson install -C _coverage_build
+    - mkdir -p _coverage
+    - lcov --config-file .gitlab-ci/lcovrc --directory _coverage_build --capture --initial --output-file "_coverage/${CI_JOB_NAME}-baseline.lcov"
+    - meson test -C _coverage_build --no-suite=style --no-suite=lint
+    - lcov --config-file .gitlab-ci/lcovrc --directory _coverage_build --capture --output-file "_coverage/${CI_JOB_NAME}.lcov"
+    - bash -x .gitlab-ci/gen-coverage.sh
+  coverage: '/^\s+lines\.+:\s+([\d.]+\%)\s+/'
+  artifacts:
+    name: "libgweather-${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
+    when: always
+    paths:
+      - "_coverage_build/meson-logs"
+      - "_coverage"
+
+reference:
+  extends:
+    - .build-fedora-default
+  needs: ['container:fedora']
+  stage: docs
+  variables:
+    EXTRA_MESON_FLAGS: "-Dbuildtype=release -Dgtk_doc=true -Dintrospection=true"
+  script:
+    - meson setup
+        ${COMMON_MESON_FLAGS}
+        ${EXTRA_MESON_FLAGS}
+        _build
+    - meson compile -C _build
+    - mkdir -p _reference
+  artifacts:
+    when: on_success
+    paths:
+      - _reference
 
 pages:
   stage: deploy
-  needs: ['reference']
+  needs: ["reference", "static-scan", "coverage"]
   script:
-    - mkdir public && cd public
-    - tar xf ../${CI_PROJECT_NAME}-docs.tar
+    - mv _reference public
+    - mv _static_scan public/static-scan/
+    - mv _coverage public/coverage/
   artifacts:
+    when: on_success
     paths:
       - public
   only:
-    - master
     - main
