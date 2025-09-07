@@ -296,6 +296,7 @@ reference:
         _build
     - meson compile -C _build
     - mkdir -p _reference
+    - mv _build/doc/libgweather-4.0/* _reference/
   artifacts:
     when: on_success
     paths:
