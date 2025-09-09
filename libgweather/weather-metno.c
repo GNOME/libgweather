@@ -378,7 +378,6 @@ out:
     xmlFreeDoc (doc);
 }
 
-#if SOUP_CHECK_VERSION(2, 99, 2)
 static void
 metno_finish_new (GObject *source,
                   GAsyncResult *result,
@@ -429,44 +428,6 @@ metno_finish_new (GObject *source,
     g_bytes_unref (body);
     _gweather_info_request_done (info, msg);
 }
-#else
-static void
-metno_finish_new (SoupSession *session,
-                  SoupMessage *msg,
-                  gpointer user_data)
-{
-    GWeatherInfo *info;
-    WeatherLocation *loc;
-    guint num_forecasts;
-
-    if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
-        /* forecast data is not really interesting anyway ;) */
-        if (msg->status_code == SOUP_STATUS_CANCELLED) {
-            g_debug ("Failed to get met.no forecast data: %s",
-                     msg->reason_phrase);
-            return;
-        }
-        g_debug ("Failed to get met.no forecast data: [status: %d]: %s",
-                 msg->status_code,
-                 msg->reason_phrase);
-        _gweather_info_request_done (user_data, msg);
-        return;
-    }
-
-    info = user_data;
-    loc = &info->location;
-    g_debug ("metno data for %lf, %lf", loc->latitude, loc->longitude);
-    g_debug ("%s", msg->response_body->data);
-
-    parse_forecast_xml_new (info, msg->response_body->data, msg->response_body->length);
-    num_forecasts = g_slist_length (info->forecast_list);
-    g_debug ("metno parsed %d forecast infos", num_forecasts);
-    if (!info->valid)
-        info->valid = (num_forecasts > 0);
-
-    _gweather_info_request_done (info, msg);
-}
-#endif
 
 gboolean
 metno_start_open (GWeatherInfo *info)

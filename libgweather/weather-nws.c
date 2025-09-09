@@ -343,11 +343,7 @@ nws_new_request (GWeatherInfo *info, const gchar *url)
 
     message = soup_message_new ("GET", url);
     _gweather_info_begin_request (info, message);
-#if SOUP_CHECK_VERSION(2, 99, 2)
     headers = soup_message_get_request_headers (message);
-#else
-    headers = message->request_headers;
-#endif
     soup_message_headers_append (headers, "Accept", "application/geo+json");
 
     return message;
@@ -872,7 +868,6 @@ nws_finish_forecast_common (GWeatherInfo *info,
         info->valid = (num_forecasts > 0);
 }
 
-#if SOUP_CHECK_VERSION(2, 99, 2)
 static void
 nws_finish_forecast (GObject *source,
                      GAsyncResult *result,
@@ -914,32 +909,6 @@ nws_finish_forecast (GObject *source,
     g_bytes_unref (body);
     _gweather_info_request_done (info, msg);
 }
-#else
-static void
-nws_finish_forecast (SoupSession *session,
-                     SoupMessage *msg,
-                     gpointer user_data)
-{
-    GWeatherInfo *info;
-
-    info = user_data;
-
-    if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
-        if (msg->status_code == SOUP_STATUS_CANCELLED) {
-            g_debug ("Failed to get weather.gov gridpoint data: %s",
-                     msg->reason_phrase);
-            return;
-        }
-        g_debug ("Failed to get weather.gov gridpoint data: [status: %d]: %s",
-                 msg->status_code,
-                 msg->reason_phrase);
-    } else {
-        nws_finish_forecast_common (info, msg->response_body->data, msg->response_body->length);
-    }
-
-    _gweather_info_request_done (info, msg);
-}
-#endif
 
 static void
 nws_finish_new_common (GWeatherInfo *info,
@@ -982,7 +951,6 @@ nws_finish_new_common (GWeatherInfo *info,
     _gweather_info_queue_request (info, msg, nws_finish_forecast);
 }
 
-#if SOUP_CHECK_VERSION(2, 99, 2)
 static void
 nws_finish_new (GObject *source,
                 GAsyncResult *result,
@@ -1024,32 +992,6 @@ nws_finish_new (GObject *source,
     g_bytes_unref (body);
     _gweather_info_request_done (info, msg);
 }
-#else
-static void
-nws_finish_new (SoupSession *session,
-                SoupMessage *msg,
-                gpointer user_data)
-{
-    GWeatherInfo *info;
-
-    info = user_data;
-
-    if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
-        if (msg->status_code == SOUP_STATUS_CANCELLED) {
-            g_debug ("Failed to get weather.gov point data: %s",
-                     msg->reason_phrase);
-            return;
-        }
-        g_debug ("Failed to get weather.gov point data: [status: %d]: %s",
-                 msg->status_code,
-                 msg->reason_phrase);
-    } else {
-        nws_finish_new_common (info, msg->response_body->data, msg->response_body->length);
-    }
-
-    _gweather_info_request_done (info, msg);
-}
-#endif
 
 gboolean
 nws_start_open (GWeatherInfo *info)

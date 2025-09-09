@@ -550,20 +550,13 @@ metar_parse (gchar *metar, GWeatherInfo *info)
     return TRUE;
 }
 
-#if SOUP_CHECK_VERSION(2, 99, 2)
 static void
 metar_finish (GObject *source, GAsyncResult *result, gpointer data)
-#else
-static void
-metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
-#endif
 {
-#if SOUP_CHECK_VERSION(2, 99, 2)
     SoupSession *session = SOUP_SESSION (source);
     SoupMessage *msg = soup_session_get_async_result_message (session, result);
     g_autoptr (GError) error = NULL;
     GBytes *body;
-#endif
     GWeatherInfo *info;
     WeatherLocation *loc;
     const gchar *p, *eoln, *response_body;
@@ -572,7 +565,6 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
     info = data;
 
-#if SOUP_CHECK_VERSION(2, 99, 2)
     body = soup_session_send_and_read_finish (session, result, &error);
     if (!body) {
         if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
@@ -589,27 +581,6 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
         return;
     }
     response_body = g_bytes_get_data (body, NULL);
-#else
-    if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
-        if (msg->status_code == SOUP_STATUS_CANCELLED) {
-            g_debug ("Failed to get METAR data: %s",
-                     msg->reason_phrase);
-            return;
-        }
-
-        info = data;
-        if (SOUP_STATUS_IS_TRANSPORT_ERROR (msg->status_code)) {
-            info->network_error = TRUE;
-        } else {
-            g_warning ("Failed to get METAR data: %s",
-                       msg->reason_phrase);
-        }
-
-        _gweather_info_request_done (info, msg);
-        return;
-    }
-    response_body = msg->response_body->data;
-#endif
 
     loc = &info->location;
 
@@ -648,9 +619,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     if (!info->valid)
         info->valid = success;
 
-#if SOUP_CHECK_VERSION(2, 99, 2)
     g_bytes_unref (body);
-#endif
     _gweather_info_request_done (info, msg);
 }
 
@@ -660,11 +629,7 @@ metar_start_open (GWeatherInfo *info)
 {
     WeatherLocation *loc;
     SoupMessage *msg;
-#if SOUP_CHECK_VERSION(2, 99, 2)
     GUri *uri;
-#else
-    SoupURI *uri;
-#endif
     char *query;
 
     g_return_if_fail (info != NULL);
@@ -693,7 +658,6 @@ metar_start_open (GWeatherInfo *info)
         loc->code,
         NULL);
 
-#if SOUP_CHECK_VERSION(2, 99, 2)
     uri = g_uri_build (SOUP_HTTP_URI_FLAGS,
                        "https",
                        NULL,
@@ -703,19 +667,11 @@ metar_start_open (GWeatherInfo *info)
                        query,
                        NULL);
     g_free (query);
-#else
-    uri = soup_uri_new ("https://aviationweather.gov/cgi-bin/data/dataserver.php");
-    uri->query = query;
-#endif
 
     msg = soup_message_new_from_uri ("GET", uri);
     _gweather_info_begin_request (info, msg);
     _gweather_info_queue_request (info, msg, metar_finish);
     g_object_unref (msg);
 
-#if SOUP_CHECK_VERSION(2, 99, 2)
     g_uri_unref (uri);
-#else
-    soup_uri_free (uri);
-#endif
 }

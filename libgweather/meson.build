@@ -109,25 +109,11 @@ configure_file(
   install_dir: includedir / header_subdir,
 )
 
-if get_option('soup2')
-  libsoup_name = 'libsoup-2.4'
-  libsoup_req_version = '>= 2.44.0'
-  libsoup_api_version = '2.4'
-  geocode_glib_dep = dependency('geocode-glib-1.0')
-else
-  libsoup_name = 'libsoup-3.0'
-  libsoup_req_version = '>= 2.99.2'
-  libsoup_api_version = '3.0'
-  geocode_glib_dep = dependency('geocode-glib-2.0')
-endif
-
-libsoup_dep = dependency(libsoup_name, version: libsoup_req_version)
-
 deps_libgweather = [
   dependency('gio-2.0', version: glib_req_version),
-  libsoup_dep,
+  dependency('libsoup-3.0', version: libsoup_req_version),
   dependency('libxml-2.0', version: libxml_req_version),
-  geocode_glib_dep,
+  dependency('geocode-glib-2.0'),
   dependency('json-glib-1.0'),
 
   c_compiler.find_library('m', required: false),
@@ -276,7 +262,7 @@ pkgconfig.generate(
   version: meson.project_version(),
   subdirs: libgweather_full_version,
   variables: [
-    'soupapiversion=' + libsoup_api_version,
+    'soupapiversion=3.0'
   ]
 )
 

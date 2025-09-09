@@ -390,7 +390,6 @@ out:
     xmlFreeDoc (doc);
 }
 
-#if SOUP_CHECK_VERSION(2, 99, 2)
 static void
 owm_finish (GObject *source,
             GAsyncResult *result,
@@ -439,38 +438,6 @@ owm_finish (GObject *source,
     g_bytes_unref (body);
     _gweather_info_request_done (info, msg);
 }
-#else
-static void
-owm_finish (SoupSession *session,
-            SoupMessage *msg,
-            gpointer user_data)
-{
-    GWeatherInfo *info;
-    WeatherLocation *loc;
-
-    if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
-        /* forecast data is not really interesting anyway ;) */
-        if (msg->status_code == SOUP_STATUS_CANCELLED) {
-            g_debug ("Failed to get OpenWeatherMap forecast data: %s",
-                     msg->reason_phrase);
-            return;
-        }
-        g_warning ("Failed to get OpenWeatherMap forecast data: [status: %d]: %s",
-                   msg->status_code,
-                   msg->reason_phrase);
-        _gweather_info_request_done (user_data, msg);
-        return;
-    }
-
-    info = user_data;
-    loc = &info->location;
-    g_debug ("owm data for %lf, %lf", loc->latitude, loc->longitude);
-    g_debug ("%s", msg->response_body->data);
-
-    parse_forecast_xml (info, msg->response_body->data, msg->response_body->length);
-    _gweather_info_request_done (info, msg);
-}
-#endif
 
 gboolean
 owm_start_open (GWeatherInfo *info)
