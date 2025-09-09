@@ -32,6 +32,7 @@ pkglibdir = libdir / 'libgweather-4'
 
 glib_req_version = '>= 2.68.0'
 libxml_req_version = '>= 2.6.0'
+libsoup_req_version = '>= 2.99.2'
 
 GETTEXT_PACKAGE = libgweather_full_version
 LOCATIONS_GETTEXT_PACKAGE = 'gweather-locations'
@@ -81,7 +82,6 @@ summary({
 summary({
     'Debug': get_option('debug'),
     'Optimization': get_option('optimization'),
-    'Use libsoup-2': get_option('soup2'),
     'Introspection': build_gir,
     'Generate VAPI': build_vapi,
     'API reference': build_docs,
