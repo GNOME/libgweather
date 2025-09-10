@@ -47,9 +47,6 @@ pylint_flags = [
   '-d', 'C0326',
 ]
 
-py = import('python').find_installation('python3', modules: ['gi'])
-gen_locations_variant = find_program('build-aux/meson/gen_locations_variant.py')
-
 g_ir_scanner = find_program('g-ir-scanner', required: get_option('introspection'))
 build_gir = get_option('introspection') and g_ir_scanner.found() and not meson.is_cross_build()
 build_docs = get_option('gtk_doc') and build_gir
