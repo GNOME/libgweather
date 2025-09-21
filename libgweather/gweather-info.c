@@ -378,7 +378,6 @@ _gweather_info_request_done (GWeatherInfo *info,
     }
 }
 
-#if SOUP_CHECK_VERSION(2, 99, 2)
 void
 _gweather_info_queue_request (GWeatherInfo *info,
                               SoupMessage *msg,
@@ -388,15 +387,6 @@ _gweather_info_queue_request (GWeatherInfo *info,
     g_object_set_data_full (G_OBJECT (msg), "request-cancellable", cancellable, g_object_unref);
     soup_session_send_and_read_async (info->session, msg, G_PRIORITY_DEFAULT, cancellable, callback, info);
 }
-#else
-void
-_gweather_info_queue_request (GWeatherInfo *info,
-                              SoupMessage *msg,
-                              SoupSessionCallback callback)
-{
-    soup_session_queue_message (info->session, msg, callback, info);
-}
-#endif
 
 /* it's OK to pass in NULL */
 void
@@ -738,11 +728,7 @@ gweather_info_abort (GWeatherInfo *info)
     info->requests_pending = &dummy;
 
     for (iter = list; iter; iter = iter->next) {
-#if SOUP_CHECK_VERSION(2, 99, 2)
         g_cancellable_cancel (g_object_get_data (iter->data, "request-cancellable"));
-#else
-        soup_session_cancel_message (info->session, iter->data, SOUP_STATUS_CANCELLED);
-#endif
     }
 
     g_slist_free (list);

@@ -298,7 +298,6 @@ parseForecastXml (const char *buff, GWeatherInfo *original_info)
     return res;
 }
 
-#if SOUP_CHECK_VERSION(2, 99, 2)
 static void
 iwin_finish (GObject *source, GAsyncResult *result, gpointer data)
 {
@@ -343,38 +342,6 @@ iwin_finish (GObject *source, GAsyncResult *result, gpointer data)
 
     _gweather_info_request_done (info, msg);
 }
-#else
-static void
-iwin_finish (SoupSession *session, SoupMessage *msg, gpointer data)
-{
-    GWeatherInfo *info;
-    WeatherLocation *loc;
-
-    if (!SOUP_STATUS_IS_SUCCESSFUL (msg->status_code)) {
-        /* forecast data is not really interesting anyway ;) */
-        if (msg->status_code == SOUP_STATUS_CANCELLED) {
-            g_debug ("Failed to get IWIN forecast data: %s",
-                     msg->reason_phrase);
-            return;
-        }
-        g_warning ("Failed to get IWIN forecast data: [status: %d]: %s",
-                   msg->status_code,
-                   msg->reason_phrase);
-        _gweather_info_request_done (data, msg);
-        return;
-    }
-
-    info = data;
-    loc = &info->location;
-
-    g_debug ("iwin data for %s", loc->zone);
-    g_debug ("%s", msg->response_body->data);
-
-    info->forecast_list = parseForecastXml (msg->response_body->data, info);
-
-    _gweather_info_request_done (info, msg);
-}
-#endif
 
 /* Get forecast into newly alloc'ed string */
 gboolean
