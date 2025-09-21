@@ -571,6 +571,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     gboolean success = FALSE;
 
     info = data;
+    loc = &info->location;
 
 #if SOUP_CHECK_VERSION(2, 99, 2)
     body = soup_session_send_and_read_finish (session, result, &error);
@@ -586,6 +587,11 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
         g_bytes_unref (body);
         info->network_error = TRUE;
         _gweather_info_request_done (info, msg);
+        return;
+    } else if (soup_message_get_status (msg) == 204) {
+        g_debug ("Data not available for METAR %s", loc->code);
+        _gweather_info_request_done (info, msg);
+        g_bytes_unref (body);
         return;
     }
     response_body = g_bytes_get_data (body, NULL);
@@ -607,11 +613,13 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
         _gweather_info_request_done (info, msg);
         return;
+    } else if (msg->status_code == 204) {
+        g_debug ("Data not available for METAR %s", loc->code);
+        _gweather_info_request_done (info, msg);
+        return;
     }
     response_body = msg->response_body->data;
 #endif
-
-    loc = &info->location;
 
     g_debug ("METAR data for %s", loc->code);
     g_debug ("%s", response_body);
