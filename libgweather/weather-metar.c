@@ -571,6 +571,7 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
     gboolean success = FALSE;
 
     info = data;
+    loc = &info->location;
 
 #if SOUP_CHECK_VERSION(2, 99, 2)
     body = soup_session_send_and_read_finish (session, result, &error);
@@ -586,6 +587,11 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
         g_bytes_unref (body);
         info->network_error = TRUE;
         _gweather_info_request_done (info, msg);
+        return;
+    } else if (soup_message_get_status (msg) == 204) {
+        g_debug ("Data not available for METAR %s", loc->code);
+        _gweather_info_request_done (info, msg);
+        g_bytes_unref (body);
         return;
     }
     response_body = g_bytes_get_data (body, NULL);
@@ -607,16 +613,18 @@ metar_finish (SoupSession *session, SoupMessage *msg, gpointer data)
 
         _gweather_info_request_done (info, msg);
         return;
+    } else if (msg->status_code == 204) {
+        g_debug ("Data not available for METAR %s", loc->code);
+        _gweather_info_request_done (info, msg);
+        return;
     }
     response_body = msg->response_body->data;
 #endif
 
-    loc = &info->location;
-
     g_debug ("METAR data for %s", loc->code);
     g_debug ("%s", response_body);
 
-    searchkey = g_strdup_printf ("<raw_text>%s ", loc->code);
+    searchkey = g_strdup_printf ("<raw_text>METAR %s ", loc->code);
     p = strstr (response_body, searchkey);
 
     if (p) {
@@ -675,7 +683,7 @@ metar_start_open (GWeatherInfo *info)
     if (!loc->latlon_valid)
         return;
 
-    g_debug ("metar_start_open, requesting: https://aviationweather.gov/cgi-bin/data/dataserver.php?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=3&mostRecent=true&fields=raw_text&stationString=%s", loc->code);
+    g_debug ("metar_start_open, requesting: https://aviationweather.gov/api/data/dataserver?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow=3&mostRecent=true&fields=raw_text&stationString=%s", loc->code);
     query = soup_form_encode (
         "dataSource",
         "metars",
@@ -699,12 +707,12 @@ metar_start_open (GWeatherInfo *info)
                        NULL,
                        "aviationweather.gov",
                        -1,
-                       "/cgi-bin/data/dataserver.php",
+                       "/api/data/dataserver",
                        query,
                        NULL);
     g_free (query);
 #else
-    uri = soup_uri_new ("https://aviationweather.gov/cgi-bin/data/dataserver.php");
+    uri = soup_uri_new ("https://aviationweather.gov/api/data/dataserver");
     uri->query = query;
 #endif
 
