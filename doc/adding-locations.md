@@ -15,9 +15,11 @@ For cities which aren't in the list, and if you're connected to the Internet,
 libgweather also uses OpenStreetMap's Nominatim service to search for
 locations.
 
-The locations are stored inside the `Locations.xml` file in the libgweather
-source code. Always check whether your city, METAR weather station/airport, or
-timezone is already in there.
+The locations are stored inside the `Locations.xml` file in the
+[gweather-locations
+repository](https://gitlab.gnome.org/GNOME/gweather-locations). Always check
+whether your city, METAR weather station/airport, or timezone is already in
+there.
 
 ## What do we want in libgweather
 
@@ -38,8 +40,8 @@ we know how to query, so don't worry if you can't find one.
 ## Contributing
 
 You've already looked in the `Locations.xml` file, and in the project's
-[open issues](https://gitlab.gnome.org/GNOME/libgweather/issues) and
-[open merge requests](https://gitlab.gnome.org/GNOME/libgweather/merge_requests),
+[open issues](https://gitlab.gnome.org/GNOME/gweather-locations/issues) and
+[open merge requests](https://gitlab.gnome.org/GNOME/gweather-locations/merge_requests),
 and the timezone is incorrect, the weather can't be fetched, or your city isn't
 listed.
 
@@ -60,7 +62,7 @@ All done? Onto the next part
 ### I don't know XML, I don't have time
 
 Simply tell us about the problem, and give us as much information as possible
-in [a new issue](https://gitlab.gnome.org/GNOME/libgweather/-/issues/). Make
+in [a new issue](https://gitlab.gnome.org/GNOME/gweather-locations/-/issues/). Make
 sure to include links to explanation if at all possible. It's easier for you to
 know that a city is misnamed if you live there, but we want to be sure we're
 not making mistakes, because that would be quite frustrating.
@@ -81,8 +83,8 @@ file, you'll need to change:
 
 And click "Commit changes". Congratulations on making libgweather better!
 
-For more information and examples, you can also check the [project's
-contribution guide](https://gitlab.gnome.org/GNOME/libgweather/-/blob/main/CONTRIBUTING.md).
+For more information and examples, you can also check the [GNOME
+Handbook](https://handbook.gnome.org).
 
 ### Potential problems with changes
 
